@@ -25,6 +25,14 @@ No cloud project ID, Git remote, live wallet or verified contract tuple exists y
 
 ## 3. Pivots & decisions (newest first)
 
+### 2026-11-07 — Use the supported TypeScript lint toolchain
+
+- **Type:** tooling. **Change:** TypeScript 7.0.2 research candidate → exact 6.0.3 with typescript-eslint 8.72.1 and ESLint 10.14.0.
+- **Why:** published typescript-eslint peer range is `>=4.8.4 <6.1.0`, independently confirmed against its official dependency-version documentation; 6.0.3 exists in npm. Strict peer installation remains enabled; no overrides.
+- **Impact:** system design and package manifest reconciled; application behavior and INV-001 through INV-010 unchanged.
+- **Execution context:** user explicitly authorized Orca supervision and read-only review; one code-writing executor remains responsible for the serial task plan.
+
+
 ### 2026-11-07 — Adopt a compact execution profile
 
 - **Type:** zoom-in. **Change:** illustrative monorepo/multiple hosts → one package, web + private worker + Postgres; five screen concepts → four console sections plus overview header.

@@ -69,13 +69,13 @@ Use Anthropic's client-tool round trip directly; no LangChain or agent framework
 
 ## Key technology choices + rationale
 
-Exact metadata pins below were observed, not installed/tested. TASK-001 must install exact versions, check peers and write a lockfile. Keep one copy of Stellar SDK; reject peer override/force installs.
+Initial metadata pins were observed during preparation. TASK-001 reconciles installed tooling pins and actual gates in the implementation plan. TASK-001 must install exact versions, check peers and write a lockfile. Keep one copy of Stellar SDK; reject peer override/force installs.
 
 | Choice / selected pin | Why | Trade-off | Alternative rejected |
 |-----------------------|-----|-----------|----------------------|
 | Node **24.22.1**, pnpm **12.18.0** | Local runtime meets Noir engine; one JS runtime | Pin runtime in local/container config | Node 20, unverified latest runtime |
 | Next **16.4.5**, React/React DOM **19.3.1** | UI/API in one package | Framework conventions need pinned-doc checks | Separate SPA and Express server |
-| TypeScript **7.0.2**, Tailwind **4.3.5** | Strict types and quick console styling | Build compatibility still requires setup gate | Custom design infrastructure |
+| TypeScript **6.0.3**, Tailwind **4.3.5** | Strict types and quick console styling | Build compatibility still requires setup gate | Custom design infrastructure |
 | PostgreSQL **17** stable line, Drizzle **0.45.4**, drizzle-kit **0.31.11**, pg **8.23.1** | SQL constraints, locks and migrations | DB setup required; image digest pinned at setup | SQLite for concurrent payment flow; Prisma as second ORM |
 | Zod **4.6.7** | HTTP/tool validation | Some SQL invariants must also be enforced | Trusting TypeScript at runtime |
 | Noir **0.3.0**, Stellar SDK **16.4.1** | Published peer compatibility and prepare API | SDK deployment defaults are stale for brief | Stellar 17.4.0 latest violates Noir peer |
