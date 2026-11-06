@@ -1,0 +1,7 @@
+---
+description: Use verified pinned APIs and server-only payment integrations
+globs: "**/*.{ts,tsx,mts}"
+alwaysApply: false
+---
+
+Follow AGENTS.md and docs/system-design.md. Verify APIs against installed exact versions before use. Noir 0.3.0 peers on Stellar SDK 16.x; do not auto-upgrade to 17.x. Use Next Node route handlers, current lint tooling, integer money and strict boundary schemas. Never import signer modules or protected report fixtures into client code. Never bypass independent payment evidence verification.

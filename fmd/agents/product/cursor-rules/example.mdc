@@ -1,0 +1,33 @@
+---
+description: Scoped rules for the API layer. Loaded only when files matching globs are in context.
+globs:
+  - "src/api/**/*.ts"
+  - "src/routes/**/*.ts"
+alwaysApply: false
+---
+
+# API layer rules
+
+<!--
+TEMPLATE for a SCOPED rule (Cursor .mdc). The orchestrator emits one .mdc per area that needs
+path-specific rules, filling globs + body from the system design and conventions.
+
+The point of scoped rules is the TOKEN BUDGET: these load ONLY when a matching file is in
+context, so the always-on AGENTS.md stays lean. Keep each .mdc dense and imperative — rules at
+the "right altitude": specific enough to guide, not brittle scripts, not vague platitudes.
+
+Frontmatter:
+- description : one line; when this rule applies.
+- globs       : file patterns that trigger auto-attach.
+- alwaysApply : true only for rules that must load every turn (use sparingly — it taxes context).
+-->
+
+- Every endpoint maps to an `API-###` in [docs/api-spec.md](../docs/api-spec.md); add the
+  ID in a comment above the handler.
+- Validate all input at the boundary; never trust client data. Use the shared validator, not
+  ad-hoc checks.
+- Return a typed result/error envelope — never throw raw across the API boundary.
+- Every new endpoint declares its auth/authz. An unauthenticated public endpoint must carry a
+  comment explaining why that is safe.
+- Parameterize all queries. No string-built SQL.
+- New endpoint ⇒ new test keyed to the `F-###` it serves (see docs/qa-test-plan.md).

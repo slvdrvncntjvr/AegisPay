@@ -1,0 +1,56 @@
+#!/bin/sh
+# FMD decision-ledger guard — IDE-AGNOSTIC commit-time enforcement.
+#
+# Why a git hook (not a Kiro/Cursor/editor hook): git runs the same way under
+# Claude Code, Cursor, Gemini CLI, ChatGPT/Codex, Kiro, and a bare terminal. The
+# enforcement must not depend on which tool the human happens to be using — so it
+# lives at the git layer, and the *discipline* lives in AGENTS.md (which every
+# agent reads). This script is portable POSIX sh, no dependencies.
+#
+# What it enforces (mechanically checkable only — it flags, it does not lock):
+#   1. ADR ⇒ ledger line. If this commit changes docs/adr/ but not the decision
+#      ledger, block: a significant decision must be recorded in one place too.
+#   2. Invariant audit reminder. If the commit looks like it touches a hard-rule
+#      surface (data/, copy/content, design-system), remind (non-blocking) to add
+#      an INV audit line before merge.
+#
+# It NEVER freezes the spec or blocks iteration. Genuine exceptions bypass with:
+#   git commit --no-verify
+#
+# Install: see hooks/README.md (copy to .git/hooks/pre-commit, or set core.hooksPath).
+
+LEDGER="docs/DECISION-LEDGER.md"
+staged=$(git diff --cached --name-only)
+
+# --- 1. ADR ⇒ ledger line (blocking) -------------------------------------------
+adr_changed=$(printf '%s\n' "$staged" | grep -E '^docs/adr/' || true)
+ledger_changed=$(printf '%s\n' "$staged" | grep -F "$LEDGER" || true)
+
+if [ -n "$adr_changed" ] && [ -z "$ledger_changed" ]; then
+  echo "──────────────────────────────────────────────────────────────"
+  echo "BLOCKED: an ADR changed but $LEDGER did not."
+  echo "A significant decision must also get one line in §3 (Pivots) of"
+  echo "the ledger, in the SAME commit, so the live record can't drift"
+  echo "from the ADR set (the exact failure this guard prevents)."
+  echo ""
+  echo "Fix: add the §3 entry to $LEDGER and re-stage it."
+  echo "Genuine exception: git commit --no-verify"
+  echo "──────────────────────────────────────────────────────────────"
+  exit 1
+fi
+
+# --- 2. Invariant-audit reminder (non-blocking) --------------------------------
+inv_surface=$(printf '%s\n' "$staged" \
+  | grep -E '(^|/)(data|content|copy)/|design-system|firestore\.rules|\.csv$' || true)
+
+if [ -n "$inv_surface" ] && [ -z "$ledger_changed" ]; then
+  echo "──────────────────────────────────────────────────────────────"
+  echo "REMINDER (not blocking): this commit touches a hard-rule surface"
+  echo "(data / copy / rules). If it could affect an INV-### invariant"
+  echo "from idea.md §9, add an audit line to §5 of $LEDGER before merge."
+  echo "A guardrail with no audit trail is the one that gets breached."
+  echo "──────────────────────────────────────────────────────────────"
+  # exit 0 — reminder only
+fi
+
+exit 0

@@ -1,0 +1,32 @@
+---
+description: Stack-currency guardrail. Verify framework/SDK conventions against pinned-version docs before emitting code; never from memory.
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+  - "**/*.js"
+  - "**/*.py"
+  - "**/*.rs"
+alwaysApply: false
+---
+
+# Stack currency (verify before coding)
+
+<!--
+TEMPLATE for the SCOPED stack-currency rule (Cursor .mdc). The orchestrator emits this filled
+from the system design's chosen stack. Adjust `globs` to the project's actual languages. Keep the
+always-on AGENTS.md's `## Stack currency` block lean; this scoped rule carries the dense list.
+-->
+
+- **Do not emit framework code from training memory.** Before writing against a pinned library,
+  confirm the current convention in *that version's* official docs. If you cannot verify, say so
+  and mark the line to confirm — never ship a plausible-but-stale API.
+- This register **overrides** your training memory when they conflict.
+
+| ❌ Stale / from memory | ✅ Current (this project) | Why |
+|------------------------|---------------------------|-----|
+| {stale_api_or_lib} | {current_api_or_lib} | {reason / link} |
+<!-- Self-anneal: add a row every time a stale API is caught in review. -->
+
+- Pinned versions: {pinned_versions}.
+- When a computed number is involved, it must cite its `EQ-###` from `docs/methods.md` and
+  carry a confidence (glass-box) — never originate a bare number in code or narrative.

@@ -1,0 +1,1 @@
+Read AGENTS.md and docs/index.md first. Follow docs/implementation-plan.md for execution. Verify pinned SDK APIs and preserve PRD invariants. Do not treat generated docs or mocks as live payment evidence.
