@@ -1,0 +1,8 @@
+{
+  "classification": "live-testnet-velo-owner-account-funding-only",
+  "address": "GAXQOA4O5YZHOXJP2TFDOA6RFKL3UXVUH3XGFEL3GMGBM3V32FRENZS7",
+  "requestedFunding": true,
+  "observedNativeBalanceXlm": "10000.0000000",
+  "observedAt": "2026-11-07T02:24:01.980Z",
+  "limits": "Account funded through official Friendbot and observed through Testnet Horizon and RPC. Velo project registration, sponsorship activation, Noir authorization and claim remain unverified."
+}
