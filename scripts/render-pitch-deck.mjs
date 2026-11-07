@@ -1,3 +1,4 @@
+/* global process, console, document, getComputedStyle */
 // Export only local deck content. No app, provider, environment-file or payment access.
 // Requires existing pinned @playwright/test 1.65.0; never installs dependencies.
 // If absent locally, set PLAYWRIGHT_PACKAGE_PATH to an existing package.json.

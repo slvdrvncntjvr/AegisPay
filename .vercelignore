@@ -1,0 +1,35 @@
+# Web build includes authenticated Node API dependencies; secrets stay excluded.
+# Review before expanding worker hosting; private runtime files never belong here.
+*
+!package.json
+!pnpm-lock.yaml
+!pnpm-workspace.yaml
+!tsconfig.json
+!.npmrc
+!apps
+!apps/web
+!apps/web/**
+!apps/server
+!apps/server/package.json
+!packages
+!packages/shared
+!packages/shared/**
+!packages/agent
+!packages/agent/package.json
+!src
+!src/server
+!src/server/**
+!scripts
+!scripts/verify-contracts.ts
+src/server/integrations/model.ts
+src/server/integrations/velo.ts
+src/server/integrations/spike-driver.ts
+src/server/integrations/spike-journal.ts
+src/server/integrations/stellar-evidence.ts
+**/node_modules/**
+**/.next/**
+**/.env*
+**/*.tsbuildinfo
+**/*.log
+**/.aegispay-spike/**
+**/noirxvelohackathoncontext/**

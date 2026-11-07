@@ -1,0 +1,2352 @@
+{
+  "id": "1d69db4a-561f-435b-8958-5cd015707f29",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.agent": {
+      "name": "agent",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "public_key": {
+          "name": "public_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "device_hash": {
+          "name": "device_hash",
+          "type": "char(64)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "network": {
+          "name": "network",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "device_contract_id": {
+          "name": "device_contract_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "agent_contract_id": {
+          "name": "agent_contract_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "escrow_contract_id": {
+          "name": "escrow_contract_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "asset_contract_id": {
+          "name": "asset_contract_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "policy_max_stroops": {
+          "name": "policy_max_stroops",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "policy_expires_at": {
+          "name": "policy_expires_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "policy_observed_ledger": {
+          "name": "policy_observed_ledger",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "last_nonce": {
+          "name": "last_nonce",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'0'"
+        },
+        "lease_owner": {
+          "name": "lease_owner",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lease_until": {
+          "name": "lease_until",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "agent_owner_id_owner_id_fk": {
+          "name": "agent_owner_id_owner_id_fk",
+          "tableFrom": "agent",
+          "tableTo": "owner",
+          "columnsFrom": [
+            "owner_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "agent_public_key_unique": {
+          "name": "agent_public_key_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "public_key"
+          ]
+        },
+        "agent_device_hash_unique": {
+          "name": "agent_device_hash_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "device_hash"
+          ]
+        },
+        "agent_owner_identity": {
+          "name": "agent_owner_identity",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id",
+            "owner_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "agent_device_hash": {
+          "name": "agent_device_hash",
+          "value": "device_hash ~ '^[a-f0-9]{64}$'"
+        },
+        "agent_key": {
+          "name": "agent_key",
+          "value": "public_key ~ '^G[A-Z2-7]{55}$'"
+        },
+        "agent_testnet": {
+          "name": "agent_testnet",
+          "value": "network = 'testnet'"
+        },
+        "agent_status": {
+          "name": "agent_status",
+          "value": "status IN ('unprovisioned','active','revoked','disabled')"
+        },
+        "agent_policy_amount": {
+          "name": "agent_policy_amount",
+          "value": "policy_max_stroops = trunc(policy_max_stroops) AND policy_max_stroops >= 0 AND policy_max_stroops <= 170141183460469231731687303715884105727"
+        },
+        "agent_nonce": {
+          "name": "agent_nonce",
+          "value": "last_nonce = trunc(last_nonce) AND last_nonce >= 0 AND last_nonce <= 18446744073709551615"
+        },
+        "agent_ledger": {
+          "name": "agent_ledger",
+          "value": "policy_observed_ledger IS NULL OR policy_observed_ledger > 0"
+        },
+        "agent_active_policy": {
+          "name": "agent_active_policy",
+          "value": "status <> 'active' OR (policy_max_stroops > 0 AND policy_observed_ledger IS NOT NULL)"
+        },
+        "agent_lease": {
+          "name": "agent_lease",
+          "value": "(lease_owner IS NULL) = (lease_until IS NULL)"
+        },
+        "agent_device_contract": {
+          "name": "agent_device_contract",
+          "value": "device_contract_id ~ '^C[A-Z2-7]{55}$'"
+        },
+        "agent_agent_contract": {
+          "name": "agent_agent_contract",
+          "value": "agent_contract_id ~ '^C[A-Z2-7]{55}$'"
+        },
+        "agent_escrow_contract": {
+          "name": "agent_escrow_contract",
+          "value": "escrow_contract_id ~ '^C[A-Z2-7]{55}$'"
+        },
+        "agent_asset_contract": {
+          "name": "agent_asset_contract",
+          "value": "asset_contract_id ~ '^C[A-Z2-7]{55}$'"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.agent_run": {
+      "name": "agent_run",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "agent_id": {
+          "name": "agent_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "run_start_key": {
+          "name": "run_start_key",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "task_text": {
+          "name": "task_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "budget_stroops": {
+          "name": "budget_stroops",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reserved_stroops": {
+          "name": "reserved_stroops",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'0'"
+        },
+        "spent_stroops": {
+          "name": "spent_stroops",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'0'"
+        },
+        "model_id": {
+          "name": "model_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "model_turns": {
+          "name": "model_turns",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "tool_steps": {
+          "name": "tool_steps",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "tool_checkpoint": {
+          "name": "tool_checkpoint",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "final_answer": {
+          "name": "final_answer",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "error_code": {
+          "name": "error_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "started_at": {
+          "name": "started_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "finished_at": {
+          "name": "finished_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "one_active_run_per_agent": {
+          "name": "one_active_run_per_agent",
+          "columns": [
+            {
+              "expression": "agent_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "where": "status IN ('queued','running','waiting_payment')",
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "agent_run_owner_id_owner_id_fk": {
+          "name": "agent_run_owner_id_owner_id_fk",
+          "tableFrom": "agent_run",
+          "tableTo": "owner",
+          "columnsFrom": [
+            "owner_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        },
+        "agent_run_agent_id_owner_id_agent_id_owner_id_fk": {
+          "name": "agent_run_agent_id_owner_id_agent_id_owner_id_fk",
+          "tableFrom": "agent_run",
+          "tableTo": "agent",
+          "columnsFrom": [
+            "agent_id",
+            "owner_id"
+          ],
+          "columnsTo": [
+            "id",
+            "owner_id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "run_owner_key": {
+          "name": "run_owner_key",
+          "nullsNotDistinct": false,
+          "columns": [
+            "owner_id",
+            "run_start_key"
+          ]
+        },
+        "run_full_identity": {
+          "name": "run_full_identity",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id",
+            "agent_id",
+            "owner_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "run_status": {
+          "name": "run_status",
+          "value": "status IN ('queued','running','waiting_payment','completed','failed')"
+        },
+        "run_budget": {
+          "name": "run_budget",
+          "value": "budget_stroops = trunc(budget_stroops) AND budget_stroops > 0 AND budget_stroops <= 170141183460469231731687303715884105727"
+        },
+        "run_reserved": {
+          "name": "run_reserved",
+          "value": "reserved_stroops = trunc(reserved_stroops) AND reserved_stroops >= 0 AND reserved_stroops <= 170141183460469231731687303715884105727"
+        },
+        "run_spent": {
+          "name": "run_spent",
+          "value": "spent_stroops = trunc(spent_stroops) AND spent_stroops >= 0 AND spent_stroops <= 170141183460469231731687303715884105727"
+        },
+        "run_budget_limit": {
+          "name": "run_budget_limit",
+          "value": "spent_stroops + reserved_stroops <= budget_stroops AND budget_stroops <= 1000000"
+        },
+        "run_bounds": {
+          "name": "run_bounds",
+          "value": "model_turns BETWEEN 0 AND 8 AND tool_steps BETWEEN 0 AND 12 AND length(task_text) BETWEEN 1 AND 2000"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.audit_event": {
+      "name": "audit_event",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "bigserial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "actor_kind": {
+          "name": "actor_kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "actor_id": {
+          "name": "actor_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_kind": {
+          "name": "entity_kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_id": {
+          "name": "entity_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kind": {
+          "name": "kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "correlation_id": {
+          "name": "correlation_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "safe_metadata": {
+          "name": "safe_metadata",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.auth_throttle": {
+      "name": "auth_throttle",
+      "schema": "",
+      "columns": {
+        "key_hash": {
+          "name": "key_hash",
+          "type": "char(64)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "window_start": {
+          "name": "window_start",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "attempts": {
+          "name": "attempts",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "expires_at": {
+          "name": "expires_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "throttle_hash": {
+          "name": "throttle_hash",
+          "value": "key_hash ~ '^[a-f0-9]{64}$'"
+        },
+        "throttle_bounds": {
+          "name": "throttle_bounds",
+          "value": "attempts >= 0 AND expires_at > window_start"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.entitlement": {
+      "name": "entitlement",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "quote_id": {
+          "name": "quote_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "evidence_id": {
+          "name": "evidence_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "resource_key": {
+          "name": "resource_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fixture_version": {
+          "name": "fixture_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "receipt_token_hash": {
+          "name": "receipt_token_hash",
+          "type": "char(64)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "valid_until": {
+          "name": "valid_until",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "first_delivered_at": {
+          "name": "first_delivered_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "entitlement_owner_window": {
+          "name": "entitlement_owner_window",
+          "columns": [
+            {
+              "expression": "owner_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "valid_until",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "entitlement_quote_id_quote_id_fk": {
+          "name": "entitlement_quote_id_quote_id_fk",
+          "tableFrom": "entitlement",
+          "tableTo": "quote",
+          "columnsFrom": [
+            "quote_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        },
+        "entitlement_evidence_id_payment_evidence_id_fk": {
+          "name": "entitlement_evidence_id_payment_evidence_id_fk",
+          "tableFrom": "entitlement",
+          "tableTo": "payment_evidence",
+          "columnsFrom": [
+            "evidence_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        },
+        "entitlement_owner_id_owner_id_fk": {
+          "name": "entitlement_owner_id_owner_id_fk",
+          "tableFrom": "entitlement",
+          "tableTo": "owner",
+          "columnsFrom": [
+            "owner_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "entitlement_quote_id_unique": {
+          "name": "entitlement_quote_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "quote_id"
+          ]
+        },
+        "entitlement_evidence_id_unique": {
+          "name": "entitlement_evidence_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "evidence_id"
+          ]
+        },
+        "entitlement_receipt_token_hash_unique": {
+          "name": "entitlement_receipt_token_hash_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "receipt_token_hash"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "entitlement_token": {
+          "name": "entitlement_token",
+          "value": "receipt_token_hash ~ '^[a-f0-9]{64}$'"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.job": {
+      "name": "job",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "kind": {
+          "name": "kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_id": {
+          "name": "entity_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'queued'"
+        },
+        "lease_owner": {
+          "name": "lease_owner",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lease_until": {
+          "name": "lease_until",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "available_at": {
+          "name": "available_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "attempt_count": {
+          "name": "attempt_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "job_available": {
+          "name": "job_available",
+          "columns": [
+            {
+              "expression": "status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "available_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "job_kind_entity": {
+          "name": "job_kind_entity",
+          "nullsNotDistinct": false,
+          "columns": [
+            "kind",
+            "entity_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "job_kind": {
+          "name": "job_kind",
+          "value": "kind IN ('run','reconcile','wallet_observe','claim_observe')"
+        },
+        "job_status": {
+          "name": "job_status",
+          "value": "status IN ('queued','leased','done')"
+        },
+        "job_attempt_count": {
+          "name": "job_attempt_count",
+          "value": "attempt_count >= 0"
+        },
+        "job_lease": {
+          "name": "job_lease",
+          "value": "(status = 'leased' AND lease_owner IS NOT NULL AND lease_until IS NOT NULL) OR (status <> 'leased' AND lease_owner IS NULL AND lease_until IS NULL)"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.merchant": {
+      "name": "merchant",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "wallet_address": {
+          "name": "wallet_address",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "allowlisted": {
+          "name": "allowlisted",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "merchant_wallet_address_unique": {
+          "name": "merchant_wallet_address_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "wallet_address"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "merchant_wallet": {
+          "name": "merchant_wallet",
+          "value": "wallet_address ~ '^G[A-Z2-7]{55}$'"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.merchant_claim": {
+      "name": "merchant_claim",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "merchant_id": {
+          "name": "merchant_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "asset_contract_id": {
+          "name": "asset_contract_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "wallet_operation_id": {
+          "name": "wallet_operation_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tx_hash": {
+          "name": "tx_hash",
+          "type": "char(64)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "observed_claim_amount_stroops": {
+          "name": "observed_claim_amount_stroops",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "confirmed_at": {
+          "name": "confirmed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "merchant_claim_merchant_id_merchant_id_fk": {
+          "name": "merchant_claim_merchant_id_merchant_id_fk",
+          "tableFrom": "merchant_claim",
+          "tableTo": "merchant",
+          "columnsFrom": [
+            "merchant_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        },
+        "merchant_claim_wallet_operation_id_wallet_operation_id_fk": {
+          "name": "merchant_claim_wallet_operation_id_wallet_operation_id_fk",
+          "tableFrom": "merchant_claim",
+          "tableTo": "wallet_operation",
+          "columnsFrom": [
+            "wallet_operation_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "merchant_claim_wallet_operation_id_unique": {
+          "name": "merchant_claim_wallet_operation_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "wallet_operation_id"
+          ]
+        },
+        "merchant_claim_tx_hash_unique": {
+          "name": "merchant_claim_tx_hash_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "tx_hash"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "claim_asset": {
+          "name": "claim_asset",
+          "value": "asset_contract_id ~ '^C[A-Z2-7]{55}$'"
+        },
+        "claim_hash": {
+          "name": "claim_hash",
+          "value": "tx_hash ~ '^[a-f0-9]{64}$'"
+        },
+        "claim_amount": {
+          "name": "claim_amount",
+          "value": "observed_claim_amount_stroops = trunc(observed_claim_amount_stroops) AND observed_claim_amount_stroops >= 0 AND observed_claim_amount_stroops <= 170141183460469231731687303715884105727"
+        },
+        "claim_status": {
+          "name": "claim_status",
+          "value": "status IN ('prepared','submitting','unknown','confirmed','failed')"
+        },
+        "claim_confirmation": {
+          "name": "claim_confirmation",
+          "value": "status <> 'confirmed' OR (tx_hash IS NOT NULL AND confirmed_at IS NOT NULL AND observed_claim_amount_stroops IS NOT NULL)"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.owner": {
+      "name": "owner",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "wallet_address": {
+          "name": "wallet_address",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "owner_wallet_address_unique": {
+          "name": "owner_wallet_address_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "wallet_address"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "owner_wallet": {
+          "name": "owner_wallet",
+          "value": "wallet_address ~ '^G[A-Z2-7]{55}$'"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.payment_attempt": {
+      "name": "payment_attempt",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "agent_id": {
+          "name": "agent_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quote_id": {
+          "name": "quote_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "operation_id": {
+          "name": "operation_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "client_idempotency_key": {
+          "name": "client_idempotency_key",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "idempotency_key": {
+          "name": "idempotency_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nonce": {
+          "name": "nonce",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "signed_xdr_fingerprint": {
+          "name": "signed_xdr_fingerprint",
+          "type": "char(64)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "signed_xdr_ciphertext": {
+          "name": "signed_xdr_ciphertext",
+          "type": "bytea",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cipher_iv": {
+          "name": "cipher_iv",
+          "type": "bytea",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cipher_tag": {
+          "name": "cipher_tag",
+          "type": "bytea",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "encryption_key_version": {
+          "name": "encryption_key_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "velo_request_id": {
+          "name": "velo_request_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "inner_hash": {
+          "name": "inner_hash",
+          "type": "char(64)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "outer_hash": {
+          "name": "outer_hash",
+          "type": "char(64)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "velo_status": {
+          "name": "velo_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "handoff_committed_at": {
+          "name": "handoff_committed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "next_check_at": {
+          "name": "next_check_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "error_code": {
+          "name": "error_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "one_active_attempt_per_agent": {
+          "name": "one_active_attempt_per_agent",
+          "columns": [
+            {
+              "expression": "agent_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "where": "status NOT IN ('authorized','refused','expired','failed')",
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "attempt_reconcile": {
+          "name": "attempt_reconcile",
+          "columns": [
+            {
+              "expression": "status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "next_check_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "payment_attempt_quote_id_owner_id_agent_id_quote_id_owner_id_agent_id_fk": {
+          "name": "payment_attempt_quote_id_owner_id_agent_id_quote_id_owner_id_agent_id_fk",
+          "tableFrom": "payment_attempt",
+          "tableTo": "quote",
+          "columnsFrom": [
+            "quote_id",
+            "owner_id",
+            "agent_id"
+          ],
+          "columnsTo": [
+            "id",
+            "owner_id",
+            "agent_id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "payment_attempt_quote_id_unique": {
+          "name": "payment_attempt_quote_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "quote_id"
+          ]
+        },
+        "payment_attempt_operation_id_unique": {
+          "name": "payment_attempt_operation_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "operation_id"
+          ]
+        },
+        "payment_attempt_idempotency_key_unique": {
+          "name": "payment_attempt_idempotency_key_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "idempotency_key"
+          ]
+        },
+        "payment_attempt_velo_request_id_unique": {
+          "name": "payment_attempt_velo_request_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "velo_request_id"
+          ]
+        },
+        "payment_attempt_inner_hash_unique": {
+          "name": "payment_attempt_inner_hash_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "inner_hash"
+          ]
+        },
+        "payment_attempt_outer_hash_unique": {
+          "name": "payment_attempt_outer_hash_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "outer_hash"
+          ]
+        },
+        "attempt_owner_client_key": {
+          "name": "attempt_owner_client_key",
+          "nullsNotDistinct": false,
+          "columns": [
+            "owner_id",
+            "client_idempotency_key"
+          ]
+        },
+        "attempt_agent_nonce": {
+          "name": "attempt_agent_nonce",
+          "nullsNotDistinct": false,
+          "columns": [
+            "agent_id",
+            "nonce"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "attempt_nonce": {
+          "name": "attempt_nonce",
+          "value": "nonce = trunc(nonce) AND nonce > 0 AND nonce <= 18446744073709551615"
+        },
+        "attempt_status": {
+          "name": "attempt_status",
+          "value": "status IN ('accepted','preparing','signed','sponsoring','reserved','submitting','submitted','authorized','unknown','refused','expired','failed','manual_review')"
+        },
+        "attempt_provider_key": {
+          "name": "attempt_provider_key",
+          "value": "idempotency_key = 'aegispay:' || operation_id::text"
+        },
+        "attempt_signed_xdr_fingerprint": {
+          "name": "attempt_signed_xdr_fingerprint",
+          "value": "signed_xdr_fingerprint ~ '^[a-f0-9]{64}$'"
+        },
+        "attempt_inner_hash": {
+          "name": "attempt_inner_hash",
+          "value": "inner_hash ~ '^[a-f0-9]{64}$'"
+        },
+        "attempt_outer_hash": {
+          "name": "attempt_outer_hash",
+          "value": "outer_hash ~ '^[a-f0-9]{64}$'"
+        },
+        "attempt_cipher": {
+          "name": "attempt_cipher",
+          "value": "(signed_xdr_ciphertext IS NULL AND cipher_iv IS NULL AND cipher_tag IS NULL AND encryption_key_version IS NULL) OR (signed_xdr_ciphertext IS NOT NULL AND cipher_iv IS NOT NULL AND cipher_tag IS NOT NULL AND octet_length(cipher_iv) = 12 AND octet_length(cipher_tag) = 16 AND encryption_key_version IS NOT NULL AND signed_xdr_fingerprint IS NOT NULL)"
+        },
+        "attempt_handoff": {
+          "name": "attempt_handoff",
+          "value": "handoff_committed_at IS NULL OR (velo_request_id IS NOT NULL AND inner_hash IS NOT NULL AND signed_xdr_ciphertext IS NULL)"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.payment_evidence": {
+      "name": "payment_evidence",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "attempt_id": {
+          "name": "attempt_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "inner_hash": {
+          "name": "inner_hash",
+          "type": "char(64)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "outer_hash": {
+          "name": "outer_hash",
+          "type": "char(64)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "observed_event_tx_hash": {
+          "name": "observed_event_tx_hash",
+          "type": "char(64)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "noir_event_id": {
+          "name": "noir_event_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "network": {
+          "name": "network",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "contract_id": {
+          "name": "contract_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ledger_sequence": {
+          "name": "ledger_sequence",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ledger_closed_at": {
+          "name": "ledger_closed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "agent_public_key": {
+          "name": "agent_public_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "device_hash": {
+          "name": "device_hash",
+          "type": "char(64)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "merchant_address": {
+          "name": "merchant_address",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "asset_contract_id": {
+          "name": "asset_contract_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount_stroops": {
+          "name": "amount_stroops",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nonce": {
+          "name": "nonce",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "actual_fee_stroops": {
+          "name": "actual_fee_stroops",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fee_provenance": {
+          "name": "fee_provenance",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unavailable'"
+        },
+        "evidence_digest": {
+          "name": "evidence_digest",
+          "type": "char(64)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "verified_at": {
+          "name": "verified_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "payment_evidence_attempt_id_payment_attempt_id_fk": {
+          "name": "payment_evidence_attempt_id_payment_attempt_id_fk",
+          "tableFrom": "payment_evidence",
+          "tableTo": "payment_attempt",
+          "columnsFrom": [
+            "attempt_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "payment_evidence_attempt_id_unique": {
+          "name": "payment_evidence_attempt_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "attempt_id"
+          ]
+        },
+        "payment_evidence_inner_hash_unique": {
+          "name": "payment_evidence_inner_hash_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "inner_hash"
+          ]
+        },
+        "payment_evidence_outer_hash_unique": {
+          "name": "payment_evidence_outer_hash_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "outer_hash"
+          ]
+        },
+        "payment_evidence_noir_event_id_unique": {
+          "name": "payment_evidence_noir_event_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "noir_event_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "evidence_amount": {
+          "name": "evidence_amount",
+          "value": "amount_stroops = trunc(amount_stroops) AND amount_stroops > 0 AND amount_stroops <= 170141183460469231731687303715884105727"
+        },
+        "evidence_fee": {
+          "name": "evidence_fee",
+          "value": "actual_fee_stroops = trunc(actual_fee_stroops) AND actual_fee_stroops >= 0 AND actual_fee_stroops <= 170141183460469231731687303715884105727"
+        },
+        "evidence_nonce": {
+          "name": "evidence_nonce",
+          "value": "nonce = trunc(nonce) AND nonce > 0 AND nonce <= 18446744073709551615"
+        },
+        "evidence_network": {
+          "name": "evidence_network",
+          "value": "network = 'testnet'"
+        },
+        "evidence_ledger": {
+          "name": "evidence_ledger",
+          "value": "ledger_sequence > 0"
+        },
+        "evidence_hash_mapping": {
+          "name": "evidence_hash_mapping",
+          "value": "observed_event_tx_hash = inner_hash OR (outer_hash IS NOT NULL AND observed_event_tx_hash = outer_hash)"
+        },
+        "evidence_fee_source": {
+          "name": "evidence_fee_source",
+          "value": "(actual_fee_stroops IS NULL AND fee_provenance = 'unavailable') OR (actual_fee_stroops IS NOT NULL AND fee_provenance IN ('outer_ledger','outer_ledger_and_velo'))"
+        },
+        "evidence_inner_hash": {
+          "name": "evidence_inner_hash",
+          "value": "inner_hash ~ '^[a-f0-9]{64}$'"
+        },
+        "evidence_outer_hash": {
+          "name": "evidence_outer_hash",
+          "value": "outer_hash ~ '^[a-f0-9]{64}$'"
+        },
+        "evidence_observed_event_tx_hash": {
+          "name": "evidence_observed_event_tx_hash",
+          "value": "observed_event_tx_hash ~ '^[a-f0-9]{64}$'"
+        },
+        "evidence_device_hash": {
+          "name": "evidence_device_hash",
+          "value": "device_hash ~ '^[a-f0-9]{64}$'"
+        },
+        "evidence_evidence_digest": {
+          "name": "evidence_evidence_digest",
+          "value": "evidence_digest ~ '^[a-f0-9]{64}$'"
+        },
+        "evidence_agent": {
+          "name": "evidence_agent",
+          "value": "agent_public_key ~ '^G[A-Z2-7]{55}$'"
+        },
+        "evidence_merchant": {
+          "name": "evidence_merchant",
+          "value": "merchant_address ~ '^G[A-Z2-7]{55}$'"
+        },
+        "evidence_contract": {
+          "name": "evidence_contract",
+          "value": "contract_id ~ '^C[A-Z2-7]{55}$'"
+        },
+        "evidence_asset": {
+          "name": "evidence_asset",
+          "value": "asset_contract_id ~ '^C[A-Z2-7]{55}$'"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.quote": {
+      "name": "quote",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "resource_id": {
+          "name": "resource_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "agent_id": {
+          "name": "agent_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "run_id": {
+          "name": "run_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "merchant_id": {
+          "name": "merchant_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "resource_key": {
+          "name": "resource_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fixture_version": {
+          "name": "fixture_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "merchant_address": {
+          "name": "merchant_address",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount_stroops": {
+          "name": "amount_stroops",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "asset_contract_id": {
+          "name": "asset_contract_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "network": {
+          "name": "network",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "device_hash": {
+          "name": "device_hash",
+          "type": "char(64)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "agent_public_key": {
+          "name": "agent_public_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "terms_hash": {
+          "name": "terms_hash",
+          "type": "char(64)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "expires_at": {
+          "name": "expires_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "accepted_at": {
+          "name": "accepted_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "quote_run_created": {
+          "name": "quote_run_created",
+          "columns": [
+            {
+              "expression": "run_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "created_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "quote_run_id_agent_id_owner_id_agent_run_id_agent_id_owner_id_fk": {
+          "name": "quote_run_id_agent_id_owner_id_agent_run_id_agent_id_owner_id_fk",
+          "tableFrom": "quote",
+          "tableTo": "agent_run",
+          "columnsFrom": [
+            "run_id",
+            "agent_id",
+            "owner_id"
+          ],
+          "columnsTo": [
+            "id",
+            "agent_id",
+            "owner_id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        },
+        "quote_resource_id_merchant_id_resource_id_merchant_id_fk": {
+          "name": "quote_resource_id_merchant_id_resource_id_merchant_id_fk",
+          "tableFrom": "quote",
+          "tableTo": "resource",
+          "columnsFrom": [
+            "resource_id",
+            "merchant_id"
+          ],
+          "columnsTo": [
+            "id",
+            "merchant_id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "quote_owner_agent": {
+          "name": "quote_owner_agent",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id",
+            "owner_id",
+            "agent_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "quote_amount": {
+          "name": "quote_amount",
+          "value": "amount_stroops = trunc(amount_stroops) AND amount_stroops > 0 AND amount_stroops <= 170141183460469231731687303715884105727"
+        },
+        "quote_network": {
+          "name": "quote_network",
+          "value": "network = 'testnet'"
+        },
+        "quote_status": {
+          "name": "quote_status",
+          "value": "status IN ('open','accepted','paid','expired','refused')"
+        },
+        "quote_terms": {
+          "name": "quote_terms",
+          "value": "terms_hash ~ '^[a-f0-9]{64}$'"
+        },
+        "quote_device": {
+          "name": "quote_device",
+          "value": "device_hash ~ '^[a-f0-9]{64}$'"
+        },
+        "quote_agent": {
+          "name": "quote_agent",
+          "value": "agent_public_key ~ '^G[A-Z2-7]{55}$'"
+        },
+        "quote_merchant": {
+          "name": "quote_merchant",
+          "value": "merchant_address ~ '^G[A-Z2-7]{55}$'"
+        },
+        "quote_asset": {
+          "name": "quote_asset",
+          "value": "asset_contract_id ~ '^C[A-Z2-7]{55}$'"
+        },
+        "quote_lifetime": {
+          "name": "quote_lifetime",
+          "value": "expires_at > created_at AND expires_at <= created_at + interval '120 seconds'"
+        },
+        "quote_acceptance": {
+          "name": "quote_acceptance",
+          "value": "(status IN ('open','expired','refused') OR accepted_at IS NOT NULL) AND (accepted_at IS NULL OR accepted_at < expires_at)"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.resource": {
+      "name": "resource",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "merchant_id": {
+          "name": "merchant_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "resource_key": {
+          "name": "resource_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "route_slug": {
+          "name": "route_slug",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "price_stroops": {
+          "name": "price_stroops",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "asset_contract_id": {
+          "name": "asset_contract_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fixture_version": {
+          "name": "fixture_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_demo": {
+          "name": "is_demo",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "enabled": {
+          "name": "enabled",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "resource_merchant_id_merchant_id_fk": {
+          "name": "resource_merchant_id_merchant_id_fk",
+          "tableFrom": "resource",
+          "tableTo": "merchant",
+          "columnsFrom": [
+            "merchant_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "resource_resource_key_unique": {
+          "name": "resource_resource_key_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "resource_key"
+          ]
+        },
+        "resource_route_slug_unique": {
+          "name": "resource_route_slug_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "route_slug"
+          ]
+        },
+        "resource_merchant_identity": {
+          "name": "resource_merchant_identity",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id",
+            "merchant_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "resource_price": {
+          "name": "resource_price",
+          "value": "price_stroops = trunc(price_stroops) AND price_stroops > 0 AND price_stroops <= 170141183460469231731687303715884105727"
+        },
+        "resource_demo": {
+          "name": "resource_demo",
+          "value": "is_demo = true"
+        },
+        "resource_asset": {
+          "name": "resource_asset",
+          "value": "asset_contract_id ~ '^C[A-Z2-7]{55}$'"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.run_event": {
+      "name": "run_event",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "bigserial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "run_id": {
+          "name": "run_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kind": {
+          "name": "kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "safe_payload": {
+          "name": "safe_payload",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "run_event_order": {
+          "name": "run_event_order",
+          "columns": [
+            {
+              "expression": "run_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "run_event_run_id_agent_run_id_fk": {
+          "name": "run_event_run_id_agent_run_id_fk",
+          "tableFrom": "run_event",
+          "tableTo": "agent_run",
+          "columnsFrom": [
+            "run_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.session": {
+      "name": "session",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "token_hash": {
+          "name": "token_hash",
+          "type": "char(64)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "merchant_id": {
+          "name": "merchant_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "run_id": {
+          "name": "run_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "expires_at": {
+          "name": "expires_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "revoked_at": {
+          "name": "revoked_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "session_owner_id_owner_id_fk": {
+          "name": "session_owner_id_owner_id_fk",
+          "tableFrom": "session",
+          "tableTo": "owner",
+          "columnsFrom": [
+            "owner_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        },
+        "session_merchant_id_merchant_id_fk": {
+          "name": "session_merchant_id_merchant_id_fk",
+          "tableFrom": "session",
+          "tableTo": "merchant",
+          "columnsFrom": [
+            "merchant_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        },
+        "session_run_id_agent_run_id_fk": {
+          "name": "session_run_id_agent_run_id_fk",
+          "tableFrom": "session",
+          "tableTo": "agent_run",
+          "columnsFrom": [
+            "run_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "session_token_hash_unique": {
+          "name": "session_token_hash_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "token_hash"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "session_hash": {
+          "name": "session_hash",
+          "value": "token_hash ~ '^[a-f0-9]{64}$'"
+        },
+        "session_scope": {
+          "name": "session_scope",
+          "value": "(role = 'owner' AND owner_id IS NOT NULL AND merchant_id IS NULL AND run_id IS NULL) OR (role = 'merchant' AND merchant_id IS NOT NULL AND owner_id IS NULL AND run_id IS NULL) OR (role = 'worker' AND owner_id IS NOT NULL AND run_id IS NOT NULL AND merchant_id IS NULL)"
+        },
+        "session_lifetime": {
+          "name": "session_lifetime",
+          "value": "expires_at > created_at AND expires_at <= created_at + CASE WHEN role = 'worker' THEN interval '15 minutes' ELSE interval '8 hours' END"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.wallet_operation": {
+      "name": "wallet_operation",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "actor_address": {
+          "name": "actor_address",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "agent_id": {
+          "name": "agent_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "operation_kind": {
+          "name": "operation_kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "operation_payload": {
+          "name": "operation_payload",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "unsigned_body_hash": {
+          "name": "unsigned_body_hash",
+          "type": "char(64)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "expires_at": {
+          "name": "expires_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "handoff_committed_at": {
+          "name": "handoff_committed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tx_hash": {
+          "name": "tx_hash",
+          "type": "char(64)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "one_unresolved_wallet_per_actor": {
+          "name": "one_unresolved_wallet_per_actor",
+          "columns": [
+            {
+              "expression": "actor_address",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "where": "status IN ('prepared','submitting','unknown')",
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "wallet_operation_agent_id_agent_id_fk": {
+          "name": "wallet_operation_agent_id_agent_id_fk",
+          "tableFrom": "wallet_operation",
+          "tableTo": "agent",
+          "columnsFrom": [
+            "agent_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "wallet_operation_tx_hash_unique": {
+          "name": "wallet_operation_tx_hash_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "tx_hash"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "wallet_actor": {
+          "name": "wallet_actor",
+          "value": "actor_address ~ '^G[A-Z2-7]{55}$'"
+        },
+        "wallet_body": {
+          "name": "wallet_body",
+          "value": "unsigned_body_hash ~ '^[a-f0-9]{64}$'"
+        },
+        "wallet_tx": {
+          "name": "wallet_tx",
+          "value": "tx_hash ~ '^[a-f0-9]{64}$'"
+        },
+        "wallet_status": {
+          "name": "wallet_status",
+          "value": "status IN ('prepared','submitting','unknown','confirmed','failed','expired')"
+        },
+        "wallet_role_kind": {
+          "name": "wallet_role_kind",
+          "value": "(role = 'merchant' AND operation_kind = 'claim' AND agent_id IS NULL) OR (role = 'owner' AND agent_id IS NOT NULL AND operation_kind IN ('registerDevice','registerAgent','fundEscrow','defundEscrow','revokeAgent','sweepOnRevoke'))"
+        },
+        "wallet_handoff": {
+          "name": "wallet_handoff",
+          "value": "handoff_committed_at IS NULL OR tx_hash IS NOT NULL"
+        }
+      },
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

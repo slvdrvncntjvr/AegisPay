@@ -6,11 +6,11 @@ import { Keypair, rpc } from '@stellar/stellar-sdk';
 import { NoirContractError, type NoirAgentClient, type NoirEvent } from '@noirx402/agent-sdk';
 import { z } from 'zod';
 import type { GasApi } from '@carts1024/velo-sdk';
-import { SpikeJournal, readSpikeRecord, writeSpikeRecord } from './spike-journal.js';
-import { inspectAuthorization, SpikeGuardError, type AuthorizationIntent } from './noir.js';
-import { spikeDigest, walletOperationOnce, type SpikeConfig, type WalletClient, type WalletOperation } from './spike-runtime.js';
-import { handoffOnce, validateExecution } from './velo.js';
-import { decodeMatchedNoirEvent, verifyAuthorizationEvidence, verifyClaimEvent } from './stellar-evidence.js';
+import { SpikeJournal, readSpikeRecord, writeSpikeRecord } from './spike-journal.ts';
+import { inspectAuthorization, SpikeGuardError, type AuthorizationIntent } from './noir.ts';
+import { spikeDigest, walletOperationOnce, type SpikeConfig, type WalletClient, type WalletOperation } from './spike-runtime.ts';
+import { handoffOnce, validateExecution } from './velo.ts';
+import { decodeMatchedNoirEvent, verifyAuthorizationEvidence, verifyClaimEvent } from './stellar-evidence.ts';
 
 const fixtureSchema = z.object({ version: z.literal(1), operationId: z.string().uuid(), bindingHash: z.string().regex(/^[a-f0-9]{64}$/),
   deviceHash: z.string().regex(/^[a-f0-9]{64}$/), policyExpiresAt: z.number().int().positive() }).strict();

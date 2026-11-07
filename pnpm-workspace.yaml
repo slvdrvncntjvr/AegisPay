@@ -1,3 +1,8 @@
+packages:
+  - apps/web
+  - apps/server
+  - packages/agent
+  - packages/shared
 allowBuilds:
   esbuild: true
 minimumReleaseAgeExclude:

@@ -1,6 +1,6 @@
 # AegisPay pitch and demo runbook
 
-**Status:** draft rehearsal sources, not a claim of a completed app demo. Supplied handbook rubric/format are recorded in [context](../context.md); deadline passed, no extension supplied. One SDK payment is proved; model app/deployment/public media are unfinished. Method: [FMD pitch playbook](../fmd/playbooks/pitch-deck-playbook.md).
+**Status:** draft rehearsal sources, not a claim of a completed app demo. Supplied handbook rubric/format are recorded in [context](../context.md); deadline passed, no extension supplied. One SDK payment is proved; model app/deployment/public media are unfinished. Method: FMD pitch playbook (local preparation reference).
 
 ## 1. Business narrative
 

@@ -5,8 +5,8 @@ import { mkdir, open, readFile, unlink } from 'node:fs/promises';
 import { join } from 'node:path';
 import { z } from 'zod';
 import type { GasExecutionIdentity } from '@carts1024/velo-sdk';
-import { SpikeGuardError } from './noir.js';
-import type { SpikeHandoffJournal } from './velo.js';
+import { SpikeGuardError } from './noir.ts';
+import type { SpikeHandoffJournal } from './velo.ts';
 
 const operationSchema = z.object({ operationId: z.string().min(1).max(128), nonce: z.string().regex(/^[1-9]\d*$/),
   expiresAt: z.number().int().positive(), intentHash: z.string().regex(/^[a-f0-9]{64}$/) }).strict();

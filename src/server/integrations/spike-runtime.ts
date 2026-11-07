@@ -4,8 +4,8 @@ import { join } from 'node:path';
 import { Address, Contract, Keypair, Networks, Transaction, TransactionBuilder, nativeToScVal, rpc, xdr } from '@stellar/stellar-sdk';
 import { toCall, type NoirOperation } from '@noirx402/agent-sdk';
 import { z } from 'zod';
-import { SpikeGuardError, type readTestnetConfig } from './noir.js';
-import { readSpikeRecord, writeSpikeRecord } from './spike-journal.js';
+import { SpikeGuardError, type readTestnetConfig } from './noir.ts';
+import { readSpikeRecord, writeSpikeRecord } from './spike-journal.ts';
 
 export type SpikeConfig = ReturnType<typeof readTestnetConfig>;
 export type WalletOperation = Exclude<NoirOperation, { kind: 'authorize' }>;
@@ -16,7 +16,7 @@ export function inspectWalletOperation(envelope: string, source: string, operati
   let tx;
   try { tx = TransactionBuilder.fromXDR(envelope, Networks.TESTNET); } catch { throw new SpikeGuardError('INVALID_ENVELOPE'); }
   if (!(tx instanceof Transaction) || tx.source !== source || tx.operations.length !== 1) throw new SpikeGuardError('WALLET_ENVELOPE_MISMATCH');
-  if (!tx.timeBounds || BigInt(tx.timeBounds.maxTime) === 0n || BigInt(tx.timeBounds.maxTime) * 1000n <= BigInt(now)) throw new SpikeGuardError('TRANSACTION_EXPIRED');
+  if (!tx.timeBounds || BigInt(tx.timeBounds.minTime) * 1000n > BigInt(now) || BigInt(tx.timeBounds.maxTime) === 0n || BigInt(tx.timeBounds.maxTime) * 1000n <= BigInt(now)) throw new SpikeGuardError('TRANSACTION_EXPIRED');
   const op = tx.operations[0]!;
   if (op.type !== 'invokeHostFunction' || (op.source && op.source !== source) || op.func.switch().name !== 'hostFunctionTypeInvokeContract') throw new SpikeGuardError('WALLET_OPERATION_MISMATCH');
   const call = toCall(source, operation);
