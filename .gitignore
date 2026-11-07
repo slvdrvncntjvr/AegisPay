@@ -13,3 +13,4 @@ __pycache__/
 *.tsbuildinfo
 .aegispay-spike/
 noirxvelohackathoncontext/
+fmd/
