@@ -74,7 +74,7 @@ One authorization of **300000 stroops (0.03 Testnet XLM)**, observed Nov 7, 2026
 - [Separate merchant claim](https://stellar.expert/explorer/testnet/tx/94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18).
 - [Saved redacted report](docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794062575156.json): escrow 10000000 → 9700000 stroops; merchant pending 0 → 300000 → 0. Two exported spike reports describe this same operation, not two purchases.
 
-The over-cap 1200000-stroop refusal was actual deployed-contract simulation, unsigned/unsubmitted; it is not an included failed transaction. Before pending review fixes, 41 offline tests and 42 opt-in tests passed. TASK-002 remains in progress for terminal-envelope cleanup recovery and fee-source reconciliation fixes; no new code tests were run for this documentation change. The headless agent-key authorization is genuine; an autonomous model purchase and complete release are unproved.
+The over-cap 1200000-stroop refusal was actual deployed-contract simulation, unsigned/unsubmitted; it is not an included failed transaction. After both review fixes, 50 offline tests passed and integrated opt-in acceptance passed 51/51 with zero failures/skips. TASK-002 is complete. Independent outer-ledger and Velo fee both equal 82496 stroops; the same saved payment was observed without another handoff. The headless agent-key authorization is genuine; an autonomous model purchase and complete release are unproved.
 
 ## Repo structure
 
@@ -143,7 +143,7 @@ No product UI screenshots exist. The application UI is unbuilt; diagrams and lin
 
 ## What's next
 
-Finish the two TASK-002 review fixes and gates; bootstrap real workspaces (TASK-011); implement DB/payment recovery/model/UI (TASK-003 through TASK-010); deploy and verify the working public app (TASK-012); publish video/deck and validate submission links (TASK-013). [Implementation plan](docs/implementation-plan.md) owns status. F-005 remains a real LLM requirement. Missing inputs include verified model access, hosting configuration, public app/video/deck URLs, Discord handle and registration confirmation. Late submission acceptance and Gas interpretation remain external questions; no eligibility or win is promised.
+Bootstrap real workspaces (TASK-011); implement DB/payment recovery/model/UI (TASK-003 through TASK-010); deploy and verify the working public app (TASK-012); publish video/deck and validate submission links (TASK-013). [Implementation plan](docs/implementation-plan.md) owns status. F-005 remains a real LLM requirement. Missing inputs include verified model access, hosting configuration, public app/video/deck URLs, Discord handle and registration confirmation. Late submission acceptance and Gas interpretation remain external questions; no eligibility or win is promised.
 
 ## Credits
 

@@ -73,3 +73,8 @@ Draft two-minute recording script, eight-slide five-minute pitch/three-minute Q&
 - `git diff --check` — clean after removing Markdown hard-break trailing spaces. Isolated work ref: slvdrvncntjvr/handbook-submission; final commit reported to coordinator.
 
 These are documentation/format checks only. The documentation checker's generic “application tests and live SDK/ledger integration remain unrun” footer describes its own scope, not a denial of the separately recorded historical spike. No code/application/live gate was rerun here.
+
+
+## Post-review payment acceptance follow-up - 2026-11-07
+
+Both findings were inspected and integrated as 5db51dd: terminal cleanup retries safely after interruption; actual fee independently compares the outer charged fee against Velo. Worker offline regressions passed 50/50; integrated opt-in acceptance passed 51/51, no failures/skips. Saved authorization and claim handoff markers were checked before identity-only observation; both fee sources match at 82496 stroops. No new payment was made. Latest artifact: docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json. Earlier pending-review statements are historical. TASK-002 is done and TASK-011 ready. All ten invariants remain unchanged; app/DB/model/UI/hosting gates remain unfinished. Docker/PostgreSQL infrastructure was independently verified, superseding the earlier absent-engine observation, but no application concurrency gate is implied.

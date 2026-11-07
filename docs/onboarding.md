@@ -8,13 +8,13 @@ A Testnet agent paid-API demo described in [IDEA.md](../IDEA.md). The pinned run
 
 1. [Index §0](index.md) — which document owns each decision.
 2. [PRD](prd.md) and [system design](system-design.md) — scope and selected stack.
-3. [Implementation plan](implementation-plan.md) — TASK-001 is done; finish TASK-002 review fixes, then TASK-011 workspaces before TASK-003. Preserve payment-before-UI.
+3. [Implementation plan](implementation-plan.md) — TASK-001 and TASK-002 are done; TASK-011 workspaces is ready before TASK-003. Preserve payment-before-UI.
 
 ## Run it locally
 
 **Available now:** `python tools/check-docs.py` and `python fmd/tools/check-implementation-plan.py docs/implementation-plan.md --strict` validate documentation. They do not test the future app.
 
-**Implemented local gates:** `pnpm verify:sdk-imports`, `pnpm typecheck`, `pnpm lint` and offline `pnpm test:spike`. If pnpm is not on PATH, use `npx --yes pnpm@12.18.0` in its place. The complete application build, unit/integration/E2E/demo commands remain future gates. `pnpm test:testnet` includes a mandatory live case and requires explicit RUN_TESTNET=1. The authorized acceptance run passed 42/42 with zero skips; invocation with the default RUN_TESTNET=0 remains intentionally refused. Reverification observes the saved operation and claim; it does not buy again.
+**Implemented local gates:** `pnpm verify:sdk-imports`, `pnpm typecheck`, `pnpm lint` and offline `pnpm test:spike`. If pnpm is not on PATH, use `npx --yes pnpm@12.18.0` in its place. The complete application build, unit/integration/E2E/demo commands remain future gates. `pnpm test:testnet` includes a mandatory live case and requires explicit RUN_TESTNET=1. The post-review authorized acceptance run passed 51/51 with zero failures or skips; invocation with the default RUN_TESTNET=0 remains intentionally refused. Reverification observes the saved operation and claim; it does not buy again.
 
 **Testnet setup:** `pnpm setup:spike` creates .env.spike.local with distinct disposable signers, an encryption key, the pinned SDK's derived native SAC and official public Testnet network settings. Existing files are preserved. `pnpm setup:spike --fund` requests free Testnet account creation through official Friendbot and independently observes the accounts; it does not register Noir devices, fund Noir escrow or activate Velo. This checkout has completed that account setup locally. Secrets never print and the file is Git-ignored.
 
@@ -53,3 +53,8 @@ TASK-010 establishes local release gates; TASK-012 then deploys the same commit/
 TASK-013 publishes a <=2-minute real recording and public deck, validates anonymous access to all links, confirms Salvador Vincent Javier's Discord handle/registration and prepares the short write-up. Draft sources: [recording](submission/recording-script.md), [deck](submission/pitch-deck.md), [packet](submission/README.md). No public video/deck URL exists yet.
 
 The Nov 7 noon Philippine-time deadline has passed; no extension supplied. User asks continue. Registration/late acceptance and organizer-specific Gas interpretation remain external; no on-time eligibility or guaranteed win is claimed. F-005 real model access/tool behavior must pass; rule-based logic is not a scope replacement.
+
+
+## Post-review payment acceptance follow-up - 2026-11-07
+
+Both findings were inspected and integrated as 5db51dd: terminal cleanup retries safely after interruption; actual fee independently compares the outer charged fee against Velo. Worker offline regressions passed 50/50; integrated opt-in acceptance passed 51/51, no failures/skips. Saved authorization and claim handoff markers were checked before identity-only observation; both fee sources match at 82496 stroops. No new payment was made. Latest artifact: docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json. Earlier pending-review statements are historical. TASK-002 is done and TASK-011 ready. All ten invariants remain unchanged; app/DB/model/UI/hosting gates remain unfinished. Docker/PostgreSQL infrastructure was independently verified, superseding the earlier absent-engine observation, but no application concurrency gate is implied.

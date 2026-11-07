@@ -107,3 +107,8 @@ Mandatory tuple is resolved by the handbook; one technical Noir/Velo integration
 ### Handbook reconciliation invariant audit — 2026-11-07
 
 INV-001 through INV-010 remain unchanged. Real workspaces/hosting add delivery obligations without permitting another financial handoff, weakening independent evidence, exposing worker keys or fulfilling unresolved purchases. No app test or review-fix acceptance is inferred from documentation checks.
+
+
+## Post-review payment acceptance follow-up - 2026-11-07
+
+Both findings were inspected and integrated as 5db51dd: terminal cleanup retries safely after interruption; actual fee independently compares the outer charged fee against Velo. Worker offline regressions passed 50/50; integrated opt-in acceptance passed 51/51, no failures/skips. Saved authorization and claim handoff markers were checked before identity-only observation; both fee sources match at 82496 stroops. No new payment was made. Latest artifact: docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json. Earlier pending-review statements are historical. TASK-002 is done and TASK-011 ready. All ten invariants remain unchanged; app/DB/model/UI/hosting gates remain unfinished. Docker/PostgreSQL infrastructure was independently verified, superseding the earlier absent-engine observation, but no application concurrency gate is implied.
