@@ -1,0 +1,436 @@
+{
+  "classification": "live-read-only-contract-verification",
+  "observedAt": "2026-11-07T01:05:11.161Z",
+  "network": "testnet",
+  "networkPassphrase": "Test SDF Network ; September 2015",
+  "contracts": [
+    {
+      "role": "deviceRegistry",
+      "id": "CAC4KOLHDLDYDWBOKXNKRN5KVHO56PLOIFXDLTBUWGVN6GVDEB7FQHU5",
+      "wasmSha256": "f2c758eb82b5844b333363b5fd793104106dcafa3f570a5c89d59b4bff580d55",
+      "methods": [
+        {
+          "name": "revoke",
+          "inputs": [
+            [
+              "wallet",
+              "Address"
+            ],
+            [
+              "device_hash",
+              "BytesN32"
+            ]
+          ],
+          "outputs": []
+        },
+        {
+          "name": "register",
+          "inputs": [
+            [
+              "wallet",
+              "Address"
+            ],
+            [
+              "device_hash",
+              "BytesN32"
+            ],
+            [
+              "agent",
+              "Address"
+            ]
+          ],
+          "outputs": []
+        },
+        {
+          "name": "get_agent",
+          "inputs": [
+            [
+              "device_hash",
+              "BytesN32"
+            ]
+          ],
+          "outputs": [
+            "Address"
+          ]
+        },
+        {
+          "name": "get_owner",
+          "inputs": [
+            [
+              "device_hash",
+              "BytesN32"
+            ]
+          ],
+          "outputs": [
+            "Address"
+          ]
+        },
+        {
+          "name": "get_device",
+          "inputs": [
+            [
+              "device_hash",
+              "BytesN32"
+            ]
+          ],
+          "outputs": [
+            "DeviceInfo"
+          ]
+        },
+        {
+          "name": "initialize",
+          "inputs": [
+            [
+              "admin",
+              "Address"
+            ]
+          ],
+          "outputs": []
+        },
+        {
+          "name": "is_authorized",
+          "inputs": [
+            [
+              "device_hash",
+              "BytesN32"
+            ],
+            [
+              "agent",
+              "Address"
+            ]
+          ],
+          "outputs": [
+            "Bool"
+          ]
+        },
+        {
+          "name": "wallet_device_at",
+          "inputs": [
+            [
+              "wallet",
+              "Address"
+            ],
+            [
+              "index",
+              "U32"
+            ]
+          ],
+          "outputs": [
+            "BytesN32"
+          ]
+        },
+        {
+          "name": "wallet_device_count",
+          "inputs": [
+            [
+              "wallet",
+              "Address"
+            ]
+          ],
+          "outputs": [
+            "U32"
+          ]
+        }
+      ]
+    },
+    {
+      "role": "agentRegistry",
+      "id": "CCMZDSPTLX7IIJWCYEUM5DJUHOSOYSTHGK777S2TXZWEMC5ZZGPJ3EBV",
+      "wasmSha256": "064024177246a27709854cc1da45b79be363cd99b84f0d2e74b1b841579c84ab",
+      "methods": [
+        {
+          "name": "is_auth",
+          "inputs": [
+            [
+              "device_hash",
+              "BytesN32"
+            ],
+            [
+              "agent",
+              "Address"
+            ]
+          ],
+          "outputs": [
+            "Bool"
+          ]
+        },
+        {
+          "name": "get_agent",
+          "inputs": [
+            [
+              "device_hash",
+              "BytesN32"
+            ]
+          ],
+          "outputs": [
+            "Address"
+          ]
+        },
+        {
+          "name": "get_policy",
+          "inputs": [
+            [
+              "device_hash",
+              "BytesN32"
+            ]
+          ],
+          "outputs": [
+            "AgentPolicy"
+          ]
+        },
+        {
+          "name": "initialize",
+          "inputs": [
+            [
+              "admin",
+              "Address"
+            ],
+            [
+              "device_registry_id",
+              "Address"
+            ]
+          ],
+          "outputs": []
+        },
+        {
+          "name": "revoke_agent",
+          "inputs": [
+            [
+              "wallet",
+              "Address"
+            ],
+            [
+              "device_hash",
+              "BytesN32"
+            ]
+          ],
+          "outputs": []
+        },
+        {
+          "name": "check_payment",
+          "inputs": [
+            [
+              "device_hash",
+              "BytesN32"
+            ],
+            [
+              "agent",
+              "Address"
+            ],
+            [
+              "asset",
+              "Address"
+            ],
+            [
+              "amount",
+              "I128"
+            ]
+          ],
+          "outputs": [
+            "Bool"
+          ]
+        },
+        {
+          "name": "register_agent",
+          "inputs": [
+            [
+              "wallet",
+              "Address"
+            ],
+            [
+              "device_hash",
+              "BytesN32"
+            ],
+            [
+              "agent",
+              "Address"
+            ],
+            [
+              "max_amount",
+              "I128"
+            ],
+            [
+              "asset",
+              "Address"
+            ],
+            [
+              "expires_at",
+              "U64"
+            ]
+          ],
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "role": "paymentEscrow",
+      "id": "CC7EAW5FNJEDBS7THM5IT6XIOHO4AOYMLXT3KSZ3HWUIKEACTW7E5BFS",
+      "wasmSha256": "e430f8ab443103b75a0821612f8fc91d1e7491ac49b2f1e7ddd7698a8073a0a2",
+      "methods": [
+        {
+          "name": "claim",
+          "inputs": [
+            [
+              "token",
+              "Address"
+            ],
+            [
+              "merchant",
+              "Address"
+            ]
+          ],
+          "outputs": []
+        },
+        {
+          "name": "authorize",
+          "inputs": [
+            [
+              "agent",
+              "Address"
+            ],
+            [
+              "device_hash",
+              "BytesN32"
+            ],
+            [
+              "merchant",
+              "Address"
+            ],
+            [
+              "asset",
+              "Address"
+            ],
+            [
+              "amount",
+              "I128"
+            ],
+            [
+              "nonce",
+              "U64"
+            ]
+          ],
+          "outputs": []
+        },
+        {
+          "name": "balance_of",
+          "inputs": [
+            [
+              "device_hash",
+              "BytesN32"
+            ]
+          ],
+          "outputs": [
+            "I128"
+          ]
+        },
+        {
+          "name": "initialize",
+          "inputs": [
+            [
+              "admin",
+              "Address"
+            ],
+            [
+              "agent_registry_id",
+              "Address"
+            ],
+            [
+              "device_registry_id",
+              "Address"
+            ]
+          ],
+          "outputs": []
+        },
+        {
+          "name": "fund_escrow",
+          "inputs": [
+            [
+              "token",
+              "Address"
+            ],
+            [
+              "wallet",
+              "Address"
+            ],
+            [
+              "device_hash",
+              "BytesN32"
+            ],
+            [
+              "amount",
+              "I128"
+            ]
+          ],
+          "outputs": []
+        },
+        {
+          "name": "escrow_token",
+          "inputs": [
+            [
+              "device_hash",
+              "BytesN32"
+            ]
+          ],
+          "outputs": [
+            "Option<Address>"
+          ]
+        },
+        {
+          "name": "defund_escrow",
+          "inputs": [
+            [
+              "token",
+              "Address"
+            ],
+            [
+              "device_hash",
+              "BytesN32"
+            ],
+            [
+              "amount",
+              "I128"
+            ]
+          ],
+          "outputs": []
+        },
+        {
+          "name": "pending_balance",
+          "inputs": [
+            [
+              "merchant",
+              "Address"
+            ]
+          ],
+          "outputs": [
+            "I128"
+          ]
+        },
+        {
+          "name": "sweep_on_revoke",
+          "inputs": [
+            [
+              "token",
+              "Address"
+            ],
+            [
+              "device_hash",
+              "BytesN32"
+            ],
+            [
+              "agent",
+              "Address"
+            ]
+          ],
+          "outputs": [
+            "I128"
+          ]
+        }
+      ]
+    }
+  ],
+  "asset": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+  "registryLinksVerified": true,
+  "sdkDefaultsMatch": true,
+  "latestLedger": 5597977,
+  "limits": "Ledger identity, Wasm integrity, exact required lifecycle ABI including BytesN32 and policy fields, and registry links; not organizer eligibility, full behavioral audit or payment evidence."
+}

@@ -10,6 +10,8 @@
     "lint": "eslint scripts src tests --no-error-on-unmatched-pattern",
     "verify:sdk-imports": "tsx scripts/sdk-imports.ts",
     "verify:contracts": "node --env-file-if-exists=.env.spike.local --import tsx scripts/verify-contracts.ts",
+    "setup:spike": "tsx scripts/setup-spike.ts",
+    "test:spike": "node --import tsx --test tests/testnet/config.test.ts tests/testnet/contracts.test.ts tests/testnet/guards.test.ts tests/testnet/evidence.test.ts tests/testnet/handoff.test.ts tests/testnet/journal.test.ts tests/testnet/setup.test.ts",
     "spike:noir-velo": "node --env-file-if-exists=.env.spike.local --import tsx scripts/spike-noir-velo.ts",
     "test:unit": "vitest run tests/unit",
     "test:integration": "vitest run tests/integration",

@@ -1,14 +1,14 @@
 # Implementation plan — AegisPay
 
-**Plan steward:** the active coding agent, supervised by Vincent. One executor; no agent crew is configured.
-**Last checkpoint:** 2026-11-07, TASK-001 claimed on local Git main baseline 5d51ffa.
+**Plan steward:** the active coding agent, supervised by Vincent. User-authorized Orca implementation and read-only review; the coordinator is now the sole writer after both workers stopped at their usage limit.
+**Last checkpoint:** 2026-11-07, TASK-001 complete at 0b68c7e; TASK-002 local safeguards/setup implemented, live payment gate blocked.
 **Deadline / demo cutoff:** event deadline unknown. [assumption] Plan for roughly 16–24 focused hours over two days after prerequisites; keep the final quarter for verification and rehearsal. No fabricated calendar cutoff.
-**Current stopping point:** reviewed execution docs and dependency research only; no runnable MVP or live payment evidence.
+**Current stopping point:** installed pinned harness; tested ABI/intent/evidence/handoff/journal guards and generated/funded disposable Testnet accounts. No payment authorization, refusal, claim, model run or runnable UI is proved. The live spike driver is still preflight-only; helpers are not a completed purchase flow.
 
 ## 1. Planning inputs
 
-- **Current code state:** greenfield; only IDEA.md, FMD and this documentation package. Workspace was not a Git repository at inspection. No package install, app, migration, testnet wallet operation or deployment is claimed.
-- **Team capacity:** one active coding agent/implementer handles TypeScript, SQL, SDK integration and UI serially. Vincent holds external wallet/provider-account access. Do not invent named teammates or spawn a crew from this plan.
+- **Current code state:** local Git main contains TASK-001 at 0b68c7e. TASK-002 branch contains adapters, a preflight-only spike, a local encrypted single-operation journal and synthetic tests. Disposable account funding and live read-only deployment verification are observed; no app/DB/payment/claim is claimed.
+- **Team capacity:** one active coding agent/implementer handles TypeScript, SQL, SDK integration and UI serially. Vincent holds external wallet/provider-account access. The latest user instruction authorized Orca workers; both reported findings before their usage limit, and were explicitly stopped with confirmed ptyKilled receipts before coordinator edits.
 - **Core journey:** UJ-002 with UJ-001 setup, UJ-003 refusal, UJ-004 recovery and UJ-005 claim. Product definitions: [PRD](prd.md).
 - **Highest risks:** Velo accepts the same prepared Noir transaction; mandatory contract deployment; event/hash decoding; durable crash boundary; model account access.
 - **Required quality commands:** `python tools/check-docs.py` and `python fmd/tools/check-implementation-plan.py docs/implementation-plan.md --strict` now. Future code commands: `pnpm typecheck`, `pnpm lint`, `pnpm test:unit`, `pnpm test:integration`, `pnpm test:e2e`, `pnpm build`, opt-in `pnpm test:testnet`. See [QA](qa-test-plan.md).
@@ -29,7 +29,7 @@ Statuses are `ready`, `in_progress`, `blocked`, `done`, `cut`. Here blocked down
 | ID | Outcome / trace | Depends on | Owner | Write scope | Work ref | Status | Gate / evidence |
 |----|-----------------|------------|-------|-------------|----------|--------|-----------------|
 | TASK-001 | Minimal pinned runtime/package and SDK import harness; infra, F-012; TC-026 | — | Implementer | package.json, pnpm-lock.yaml, tsconfig.json, eslint.config.mjs, .node-version, scripts/sdk-imports.ts, scripts/verify-contracts.ts, .env.example, compose.yaml | task/TASK-001-sdk-harness | done | `npx --yes pnpm@12.18.0 verify:sdk-imports` + `npx --yes pnpm@12.18.0 typecheck` + `npx --yes pnpm@12.18.0 lint`: result: PASS, exit 0; frozen install exit 0; build approval repaired initial install exit 1; docs/run-evidence.jsonl |
-| TASK-002 | Same signed Noir invocation sponsored/submitted via Velo, virtual device, live policy refusal and merchant claim; F-001, F-002, F-003, F-006, F-007, F-011; TC-001, TC-002, TC-013, TC-016, TC-022 | TASK-001 | Implementer | scripts/spike-noir-velo.ts, src/server/integrations/noir.ts, src/server/integrations/velo.ts, src/server/integrations/stellar-evidence.ts, tests/testnet/, docs/evidence/testnet/ | — | ready | `pnpm verify:contracts` + `pnpm spike:noir-velo`: pending; TASK-001 passed; no live evidence |
+| TASK-002 | Same signed Noir invocation sponsored/submitted via Velo, virtual device, live policy refusal and merchant claim; F-001, F-002, F-003, F-006, F-007, F-011; TC-001, TC-002, TC-013, TC-016, TC-022 | TASK-001 | Implementer | scripts/spike-noir-velo.ts, src/server/integrations/noir.ts, src/server/integrations/velo.ts, src/server/integrations/stellar-evidence.ts, src/server/integrations/spike-journal.ts, scripts/setup-spike.ts, tests/testnet/, docs/evidence/testnet/, package.json, .gitignore | task/TASK-002-noir-velo-spike | blocked | `npx --yes pnpm@12.18.0 test:spike`: 31 pass; `node --env-file=.env.spike.local --import tsx scripts/verify-contracts.ts`: exit 0 for explicit October tuple; November candidate policy rejected. `npx --yes pnpm@12.18.0 test:testnet`: exit 1, 31 pass/1 required live failure/0 skips, missing VELO_GAS_API_KEY; RUN_TESTNET remains 0. Fixture provisioning and full live driver wiring remain. docs/run-evidence.jsonl |
 | TASK-003 | Durable quote, budget, nonce, attempt and evidence constraints validated against Postgres; F-004, F-006, F-008, F-009; INV-001, INV-003, INV-010; TC-007, TC-018, TC-023, TC-031 | TASK-002 | Implementer | src/server/db/, src/server/domain/, scripts/seed-demo.ts, tests/unit/, tests/integration/, drizzle.config.ts, package.json, pnpm-lock.yaml | — | blocked | `pnpm test:unit` and `pnpm test:integration`; no results observed |
 | TASK-004 | Authenticated API and Freighter owner setup/funding/policy path; F-001, F-002, F-003; TC-020, TC-022, TC-024 | TASK-003 | Implementer | src/server/auth/, src/app/api/session/, src/app/api/v1/wallet-operations/, src/app/login/, src/app/components/WalletControls.tsx, tests/integration/auth.test.ts, tests/integration/http-boundaries.test.ts | — | blocked | `pnpm test:integration` and `pnpm typecheck`; live wallet lifecycle evidence also required; not run |
 | TASK-005 | CLI purchases real protected endpoint through durable payment worker and gates report by receipt; F-004, F-006, F-007, F-008, F-009; TC-001, TC-006, TC-011, TC-030 | TASK-004 | Implementer | src/worker/, src/server/merchant/, src/server/integrations/, src/server/domain/, src/app/api/, scripts/purchase-smoke.ts, tests/integration/, package.json | — | blocked | `pnpm purchase:smoke` and `pnpm test:integration`; no results observed |
@@ -53,17 +53,19 @@ If GitHub is later configured, task branches/PRs carry task ID, affected feature
 
 ## 4. GitHub delivery projection
 
-**Run ID:** `RUN-20261107-aegispay-docs` identifies the preparation session only; no live build run is activated.
+**Run ID:** `RUN-20261107-aegispay-docs` identifies preparation. Local build events are in docs/run-evidence.jsonl; Orca run run_5e2e36ca3650 supplied implementation and read-only review, with usage-limit stops retained in its history.
 **GitHub delivery mode:** `not configured`.
 
-Repository, project owner/number, remote/default branch and activation digest are absent. No Issues, Projects, PRs or Actions are created. A future explicit delivery setup may enable the kit's preview/SHA-bound projection; until then local Markdown remains the sole task authority. Missing GitHub setup never blocks local implementation.
+Local Git default branch is main. Remote repository, project owner/number and GitHub activation digest remain absent. No Issues, Projects, PRs or Actions are created. A future explicit delivery setup may enable the kit's preview/SHA-bound projection; until then local Markdown remains the sole task authority. Missing GitHub setup never blocks local implementation.
 
 ## 5. Run evidence and derived view
 
-No application run events are fabricated. `docs/run-evidence.jsonl` will be created by the first actual build checkpoint. Current ready task is TASK-001; TASK-002 through TASK-010 await dependencies. The checker derives ten serial waves from this DAG. A local bootstrap import gate may proceed without provider keys; missing keys block the live spike and are recorded with exact missing variable names, never values.
+Actual build/test events are recorded in `docs/run-evidence.jsonl`. TASK-001 is done; TASK-002 is blocked; TASK-003 through TASK-010 retain their unfinished dependencies. No UI work can start before the real same-transaction integration gate. `.env.spike.local` is generated, ignored and funded, with explicitly verified October contract IDs. VELO_GAS_API_KEY remains absent and RUN_TESTNET remains 0. Source/ABI/registry-link verification does not prove organizer eligibility or successful execution. Full live provisioning/payment/refusal/claim driver work remains; the current spike deliberately cannot claim success.
 
 ## 6. Plan change log
 
 | Timestamp / event | Tasks changed | Why / evidence | Canonical docs reconciled |
 |-------------------|---------------|----------------|---------------------------|
 | 2026-11-07 · preparation | TASK-001 through TASK-010 created | Greenfield workspace and public package research; no app execution | PRD, architecture, data, API, methods, security, QA |
+
+| 2026-11-07 ? local build checkpoint | TASK-001 done; TASK-002 blocked | Pinned bootstrap passed; synthetic guards and local Testnet setup observed; complete live payment gate pending | Research, QA, onboarding and decision ledger reconciled |

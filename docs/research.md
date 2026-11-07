@@ -31,6 +31,8 @@ The web reader could not retrieve several GitHub package paths. The published np
 
 ## Specific live unknowns
 
+Implementation follow-up, 2026-11-07: the exact packages were installed and the runtime import/typecheck/lint gates passed (TASK-001). The November candidate registry's actual Wasm ABI omitted AgentPolicy.owner and was rejected. The October published tuple passed read-only network, Wasm hash, lifecycle ABI, registry-link and native-SAC verification; the selected explicit configuration and public artifacts are in the [ledger](DECISION-LEDGER.md). Distinct disposable Testnet accounts were generated and funded, with their credentials kept local. These observations do not prove any Noir authorization, Velo execution or claim.
+
 1. Which organizer deployment is mandatory and live, and whether Gas Station qualifies for this hackathon. The November IDs in IDEA.md are candidates, not verified config.
 2. Whether Velo accepts the prepared Noir invocation and the enabled project sponsors it.
 3. How the fee-bump outer transaction maps to the inner authorization in returned RPC/event data.

@@ -42,3 +42,9 @@ VERSION is 4.6.0 while manifest version is 4.5.0. Older orchestrator/agent templ
 ## Remaining execution verification
 
 No package installation/typecheck/build, DB migration, app unit/integration/browser test, model call, wallet registration, contract read, Velo request, payment, claim or deployment was executed. No working credentials were supplied or sought from private files. Public metadata/signatures support selected APIs but do not prove live compatibility. TASK-001/TASK-002 and QA gates must establish those facts. No zero-mistake guarantee or event-qualification claim is made.
+
+## Implementation follow-up — 2026-11-07
+
+The preceding sections describe the preparation session. Subsequent execution installed the pinned harness and passed imports/typecheck/lint; synthetic spike tests and generated/funded Testnet accounts are recorded in run evidence. One Orca worker independently verified package metadata/APIs and reviewed the implementation, finding missing ABI type/lifecycle validation and an expiry race across journal I/O. Fixes and targeted regressions now exist. Both Orca workers reached their usage limit and were explicitly stopped with confirmed process-exit receipts before coordinator edits; the reviewer did not issue a final approval of the coordinator's later code.
+
+Read-only deployment checks rejected the November candidate policy ABI and verified the explicit October tuple. Signed agent XDR and credential values are absent from committed artifacts. Full driver wiring, Noir fixture provisioning and all live authorization/refusal/claim/application gates remain incomplete. The historical preparation-only review is not an application acceptance result.

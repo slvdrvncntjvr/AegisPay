@@ -25,6 +25,15 @@ No cloud project ID, Git remote, live wallet or verified contract tuple exists y
 
 ## 3. Pivots & decisions (newest first)
 
+### 2026-11-07 — Explicitly select the verified October tuple for the technical spike
+
+- **Type:** integration configuration. **Observation:** the November candidate agent registry in IDEA.md is deployed but its raw Wasm spec exposes AgentPolicy without owner. Exact ABI verification rejected it with POLICY_STRUCT_ABI_MISMATCH; no signing occurred. See [read-only inspection](evidence/testnet/incompatible-november-agent-registry.json).
+- **Choice:** explicitly configure the October SDK-published tuple locally after independent Testnet network, Wasm hash, complete required lifecycle ABI, policy struct, registry links and native SAC checks passed. The public [verification artifact](evidence/testnet/contracts-1794013516299.json) records the actual IDs and ledger. No silent SDK default selection or new deployment is used.
+- **Limit:** this establishes technical read-only compatibility only. Organizer-mandated deployment and Gas eligibility remain unconfirmed. If November IDs are mandatory, stop for updated compatible official contracts; never relax verification to make that deployment pass.
+- **Local setup:** generated distinct disposable owner/agent/merchant credentials and encryption key into ignored .env.spike.local; all three accounts were created and independently observed on Testnet. RUN_TESTNET remains 0. Velo account/key/relayer activation remains external.
+- **Recovery boundary:** the new filesystem journal is a single-operation spike harness with fsynced append-only records, authenticated envelope encryption and exclusive handoff markers. It is not the application database and does not establish PostgreSQL race/recovery acceptance. Full live driver wiring and actual execution remain incomplete.
+- **Verification tooling:** isolated spike tests use Node's built-in test runner with tsx; application unit/integration tests still target Vitest. An offline pass never satisfies the required live acceptance case.
+
 ### 2026-11-07 — Use the supported TypeScript lint toolchain
 
 - **Type:** tooling. **Change:** TypeScript 7.0.2 research candidate → exact 6.0.3 with typescript-eslint 8.72.1 and ESLint 10.14.0.
@@ -73,4 +82,4 @@ No cloud project ID, Git remote, live wallet or verified contract tuple exists y
 
 ## 6. Open items / risks
 
-Live integration and official event eligibility are the first execution gates. Model access, package installation, DB migrations, API controls, tests and UI remain unexecuted. Capacity estimate is an assumption. No market interviews or positive unit economics were established. See task plan for work ownership; do not duplicate task status here.
+Live integration and official event eligibility remain open. Package installation, synthetic spike safeguards, disposable Testnet funding and read-only deployment checks have execution evidence. Model access, DB migrations, application APIs, UI, sponsored authorization, contract refusal and merchant claim remain unproved. Capacity estimate is an assumption. No market interviews or positive unit economics were established. See task plan for status.

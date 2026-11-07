@@ -1,0 +1,30 @@
+{
+  "classification": "live-read-only-incompatible-contract-inspection",
+  "observedAt": "2026-11-07T01:05:15.665Z",
+  "network": "testnet",
+  "contractId": "CBTDMJVCFQDIVWZBKAKZ2FQ3UEJNAAUFYCTJ3E4ON2MYXPLPSIXQ25JZ",
+  "wasmSha256": "b0da4885fd635a6b3d76250c9423424c84c409a2e617b76946ffd2af90c7a22b",
+  "latestLedger": 5597977,
+  "verificationCode": "POLICY_STRUCT_ABI_MISMATCH",
+  "policyFields": [
+    {
+      "name": "agent",
+      "type": "Address"
+    },
+    {
+      "name": "asset",
+      "type": "Address"
+    },
+    {
+      "name": "expires_at",
+      "type": "U64"
+    },
+    {
+      "name": "max_amount",
+      "type": "I128"
+    }
+  ],
+  "missingRequiredField": "owner: Address",
+  "source": "IDEA.md November candidate",
+  "limits": "Public ABI/Wasm inspection only. No signing, submission, authorization, claim or organizer-eligibility proof."
+}

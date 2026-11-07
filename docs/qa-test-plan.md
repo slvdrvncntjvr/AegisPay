@@ -1,12 +1,12 @@
 # QA test plan
 
-**Status:** executable test specification; application tests do not exist yet and have not passed. Documentation checks are recorded separately in [document review](document-review.md).
+**Status:** application/release test specification remains pending. Bootstrap and isolated synthetic spike checks now have actual evidence in [run evidence](run-evidence.jsonl); no successful payment or complete application test suite is claimed.
 
 ## Strategy and environments
 
 Use pure Vitest unit tests for parsing/guards; PostgreSQL integration tests for locks, state transitions and uniqueness; Playwright Chromium for visible journey and secret/fixture leakage; separate opt-in real Testnet tests. Never use SQLite to prove PostgreSQL races. Run concurrency cases on independent DB connections. Real funding/submission tests use capped disposable Testnet keys/wallets and configured Velo Gas access.
 
-Required package scripts are implementation targets for TASK-001:
+The package exposes these command names. SDK imports, typecheck, lint, contract verification and the guarded preflight exist. Unit/integration/browser/build/demo commands target later tasks and are not runnable acceptance suites yet; demo:smoke still names a future script. TASK-001 stays limited to the runtime/SDK harness.
 
 ```text
 pnpm typecheck             strict TypeScript, no emit
@@ -15,7 +15,8 @@ pnpm lint                  configured current ESLint command, not obsolete next 
 pnpm test:unit             vitest run tests/unit
 pnpm test:integration      vitest run tests/integration (isolated PostgreSQL DB)
 pnpm test:e2e              playwright test tests/e2e (local web + worker + test DB)
-pnpm test:testnet          vitest run tests/testnet (explicit RUN_TESTNET=1 guard)
+pnpm test:spike            node --import tsx --test (explicit synthetic spike files only)
+pnpm test:testnet          node --env-file-if-exists=.env.spike.local --import tsx --test tests/testnet/*.test.ts
 pnpm build                next build
 pnpm verify:contracts     tsx scripts/verify-contracts.ts
 pnpm spike:noir-velo       tsx scripts/spike-noir-velo.ts
@@ -23,6 +24,8 @@ pnpm demo:smoke            tsx scripts/demo-smoke.ts
 ```
 
 Testnet scripts refuse mainnet and missing configured IDs; missing credentials are reported as not run, never a passing mock. `test:testnet` must fail its acceptance run if a required live case skips. Build scripts refuse to print environment values. Mock fixtures have obvious synthetic transaction IDs and never enter a live evidence file.
+
+The spike harness uses Node's built-in test runner, including its required live acceptance case; application unit/integration suites remain Vitest targets. `test:spike` exercises ABI mutations, source/operation/auth-root substitutions, missing/invalid signatures, fee-bump and embedded-event matching, provider redaction, delayed-journal expiry, append-only/encrypted journal restart and setup-file preservation without network access. It is not the PostgreSQL or live payment gate. The live spike remains preflight-only and deliberately fails while provisioning/payment/refusal/claim wiring is unfinished, even if configuration is filled.
 
 ## Test cases and feature/invariant traceability
 
