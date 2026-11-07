@@ -40,3 +40,5 @@ Implementation follow-up, 2026-11-07: the exact packages were installed and the 
 5. Model account access, latency and actual choice behavior.
 
 These are work items with explicit evidence gates, not unanswered routine product questions. No successful payment, deployment, registration or contract read is claimed in this documentation handoff.
+
+Implementation follow-up: Velo managed custody has a separate first-activation route. Published `updatePolicy` rejects disabled-to-enabled changes when custody is ready; `activateManagedSponsorship` enables only with active linked project contracts. The contract-linking UI requires a registered/synced project. This explains a likely cause of the user screenshot?s generic policy-save error; no authenticated backend error or successful activation was independently observed. Corrected onboarding now follows register ? active escrow link ? managed activation.
