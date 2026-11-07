@@ -2,7 +2,7 @@
 
 A bounded agent that buys useful API reports for agent developers, with Noir spending limits and Velo-sponsored Stellar Testnet execution.
 
-**Live website:** Not deployed; mandatory submission item outstanding.
+**Live website:** [https://aegispay-live.vercel.app](https://aegispay-live.vercel.app) — public Testnet proof console (verified spike; full model loop unfinished).
 
 **Demo video (2 min):** Not recorded or published; [recording script](docs/submission/recording-script.md).
 
