@@ -1,6 +1,6 @@
-import { loadIntegrationEnvironment } from './db/local.js';
-import { configuredStore } from '../src/server/db/connection.js';
-import { migrate } from '../src/server/db/migrate.js';
+import { loadIntegrationEnvironment } from './db/local.ts';
+import { configuredStore } from '../src/server/db/connection.ts';
+import { migrate } from '../src/server/db/migrate.ts';
 
 loadIntegrationEnvironment();
 const store = configuredStore();

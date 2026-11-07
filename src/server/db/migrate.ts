@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { readFile, readdir } from 'node:fs/promises';
-import type { Store } from './connection.js';
+import type { Store } from './connection.ts';
 
 const directory = new URL('./migrations/', import.meta.url);
 export async function migrate(store: Store) {

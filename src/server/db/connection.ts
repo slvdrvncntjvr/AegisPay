@@ -1,6 +1,6 @@
 import { Pool } from 'pg';
 import { drizzle } from 'drizzle-orm/node-postgres';
-import * as schema from './schema.js';
+import * as schema from './schema.ts';
 
 export type Database = ReturnType<typeof databaseFor>;
 function databaseFor(client: Pool | import('pg').PoolClient) { return drizzle(client, { schema }); }

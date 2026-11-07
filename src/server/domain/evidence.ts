@@ -5,9 +5,9 @@ import { createHash, randomUUID } from 'node:crypto';
 import { z } from 'zod';
 import { and, eq } from 'drizzle-orm';
 import { accountSchema, contractSchema, amountSchema, nonceSchema, hashSchema, uuidSchema, unsignedAmountSchema } from '@aegispay/shared';
-import type { Store } from '../db/connection.js';
-import * as s from '../db/schema.js';
-import { databaseTime, deny, lockScope } from './purchases.js';
+import type { Store } from '../db/connection.ts';
+import * as s from '../db/schema.ts';
+import { databaseTime, deny, lockScope } from './purchases.ts';
 
 const observationSchema = z.strictObject({
   ownerId: uuidSchema, agentId: uuidSchema, runId: uuidSchema, quoteId: uuidSchema, attemptId: uuidSchema,

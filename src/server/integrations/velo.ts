@@ -1,5 +1,5 @@
 import { Velo, type GasApi, type GasExecutionIdentity, type GasSponsorReservation, type GasSubmitResult } from '@carts1024/velo-sdk';
-import { SpikeGuardError } from './noir.js';
+import { SpikeGuardError } from './noir.ts';
 
 export function createVelo(env: NodeJS.ProcessEnv = process.env) {
   if (!env.VELO_GAS_API_KEY?.trim()) throw new SpikeGuardError('MISSING_CONFIGURATION', ['VELO_GAS_API_KEY']);

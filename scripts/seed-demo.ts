@@ -1,6 +1,6 @@
-import { loadIntegrationEnvironment } from './db/local.js';
-import { configuredStore } from '../src/server/db/connection.js';
-import { seedConfigFromEnvironment, seedDemo } from '../src/server/db/seed.js';
+import { loadIntegrationEnvironment } from './db/local.ts';
+import { configuredStore } from '../src/server/db/connection.ts';
+import { seedConfigFromEnvironment, seedDemo } from '../src/server/db/seed.ts';
 
 loadIntegrationEnvironment();
 const store = configuredStore();

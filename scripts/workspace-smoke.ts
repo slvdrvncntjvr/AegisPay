@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict';
 import { toolIntentSchema, xlmToStroops } from '@aegispay/shared';
 import { BoundedIntentGuard } from '@aegispay/agent';
-import { createIntentGate } from '../apps/server/src/intent-gate.js';
-import { parseToolIntent, runtimeHealth } from '../apps/web/src/runtime.js';
-import { GET, runtime } from '../apps/web/src/app/api/health/route.js';
+import { createIntentGate } from '../apps/server/src/intent-gate.ts';
+import { parseToolIntent, runtimeHealth } from '../apps/web/src/runtime.ts';
+import { GET, runtime } from '../apps/web/src/app/api/health/route.ts';
 
 assert.equal(runtime, 'nodejs');
 assert.deepEqual(await GET().json(), runtimeHealth());

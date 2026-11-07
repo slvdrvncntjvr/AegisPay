@@ -1,8 +1,8 @@
 import { Address, type Contract, FeeBumpTransaction, Keypair, Transaction, TransactionBuilder, rpc, Networks, scValToNative, type xdr } from '@stellar/stellar-sdk';
 import { type NoirEvent } from '@noirx402/agent-sdk';
 import { type GasExecutionIdentity, type GasSubmitResult } from '@carts1024/velo-sdk';
-import { inspectAuthorization, SpikeGuardError, type AuthorizationIntent } from './noir.js';
-import { validateExecution } from './velo.js';
+import { inspectAuthorization, SpikeGuardError, type AuthorizationIntent } from './noir.ts';
+import { validateExecution } from './velo.ts';
 
 export interface ObservedNoirRpcEvent {
   id: string; type: string; ledger: number; ledgerClosedAt: string; txHash: string;

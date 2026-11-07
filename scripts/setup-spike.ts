@@ -3,8 +3,8 @@ import { open, readFile } from 'node:fs/promises';
 import { parseEnv } from 'node:util';
 import { pathToFileURL } from 'node:url';
 import { Asset, Keypair, Networks, StrKey, rpc } from '@stellar/stellar-sdk';
-import { SpikeGuardError } from '../src/server/integrations/noir.js';
-import { safeFailure } from './verify-contracts.js';
+import { SpikeGuardError } from '../src/server/integrations/noir.ts';
+import { safeFailure } from './verify-contracts.ts';
 
 export async function createSpikeEnvironment(file = '.env.spike.local') {
   let handle;

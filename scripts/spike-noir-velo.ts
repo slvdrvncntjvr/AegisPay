@@ -1,13 +1,13 @@
 import { pathToFileURL } from 'node:url';
 import { Keypair, StrKey } from '@stellar/stellar-sdk';
-import { deploymentVariables, SpikeGuardError, createNoir, readTestnetConfig } from '../src/server/integrations/noir.js';
-import { safeFailure, verifyContracts } from './verify-contracts.js';
+import { deploymentVariables, SpikeGuardError, createNoir, readTestnetConfig } from '../src/server/integrations/noir.ts';
+import { safeFailure, verifyContracts } from './verify-contracts.ts';
 import { mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
-import { createVelo } from '../src/server/integrations/velo.js';
-import { executeSpike, provisionSpike, type SpikeContext } from '../src/server/integrations/spike-driver.js';
-import { spikeDigest } from '../src/server/integrations/spike-runtime.js';
-import { writeSpikeRecord } from '../src/server/integrations/spike-journal.js';
+import { createVelo } from '../src/server/integrations/velo.ts';
+import { executeSpike, provisionSpike, type SpikeContext } from '../src/server/integrations/spike-driver.ts';
+import { spikeDigest } from '../src/server/integrations/spike-runtime.ts';
+import { writeSpikeRecord } from '../src/server/integrations/spike-journal.ts';
 
 export const liveVariables = [...deploymentVariables, 'DEMO_OWNER_PUBLIC_KEY', 'DEMO_AGENT_PUBLIC_KEY',
   'DEMO_MERCHANT_PUBLIC_KEY', 'AGENT_SECRET', 'VELO_GAS_API_KEY', 'VELO_GAS_BASE_URL',

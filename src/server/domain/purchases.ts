@@ -1,8 +1,8 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { and, eq, sql } from 'drizzle-orm';
 import { amountSchema, MAX_NONCE, uuidSchema } from '@aegispay/shared';
-import type { Database, Store } from '../db/connection.js';
-import * as s from '../db/schema.js';
+import type { Database, Store } from '../db/connection.ts';
+import * as s from '../db/schema.ts';
 
 export interface Scope { ownerId: string; agentId: string; runId: string }
 export interface AcceptInput extends Scope { quoteId: string; clientKey: string }

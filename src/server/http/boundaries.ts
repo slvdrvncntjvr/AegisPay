@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import { ZodError } from 'zod';
-import { DomainError, deny } from '../domain/purchases.js';
-import { SpikeGuardError } from '../integrations/noir.js';
+import { DomainError, deny } from '../domain/purchases.ts';
+import { SpikeGuardError } from '../integrations/noir.ts';
 
 export function checkOrigin(request: Request, origin: string) {
   if (request.headers.get('origin') !== origin || request.headers.get('sec-fetch-site') === 'cross-site') deny('ORIGIN_DENIED');

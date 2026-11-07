@@ -1,5 +1,5 @@
-# Current proof slice needs only web/shared source and workspace manifests.
-# Review this allowlist before the full app handoff; private runtime files never belong here.
+# Web build includes authenticated Node API dependencies; secrets stay excluded.
+# Review before expanding worker hosting; private runtime files never belong here.
 *
 !package.json
 !pnpm-lock.yaml
@@ -16,6 +16,16 @@
 !packages/shared/**
 !packages/agent
 !packages/agent/package.json
+!src
+!src/server
+!src/server/**
+!scripts
+!scripts/verify-contracts.ts
+src/server/integrations/model.ts
+src/server/integrations/velo.ts
+src/server/integrations/spike-driver.ts
+src/server/integrations/spike-journal.ts
+src/server/integrations/stellar-evidence.ts
 **/node_modules/**
 **/.next/**
 **/.env*

@@ -4,12 +4,12 @@ import { Keypair, Networks, rpc } from '@stellar/stellar-sdk';
 import type { NoirAgentClient } from '@noirx402/agent-sdk';
 import { z } from 'zod';
 import { amountSchema } from '@aegispay/shared';
-import type { Store } from '../db/connection.js';
-import * as s from '../db/schema.js';
-import type { Principal } from '../auth/session.js';
-import { requireRole } from '../auth/session.js';
-import { databaseTime, deny } from './purchases.js';
-import { inspectWalletOperation, type SpikeConfig, type WalletOperation } from '../integrations/spike-runtime.js';
+import type { Store } from '../db/connection.ts';
+import * as s from '../db/schema.ts';
+import type { Principal } from '../auth/session.ts';
+import { requireRole } from '../auth/session.ts';
+import { databaseTime, deny } from './purchases.ts';
+import { inspectWalletOperation, type SpikeConfig, type WalletOperation } from '../integrations/spike-runtime.ts';
 
 export const walletInput = z.discriminatedUnion('kind', [
   z.strictObject({ kind: z.literal('registerDevice') }),

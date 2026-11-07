@@ -2,8 +2,8 @@ import { randomUUID } from 'node:crypto';
 import { z } from 'zod';
 import { eq, sql } from 'drizzle-orm';
 import { accountSchema, contractSchema, hashSchema } from '@aegispay/shared';
-import type { Store } from './connection.js';
-import * as s from './schema.js';
+import type { Store } from './connection.ts';
+import * as s from './schema.ts';
 
 export const seedConfigSchema = z.strictObject({
   ownerAddress: accountSchema, agentAddress: accountSchema, merchantAddress: accountSchema, deviceHash: hashSchema,

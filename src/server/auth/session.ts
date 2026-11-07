@@ -1,8 +1,8 @@
 import { createHash, randomBytes, randomUUID, timingSafeEqual } from 'node:crypto';
 import { and, eq, gt, isNull, sql } from 'drizzle-orm';
-import type { Store } from '../db/connection.js';
-import * as s from '../db/schema.js';
-import { databaseTime, deny } from '../domain/purchases.js';
+import type { Store } from '../db/connection.ts';
+import * as s from '../db/schema.ts';
+import { databaseTime, deny } from '../domain/purchases.ts';
 
 export const digest = (value: string) => createHash('sha256').update(value).digest('hex');
 export const equalSecret = (a: string, b: string) => timingSafeEqual(Buffer.from(digest(a), 'hex'), Buffer.from(digest(b), 'hex'));

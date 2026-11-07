@@ -1,6 +1,6 @@
-import { createNoir, readTestnetConfig } from './noir.js';
-import { verifyContracts } from '../../../scripts/verify-contracts.js';
-import type { WalletGateway } from '../domain/wallet.js';
+import { createNoir, readTestnetConfig } from './noir.ts';
+import { verifyContracts } from '../../../scripts/verify-contracts.ts';
+import type { WalletGateway } from '../domain/wallet.ts';
 
 export async function createWalletGateway(env: NodeJS.ProcessEnv): Promise<WalletGateway> {
   const config = readTestnetConfig(env);

@@ -300,3 +300,5 @@ Built by Salvador Vincent Javier with AI coding assistance. Uses Noir, Velo, Ste
 
 
 Current build checkpoint: real workspaces and PostgreSQL foundation pass 22 unit and 37 actual PostgreSQL tests. Gemini AI Studio and Render are the selected model/hosting providers. Full authenticated agent purchase and hosted release remain incomplete.
+
+Latest saved build and shutdown details: [final checkpoint](docs/submission/final-checkpoint.md). [112-second evidence-replay MP4](docs/submission/aegispay-demo.mp4) is preserved in this repository; this is not a completed autonomous model purchase.

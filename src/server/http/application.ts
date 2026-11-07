@@ -1,12 +1,12 @@
 import { desc, eq, sql } from 'drizzle-orm';
 import { z } from 'zod';
 import { uuidSchema } from '@aegispay/shared';
-import type { Store } from '../db/connection.js';
-import * as s from '../db/schema.js';
-import { authenticate, login, ownedRun, requireRole, sessionCookie, throttle } from '../auth/session.js';
-import { deny } from '../domain/purchases.js';
-import { ownedWallet, prepareWallet, submitWallet, observeWallet, walletView, type WalletGateway } from '../domain/wallet.js';
-import { checkOrigin, json, jsonBody, safeError } from './boundaries.js';
+import type { Store } from '../db/connection.ts';
+import * as s from '../db/schema.ts';
+import { authenticate, login, ownedRun, requireRole, sessionCookie, throttle } from '../auth/session.ts';
+import { deny } from '../domain/purchases.ts';
+import { ownedWallet, prepareWallet, submitWallet, observeWallet, walletView, type WalletGateway } from '../domain/wallet.ts';
+import { checkOrigin, json, jsonBody, safeError } from './boundaries.ts';
 
 export interface ApplicationContext {
   store: Store;

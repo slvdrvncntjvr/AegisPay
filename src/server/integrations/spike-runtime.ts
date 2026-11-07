@@ -4,8 +4,8 @@ import { join } from 'node:path';
 import { Address, Contract, Keypair, Networks, Transaction, TransactionBuilder, nativeToScVal, rpc, xdr } from '@stellar/stellar-sdk';
 import { toCall, type NoirOperation } from '@noirx402/agent-sdk';
 import { z } from 'zod';
-import { SpikeGuardError, type readTestnetConfig } from './noir.js';
-import { readSpikeRecord, writeSpikeRecord } from './spike-journal.js';
+import { SpikeGuardError, type readTestnetConfig } from './noir.ts';
+import { readSpikeRecord, writeSpikeRecord } from './spike-journal.ts';
 
 export type SpikeConfig = ReturnType<typeof readTestnetConfig>;
 export type WalletOperation = Exclude<NoirOperation, { kind: 'authorize' }>;

@@ -3,7 +3,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 import { contract as stellarContract, rpc, scValToNative, xdr } from '@stellar/stellar-sdk';
 import { TESTNET } from '@noirx402/agent-sdk';
-import { readTestnetConfig, SpikeGuardError } from '../src/server/integrations/noir.js';
+import { readTestnetConfig, SpikeGuardError } from '../src/server/integrations/noir.ts';
 
 type Abi = { inputs: [string, string][]; outputs: string[] };
 export const requiredAbi: Record<'deviceRegistry' | 'agentRegistry' | 'paymentEscrow', Record<string, Abi>> = {
