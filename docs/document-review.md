@@ -19,7 +19,7 @@ Performed by the primary agent using FMD's product/claims criteria; not an indep
 - One asset/agent/merchant and two demo resources; no mainnet, fiat or custom smart-contract scope added.
 - No demand/ROI/security-audit/conformance/speed/sponsorship-success claim manufactured.
 - Evidence distinguishes local checks, live contract simulation, included transactions, authorization and claim.
-- Official event rubric/eligibility and capacity remain explicitly unverified/assumed.
+- At preparation official event facts were unavailable; the later handbook reconciliation below resolves rubric/format/tuple while preserving registration/Gas/late-acceptance uncertainties. Capacity stays assumed.
 - Primary engineering research is recorded outside the original brief, as the user requested.
 
 ## Architecture and traceability review
@@ -39,7 +39,7 @@ Performed by the primary agent using FMD's architecture/traceability criteria; n
 
 VERSION is 4.6.0 while manifest version is 4.5.0. Older orchestrator/agent template mentions `in_review` and sole keeper writes; current implementation-plan template/checker uses five statuses and task-agent checkpoints. This suite follows the current plan/checker and makes one executor the steward. The API template's standalone technical-design dependency is folded into system design. Research/inferred intake replace the factory's default no-research/confirmation steps under the user's explicit instruction. Fresh-context subagent reviews were not run; two review lenses above are self-review. Framework files remain unchanged.
 
-## Remaining execution verification
+## Historical preparation execution limits
 
 No package installation/typecheck/build, DB migration, app unit/integration/browser test, model call, wallet registration, contract read, Velo request, payment, claim or deployment was executed. No working credentials were supplied or sought from private files. Public metadata/signatures support selected APIs but do not prove live compatibility. TASK-001/TASK-002 and QA gates must establish those facts. No zero-mistake guarantee or event-qualification claim is made.
 
@@ -47,6 +47,29 @@ No package installation/typecheck/build, DB migration, app unit/integration/brow
 
 The preceding sections describe the preparation session. Subsequent execution installed the pinned harness and passed imports/typecheck/lint; synthetic spike tests and generated/funded Testnet accounts are recorded in run evidence. One Orca worker independently verified package metadata/APIs and reviewed the implementation, finding missing ABI type/lifecycle validation and an expiry race across journal I/O. Fixes and targeted regressions now exist. Both Orca workers reached their usage limit and were explicitly stopped with confirmed process-exit receipts before coordinator edits; the reviewer did not issue a final approval of the coordinator's later code.
 
-Read-only deployment checks rejected the November candidate policy ABI and verified the explicit October tuple. Signed agent XDR and credential values are absent from committed artifacts. Full driver wiring, Noir fixture provisioning and all live authorization/refusal/claim/application gates remain incomplete. The historical preparation-only review is not an application acceptance result.
+Read-only deployment checks rejected the November candidate policy ABI and verified the explicit October tuple. Signed agent XDR and credential values are absent from committed artifacts. At that earlier checkpoint full driver wiring, fixture provisioning and live payment/application gates were incomplete; later live follow-up below supersedes those technical-spike limits. The historical preparation-only review is not an application acceptance result.
 
-Live spike follow-up: the primary executor implemented and tested the full guarded driver, then ran one real Velo-sponsored authorization, an over-cap contract simulation refusal and separate merchant claim. 41 offline tests and 42 opt-in acceptance tests passed with no skips; final typecheck/lint/import gates passed. The SDK event-flag incompatibility was repaired with an independently successful transaction/embedded-event match, with targeted negative tests. A new independent review is being arranged; no approval of this new driver has yet been claimed.
+Live spike follow-up: the primary executor implemented and tested the full guarded driver, then ran one real Velo-sponsored authorization, an over-cap contract simulation refusal and separate merchant claim. 41 offline tests and 42 opt-in acceptance tests passed with no skips; final typecheck/lint/import gates passed. The SDK event-flag incompatibility was repaired with an independently successful transaction/embedded-event match, with targeted negative tests. Subsequent independent review found terminal-envelope cleanup recovery and fee-source reconciliation issues. Repairs/gates are pending in a separate worker; no approval or new test passes are claimed by this documentation task.
+
+
+## Handbook and submission reconciliation — 2026-11-07
+
+Scope: context, ordered root README, index, implementation plan, ledger, system design, PRD, research, onboarding, pitch kit, draft lifecycle note, this review and new submission prose sources. No code, manifest, lockfile, ignore file, framework/checker, chain artifact or run-evidence file changed. Private environment/journals were not read; no push, hosting, model call, wallet signature, payment or application test was performed.
+
+All 13 handbook pages were inspected via local PyMuPDF with UTF-8 stdout; basename/update/hash/page mapping recorded in research. The ignored PDF was neither copied nor linked as a public repo artifact. Official facts now resolve the six requirements, mandatory October 24 tuple, rubric, deadline and presentation timing. The passed deadline/no-extension condition is explicit; no on-time eligibility, organizer-specific Gas approval or guaranteed win is asserted.
+
+The README follows the handbook's complete ordered headings, lists all catalog environment names without values, and points to actual SDK call sites and one real authorization plus separate claim. Fixed-commit source links refer to the observed public TASK-002 implementation; refresh them after later source changes. Two saved reports remain one payment. Actual simulation refusal is not an included failed transaction. Fee-source claims are withheld pending review fix.
+
+The single-package/local-only choice is superseded in canonical intent by minimal real root-declared workspaces and required hosted app, retaining the selected Next Node + private Node worker + PostgreSQL/Drizzle architecture. Existing spike sources remain stable; old task paths are logical components mapped in system design. TASK-011 depends on TASK-002 and precedes TASK-003; TASK-012 follows TASK-010; TASK-013 follows TASK-012. Unfinished tasks remain blocked; TASK-002 stays in_progress for both review fixes. F-005 real LLM remains in scope, access unverified. Specs remain Draft, so no fictional Locked CR was added.
+
+Draft two-minute recording script, eight-slide five-minute pitch/three-minute Q&A source and short write-up are usable planning artifacts. They contain no fake UI screenshots, public app/media URLs, demand claims or completed model-purchase claims. Remaining submission inputs: real workspace bootstrap; review-fix/release gates; model access; DB/app/UI; hosting configuration/working public URL; actual video and public deck URLs; Discord handle/registration confirmation; external Gas interpretation and late acceptance. Public GitHub delivery is now configured and PR/Issue/Project rituals are not required.
+
+
+### Observed documentation gates for this reconciliation
+
+- `python tools/check-docs.py` — PASS, exit 0: 21 top-level/root Markdown files, local links, required sections, 12 features, 10 invariants, 31 QA cases, stable references, index inventory and SDK peer decision.
+- `python fmd/tools/check-implementation-plan.py docs/implementation-plan.md --strict` — APPROVE, exit 0: 13 valid task rows, coherent dependency/state DAG, no same-wave write-scope overlaps. First invocation found noncontiguous new rows and missing exact gate commands; document formatting/commands were repaired, checker unchanged.
+- Direct read-only source validation — PASS: exact 13-section handbook README order, all 25 environment catalog names listed, local links in all three new submission Markdown sources resolve, eight deck slides present. These nested sources are outside the top-level checker's file count.
+- `git diff --check` — clean after removing Markdown hard-break trailing spaces. Isolated work ref: slvdrvncntjvr/handbook-submission; final commit reported to coordinator.
+
+These are documentation/format checks only. The documentation checker's generic “application tests and live SDK/ledger integration remain unrun” footer describes its own scope, not a denial of the separately recorded historical spike. No code/application/live gate was rerun here.

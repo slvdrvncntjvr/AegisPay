@@ -1,6 +1,6 @@
 # AegisPay pitch and demo runbook
 
-**Status:** rehearsal script, not claims that the demo has run. Official event rubric/format remains in [context](../context.md); unknown weights are not invented. Method: [FMD pitch playbook](../fmd/playbooks/pitch-deck-playbook.md).
+**Status:** draft rehearsal sources, not a claim of a completed app demo. Supplied handbook rubric/format are recorded in [context](../context.md); deadline passed, no extension supplied. One SDK payment is proved; model app/deployment/public media are unfinished. Method: [FMD pitch playbook](../fmd/playbooks/pitch-deck-playbook.md).
 
 ## 1. Business narrative
 
@@ -25,26 +25,35 @@ Do not use past-tense success language until [QA release gates](qa-test-plan.md)
 
 ## 3. Timed script and operational runbook
 
-Prepare the brief's short demo; expand only if the official format requires it. No rubric mapping is claimed while official criteria are unavailable.
+The handbook requires a **two-minute video**, a **five-minute pitch with live demo**, then **three-minute Q&A**. The form's reported five-minute video maximum does not relax the stricter two-minute target. Use [the complete recording script](submission/recording-script.md) and [eight-slide deck source](submission/pitch-deck.md). Neither is recorded/exported/published yet. [Submission packet](submission/README.md) tracks actual links and a draft short write-up.
 
-**Before recording/presenting:** run required QA gates, verify network/contracts and sponsor health, have a finite funded agent ready, preserve valid policy expiry, and open Run/Audit. Prerecorded setup is labeled; funded state must be real. Retain cap/claim/replay evidence for Q&A. Report data is visibly fictional.
+**Before recording/presenting:** pass TASK-010/TASK-012 gates; verify mandatory Testnet tuple, current policy/escrow, model access, sponsor health, authenticated ownership and public URL. Open actual Policy/Run/Audit, explorer and redacted proof. Label fixture reports and saved recordings; no fabricated product screenshot. TASK-002 review fixes, real workspaces and full model app are still unfinished. Current proof cannot be narrated as a completed model purchase.
 
-| Time | Beat | Action / words |
-|------|------|----------------|
-| 0–15s | Problem and boundary | “This agent can buy data within a preapproved Testnet cap.” Show actual policy/escrow/expiry and both offers |
-| 15–35s | Genuine choice | Start task; show catalog tools, choice and actual 402 quote |
-| 35–55s | Payment proof | Show Noir preparation, Velo sponsored submission and observed independent evidence; if still pending, say so |
-| 55–70s | Fulfillment | Show the resource-specific report and receipt with inner/outer hash; authorization and merchant claim remain separate |
-| 70–80s | Refusal | Show recorded or freshly run isolated live over-cap contract refusal, labeled by actual simulation/ledger evidence type |
-| 80–90s | Replay and close | Show wrong-resource denial, then ask for developer pilots; use measured fee/latency only if available |
+| Video time | Beat | Evidence required |
+|------------|------|-------------------|
+| 0–12s | Problem and owner limits | Actual policy/Testnet state |
+| 12–27s | Cap, escrow and two current offers | Confirmed policy and trusted catalog |
+| 27–47s | Genuine model choice and 402 quote | Actual model tools/reason and immutable quote |
+| 47–72s | Noir prepare / Velo sponsor-submit-status | Real timeline; keep pending unresolved |
+| 72–91s | Independent proof and protected resource | Matched invocation/envelope/event plus receipt; no event-only fulfillment |
+| 91–107s | Refusal and wrong-resource denial | Label actual contract simulation vs included transaction |
+| 107–120s | Pending vs separate claim, public links/ask | Separate claim proof; verified URLs only |
 
-If settlement takes longer, allow the run to finish and shorten narration; never force the state or hide a failure to fit the script. If network fails, show a visibly labeled recording of an actual earlier Testnet run with timestamp and linked saved proof. If no real successful run exists, present an incomplete integration honestly, not a live payment demo. Never display secrets while switching terminals.
+Allow actual pending time; disclose edits/wait intervals. Network fallback is a labeled recording of an actual earlier run with timestamp/matching proof. If only the current integration exists, use source/artifact/explorer views and say model app/deployment are incomplete; it is not a substitute for the working website. Never force a state to fit the timer.
 
-**Longer pitch:** problem → live workflow → policy/claim/context-binding limits → developer pilot hypothesis → ask. N/A five-minute rubric-weighted script: official time/rubric unavailable; adapt from verified event facts, not assumed weights.
+**Five-minute live pitch:** slide 1 problem/boundary 0:00–0:25; slide 2 workflow/users 0:25–0:55; slide 3 live demo 0:55–2:10; slide 4 architecture 2:10–2:50; slide 5 verified proof 2:50–3:25; slide 6 recovery 3:25–4:00; slide 7 pilot/economics hypotheses 4:00–4:30; slide 8 status/ask 4:30–5:00. Then Q&A until 8:00. Salvador Vincent Javier owns every beat; no fictional teammate.
+
+| Official criterion | Weight | Pitch evidence / honest gap |
+|--------------------|--------|-----------------------------|
+| Agentic payments fit | 30% | Real model decides/request payment; current SDK spike alone does not prove this |
+| Technical execution | 25% | Same-transaction Noir/Velo proof, invariants, deployed app; remaining gates explicit |
+| Innovation | 20% | Agent purchase plus inspectable constrained authorization; no unsupported novelty/moat claim |
+| Real-world potential | 15% | Specific developer/API-provider pilot; demand and sustainable pricing unvalidated |
+| Pitch and demo | 10% | Clear two-minute recording, five-minute live pitch, linked proof and honest fallback |
 
 ## 4. Q&A ownership map
 
-Vincent is the single presenter/owner for product, technical demo and business questions; there are no fictional speakers.
+Salvador Vincent Javier is the single presenter/owner for product, technical demo and business questions; there are no fictional speakers.
 
 | Question | Owner | Answer |
 |----------|-------|--------|
@@ -57,7 +66,7 @@ Vincent is the single presenter/owner for product, technical demo and business q
 | Why not prepaid keys? | Vincent | They may be preferable; this tests wallet-based agent purchasing ergonomics, not proven superiority |
 | What if it times out? | Vincent | Retain saved identity and reconcile; no report or second automatic charge |
 | Who pays and is it sustainable? | Vincent | A provider service fee is a hypothesis; real cost/margin/customer validation is pending |
-| Does it satisfy the hackathon? | Vincent | Both SDK paths are designed in; Gas Station eligibility must be checked against official rules before claiming qualification |
+| Does it satisfy the hackathon? | Vincent | Mandatory October 24 IDs match proof; actual Velo role is Gas. Workspaces/app/hosting/public media remain unfinished; organizer Gas interpretation, registration and late acceptance are unconfirmed. No eligibility promise |
 
 ## 5. Interview probe sheet
 

@@ -21,6 +21,7 @@
 | Locked-document changes | [Change record](change-record.md) | Lifecycle and future material change entries; no initial fictional changes |
 | New executor orientation | [Onboarding](onboarding.md) | Read/run pointers; does not own architecture or test definitions |
 | Demo narrative and rehearsal | [Pitch kit](pitch-kit.md) | Timed honest script, business hypotheses, Q&A owner and post-demo probes |
+| Submission source packet | [Submission drafts](submission/README.md) | Recording script, eight-slide deck and short write-up; unpublished until verified app/deployment |
 | Research provenance | [Research](research.md) | Checked primary sources, package inspection, limits and live unknowns; raw registry snapshot in evidence/ |
 | Documentation verification | [Document review](document-review.md) | Structural check results, two primary-agent review lenses and remaining unverified execution |
 | Suite navigation and ownership | [This index](index.md) | One canonical owner per concern and current document inventory |
@@ -29,7 +30,7 @@ Derived references do not override owners. If intended behavior changes, update 
 
 ## 1. Document suite
 
-All documents are present and dated 2026-11-07. Product, architecture, data, HTTP, methods, security, UX and QA are Draft execution specifications pending implementation/live gates. The implementation plan records real current task state. Context, research and ledger distinguish assumptions from observations. Document review records only documentation verification. No document's existence establishes that the app works.
+All documents are present and dated 2026-11-07. Product, architecture, data, HTTP, methods, security, UX and QA are Draft execution specifications pending implementation/live gates. The implementation plan records real current task state. Context, research and ledger distinguish assumptions from observations. Document review records only documentation verification. No document's existence establishes that the app works. The supplied Nov 5 Builder Handbook fixes mandatory requirements, October 24 contracts, rubric and timing; provenance is in research. Public repo configured; real workspaces, model/app/DB/UI, deployment and public video/deck remain unfinished. TASK-002 stays in_progress for two review fixes; TASK-011 through TASK-013 add workspace/deployment/submission gates. The noon Philippine-time Nov 7 deadline has passed, no extension supplied; no eligibility promise.
 
 Root instructions: [AGENTS.md](../AGENTS.md), [README](../README.md), [environment contract](../.env.example). No SAD/agent roster, duplicate tasks.md, full enterprise suite or production operations manual is generated. See context for the selection rationale.
 

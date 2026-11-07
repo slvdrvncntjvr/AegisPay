@@ -40,7 +40,7 @@ The owner provisions and funds a restricted agent. The agent developer inspects 
 | F-009 | Replay/resource/owner checks | MVP | Reused payment proof | DB constraints |
 | F-010 | Visible state and audit | MVP | Opaque failures | Redacted timeline |
 | F-011 | Merchant claim | MVP | Collect pending funds | Separate lifecycle |
-| F-012 | Reproduction and evidence | MVP | Unverifiable demo | Local-first handoff |
+| F-012 | Reproduction and evidence | MVP | Unverifiable demo | Public workspaces repo, deployed app and submission links |
 
 ## Business rules
 
@@ -87,7 +87,7 @@ The owner authenticates to the invite-only console, connects Freighter, and sign
 - **F-009:** WHEN proofs are replayed or substituted, the system SHALL deny cross-purchase access and retain at most one entitlement.
 - **F-010:** WHEN state changes, the system SHALL show redacted quote, policy, attempt, ledger and claim evidence without falsely resolving unknown state.
 - **F-011:** WHEN merchant claim confirms, the system SHALL show its own transaction and claim outcome without changing existing purchase authorization.
-- **F-012:** WHEN a fresh checkout follows onboarding, its documented gates SHALL reproduce the local app and clearly separate mock tests from real Testnet artifacts.
+- **F-012:** WHEN a fresh checkout follows onboarding, one root install SHALL install real declared workspaces and documented gates SHALL reproduce the app, separating synthetic tests from Testnet artifacts. Submission SHALL provide a working public deployed app, ordered root README, public repo, two-minute video, publicly viewable deck, short write-up, team names/Discord handles and Testnet proof. TASK-011, TASK-012 and TASK-013 own these additional delivery gates; none is complete merely from this specification.
 
 ## Non-goals
 
@@ -99,4 +99,4 @@ See [research](research.md) for observed package facts and [implementation plan]
 
 ## Open questions
 
-Only external evidence remains open: event eligibility, mandatory contract deployment and live interoperability. These belong to the initial spike. Routine stack, scope, auth, receipt, expiry and recovery choices are resolved here and in their canonical implementation owners.
+The handbook fixes all six mandatory requirements, October 24 contract tuple, rubric and format; [context](../context.md) records provenance and the passed deadline. One same-transaction integration is evidenced; TASK-002 review fixes remain pending. External uncertainties are organizer-specific Gas interpretation, late-submission acceptance, registration/Discord details, real model access and hosting configuration. F-005 still requires the real LLM loop; handbook allowance for rule-based agents does not cut it. Routine stack/auth/recovery choices remain resolved.

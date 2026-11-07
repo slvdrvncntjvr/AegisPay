@@ -25,7 +25,23 @@ Browser console --session--> Next.js Node UI + API
 
 ## Components & responsibilities
 
-One root package, no pnpm workspace. Proposed paths are creation targets, not existing code:
+The handbook requires a real public workspaces monorepo and working hosted app. TASK-011 replaces the original single-package selection with minimal root-declared workspaces, preserving Next Node + PostgreSQL/Drizzle + one private Node worker. These are creation targets; current package.json has no workspaces and the app folders do not yet exist:
+
+```text
+apps/web/          Next App Router UI, login and Node API routes
+apps/server/       private Node worker entrypoint and durable job runner
+packages/agent/    actual bounded model/tool loop (F-005), worker-only
+packages/shared/   actual shared quote/receipt/tool schemas and types
+src/server/        retained shared server-only domain and integrations
+scripts/           retained setup/spike tools with stable source paths
+tests/             root payment/DB/browser suites
+```
+
+Root package.json must declare workspaces; one root pnpm install resolves all parts and one lockfile pins them. TASK-011 creates working manifests, exports and real imports, not placeholder folders. Keep existing spike source stable initially. Root scripts delegate to workspace entrypoints; web uses Node runtime. Worker/model/signing modules must stay outside browser dependency graphs. pnpm workspace configuration supplements the explicit root workspaces declaration.
+
+The original paths below describe logical components. Map `src/app/` to `apps/web/src/app/`, `src/worker/` to `apps/server/src/worker/`, and `src/server/agent/` to `packages/agent/src/`; extract reusable schemas into `packages/shared/src/`. Auth/DB/domain/merchant/integrations can remain root server-only code initially, consumed only by server processes. Task scopes using original paths inherit this mapping; avoid two active implementations.
+
+Original logical component inventory:
 
 ```text
 src/app/                 App Router console, login and route handlers
@@ -74,11 +90,11 @@ Initial metadata pins were observed during preparation. TASK-001 reconciles inst
 | Choice / selected pin | Why | Trade-off | Alternative rejected |
 |-----------------------|-----|-----------|----------------------|
 | Node **24.22.1**, pnpm **12.18.0** | Local runtime meets Noir engine; one JS runtime | Pin runtime in local/container config | Node 20, unverified latest runtime |
-| Next **16.4.5**, React/React DOM **19.3.1** | UI/API in one package | Framework conventions need pinned-doc checks | Separate SPA and Express server |
+| Next **16.4.5**, React/React DOM **19.3.1** | UI/API in apps/web | Framework conventions need pinned-doc checks | Separate SPA and Express server |
 | TypeScript **6.0.3**, Tailwind **4.3.5** | Strict types and quick console styling | Build compatibility still requires setup gate | Custom design infrastructure |
 | PostgreSQL **17** stable line, Drizzle **0.45.4**, drizzle-kit **0.31.11**, pg **8.23.1** | SQL constraints, locks and migrations | DB setup required; image digest pinned at setup | SQLite for concurrent payment flow; Prisma as second ORM |
 | Zod **4.6.7** | HTTP/tool validation | Some SQL invariants must also be enforced | Trusting TypeScript at runtime |
-| Noir **0.3.0**, Stellar SDK **16.4.1** | Published peer compatibility and prepare API | SDK deployment defaults are stale for brief | Stellar 17.4.0 latest violates Noir peer |
+| Noir **0.3.0**, Stellar SDK **16.4.1** | Published peer compatibility and prepare API | Explicitly verify mandatory October 24 tuple; original brief candidates differ | Stellar 17.4.0 latest violates Noir peer |
 | Velo **1.0.0** | Required sponsor/submission integration | Alpha/Testnet service dependency | Unrelated checkout integration |
 | Anthropic SDK **1.6.0** | Direct bounded tool loop | Model access/key needed | Framework orchestration and multi-model routing |
 | Freighter API **6.0.1** | Owner/merchant browser signing | One supported wallet | Secret-key input in browser |
@@ -98,7 +114,9 @@ No Noir/Velo webhook routes in MVP. Unknown webhook paths return 404 and cannot 
 
 ## Deployment topology
 
-Primary demo is local: Next server + private Node worker + PostgreSQL, with hosted model and Testnet services. Bind local server to loopback by default. Optional deployment target: one Railway project containing web, private worker and Postgres; use Node processes from the same commit/lockfile. Pin Node with a container when host defaults differ. No deployment or paid resources are created by this documentation task.
+The mandatory submission topology is a public Next Node web service plus one private Node worker and private PostgreSQL, with hosted model and Testnet services. Target one Railway project for those three services; use the same commit/root lockfile and pinned Node runtime. No hosting account or service is provisioned by this documentation task. Local loopback development remains useful but cannot satisfy the live-website requirement.
+
+TASK-012 deploys only after TASK-010 passes: migrate once before traffic; configure web/worker secrets separately, expected public origin, secure sessions and private DB connectivity; expose the public app/login/catalog and authenticated console/API. Document safe judge access without publishing signing or provider secrets. Verify health, public reachability, owner boundaries, model purchase, pending/unknown denial, receipt recovery and claim from the deployed build, then save redacted proof and actual URL. Do not expose worker, fixtures or spike journals. TASK-013 publishes final submission links after hosted behavior is verified.
 
 Web start is `pnpm start`; worker is `pnpm worker`; migrations run once before both accept traffic. Local web/worker configuration uses separate environment files as specified in onboarding/security; standalone scripts explicitly load theirs. Polling every 2 seconds replaces SSE/WebSockets for the console. Worker polls its SQL job queue and reconciles unresolved attempts with bounded exponential observation backoff. DB leases use DB time; no sleeping while holding transactions.
 

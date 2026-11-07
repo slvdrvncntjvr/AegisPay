@@ -9,21 +9,32 @@
 | AegisPay | Public product name | Console, README, pitch | Preserve unless a logged rebrand is requested |
 | aegispay-402/1 | Protocol version | Quote/receipt schemas | Incompatible changes need a new version |
 | F-001 through F-012; INV-001 through INV-010 | Stable requirement IDs | IDEA addendum → docs → tests | Never renumber or reuse |
-| TASK-001 through TASK-010 | Stable task IDs | Implementation plan | Append new IDs; preserve done/cut history |
+| TASK-001 through TASK-013 | Stable task IDs | Implementation plan | Append new IDs; preserve done/cut history |
 | Verified deployment tuple | Immutable per payment | Network/passphrase, contract IDs, SAC, signed operation | Capture at verification; never rewrite historical evidence on redeploy |
 | Quote/operation/nonce/inner/event IDs | Immutable payment identities | DB/evidence | Never change to repair an uncertain payment |
 
-At preparation no cloud project, Git remote, live wallet or verified contract tuple existed. Follow-up: local Testnet wallets and an explicit verified October tuple exist, and Velo project kh73f627zex1newmypn19qvcmx8hrc7v has one evidenced authorization. No Git remote is configured. November contract candidates remain rejected by the documented ABI check.
+At preparation no cloud project, Git remote, live wallet or verified contract tuple existed. Follow-up: local Testnet wallets and an explicit verified October tuple exist, and Velo project kh73f627zex1newmypn19qvcmx8hrc7v has one evidenced authorization. The public Git remote is now configured at https://github.com/slvdrvncntjvr/AegisPay; main and TASK-002 were pushed. November contract candidates remain rejected by the documented ABI check. The supplied handbook confirms the verified October 24 tuple is mandatory; its retired October 7 deployment is distinct from those November candidates.
 
 ## 2. Decision assumptions & evidence
 
 | SUPPORTED | PROVISIONAL | UNVALIDATED |
 |-----------|-------------|-------------|
-| Public npm metadata and Noir declarations establish runtime/peer requirements and an authorize preparation API; local Node is 24.22.1 | A small Next/worker/Postgres codebase is the fastest fit; selected direct tool-loop and DB queue designs | Actual Velo↔Noir interoperability, organizer Gas eligibility, mandatory deployment, virtual-device behavior, real model quality, commercial demand and economics |
+| Public npm metadata and Noir declarations establish runtime/peer requirements and an authorize preparation API; local Node is 24.22.1 | A small Next/worker/Postgres codebase remains the selected fit, now mapped into required real workspaces; direct tool-loop and DB queue designs | Organizer-specific Gas acceptance, late-submission acceptance, registration, real model quality/access, hosted app, commercial demand and economics |
 
-`SUPPORTED` here means the stated inspection happened, not that the application was installed or that a payment succeeded. Resolve provisional/unknown assumptions only with dated inspectable evidence.
+`SUPPORTED` is evidence-specific: metadata inspection alone proves neither installation nor payment. Later dated entries record the installed harness and one real payment; no completed app is established. Resolve provisional/unknown assumptions only with dated inspectable evidence.
 
 ## 3. Pivots & decisions (newest first)
+
+### 2026-11-07 — Reconcile the supplied handbook and mandatory public delivery
+
+- **Source:** user-supplied `Velo x Noir Agentic Payment Hackathon — Builder Handbook.pdf`, updated Nov 5, 2026, SHA256 `ac77495fd5512dc2d62924dbbe9d6fed6b18ea1b64d72a99c010e8a1ba0cd55b`; all 13 pages inspected locally via PyMuPDF. Ignored source is not copied or linked as a public repo file. [Research](research.md#builder-handbook-reconciliation--2026-11-07) records page provenance.
+- **Choice / supersedes compact single-package decision below:** mandatory public root-declared workspaces, one root install and deployed working public app. Keep Next Node, PostgreSQL/Drizzle and one private Node worker. apps/web owns UI/routes; apps/server owns worker; packages/agent owns the real F-005 model loop; packages/shared owns actual schemas/types. Retain existing root server integrations/spike paths initially. These targets are unimplemented; TASK-011 precedes TASK-003, TASK-012 follows TASK-010 and TASK-013 follows TASK-012. No done state comes from this decision.
+- **Resolved:** handbook requires exactly the independently verified October 24 tuple; older October 7 IDs are retired. Prior uncertainty about mandatory tuple is closed. One actual Velo-sponsored Noir payment is evidenced; two reports are one payment. TASK-002 stays in_progress pending terminal-envelope cleanup recovery and fee-source reconciliation review fixes.
+- **Velo boundary:** retain installed verified Velo 1.0.0 / Noir 0.3.0 / Stellar 16.4.1. Handbook alpha-tag checkout example does not justify a downgrade or unrelated checkout. Gas is actual sponsor/submission/status integration; no organizer-specific approval of that interpretation is invented. INV-002, INV-004 and INV-009 remain unchanged.
+- **Delivery:** public GitHub repo/origin are configured and main/TASK-002 pushed; PR/Issue/Project rituals are optional. User authorizes hosting and public deliverables; this isolated documentation task does not push/provision. Ordered README includes available source/proof links and explicit missing app/video/deck statuses.
+- **Presentation:** two-minute video (also within the form's reported five-minute maximum); five-minute pitch plus three-minute Q&A. Rubric is 30/25/20/15/10 for agentic fit/technical/innovation/real-world/pitch. Deadline Nov 7 noon Philippine time has passed, no extension supplied; continue by user instruction without on-time eligibility or win claim. Registration and Discord handle unverified.
+- **Scope / invariants:** F-001 through F-012 and INV-001 through INV-010 retained. F-005 is still a real bounded LLM loop despite handbook allowance for rule-based agents. Architecture ownership changes, not the payment/recovery boundary. Specs remain Draft; no locked-spec CR is required. Original decisions remain historical below.
+
 
 ### 2026-11-07 ? Match RPC events to successful transaction metadata without inventing SDK flags
 
@@ -91,4 +102,8 @@ At preparation no cloud project, Git remote, live wallet or verified contract tu
 
 ## 6. Open items / risks
 
-Live integration and official event eligibility remain open. Package installation, synthetic spike safeguards, disposable Testnet funding and read-only deployment checks have execution evidence. Model access, DB migrations, application APIs, UI, additional release scenarios remain unproved. One early sponsored authorization, over-cap contract simulation refusal and separate merchant claim now have evidence; the complete release and organizer-eligibility gates remain open. Capacity estimate is an assumption. No market interviews or positive unit economics were established. See task plan for status.
+Mandatory tuple is resolved by the handbook; one technical Noir/Velo integration is proved, with two review fixes still pending. Package installation, spike safeguards, account funding, contract checks, one authorization, over-cap simulation refusal and separate claim have evidence. Model access/loop, DB, APIs, UI, real workspaces, hosting and release scenarios remain unproved. Registration, Gas-specific interpretation and late acceptance remain external; the complete release and submission gates are open. Capacity estimate is an assumption. No market interviews or positive unit economics were established. See task plan for status.
+
+### Handbook reconciliation invariant audit — 2026-11-07
+
+INV-001 through INV-010 remain unchanged. Real workspaces/hosting add delivery obligations without permitting another financial handoff, weakening independent evidence, exposing worker keys or fulfilling unresolved purchases. No app test or review-fix acceptance is inferred from documentation checks.
