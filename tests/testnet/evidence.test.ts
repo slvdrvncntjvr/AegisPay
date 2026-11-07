@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { Account, Address, Asset, BASE_FEE, Contract, Keypair, Networks, TransactionBuilder, nativeToScVal, rpc, xdr } from '@stellar/stellar-sdk';
 import { toCall } from '@noirx402/agent-sdk';
-import { verifyAuthorizationEvidence } from '../../src/server/integrations/stellar-evidence.js';
+import { verifyAuthorizationEvidence, decodeMatchedNoirEvent } from '../../src/server/integrations/stellar-evidence.js';
 
 function syntheticFixture(feeBump = false) {
   const agent = Keypair.random();
@@ -82,4 +82,19 @@ test('TC-006: missing, extra and invalid agent signatures cannot authorize evide
     if (mode === 'invalid') signatures[0]!.signature(Buffer.alloc(64));
     assert.throws(() => verifyAuthorizationEvidence(f), /AGENT_SIGNATURE_MISMATCH/);
   }
+});
+
+test('TC-011: omitted RPC success flag is accepted only with the identical embedded event in independently successful transaction evidence', () => {
+  const f = syntheticFixture(true);
+  const embedded = f.transaction.events.contractEventsXdr[0]![0]!;
+  const raw = { type: 'contract', id: f.event.id, ledger: f.event.ledger, ledgerClosedAt: f.event.ledgerClosedAt,
+    txHash: f.event.txHash, contractId: new Contract(f.intent.escrow), topic: embedded.body().v0().topics(), value: embedded.body().v0().data() };
+  const decoded = decodeMatchedNoirEvent(raw, f.transaction, f.intent.escrow);
+  assert.equal(decoded?.type, 'payment.authorized');
+  assert.equal(verifyAuthorizationEvidence({ ...f, event: decoded! }).nonce, '17');
+  assert.equal(decodeMatchedNoirEvent({ ...raw, inSuccessfulContractCall: false }, f.transaction, f.intent.escrow), null);
+  assert.equal(decodeMatchedNoirEvent(raw, { ...f.transaction, status: rpc.Api.GetTransactionStatus.FAILED }, f.intent.escrow), null);
+  assert.equal(decodeMatchedNoirEvent({ ...raw, txHash: 'ff'.repeat(32) }, f.transaction, f.intent.escrow), null);
+  assert.equal(decodeMatchedNoirEvent({ ...raw, value: nativeToScVal(1n, { type: 'i128' }) }, f.transaction, f.intent.escrow), null);
+  assert.equal(decodeMatchedNoirEvent(raw, { ...f.transaction, events: { transactionEventsXdr: [], contractEventsXdr: [] } }, f.intent.escrow), null);
 });

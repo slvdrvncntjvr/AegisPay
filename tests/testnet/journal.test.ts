@@ -96,3 +96,18 @@ test('TC-015: encrypted envelopes are authenticated to their original operation'
     await assert.rejects(altered.readEnvelope(), /ENVELOPE_DECRYPTION_FAILED/);
   } finally { await cleanup(dir); }
 });
+
+test('TC-019: terminal pre-handoff expiry destroys ciphertext and forbids signing or dispatch on restart', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aegispay-journal-'));
+  try {
+    const journal = await SpikeJournal.open(dir, Buffer.alloc(32, 7), {
+      operationId: 'synthetic-operation', nonce: '17', expiresAt: 200000, intentHash: 'cc'.repeat(32),
+    });
+    await journal.saveEnvelope('synthetic-secret-xdr-sentinel');
+    await journal.refuseBeforeHandoff('QUOTE_EXPIRED');
+    assert.equal((await readdir(dir)).includes('envelope.json'), false);
+    await assert.rejects(journal.load(), /TERMINAL_PRE_HANDOFF_QUOTE_EXPIRED/);
+    await assert.rejects(journal.commitHandoff(100000), /TERMINAL_PRE_HANDOFF_QUOTE_EXPIRED/);
+    await assert.rejects(journal.saveEnvelope('replacement'), /TERMINAL_PRE_HANDOFF_QUOTE_EXPIRED/);
+  } finally { await cleanup(dir); }
+});

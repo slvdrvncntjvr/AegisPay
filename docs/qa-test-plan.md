@@ -6,7 +6,7 @@
 
 Use pure Vitest unit tests for parsing/guards; PostgreSQL integration tests for locks, state transitions and uniqueness; Playwright Chromium for visible journey and secret/fixture leakage; separate opt-in real Testnet tests. Never use SQLite to prove PostgreSQL races. Run concurrency cases on independent DB connections. Real funding/submission tests use capped disposable Testnet keys/wallets and configured Velo Gas access.
 
-The package exposes these command names. SDK imports, typecheck, lint, contract verification and the guarded preflight exist. Unit/integration/browser/build/demo commands target later tasks and are not runnable acceptance suites yet; demo:smoke still names a future script. TASK-001 stays limited to the runtime/SDK harness.
+The package exposes these command names. SDK imports, typecheck, lint, contract verification and the guarded full spike driver exist. Unit/integration/browser/build/demo commands target later tasks and are not runnable acceptance suites yet; demo:smoke still names a future script. TASK-001 stays limited to the runtime/SDK harness.
 
 ```text
 pnpm typecheck             strict TypeScript, no emit
@@ -25,7 +25,7 @@ pnpm demo:smoke            tsx scripts/demo-smoke.ts
 
 Testnet scripts refuse mainnet and missing configured IDs; missing credentials are reported as not run, never a passing mock. `test:testnet` must fail its acceptance run if a required live case skips. Build scripts refuse to print environment values. Mock fixtures have obvious synthetic transaction IDs and never enter a live evidence file.
 
-The spike harness uses Node's built-in test runner, including its required live acceptance case; application unit/integration suites remain Vitest targets. `test:spike` exercises ABI mutations, source/operation/auth-root substitutions, missing/invalid signatures, fee-bump and embedded-event matching, provider redaction, delayed-journal expiry, append-only/encrypted journal restart and setup-file preservation without network access. It is not the PostgreSQL or live payment gate. The live spike remains preflight-only and deliberately fails while provisioning/payment/refusal/claim wiring is unfinished, even if configuration is filled.
+The spike harness uses Node's built-in test runner, including its required live acceptance case; application unit/integration suites remain Vitest targets. `test:spike` exercises ABI mutations, source/operation/auth-root substitutions, missing/invalid signatures, fee-bump and embedded-event matching, provider redaction, delayed-journal expiry, append-only/encrypted journal restart and setup-file preservation without network access. It is not the PostgreSQL or live payment gate. The full spike driver now exists. `pnpm setup:noir-fixture` creates one capped disposable virtual-device/policy/escrow fixture; `pnpm spike:noir-velo` executes and independently verifies one Velo-sponsored authorization, an actual over-cap simulation refusal and a separate merchant claim. Both require explicit RUN_TESTNET=1; one fixture authorizes one immutable nonce/operation and retries observe it. A failed/unknown handoff cannot be automatically replaced. All synthetic outputs stay out of the live evidence namespace; only the real guarded entrypoint exports live artifacts.
 
 ## Test cases and feature/invariant traceability
 

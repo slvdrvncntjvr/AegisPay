@@ -1,6 +1,6 @@
 # System design
 
-**Status:** selected architecture; live compatibility not yet established. Origin: PRD and [research](research.md).
+**Status:** selected architecture; one real same-transaction Noir/Velo Testnet authorization, refusal simulation and merchant claim are evidenced. The application and release gates remain incomplete. Origin: PRD and [research](research.md).
 
 ## Context diagram
 
@@ -52,7 +52,7 @@ Web owns session-authenticated intent and reads. Only the worker process gets `A
 6. Encrypt the signed envelope at rest before sponsorship so pre-handoff recovery can reuse exact bytes. Persist its SHA-256 fingerprint and immutable intent. Call Velo `gas.sponsor` with stable operation-derived idempotency key; persist request ID and returned inner identity and compare to local hash before continuing. This explicit form replaces the composed helper to make the durable boundary clear.
 7. Recheck quote deadline before first handoff. Persist `handoff_committed_at` before `gas.submit`. Exactly one process may dispatch it. After this marker, crash recovery never resubmits, even if the crash happened just before the network call. This can sacrifice availability; it cannot double-charge by automatic replay. Delete encrypted envelope once handoff is committed; identity-only recovery is sufficient afterward.
 8. `getStatus` observes Velo and RPC queries independently inspect the successful envelope, invocation, result/meta and matching Noir authorization event. Decode fee-bump wrapper to verify inner hash; do not assume the event's transaction hash is always the inner hash. Preserve the raw observed event hash and verified inner/outer relationship.
-9. Evidence must match network, configured escrow contract, source/signing agent, device, merchant, asset, amount, nonce and saved operation. Noir's decoded event omits asset and agent; derive those from the verified invocation/envelope, not invented event fields. A succeeded Velo status without available matching chain evidence stays unresolved.
+9. Evidence must match network, configured escrow contract, source/signing agent, device, merchant, asset, amount, nonce and saved operation. Noir's decoded event omits nonce, asset and agent; derive those from the verified invocation/envelope, not invented event fields. A succeeded Velo status without available matching chain evidence stays unresolved.
 10. In one DB transaction insert unique evidence and entitlement, mark attempt authorized/quote paid, convert reserved budget to spent, and append a safe audit event. Resource read requires session ownership and receipt validation. Reports remain server-only and uncached.
 
 ### Lifecycle and recovery
@@ -87,6 +87,8 @@ Initial metadata pins were observed during preparation. TASK-001 reconciles inst
 See [research](research.md) for primary links and [registry snapshot](evidence/package-research.json) for engine/peer ranges and integrity. Include exact compatible peer/type/style helper versions as needed at setup; those secondary package pins are not yet researched. No automatic upgrade in the middle of the demo build.
 
 ## Integration points
+
+Current event responses omitted the legacy success flag consumed by Noir SDK 0.3.0. The application adapter decodes only after matching the queried event byte-for-byte to an embedded event in independently successful transaction evidence, preserving contract/ledger/hash checks; it never inserts a synthetic success flag. Full invocation/signature and Velo verification still follows.
 
 Use explicit environment-provided Noir contracts, RPC/passphrase and verified Testnet XLM SAC; derive SAC through the pinned Stellar native-asset helper and confirm it on chain. Verify contract Wasm/spec and registry/escrow links, compare organizer IDs to SDK defaults, then record the chosen set. No undocumented RPC `get_contract_spec` method is assumed: inspect contract ledger entries/Wasm through supported RPC/CLI or generated client metadata.
 

@@ -13,7 +13,7 @@
 | Verified deployment tuple | Immutable per payment | Network/passphrase, contract IDs, SAC, signed operation | Capture at verification; never rewrite historical evidence on redeploy |
 | Quote/operation/nonce/inner/event IDs | Immutable payment identities | DB/evidence | Never change to repair an uncertain payment |
 
-No cloud project ID, Git remote, live wallet or verified contract tuple exists yet. The brief's contract candidates are not labeled verified here.
+At preparation no cloud project, Git remote, live wallet or verified contract tuple existed. Follow-up: local Testnet wallets and an explicit verified October tuple exist, and Velo project kh73f627zex1newmypn19qvcmx8hrc7v has one evidenced authorization. No Git remote is configured. November contract candidates remain rejected by the documented ABI check.
 
 ## 2. Decision assumptions & evidence
 
@@ -24,6 +24,15 @@ No cloud project ID, Git remote, live wallet or verified contract tuple exists y
 `SUPPORTED` here means the stated inspection happened, not that the application was installed or that a payment succeeded. Resolve provisional/unknown assumptions only with dated inspectable evidence.
 
 ## 3. Pivots & decisions (newest first)
+
+### 2026-11-07 ? Match RPC events to successful transaction metadata without inventing SDK flags
+
+- **Type:** integration compatibility. **Observed:** the real RPC authorization event omitted `inSuccessfulContractCall`; Noir SDK 0.3.0 discarded it despite a matching successful fee-bump transaction. Current [Stellar getEvents documentation](https://developers.stellar.org/docs/data/apis/rpc/api-reference/methods/getEvents) describes the returned event fields.
+- **Choice:** query through the pinned Stellar SDK and decode only when contract/ledger/mapped inner-or-outer hash and exact serialized topics/data match one embedded contract event in independently successful transaction evidence. An explicit false flag is rejected; no success flag is synthesized and node_modules is unchanged. Full Noir invocation/signature, Velo identity/status and balance checks remain mandatory.
+- **Evidence:** an omitted-flag regression accepts only the matching successful envelope/meta and rejects false flags, failed transactions, foreign hashes, altered amounts and absent embedded events. The real saved payment then passed this verifier and the separate merchant claim.
+- **Recovery observation:** initial bounded Velo observation remained unresolved; later identity-only observation showed success. No additional agent signature, nonce or financial handoff was made. Two exported reports identify the same authorization and do not satisfy the release requirement for two distinct purchases.
+- **Outcome:** TASK-002 live acceptance passed; independent code review remains pending. INV-001 through INV-010 remain the application requirements; the DB and UI are not yet implemented.
+
 
 ### 2026-11-07 — Explicitly select the verified October tuple for the technical spike
 
@@ -82,4 +91,4 @@ No cloud project ID, Git remote, live wallet or verified contract tuple exists y
 
 ## 6. Open items / risks
 
-Live integration and official event eligibility remain open. Package installation, synthetic spike safeguards, disposable Testnet funding and read-only deployment checks have execution evidence. Model access, DB migrations, application APIs, UI, sponsored authorization, contract refusal and merchant claim remain unproved. Capacity estimate is an assumption. No market interviews or positive unit economics were established. See task plan for status.
+Live integration and official event eligibility remain open. Package installation, synthetic spike safeguards, disposable Testnet funding and read-only deployment checks have execution evidence. Model access, DB migrations, application APIs, UI, additional release scenarios remain unproved. One early sponsored authorization, over-cap contract simulation refusal and separate merchant claim now have evidence; the complete release and organizer-eligibility gates remain open. Capacity estimate is an assumption. No market interviews or positive unit economics were established. See task plan for status.

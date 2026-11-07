@@ -1,0 +1,28 @@
+{
+  "classification": "live-velo-identity-and-chain-observation",
+  "observedAt": "2026-11-07T14:35:13.853Z",
+  "object": "gas_submit_result",
+  "requestId": "1e2520c0-d12c-4bbd-9583-2655eba322a1",
+  "transactionHash": "1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a",
+  "outerTransactionHash": "6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381",
+  "status": "succeeded",
+  "reservedStroops": "97971",
+  "actualFeeStroops": "82496",
+  "expiresAt": "2026-11-07T14:38:51.000Z",
+  "reconciliationRequired": false,
+  "chainObservations": [
+    {
+      "hash": "1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a",
+      "status": "SUCCESS",
+      "ledger": 5607680,
+      "resultCode": "txFeeBumpInnerSuccess"
+    },
+    {
+      "hash": "6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381",
+      "status": "SUCCESS",
+      "ledger": 5607680,
+      "resultCode": "txFeeBumpInnerSuccess"
+    }
+  ],
+  "limits": "Observation only. This does not establish matching Noir authorization or claim and is not a successful payment artifact."
+}

@@ -90,7 +90,7 @@ export async function verifyContracts(env: NodeJS.ProcessEnv = process.env) {
 }
 export function safeFailure(error: unknown) {
   const guard = error instanceof SpikeGuardError;
-  return { status: 'not_run', code: guard ? error.code : 'RPC_OR_PROVIDER_VERIFICATION_FAILED',
+  return { status: guard && (error.status === 'unresolved' || error.code.includes('UNRESOLVED')) ? 'unresolved' : 'not_run', code: guard ? error.code : 'RPC_OR_PROVIDER_VERIFICATION_FAILED',
     ...(guard && error.missing.length ? { missing: error.missing } : {}) };
 }
 async function main() {

@@ -33,6 +33,8 @@ async function createRecord(file: string, value: unknown) {
   return true;
 }
 
+export { readJson as readSpikeRecord, createRecord as writeSpikeRecord };
+
 export class SpikeJournal implements SpikeHandoffJournal {
   private constructor(readonly directory: string, private readonly key: Buffer, readonly operation: Readonly<Operation>) {}
   static async open(directory: string, key: Buffer, initial?: Operation) {
@@ -52,6 +54,8 @@ export class SpikeJournal implements SpikeHandoffJournal {
   async load() {
     const reservation = await readJson(join(this.directory, 'reservation.json'));
     const handoff = await readJson(join(this.directory, 'handoff.json'));
+    const terminal = z.object({ terminalCode: z.enum(['QUOTE_EXPIRED', 'POLICY_REFUSED']), at: z.number().int().positive() }).strict().safeParse(handoff);
+    if (terminal.success) throw new SpikeGuardError(`TERMINAL_PRE_HANDOFF_${terminal.data.terminalCode}`);
     const identity = reservation === null ? null : identitySchema.parse(reservation);
     const marker = handoff === null ? null : markerSchema.parse(handoff);
     if (marker && (!identity || JSON.stringify(marker.identity) !== JSON.stringify(identity))) throw new SpikeGuardError('HANDOFF_IDENTITY_MISSING');
@@ -100,6 +104,13 @@ export class SpikeJournal implements SpikeHandoffJournal {
   }
   async deleteEncryptedEnvelope() {
     if ((await this.load()).handoffCommittedAt === null) throw new SpikeGuardError('HANDOFF_NOT_COMMITTED');
+    try { await unlink(join(this.directory, 'envelope.json')); }
+    catch (error) { if (!isMissing(error)) throw new SpikeGuardError('ENVELOPE_DELETE_FAILED'); }
+  }
+  async refuseBeforeHandoff(code: 'QUOTE_EXPIRED' | 'POLICY_REFUSED') {
+    // Terminal refusal and financial dispatch compete for the same exclusive
+    // decision record. A refusal cannot race a committed send into a retry.
+    if (!(await createRecord(join(this.directory, 'handoff.json'), { terminalCode: code, at: Date.now() }))) throw new SpikeGuardError('HANDOFF_DECISION_ALREADY_SAVED');
     try { await unlink(join(this.directory, 'envelope.json')); }
     catch (error) { if (!isMissing(error)) throw new SpikeGuardError('ENVELOPE_DELETE_FAILED'); }
   }

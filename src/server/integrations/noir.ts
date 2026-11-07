@@ -2,7 +2,7 @@ import { Asset, Networks, StrKey, Transaction, TransactionBuilder, Address } fro
 import { NoirAgentClient, toCall, type NoirNetworkConfig } from '@noirx402/agent-sdk';
 
 export class SpikeGuardError extends Error {
-  constructor(readonly code: string, readonly missing: string[] = []) { super(code); }
+  constructor(readonly code: string, readonly missing: string[] = [], readonly status: 'not_run' | 'unresolved' = 'not_run') { super(code); }
 }
 export const deploymentVariables = ['STELLAR_NETWORK', 'STELLAR_RPC_URL', 'STELLAR_NETWORK_PASSPHRASE',
   'NOIR_DEVICE_REGISTRY_ID', 'NOIR_AGENT_REGISTRY_ID', 'NOIR_PAYMENT_ESCROW_ID', 'NOIR_XLM_SAC_ID'] as const;
@@ -41,7 +41,7 @@ export function inspectAuthorization(envelope: string, intent: AuthorizationInte
   if (!(parsed instanceof Transaction) || parsed.source !== intent.agent || parsed.operations.length !== 1) {
     throw new SpikeGuardError('UNEXPECTED_ENVELOPE');
   }
-  if (parsed.timeBounds && (BigInt(parsed.timeBounds.maxTime) === 0n || BigInt(parsed.timeBounds.maxTime) * 1000n <= BigInt(now))) {
+  if (!parsed.timeBounds || BigInt(parsed.timeBounds.minTime) * 1000n > BigInt(now) || BigInt(parsed.timeBounds.maxTime) === 0n || BigInt(parsed.timeBounds.maxTime) * 1000n <= BigInt(now)) {
     throw new SpikeGuardError('TRANSACTION_EXPIRED');
   }
   const operation = parsed.operations[0]!;

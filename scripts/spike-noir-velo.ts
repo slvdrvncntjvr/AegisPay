@@ -1,8 +1,13 @@
-import { createHash } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { Keypair, StrKey } from '@stellar/stellar-sdk';
-import { deploymentVariables, SpikeGuardError, createNoir, inspectAuthorization, readTestnetConfig } from '../src/server/integrations/noir.js';
+import { deploymentVariables, SpikeGuardError, createNoir, readTestnetConfig } from '../src/server/integrations/noir.js';
 import { safeFailure, verifyContracts } from './verify-contracts.js';
+import { mkdir } from 'node:fs/promises';
+import { join } from 'node:path';
+import { createVelo } from '../src/server/integrations/velo.js';
+import { executeSpike, provisionSpike, type SpikeContext } from '../src/server/integrations/spike-driver.js';
+import { spikeDigest } from '../src/server/integrations/spike-runtime.js';
+import { writeSpikeRecord } from '../src/server/integrations/spike-journal.js';
 
 export const liveVariables = [...deploymentVariables, 'DEMO_OWNER_PUBLIC_KEY', 'DEMO_AGENT_PUBLIC_KEY',
   'DEMO_MERCHANT_PUBLIC_KEY', 'AGENT_SECRET', 'VELO_GAS_API_KEY', 'VELO_GAS_BASE_URL',
@@ -22,25 +27,31 @@ export function requireLiveInputs(env: NodeJS.ProcessEnv = process.env) {
   if (new Set([env.DEMO_OWNER_PUBLIC_KEY, env.DEMO_AGENT_PUBLIC_KEY, env.DEMO_MERCHANT_PUBLIC_KEY]).size !== 3) throw new SpikeGuardError('DISTINCT_WALLETS_REQUIRED');
   if (!/^[A-Za-z0-9+/]{43}=$/.test(env.ENVELOPE_ENCRYPTION_KEY!) || Buffer.from(env.ENVELOPE_ENCRYPTION_KEY!, 'base64').length !== 32) throw new SpikeGuardError('INVALID_ENVELOPE_ENCRYPTION_KEY');
 }
-// Non-spending initial stage. Completing the live handoff, actual contract
-// refusal and separate merchant claim remains TASK-002 work after setup.
-export async function runSpikePreflight(env: NodeJS.ProcessEnv = process.env) {
-  requireLiveInputs(env);
-  const { config } = await verifyContracts(env);
-  const noir = createNoir(config);
-  const deviceHash = createHash('sha256').update(`aegispay-spike:${env.DEMO_OWNER_PUBLIC_KEY}:${env.DEMO_AGENT_PUBLIC_KEY}`).digest('hex');
-  const [owner, policy, token, balance] = await Promise.all([noir.getDeviceOwner(deviceHash), noir.getPolicy(deviceHash), noir.getEscrowToken(deviceHash), noir.getEscrowBalance(deviceHash)]);
-  if (owner !== env.DEMO_OWNER_PUBLIC_KEY || !policy || policy.agent !== env.DEMO_AGENT_PUBLIC_KEY || token !== config.asset || balance < 300000n ||
-      policy.asset !== config.asset || policy.maxAmount !== 1000000n || !policy.expiresAt || policy.expiresAt.getTime() <= Date.now()) throw new SpikeGuardError('LIVE_SPIKE_FIXTURE_NOT_PROVISIONED');
-  // No nonce is allocated for dispatch or signed while durable journaling and
-  // the verified deployed call tree are pending. This is prepare/simulation only.
-  const intent = { agent: env.DEMO_AGENT_PUBLIC_KEY!, merchant: env.DEMO_MERCHANT_PUBLIC_KEY!, deviceHash,
-    asset: config.asset, escrow: config.network.contracts.paymentEscrow, amount: 300000n, nonce: 1n, expiresAt: Date.now() + 120000 };
-  const unsigned = await noir.prepare(intent.agent, { kind: 'authorize', ...intent });
-  inspectAuthorization(unsigned, intent);
-  throw new SpikeGuardError('LIVE_HANDOFF_REFUSAL_AND_CLAIM_GATE_PENDING');
-}
 async function main() {
-  try { await runSpikePreflight(); } catch (error) { console.error(JSON.stringify(safeFailure(error))); process.exitCode = 1; }
+  try {
+    const args = process.argv.slice(2);
+    if (args.length > 1 || args.some(arg => arg !== '--setup')) throw new SpikeGuardError('UNSUPPORTED_SPIKE_ARGUMENT');
+    const result = await runLiveSpike(process.env, args[0] === '--setup');
+    console.info(JSON.stringify({ status: 'passed', artifact: result.artifact, classification: result.classification }));
+  } catch (error) { console.error(JSON.stringify(safeFailure(error))); process.exitCode = 1; }
+}
+export async function runLiveSpike(env: NodeJS.ProcessEnv = process.env, setupOnly = false) {
+  requireLiveInputs(env);
+  const { config, proof } = await verifyContracts(env);
+  const owner = Keypair.fromSecret(env.SPIKE_OWNER_SECRET!), agent = Keypair.fromSecret(env.AGENT_SECRET!), merchant = Keypair.fromSecret(env.SPIKE_MERCHANT_SECRET!);
+  const bindingHash = spikeDigest({ network: config.network, asset: config.asset, owner: owner.publicKey(), agent: agent.publicKey(),
+    merchant: merchant.publicKey(), wasm: proof.contracts.map(item => ({ role: item.role, wasmSha256: item.wasmSha256 })) });
+  const ctx: SpikeContext = { directory: '.aegispay-spike', config, noir: createNoir(config), gas: createVelo(env).gas, owner, agent, merchant,
+    encryptionKey: Buffer.from(env.ENVELOPE_ENCRYPTION_KEY!, 'base64'), bindingHash };
+  const report = setupOnly ? await provisionSpike(ctx) : await executeSpike(ctx);
+  try {
+    await mkdir('docs/evidence/testnet', { recursive: true });
+    const artifact = join('docs/evidence/testnet', `${setupOnly ? 'fixture' : 'spike'}-${'operationId' in report ? report.operationId : report.deviceHash}-${Date.now()}.json`);
+    if (!(await writeSpikeRecord(artifact, { ...report, deploymentVerification: proof, sdkVersions: { noir: '0.3.0', stellar: '16.4.1', velo: '1.0.0' } }))) throw new SpikeGuardError('EVIDENCE_ARTIFACT_ALREADY_EXISTS', [], 'unresolved');
+    return { artifact, classification: report.classification };
+  } catch (error) {
+    if (error instanceof SpikeGuardError) throw error;
+    throw new SpikeGuardError('EVIDENCE_EXPORT_UNRESOLVED');
+  }
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) await main();
