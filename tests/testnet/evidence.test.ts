@@ -4,7 +4,7 @@ import { Account, Address, Asset, BASE_FEE, Contract, Keypair, Networks, Transac
 import { toCall } from '@noirx402/agent-sdk';
 import { verifyAuthorizationEvidence, decodeMatchedNoirEvent } from '../../src/server/integrations/stellar-evidence.js';
 
-function syntheticFixture(feeBump = false) {
+function syntheticFixture(feeBump = false, outerFee = feeBump ? '200' : '100', innerFee = '0') {
   const agent = Keypair.random();
   const asset = Asset.native().contractId(Networks.TESTNET);
   const intent = { agent: agent.publicKey(), merchant: Keypair.random().publicKey(), deviceHash: 'ab'.repeat(32),
@@ -26,15 +26,18 @@ function syntheticFixture(feeBump = false) {
         Address.fromString(intent.merchant).toScVal()], data: nativeToScVal(intent.amount, { type: 'i128' }),
     })),
   });
+  const operationResults = [xdr.OperationResult.opInner(xdr.OperationResultTr.invokeHostFunction(
+    xdr.InvokeHostFunctionResult.invokeHostFunctionSuccess(Buffer.alloc(32, 1)),
+  ))];
   const transaction: rpc.Api.GetSuccessfulTransactionResponse = {
     status: rpc.Api.GetTransactionStatus.SUCCESS, txHash: outerHash, latestLedger: 100, latestLedgerCloseTime: 1,
     oldestLedger: 1, oldestLedgerCloseTime: 1, ledger: 99, createdAt: Math.floor(Date.now() / 1000), applicationOrder: 1,
     feeBump, envelopeXdr: envelope.toEnvelope(),
-    resultXdr: new xdr.TransactionResult({ feeCharged: xdr.Int64.fromString('100'),
+    resultXdr: new xdr.TransactionResult({ feeCharged: xdr.Int64.fromString(outerFee),
       result: feeBump ? xdr.TransactionResultResult.txFeeBumpInnerSuccess(new xdr.InnerTransactionResultPair({
-        transactionHash: inner.hash(), result: new xdr.InnerTransactionResult({ feeCharged: xdr.Int64.fromString('100'),
-          result: xdr.InnerTransactionResultResult.txSuccess([]), ext: new xdr.InnerTransactionResultExt(0) }),
-      })) : xdr.TransactionResultResult.txSuccess([]), ext: new xdr.TransactionResultExt(0) }),
+        transactionHash: inner.hash(), result: new xdr.InnerTransactionResult({ feeCharged: xdr.Int64.fromString(innerFee),
+          result: xdr.InnerTransactionResultResult.txSuccess(operationResults), ext: new xdr.InnerTransactionResultExt(0) }),
+      })) : xdr.TransactionResultResult.txSuccess(operationResults), ext: new xdr.TransactionResultExt(0) }),
     resultMetaXdr: new xdr.TransactionMeta(0, []), events: { transactionEventsXdr: [], contractEventsXdr: [[contractEvent]] },
   };
   const event = { type: 'payment.authorized' as const, id: 'synthetic-event', contractId: intent.escrow, ledger: 99,
@@ -50,6 +53,29 @@ test('TC-011: independent matching envelope and event qualify only with Velo suc
   assert.throws(() => verifyAuthorizationEvidence({ ...f, event: { ...f.event, amount: 1n } }));
   assert.throws(() => verifyAuthorizationEvidence({ ...f, intent: { ...f.intent, nonce: 18n } }));
   assert.throws(() => verifyAuthorizationEvidence({ ...f, velo: { ...f.velo, outerTransactionHash: 'ff'.repeat(32) } }));
+});
+
+test('TC-027/EQ-004: actual fee requires matching outer ledger and Velo provenance', () => {
+  for (const feeBump of [false, true]) {
+    const f = syntheticFixture(feeBump);
+    // Round-trip the result through the pinned SDK XDR codec, with a distinct
+    // inner-result fee for fee bumps (the outer result is the charged fee).
+    f.transaction.resultXdr = xdr.TransactionResult.fromXDR(f.transaction.resultXdr.toXDR());
+    const outerFee = feeBump ? '200' : '100';
+    for (const [veloFee, expectedFee, status] of [
+      ['99', null, 'conflict'],
+      [outerFee, outerFee, 'matched'],
+      [null, null, 'velo_unavailable'],
+      ...(feeBump ? [['0', null, 'conflict']] : []),
+    ] as const) {
+      const verified = verifyAuthorizationEvidence({ ...f, velo: { ...f.velo, actualFeeStroops: veloFee } });
+      assert.equal(verified.actualFeeStroops, expectedFee);
+      assert.equal(verified.outerLedgerFeeChargedStroops, outerFee);
+      assert.equal(verified.veloActualFeeStroops, veloFee);
+      assert.equal(verified.actualFeeStatus, status);
+      assert.equal(verified.amount, f.intent.amount.toString(), 'fee conflict must not remove verified entitlement');
+    }
+  }
 });
 test('TC-011: fee-bump inner/outer/event hashes are mapped independently', () => {
   const f = syntheticFixture(true);

@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
+import fs, { mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
+import { syncBuiltinESMExports } from 'node:module';
 import { tmpdir } from 'node:os';
 import { basename, dirname, join, resolve } from 'node:path';
-import { test } from 'node:test';
+import { test, mock } from 'node:test';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { SpikeJournal } from '../../src/server/integrations/spike-journal.js';
@@ -72,10 +73,13 @@ test('TC-029: partial handoff marker after a crash cannot authorize another fina
     const journal = await SpikeJournal.open(dir, Buffer.alloc(32, 7), {
       operationId: 'synthetic-operation', nonce: '17', expiresAt: 200000, intentHash: 'cc'.repeat(32),
     });
+    await journal.saveEnvelope('synthetic-envelope');
     await journal.saveReservation({ requestId: 'synthetic-request', transactionHash: 'aa'.repeat(32) });
     await writeFile(join(dir, 'handoff.json'), '{"at":');
     await assert.rejects(journal.load(), /JOURNAL_CORRUPT_OR_UNREADABLE/);
     await assert.rejects(journal.commitHandoff(100000), /JOURNAL_CORRUPT_OR_UNREADABLE/);
+    await assert.rejects(journal.refuseBeforeHandoff('POLICY_REFUSED'), /JOURNAL_CORRUPT_OR_UNREADABLE/);
+    assert.equal((await readdir(dir)).includes('envelope.json'), true);
     assert.equal(await readFile(join(dir, 'handoff.json'), 'utf8'), '{"at":');
   } finally { await cleanup(dir); }
 });
@@ -109,5 +113,184 @@ test('TC-019: terminal pre-handoff expiry destroys ciphertext and forbids signin
     await assert.rejects(journal.load(), /TERMINAL_PRE_HANDOFF_QUOTE_EXPIRED/);
     await assert.rejects(journal.commitHandoff(100000), /TERMINAL_PRE_HANDOFF_QUOTE_EXPIRED/);
     await assert.rejects(journal.saveEnvelope('replacement'), /TERMINAL_PRE_HANDOFF_QUOTE_EXPIRED/);
+  } finally { await cleanup(dir); }
+});
+
+test('TC-019/TC-029: restart cleans an interrupted refusal and retains its immutable decision', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aegispay-journal-'));
+  try {
+    const key = Buffer.alloc(32, 7);
+    const journal = await SpikeJournal.open(dir, key, {
+      operationId: 'synthetic-operation', nonce: '17', expiresAt: 200000, intentHash: 'cc'.repeat(32),
+    });
+    await journal.saveEnvelope('synthetic-secret-xdr-sentinel');
+    // Crash after the durable terminal record, before unlink.
+    const decision = JSON.stringify({ terminalCode: 'POLICY_REFUSED', at: 100000 });
+    await writeFile(join(dir, 'handoff.json'), decision);
+    const resumed = await SpikeJournal.open(dir, key);
+    await assert.rejects(resumed.load(), /TERMINAL_PRE_HANDOFF_POLICY_REFUSED/);
+    assert.equal((await readdir(dir)).includes('envelope.json'), false);
+    await resumed.refuseBeforeHandoff('POLICY_REFUSED');
+    await resumed.refuseBeforeHandoff('POLICY_REFUSED');
+    await assert.rejects(resumed.refuseBeforeHandoff('QUOTE_EXPIRED'), /HANDOFF_DECISION_ALREADY_SAVED/);
+    await assert.rejects(resumed.readEnvelope(), /TERMINAL_PRE_HANDOFF_POLICY_REFUSED/);
+    await assert.rejects(resumed.saveEnvelope('replacement'), /TERMINAL_PRE_HANDOFF_POLICY_REFUSED/);
+    await assert.rejects(resumed.saveReservation({ requestId: 'replacement', transactionHash: 'aa'.repeat(32) }), /TERMINAL_PRE_HANDOFF_POLICY_REFUSED/);
+    await assert.rejects(resumed.commitHandoff(100000), /TERMINAL_PRE_HANDOFF_POLICY_REFUSED/);
+    await assert.rejects(handoffOnce({ journal: resumed, operationId: journal.operation.operationId, signedEnvelope: '',
+      expected: { innerHash: 'aa'.repeat(32), agent: 'synthetic-agent', escrow: 'synthetic-escrow', expiresAt: 200000 },
+      gas: {
+        async sponsor() { assert.fail('terminal refusal must not sponsor'); },
+        async submit() { assert.fail('terminal refusal must not send'); },
+        async getStatus() { assert.fail('terminal refusal has no execution to observe'); },
+      },
+    }), /TERMINAL_PRE_HANDOFF_POLICY_REFUSED/);
+    assert.equal(await readFile(join(dir, 'handoff.json'), 'utf8'), decision);
+    assert.equal((await readdir(dir)).includes('reservation.json'), false);
+  } finally { await cleanup(dir); }
+});
+
+test('TC-019/TC-029: unlink failure retains refusal, and later recovery retries cleanup', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aegispay-journal-'));
+  let unlinkMock: ReturnType<typeof mock.method> | undefined;
+  try {
+    const journal = await SpikeJournal.open(dir, Buffer.alloc(32, 7), {
+      operationId: 'synthetic-operation', nonce: '17', expiresAt: 200000, intentHash: 'cc'.repeat(32),
+    });
+    await journal.saveEnvelope('synthetic-secret-xdr-sentinel');
+    unlinkMock = mock.method(fs, 'unlink', async () => { throw Object.assign(new Error('synthetic-unlink-denied'), { code: 'EACCES' }); });
+    syncBuiltinESMExports();
+    await assert.rejects(journal.refuseBeforeHandoff('QUOTE_EXPIRED'), /ENVELOPE_DELETE_FAILED/);
+    const decision = await readFile(join(dir, 'handoff.json'), 'utf8');
+    assert.equal((await readdir(dir)).includes('envelope.json'), true);
+    await assert.rejects(journal.load(), /ENVELOPE_DELETE_FAILED/);
+    unlinkMock.mock.restore(); syncBuiltinESMExports();
+    const resumed = await SpikeJournal.open(dir, Buffer.alloc(32, 7));
+    await resumed.refuseBeforeHandoff('QUOTE_EXPIRED');
+    await assert.rejects(resumed.load(), /TERMINAL_PRE_HANDOFF_QUOTE_EXPIRED/);
+    assert.equal((await readdir(dir)).includes('envelope.json'), false);
+    assert.equal(await readFile(join(dir, 'handoff.json'), 'utf8'), decision);
+  } finally { unlinkMock?.mock.restore(); syncBuiltinESMExports(); await cleanup(dir); }
+});
+
+test('TC-029: refusal winning during an envelope save cleans the late write', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aegispay-journal-'));
+  try {
+    const journal = await SpikeJournal.open(dir, Buffer.alloc(32, 7), {
+      operationId: 'synthetic-operation', nonce: '17', expiresAt: 200000, intentHash: 'cc'.repeat(32),
+    });
+    const competing = await SpikeJournal.open(dir, Buffer.alloc(32, 7));
+    const load = journal.load.bind(journal);
+    let first = true;
+    mock.method(journal, 'load', async () => {
+      const saved = await load();
+      if (first) { first = false; await competing.refuseBeforeHandoff('POLICY_REFUSED'); }
+      return saved;
+    });
+    await assert.rejects(journal.saveEnvelope('synthetic-late-envelope'), /TERMINAL_PRE_HANDOFF_POLICY_REFUSED/);
+    assert.equal((await readdir(dir)).includes('envelope.json'), false);
+    await assert.rejects(competing.readEnvelope(), /TERMINAL_PRE_HANDOFF_POLICY_REFUSED/);
+  } finally { await cleanup(dir); }
+});
+
+test('TC-029: concurrent handoff and terminal refusal preserve exactly one immutable decision', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aegispay-journal-'));
+  try {
+    const journal = await SpikeJournal.open(dir, Buffer.alloc(32, 7), {
+      operationId: 'synthetic-operation', nonce: '17', expiresAt: 200000, intentHash: 'cc'.repeat(32),
+    });
+    await journal.saveEnvelope('synthetic-envelope');
+    await journal.saveReservation({ requestId: 'synthetic-request', transactionHash: 'aa'.repeat(32) });
+    const competing = await SpikeJournal.open(dir, Buffer.alloc(32, 7));
+    await Promise.allSettled([journal.commitHandoff(100000), competing.refuseBeforeHandoff('POLICY_REFUSED')]);
+    const decision = await readFile(join(dir, 'handoff.json'), 'utf8');
+    if ('terminalCode' in JSON.parse(decision)) {
+      await assert.rejects(journal.commitHandoff(100000), /TERMINAL_PRE_HANDOFF_POLICY_REFUSED/);
+      await competing.refuseBeforeHandoff('POLICY_REFUSED');
+      assert.equal((await readdir(dir)).includes('envelope.json'), false);
+    } else {
+      assert.equal(await journal.commitHandoff(100000), false);
+      await assert.rejects(competing.refuseBeforeHandoff('POLICY_REFUSED'), /HANDOFF_DECISION_ALREADY_SAVED/);
+      assert.equal((await readdir(dir)).includes('envelope.json'), true);
+    }
+    assert.equal(await readFile(join(dir, 'handoff.json'), 'utf8'), decision);
+  } finally { await cleanup(dir); }
+});
+
+test('TC-029: a refusal between handoff check and exclusive create cannot become an observation or send', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aegispay-journal-'));
+  try {
+    const journal = await SpikeJournal.open(dir, Buffer.alloc(32, 7), {
+      operationId: 'synthetic-operation', nonce: '17', expiresAt: 200000, intentHash: 'cc'.repeat(32),
+    });
+    await journal.saveEnvelope('synthetic-envelope');
+    await journal.saveReservation({ requestId: 'synthetic-request', transactionHash: 'aa'.repeat(32) });
+    const competing = await SpikeJournal.open(dir, Buffer.alloc(32, 7));
+    const load = journal.load.bind(journal);
+    let reads = 0;
+    mock.method(journal, 'load', async () => {
+      const saved = await load();
+      if (++reads === 2) await competing.refuseBeforeHandoff('POLICY_REFUSED');
+      return saved;
+    });
+    await assert.rejects(handoffOnce({ journal, operationId: journal.operation.operationId, signedEnvelope: 'synthetic-envelope',
+      expected: { innerHash: 'aa'.repeat(32), agent: 'synthetic-agent', escrow: 'synthetic-escrow', expiresAt: 200000 }, now: () => 100000,
+      gas: {
+        async sponsor() { assert.fail('reservation already exists'); },
+        async submit() { assert.fail('refusal won the handoff race'); },
+        async getStatus() { assert.fail('refusal is not a financial handoff'); },
+      },
+    }), /TERMINAL_PRE_HANDOFF_POLICY_REFUSED/);
+    const decision = await readFile(join(dir, 'handoff.json'), 'utf8');
+    await competing.refuseBeforeHandoff('POLICY_REFUSED');
+    assert.equal(await readFile(join(dir, 'handoff.json'), 'utf8'), decision);
+    assert.equal((await readdir(dir)).includes('envelope.json'), false);
+  } finally { await cleanup(dir); }
+});
+
+test('TC-029: handoff winning during an envelope save cleans the late write', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aegispay-journal-'));
+  try {
+    const journal = await SpikeJournal.open(dir, Buffer.alloc(32, 7), {
+      operationId: 'synthetic-operation', nonce: '17', expiresAt: 200000, intentHash: 'cc'.repeat(32),
+    });
+    await journal.saveReservation({ requestId: 'synthetic-request', transactionHash: 'aa'.repeat(32) });
+    const competing = await SpikeJournal.open(dir, Buffer.alloc(32, 7));
+    const load = journal.load.bind(journal);
+    let first = true;
+    mock.method(journal, 'load', async () => {
+      const saved = await load();
+      if (first) { first = false; assert.equal(await competing.commitHandoff(100000), true); await competing.deleteEncryptedEnvelope(); }
+      return saved;
+    });
+    await assert.rejects(journal.saveEnvelope('synthetic-late-envelope'), /HANDOFF_ALREADY_COMMITTED/);
+    assert.equal((await readdir(dir)).includes('envelope.json'), false);
+    await assert.rejects(competing.readEnvelope(), /HANDOFF_ALREADY_COMMITTED/);
+  } finally { await cleanup(dir); }
+});
+
+test('TC-029: terminal decision during an envelope read blocks decryption of a late writer', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aegispay-journal-'));
+  try {
+    const journal = await SpikeJournal.open(dir, Buffer.alloc(32, 7), {
+      operationId: 'synthetic-operation', nonce: '17', expiresAt: 200000, intentHash: 'cc'.repeat(32),
+    });
+    await journal.saveEnvelope('synthetic-secret-xdr-sentinel');
+    const encrypted = await readFile(join(dir, 'envelope.json'), 'utf8');
+    const competing = await SpikeJournal.open(dir, Buffer.alloc(32, 7));
+    const load = journal.load.bind(journal);
+    let first = true;
+    mock.method(journal, 'load', async () => {
+      const saved = await load();
+      if (first) {
+        first = false;
+        await competing.refuseBeforeHandoff('POLICY_REFUSED');
+        // A pre-existing writer finishes after the first refusal cleanup.
+        await writeFile(join(dir, 'envelope.json'), encrypted);
+      }
+      return saved;
+    });
+    await assert.rejects(journal.readEnvelope(), /TERMINAL_PRE_HANDOFF_POLICY_REFUSED/);
+    assert.equal((await readdir(dir)).includes('envelope.json'), false);
   } finally { await cleanup(dir); }
 });

@@ -12,6 +12,7 @@ const operationSchema = z.object({ operationId: z.string().min(1).max(128), nonc
   expiresAt: z.number().int().positive(), intentHash: z.string().regex(/^[a-f0-9]{64}$/) }).strict();
 const identitySchema = z.object({ requestId: z.string().min(1).max(256), transactionHash: z.string().regex(/^[a-f0-9]{64}$/) }).strict();
 const markerSchema = z.object({ at: z.number().int().positive(), identity: identitySchema }).strict();
+const terminalSchema = z.object({ terminalCode: z.enum(['QUOTE_EXPIRED', 'POLICY_REFUSED']), at: z.number().int().positive() }).strict();
 const cipherSchema = z.object({ iv: z.string().regex(/^[a-f0-9]{24}$/), tag: z.string().regex(/^[a-f0-9]{32}$/),
   ciphertext: z.string().regex(/^[a-f0-9]+$/), fingerprint: z.string().regex(/^[a-f0-9]{64}$/) }).strict();
 type Operation = z.infer<typeof operationSchema>;
@@ -52,10 +53,16 @@ export class SpikeJournal implements SpikeHandoffJournal {
     return new SpikeJournal(directory, Buffer.from(key), Object.freeze(value.data));
   }
   async load() {
-    const reservation = await readJson(join(this.directory, 'reservation.json'));
     const handoff = await readJson(join(this.directory, 'handoff.json'));
-    const terminal = z.object({ terminalCode: z.enum(['QUOTE_EXPIRED', 'POLICY_REFUSED']), at: z.number().int().positive() }).strict().safeParse(handoff);
-    if (terminal.success) throw new SpikeGuardError(`TERMINAL_PRE_HANDOFF_${terminal.data.terminalCode}`);
+    const terminal = terminalSchema.safeParse(handoff);
+    if (terminal.success) {
+      // A crash or failed unlink can leave ciphertext after the immutable
+      // refusal. Retry cleanup before refusing every recovery path; never
+      // interpret this terminal decision as an uncommitted financial handoff.
+      await this.removeEncryptedEnvelope();
+      throw new SpikeGuardError(`TERMINAL_PRE_HANDOFF_${terminal.data.terminalCode}`);
+    }
+    const reservation = await readJson(join(this.directory, 'reservation.json'));
     const identity = reservation === null ? null : identitySchema.parse(reservation);
     const marker = handoff === null ? null : markerSchema.parse(handoff);
     if (marker && (!identity || JSON.stringify(marker.identity) !== JSON.stringify(identity))) throw new SpikeGuardError('HANDOFF_IDENTITY_MISSING');
@@ -79,6 +86,9 @@ export class SpikeJournal implements SpikeHandoffJournal {
   async readEnvelope() {
     if ((await this.load()).handoffCommittedAt !== null) throw new SpikeGuardError('HANDOFF_ALREADY_COMMITTED');
     const record = cipherSchema.safeParse(await readJson(join(this.directory, 'envelope.json')));
+    // The decision may have changed during the asynchronous envelope read.
+    // Recheck before decrypting, even when the envelope read itself was invalid.
+    if ((await this.load()).handoffCommittedAt !== null) throw new SpikeGuardError('HANDOFF_ALREADY_COMMITTED');
     if (!record.success) throw new SpikeGuardError('ENVELOPE_MISSING_OR_INVALID');
     try {
       const decipher = createDecipheriv('aes-256-gcm', this.key, Buffer.from(record.data.iv, 'hex'));
@@ -90,28 +100,44 @@ export class SpikeJournal implements SpikeHandoffJournal {
     } catch { throw new SpikeGuardError('ENVELOPE_DECRYPTION_FAILED'); }
   }
   async saveReservation(identity: GasExecutionIdentity) {
+    await this.load();
     const value = identitySchema.parse(identity);
     if (!(await createRecord(join(this.directory, 'reservation.json'), value))) {
       if (JSON.stringify((await this.load()).identity) !== JSON.stringify(value)) throw new SpikeGuardError('RESERVATION_ALREADY_SAVED');
     }
+    await this.load();
   }
   async commitHandoff(at: number) {
     const { identity, handoffCommittedAt } = await this.load();
     if (handoffCommittedAt !== null) return false;
     if (!identity) throw new SpikeGuardError('HANDOFF_IDENTITY_MISSING');
     if (!Number.isSafeInteger(at) || at <= 0 || at >= this.operation.expiresAt) throw new SpikeGuardError('QUOTE_EXPIRED');
-    return createRecord(join(this.directory, 'handoff.json'), markerSchema.parse({ at, identity }));
+    const committed = await createRecord(join(this.directory, 'handoff.json'), markerSchema.parse({ at, identity }));
+    // An exclusive-create loser may be a refusal, not another dispatcher.
+    if (!committed) await this.load();
+    return committed;
   }
   async deleteEncryptedEnvelope() {
     if ((await this.load()).handoffCommittedAt === null) throw new SpikeGuardError('HANDOFF_NOT_COMMITTED');
+    await this.removeEncryptedEnvelope();
+  }
+  private async removeEncryptedEnvelope() {
     try { await unlink(join(this.directory, 'envelope.json')); }
     catch (error) { if (!isMissing(error)) throw new SpikeGuardError('ENVELOPE_DELETE_FAILED'); }
   }
   async refuseBeforeHandoff(code: 'QUOTE_EXPIRED' | 'POLICY_REFUSED') {
     // Terminal refusal and financial dispatch compete for the same exclusive
     // decision record. A refusal cannot race a committed send into a retry.
-    if (!(await createRecord(join(this.directory, 'handoff.json'), { terminalCode: code, at: Date.now() }))) throw new SpikeGuardError('HANDOFF_DECISION_ALREADY_SAVED');
-    try { await unlink(join(this.directory, 'envelope.json')); }
-    catch (error) { if (!isMissing(error)) throw new SpikeGuardError('ENVELOPE_DELETE_FAILED'); }
+    const file = join(this.directory, 'handoff.json');
+    if (!(await createRecord(file, terminalSchema.parse({ terminalCode: code, at: Date.now() })))) {
+      const saved = terminalSchema.safeParse(await readJson(file));
+      // Never delete based on a partial/invalid or financial handoff marker,
+      // and never replace its original code or timestamp to repair cleanup.
+      if (!saved.success) throw new SpikeGuardError('HANDOFF_DECISION_ALREADY_SAVED');
+      await this.removeEncryptedEnvelope();
+      if (saved.data.terminalCode !== code) throw new SpikeGuardError('HANDOFF_DECISION_ALREADY_SAVED');
+      return;
+    }
+    await this.removeEncryptedEnvelope();
   }
 }

@@ -84,10 +84,18 @@ export function verifyAuthorizationEvidence(input: {
     } catch { return false; }
   });
   if (matches.length !== 1) throw new SpikeGuardError('AUTHORIZATION_EVENT_NOT_IN_TRANSACTION');
+  // EQ-004 uses the independently observed outer charged fee, including for
+  // fee bumps. The inner result's fee is not the relayer's charged fee.
+  const outerLedgerFeeChargedStroops = chain.resultXdr.feeCharged().toString();
+  const veloActualFeeStroops = execution.actualFeeStroops;
+  const actualFeeStatus = veloActualFeeStroops === null ? 'velo_unavailable' :
+    veloActualFeeStroops === outerLedgerFeeChargedStroops ? 'matched' : 'conflict';
   return { innerHash, outerHash, observedEventTransactionHash: event.txHash, eventId: event.id,
     ledger: chain.ledger, agent: input.intent.agent, asset: input.intent.asset, nonce: input.intent.nonce.toString(),
     amount: input.intent.amount.toString(), merchant: event.merchant, deviceHash: event.deviceHash,
-    actualFeeStroops: execution.actualFeeStroops };
+    // Fee availability is separate from the verified payment entitlement.
+    actualFeeStroops: actualFeeStatus === 'matched' ? outerLedgerFeeChargedStroops : null,
+    outerLedgerFeeChargedStroops, veloActualFeeStroops, actualFeeStatus };
 }
 
 // The caller separately verifies the merchant signature and exact claim(token,

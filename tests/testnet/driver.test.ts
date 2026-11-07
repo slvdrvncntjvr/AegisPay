@@ -1,6 +1,6 @@
 // Synthetic transactions and temporary local journals only. Never live evidence.
 import assert from 'node:assert/strict';
-import { mkdtemp, rm } from 'node:fs/promises';
+import { mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { basename, dirname, join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { test, mock } from 'node:test';
@@ -245,5 +245,31 @@ test('TASK-002 synthetic driver: an RPC claim event without its matching embedde
     replacement.mock.restore();
     await executeSpike(f.ctx);
     assert.deepEqual(f.counts(), { submits: 4, gasSubmits: 1, signsPrepared: 2 });
+  } finally { await cleanup(directory); }
+});
+
+test('TASK-002 synthetic driver: interrupted terminal cleanup blocks prepare, signing and all Gas calls on restart', async () => {
+  const directory = await mkdtemp(join(tmpdir(), 'aegispay-driver-'));
+  try {
+    const f = await syntheticDriver(directory); await provisionSpike(f.ctx);
+    // Leave a prepared envelope before any reservation or financial handoff.
+    f.ctx.gas.sponsor = async () => { throw new Error('synthetic-stop-before-reservation'); };
+    await assert.rejects(executeSpike(f.ctx), /synthetic-stop-before-reservation/);
+    const counts = f.counts();
+    const payment = join(directory, 'payment');
+    assert.equal((await readdir(payment)).includes('envelope.json'), true);
+    const decision = JSON.stringify({ terminalCode: 'POLICY_REFUSED', at: Date.now() });
+    await writeFile(join(payment, 'handoff.json'), decision);
+    mock.method(f.ctx.noir, 'prepare', async () => { assert.fail('terminal refusal must not prepare'); });
+    const signing = mock.method(f.ctx.agent, 'sign', () => { assert.fail('terminal refusal must not sign'); });
+    f.ctx.gas.sponsor = async () => { assert.fail('terminal refusal must not sponsor'); };
+    f.ctx.gas.submit = async () => { assert.fail('terminal refusal must not send'); };
+    f.ctx.gas.getStatus = async () => { assert.fail('terminal refusal must not observe an execution'); };
+    await assert.rejects(executeSpike(f.ctx), /TERMINAL_PRE_HANDOFF_POLICY_REFUSED/);
+    await assert.rejects(executeSpike(f.ctx), /TERMINAL_PRE_HANDOFF_POLICY_REFUSED/);
+    assert.equal(signing.mock.callCount(), 0);
+    assert.deepEqual(f.counts(), counts);
+    assert.equal((await readdir(payment)).includes('envelope.json'), false);
+    assert.equal(await readFile(join(payment, 'handoff.json'), 'utf8'), decision);
   } finally { await cleanup(directory); }
 });
