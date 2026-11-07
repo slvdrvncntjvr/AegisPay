@@ -1,0 +1,8 @@
+{
+  "classification": "live-testnet-relayer-account-funding-only",
+  "address": "GDLNTZP2TDR7RILQETXM4ALYLXHMGGX4TL56WZLFP3FEX5E7WNR55AQ3",
+  "requestedFunding": true,
+  "observedNativeBalanceXlm": "10000.0000000",
+  "observedAt": "2026-11-07T02:08:36.350Z",
+  "limits": "Official Testnet account funding and independently observed Horizon native balance only. Velo signer readiness, policy enablement, sponsorship, Noir authorization and claim are not established."
+}
