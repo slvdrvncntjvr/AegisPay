@@ -1,6 +1,6 @@
 # Data model / schema
 
-**Status:** implementation contract; migrations not yet written. Schema uses PostgreSQL snake_case. Product lifetimes and limits belong to [PRD business rules](prd.md); this document owns storage constraints.
+**Status:** implementation contract; versioned SQL migrations implemented and checked against PostgreSQL 17.11. Schema uses PostgreSQL snake_case. Product lifetimes and limits belong to [PRD business rules](prd.md); this document owns storage constraints.
 
 ## Entities & relationships (ERD)
 
@@ -19,7 +19,7 @@ audit_event --> typed entity reference
 
 ## Schema / field definitions
 
-All primary IDs are application-generated UUIDs. All timestamps are `timestamptz` in UTC; `created_at` defaults to DB `now()`. Explicit `?` below means nullable; other fields are NOT NULL with no implicit default. Amounts use `numeric(38,0)` with checks `0 <= value <= 2^127-1`; quote/payment amounts must be positive. TypeScript parses amounts as `bigint`, never `number`; DB driver returns strings. Nonce uses `numeric(20,0)` bounded to unsigned 64-bit, JSON decimal strings. Hashes are normalized lowercase hex of validated length. Status fields have SQL CHECK constraints matching the declared values, not arbitrary strings.
+All primary IDs are application-generated UUIDs. All timestamps are `timestamptz` in UTC; `created_at` defaults to DB `now()`. Explicit `?` below means nullable; other fields are NOT NULL with no implicit default. Amounts use unscaled PostgreSQL `numeric` with explicit integer and range checks `0 <= value <= 2^127-1`; quote/payment amounts must be positive. TypeScript parses amounts as `bigint`, never `number`; DB driver returns strings. Nonce uses `numeric(20,0)` bounded to unsigned 64-bit, JSON decimal strings. Hashes are normalized lowercase hex of validated length. Status fields have SQL CHECK constraints matching the declared values, not arbitrary strings.
 
 | Entity | Fields / types and defaults | Purpose |
 |--------|-----------------------------|---------|

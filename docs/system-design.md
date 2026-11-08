@@ -12,7 +12,7 @@ Browser console --session--> Next.js Node UI + API
                                   v
                            Private Node worker
                      / model tool loop + payment adapter \
-            Claude API       Noir SDK           Velo Gas
+            Gemini API       Noir SDK           Velo Gas
                                 \               /
                                  Stellar Testnet
                                        |
@@ -81,7 +81,7 @@ Worker lease expiry permits resuming observation, not redispatching money. Reser
 
 ### Agent loop
 
-Use Anthropic's client-tool round trip directly; no LangChain or agent framework. Default `AGENT_MODEL=claude-haiku-5-5` is configurable after model-access smoke test. Limit a run to 8 model turns, 12 tool executions and 90 seconds of active reasoning. These limits stop further intent; they never cancel chain reconciliation. If payment outlives the run, persist `waiting_payment`, reconcile to completion and resume once using stored tool-call identity. On restart an ambiguous completed tool action is recovered by quote ID, not repeated. No model-generated financial numeric values are authoritative.
+Use Gemini AI Studio GenerateContent with explicit bounded function calling and native Node fetch. GEMINI_API_KEY is worker-only; select an account-accessible AGENT_MODEL and verify it before a live run. No default model access or free quota is assumed. Limit a run to 8 model turns, 12 tool executions and 90 seconds of active reasoning. These limits stop further intent; they never cancel chain reconciliation. If payment outlives the run, persist `waiting_payment`, reconcile to completion and resume once using stored tool-call identity. On restart an ambiguous completed tool action is recovered by quote ID, not repeated. No model-generated financial numeric values are authoritative.
 
 ## Key technology choices + rationale
 
@@ -127,3 +127,7 @@ One web and one worker replica, one active run per agent, one agent only. Use `F
 ## Trade-offs considered
 
 The queue shares PostgreSQL to avoid another service. Identity-before-handoff improves recovery but conservatively stalls a crash-before-send case. Signed-envelope encryption adds a small security boundary for recovering sponsorship; it is never a general signing service. A custom 402 adapter is explicit and tested without claiming x402 conformance. One gateway controls both demo merchants' HTTP resources, so it proves application context binding, not independent trustless merchant federation.
+
+## User-directed model and hosting update - 2026-11-08
+
+Gemini replaces Anthropic. Render replaces Railway as the requested zero-cost demo target. Free background/private worker services are unavailable; the proposed adaptation is a second isolated free web service with authenticated HTTPS wake ingress, no exposed signing/payment route, one durable SQL job consumer and independent secrets. Idle sleep/restarts must resume observation, never repeat a handoff. Free PostgreSQL expires after 30 days. This adaptation is not yet deployed. Official sources: https://render.com/docs/free and https://ai.google.dev/gemini-api/docs/function-calling.

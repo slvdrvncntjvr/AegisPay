@@ -1,4 +1,4 @@
-import { runtimeHealth } from '../../../runtime';
+import { runtimeHealth } from '../../../runtime.ts';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
