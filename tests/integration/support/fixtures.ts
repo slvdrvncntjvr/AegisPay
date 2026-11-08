@@ -19,7 +19,8 @@ export async function fixture(store: Store, options: { budget?: string; expiredQ
   const scope = { ownerId: owner!.id, agentId: agent!.id, runId: run.id, resourceId: resource!.id };
   let quote = await createQuote(store, scope);
   if (options.expiredQuote || options.quoteTtlMs) {
-    const past = { ...quote, id: randomUUID(), createdAt: new Date(Date.now() - (options.expiredQuote ? 180000 : 0)), expiresAt: new Date(Date.now() + (options.expiredQuote ? -60000 : options.quoteTtlMs!)) };
+    const fixtureTime = Date.now();
+    const past = { ...quote, id: randomUUID(), createdAt: new Date(fixtureTime - (options.expiredQuote ? 180000 : 0)), expiresAt: new Date(fixtureTime + (options.expiredQuote ? -60000 : options.quoteTtlMs!)) };
     const [expired] = await store.db.insert(s.quote).values({ ...past, termsHash: quoteTermsHash(past) }).returning();
     quote = expired!;
   }
