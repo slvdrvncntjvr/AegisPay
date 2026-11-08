@@ -1,0 +1,13 @@
+{
+  "observed_at": "2026-11-08T01:21:00.567935+00:00",
+  "classification": "live-gemini-nonfinancial-smoke",
+  "model": "models/gemini-3.5-flash",
+  "status": "passed",
+  "expected_call": "discover_offers",
+  "tool_calls": 1,
+  "roundtrip": "matched",
+  "call_id_preserved": true,
+  "thought_signature_preserved": true,
+  "financial_actions": 0,
+  "limitations": "Function calling connectivity only; not a completed purchasing agent or payment. Listed gemini-2.5-flash returned unavailable; no provider payload or secret retained."
+}
