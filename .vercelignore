@@ -1,0 +1,25 @@
+# Current proof slice needs only web/shared source and workspace manifests.
+# Review this allowlist before the full app handoff; private runtime files never belong here.
+*
+!package.json
+!pnpm-lock.yaml
+!pnpm-workspace.yaml
+!tsconfig.json
+!.npmrc
+!apps
+!apps/web
+!apps/web/**
+!apps/server
+!apps/server/package.json
+!packages
+!packages/shared
+!packages/shared/**
+!packages/agent
+!packages/agent/package.json
+**/node_modules/**
+**/.next/**
+**/.env*
+**/*.tsbuildinfo
+**/*.log
+**/.aegispay-spike/**
+**/noirxvelohackathoncontext/**
