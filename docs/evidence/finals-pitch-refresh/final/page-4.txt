@@ -1,0 +1,27 @@
+03 / ACTUAL INTEGRATION PROOF
+HISTORICAL · 07 NOV
+Two SDKs.
+The same authorization.
+01
+Noir
+Policy and escrow
+prepare authorization.
+Agent key signs server-side
+→
+02
+Velo Gas
+Sponsor and submit
+that signed invocation.
+Persist identity before handoff
+→
+03
+Independent proof
+Match the successful
+envelope, call and event.
+Reconcile inner / outer identity
+Our contribution
+Exact integration + evidence mapping.
+A dependable resource-specific workflow is the next gate.
+Noir supplies policy / escrow; Velo supplies sponsorship / submission. Caps, agent wallets and HTTP 402 alone are not unique.
+Saved independent evidence ↗ · Verifier ↗
+04 / 08

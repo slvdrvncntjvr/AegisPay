@@ -1,0 +1,137 @@
+{
+  "browser": "156.0.8078.4",
+  "playwright": "1.65.0",
+  "slides": [
+    {
+      "page": 1,
+      "width": 1280,
+      "height": 720,
+      "violations": []
+    },
+    {
+      "page": 2,
+      "width": 1280,
+      "height": 720,
+      "violations": []
+    },
+    {
+      "page": 3,
+      "width": 1280,
+      "height": 720,
+      "violations": []
+    },
+    {
+      "page": 4,
+      "width": 1280,
+      "height": 720,
+      "violations": []
+    },
+    {
+      "page": 5,
+      "width": 1280,
+      "height": 720,
+      "violations": []
+    },
+    {
+      "page": 6,
+      "width": 1280,
+      "height": 720,
+      "violations": []
+    },
+    {
+      "page": 7,
+      "width": 1280,
+      "height": 720,
+      "violations": []
+    },
+    {
+      "page": 8,
+      "width": 1280,
+      "height": 720,
+      "violations": []
+    }
+  ],
+  "links": [
+    {
+      "text": "Public proof viewer ↗",
+      "href": "https://aegispay-live.vercel.app/"
+    },
+    {
+      "text": "Source ↗",
+      "href": "https://github.com/slvdrvncntjvr/AegisPay"
+    },
+    {
+      "text": "Intended resource workflow ↗",
+      "href": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/prd.md"
+    },
+    {
+      "text": "Scenario / source provenance ↗",
+      "href": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md#current-sources"
+    },
+    {
+      "text": "Saved independent evidence ↗",
+      "href": "https://github.com/slvdrvncntjvr/AegisPay/blob/952344dd0c036a3ea390d1bfbadc5b8c640aff23/docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json"
+    },
+    {
+      "text": "Verifier ↗",
+      "href": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/src/server/integrations/stellar-evidence.ts"
+    },
+    {
+      "text": "Inner authorization ↗",
+      "href": "https://stellar.expert/explorer/testnet/tx/1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a"
+    },
+    {
+      "text": "Outer / event: same payment ↗",
+      "href": "https://stellar.expert/explorer/testnet/tx/6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381"
+    },
+    {
+      "text": "Separate merchant claim ↗",
+      "href": "https://stellar.expert/explorer/testnet/tx/94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18"
+    },
+    {
+      "text": "Full historical proof / balances ↗",
+      "href": "https://github.com/slvdrvncntjvr/AegisPay/blob/952344dd0c036a3ea390d1bfbadc5b8c640aff23/docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json"
+    },
+    {
+      "text": "Inspect the deployed viewer ↗",
+      "href": "https://aegispay-live.vercel.app/"
+    },
+    {
+      "text": "Persisted attempt ↗",
+      "href": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md#application-attempt"
+    },
+    {
+      "text": "Saved status observation ↗",
+      "href": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md#application-attempt"
+    },
+    {
+      "text": "Pilot / economics rationale ↗",
+      "href": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md#business-hypotheses"
+    },
+    {
+      "text": "aegispay-live.vercel.app ↗",
+      "href": "https://aegispay-live.vercel.app/"
+    },
+    {
+      "text": "Source ↗",
+      "href": "https://github.com/slvdrvncntjvr/AegisPay"
+    },
+    {
+      "text": "Submitted pitch PDF ↗",
+      "href": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf"
+    },
+    {
+      "text": "Video folder ↗",
+      "href": "https://drive.google.com/drive/folders/1hqwzOaG_qU9axjcLIjBUb1YeMWdOFq72?usp=sharing"
+    },
+    {
+      "text": "Deployment evidence ↗",
+      "href": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md#deployment"
+    },
+    {
+      "text": "Local backend evidence ↗",
+      "href": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md#current-sources"
+    }
+  ],
+  "pageErrors": []
+}

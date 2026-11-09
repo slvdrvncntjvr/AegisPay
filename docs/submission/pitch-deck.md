@@ -1,89 +1,85 @@
-# AegisPay — eight-slide pitch deck source
+# AegisPay — eight-slide pitch source
 
-**Draft, 2026-11-07.** Presenter: Salvador Vincent Javier, solo (Discord unconfirmed). Five minutes including live demo, then three minutes Q&A. This is source, not a public Slides/Canva/PDF link. App/model/DB/UI/workspaces/deployment are unfinished. No fake screenshots. Export/publish after claims are updated from real gates.
+**Refreshed 9 November 2026.** Presenter: Salvador Vincent Javier, solo builder. Current-state Testnet pitch: integration proof, deployed recorded-proof viewer, local foundations and an unresolved application attempt. Full autonomous purchasing, recovery and hosted release remain unfinished. The supplied Nov 8 organizer email names AegisPay Top 15; finals date and venue remain TBA. Handbook working format: five-minute pitch + three-minute Q&A; rubric 30/25/20/15/10 (agentic fit / technical execution / innovation / real-world potential / pitch).
 
----
+Fixed destinations: [website](https://aegispay-live.vercel.app/), [submitted PDF](https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf), [source](https://github.com/slvdrvncntjvr/AegisPay), [recovered video folder](https://drive.google.com/drive/folders/1hqwzOaG_qU9axjcLIjBUb1YeMWdOFq72?usp=sharing). The folder does not establish a newly uploaded or playable MP4.
 
-## Slide 1 — Agents need useful data, and owners need limits
+The HTML is the visual source with identical timed notes. Notes, controls and Q&A are excluded from print. Local refresh awaits coordinator review/publication at the existing path.
 
-**On slide:** AegisPay — bounded API purchasing on Stellar Testnet. Agent chooses; deterministic tools check; Noir limits; Velo executes.
+## Slide 1 — Useful data. Bounded authority.
 
-**Say, 0:00–0:25 (25s):** “We are exploring a narrow problem for agent developers: buying a useful report during a task while preserving spending control and a reliable receipt. Today's verified result is one SDK authorization and separate claim. The complete model app is still being built.” Update that last sentence only with release evidence.
+**0:00–0:25 · 25 seconds.** PREPARED · 09 NOV 2026.
 
-**Visual:** four labeled boxes/arrows, no product screenshot.
+Imagine a release assistant that needs one specialist report to write a useful dependency triage note. The model should choose the information; its owner should control the spending authority. AegisPay explores that boundary on Stellar Testnet. We have proved one Noir authorization through Velo, with an inspectable public proof viewer.
 
----
+**On-screen content:** Useful data. Bounded authority. See [deck.html](deck.html) for exact diagrams, receipt, labels and clickable evidence.
 
-## Slide 2 — One workflow worth testing
+## Slide 2 — Should we ship this dependency update?
 
-**On slide:** Developer needs data → current price → bounded purchase → verified resource access. Target: small agent teams and specialized API owners. Demand is a hypothesis.
+**0:25–1:00 · 35 seconds.** HYPOTHETICAL CUSTOMER.
 
-**Say, 0:25–0:55 (30s):** “Prepaid keys can work well. We want to learn whether wallet-based, per-request purchasing helps agents choose a new resource without open-ended signing authority. We have no customer or revenue traction claim.”
+Our proposed user is a small team building a release assistant. The task: review the fictional demo-parser dependency and write a basic triage note, within point one Testnet XLM. Free metadata describes a report, but specialist content could add the advisory context the assistant lacks. That is the reason to buy. The useful output would cite its source and say what remains unknown. This is an illustrative task with fictional reports.
 
-**Visual:** intended task/quote/receipt sequence.
+**On-screen content:** Should we ship this dependency update? See [deck.html](deck.html) for exact diagrams, receipt, labels and clickable evidence.
 
----
+## Slide 3 — Choose the information. Keep the rules.
 
-## Slide 3 — Live workflow: choose, request, verify
+**1:00–1:45 · 45 seconds.** NOT AN EXECUTED PURCHASE.
 
-**On slide:** QuickSignal 300000 stroops; DeepTrace 1200000; cap 1000000. Fixture reports; real Testnet payment. Show actual model choice/402 quote, not a manually selected payment.
+QuickSignal is the basic fixture at three hundred thousand stroops. DeepTrace is the extended fixture at one point two million, above the one-million cap. Affordability alone is not an intelligent choice: the agent should inspect current offers and buy nothing when data adds no value. Trusted tools own the quote, task budget and signing. Noir separately enforces per-payment policy, expiry and finite escrow. This intended workflow has not completed a model purchase or report delivery.
 
-**Demo, 0:55–2:10 (75s):** After gates pass, open the real hosted app; show confirmed policy, enter task, show tool choice/quote and follow pending to verified receipt/resource. Keep pending honest. If unfinished, present saved integration artifact/explorer, explicitly saying it is an SDK spike, not an autonomous model purchase. Backup video must be labeled and from a real run.
+**On-screen content:** Choose the information. Keep the rules. See [deck.html](deck.html) for exact diagrams, receipt, labels and clickable evidence.
 
-**Visual:** actual app only when available; otherwise actual redacted evidence. [Recording source](recording-script.md).
+## Slide 4 — Two SDKs. The same authorization.
 
----
+**1:45–2:30 · 45 seconds.** HISTORICAL · 07 NOV.
 
-## Slide 4 — Two SDKs, one authorization
+Here is the achieved integration. Noir prepares the escrow authorization. The agent key signs server-side. Velo Gas sponsors and submits that same signed invocation, with its identity persisted before handoff. Independent RPC evidence matches the successful envelope, exact invocation and Noir event to Velo execution. Event alone is insufficient: it omits asset and agent. Noir owns the policy and escrow primitives; Velo supplies sponsorship and submission. Our contribution is this exact integration and evidence mapping, toward a dependable resource workflow. Generic wallets, caps and payment challenges already exist.
 
-**On slide:** apps/web → PostgreSQL ← private apps/server. packages/agent = model/tool loop; packages/shared = real schemas. Noir 0.3.0 prepares mandatory deployed escrow call; Velo 1.0.0 Gas sponsors/submits/observes; independent RPC verifies.
+**On-screen content:** Two SDKs. The same authorization. See [deck.html](deck.html) for exact diagrams, receipt, labels and clickable evidence.
 
-**Say, 2:10–2:50 (40s):** “The owner configures the mandatory October 24 Noir contracts. Server signs one authorization, persists Velo identity before dispatch and separately verifies invocation and event. Workspace components are targets until TASK-011; spike source stays stable. Gas is our actual Velo role; organizer-specific approval remains unconfirmed.”
+## Slide 5 — One payment. A readable receipt.
 
-**Visual:** root README architecture, with unbuilt components marked.
+**2:30–3:10 · 40 seconds.** SAVED TESTNET RUN · 07 NOV.
 
----
+This receipt describes one historical payment. The inner Noir authorization and fee-bump outer transaction map to the same operation; its event uses the outer hash. Three hundred thousand stroops moved into merchant-pending escrow. A separate merchant claim later cleared pending to zero. The labels link to the exact transactions. We also observed actual contract simulation refusing one point two million against the one-million cap: unsigned and unsubmitted. This proof establishes the payment integration; it does not establish a QuickSignal purchase.
 
-## Slide 5 — What the chain proves today
+**On-screen content:** One payment. A readable receipt. See [deck.html](deck.html) for exact diagrams, receipt, labels and clickable evidence.
 
-**On slide:** One authorization: 300000 stroops = 0.03 Testnet XLM. Inner 1d39c3e3…; outer/event 6e898ad8…. Escrow 10000000 → 9700000. Pending 0 → 300000 → 0 after separate claim 94cea8bb…. Two reports = one payment.
+## Slide 6 — Unknown means hold.
 
-**Say, 2:50–3:25 (35s):** “Saved proof matches Velo execution to successful Stellar envelope, invocation and Noir event. Authorization and claim are separate. Over-cap refusal is deployed-contract simulation, not an included failed transaction. We make no fee or latency claim while review fixes are pending.”
+**3:10–3:50 · 40 seconds.** OBSERVED APP ATTEMPT · 09 NOV.
 
-**Visual:** [full report/transaction links](../../README.md#testnet-proof); no fabricated second run or completion checkmark.
+The newer application attempt remains unknown after one persisted financial handoff. Its ledger holds three hundred thousand stroops, records zero spent and grants no report entitlement. The last saved Velo status read returned HTTP four-oh-nine; the prior RPC lookup was not found. Neither establishes success or definitive failure. The purchase keeps its original identity for observation, without a replacement payment or report release. This is conservative unresolved behavior, not completed recovery. One application handoff is our boundary, not a universal exactly-once execution guarantee.
 
----
+**On-screen content:** Unknown means hold. See [deck.html](deck.html) for exact diagrams, receipt, labels and clickable evidence.
 
-## Slide 6 — Recovery belongs in the payment boundary
+## Slide 7 — Start with one developer. And one data provider.
 
-**On slide:** Immutable quote; persisted nonce; one handoff; unknown means no data; owner/resource receipt binding. Model intent is untrusted.
+**3:50–4:25 · 35 seconds.** UNVALIDATED · NO EXISTING PARTNERS.
 
-**Say, 3:25–4:00 (35s):** “We preserve identity through uncertainty rather than signing again. The event alone lacks asset and agent, so it cannot authorize a report. Planned PostgreSQL constraints and negative tests must establish one entitlement and correct ownership. The spike does not prove those database races are solved.”
+The proposed pilot pairs one release-assistant developer with one specialist report provider. We want a real endpoint commitment and repeated use on an actual task. Measure whether the report improves the answer, then setup effort, correct access and unresolved duration. A provider subscription or fulfilled-request fee is an unvalidated revenue hypothesis. Model, hosting, RPC, sponsorship and support costs need measurement. We are seeking design partners; no customers, revenue or validated margins are claimed.
 
-**Visual:** accepted → pending/unknown → independently verified → entitled; no unknown-to-data edge.
+**On-screen content:** Start with one developer. And one data provider. See [deck.html](deck.html) for exact diagrams, receipt, labels and clickable evidence.
 
----
+## Slide 8 — Next: one complete purchase. Verified end to end.
 
-## Slide 7 — A focused route to real use
+**4:25–5:00 · 35 seconds.** AEGISPAY · SAME SUBMITTED LINKS.
 
-**On slide:** Pilot: one agent developer + one paid API provider. Measure integration friction, denied/recovered purchases, delivery correctness and actual costs. Potential gateway subscription/usage fee is unvalidated.
+The next milestone is one complete useful purchase: genuine model choice, verified report access, a sourced answer and demonstrated recovery. Our public proof viewer is live. Workspaces, PostgreSQL foundations, private auth and wallet APIs, and a Gemini adapter exist locally; the complete purchasing and hosted release gates remain open. The submitted website, source, PDF and video folder stay at their existing links. We ask for one developer, one specialist provider and technical feedback to test that next milestone. Thank you.
 
-**Say, 4:00–4:30 (30s):** “Next commercial step is a small developer pilot, not a market-size claim. Model, hosting, RPC and sponsored fees need measurement. We want evidence of a recurring purchasing problem before claiming demand or sustainable margins.”
+**On-screen content:** Next: one complete purchase. Verified end to end. See [deck.html](deck.html) for exact diagrams, receipt, labels and clickable evidence.
 
-**Visual:** integrate → observe → interview → decide.
+## Three-minute Q&A
 
----
+Owner: Salvador Vincent Javier. The HTML Q&A panel contains the full current answer map and is excluded from PDF.
 
-## Slide 8 — Honest progress, concrete next gates
+- Successful Nov 7 proof was headless, not a model report purchase. Inner/outer identify one payment; merchant claim is separate.
+- Nov 9 attempt remains unknown: quote `2919ccca-2d31-4bc4-9140-649c8b1fc0ae`, attempt `f69178b7-0b0b-46fa-8e82-65c2dd5deee5`, inner `36f71d7ddee16271b6c23e73fa5ef1f1ca4f0e44e3d0a52ef6eca2115f80d0f8`. Held 300000, spent 0, no entitlement. Last saved Velo status HTTP 409, prior RPC NOT_FOUND. Provider status claimed is not merchant claim.
+- Backend report records 64 PostgreSQL / 73 unit / 50 offline spike passes with synthetic chain/provider transport. These are attributed reports, not deck-worker reruns or live acceptance.
+- Noir policy/expiry/finite escrow and app task budget/resource binding are separate. Unknown stays unentitled; observe original identity. No universal exactly-once claim.
+- Backend stopped at Orca retry breaker after quota/startup failures; no replacement task or financial call authorized. Full model purchase/recovery/release open.
+- No customers, partners, revenue, validated economics, market-size, mainnet, audit, zero-knowledge or x402 conformance claim. Gas is the actual Velo role; organizer-specific acceptance not independently confirmed.
+- Top 15 per supplied Nov 8 email; finals date/venue TBA. Video destination is a folder; new MP4 upload/playback unverified.
 
-**On slide:** Proved: one Velo-sponsored Noir authorization and separate claim. Next: review fixes → workspaces → DB/model/UI release → public app → public video/deck. Repo: https://github.com/slvdrvncntjvr/AegisPay. App/video/deck URLs: unpublished. Ask: pilot feedback, Gas/late-acceptance clarification.
-
-**Say, 4:30–5:00 (30s):** “Testnet integration is real; the complete hosted application is unfinished. We are keeping those limits visible. The handbook deadline has passed with no extension or eligibility assurance. We want feedback on the purchasing workflow and unresolved event interpretation.”
-
-**Visual:** factual progress list; replace statuses/URLs only with verified results.
-
----
-
-## Three-minute Q&A preparation
-
-Salvador Vincent Javier answers all questions. Prepare: why Gas rather than checkout (actual role, no organizer approval); unknown recovery (saved identity/one handoff); event insufficiency (missing asset/agent); fixture content; no x402 conformance claim; pending funds vs claim; whether model chose current spike (no); remaining review fixes/app/workspaces/hosting/public media. [Pitch kit](../pitch-kit.md) owns full answer map.
+**Notes duration: 300 seconds.** [Rendering](deck-rendering.md) · [TASK-016 evidence](../evidence/finals-pitch-refresh/task-016.md).

@@ -1,0 +1,18 @@
+05 / THE BOUNDARY UNDER UNCERTAINTY
+OBSERVED APP ATTEMPT · 09 NOV
+Unknown means hold.
+One persisted financial handoff. No verified outcome.
+300000
+stroops held
+0
+stroops spent in app ledger
+0
+report entitlements
+Saved purchase identity →
+UNKNOWN
+→
+Observe that identity
+No replacement payment. No report release.
+Latest saved Velo status read: HTTP 409; prior RPC: NOT_FOUND. This is observed conservative behavior, not completed recovery.
+Persisted attempt ↗ · Saved status observation ↗
+06 / 08

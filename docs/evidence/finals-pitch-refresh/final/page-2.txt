@@ -1,0 +1,19 @@
+01 / START WITH A USEFUL TASK
+HYPOTHETICAL CUSTOMER
+Should we ship this
+dependency update?
+A SMALL DEVELOPER TEAM ASKS
+“Review demo-parser.
+Buy only what helps a
+basic release triage note.”
+Total task ceiling · 0.10 Testnet XLM
+WHY PAID DATA COULD MATTER
+Metadata names the report.
+It cannot answer the task.
+A specialist report could add advisory context and
+known limitations beyond the free listing.
+The useful output: a sourced triage note that says what
+remains unknown.
+Illustrative scenario only. demo-parser and both reports are fictional; no security assessment or delivered answer is claimed.
+Intended resource workflow ↗ · Fictional reports; unvalidated customer hypothesis.
+02 / 08

@@ -1,0 +1,31 @@
+{
+  "browser": "156.0.8078.4",
+  "notesSeconds": [
+    25,
+    35,
+    45,
+    45,
+    40,
+    40,
+    35,
+    35
+  ],
+  "totalSeconds": 300,
+  "wordsBySlide": [
+    50,
+    71,
+    75,
+    88,
+    80,
+    83,
+    73,
+    80
+  ],
+  "totalWords": 600,
+  "fontLoaded": true,
+  "notesButton": true,
+  "nShortcut": true,
+  "qaOpenClose": true,
+  "printControlsHidden": true,
+  "externalSubresources": []
+}

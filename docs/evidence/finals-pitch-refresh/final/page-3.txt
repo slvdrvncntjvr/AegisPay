@@ -1,0 +1,23 @@
+02 / THE INTENDED DECISION
+NOT AN EXECUTED PURCHASE
+Choose the information.
+Keep the rules.
+Fictional specialist reports
+Illustrative Testnet price
+Per-payment cap: 0.10 XLM
+QuickSignal
+Basic advisory context
+0.03 XLM
+Within the example cap
+DeepTrace
+Extended investigation
+0.12 XLM
+Above the example cap
+Agent decides usefulness
+Buy relevant data, or buy nothing.
+/
+Trusted tools control permission
+Current quote, task budget and signing.
+No completed model choice or report delivery. Contract cap + expiry + finite escrow are distinct from the application task budget.
+Scenario / source provenance ↗ · 300000 / 1200000 stroops; 1000000-stroop example cap.
+03 / 08

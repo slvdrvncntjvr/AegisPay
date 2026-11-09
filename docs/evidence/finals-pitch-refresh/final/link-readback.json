@@ -1,0 +1,86 @@
+[
+  {
+    "url": "https://aegispay-live.vercel.app/",
+    "startedAt": "2026-11-09T11:10:20.642Z",
+    "status": 200,
+    "finalUrl": "https://aegispay-live.vercel.app/"
+  },
+  {
+    "url": "https://drive.google.com/drive/folders/1hqwzOaG_qU9axjcLIjBUb1YeMWdOFq72?usp=sharing",
+    "startedAt": "2026-11-09T11:10:20.654Z",
+    "status": 200,
+    "finalUrl": "https://drive.google.com/drive/folders/1hqwzOaG_qU9axjcLIjBUb1YeMWdOFq72?usp=sharing"
+  },
+  {
+    "url": "https://github.com/slvdrvncntjvr/AegisPay",
+    "startedAt": "2026-11-09T11:10:20.656Z",
+    "status": 200,
+    "finalUrl": "https://github.com/slvdrvncntjvr/AegisPay"
+  },
+  {
+    "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/952344dd0c036a3ea390d1bfbadc5b8c640aff23/docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json",
+    "startedAt": "2026-11-09T11:10:20.657Z",
+    "status": 200,
+    "finalUrl": "https://github.com/slvdrvncntjvr/AegisPay/blob/952344dd0c036a3ea390d1bfbadc5b8c640aff23/docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json"
+  },
+  {
+    "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md#application-attempt",
+    "startedAt": "2026-11-09T11:10:22.267Z",
+    "status": 404,
+    "finalUrl": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md"
+  },
+  {
+    "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md#business-hypotheses",
+    "startedAt": "2026-11-09T11:10:22.268Z",
+    "status": 404,
+    "finalUrl": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md"
+  },
+  {
+    "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md#current-sources",
+    "startedAt": "2026-11-09T11:10:22.269Z",
+    "status": 404,
+    "finalUrl": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md"
+  },
+  {
+    "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md#deployment",
+    "startedAt": "2026-11-09T11:10:22.270Z",
+    "status": 404,
+    "finalUrl": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md"
+  },
+  {
+    "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/prd.md",
+    "startedAt": "2026-11-09T11:10:23.082Z",
+    "status": 200,
+    "finalUrl": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/prd.md"
+  },
+  {
+    "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf",
+    "startedAt": "2026-11-09T11:10:23.082Z",
+    "status": 200,
+    "finalUrl": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf"
+  },
+  {
+    "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/src/server/integrations/stellar-evidence.ts",
+    "startedAt": "2026-11-09T11:10:23.083Z",
+    "status": 200,
+    "finalUrl": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/src/server/integrations/stellar-evidence.ts"
+  },
+  {
+    "url": "https://stellar.expert/explorer/testnet/tx/1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a",
+    "startedAt": "2026-11-09T11:10:23.083Z",
+    "status": 200,
+    "finalUrl": "https://stellar.expert/explorer/testnet/tx/1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a"
+  },
+  {
+    "url": "https://stellar.expert/explorer/testnet/tx/6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381",
+    "startedAt": "2026-11-09T11:10:23.933Z",
+    "status": 200,
+    "finalUrl": "https://stellar.expert/explorer/testnet/tx/6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381"
+  },
+  {
+    "url": "https://stellar.expert/explorer/testnet/tx/94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18",
+    "startedAt": "2026-11-09T11:10:23.933Z",
+    "status": 200,
+    "finalUrl": "https://stellar.expert/explorer/testnet/tx/94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18"
+  }
+]

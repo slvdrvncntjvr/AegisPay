@@ -1,0 +1,25 @@
+07 / THE NEXT MEASURABLE MILESTONE
+AEGISPAY · SAME SUBMITTED LINKS
+Next: one complete purchase.
+Verified end to end.
+One agent developer.
+One specialist report provider.
+Technical feedback on the boundary.
+Next gate: genuine model choice → verified report
+→ sourced answer → demonstrated recovery.
+Proved
+Historical Noir / Velo authorization + separate claim
+Live
+Public recorded-proof viewer
+Implemented locally
+Workspaces, PostgreSQL, auth / wallet APIs, Gemini
+adapter
+Open
+Full model purchase, recovery and hosted release
+aegispay-live.vercel.app ↗
+Source ↗
+Submitted pitch PDF ↗
+Video folder ↗
+Video link is the recovered folder; new MP4 upload / playback is unverified. Five-minute pitch + three-minute Q&A working format.
+Deployment evidence ↗ · Local backend evidence ↗
+08 / 08

@@ -1,0 +1,23 @@
+06 / THE CUSTOMER AND REVENUE HYPOTHESIS
+UNVALIDATED · NO EXISTING PARTNERS
+Start with one developer.
+And one data provider.
+ONE DEVELOPER
+A release assistant
+with a real data gap
++
+ONE SPECIALIST PROVIDER
+A useful report endpoint
+with permission to integrate
+01 / Usefulness
+Does the report improve
+a task they repeat?
+02 / Reliability
+Correct access, unresolved
+duration, integration effort.
+03 / Economics
+Would a provider pay
+for the gateway?
+Revenue hypothesis: provider gateway subscription or fulfilled-request fee. Demand, willingness to pay, costs and margins are unvalidated.
+Pilot / economics rationale ↗ · Proposed design partners; no market-size or traction claim.
+07 / 08

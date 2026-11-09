@@ -1,0 +1,146 @@
+{
+  "classification": "presentation-publication-allowlist",
+  "files": [
+    {
+      "path": "docs/submission/deck.html",
+      "bytes": 304405,
+      "sha256": "166b394504e2255a630f0866b49fb778c4e7a2d923871190ac344fe8a5ab86a4"
+    },
+    {
+      "path": "docs/submission/pitch-deck.md",
+      "bytes": 9067,
+      "sha256": "2d14b05d4bd68db897197862ca93f62965a0ad8c33b2de38c26af138a2185464"
+    },
+    {
+      "path": "docs/submission/AegisPay-pitch-draft.pdf",
+      "bytes": 271724,
+      "sha256": "1856daa7a76675936647dbed78845f5671bad00dee3fd337362dcf01ad81fad5"
+    },
+    {
+      "path": "docs/submission/deck-rendering.md",
+      "bytes": 3372,
+      "sha256": "ef5df265c437a34e905337eb3e27d0da41ce38b4331ea207d8ab0ba73cc9c5f5"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/task-016.md",
+      "bytes": 19565,
+      "sha256": "f8cbccd0c89f0a85346ffd48a7618517559a49ac626e60c4d5298d1d22ea7ced"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/OFL-Bricolage-Grotesque.txt",
+      "bytes": 4403,
+      "sha256": "4b5a7d8f37f5602621c8a8d7358a6a2e71317e6c231c661e15aef0275d3e07ba"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/public-site.png",
+      "bytes": 214370,
+      "sha256": "9070d64f4e7629e5e96ef362a0d7aec63f207502d6a05b90956037bcbd633d11"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/public-site.json",
+      "bytes": 3070,
+      "sha256": "1267d2d60bb277e47aa8570f8c1ac7280caa95fcf93ac2cc51e4a3674b588e9d"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/html-layout.json",
+      "bytes": 4192,
+      "sha256": "11e86ed837bc11e66cbf588ad13cabb286a0a305f4b6f00a45a6cbd3ce1c3537"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/link-readback.json",
+      "bytes": 4151,
+      "sha256": "91c68624b853cf57690d713727da0f1bd97dae45ab894af01c4e2912615f33a3"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/page-1.png",
+      "bytes": 70038,
+      "sha256": "36decf413902e39aaa8bf7603b88b3f45e7d7431a7b553d49ebaf4cc67ab238f"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/page-1.txt",
+      "bytes": 464,
+      "sha256": "2047de379075895d61255b1e9a5c4cd6b7887d4e2899a6abc0ebafb4f5b74c6a"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/page-2.png",
+      "bytes": 91392,
+      "sha256": "ab91fa37ab1c04d4795460f5ecc62055cf4f399ec0e80b655cb96277d380db06"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/page-2.txt",
+      "bytes": 721,
+      "sha256": "af1e0f27c0826f8e39d44903718aaf1673ff69a76918b8f3dbc1ebe8a1f3381a"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/page-3.png",
+      "bytes": 81773,
+      "sha256": "2ea35c63490550577b4de0aae8819a5fc30b58bbfc1dbd437e3ddd2aba91fa79"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/page-3.txt",
+      "bytes": 692,
+      "sha256": "6e5de5e33686f169872fa355be78b3f66223fe1eefe1decaa1f82c58792dc082"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/page-4.png",
+      "bytes": 76666,
+      "sha256": "898fe0d59e102850e62b447a5fcea82c1b5f40fb6ab13ccd27822dc446f78ba4"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/page-4.txt",
+      "bytes": 679,
+      "sha256": "dc994e7315de2f407b1b5bee7c46b393aef5f9609573b4456cba8cc4a42df6e5"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/page-5.png",
+      "bytes": 90383,
+      "sha256": "73c707f4068f6823c88b42c19b6303092a0733adb1ec0f8aa7fda19af26e7a93"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/page-5.txt",
+      "bytes": 759,
+      "sha256": "16c87466edc92060174fb7baf9210d40ab0accacec1dcc8b3d848e9b493224a3"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/page-6.png",
+      "bytes": 64595,
+      "sha256": "c86db594590edc014ad3870869a3022e56cc2b760cc150fcb843675d369821fe"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/page-6.txt",
+      "bytes": 525,
+      "sha256": "31ad6a42db97207dceda38d44609b41a3553db6c59f9d46b880dde8113178477"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/page-7.png",
+      "bytes": 86850,
+      "sha256": "b719e915e4c487e1404280681239bb54e358531d41047e9f49062e6503d730a2"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/page-7.txt",
+      "bytes": 713,
+      "sha256": "fa26abde96e3234e34fc4a8a5021e340f2e05b14d2224cc58a8f41a15e45e60c"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/page-8.png",
+      "bytes": 97402,
+      "sha256": "d533cf9516725fcdee162ab18f1c72ddf60a03a0d40b83a50ff4592dea5116ca"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/page-8.txt",
+      "bytes": 831,
+      "sha256": "7cbd95d1a82fec3a20a2ffd5fc0492a8276f728cba399ba6f5c6566c6466cbde"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/pdf-gates.json",
+      "bytes": 3923,
+      "sha256": "17be121aabef510a981225ecfc38caa8abe5dab3e717dfcc5f32df7ba9b54b46"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final/presenter-gates.json",
+      "bytes": 401,
+      "sha256": "3068e736149eb35cccd316a48276db7b4e68d9bfb448c8afc306aeb5de748638"
+    }
+  ],
+  "notes": "No raw response dumps, signed XDR, private reports, env files or credentials. Manifest does not hash itself; optional source/reproduction files are listed in task-016.md."
+}

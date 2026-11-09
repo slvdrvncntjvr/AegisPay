@@ -1,0 +1,128 @@
+{
+  "observedAt": "2026-11-09T11:09:58.675113+00:00",
+  "bytes": 271724,
+  "sha256": "1856daa7a76675936647dbed78845f5671bad00dee3fd337362dcf01ad81fad5",
+  "pageSizePoints": [
+    960,
+    540
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "title": "Useful data. Bounded authority.",
+      "characters": 439,
+      "links": 2,
+      "textSpansOutside": 0,
+      "fonts": [
+        "SegoeUI",
+        "SegoeUI-Bold",
+        "Unnamed-T3"
+      ]
+    },
+    {
+      "page": 2,
+      "title": "Should we ship this dependency update?",
+      "characters": 694,
+      "links": 1,
+      "textSpansOutside": 0,
+      "fonts": [
+        "SegoeUI",
+        "SegoeUI-Bold",
+        "Unnamed-T3"
+      ]
+    },
+    {
+      "page": 3,
+      "title": "Choose the information. Keep the rules.",
+      "characters": 666,
+      "links": 1,
+      "textSpansOutside": 0,
+      "fonts": [
+        "SegoeUI",
+        "SegoeUI-Bold",
+        "SegoeUI-Light",
+        "Unnamed-T3"
+      ]
+    },
+    {
+      "page": 4,
+      "title": "Two SDKs. The same authorization.",
+      "characters": 642,
+      "links": 2,
+      "textSpansOutside": 0,
+      "fonts": [
+        "SegoeUI",
+        "SegoeUI-Bold",
+        "Unnamed-T3"
+      ]
+    },
+    {
+      "page": 5,
+      "title": "One payment. A readable receipt.",
+      "characters": 711,
+      "links": 5,
+      "textSpansOutside": 0,
+      "fonts": [
+        "SegoeUI",
+        "SegoeUI-Bold",
+        "Unnamed-T3"
+      ]
+    },
+    {
+      "page": 6,
+      "title": "Unknown means hold.",
+      "characters": 497,
+      "links": 2,
+      "textSpansOutside": 0,
+      "fonts": [
+        "SegoeUI",
+        "SegoeUI-Bold",
+        "Unnamed-T3"
+      ]
+    },
+    {
+      "page": 7,
+      "title": "Start with one developer. And one data provider.",
+      "characters": 686,
+      "links": 1,
+      "textSpansOutside": 0,
+      "fonts": [
+        "SegoeUI",
+        "SegoeUI-Bold",
+        "Unnamed-T3"
+      ]
+    },
+    {
+      "page": 8,
+      "title": "Next: one complete purchase. Verified end to end.",
+      "characters": 786,
+      "links": 6,
+      "textSpansOutside": 0,
+      "fonts": [
+        "SegoeUI",
+        "SegoeUI-Bold",
+        "Unnamed-T3"
+      ]
+    }
+  ],
+  "annotations": 20,
+  "uniqueTargets": 14,
+  "allTargets": [
+    "https://aegispay-live.vercel.app/",
+    "https://drive.google.com/drive/folders/1hqwzOaG_qU9axjcLIjBUb1YeMWdOFq72?usp=sharing",
+    "https://github.com/slvdrvncntjvr/AegisPay",
+    "https://github.com/slvdrvncntjvr/AegisPay/blob/952344dd0c036a3ea390d1bfbadc5b8c640aff23/docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json",
+    "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md#application-attempt",
+    "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md#business-hypotheses",
+    "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md#current-sources",
+    "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md#deployment",
+    "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/prd.md",
+    "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf",
+    "https://github.com/slvdrvncntjvr/AegisPay/blob/main/src/server/integrations/stellar-evidence.ts",
+    "https://stellar.expert/explorer/testnet/tx/1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a",
+    "https://stellar.expert/explorer/testnet/tx/6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381",
+    "https://stellar.expert/explorer/testnet/tx/94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18"
+  ],
+  "notesPrinted": false,
+  "allGatesPassed": true
+}

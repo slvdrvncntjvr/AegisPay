@@ -1,0 +1,28 @@
+04 / INSPECT THE RESULT
+SAVED TESTNET RUN · 07 NOV
+One payment.
+A readable receipt.
+0.03
+Testnet XLM
+300000 stroops authorized
+into merchant-pending escrow.
+A separate merchant claim
+later cleared pending to zero.
+AEGISPAY / HISTORICAL PROOF
+MATCHED
+Authorization
+One verified operation
+Escrow
+1.00 → 0.97 XLM
+Merchant pending
+0 → 0.03 → 0 XLM
+Independent match
+Envelope + call + event
+Inner authorization ↗
+Outer / event: same payment ↗
+Separate merchant claim ↗
+×
+0.12 requested / 0.10 cap: actual contract simulation refused it.
+Unsigned and unsubmitted; no included failed transaction.
+Full historical proof / balances ↗ · Inspect the deployed viewer ↗ · Historical policy expired 7 Nov, 15:32 UTC.
+05 / 08
