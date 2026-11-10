@@ -93,6 +93,12 @@ At preparation no cloud project, Git remote, live wallet or verified contract tu
 
 ## 4. Rejected approaches
 
+### 2026-11-10 — Rehearse the real application against isolated staging state
+
+The exact Free staging database passed its minimal TLS/SQL prerequisite. A single corroborated current-client IPv4/32 rule replaces its empty external-access policy; no broad access rule or paid feature is selected. Its provider expiry remains December10 with finals TBA. TASK-019 may apply existing checksum migrations and metadata-only catalog seed to this exact independent database, using a freshly generated distinct agent/device identity with zero policy and unprovisioned status. Original unknown-payment state, nonce, holds and database remain untouched. No financial history or entitlement is copied or invented.
+
+TASK-019 then qualifies a local production Next.js process against that cloud database using actual HTTP and browser sessions, independent private owner/merchant login secrets and no worker/model/financial credentials. Only login/session/throttle metadata may arise from testing; no run, quote, wallet operation, signing, funding, chain/provider call or payment job is in scope. Existing verified public wallet/contract addresses may be read from protected configuration; no old agent/device identity is reused. Strict certificate/hostname verification applies to the actual application pool, not just its preliminary SQL probe. This is an independent deployment rehearsal, not complete TASK-012, hosted egress qualification, source publication or alias promotion. Release joins and all payment invariants remain unchanged.
+
 | Considered | Rejected because | Revisit if |
 |------------|------------------|------------|
 | Generate every FMD template / multi-agent roster | Slows one-executor MVP and adds duplicate authorities | Actual team/production scope needs it |

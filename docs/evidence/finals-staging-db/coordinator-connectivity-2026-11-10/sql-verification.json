@@ -1,0 +1,19 @@
+{
+  "observedAt": "2026-11-10T12:19:18.028Z",
+  "classification": "staging-minimal-strict-tls-sql",
+  "outcome": "passed",
+  "sql_statements": 2,
+  "tls_required": true,
+  "certificate_validation": true,
+  "hostname_validation": true,
+  "tls_encrypted": true,
+  "tls_authorized": true,
+  "tls_protocol": "TLSv1.3",
+  "select_one": 1,
+  "server_version": "17.11 (Debian 17.11-1.pgdg12+2)",
+  "helperExit": 0,
+  "providerMutations": 0,
+  "financialActions": 0,
+  "migrations": 0,
+  "seeds": 0
+}

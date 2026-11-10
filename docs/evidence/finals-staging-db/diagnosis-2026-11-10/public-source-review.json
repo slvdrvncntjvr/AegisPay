@@ -1,0 +1,227 @@
+{
+  "observed_at_utc": "2026-11-10T11:17:51.021412+00:00",
+  "scope": "public primary-source diagnosis only",
+  "provider_mutations": 0,
+  "account_API_calls": 0,
+  "environment_or_credential_reads": 0,
+  "DB_or_worker_access": 0,
+  "public_source_GET_count": 13,
+  "schema_sha256": "569ee51f78fd5991732e98552bf60d3d9f5fe16947f70b9cccdb42fa216253b0",
+  "pinned_public_revisions": {
+    "render_mcp_server": "db8e54d13e462d7379f568e9129e25f9953f20b1",
+    "render_cli": "f672d747f0a6496ed08e90338a6605efb00cd79f"
+  },
+  "create_schema_fields": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "ownerId": {
+      "type": "string",
+      "required": true
+    },
+    "plan": {
+      "type": "string",
+      "required": true,
+      "intended_value": "free",
+      "intended_value_in_schema_enum": true
+    },
+    "version": {
+      "type": "string",
+      "required": true,
+      "intended_value": "17",
+      "intended_value_in_schema_enum": true
+    },
+    "region": {
+      "type": "string",
+      "required": false,
+      "default": "oregon",
+      "intended_value": "singapore",
+      "intended_value_in_schema_enum": true
+    },
+    "diskSizeGB": {
+      "type": "integer",
+      "required": false
+    },
+    "enableDiskAutoscaling": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "enableHighAvailability": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "connectionPool": {
+      "type": "string",
+      "required": false,
+      "default": "none"
+    },
+    "readReplicas": {
+      "type": "array",
+      "required": false
+    }
+  },
+  "derived_facts": {
+    "mcp_explicit_free_positive_disk_guard_found": true,
+    "mcp_guard_source_lines": [
+      182,
+      185
+    ],
+    "mcp_guard_rejects_diskSizeGB_1_by_arithmetic": true,
+    "mcp_guard_scope": "official public client behavior; not the unavailable original API error body",
+    "cli_free_minimal_input_found": true,
+    "cli_unset_optionals_expected_nil": {
+      "DiskSizeGB": true,
+      "EnableDiskAutoscaling": true,
+      "EnableHighAvailability": true,
+      "ConnectionPool": true,
+      "ReadReplicas": true
+    },
+    "cli_empty_read_replicas_becomes_nil": true,
+    "blueprint_fixed_free_storage_table_found": true,
+    "schema_describes_free_disk_field_condition": false,
+    "schema_default_disabled_or_none": {
+      "enableDiskAutoscaling": false,
+      "enableHighAvailability": false,
+      "connectionPool": "none"
+    },
+    "original_HTTP400_reason_recovered": false,
+    "account_prerequisites_rechecked": false,
+    "proof_of_future_API_acceptance": false
+  },
+  "sources": [
+    {
+      "name": "schema",
+      "url": "https://api-docs.render.com/openapi/render-public-api-1.json",
+      "method": "GET",
+      "authenticated": false,
+      "http_status": 200,
+      "bytes": 441718,
+      "sha256": "569ee51f78fd5991732e98552bf60d3d9f5fe16947f70b9cccdb42fa216253b0",
+      "response_limit_bytes": 4000000
+    },
+    {
+      "name": "free",
+      "url": "https://render.com/docs/free",
+      "method": "GET",
+      "authenticated": false,
+      "http_status": 200,
+      "bytes": 389898,
+      "sha256": "92c5919e0152539e46c95083b0e8e013a5961e468ad3803fbf0514676b7ab2c2",
+      "response_limit_bytes": 2000000
+    },
+    {
+      "name": "blueprint",
+      "url": "https://render.com/docs/blueprint-spec",
+      "method": "GET",
+      "authenticated": false,
+      "http_status": 200,
+      "bytes": 1454362,
+      "sha256": "017cb26815e8857342660e6c2c237db8316027ced245198d0811154fb23b8c8b",
+      "response_limit_bytes": 2000000
+    },
+    {
+      "name": "create_reference",
+      "url": "https://api-docs.render.com/reference/create-postgres",
+      "method": "GET",
+      "authenticated": false,
+      "http_status": 200,
+      "bytes": 541207,
+      "sha256": "bfaf01eb7ac1ff8e15609993873854e8cede5961e8c565ada608f6dd0d693c2e",
+      "response_limit_bytes": 2000000
+    },
+    {
+      "name": "create_connect",
+      "url": "https://render.com/docs/postgresql-creating-connecting",
+      "method": "GET",
+      "authenticated": false,
+      "http_status": 200,
+      "bytes": 775404,
+      "sha256": "f8bea98c70d9ce9779f794bebf68a5e66e68f54c28b3ef7a4b9e56c606746045",
+      "response_limit_bytes": 2000000
+    },
+    {
+      "name": "pooling",
+      "url": "https://render.com/docs/postgresql-connection-pooling",
+      "method": "GET",
+      "authenticated": false,
+      "http_status": 200,
+      "bytes": 470012,
+      "sha256": "e19ded71f8a51ce31c1450d4677aba2d2e95d82490fbfd62e57aaf131344711a",
+      "response_limit_bytes": 2000000
+    },
+    {
+      "name": "ha",
+      "url": "https://render.com/docs/postgresql-high-availability",
+      "method": "GET",
+      "authenticated": false,
+      "http_status": 200,
+      "bytes": 418877,
+      "sha256": "c1537dac09ffc9491ea84edece4c9a1020113b76dd560b5f3b29b50d94b10b24",
+      "response_limit_bytes": 2000000
+    },
+    {
+      "name": "replicas",
+      "url": "https://render.com/docs/postgresql-read-replicas",
+      "method": "GET",
+      "authenticated": false,
+      "http_status": 200,
+      "bytes": 322427,
+      "sha256": "41644783e9406c079e9f04b532af8a50a840442dd2817aa5cf76bb5aa0cd1e94",
+      "response_limit_bytes": 2000000
+    },
+    {
+      "name": "mcp_create",
+      "url": "https://raw.githubusercontent.com/render-oss/render-mcp-server/db8e54d13e462d7379f568e9129e25f9953f20b1/pkg/postgres/tools.go",
+      "method": "GET",
+      "authenticated": false,
+      "http_status": 200,
+      "bytes": 13794,
+      "sha256": "72aecb2efe1a329affd5705baff5b340e14a8622f48277020881acc04bccd51e",
+      "response_limit_bytes": 2000000
+    },
+    {
+      "name": "cli_create",
+      "url": "https://raw.githubusercontent.com/render-oss/cli/f672d747f0a6496ed08e90338a6605efb00cd79f/pkg/postgres/create.go",
+      "method": "GET",
+      "authenticated": false,
+      "http_status": 200,
+      "bytes": 4364,
+      "sha256": "7b16de43c1024662ebf60c4dace816a9af69e836dffc5c79041c4d8856597f7b",
+      "response_limit_bytes": 2000000
+    },
+    {
+      "name": "cli_create_tests",
+      "url": "https://raw.githubusercontent.com/render-oss/cli/f672d747f0a6496ed08e90338a6605efb00cd79f/pkg/postgres/create_test.go",
+      "method": "GET",
+      "authenticated": false,
+      "http_status": 200,
+      "bytes": 4733,
+      "sha256": "4effa19d1eaee96c50e5f74616bd9e73c4cbaf0e1c2ad063928412fe2896c5d6",
+      "response_limit_bytes": 2000000
+    },
+    {
+      "name": "cli_validate",
+      "url": "https://raw.githubusercontent.com/render-oss/cli/f672d747f0a6496ed08e90338a6605efb00cd79f/pkg/types/postgres/create.go",
+      "method": "GET",
+      "authenticated": false,
+      "http_status": 200,
+      "bytes": 2334,
+      "sha256": "aa0b854f8a82f48c8c26c24076224402d3eabaf63f58b8aa47b52e6994701fb7",
+      "response_limit_bytes": 2000000
+    },
+    {
+      "name": "cli_replicas",
+      "url": "https://raw.githubusercontent.com/render-oss/cli/f672d747f0a6496ed08e90338a6605efb00cd79f/pkg/postgres/request.go",
+      "method": "GET",
+      "authenticated": false,
+      "http_status": 200,
+      "bytes": 513,
+      "sha256": "1377311db90b8913ff0ef9a5b3e10d7c4157952940dd9dee81afe69ec2086ea3",
+      "response_limit_bytes": 2000000
+    }
+  ],
+  "raw_bodies_saved": false
+}

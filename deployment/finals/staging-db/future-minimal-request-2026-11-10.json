@@ -1,0 +1,50 @@
+{
+  "status": "read-only proposal; not executed and not a retry authorization",
+  "prepared_for": "separate coordinator-authorized follow-up only",
+  "attempts_authorized_in_diagnosis_dispatch": 0,
+  "original_create_receipt": "docs/evidence/finals-staging-db/create-attempt.json",
+  "preserve_original_receipt_and_observations": true,
+  "proposed_method": "POST",
+  "proposed_endpoint": "https://api.render.com/v1/postgres",
+  "reviewed_schema_sha256": "569ee51f78fd5991732e98552bf60d3d9f5fe16947f70b9cccdb42fa216253b0",
+  "ownerId_binding": "resolve privately only after future revalidation of sole intended workspace and active ADMIN; no full ID in this artifact",
+  "request_without_ownerId": {
+    "name": "aegispay-finals-staging",
+    "plan": "free",
+    "version": "17",
+    "region": "singapore"
+  },
+  "difference_from_rejected_request": {
+    "diskSizeGB": "omit; official Render MCP rejects any explicitly positive disk size on Free, including 1; let Free allocate its fixed 1 GB",
+    "enableDiskAutoscaling": "omit; schema default false; enabling is forbidden; presence false is not proven invalid",
+    "enableHighAvailability": "omit; schema default false; enabling is forbidden; presence false is not proven invalid",
+    "connectionPool": "omit; schema default none; pgbouncer is unavailable on Free; explicit none is not proven invalid",
+    "readReplicas": "omit; official CLI omits empty replicas; creating replicas is forbidden; empty list is not proven invalid"
+  },
+  "support": {
+    "free_disk_guard": "https://github.com/render-oss/render-mcp-server/blob/db8e54d13e462d7379f568e9129e25f9953f20b1/pkg/postgres/tools.go#L174-L185",
+    "minimal_free_construction": "https://github.com/render-oss/cli/blob/f672d747f0a6496ed08e90338a6605efb00cd79f/pkg/postgres/create_test.go#L16-L20",
+    "optionals_omitted": "https://github.com/render-oss/cli/blob/f672d747f0a6496ed08e90338a6605efb00cd79f/pkg/postgres/create_test.go#L124-L140",
+    "fixed_free_storage_and_defaults": "https://render.com/docs/blueprint-spec",
+    "free_restrictions": "https://render.com/docs/free"
+  },
+  "future_preconditions_not_implemented_here": [
+    "new explicit coordinator authorization; original one-shot guard remains exhausted",
+    "re-fetch and review current official schema if its hash changed",
+    "fresh complete intended-workspace inventory; verify custody of any exact-name resource and never duplicate",
+    "fresh intended-workspace active ADMIN and exact identity validation",
+    "fixed exact request allowlist; no additional fields, billing, addons, alternate plan or region",
+    "new separately scoped durable attempt identity with explicit relationship to the preserved original HTTP400 receipt",
+    "bounded safe error classification before discarding response; stop on all errors or unknown outcomes and never automatically retry",
+    "observe returned Free plan, PostgreSQL17, Singapore, fixed storage, HA false, autoscaling false, no replicas and no pool before connection information",
+    "actual provider-created createdAt and expiresAt, never computed; finals date remains TBA",
+    "strict TLS exact-new-database SELECT1 and server_version only; no migration, seed, app or worker in this prerequisite"
+  ],
+  "not_established": [
+    "exact cause of original HTTP400",
+    "that removing diskSizeGB alone guarantees API acceptance",
+    "that other submitted disabled/empty optional values are invalid",
+    "account verification, payment-method requirements, current Free capacity or remaining usage",
+    "database provisioned, task completion, application deployment or live payment"
+  ]
+}

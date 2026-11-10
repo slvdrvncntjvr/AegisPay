@@ -1,0 +1,104 @@
+{
+  "observed_at_utc": "2026-11-10T11:10:36.273505+00:00",
+  "scope": "offline artifact hygiene, syntax and documentation only; no application, cloud TLS or SQL test",
+  "outcome": "passed",
+  "files_checked": 12,
+  "private_env_files_read_in_memory": 4,
+  "known_values_not_persisted": true,
+  "known_credential_value_matches": 0,
+  "full_Render_identity_or_resource_ID_matches": 0,
+  "raw_database_DSN_matches": 0,
+  "staging_env_ignored": true,
+  "staging_env_created": false,
+  "checks": [
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/staging-db/verify-connectivity.mjs"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "python",
+        "tools/check-docs.py"
+      ],
+      "exit_code": 0,
+      "output": "PASS \u2014 21 Markdown files; local links, required sections, 12 features, 10 invariants, 31 QA cases, stable references, index inventory and researched SDK peer decision.\nApplication tests and live SDK/ledger integration remain unrun."
+    },
+    {
+      "command": [
+        "python",
+        "fmd/tools/check-implementation-plan.py",
+        "docs/implementation-plan.md",
+        "--strict"
+      ],
+      "exit_code": 0,
+      "output": "APPROVE: docs\\implementation-plan.md has 18 valid task row(s); dependency/state DAG is coherent\nExecution waves (topological layers; same wave = parallel candidates):\n  wave 0: TASK-001\n  wave 1: TASK-002\n  wave 2: TASK-011, TASK-014\n  wave 3: TASK-003, TASK-015\n  wave 4: TASK-004, TASK-016\n  wave 5: TASK-005, TASK-007, TASK-008, TASK-017, TASK-018\n  wave 6: TASK-006, TASK-009\n  wave 7: TASK-010\n  wave 8: TASK-012\n  wave 9: TASK-013\nParallel-safety: no same-wave write-scope overlaps detected"
+    }
+  ],
+  "artifact_inventory": [
+    {
+      "path": "deployment/finals/staging-db/audit.py",
+      "bytes": 4735,
+      "sha256": "3106a3ec044c8c1f8f0d3fcceca0a1cea89e7d9ddf8e383eb2a1c7e56bff736d"
+    },
+    {
+      "path": "deployment/finals/staging-db/provision.py",
+      "bytes": 26824,
+      "sha256": "8b456d6e616f8b7a7395b7c9878bb0ca20f5d6222adbfb44107b6e66b9616e76"
+    },
+    {
+      "path": "deployment/finals/staging-db/README.md",
+      "bytes": 5875,
+      "sha256": "0c45be45f09badd4d73b16886ec43e5df00cb34999b6885fe560f4343196c564"
+    },
+    {
+      "path": "deployment/finals/staging-db/request-manifest.json",
+      "bytes": 2143,
+      "sha256": "c36979e661975381c4e9374b275dbf04eb8658c823fa3df7eeead055ed8f9002"
+    },
+    {
+      "path": "deployment/finals/staging-db/verify-connectivity.mjs",
+      "bytes": 3744,
+      "sha256": "5229a207b6d1d0d01d4c3901e1656292e1b7732224d6038c53019103f094ff9f"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/create-attempt.json",
+      "bytes": 986,
+      "sha256": "77abb6e60a126d93ea7fbf5d7719fa3d7ccbde033a1c5ff17c39fb96a1cef847"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/observation-20261110T110625219218Z.json",
+      "bytes": 3634,
+      "sha256": "2d70543ce300c1fdfa1055c7c9263034ad47ded804c69f55fc0b456cb07a4ff9"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/observation-20261110T110645159671Z.json",
+      "bytes": 3696,
+      "sha256": "1e4d049807865c4f83d09888b68a8454b46be50b730b9b40a4103b3cd71229b9"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/observation-20261110T110741492871Z.json",
+      "bytes": 4072,
+      "sha256": "507c772c2a502f767d3873bcfe5d0ab46d885d0a8e4fd001f1a5c312cbfb40a1"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/observation-20261110T110853800186Z.json",
+      "bytes": 3629,
+      "sha256": "25cce976afe9d3985225f5fa52c10c4bf1f77dbdcf89fe32bbbc56dad4f5dec2"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/report.md",
+      "bytes": 6688,
+      "sha256": "4e9454c42f4c8389d5e1845a4a6688fa2c0fde4e6a391aed2bb37ca2637f6300"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/schema-review.json",
+      "bytes": 3179,
+      "sha256": "c79a5912f3ed72d78532e92f6f942460de19ded35e874175a9ac815029af27ac"
+    }
+  ]
+}

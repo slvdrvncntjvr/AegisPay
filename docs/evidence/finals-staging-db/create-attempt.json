@@ -1,0 +1,23 @@
+{
+  "at_utc": "2026-11-10T11:07:40.581688+00:00",
+  "name": "aegispay-finals-staging",
+  "owner_id_redacted": "tea-cu…ctmg",
+  "owner_id_sha256": "e2540012b36b62464cc5045e3521e9dc9a40283b69582258941f9d099d11894e",
+  "plan": "free",
+  "region": "singapore",
+  "version": "17",
+  "state": "HTTP400_rejected_no_retry",
+  "http_status": 400,
+  "safe_code": "PROVIDER_REQUEST_REJECTED",
+  "provider_error_code_retained": false,
+  "provider_rejection_cause": "not retained; do not infer billing, verification, capacity, or field validation",
+  "response_evidence": "observation-20261110T110741492871Z.json",
+  "retry_authorized": false,
+  "preserved_local_pre_dispatch_failure": {
+    "original_intent_at_utc": "2026-11-10T11:06:45.144108+00:00",
+    "proof": "observation-20261110T110645159671Z.json",
+    "cause": "Windows os.fsync on read-only descriptor errno9 before POST marker",
+    "POST_requests_in_proof": 0,
+    "repair": "fsync writable descriptor"
+  }
+}

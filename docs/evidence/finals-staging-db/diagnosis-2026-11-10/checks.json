@@ -1,0 +1,133 @@
+{
+  "observed_at_utc": "2026-11-10T11:20:26.880717+00:00",
+  "scope": "read-only-diagnosis validation; no cloud mutation, credential/env read, DB, app or worker",
+  "outcome": "passed",
+  "preserved_originals_count": 13,
+  "preservation": [
+    {
+      "path": "deployment/finals/staging-db/audit.py",
+      "sha256_matches": true
+    },
+    {
+      "path": "deployment/finals/staging-db/provision.py",
+      "sha256_matches": true
+    },
+    {
+      "path": "deployment/finals/staging-db/README.md",
+      "sha256_matches": true
+    },
+    {
+      "path": "deployment/finals/staging-db/request-manifest.json",
+      "sha256_matches": true
+    },
+    {
+      "path": "deployment/finals/staging-db/verify-connectivity.mjs",
+      "sha256_matches": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/checks.json",
+      "sha256_matches": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/create-attempt.json",
+      "sha256_matches": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/observation-20261110T110625219218Z.json",
+      "sha256_matches": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/observation-20261110T110645159671Z.json",
+      "sha256_matches": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/observation-20261110T110741492871Z.json",
+      "sha256_matches": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/observation-20261110T110853800186Z.json",
+      "sha256_matches": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/report.md",
+      "sha256_matches": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/schema-review.json",
+      "sha256_matches": true
+    }
+  ],
+  "minimal_Free_only_unexecuted_proposal_valid": true,
+  "new_artifact_pattern_scan": {
+    "full_Render_IDs": 0,
+    "database_DSNs": 0,
+    "credential_patterns": 0
+  },
+  "known_secret_value_scan": "not run: private environment/credential access prohibited in this follow-up",
+  "missing_local_links": [],
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "deployment/finals/staging-db/test_future_error_classifier.py"
+      ],
+      "exit_code": 0,
+      "output": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.005s\n\nOK"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/check-docs.py"
+      ],
+      "exit_code": 0,
+      "output": "PASS \u2014 21 Markdown files; local links, required sections, 12 features, 10 invariants, 31 QA cases, stable references, index inventory and researched SDK peer decision.\nApplication tests and live SDK/ledger integration remain unrun."
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "fmd/tools/check-implementation-plan.py",
+        "docs/implementation-plan.md",
+        "--strict"
+      ],
+      "exit_code": 0,
+      "output": "APPROVE: docs\\implementation-plan.md has 18 valid task row(s); dependency/state DAG is coherent\nExecution waves (topological layers; same wave = parallel candidates):\n  wave 0: TASK-001\n  wave 1: TASK-002\n  wave 2: TASK-011, TASK-014\n  wave 3: TASK-003, TASK-015\n  wave 4: TASK-004, TASK-016\n  wave 5: TASK-005, TASK-007, TASK-008, TASK-017, TASK-018\n  wave 6: TASK-006, TASK-009\n  wave 7: TASK-010\n  wave 8: TASK-012\n  wave 9: TASK-013\nParallel-safety: no same-wave write-scope overlaps detected"
+    }
+  ],
+  "new_artifacts": [
+    {
+      "path": "deployment/finals/staging-db/future-minimal-request-2026-11-10.json",
+      "sha256": "e86f7b84d1ba10c8ce4bcc67c60a6e2a9289c11fe63a0d36fe10b9f7ef849d1e"
+    },
+    {
+      "path": "deployment/finals/staging-db/future_error_classifier.py",
+      "sha256": "abdc3e0e977dd6547124dcafc00ddcd2bc40797f149abaf40982e232572082fe"
+    },
+    {
+      "path": "deployment/finals/staging-db/test_future_error_classifier.py",
+      "sha256": "a243f957b41be892a01bc2df4f24ed3e47e36cf5dbc2eca869c1b49132cdd908"
+    },
+    {
+      "path": "deployment/finals/staging-db/diagnose-readonly-2026-11-10.py",
+      "sha256": "7105ced752cd57b05069a7f53de3008530e1f8fa60a1825030029d59cc2825e5"
+    },
+    {
+      "path": "deployment/finals/staging-db/check-diagnosis-2026-11-10.py",
+      "sha256": "36baf3966ef540467a135d71e432fd73559eecff58ac4a97854b15d16831ca18"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/diagnosis-2026-11-10/preserved-artifacts.json",
+      "sha256": "43761af45148bdcb23aa54a5d436111ce77490f55fb65d5d9bb8177ba4344c52"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/diagnosis-2026-11-10/public-source-review.json",
+      "sha256": "fad994fb5e99fbd657660b76324fdabe148556787f3d8c38636fcdb1953be88c"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/diagnosis-2026-11-10/report.md",
+      "sha256": "8180fe88304fca1508f6c079000db56810aae2ff3a9134a01f0636b9cbc46433"
+    }
+  ]
+}

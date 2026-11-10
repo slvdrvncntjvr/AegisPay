@@ -1,0 +1,4 @@
+{
+  "scope": "non-secret pre-dispatch local durability probe",
+  "writable_flush_fsync": true
+}

@@ -1,0 +1,191 @@
+{
+  "operation": "TASK018-corrected-minimal-free-2026-11-10",
+  "started_at_utc": "2026-11-10T11:55:33.889712+00:00",
+  "requests": [
+    {
+      "operation": "official-schema",
+      "method": "GET",
+      "at_utc": "2026-11-10T11:55:35.307832+00:00",
+      "body_limit_bytes": 4000000,
+      "http_status": 200,
+      "response_bytes": 441718,
+      "api_request_rate_counters": {}
+    },
+    {
+      "operation": "/users",
+      "method": "GET",
+      "at_utc": "2026-11-10T11:55:36.080157+00:00",
+      "body_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 101,
+      "api_request_rate_counters": {
+        "RateLimit-Limit": 400,
+        "RateLimit-Remaining": 399,
+        "RateLimit-Reset": 21
+      }
+    },
+    {
+      "operation": "/owners",
+      "method": "GET",
+      "at_utc": "2026-11-10T11:55:36.368891+00:00",
+      "body_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 160,
+      "api_request_rate_counters": {
+        "RateLimit-Limit": 400,
+        "RateLimit-Remaining": 398,
+        "RateLimit-Reset": 21
+      }
+    },
+    {
+      "operation": "/owners/{redactedId}",
+      "method": "GET",
+      "at_utc": "2026-11-10T11:55:36.643762+00:00",
+      "body_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 104,
+      "api_request_rate_counters": {
+        "RateLimit-Limit": 400,
+        "RateLimit-Remaining": 397,
+        "RateLimit-Reset": 21
+      }
+    },
+    {
+      "operation": "/owners/{redactedId}/members",
+      "method": "GET",
+      "at_utc": "2026-11-10T11:55:36.939143+00:00",
+      "body_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 159,
+      "api_request_rate_counters": {
+        "RateLimit-Limit": 400,
+        "RateLimit-Remaining": 396,
+        "RateLimit-Reset": 20
+      }
+    },
+    {
+      "operation": "/postgres",
+      "method": "GET",
+      "at_utc": "2026-11-10T11:55:37.205460+00:00",
+      "body_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 3,
+      "api_request_rate_counters": {
+        "RateLimit-Limit": 400,
+        "RateLimit-Remaining": 395,
+        "RateLimit-Reset": 20
+      }
+    },
+    {
+      "operation": "/postgres",
+      "method": "POST",
+      "at_utc": "2026-11-10T11:55:37.521344+00:00",
+      "body_limit_bytes": 524288,
+      "http_status": 201,
+      "response_bytes": 731,
+      "api_request_rate_counters": {
+        "RateLimit-Limit": 20,
+        "RateLimit-Remaining": 18,
+        "RateLimit-Reset": 260
+      }
+    },
+    {
+      "operation": "/postgres/{redactedId}",
+      "method": "GET",
+      "at_utc": "2026-11-10T11:55:39.633182+00:00",
+      "body_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 722,
+      "api_request_rate_counters": {
+        "RateLimit-Limit": 400,
+        "RateLimit-Remaining": 394,
+        "RateLimit-Reset": 17
+      }
+    }
+  ],
+  "POST_attempts_this_operation": 1,
+  "db_connections_attempted": 0,
+  "existing_resource_mutations": 0,
+  "migrations_seeds_workers_models_payments": 0,
+  "Git_deployment_alias_or_secret_upload_actions": 0,
+  "outcome": "stopped_no_retry",
+  "local_guards": {
+    "prior_artifacts_byte_identical": 22,
+    "staging_env_absent_and_ignored": true,
+    "Python_syntax": "passed",
+    "existing_TLS_helper_syntax": "passed",
+    "installed_pg_exact_version": "8.23.1",
+    "writable_flush_fsync_readback": "passed",
+    "secret_file_DACL_pattern_probe": "native DACL current-user and SYSTEM only; protected/no inherited grants; independently read back",
+    "manifest_exact_minimal_Free": true
+  },
+  "official_schema": {
+    "sha256": "569ee51f78fd5991732e98552bf60d3d9f5fe16947f70b9cccdb42fa216253b0",
+    "bytes": 441718,
+    "minimal_fields_and_enum_values_verified": true
+  },
+  "workspace": {
+    "id_redacted": "tea-cu…ctmg",
+    "id_sha256": "e2540012b36b62464cc5045e3521e9dc9a40283b69582258941f9d099d11894e",
+    "sole_accessible": true,
+    "role": "ADMIN",
+    "status": "active",
+    "billing_verification_remaining_usage": "not exposed; not inspected"
+  },
+  "inventory": {
+    "count": 0,
+    "complete_within_limit_100": true,
+    "exact_name_count": 0
+  },
+  "durable_receipt_fsynced_and_read_back_before_dispatch": true,
+  "created_database": {
+    "id_redacted": "dpg-db…q0-a",
+    "name": "aegispay-finals-staging",
+    "status": "creating",
+    "plan": "free",
+    "version": "17",
+    "region": "singapore",
+    "createdAt": "2026-11-10T11:55:40.452332725Z",
+    "expiresAt": "2026-12-10T11:55:40.452332725Z",
+    "diskSizeGB": null,
+    "highAvailabilityEnabled": false,
+    "diskAutoscalingEnabled": false,
+    "connectionPool": "none",
+    "suspended": "not_suspended",
+    "role": "primary",
+    "owner_id_redacted": "tea-cu…ctmg",
+    "read_replica_count": 0,
+    "ip_allow_list_rule_count": 0,
+    "external_ipv4_anywhere_rule": false
+  },
+  "created_resource_identity_sha256": "feaa345c7d4172d22feb6dd8c92794128061a2f357b2e5372c0739138b6f8f85",
+  "immediate_status_reads_after_HTTP201": 1,
+  "created_database_latest": {
+    "id_redacted": "dpg-db…q0-a",
+    "name": "aegispay-finals-staging",
+    "status": "creating",
+    "plan": "free",
+    "version": "17",
+    "region": "singapore",
+    "createdAt": "2026-11-10T11:55:40.452333Z",
+    "expiresAt": "2026-12-10T11:55:40.452333Z",
+    "diskSizeGB": null,
+    "highAvailabilityEnabled": false,
+    "diskAutoscalingEnabled": false,
+    "connectionPool": "none",
+    "suspended": "not_suspended",
+    "role": "primary",
+    "owner_id_redacted": "tea-cu…ctmg",
+    "read_replica_count": 0,
+    "ip_allow_list_rule_count": 0,
+    "external_ipv4_anywhere_rule": false
+  },
+  "safe_code": "NEW_RESOURCE_IDENTITY_OR_LIFECYCLE_CHANGED",
+  "finished_at_utc": "2026-11-10T11:55:40.228368+00:00",
+  "prior_artifacts_byte_identical_after_run": 22,
+  "privacy": {
+    "raw_provider_responses_saved": false,
+    "raw_errors_or_headers_emitted": false,
+    "runtime_known_secret_and_full_ID_scan_before_persist": true
+  }
+}

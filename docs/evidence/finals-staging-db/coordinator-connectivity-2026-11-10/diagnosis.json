@@ -1,0 +1,36 @@
+{
+  "observedAt": "2026-11-10T12:17:48.577Z",
+  "classification": "exact-staging-connectivity-stage-diagnosis",
+  "resourceIdentityMatches": true,
+  "providerMutations": 0,
+  "sqlStatements": 0,
+  "financialActions": 0,
+  "stages": {
+    "dns": {
+      "passed": true,
+      "addressCount": 3,
+      "families": [
+        4
+      ]
+    },
+    "postgresTls": {
+      "passed": true,
+      "encrypted": true,
+      "authorized": true,
+      "protocol": "TLSv1.3"
+    },
+    "authentication": {
+      "passed": false,
+      "code": "CONNECTION_TERMINATED_UNEXPECTEDLY"
+    }
+  },
+  "provider": {
+    "status": "available",
+    "plan": "free",
+    "version": "17",
+    "region": "singapore",
+    "ipRuleCount": 0,
+    "createdAt": "2026-11-10T11:55:40.452333Z",
+    "expiresAt": "2026-12-10T11:55:40.452333Z"
+  }
+}

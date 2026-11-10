@@ -1,0 +1,113 @@
+{
+  "at_utc": "2026-11-10T12:09:55.948057+00:00",
+  "audit_outcome": "passed",
+  "scope": "offline audit only; successful hygiene does not change actual failed SQL/TLS prerequisite",
+  "prior_history_byte_identical_files": 38,
+  "hygiene": {
+    "known_credential_or_full_resource_ID_value_matches": 0,
+    "raw_Render_ID_matches": 0,
+    "raw_DSN_matches": 0
+  },
+  "known_values_memory_only": true,
+  "credential_values_or_fingerprints_saved": false,
+  "missing_local_links": [],
+  "actual_operation_facts": {
+    "provider_mutations": 0,
+    "direct_status_GETs": 1,
+    "connection_info_GETs": 1,
+    "provider_status": "available",
+    "strict_SQL_processes": 1,
+    "SQL_statements": 0,
+    "actual_safe_code": "STAGING_CONNECTIVITY_FAILED",
+    "actual_prerequisite_passed": false,
+    "private_env_exists_ignored": true,
+    "private_temp_absent": true,
+    "private_DACL": "protected current-user/SYSTEM FullControl only; no inherited grants; read back"
+  },
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "deployment/finals/staging-db/connect-2026-11-10/test_guards.py"
+      ],
+      "exit_code": 0,
+      "output": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.054s\n\nOK"
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/staging-db/verify-connectivity.mjs"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/check-docs.py"
+      ],
+      "exit_code": 0,
+      "output": "PASS \u2014 21 Markdown files; local links, required sections, 12 features, 10 invariants, 31 QA cases, stable references, index inventory and researched SDK peer decision.\nApplication tests and live SDK/ledger integration remain unrun."
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "fmd/tools/check-implementation-plan.py",
+        "docs/implementation-plan.md",
+        "--strict"
+      ],
+      "exit_code": 0,
+      "output": "APPROVE: docs\\implementation-plan.md has 18 valid task row(s); dependency/state DAG is coherent\nExecution waves (topological layers; same wave = parallel candidates):\n  wave 0: TASK-001\n  wave 1: TASK-002\n  wave 2: TASK-011, TASK-014\n  wave 3: TASK-003, TASK-015\n  wave 4: TASK-004, TASK-016\n  wave 5: TASK-005, TASK-007, TASK-008, TASK-017, TASK-018\n  wave 6: TASK-006, TASK-009\n  wave 7: TASK-010\n  wave 8: TASK-012\n  wave 9: TASK-013\nParallel-safety: no same-wave write-scope overlaps detected"
+    }
+  ],
+  "public_artifact_inventory": [
+    {
+      "path": "deployment/finals/staging-db/connect-2026-11-10/checks.py",
+      "sha256": "4fdf48baddb725d55683463b3946f84bae80dfa5ec5681d455831f2557fe3efe"
+    },
+    {
+      "path": "deployment/finals/staging-db/connect-2026-11-10/manifest.json",
+      "sha256": "059ef8a59909cedc2fa5cdb9c2a0a4e96bbd4738ba25e69c3db575316e4b57e3"
+    },
+    {
+      "path": "deployment/finals/staging-db/connect-2026-11-10/observe_connect.py",
+      "sha256": "43d58f079fd9f957b2edcec85bcbd10975b0b66a236de942ccec15b6bc936fb0"
+    },
+    {
+      "path": "deployment/finals/staging-db/connect-2026-11-10/README.md",
+      "sha256": "a53dca5e53d874cb767ea4344202a980f9bbea3c6ff172d22274e8ed45905884"
+    },
+    {
+      "path": "deployment/finals/staging-db/connect-2026-11-10/test_guards.py",
+      "sha256": "a7146aabb18c5316480cea659e6e8ff3a0e8851cfb4baf0541c236450c16ea94"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/connect-2026-11-10/atomic-acl-probe.txt",
+      "sha256": "acd14a3579105001e617539f63dc74a44c62cf4a44856ee693984d0ed89e4b5f"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/connect-2026-11-10/observation-20261110T120652126332Z.json",
+      "sha256": "41ea6c57fc0f018ad7b74b1e63a350c105e6f586d2a4d4cc9ac34af436025ec8"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/connect-2026-11-10/observation-20261110T120740197816Z.json",
+      "sha256": "e5009fb9c392351f4ca93bf653814d75e1012c619e05f9ca71567b120f46d92e"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/connect-2026-11-10/observation-permit.json",
+      "sha256": "26e187e8ddf8a8159f2d527e0fc674caeea8d51152e061e03f04a64bbd75367e"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/connect-2026-11-10/preserved-artifacts.json",
+      "sha256": "c1c1e20df2f439086ba0ff649b4a68c71458a5b53a1058df84843da12e873ebd"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/connect-2026-11-10/report.md",
+      "sha256": "f9ffe878497e820774bec433781d66ec39cfb7b6543427609ea182dcec83aed7"
+    }
+  ]
+}

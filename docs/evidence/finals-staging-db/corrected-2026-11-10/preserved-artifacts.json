@@ -1,0 +1,94 @@
+{
+  "at_utc": "2026-11-10T11:47:41.873307+00:00",
+  "scope": "all original and diagnosis artifacts before corrected operation; byte-identical preservation required",
+  "files": [
+    {
+      "path": "deployment/finals/staging-db/audit.py",
+      "sha256": "3106a3ec044c8c1f8f0d3fcceca0a1cea89e7d9ddf8e383eb2a1c7e56bff736d"
+    },
+    {
+      "path": "deployment/finals/staging-db/check-diagnosis-2026-11-10.py",
+      "sha256": "36baf3966ef540467a135d71e432fd73559eecff58ac4a97854b15d16831ca18"
+    },
+    {
+      "path": "deployment/finals/staging-db/diagnose-readonly-2026-11-10.py",
+      "sha256": "7105ced752cd57b05069a7f53de3008530e1f8fa60a1825030029d59cc2825e5"
+    },
+    {
+      "path": "deployment/finals/staging-db/future-minimal-request-2026-11-10.json",
+      "sha256": "e86f7b84d1ba10c8ce4bcc67c60a6e2a9289c11fe63a0d36fe10b9f7ef849d1e"
+    },
+    {
+      "path": "deployment/finals/staging-db/future_error_classifier.py",
+      "sha256": "abdc3e0e977dd6547124dcafc00ddcd2bc40797f149abaf40982e232572082fe"
+    },
+    {
+      "path": "deployment/finals/staging-db/provision.py",
+      "sha256": "8b456d6e616f8b7a7395b7c9878bb0ca20f5d6222adbfb44107b6e66b9616e76"
+    },
+    {
+      "path": "deployment/finals/staging-db/README.md",
+      "sha256": "0c45be45f09badd4d73b16886ec43e5df00cb34999b6885fe560f4343196c564"
+    },
+    {
+      "path": "deployment/finals/staging-db/request-manifest.json",
+      "sha256": "c36979e661975381c4e9374b275dbf04eb8658c823fa3df7eeead055ed8f9002"
+    },
+    {
+      "path": "deployment/finals/staging-db/test_future_error_classifier.py",
+      "sha256": "a243f957b41be892a01bc2df4f24ed3e47e36cf5dbc2eca869c1b49132cdd908"
+    },
+    {
+      "path": "deployment/finals/staging-db/verify-connectivity.mjs",
+      "sha256": "5229a207b6d1d0d01d4c3901e1656292e1b7732224d6038c53019103f094ff9f"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/checks.json",
+      "sha256": "f510541acdcb885c866074d5f2932045948cbd6105edfce7bf39dd6b8bfd1742"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/create-attempt.json",
+      "sha256": "77abb6e60a126d93ea7fbf5d7719fa3d7ccbde033a1c5ff17c39fb96a1cef847"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/diagnosis-2026-11-10/checks.json",
+      "sha256": "02ee6dc79f7158198ceec7beff88d2aba2b5a353c90d3f6660ec580a80cca9db"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/diagnosis-2026-11-10/preserved-artifacts.json",
+      "sha256": "43761af45148bdcb23aa54a5d436111ce77490f55fb65d5d9bb8177ba4344c52"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/diagnosis-2026-11-10/public-source-review.json",
+      "sha256": "fad994fb5e99fbd657660b76324fdabe148556787f3d8c38636fcdb1953be88c"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/diagnosis-2026-11-10/report.md",
+      "sha256": "8180fe88304fca1508f6c079000db56810aae2ff3a9134a01f0636b9cbc46433"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/observation-20261110T110625219218Z.json",
+      "sha256": "2d70543ce300c1fdfa1055c7c9263034ad47ded804c69f55fc0b456cb07a4ff9"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/observation-20261110T110645159671Z.json",
+      "sha256": "1e4d049807865c4f83d09888b68a8454b46be50b730b9b40a4103b3cd71229b9"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/observation-20261110T110741492871Z.json",
+      "sha256": "507c772c2a502f767d3873bcfe5d0ab46d885d0a8e4fd001f1a5c312cbfb40a1"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/observation-20261110T110853800186Z.json",
+      "sha256": "25cce976afe9d3985225f5fa52c10c4bf1f77dbdcf89fe32bbbc56dad4f5dec2"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/report.md",
+      "sha256": "4e9454c42f4c8389d5e1845a4a6688fa2c0fde4e6a391aed2bb37ca2637f6300"
+    },
+    {
+      "path": "docs/evidence/finals-staging-db/schema-review.json",
+      "sha256": "c79a5912f3ed72d78532e92f6f942460de19ded35e874175a9ac815029af27ac"
+    }
+  ]
+}

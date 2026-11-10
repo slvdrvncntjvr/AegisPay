@@ -1,0 +1,28 @@
+{
+  "operation": "TASK018-corrected-minimal-free-2026-11-10",
+  "started_at_utc": "2026-11-10T11:54:39.614676+00:00",
+  "requests": [],
+  "POST_attempts_this_operation": 0,
+  "db_connections_attempted": 0,
+  "existing_resource_mutations": 0,
+  "migrations_seeds_workers_models_payments": 0,
+  "Git_deployment_alias_or_secret_upload_actions": 0,
+  "outcome": "local_pre_dispatch_guards_passed_no_network",
+  "local_guards": {
+    "prior_artifacts_byte_identical": 22,
+    "staging_env_absent_and_ignored": true,
+    "Python_syntax": "passed",
+    "existing_TLS_helper_syntax": "passed",
+    "installed_pg_exact_version": "8.23.1",
+    "writable_flush_fsync_readback": "passed",
+    "secret_file_DACL_pattern_probe": "native DACL current-user and SYSTEM only; protected/no inherited grants; independently read back",
+    "manifest_exact_minimal_Free": true
+  },
+  "finished_at_utc": "2026-11-10T11:54:41.435386+00:00",
+  "prior_artifacts_byte_identical_after_run": 22,
+  "privacy": {
+    "raw_provider_responses_saved": false,
+    "raw_errors_or_headers_emitted": false,
+    "runtime_known_secret_and_full_ID_scan_before_persist": true
+  }
+}

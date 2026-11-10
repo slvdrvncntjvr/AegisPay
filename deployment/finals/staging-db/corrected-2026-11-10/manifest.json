@@ -1,0 +1,54 @@
+{
+  "operation": "TASK018-corrected-minimal-free-2026-11-10",
+  "authorization_dispatch": "ctx_e6d7791811dd",
+  "maximum_POSTs": 1,
+  "original_receipt_preserved": "docs/evidence/finals-staging-db/create-attempt.json",
+  "new_receipt": "docs/evidence/finals-staging-db/corrected-2026-11-10/attempt-receipt.json",
+  "schema_url": "https://api-docs.render.com/openapi/render-public-api-1.json",
+  "reviewed_schema_sha256": "569ee51f78fd5991732e98552bf60d3d9f5fe16947f70b9cccdb42fa216253b0",
+  "selected_workspace_id_sha256": "e2540012b36b62464cc5045e3521e9dc9a40283b69582258941f9d099d11894e",
+  "selected_workspace_redacted": "tea-cu…ctmg",
+  "required_caller_role": "ADMIN",
+  "required_caller_status": "active",
+  "method": "POST",
+  "endpoint": "https://api.render.com/v1/postgres",
+  "request_without_private_ownerId": {
+    "name": "aegispay-finals-staging",
+    "plan": "free",
+    "version": "17",
+    "region": "singapore"
+  },
+  "omitted_features": ["diskSizeGB", "enableHighAvailability", "enableDiskAutoscaling", "connectionPool", "readReplicas"],
+  "ownerId": "resolved privately after exact workspace hash and active ADMIN verification; not stored here",
+  "guards": {
+    "complete_empty_inventory_required": true,
+    "same_name_or_any_database": "no create; inspect/report custody only",
+    "receipt_exclusive_and_fsynced_writable_before_dispatch": true,
+    "no_automatic_retry_or_guard_reset": true,
+    "timeout_seconds": 20,
+    "API_body_limit_bytes": 524288,
+    "schema_body_limit_bytes": 4000000,
+    "error_classification_limit_bytes": 16384,
+    "follow_redirects": false,
+    "maximum_immediate_status_reads_after_HTTP201": 1,
+    "pending_result": "report created pending; later observation requires separate authorization",
+    "paid_billing_verification_fallback": false,
+    "alternate_region": false,
+    "existing_resource_mutations": false,
+    "migration_seed_or_state_copy": false,
+    "worker_model_payment_or_public_site_action": false
+  },
+  "conditional_connection": {
+    "only_exact_new_available_resource": true,
+    "TLS_certificate_hostname_validation": true,
+    "SQL": ["SELECT 1 AS one", "SHOW server_version"],
+    "private_file": ".env.staging.local",
+    "exclusive_restrictive_DACL_before_secret_write": true,
+    "credential_upload_to_services": false
+  },
+  "lifecycle": {
+    "actual_createdAt_and_expiresAt": "must come from provider response; never calculated",
+    "published_Free_lifetime_days": 30,
+    "finals_date": "TBA"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "started_at_utc": "2026-11-10T11:08:51.571645+00:00",
+  "scope": "independent empty Free staging PostgreSQL prerequisite only",
+  "requests": [
+    {
+      "operation": "official-schema",
+      "method": "GET",
+      "at_utc": "2026-11-10T11:08:51.571645+00:00",
+      "response_limit_bytes": 4000000,
+      "http_status": 200,
+      "response_bytes": 441718,
+      "api_request_rate_counters": {}
+    },
+    {
+      "operation": "/users",
+      "method": "GET",
+      "at_utc": "2026-11-10T11:08:52.270644+00:00",
+      "response_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 101,
+      "api_request_rate_counters": {
+        "RateLimit-Limit": 400,
+        "RateLimit-Remaining": 399,
+        "RateLimit-Reset": 5
+      }
+    },
+    {
+      "operation": "/owners",
+      "method": "GET",
+      "at_utc": "2026-11-10T11:08:52.637780+00:00",
+      "response_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 160,
+      "api_request_rate_counters": {
+        "RateLimit-Limit": 400,
+        "RateLimit-Remaining": 398,
+        "RateLimit-Reset": 5
+      }
+    },
+    {
+      "operation": "/owners/{redactedId}",
+      "method": "GET",
+      "at_utc": "2026-11-10T11:08:52.914022+00:00",
+      "response_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 104,
+      "api_request_rate_counters": {
+        "RateLimit-Limit": 400,
+        "RateLimit-Remaining": 397,
+        "RateLimit-Reset": 4
+      }
+    },
+    {
+      "operation": "/owners/{redactedId}/members",
+      "method": "GET",
+      "at_utc": "2026-11-10T11:08:53.225553+00:00",
+      "response_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 159,
+      "api_request_rate_counters": {
+        "RateLimit-Limit": 400,
+        "RateLimit-Remaining": 396,
+        "RateLimit-Reset": 4
+      }
+    },
+    {
+      "operation": "/postgres",
+      "method": "GET",
+      "at_utc": "2026-11-10T11:08:53.526260+00:00",
+      "response_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 3,
+      "api_request_rate_counters": {
+        "RateLimit-Limit": 400,
+        "RateLimit-Remaining": 395,
+        "RateLimit-Reset": 4
+      }
+    }
+  ],
+  "create_attempts_this_invocation": 0,
+  "db_connections_attempted": 0,
+  "live_payment_rpc_model_calls": 0,
+  "migrations_seeds_worker_jobs": 0,
+  "existing_resource_mutations": 0,
+  "public_site_or_git_mutations": 0,
+  "outcome": "read_only_prerequisites_verified",
+  "official_schema": {
+    "url": "https://api-docs.render.com/openapi/render-public-api-1.json",
+    "sha256": "569ee51f78fd5991732e98552bf60d3d9f5fe16947f70b9cccdb42fa216253b0",
+    "bytes": 441718
+  },
+  "workspace": {
+    "id_redacted": "tea-cu…ctmg",
+    "id_sha256": "e2540012b36b62464cc5045e3521e9dc9a40283b69582258941f9d099d11894e",
+    "name": "My Workspace",
+    "sole_accessible_workspace": true,
+    "caller_role": "ADMIN",
+    "caller_status": "active",
+    "plan_billing_verification_and_remaining_free_usage": "not exposed by supported account reads; not queried through billing"
+  },
+  "inventory": {
+    "count": 0,
+    "limit": 100,
+    "complete_within_limit": true,
+    "exact_name_count": 0,
+    "other_active_free_count": 0
+  },
+  "finished_at_utc": "2026-11-10T11:08:53.800186+00:00",
+  "hygiene": {
+    "runtime_known_secret_and_full_resource_id_scan": "passed_before_persist",
+    "raw_provider_responses_persisted": false,
+    "raw_exception_strings_emitted": false,
+    "credentials_in_argv": false
+  }
+}

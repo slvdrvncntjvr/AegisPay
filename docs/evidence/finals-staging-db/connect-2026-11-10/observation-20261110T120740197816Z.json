@@ -1,0 +1,157 @@
+{
+  "operation": "TASK018-same-resource-minimal-TLS-2026-11-10",
+  "started_at_utc": "2026-11-10T12:07:33.227527+00:00",
+  "requests": [
+    {
+      "operation": "caller",
+      "method": "GET",
+      "at_utc": "2026-11-10T12:07:34.382853+00:00",
+      "timeout_seconds": 20,
+      "body_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 101
+    },
+    {
+      "operation": "workspace-discovery",
+      "method": "GET",
+      "at_utc": "2026-11-10T12:07:34.658210+00:00",
+      "timeout_seconds": 20,
+      "body_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 160
+    },
+    {
+      "operation": "caller-active-ADMIN",
+      "method": "GET",
+      "at_utc": "2026-11-10T12:07:34.937364+00:00",
+      "timeout_seconds": 20,
+      "body_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 159
+    },
+    {
+      "operation": "bounded-workspace-database-discovery",
+      "method": "GET",
+      "at_utc": "2026-11-10T12:07:35.215523+00:00",
+      "timeout_seconds": 20,
+      "body_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 786
+    },
+    {
+      "operation": "exact-resource-status",
+      "method": "GET",
+      "at_utc": "2026-11-10T12:07:35.739755+00:00",
+      "timeout_seconds": 20,
+      "body_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 723
+    },
+    {
+      "operation": "exact-resource-connection-info",
+      "method": "GET",
+      "at_utc": "2026-11-10T12:07:36.220019+00:00",
+      "timeout_seconds": 20,
+      "body_limit_bytes": 524288,
+      "http_status": 200,
+      "response_bytes": 582
+    }
+  ],
+  "provider_mutations": 0,
+  "direct_status_GETs": 1,
+  "connection_info_GETs": 1,
+  "SQL_connection_processes_started": 1,
+  "migrations_seeds_financial_DB_workers_models_payments": 0,
+  "Git_deploy_alias_or_secret_upload_actions": 0,
+  "outcome": "failed_stopped_no_retry",
+  "preflight": {
+    "prior_artifacts_byte_identical": 38,
+    "creation_provenance": {
+      "immutable_HTTP201_receipt_and_assessment_matched": true,
+      "creation_dispatch": "ctx_e6d7791811dd"
+    },
+    "private_destination_and_temp_absent_ignored": true,
+    "atomic_exclusive_publication_fsync_readback": "passed using nonsecret probe",
+    "DACL": "protected current-user/SYSTEM FullControl only; no inherited grants; read back",
+    "existing_TLS_helper_syntax": "passed",
+    "installed_pg_version": "8.23.1"
+  },
+  "workspace": {
+    "id_redacted": "tea-cu…ctmg",
+    "identity_matches_creation_receipt": true,
+    "sole_accessible": true,
+    "caller_role": "ADMIN",
+    "caller_status": "active"
+  },
+  "discovery": {
+    "workspace_database_count": 1,
+    "limit_100_complete": true,
+    "exact_name_count": 1
+  },
+  "discovered_database": {
+    "id_redacted": "dpg-db…q0-a",
+    "name": "aegispay-finals-staging",
+    "status": "available",
+    "plan": "free",
+    "version": "17",
+    "region": "singapore",
+    "createdAt": "2026-11-10T11:55:40.452333Z",
+    "expiresAt": "2026-12-10T11:55:40.452333Z",
+    "diskSizeGB": null,
+    "highAvailabilityEnabled": false,
+    "diskAutoscalingEnabled": false,
+    "connectionPool": "none",
+    "suspended": "not_suspended",
+    "role": "primary",
+    "owner_id_redacted": "tea-cu…ctmg",
+    "read_replica_count": 0,
+    "returned_IP_rule_count": 0
+  },
+  "direct_status_database": {
+    "id_redacted": "dpg-db…q0-a",
+    "name": "aegispay-finals-staging",
+    "status": "available",
+    "plan": "free",
+    "version": "17",
+    "region": "singapore",
+    "createdAt": "2026-11-10T11:55:40.452333Z",
+    "expiresAt": "2026-12-10T11:55:40.452333Z",
+    "diskSizeGB": null,
+    "highAvailabilityEnabled": false,
+    "diskAutoscalingEnabled": false,
+    "connectionPool": "none",
+    "suspended": "not_suspended",
+    "role": "primary",
+    "owner_id_redacted": "tea-cu…ctmg",
+    "read_replica_count": 0,
+    "returned_IP_rule_count": 0
+  },
+  "private_configuration": {
+    "path": ".env.staging.local",
+    "Git_ignored": true,
+    "exclusive_atomic_publication": true,
+    "permissions_before_secret_write": "protected current-user/SYSTEM FullControl only; no inherited grants; read back",
+    "permissions_after_publication": "protected current-user/SYSTEM FullControl only; no inherited grants; read back",
+    "writable_flush_fsync_readback": true,
+    "temporary_link_removed": true,
+    "provider_key_copied": false,
+    "external_TLS_mode": "verify-full",
+    "credential_values_or_fingerprints_emitted": false
+  },
+  "connectivity": {
+    "outcome": "failed",
+    "sql_statements": 0,
+    "tls_required": true,
+    "certificate_validation": true,
+    "hostname_validation": true,
+    "safe_code": "STAGING_CONNECTIVITY_FAILED"
+  },
+  "safe_code": "STAGING_CONNECTIVITY_FAILED",
+  "finished_at_utc": "2026-11-10T12:07:40.184795+00:00",
+  "prior_history_byte_identical": 38,
+  "privacy": {
+    "raw_responses_errors_headers_emitted": false,
+    "credential_values_or_fingerprints_emitted": false,
+    "runtime_known_secret_full_ID_scan_before_persist": true
+  }
+}

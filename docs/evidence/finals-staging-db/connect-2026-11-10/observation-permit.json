@@ -1,0 +1,25 @@
+{
+  "operation": "TASK018-same-resource-minimal-TLS-2026-11-10",
+  "dispatch": "ctx_a647d6664b63",
+  "at_utc": "2026-11-10T12:07:34.337403+00:00",
+  "allowed_methods": [
+    "GET"
+  ],
+  "maximum_direct_status_GETs": 1,
+  "maximum_connection_info_GETs": 1,
+  "maximum_SQL_connection_processes": 1,
+  "retry_allowed": false,
+  "expected_resource_identity_sha256": "feaa345c7d4172d22feb6dd8c92794128061a2f357b2e5372c0739138b6f8f85",
+  "preflight": {
+    "prior_artifacts_byte_identical": 38,
+    "creation_provenance": {
+      "immutable_HTTP201_receipt_and_assessment_matched": true,
+      "creation_dispatch": "ctx_e6d7791811dd"
+    },
+    "private_destination_and_temp_absent_ignored": true,
+    "atomic_exclusive_publication_fsync_readback": "passed using nonsecret probe",
+    "DACL": "protected current-user/SYSTEM FullControl only; no inherited grants; read back",
+    "existing_TLS_helper_syntax": "passed",
+    "installed_pg_version": "8.23.1"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "operation": "TASK018-same-resource-minimal-TLS-2026-11-10",
+  "started_at_utc": "2026-11-10T12:06:49.753833+00:00",
+  "requests": [],
+  "provider_mutations": 0,
+  "direct_status_GETs": 0,
+  "connection_info_GETs": 0,
+  "SQL_connection_processes_started": 0,
+  "migrations_seeds_financial_DB_workers_models_payments": 0,
+  "Git_deploy_alias_or_secret_upload_actions": 0,
+  "outcome": "local_preflight_passed_no_network",
+  "preflight": {
+    "prior_artifacts_byte_identical": 38,
+    "creation_provenance": {
+      "immutable_HTTP201_receipt_and_assessment_matched": true,
+      "creation_dispatch": "ctx_e6d7791811dd"
+    },
+    "private_destination_and_temp_absent_ignored": true,
+    "atomic_exclusive_publication_fsync_readback": "passed using nonsecret probe",
+    "DACL": "protected current-user/SYSTEM FullControl only; no inherited grants; read back",
+    "existing_TLS_helper_syntax": "passed",
+    "installed_pg_version": "8.23.1"
+  },
+  "finished_at_utc": "2026-11-10T12:06:52.123367+00:00",
+  "prior_history_byte_identical": 38,
+  "privacy": {
+    "raw_responses_errors_headers_emitted": false,
+    "credential_values_or_fingerprints_emitted": false,
+    "runtime_known_secret_full_ID_scan_before_persist": true
+  }
+}

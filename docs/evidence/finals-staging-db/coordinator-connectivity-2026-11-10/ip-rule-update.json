@@ -1,0 +1,15 @@
+{
+  "observedAt": "2026-11-10T12:18:51.960Z",
+  "classification": "single-staging-client-ip-rule",
+  "httpStatus": 200,
+  "mutationCalls": 1,
+  "onlyIpAllowListChanged": true,
+  "previousRuleCount": 0,
+  "newRuleCount": 1,
+  "singleCorroboratedIpv4Slash32": true,
+  "broadAccess": false,
+  "financialActions": 0,
+  "sqlStatements": 0,
+  "rawIpPersistedPublicly": false,
+  "readbackMatches": true
+}

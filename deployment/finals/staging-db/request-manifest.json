@@ -1,0 +1,55 @@
+{
+  "scope": "One independent Free staging PostgreSQL prerequisite; no application deployment",
+  "baseline_local_head": "577b84485b00634c8566060ff8a477dc0e030ba1",
+  "schema_url": "https://api-docs.render.com/openapi/render-public-api-1.json",
+  "reviewed_schema_sha256": "569ee51f78fd5991732e98552bf60d3d9f5fe16947f70b9cccdb42fa216253b0",
+  "selected_workspace": {
+    "selection": "sole accessible workspace, matched against authenticated preflight",
+    "name": "My Workspace",
+    "id_redacted": "tea-cu…ctmg",
+    "required_caller_role": "ADMIN",
+    "required_caller_status": "active"
+  },
+  "method": "POST",
+  "endpoint": "https://api.render.com/v1/postgres",
+  "ownerId_binding": "Resolve selected workspace ID in memory after active ADMIN verification; never persist full ID here",
+  "request_without_ownerId": {
+    "name": "aegispay-finals-staging",
+    "plan": "free",
+    "version": "17",
+    "region": "singapore",
+    "diskSizeGB": 1,
+    "enableHighAvailability": false,
+    "enableDiskAutoscaling": false,
+    "connectionPool": "none",
+    "readReplicas": []
+  },
+  "omissions": {
+    "databaseName_and_databaseUser": "provider generated",
+    "ipAllowList": "provider default; observe effective rules without exposing host or credentials",
+    "environmentId": "no environment attachment",
+    "addons_and_monitoring_keys": "none"
+  },
+  "guards": {
+    "maximum_create_attempts": 1,
+    "retry_create_after_timeout": false,
+    "follow_redirects": false,
+    "request_timeout_seconds": 20,
+    "api_response_bytes_maximum": 524288,
+    "schema_response_bytes_maximum": 4000000,
+    "owners_list_limit": 20,
+    "postgres_list_limit": 100,
+    "maximum_sql_statements": 2,
+    "sql_statements": ["SELECT 1 AS one", "SHOW server_version"],
+    "tls_certificate_and_hostname_validation": true,
+    "migrate_or_seed": false,
+    "paid_plan_or_fallback": false,
+    "existing_resource_changes": false
+  },
+  "lifecycle": {
+    "published_free_expiry_days": 30,
+    "published_post_expiry_upgrade_grace_days": 14,
+    "actual_expiresAt": "must be read from provider response, never calculated",
+    "finals_date": "TBA"
+  }
+}

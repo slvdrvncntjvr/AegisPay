@@ -1,0 +1,19 @@
+{
+  "operation": "TASK018-corrected-minimal-free-2026-11-10",
+  "started_at_utc": "2026-11-10T11:50:08.815280+00:00",
+  "requests": [],
+  "POST_attempts_this_operation": 0,
+  "db_connections_attempted": 0,
+  "existing_resource_mutations": 0,
+  "migrations_seeds_workers_models_payments": 0,
+  "Git_deployment_alias_or_secret_upload_actions": 0,
+  "outcome": "stopped_no_retry",
+  "safe_code": "PRE_DISPATCH_DACL_PROBE_FAILED",
+  "finished_at_utc": "2026-11-10T11:50:10.916140+00:00",
+  "prior_artifacts_byte_identical_after_run": 22,
+  "privacy": {
+    "raw_provider_responses_saved": false,
+    "raw_errors_or_headers_emitted": false,
+    "runtime_known_secret_and_full_ID_scan_before_persist": true
+  }
+}

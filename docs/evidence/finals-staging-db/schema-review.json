@@ -1,0 +1,135 @@
+{
+  "at_utc": "2026-11-10T11:08:52.268641+00:00",
+  "schema_sha256": "569ee51f78fd5991732e98552bf60d3d9f5fe16947f70b9cccdb42fa216253b0",
+  "schema_bytes": 441718,
+  "required_request_fields": [
+    "name",
+    "plan",
+    "ownerId",
+    "version"
+  ],
+  "approved_request_field_schemas": {
+    "name": {
+      "type": "string",
+      "description": "The name of the database as it will appear in the Render Dashboard"
+    },
+    "enableHighAvailability": {
+      "type": "boolean",
+      "default": false
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "The ID of the workspace to create the database for"
+    },
+    "plan": {
+      "type": "string",
+      "enum": [
+        "free",
+        "starter",
+        "standard",
+        "pro",
+        "pro_plus",
+        "custom",
+        "basic_256mb",
+        "basic_1gb",
+        "basic_4gb",
+        "pro_4gb",
+        "pro_8gb",
+        "pro_16gb",
+        "pro_32gb",
+        "pro_64gb",
+        "pro_128gb",
+        "pro_192gb",
+        "pro_256gb",
+        "pro_384gb",
+        "pro_512gb",
+        "accelerated_16gb",
+        "accelerated_32gb",
+        "accelerated_64gb",
+        "accelerated_128gb",
+        "accelerated_256gb",
+        "accelerated_384gb",
+        "accelerated_512gb",
+        "accelerated_768gb",
+        "accelerated_1024gb",
+        "0.1c-256mb",
+        "0.5c-1g",
+        "1c-2g",
+        "1c-4g",
+        "2c-4g",
+        "2c-8g",
+        "2c-16g",
+        "4c-16g",
+        "4c-32g",
+        "8c-32g",
+        "8c-64g",
+        "16c-64g",
+        "16c-128g",
+        "32c-128g",
+        "32c-256g",
+        "48c-192g",
+        "48c-384g",
+        "64c-256g",
+        "64c-512g",
+        "96c-384g",
+        "96c-768g",
+        "128c-512g",
+        "128c-1024g"
+      ]
+    },
+    "diskSizeGB": {
+      "type": "integer",
+      "description": "The number of gigabytes of disk space to allocate for the database"
+    },
+    "enableDiskAutoscaling": {
+      "type": "boolean",
+      "default": false
+    },
+    "connectionPool": {
+      "type": "string",
+      "default": "none",
+      "description": "What connection pool to use (if any) out of 'pgbouncer' and 'none'"
+    },
+    "region": {
+      "type": "string",
+      "enum": [
+        "frankfurt",
+        "oregon",
+        "ohio",
+        "singapore",
+        "virginia"
+      ],
+      "default": "oregon",
+      "description": "Defaults to \"oregon\""
+    },
+    "readReplicas": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/readReplicaInput"
+      }
+    },
+    "version": {
+      "type": "string",
+      "description": "The PostgreSQL version",
+      "enum": [
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18"
+      ]
+    }
+  },
+  "checked_operations": {
+    "/users": "get",
+    "/owners": "get",
+    "/owners/{ownerId}": "get",
+    "/owners/{ownerId}/members": "get",
+    "/postgres": "post",
+    "/postgres/{postgresId}": "get",
+    "/postgres/{postgresId}/connection-info": "get"
+  }
+}
