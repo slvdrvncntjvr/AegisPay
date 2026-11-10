@@ -1,0 +1,4 @@
+$ tsc --noEmit && pnpm --filter @aegispay/web typecheck
+src/server/agent/state.ts(9,107): error TS2339: Property 'role' does not exist on type 'object'.
+src/server/agent/state.ts(9,132): error TS2339: Property 'parts' does not exist on type 'object'.
+[ELIFECYCLE] Command failed with exit code 2.

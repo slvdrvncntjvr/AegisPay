@@ -1,0 +1,16 @@
+[
+  {
+    "url": "https://ai.google.dev/gemini-api/docs/function-calling",
+    "retrievedAt": "2026-11-10T08:06:44.605244+00:00",
+    "sha256": "1196f902c8b7859cd4c18f7cc8cd32cb406fba98bf2bbcd9520918eeacc15ffe",
+    "bytes": 132316,
+    "inspection": "GenerateContent reference confirms parametersJsonSchema, functionCall/functionResponse identity, opaque thoughtSignature and includeThoughts. Existing pinned REST adapter retained; no SDK methods invented."
+  },
+  {
+    "url": "https://ai.google.dev/api/generate-content",
+    "retrievedAt": "2026-11-10T08:06:44.606890+00:00",
+    "sha256": "1a66cf2050cfd17916814890fe88317a934e3278ce4f59abb8429b2534fa565d",
+    "bytes": 97343,
+    "inspection": "GenerateContent reference confirms parametersJsonSchema, functionCall/functionResponse identity, opaque thoughtSignature and includeThoughts. Existing pinned REST adapter retained; no SDK methods invented."
+  }
+]

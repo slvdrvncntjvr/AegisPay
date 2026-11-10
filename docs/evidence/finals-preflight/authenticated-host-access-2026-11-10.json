@@ -1,0 +1,275 @@
+{
+  "observed_at_utc": "2026-11-10T07:29:40.536944+00:00",
+  "scope": "read-only account prerequisites; no deployment/release acceptance",
+  "write_calls": 0,
+  "db_connections": 0,
+  "gas_calls": 0,
+  "official_schema": {
+    "operation": "official Render OpenAPI schema",
+    "method": "GET",
+    "http_status": 200,
+    "api_rate_limit": {},
+    "url": "https://api-docs.render.com/openapi/render-public-api-1.json",
+    "sha256": "569ee51f78fd5991732e98552bf60d3d9f5fe16947f70b9cccdb42fa216253b0",
+    "required_GET_paths_present": {
+      "/users": true,
+      "/owners": true,
+      "/owners/{ownerId}": true,
+      "/owners/{ownerId}/members": true,
+      "/services": true,
+      "/postgres": true
+    },
+    "quota_or_billing_GET_paths": []
+  },
+  "render": {
+    "credential_file_exists": true,
+    "RENDER_API_KEY_present": true,
+    "user": {
+      "operation": "Render authenticated user",
+      "method": "GET",
+      "http_status": 200,
+      "api_rate_limit": {
+        "RateLimit-Limit": "400",
+        "RateLimit-Remaining": "399",
+        "RateLimit-Reset": "30"
+      },
+      "id_redacted": "usr-cu…ctog",
+      "name": "Salvador Vincent Javier"
+    },
+    "workspaces": {
+      "operation": "Render accessible workspaces (limit20)",
+      "method": "GET",
+      "http_status": 200,
+      "api_rate_limit": {
+        "RateLimit-Limit": "400",
+        "RateLimit-Remaining": "399",
+        "RateLimit-Reset": "49"
+      },
+      "count": 1,
+      "complete_within_limit": true,
+      "items": [
+        {
+          "id_redacted": "tea-cu…ctmg",
+          "name": "My Workspace",
+          "type": "team"
+        }
+      ]
+    },
+    "workspace_selection": "only workspace returned by bounded authenticated list",
+    "workspace": {
+      "operation": "Render selected workspace",
+      "method": "GET",
+      "http_status": 200,
+      "api_rate_limit": {
+        "RateLimit-Limit": "400",
+        "RateLimit-Remaining": "398",
+        "RateLimit-Reset": "9"
+      },
+      "id_redacted": "tea-cu…ctmg",
+      "name": "My Workspace",
+      "type": "team",
+      "exposed_account_fields": [
+        "email",
+        "id",
+        "name",
+        "type"
+      ],
+      "role": null,
+      "plan": null
+    },
+    "caller_membership": {
+      "operation": "Render selected workspace caller role",
+      "method": "GET",
+      "http_status": 200,
+      "api_rate_limit": {
+        "RateLimit-Limit": "400",
+        "RateLimit-Remaining": "399",
+        "RateLimit-Reset": "29"
+      },
+      "matched_authenticated_user": true,
+      "role": "ADMIN",
+      "status": "active"
+    },
+    "services": {
+      "operation": "Render selected workspace services (limit100)",
+      "method": "GET",
+      "http_status": 200,
+      "api_rate_limit": {
+        "RateLimit-Limit": "400",
+        "RateLimit-Remaining": "399",
+        "RateLimit-Reset": "48"
+      },
+      "count": 5,
+      "complete_within_limit": true,
+      "items": [
+        {
+          "id_redacted": "srv-da…jul0",
+          "name": "dev-ubeltchatv2",
+          "type": "web_service",
+          "suspended": "suspended",
+          "createdAt": "2026-09-11T10:55:28.688219Z",
+          "service_plan": "free",
+          "service_region": "singapore"
+        },
+        {
+          "id_redacted": "srv-da…8kmg",
+          "name": "u-beltchatv2",
+          "type": "web_service",
+          "suspended": "suspended",
+          "createdAt": "2026-09-02T15:32:44.846494Z",
+          "service_plan": "free",
+          "service_region": "singapore"
+        },
+        {
+          "id_redacted": "srv-da…ovrg",
+          "name": "U-BeltChat",
+          "type": "web_service",
+          "suspended": "suspended",
+          "createdAt": "2026-09-02T15:27:48.620972Z",
+          "service_plan": "free",
+          "service_region": "singapore"
+        },
+        {
+          "id_redacted": "srv-da…7udg",
+          "name": "ubeltchat",
+          "type": "web_service",
+          "suspended": "suspended",
+          "createdAt": "2026-08-31T15:29:20.657417Z",
+          "service_plan": "free",
+          "service_region": "singapore"
+        },
+        {
+          "id_redacted": "srv-cu…d8p0",
+          "name": "PL_Extractor",
+          "type": "web_service",
+          "suspended": "suspended",
+          "createdAt": "2025-02-19T14:53:52.865277Z",
+          "service_plan": "free",
+          "service_region": "singapore"
+        }
+      ],
+      "active_free_postgres_count": null
+    },
+    "postgres": {
+      "operation": "Render selected workspace postgres (limit100)",
+      "method": "GET",
+      "http_status": 200,
+      "api_rate_limit": {
+        "RateLimit-Limit": "400",
+        "RateLimit-Remaining": "398",
+        "RateLimit-Reset": "8"
+      },
+      "count": 0,
+      "complete_within_limit": true,
+      "items": [],
+      "active_free_postgres_count": 0
+    }
+  },
+  "vercel": {
+    "cli_auth_present": true,
+    "project_id_redacted": "prj_87…7aTq",
+    "API_reads": 1,
+    "operation": "Vercel exact AegisPay project Git settings",
+    "method": "GET",
+    "http_status": 200,
+    "api_rate_limit": {},
+    "project_name": "aegispay-live",
+    "git_link_field_present": false,
+    "git_link_is_null": true,
+    "git_link": {
+      "type": null,
+      "org": null,
+      "repo": null,
+      "productionBranch": null,
+      "sourceless": null
+    },
+    "git_provider_options_field_present": true,
+    "git_provider_options": {
+      "createDeployments": "disabled",
+      "disableRepositoryDispatchEvents": true
+    },
+    "production_branch_top_level_present": false,
+    "production_branch_top_level": null,
+    "ignore_build_step_configured": false,
+    "auto_assign_custom_domains": true,
+    "git_deployment_enabled_field_present": false,
+    "git_deployment_enabled": null,
+    "rootDirectory": "apps/web",
+    "nodeVersion": "24.x",
+    "sourceFilesOutsideRootDirectory": true
+  },
+  "requests": [
+    {
+      "operation": "official Render OpenAPI schema",
+      "method": "GET",
+      "http_status": 200,
+      "api_rate_limit": {}
+    },
+    {
+      "operation": "Render authenticated user",
+      "method": "GET",
+      "http_status": 200,
+      "api_rate_limit": {
+        "RateLimit-Limit": "400",
+        "RateLimit-Remaining": "399",
+        "RateLimit-Reset": "30"
+      }
+    },
+    {
+      "operation": "Render accessible workspaces (limit20)",
+      "method": "GET",
+      "http_status": 200,
+      "api_rate_limit": {
+        "RateLimit-Limit": "400",
+        "RateLimit-Remaining": "399",
+        "RateLimit-Reset": "49"
+      }
+    },
+    {
+      "operation": "Render selected workspace",
+      "method": "GET",
+      "http_status": 200,
+      "api_rate_limit": {
+        "RateLimit-Limit": "400",
+        "RateLimit-Remaining": "398",
+        "RateLimit-Reset": "9"
+      }
+    },
+    {
+      "operation": "Render selected workspace caller role",
+      "method": "GET",
+      "http_status": 200,
+      "api_rate_limit": {
+        "RateLimit-Limit": "400",
+        "RateLimit-Remaining": "399",
+        "RateLimit-Reset": "29"
+      }
+    },
+    {
+      "operation": "Render selected workspace services (limit100)",
+      "method": "GET",
+      "http_status": 200,
+      "api_rate_limit": {
+        "RateLimit-Limit": "400",
+        "RateLimit-Remaining": "399",
+        "RateLimit-Reset": "48"
+      }
+    },
+    {
+      "operation": "Render selected workspace postgres (limit100)",
+      "method": "GET",
+      "http_status": 200,
+      "api_rate_limit": {
+        "RateLimit-Limit": "400",
+        "RateLimit-Remaining": "398",
+        "RateLimit-Reset": "8"
+      }
+    },
+    {
+      "operation": "Vercel exact AegisPay project Git settings",
+      "method": "GET",
+      "http_status": 200,
+      "api_rate_limit": {}
+    }
+  ]
+}

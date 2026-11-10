@@ -9,6 +9,7 @@ import { readReceipt, receiptMetadata } from '../merchant/receipts.ts';
 import { ownedWallet, prepareWallet, submitWallet, observeWallet, observedPolicyStatus, walletView, type WalletGateway } from '../domain/wallet.ts';
 import { checkOrigin, json, jsonBody, safeError } from './boundaries.ts';
 import { wakeWorker } from './wake.ts';
+import { projectRunEvent } from '../agent/events.ts';
 
 export interface ApplicationContext {
   store: Store;
@@ -168,6 +169,14 @@ export function createApplication(context: ApplicationContext) {
           const input = z.strictObject({ signedXdr: z.string().min(1).max(260000) }).parse(await jsonBody(request, 262144));
           return json(await submitWallet(store, actor, id, input.signedXdr, await context.wallet()), 202);
         }
+      }
+      if (path[0] === 'api' && path[1] === 'v1' && path[2] === 'runs' && path.length === 5 && path[4] === 'events' && request.method === 'GET') {
+        const run = await ownedRun(store, actor, uuidSchema.parse(path[3]));
+        const cursors = url.searchParams.getAll('after');
+        if (cursors.length > 1 || cursors.length === 1 && (!/^[1-9][0-9]{0,18}$/.test(cursors[0]!) || BigInt(cursors[0]!) > 9223372036854775807n)) deny('INVALID_INPUT');
+        const after = cursors.length ? BigInt(cursors[0]!) : 0n;
+        const rows = await store.db.select().from(s.runEvent).where(and(eq(s.runEvent.runId, run.id), sql`${s.runEvent.id} > ${after.toString()}::bigint`)).orderBy(s.runEvent.id).limit(100);
+        return json({ events: rows.map(projectRunEvent).filter(event => event !== null), nextCursor: rows.at(-1)?.id.toString() ?? (after ? after.toString() : null) });
       }
       if (path[0] === 'api' && path[1] === 'v1' && path[2] === 'runs' && path.length === 4 && request.method === 'GET') {
         const run = await ownedRun(store, actor, uuidSchema.parse(path[3]));

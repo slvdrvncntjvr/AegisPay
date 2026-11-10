@@ -1,0 +1,2314 @@
+{
+  "format": "aegispay-synthetic-process-death/1",
+  "synthetic": true,
+  "generatedAt": "2026-11-10T07:59:49.236Z",
+  "platform": "win32",
+  "node": "v24.22.1",
+  "quoteTtlMs": 120000,
+  "acceleration": "After proven OS exit and durable active lease, isolated-schema CAS expires only the exact killed owner lease; production 120-second lease unchanged.",
+  "cases": [
+    {
+      "stage": "after_sign_before_persist",
+      "expireBeforeRecovery": false,
+      "invocation": "9b67f52f-57ea-45c9-8730-046639e2d8c5",
+      "schema": "test_6c0914c3c1024ba3918d7cb013eeffd0",
+      "attemptId": "f9860437-885e-4b5c-9ba5-0221d64c5277",
+      "operationId": "93d03a36-d4b6-4820-aa53-cb7b6f8e5d82",
+      "nonce": "1",
+      "termsHash": "c4b35182500a97bbdf0251663aceddbbdd03bdae6c5108bc87c9bfd577a8c108",
+      "syntheticRequestId": null,
+      "syntheticInnerHash": null,
+      "syntheticOuterHash": null,
+      "envelopeFingerprint": "1e6f2376a8321a89b0897259754f6643e8fe264cd8bd14aa9ddeb060fbf45f3e",
+      "handoffCommittedAt": null,
+      "childExits": [
+        {
+          "actor": "47fef2f3-0189-4eb6-b461-48966e5475b2",
+          "pid": 8684,
+          "backendPid": 30727,
+          "code": null,
+          "signal": "SIGKILL"
+        },
+        {
+          "actor": "ac949aeb-70a3-4f50-8029-8354fa37aa8a",
+          "pid": 25072,
+          "role": "lease-denied",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "b4808e1e-bddb-4f7d-a24a-4ad47891ea10",
+          "pid": 26316,
+          "backendPid": 30751,
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "487e7cbd-f8bb-4de3-acc2-c31226cce470",
+          "pid": 31068,
+          "backendPid": 30773,
+          "code": 0,
+          "signal": null
+        }
+      ],
+      "counts": {
+        "sign": 1,
+        "sponsor": 0,
+        "submit": 0,
+        "observe": 0,
+        "verify": 0
+      },
+      "finallyForKilledProcess": 0,
+      "durableLeaseSurvivedDeath": true,
+      "leaseDeniedProcessDidNoProviderWork": true,
+      "leaseAcceleration": "isolated exact-owner CAS after verified SIGKILL exit",
+      "quoteTtlMs": 120000,
+      "status": "manual_review",
+      "evidenceRows": 0,
+      "grants": 0,
+      "reservedStroops": "300000",
+      "spentStroops": "0",
+      "ciphertextWiped": true,
+      "identityTermsAndNoncePreserved": true,
+      "elapsedMs": 15123,
+      "events": [
+        {
+          "seq": 1,
+          "actor": "47fef2f3-0189-4eb6-b461-48966e5475b2",
+          "pid": 8684,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30727,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:03.406Z"
+        },
+        {
+          "seq": 2,
+          "actor": "47fef2f3-0189-4eb6-b461-48966e5475b2",
+          "pid": 8684,
+          "kind": "sign",
+          "detail": {
+            "operationId": "93d03a36-d4b6-4820-aa53-cb7b6f8e5d82"
+          },
+          "at": "2026-11-10T07:58:03.488Z"
+        },
+        {
+          "seq": 3,
+          "actor": "47fef2f3-0189-4eb6-b461-48966e5475b2",
+          "pid": 8684,
+          "kind": "blocked",
+          "detail": {
+            "stage": "after_sign_before_persist"
+          },
+          "at": "2026-11-10T07:58:03.504Z"
+        },
+        {
+          "seq": 4,
+          "actor": "ac949aeb-70a3-4f50-8029-8354fa37aa8a",
+          "pid": 25072,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30735,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:05.296Z"
+        },
+        {
+          "seq": 5,
+          "actor": "ac949aeb-70a3-4f50-8029-8354fa37aa8a",
+          "pid": 25072,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:58:05.322Z"
+        },
+        {
+          "seq": 6,
+          "actor": "ac949aeb-70a3-4f50-8029-8354fa37aa8a",
+          "pid": 25072,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:58:05.329Z"
+        },
+        {
+          "seq": 7,
+          "actor": "b4808e1e-bddb-4f7d-a24a-4ad47891ea10",
+          "pid": 26316,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30751,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:09.719Z"
+        },
+        {
+          "seq": 8,
+          "actor": "b4808e1e-bddb-4f7d-a24a-4ad47891ea10",
+          "pid": 26316,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:58:09.888Z"
+        },
+        {
+          "seq": 9,
+          "actor": "b4808e1e-bddb-4f7d-a24a-4ad47891ea10",
+          "pid": 26316,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:58:09.896Z"
+        },
+        {
+          "seq": 10,
+          "actor": "487e7cbd-f8bb-4de3-acc2-c31226cce470",
+          "pid": 31068,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30773,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:14.930Z"
+        },
+        {
+          "seq": 11,
+          "actor": "487e7cbd-f8bb-4de3-acc2-c31226cce470",
+          "pid": 31068,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:58:14.993Z"
+        },
+        {
+          "seq": 12,
+          "actor": "487e7cbd-f8bb-4de3-acc2-c31226cce470",
+          "pid": 31068,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:58:15.000Z"
+        }
+      ]
+    },
+    {
+      "stage": "after_envelope",
+      "expireBeforeRecovery": false,
+      "invocation": "75dbbf03-64de-4459-9580-4e574dd9397b",
+      "schema": "test_1e424927280a4781947a5e4ace902b3f",
+      "attemptId": "f575f0c3-60af-4392-80b6-dd6a4210b0e6",
+      "operationId": "6577254a-4093-466b-8b80-ec0ccb6b7a0a",
+      "nonce": "1",
+      "termsHash": "78c1c9c53e7bc23a3e374e0262edef7da5dd3b430a213d7cdd49419836fdb0ad",
+      "syntheticRequestId": "synthetic-process-reservation-6c15fb85-4e74-465a-8975-9b4e12397544",
+      "syntheticInnerHash": "8da4ce37ff726d0039bd5dbd9f067f95822dc8907177e0e0dddf2beb331a33aa",
+      "syntheticOuterHash": "67c4748fbfad24fa196995c2fde5019171bc30f2608e803d97f7904f4e4d6e58",
+      "envelopeFingerprint": "7af8aa324ac1c9d33e7041c9704d26d92a09047ddba823ff6b703dbea541c1ba",
+      "handoffCommittedAt": "2026-11-10T07:58:28.281Z",
+      "childExits": [
+        {
+          "actor": "0161e623-7a28-4c81-af35-4a3bd7652396",
+          "pid": 21356,
+          "backendPid": 30792,
+          "code": null,
+          "signal": "SIGKILL"
+        },
+        {
+          "actor": "86b7179c-0b83-45cb-9351-6c72115d33dc",
+          "pid": 19304,
+          "role": "lease-denied",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "6d6139a0-2eaf-408d-b330-a1af3242a439",
+          "pid": 23420,
+          "backendPid": 30822,
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "cc6a4b00-e4e6-409d-bccb-9b0cebc03f55",
+          "pid": 20200,
+          "backendPid": 30830,
+          "code": 0,
+          "signal": null
+        }
+      ],
+      "counts": {
+        "sign": 1,
+        "sponsor": 1,
+        "submit": 1,
+        "observe": 1,
+        "verify": 1
+      },
+      "finallyForKilledProcess": 0,
+      "durableLeaseSurvivedDeath": true,
+      "leaseDeniedProcessDidNoProviderWork": true,
+      "leaseAcceleration": "isolated exact-owner CAS after verified SIGKILL exit",
+      "quoteTtlMs": 120000,
+      "status": "authorized",
+      "evidenceRows": 1,
+      "grants": 1,
+      "reservedStroops": "0",
+      "spentStroops": "300000",
+      "ciphertextWiped": true,
+      "identityTermsAndNoncePreserved": true,
+      "elapsedMs": 15348,
+      "events": [
+        {
+          "seq": 1,
+          "actor": "0161e623-7a28-4c81-af35-4a3bd7652396",
+          "pid": 21356,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30792,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:18.994Z"
+        },
+        {
+          "seq": 2,
+          "actor": "0161e623-7a28-4c81-af35-4a3bd7652396",
+          "pid": 21356,
+          "kind": "sign",
+          "detail": {
+            "operationId": "6577254a-4093-466b-8b80-ec0ccb6b7a0a"
+          },
+          "at": "2026-11-10T07:58:19.116Z"
+        },
+        {
+          "seq": 3,
+          "actor": "0161e623-7a28-4c81-af35-4a3bd7652396",
+          "pid": 21356,
+          "kind": "blocked",
+          "detail": {
+            "stage": "after_envelope"
+          },
+          "at": "2026-11-10T07:58:19.196Z"
+        },
+        {
+          "seq": 4,
+          "actor": "86b7179c-0b83-45cb-9351-6c72115d33dc",
+          "pid": 19304,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30800,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:22.583Z"
+        },
+        {
+          "seq": 5,
+          "actor": "86b7179c-0b83-45cb-9351-6c72115d33dc",
+          "pid": 19304,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:58:22.682Z"
+        },
+        {
+          "seq": 6,
+          "actor": "86b7179c-0b83-45cb-9351-6c72115d33dc",
+          "pid": 19304,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:58:22.690Z"
+        },
+        {
+          "seq": 7,
+          "actor": "6d6139a0-2eaf-408d-b330-a1af3242a439",
+          "pid": 23420,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30822,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:28.032Z"
+        },
+        {
+          "seq": 8,
+          "actor": "6d6139a0-2eaf-408d-b330-a1af3242a439",
+          "pid": 23420,
+          "kind": "sponsor",
+          "detail": {
+            "fingerprint": "7af8aa324ac1c9d33e7041c9704d26d92a09047ddba823ff6b703dbea541c1ba",
+            "idempotencyKey": "aegispay:6577254a-4093-466b-8b80-ec0ccb6b7a0a"
+          },
+          "at": "2026-11-10T07:58:28.166Z"
+        },
+        {
+          "seq": 9,
+          "actor": "6d6139a0-2eaf-408d-b330-a1af3242a439",
+          "pid": 23420,
+          "kind": "submit",
+          "detail": {
+            "innerHash": "8da4ce37ff726d0039bd5dbd9f067f95822dc8907177e0e0dddf2beb331a33aa",
+            "requestId": "synthetic-process-reservation-6c15fb85-4e74-465a-8975-9b4e12397544",
+            "maxRetries": 0,
+            "fingerprint": "7af8aa324ac1c9d33e7041c9704d26d92a09047ddba823ff6b703dbea541c1ba"
+          },
+          "at": "2026-11-10T07:58:28.308Z"
+        },
+        {
+          "seq": 10,
+          "actor": "6d6139a0-2eaf-408d-b330-a1af3242a439",
+          "pid": 23420,
+          "kind": "observe",
+          "detail": {
+            "innerHash": "8da4ce37ff726d0039bd5dbd9f067f95822dc8907177e0e0dddf2beb331a33aa",
+            "requestId": "synthetic-process-reservation-6c15fb85-4e74-465a-8975-9b4e12397544"
+          },
+          "at": "2026-11-10T07:58:28.385Z"
+        },
+        {
+          "seq": 11,
+          "actor": "6d6139a0-2eaf-408d-b330-a1af3242a439",
+          "pid": 23420,
+          "kind": "verify",
+          "detail": {
+            "innerHash": "8da4ce37ff726d0039bd5dbd9f067f95822dc8907177e0e0dddf2beb331a33aa",
+            "requestId": "synthetic-process-reservation-6c15fb85-4e74-465a-8975-9b4e12397544"
+          },
+          "at": "2026-11-10T07:58:28.438Z"
+        },
+        {
+          "seq": 12,
+          "actor": "6d6139a0-2eaf-408d-b330-a1af3242a439",
+          "pid": 23420,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:58:28.567Z"
+        },
+        {
+          "seq": 13,
+          "actor": "6d6139a0-2eaf-408d-b330-a1af3242a439",
+          "pid": 23420,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:58:28.574Z"
+        },
+        {
+          "seq": 14,
+          "actor": "cc6a4b00-e4e6-409d-bccb-9b0cebc03f55",
+          "pid": 20200,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30830,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:30.622Z"
+        },
+        {
+          "seq": 15,
+          "actor": "cc6a4b00-e4e6-409d-bccb-9b0cebc03f55",
+          "pid": 20200,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:58:30.646Z"
+        },
+        {
+          "seq": 16,
+          "actor": "cc6a4b00-e4e6-409d-bccb-9b0cebc03f55",
+          "pid": 20200,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:58:30.651Z"
+        }
+      ]
+    },
+    {
+      "stage": "after_reserve_before_persist",
+      "expireBeforeRecovery": false,
+      "invocation": "7c74fc08-bce5-4ac0-ab47-1a5616be611b",
+      "schema": "test_09a7b2d1a1d2467b9995098efa212ea7",
+      "attemptId": "7cd8c830-1bc6-4e25-a8c3-1698884e7692",
+      "operationId": "8006d1b5-1507-4270-b2b1-308e4e2d49f5",
+      "nonce": "1",
+      "termsHash": "d12320e64d1b21558e3995321af1e38d81077b50f73daff4ca25394394be4f66",
+      "syntheticRequestId": "synthetic-process-reservation-ac8b469e-787b-40ee-9ff9-9c59018add6c",
+      "syntheticInnerHash": "52042c78466d4f41bb6febab359338a6d207948d655db2939c859f06601368da",
+      "syntheticOuterHash": "b647d76520e7742ba747379ab9e39fd2ad8d0b7710935702a3e7cc2df8c7d30e",
+      "envelopeFingerprint": "11027e4952fe9e095cdc60590eaff73a2b705e4e6c6216c91e5e6023ce0aeb7c",
+      "handoffCommittedAt": "2026-11-10T07:58:36.785Z",
+      "childExits": [
+        {
+          "actor": "40058635-97f8-46fb-b0c8-a62adfd1fbd6",
+          "pid": 6208,
+          "backendPid": 30842,
+          "code": null,
+          "signal": "SIGKILL"
+        },
+        {
+          "actor": "d145f8a7-f93e-4387-9230-e58890d6a5b3",
+          "pid": 2948,
+          "role": "lease-denied",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "5c9fb40a-ad1f-42a5-8c00-5742735563a7",
+          "pid": 29776,
+          "backendPid": 30859,
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "3e36ea78-8d9f-48df-98ee-f049a6866854",
+          "pid": 28532,
+          "backendPid": 30874,
+          "code": 0,
+          "signal": null
+        }
+      ],
+      "counts": {
+        "sign": 1,
+        "sponsor": 2,
+        "submit": 1,
+        "observe": 1,
+        "verify": 1
+      },
+      "finallyForKilledProcess": 0,
+      "durableLeaseSurvivedDeath": true,
+      "leaseDeniedProcessDidNoProviderWork": true,
+      "leaseAcceleration": "isolated exact-owner CAS after verified SIGKILL exit",
+      "quoteTtlMs": 120000,
+      "status": "authorized",
+      "evidenceRows": 1,
+      "grants": 1,
+      "reservedStroops": "0",
+      "spentStroops": "300000",
+      "ciphertextWiped": true,
+      "identityTermsAndNoncePreserved": true,
+      "elapsedMs": 9288,
+      "events": [
+        {
+          "seq": 1,
+          "actor": "40058635-97f8-46fb-b0c8-a62adfd1fbd6",
+          "pid": 6208,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30842,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:33.030Z"
+        },
+        {
+          "seq": 2,
+          "actor": "40058635-97f8-46fb-b0c8-a62adfd1fbd6",
+          "pid": 6208,
+          "kind": "sign",
+          "detail": {
+            "operationId": "8006d1b5-1507-4270-b2b1-308e4e2d49f5"
+          },
+          "at": "2026-11-10T07:58:33.103Z"
+        },
+        {
+          "seq": 3,
+          "actor": "40058635-97f8-46fb-b0c8-a62adfd1fbd6",
+          "pid": 6208,
+          "kind": "sponsor",
+          "detail": {
+            "fingerprint": "11027e4952fe9e095cdc60590eaff73a2b705e4e6c6216c91e5e6023ce0aeb7c",
+            "idempotencyKey": "aegispay:8006d1b5-1507-4270-b2b1-308e4e2d49f5"
+          },
+          "at": "2026-11-10T07:58:33.167Z"
+        },
+        {
+          "seq": 4,
+          "actor": "40058635-97f8-46fb-b0c8-a62adfd1fbd6",
+          "pid": 6208,
+          "kind": "blocked",
+          "detail": {
+            "stage": "after_reserve_before_persist"
+          },
+          "at": "2026-11-10T07:58:33.186Z"
+        },
+        {
+          "seq": 5,
+          "actor": "d145f8a7-f93e-4387-9230-e58890d6a5b3",
+          "pid": 2948,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30850,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:35.000Z"
+        },
+        {
+          "seq": 6,
+          "actor": "d145f8a7-f93e-4387-9230-e58890d6a5b3",
+          "pid": 2948,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:58:35.024Z"
+        },
+        {
+          "seq": 7,
+          "actor": "d145f8a7-f93e-4387-9230-e58890d6a5b3",
+          "pid": 2948,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:58:35.029Z"
+        },
+        {
+          "seq": 8,
+          "actor": "5c9fb40a-ad1f-42a5-8c00-5742735563a7",
+          "pid": 29776,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30859,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:36.662Z"
+        },
+        {
+          "seq": 9,
+          "actor": "5c9fb40a-ad1f-42a5-8c00-5742735563a7",
+          "pid": 29776,
+          "kind": "sponsor",
+          "detail": {
+            "fingerprint": "11027e4952fe9e095cdc60590eaff73a2b705e4e6c6216c91e5e6023ce0aeb7c",
+            "idempotencyKey": "aegispay:8006d1b5-1507-4270-b2b1-308e4e2d49f5"
+          },
+          "at": "2026-11-10T07:58:36.704Z"
+        },
+        {
+          "seq": 10,
+          "actor": "5c9fb40a-ad1f-42a5-8c00-5742735563a7",
+          "pid": 29776,
+          "kind": "submit",
+          "detail": {
+            "innerHash": "52042c78466d4f41bb6febab359338a6d207948d655db2939c859f06601368da",
+            "requestId": "synthetic-process-reservation-ac8b469e-787b-40ee-9ff9-9c59018add6c",
+            "maxRetries": 0,
+            "fingerprint": "11027e4952fe9e095cdc60590eaff73a2b705e4e6c6216c91e5e6023ce0aeb7c"
+          },
+          "at": "2026-11-10T07:58:36.804Z"
+        },
+        {
+          "seq": 11,
+          "actor": "5c9fb40a-ad1f-42a5-8c00-5742735563a7",
+          "pid": 29776,
+          "kind": "observe",
+          "detail": {
+            "innerHash": "52042c78466d4f41bb6febab359338a6d207948d655db2939c859f06601368da",
+            "requestId": "synthetic-process-reservation-ac8b469e-787b-40ee-9ff9-9c59018add6c"
+          },
+          "at": "2026-11-10T07:58:36.854Z"
+        },
+        {
+          "seq": 12,
+          "actor": "5c9fb40a-ad1f-42a5-8c00-5742735563a7",
+          "pid": 29776,
+          "kind": "verify",
+          "detail": {
+            "innerHash": "52042c78466d4f41bb6febab359338a6d207948d655db2939c859f06601368da",
+            "requestId": "synthetic-process-reservation-ac8b469e-787b-40ee-9ff9-9c59018add6c"
+          },
+          "at": "2026-11-10T07:58:36.897Z"
+        },
+        {
+          "seq": 13,
+          "actor": "5c9fb40a-ad1f-42a5-8c00-5742735563a7",
+          "pid": 29776,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:58:36.994Z"
+        },
+        {
+          "seq": 14,
+          "actor": "5c9fb40a-ad1f-42a5-8c00-5742735563a7",
+          "pid": 29776,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:58:36.999Z"
+        },
+        {
+          "seq": 15,
+          "actor": "3e36ea78-8d9f-48df-98ee-f049a6866854",
+          "pid": 28532,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30874,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:39.993Z"
+        },
+        {
+          "seq": 16,
+          "actor": "3e36ea78-8d9f-48df-98ee-f049a6866854",
+          "pid": 28532,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:58:40.029Z"
+        },
+        {
+          "seq": 17,
+          "actor": "3e36ea78-8d9f-48df-98ee-f049a6866854",
+          "pid": 28532,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:58:40.036Z"
+        }
+      ]
+    },
+    {
+      "stage": "after_reservation",
+      "expireBeforeRecovery": false,
+      "invocation": "4cbc657e-086b-4ecc-ad48-b054b453a815",
+      "schema": "test_4315f75bf326497a9dd60768bcbfd899",
+      "attemptId": "bd2b6551-149d-4d26-9e3f-11b4f5037eee",
+      "operationId": "18de37a4-4c1b-448b-a722-66b2df4ee017",
+      "nonce": "1",
+      "termsHash": "0ad03bd4b02af26e8243a1eb7eaac524b7372d3a2c81952f96ec1b3de821f530",
+      "syntheticRequestId": "synthetic-process-reservation-e8be53f9-cc8a-4b16-a384-d1b7e4c3fe42",
+      "syntheticInnerHash": "fceae230760d08459813272f057cc1509e21ac162c466a8966a26ce2682f25c7",
+      "syntheticOuterHash": "05a8468d43447b26e439377c39abbdf38d48a6e87e17996b73ed6976503d4f3c",
+      "envelopeFingerprint": "bddc73e86958c67242c7d98e7644c0a72117f695e96184f6d2aa0c437cc68b93",
+      "handoffCommittedAt": "2026-11-10T07:58:47.575Z",
+      "childExits": [
+        {
+          "actor": "13982e3b-aa9f-4c4d-9519-b7d704e625d8",
+          "pid": 9980,
+          "backendPid": 30892,
+          "code": null,
+          "signal": "SIGKILL"
+        },
+        {
+          "actor": "644a206a-aa87-4416-85ef-c26d2d40dbeb",
+          "pid": 20560,
+          "role": "lease-denied",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "4c96d279-bafb-4a17-96c0-7933a6aa224d",
+          "pid": 28780,
+          "backendPid": 30901,
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "3fe8ccbb-61ea-4805-a23a-c7be43219b10",
+          "pid": 2540,
+          "backendPid": 30916,
+          "code": 0,
+          "signal": null
+        }
+      ],
+      "counts": {
+        "sign": 1,
+        "sponsor": 1,
+        "submit": 1,
+        "observe": 1,
+        "verify": 1
+      },
+      "finallyForKilledProcess": 0,
+      "durableLeaseSurvivedDeath": true,
+      "leaseDeniedProcessDidNoProviderWork": true,
+      "leaseAcceleration": "isolated exact-owner CAS after verified SIGKILL exit",
+      "quoteTtlMs": 120000,
+      "status": "authorized",
+      "evidenceRows": 1,
+      "grants": 1,
+      "reservedStroops": "0",
+      "spentStroops": "300000",
+      "ciphertextWiped": true,
+      "identityTermsAndNoncePreserved": true,
+      "elapsedMs": 11087,
+      "events": [
+        {
+          "seq": 1,
+          "actor": "13982e3b-aa9f-4c4d-9519-b7d704e625d8",
+          "pid": 9980,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30892,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:43.757Z"
+        },
+        {
+          "seq": 2,
+          "actor": "13982e3b-aa9f-4c4d-9519-b7d704e625d8",
+          "pid": 9980,
+          "kind": "sign",
+          "detail": {
+            "operationId": "18de37a4-4c1b-448b-a722-66b2df4ee017"
+          },
+          "at": "2026-11-10T07:58:43.854Z"
+        },
+        {
+          "seq": 3,
+          "actor": "13982e3b-aa9f-4c4d-9519-b7d704e625d8",
+          "pid": 9980,
+          "kind": "sponsor",
+          "detail": {
+            "fingerprint": "bddc73e86958c67242c7d98e7644c0a72117f695e96184f6d2aa0c437cc68b93",
+            "idempotencyKey": "aegispay:18de37a4-4c1b-448b-a722-66b2df4ee017"
+          },
+          "at": "2026-11-10T07:58:43.940Z"
+        },
+        {
+          "seq": 4,
+          "actor": "13982e3b-aa9f-4c4d-9519-b7d704e625d8",
+          "pid": 9980,
+          "kind": "blocked",
+          "detail": {
+            "stage": "after_reservation"
+          },
+          "at": "2026-11-10T07:58:43.997Z"
+        },
+        {
+          "seq": 5,
+          "actor": "644a206a-aa87-4416-85ef-c26d2d40dbeb",
+          "pid": 20560,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30900,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:45.512Z"
+        },
+        {
+          "seq": 6,
+          "actor": "644a206a-aa87-4416-85ef-c26d2d40dbeb",
+          "pid": 20560,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:58:45.540Z"
+        },
+        {
+          "seq": 7,
+          "actor": "644a206a-aa87-4416-85ef-c26d2d40dbeb",
+          "pid": 20560,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:58:45.544Z"
+        },
+        {
+          "seq": 8,
+          "actor": "4c96d279-bafb-4a17-96c0-7933a6aa224d",
+          "pid": 28780,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30901,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:47.476Z"
+        },
+        {
+          "seq": 9,
+          "actor": "4c96d279-bafb-4a17-96c0-7933a6aa224d",
+          "pid": 28780,
+          "kind": "submit",
+          "detail": {
+            "innerHash": "fceae230760d08459813272f057cc1509e21ac162c466a8966a26ce2682f25c7",
+            "requestId": "synthetic-process-reservation-e8be53f9-cc8a-4b16-a384-d1b7e4c3fe42",
+            "maxRetries": 0,
+            "fingerprint": "bddc73e86958c67242c7d98e7644c0a72117f695e96184f6d2aa0c437cc68b93"
+          },
+          "at": "2026-11-10T07:58:47.602Z"
+        },
+        {
+          "seq": 10,
+          "actor": "4c96d279-bafb-4a17-96c0-7933a6aa224d",
+          "pid": 28780,
+          "kind": "observe",
+          "detail": {
+            "innerHash": "fceae230760d08459813272f057cc1509e21ac162c466a8966a26ce2682f25c7",
+            "requestId": "synthetic-process-reservation-e8be53f9-cc8a-4b16-a384-d1b7e4c3fe42"
+          },
+          "at": "2026-11-10T07:58:47.673Z"
+        },
+        {
+          "seq": 11,
+          "actor": "4c96d279-bafb-4a17-96c0-7933a6aa224d",
+          "pid": 28780,
+          "kind": "verify",
+          "detail": {
+            "innerHash": "fceae230760d08459813272f057cc1509e21ac162c466a8966a26ce2682f25c7",
+            "requestId": "synthetic-process-reservation-e8be53f9-cc8a-4b16-a384-d1b7e4c3fe42"
+          },
+          "at": "2026-11-10T07:58:47.722Z"
+        },
+        {
+          "seq": 12,
+          "actor": "4c96d279-bafb-4a17-96c0-7933a6aa224d",
+          "pid": 28780,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:58:47.874Z"
+        },
+        {
+          "seq": 13,
+          "actor": "4c96d279-bafb-4a17-96c0-7933a6aa224d",
+          "pid": 28780,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:58:47.885Z"
+        },
+        {
+          "seq": 14,
+          "actor": "3fe8ccbb-61ea-4805-a23a-c7be43219b10",
+          "pid": 2540,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30916,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:51.251Z"
+        },
+        {
+          "seq": 15,
+          "actor": "3fe8ccbb-61ea-4805-a23a-c7be43219b10",
+          "pid": 2540,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:58:51.305Z"
+        },
+        {
+          "seq": 16,
+          "actor": "3fe8ccbb-61ea-4805-a23a-c7be43219b10",
+          "pid": 2540,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:58:51.313Z"
+        }
+      ]
+    },
+    {
+      "stage": "before_handoff",
+      "expireBeforeRecovery": false,
+      "invocation": "40948106-b89f-4d2d-81f8-5888f3ed2be9",
+      "schema": "test_c31e65ed6d214e079c4d24f573c38cc4",
+      "attemptId": "0bc09c3e-dd4a-40e0-9b76-6f19d3835cee",
+      "operationId": "7320690a-5b0e-442e-b377-badac560cf4e",
+      "nonce": "1",
+      "termsHash": "e3da83ea976ad1dadff0c421a35c003050ff9b97f1002151dc52f9734f80c74f",
+      "syntheticRequestId": "synthetic-process-reservation-4da9ce9e-e7f1-4a79-8dd3-912f1d0b7456",
+      "syntheticInnerHash": "09604bf5b742dbd69fc9bbb56a4753ffe402aa13fd6f1a5ed17e1f72fe0d559b",
+      "syntheticOuterHash": "ac03287b6343f264007b15b1debeaeeabc73e9d289cd4420f3ea711959f38667",
+      "envelopeFingerprint": "ad33ed06dc72389f30c58f101babf2839b356cc034777f29422c1aa3d97bac6c",
+      "handoffCommittedAt": "2026-11-10T07:58:59.774Z",
+      "childExits": [
+        {
+          "actor": "5a788720-b86a-46a7-85d9-66a151a2a2f3",
+          "pid": 4912,
+          "backendPid": 30936,
+          "code": null,
+          "signal": "SIGKILL"
+        },
+        {
+          "actor": "08bb60c2-336a-4c2b-a8f6-b14a6e26b7e0",
+          "pid": 27100,
+          "role": "lease-denied",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "4cd79509-f392-403a-8498-f50628e3ed77",
+          "pid": 29960,
+          "backendPid": 30952,
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "e3358f36-78f3-45e8-a1ed-87245a6d8bd7",
+          "pid": 21916,
+          "backendPid": 30967,
+          "code": 0,
+          "signal": null
+        }
+      ],
+      "counts": {
+        "sign": 1,
+        "sponsor": 1,
+        "submit": 1,
+        "observe": 1,
+        "verify": 1
+      },
+      "finallyForKilledProcess": 0,
+      "durableLeaseSurvivedDeath": true,
+      "leaseDeniedProcessDidNoProviderWork": true,
+      "leaseAcceleration": "isolated exact-owner CAS after verified SIGKILL exit",
+      "quoteTtlMs": 120000,
+      "status": "authorized",
+      "evidenceRows": 1,
+      "grants": 1,
+      "reservedStroops": "0",
+      "spentStroops": "300000",
+      "ciphertextWiped": true,
+      "identityTermsAndNoncePreserved": true,
+      "elapsedMs": 10458,
+      "events": [
+        {
+          "seq": 1,
+          "actor": "5a788720-b86a-46a7-85d9-66a151a2a2f3",
+          "pid": 4912,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30936,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:54.576Z"
+        },
+        {
+          "seq": 2,
+          "actor": "5a788720-b86a-46a7-85d9-66a151a2a2f3",
+          "pid": 4912,
+          "kind": "sign",
+          "detail": {
+            "operationId": "7320690a-5b0e-442e-b377-badac560cf4e"
+          },
+          "at": "2026-11-10T07:58:54.664Z"
+        },
+        {
+          "seq": 3,
+          "actor": "5a788720-b86a-46a7-85d9-66a151a2a2f3",
+          "pid": 4912,
+          "kind": "sponsor",
+          "detail": {
+            "fingerprint": "ad33ed06dc72389f30c58f101babf2839b356cc034777f29422c1aa3d97bac6c",
+            "idempotencyKey": "aegispay:7320690a-5b0e-442e-b377-badac560cf4e"
+          },
+          "at": "2026-11-10T07:58:54.749Z"
+        },
+        {
+          "seq": 4,
+          "actor": "5a788720-b86a-46a7-85d9-66a151a2a2f3",
+          "pid": 4912,
+          "kind": "blocked",
+          "detail": {
+            "stage": "before_handoff"
+          },
+          "at": "2026-11-10T07:58:54.807Z"
+        },
+        {
+          "seq": 5,
+          "actor": "08bb60c2-336a-4c2b-a8f6-b14a6e26b7e0",
+          "pid": 27100,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30944,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:57.467Z"
+        },
+        {
+          "seq": 6,
+          "actor": "08bb60c2-336a-4c2b-a8f6-b14a6e26b7e0",
+          "pid": 27100,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:58:57.537Z"
+        },
+        {
+          "seq": 7,
+          "actor": "08bb60c2-336a-4c2b-a8f6-b14a6e26b7e0",
+          "pid": 27100,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:58:57.547Z"
+        },
+        {
+          "seq": 8,
+          "actor": "4cd79509-f392-403a-8498-f50628e3ed77",
+          "pid": 29960,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30952,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:58:59.713Z"
+        },
+        {
+          "seq": 9,
+          "actor": "4cd79509-f392-403a-8498-f50628e3ed77",
+          "pid": 29960,
+          "kind": "submit",
+          "detail": {
+            "innerHash": "09604bf5b742dbd69fc9bbb56a4753ffe402aa13fd6f1a5ed17e1f72fe0d559b",
+            "requestId": "synthetic-process-reservation-4da9ce9e-e7f1-4a79-8dd3-912f1d0b7456",
+            "maxRetries": 0,
+            "fingerprint": "ad33ed06dc72389f30c58f101babf2839b356cc034777f29422c1aa3d97bac6c"
+          },
+          "at": "2026-11-10T07:58:59.795Z"
+        },
+        {
+          "seq": 10,
+          "actor": "4cd79509-f392-403a-8498-f50628e3ed77",
+          "pid": 29960,
+          "kind": "observe",
+          "detail": {
+            "innerHash": "09604bf5b742dbd69fc9bbb56a4753ffe402aa13fd6f1a5ed17e1f72fe0d559b",
+            "requestId": "synthetic-process-reservation-4da9ce9e-e7f1-4a79-8dd3-912f1d0b7456"
+          },
+          "at": "2026-11-10T07:58:59.845Z"
+        },
+        {
+          "seq": 11,
+          "actor": "4cd79509-f392-403a-8498-f50628e3ed77",
+          "pid": 29960,
+          "kind": "verify",
+          "detail": {
+            "innerHash": "09604bf5b742dbd69fc9bbb56a4753ffe402aa13fd6f1a5ed17e1f72fe0d559b",
+            "requestId": "synthetic-process-reservation-4da9ce9e-e7f1-4a79-8dd3-912f1d0b7456"
+          },
+          "at": "2026-11-10T07:58:59.875Z"
+        },
+        {
+          "seq": 12,
+          "actor": "4cd79509-f392-403a-8498-f50628e3ed77",
+          "pid": 29960,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:59:00.021Z"
+        },
+        {
+          "seq": 13,
+          "actor": "4cd79509-f392-403a-8498-f50628e3ed77",
+          "pid": 29960,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:59:00.032Z"
+        },
+        {
+          "seq": 14,
+          "actor": "e3358f36-78f3-45e8-a1ed-87245a6d8bd7",
+          "pid": 21916,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30967,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:02.219Z"
+        },
+        {
+          "seq": 15,
+          "actor": "e3358f36-78f3-45e8-a1ed-87245a6d8bd7",
+          "pid": 21916,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:59:02.248Z"
+        },
+        {
+          "seq": 16,
+          "actor": "e3358f36-78f3-45e8-a1ed-87245a6d8bd7",
+          "pid": 21916,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:59:02.254Z"
+        }
+      ]
+    },
+    {
+      "stage": "after_handoff_before_send",
+      "expireBeforeRecovery": false,
+      "invocation": "41fe7374-e9c5-43c3-9051-5ef87df6bcbb",
+      "schema": "test_ffc673b256514235b1b93bafd4cbdebc",
+      "attemptId": "ed13d7b5-83c9-443e-adb8-c79c4f4a1e5f",
+      "operationId": "e7db96ca-4ad6-47d6-99a7-2defd09fea7e",
+      "nonce": "1",
+      "termsHash": "fd8f6f5fce29cd70eb6130c85abd1db8dae0f13818db86ad259e6900daadb6da",
+      "syntheticRequestId": "synthetic-process-reservation-058620d9-0ec8-4d19-aeec-e1df4c07dd7d",
+      "syntheticInnerHash": "38a6abde898787bc441a2acf4ac3dca10968f500def9fafd4d9be4f3441a34c3",
+      "syntheticOuterHash": null,
+      "envelopeFingerprint": "8d7c3635925a2f151512f5e95dda8d69c862307f106556c3543884035c6531e7",
+      "handoffCommittedAt": "2026-11-10T07:59:05.531Z",
+      "childExits": [
+        {
+          "actor": "df3916e0-f4d7-43dd-8c5d-316403b3aa2f",
+          "pid": 23164,
+          "backendPid": 30979,
+          "code": null,
+          "signal": "SIGKILL"
+        },
+        {
+          "actor": "ec2bff0b-e63c-46c8-82e8-9278023abae6",
+          "pid": 20420,
+          "role": "lease-denied",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "91bbc4cb-5bad-40b0-91e0-57717f473000",
+          "pid": 26224,
+          "backendPid": 30996,
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "8aba686e-4084-4cca-9399-8cf7bbfcc647",
+          "pid": 19368,
+          "backendPid": 31011,
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "50539a72-a1ab-444d-a7f7-0eef69d28727",
+          "pid": 6160,
+          "backendPid": 31026,
+          "code": 0,
+          "signal": null
+        }
+      ],
+      "counts": {
+        "sign": 1,
+        "sponsor": 1,
+        "submit": 0,
+        "observe": 3,
+        "verify": 0
+      },
+      "finallyForKilledProcess": 0,
+      "durableLeaseSurvivedDeath": true,
+      "leaseDeniedProcessDidNoProviderWork": true,
+      "leaseAcceleration": "isolated exact-owner CAS after verified SIGKILL exit",
+      "quoteTtlMs": 120000,
+      "status": "unknown",
+      "evidenceRows": 0,
+      "grants": 0,
+      "reservedStroops": "300000",
+      "spentStroops": "0",
+      "ciphertextWiped": true,
+      "identityTermsAndNoncePreserved": true,
+      "elapsedMs": 14900,
+      "events": [
+        {
+          "seq": 1,
+          "actor": "df3916e0-f4d7-43dd-8c5d-316403b3aa2f",
+          "pid": 23164,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30979,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:05.238Z"
+        },
+        {
+          "seq": 2,
+          "actor": "df3916e0-f4d7-43dd-8c5d-316403b3aa2f",
+          "pid": 23164,
+          "kind": "sign",
+          "detail": {
+            "operationId": "e7db96ca-4ad6-47d6-99a7-2defd09fea7e"
+          },
+          "at": "2026-11-10T07:59:05.337Z"
+        },
+        {
+          "seq": 3,
+          "actor": "df3916e0-f4d7-43dd-8c5d-316403b3aa2f",
+          "pid": 23164,
+          "kind": "sponsor",
+          "detail": {
+            "fingerprint": "8d7c3635925a2f151512f5e95dda8d69c862307f106556c3543884035c6531e7",
+            "idempotencyKey": "aegispay:e7db96ca-4ad6-47d6-99a7-2defd09fea7e"
+          },
+          "at": "2026-11-10T07:59:05.430Z"
+        },
+        {
+          "seq": 4,
+          "actor": "df3916e0-f4d7-43dd-8c5d-316403b3aa2f",
+          "pid": 23164,
+          "kind": "blocked",
+          "detail": {
+            "stage": "after_handoff_before_send"
+          },
+          "at": "2026-11-10T07:59:05.545Z"
+        },
+        {
+          "seq": 5,
+          "actor": "ec2bff0b-e63c-46c8-82e8-9278023abae6",
+          "pid": 20420,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30988,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:08.150Z"
+        },
+        {
+          "seq": 6,
+          "actor": "ec2bff0b-e63c-46c8-82e8-9278023abae6",
+          "pid": 20420,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:59:08.182Z"
+        },
+        {
+          "seq": 7,
+          "actor": "ec2bff0b-e63c-46c8-82e8-9278023abae6",
+          "pid": 20420,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:59:08.189Z"
+        },
+        {
+          "seq": 8,
+          "actor": "91bbc4cb-5bad-40b0-91e0-57717f473000",
+          "pid": 26224,
+          "kind": "start",
+          "detail": {
+            "backendPid": 30996,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:10.118Z"
+        },
+        {
+          "seq": 9,
+          "actor": "91bbc4cb-5bad-40b0-91e0-57717f473000",
+          "pid": 26224,
+          "kind": "observe",
+          "detail": {
+            "innerHash": "38a6abde898787bc441a2acf4ac3dca10968f500def9fafd4d9be4f3441a34c3",
+            "requestId": "synthetic-process-reservation-058620d9-0ec8-4d19-aeec-e1df4c07dd7d"
+          },
+          "at": "2026-11-10T07:59:10.163Z"
+        },
+        {
+          "seq": 10,
+          "actor": "91bbc4cb-5bad-40b0-91e0-57717f473000",
+          "pid": 26224,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:59:10.222Z"
+        },
+        {
+          "seq": 11,
+          "actor": "91bbc4cb-5bad-40b0-91e0-57717f473000",
+          "pid": 26224,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:59:10.227Z"
+        },
+        {
+          "seq": 12,
+          "actor": "8aba686e-4084-4cca-9399-8cf7bbfcc647",
+          "pid": 19368,
+          "kind": "start",
+          "detail": {
+            "backendPid": 31011,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:13.588Z"
+        },
+        {
+          "seq": 13,
+          "actor": "8aba686e-4084-4cca-9399-8cf7bbfcc647",
+          "pid": 19368,
+          "kind": "observe",
+          "detail": {
+            "innerHash": "38a6abde898787bc441a2acf4ac3dca10968f500def9fafd4d9be4f3441a34c3",
+            "requestId": "synthetic-process-reservation-058620d9-0ec8-4d19-aeec-e1df4c07dd7d"
+          },
+          "at": "2026-11-10T07:59:13.647Z"
+        },
+        {
+          "seq": 14,
+          "actor": "8aba686e-4084-4cca-9399-8cf7bbfcc647",
+          "pid": 19368,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:59:13.717Z"
+        },
+        {
+          "seq": 15,
+          "actor": "8aba686e-4084-4cca-9399-8cf7bbfcc647",
+          "pid": 19368,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:59:13.723Z"
+        },
+        {
+          "seq": 16,
+          "actor": "50539a72-a1ab-444d-a7f7-0eef69d28727",
+          "pid": 6160,
+          "kind": "start",
+          "detail": {
+            "backendPid": 31026,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:17.166Z"
+        },
+        {
+          "seq": 17,
+          "actor": "50539a72-a1ab-444d-a7f7-0eef69d28727",
+          "pid": 6160,
+          "kind": "observe",
+          "detail": {
+            "innerHash": "38a6abde898787bc441a2acf4ac3dca10968f500def9fafd4d9be4f3441a34c3",
+            "requestId": "synthetic-process-reservation-058620d9-0ec8-4d19-aeec-e1df4c07dd7d"
+          },
+          "at": "2026-11-10T07:59:17.230Z"
+        },
+        {
+          "seq": 18,
+          "actor": "50539a72-a1ab-444d-a7f7-0eef69d28727",
+          "pid": 6160,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:59:17.297Z"
+        },
+        {
+          "seq": 19,
+          "actor": "50539a72-a1ab-444d-a7f7-0eef69d28727",
+          "pid": 6160,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:59:17.303Z"
+        }
+      ]
+    },
+    {
+      "stage": "after_submit",
+      "expireBeforeRecovery": false,
+      "invocation": "e78b45a6-a23b-41dc-9d74-ca6df1d9aa09",
+      "schema": "test_6c0bb8c747b34baba5c38694354e9903",
+      "attemptId": "b69c5505-c94a-4d82-a305-94ffa408c5b2",
+      "operationId": "26b3df88-a342-4149-8325-289b2d34ed73",
+      "nonce": "1",
+      "termsHash": "1462c71446947a7682a4ceb3963e6da9071ebb3d74078a7f8444350ff4861556",
+      "syntheticRequestId": "synthetic-process-reservation-9f438c99-4bf3-4645-943b-bf2ad842f933",
+      "syntheticInnerHash": "bc54aaaeb1a841a030b197fbadd2ef123f5b543bf4c6d205a995c756fc57d902",
+      "syntheticOuterHash": "9b76b0242e9346ec0b6ea4fd16fbcee9de9691aeee5e700ae4d42ae59598b5aa",
+      "envelopeFingerprint": "cda61c8a42175a3ce14b3d3b9440db16da5f7e5fd7b9e6f6eee1739be2a70abd",
+      "handoffCommittedAt": "2026-11-10T07:59:20.892Z",
+      "childExits": [
+        {
+          "actor": "f5b97efb-0cf1-40fc-b1fb-aa39a837ec57",
+          "pid": 12756,
+          "backendPid": 31038,
+          "code": null,
+          "signal": "SIGKILL"
+        },
+        {
+          "actor": "da70d14f-adda-43ad-bded-08be43ec7972",
+          "pid": 23424,
+          "role": "lease-denied",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "6534b6fc-3d5e-4804-b559-148593306012",
+          "pid": 29168,
+          "backendPid": 31061,
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "48cdcc06-c2e7-4062-bc71-e2cc88cb1b9b",
+          "pid": 16652,
+          "backendPid": 31069,
+          "code": 0,
+          "signal": null
+        }
+      ],
+      "counts": {
+        "sign": 1,
+        "sponsor": 1,
+        "submit": 1,
+        "observe": 1,
+        "verify": 1
+      },
+      "finallyForKilledProcess": 0,
+      "durableLeaseSurvivedDeath": true,
+      "leaseDeniedProcessDidNoProviderWork": true,
+      "leaseAcceleration": "isolated exact-owner CAS after verified SIGKILL exit",
+      "quoteTtlMs": 120000,
+      "status": "authorized",
+      "evidenceRows": 1,
+      "grants": 1,
+      "reservedStroops": "0",
+      "spentStroops": "300000",
+      "ciphertextWiped": true,
+      "identityTermsAndNoncePreserved": true,
+      "elapsedMs": 10434,
+      "events": [
+        {
+          "seq": 1,
+          "actor": "f5b97efb-0cf1-40fc-b1fb-aa39a837ec57",
+          "pid": 12756,
+          "kind": "start",
+          "detail": {
+            "backendPid": 31038,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:20.575Z"
+        },
+        {
+          "seq": 2,
+          "actor": "f5b97efb-0cf1-40fc-b1fb-aa39a837ec57",
+          "pid": 12756,
+          "kind": "sign",
+          "detail": {
+            "operationId": "26b3df88-a342-4149-8325-289b2d34ed73"
+          },
+          "at": "2026-11-10T07:59:20.694Z"
+        },
+        {
+          "seq": 3,
+          "actor": "f5b97efb-0cf1-40fc-b1fb-aa39a837ec57",
+          "pid": 12756,
+          "kind": "sponsor",
+          "detail": {
+            "fingerprint": "cda61c8a42175a3ce14b3d3b9440db16da5f7e5fd7b9e6f6eee1739be2a70abd",
+            "idempotencyKey": "aegispay:26b3df88-a342-4149-8325-289b2d34ed73"
+          },
+          "at": "2026-11-10T07:59:20.787Z"
+        },
+        {
+          "seq": 4,
+          "actor": "f5b97efb-0cf1-40fc-b1fb-aa39a837ec57",
+          "pid": 12756,
+          "kind": "submit",
+          "detail": {
+            "innerHash": "bc54aaaeb1a841a030b197fbadd2ef123f5b543bf4c6d205a995c756fc57d902",
+            "requestId": "synthetic-process-reservation-9f438c99-4bf3-4645-943b-bf2ad842f933",
+            "maxRetries": 0,
+            "fingerprint": "cda61c8a42175a3ce14b3d3b9440db16da5f7e5fd7b9e6f6eee1739be2a70abd"
+          },
+          "at": "2026-11-10T07:59:20.914Z"
+        },
+        {
+          "seq": 5,
+          "actor": "f5b97efb-0cf1-40fc-b1fb-aa39a837ec57",
+          "pid": 12756,
+          "kind": "blocked",
+          "detail": {
+            "stage": "after_submit"
+          },
+          "at": "2026-11-10T07:59:20.939Z"
+        },
+        {
+          "seq": 6,
+          "actor": "da70d14f-adda-43ad-bded-08be43ec7972",
+          "pid": 23424,
+          "kind": "start",
+          "detail": {
+            "backendPid": 31053,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:23.815Z"
+        },
+        {
+          "seq": 7,
+          "actor": "da70d14f-adda-43ad-bded-08be43ec7972",
+          "pid": 23424,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:59:23.849Z"
+        },
+        {
+          "seq": 8,
+          "actor": "da70d14f-adda-43ad-bded-08be43ec7972",
+          "pid": 23424,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:59:23.856Z"
+        },
+        {
+          "seq": 9,
+          "actor": "6534b6fc-3d5e-4804-b559-148593306012",
+          "pid": 29168,
+          "kind": "start",
+          "detail": {
+            "backendPid": 31061,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:25.874Z"
+        },
+        {
+          "seq": 10,
+          "actor": "6534b6fc-3d5e-4804-b559-148593306012",
+          "pid": 29168,
+          "kind": "observe",
+          "detail": {
+            "innerHash": "bc54aaaeb1a841a030b197fbadd2ef123f5b543bf4c6d205a995c756fc57d902",
+            "requestId": "synthetic-process-reservation-9f438c99-4bf3-4645-943b-bf2ad842f933"
+          },
+          "at": "2026-11-10T07:59:25.915Z"
+        },
+        {
+          "seq": 11,
+          "actor": "6534b6fc-3d5e-4804-b559-148593306012",
+          "pid": 29168,
+          "kind": "verify",
+          "detail": {
+            "innerHash": "bc54aaaeb1a841a030b197fbadd2ef123f5b543bf4c6d205a995c756fc57d902",
+            "requestId": "synthetic-process-reservation-9f438c99-4bf3-4645-943b-bf2ad842f933"
+          },
+          "at": "2026-11-10T07:59:25.964Z"
+        },
+        {
+          "seq": 12,
+          "actor": "6534b6fc-3d5e-4804-b559-148593306012",
+          "pid": 29168,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:59:26.056Z"
+        },
+        {
+          "seq": 13,
+          "actor": "6534b6fc-3d5e-4804-b559-148593306012",
+          "pid": 29168,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:59:26.061Z"
+        },
+        {
+          "seq": 14,
+          "actor": "48cdcc06-c2e7-4062-bc71-e2cc88cb1b9b",
+          "pid": 16652,
+          "kind": "start",
+          "detail": {
+            "backendPid": 31069,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:27.940Z"
+        },
+        {
+          "seq": 15,
+          "actor": "48cdcc06-c2e7-4062-bc71-e2cc88cb1b9b",
+          "pid": 16652,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:59:27.962Z"
+        },
+        {
+          "seq": 16,
+          "actor": "48cdcc06-c2e7-4062-bc71-e2cc88cb1b9b",
+          "pid": 16652,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:59:27.968Z"
+        }
+      ]
+    },
+    {
+      "stage": "before_grant",
+      "expireBeforeRecovery": false,
+      "invocation": "a28282b9-21f5-451a-bcb0-edafef0f5af5",
+      "schema": "test_5304686274544eb5b21f3ae08d2163f8",
+      "attemptId": "99c2635b-c145-4261-98bb-09f7d5f2c441",
+      "operationId": "2e046cd5-2642-4a41-b455-76f3fefc9e85",
+      "nonce": "1",
+      "termsHash": "d71ce242d678cbf7cc0ebe01e34c12712e4c4db85c96d2c37801e9db9fb4a244",
+      "syntheticRequestId": "synthetic-process-reservation-52ceae02-93a7-41a4-b954-d0c11b1e6ad6",
+      "syntheticInnerHash": "129cb25c19c8ba8138454815c9399ec7a7309fbcc68b372d3e72b125a172cdcc",
+      "syntheticOuterHash": "18f766c1bb5a0c00de5fba6c38b6edcb0cd01e0f9fb7e0e603c5bd162eead5a8",
+      "envelopeFingerprint": "25be162826ec379db659e8898e0ddcab2d7ef7963878699dde17abf60880fc3c",
+      "handoffCommittedAt": "2026-11-10T07:59:30.437Z",
+      "childExits": [
+        {
+          "actor": "919c2fde-7749-4d72-be62-df8ed8cb85b1",
+          "pid": 25428,
+          "backendPid": 31081,
+          "code": null,
+          "signal": "SIGKILL"
+        },
+        {
+          "actor": "0f7d022b-02e7-46db-87b6-4a85f19d5a69",
+          "pid": 10308,
+          "role": "lease-denied",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "fda313e3-4098-4d98-bafe-682b6d26fab7",
+          "pid": 24068,
+          "backendPid": 31097,
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "622b1cdc-7062-4176-ad60-e530c1270cb5",
+          "pid": 9204,
+          "backendPid": 31106,
+          "code": 0,
+          "signal": null
+        }
+      ],
+      "counts": {
+        "sign": 1,
+        "sponsor": 1,
+        "submit": 1,
+        "observe": 2,
+        "verify": 2
+      },
+      "finallyForKilledProcess": 0,
+      "durableLeaseSurvivedDeath": true,
+      "leaseDeniedProcessDidNoProviderWork": true,
+      "leaseAcceleration": "isolated exact-owner CAS after verified SIGKILL exit",
+      "quoteTtlMs": 120000,
+      "status": "authorized",
+      "evidenceRows": 1,
+      "grants": 1,
+      "reservedStroops": "0",
+      "spentStroops": "300000",
+      "ciphertextWiped": true,
+      "identityTermsAndNoncePreserved": true,
+      "elapsedMs": 8026,
+      "events": [
+        {
+          "seq": 1,
+          "actor": "919c2fde-7749-4d72-be62-df8ed8cb85b1",
+          "pid": 25428,
+          "kind": "start",
+          "detail": {
+            "backendPid": 31081,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:30.228Z"
+        },
+        {
+          "seq": 2,
+          "actor": "919c2fde-7749-4d72-be62-df8ed8cb85b1",
+          "pid": 25428,
+          "kind": "sign",
+          "detail": {
+            "operationId": "2e046cd5-2642-4a41-b455-76f3fefc9e85"
+          },
+          "at": "2026-11-10T07:59:30.300Z"
+        },
+        {
+          "seq": 3,
+          "actor": "919c2fde-7749-4d72-be62-df8ed8cb85b1",
+          "pid": 25428,
+          "kind": "sponsor",
+          "detail": {
+            "fingerprint": "25be162826ec379db659e8898e0ddcab2d7ef7963878699dde17abf60880fc3c",
+            "idempotencyKey": "aegispay:2e046cd5-2642-4a41-b455-76f3fefc9e85"
+          },
+          "at": "2026-11-10T07:59:30.371Z"
+        },
+        {
+          "seq": 4,
+          "actor": "919c2fde-7749-4d72-be62-df8ed8cb85b1",
+          "pid": 25428,
+          "kind": "submit",
+          "detail": {
+            "innerHash": "129cb25c19c8ba8138454815c9399ec7a7309fbcc68b372d3e72b125a172cdcc",
+            "requestId": "synthetic-process-reservation-52ceae02-93a7-41a4-b954-d0c11b1e6ad6",
+            "maxRetries": 0,
+            "fingerprint": "25be162826ec379db659e8898e0ddcab2d7ef7963878699dde17abf60880fc3c"
+          },
+          "at": "2026-11-10T07:59:30.452Z"
+        },
+        {
+          "seq": 5,
+          "actor": "919c2fde-7749-4d72-be62-df8ed8cb85b1",
+          "pid": 25428,
+          "kind": "observe",
+          "detail": {
+            "innerHash": "129cb25c19c8ba8138454815c9399ec7a7309fbcc68b372d3e72b125a172cdcc",
+            "requestId": "synthetic-process-reservation-52ceae02-93a7-41a4-b954-d0c11b1e6ad6"
+          },
+          "at": "2026-11-10T07:59:30.491Z"
+        },
+        {
+          "seq": 6,
+          "actor": "919c2fde-7749-4d72-be62-df8ed8cb85b1",
+          "pid": 25428,
+          "kind": "verify",
+          "detail": {
+            "innerHash": "129cb25c19c8ba8138454815c9399ec7a7309fbcc68b372d3e72b125a172cdcc",
+            "requestId": "synthetic-process-reservation-52ceae02-93a7-41a4-b954-d0c11b1e6ad6"
+          },
+          "at": "2026-11-10T07:59:30.516Z"
+        },
+        {
+          "seq": 7,
+          "actor": "919c2fde-7749-4d72-be62-df8ed8cb85b1",
+          "pid": 25428,
+          "kind": "blocked",
+          "detail": {
+            "stage": "before_grant"
+          },
+          "at": "2026-11-10T07:59:30.523Z"
+        },
+        {
+          "seq": 8,
+          "actor": "0f7d022b-02e7-46db-87b6-4a85f19d5a69",
+          "pid": 10308,
+          "kind": "start",
+          "detail": {
+            "backendPid": 31089,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:32.355Z"
+        },
+        {
+          "seq": 9,
+          "actor": "0f7d022b-02e7-46db-87b6-4a85f19d5a69",
+          "pid": 10308,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:59:32.385Z"
+        },
+        {
+          "seq": 10,
+          "actor": "0f7d022b-02e7-46db-87b6-4a85f19d5a69",
+          "pid": 10308,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:59:32.390Z"
+        },
+        {
+          "seq": 11,
+          "actor": "fda313e3-4098-4d98-bafe-682b6d26fab7",
+          "pid": 24068,
+          "kind": "start",
+          "detail": {
+            "backendPid": 31097,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:34.412Z"
+        },
+        {
+          "seq": 12,
+          "actor": "fda313e3-4098-4d98-bafe-682b6d26fab7",
+          "pid": 24068,
+          "kind": "observe",
+          "detail": {
+            "innerHash": "129cb25c19c8ba8138454815c9399ec7a7309fbcc68b372d3e72b125a172cdcc",
+            "requestId": "synthetic-process-reservation-52ceae02-93a7-41a4-b954-d0c11b1e6ad6"
+          },
+          "at": "2026-11-10T07:59:34.450Z"
+        },
+        {
+          "seq": 13,
+          "actor": "fda313e3-4098-4d98-bafe-682b6d26fab7",
+          "pid": 24068,
+          "kind": "verify",
+          "detail": {
+            "innerHash": "129cb25c19c8ba8138454815c9399ec7a7309fbcc68b372d3e72b125a172cdcc",
+            "requestId": "synthetic-process-reservation-52ceae02-93a7-41a4-b954-d0c11b1e6ad6"
+          },
+          "at": "2026-11-10T07:59:34.496Z"
+        },
+        {
+          "seq": 14,
+          "actor": "fda313e3-4098-4d98-bafe-682b6d26fab7",
+          "pid": 24068,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:59:34.565Z"
+        },
+        {
+          "seq": 15,
+          "actor": "fda313e3-4098-4d98-bafe-682b6d26fab7",
+          "pid": 24068,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:59:34.570Z"
+        },
+        {
+          "seq": 16,
+          "actor": "622b1cdc-7062-4176-ad60-e530c1270cb5",
+          "pid": 9204,
+          "kind": "start",
+          "detail": {
+            "backendPid": 31106,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:36.113Z"
+        },
+        {
+          "seq": 17,
+          "actor": "622b1cdc-7062-4176-ad60-e530c1270cb5",
+          "pid": 9204,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:59:36.143Z"
+        },
+        {
+          "seq": 18,
+          "actor": "622b1cdc-7062-4176-ad60-e530c1270cb5",
+          "pid": 9204,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:59:36.149Z"
+        }
+      ]
+    },
+    {
+      "stage": "after_submit",
+      "expireBeforeRecovery": true,
+      "invocation": "2a6497aa-7568-42a8-9187-7177beb02894",
+      "schema": "test_1579e83b8710436a976cb52bcaff6e07",
+      "attemptId": "3832d535-8010-416b-93ae-2717e7c5e37d",
+      "operationId": "70efdecd-9caa-4b0c-9b26-20bf10ff4d47",
+      "nonce": "1",
+      "termsHash": "18db3f69bd1c44a3efccf374962d61c5f5a747c3c41182a70b1df50f386708dd",
+      "syntheticRequestId": "synthetic-process-reservation-df7444fa-7263-4c07-a673-25469fec3491",
+      "syntheticInnerHash": "e77e8400f6dcd625dc4382d5eb4a905f422c956e8af50a7b854f7547e767ec96",
+      "syntheticOuterHash": "c227e6aaca2f78796d12228859694779e6034f562b53c0e1717c7796814c88d6",
+      "envelopeFingerprint": "55ae71a28d93b63676c8c8c1deccb727be2c6c945cab003be3c30ff9776cc17b",
+      "handoffCommittedAt": "2026-11-10T07:59:39.000Z",
+      "childExits": [
+        {
+          "actor": "cb20b9cd-9263-42b8-8f60-0034a94d2463",
+          "pid": 21336,
+          "backendPid": 31117,
+          "code": null,
+          "signal": "SIGKILL"
+        },
+        {
+          "actor": "7170d250-d4a3-4cfb-8762-c5779d71d00b",
+          "pid": 5696,
+          "role": "lease-denied",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "c764545a-1eaf-465c-9f87-1d433943fd25",
+          "pid": 29464,
+          "backendPid": 31154,
+          "code": 0,
+          "signal": null
+        },
+        {
+          "actor": "a3388c72-cd2d-4336-a5f2-a906b16f002c",
+          "pid": 4416,
+          "backendPid": 31155,
+          "code": 0,
+          "signal": null
+        }
+      ],
+      "counts": {
+        "sign": 1,
+        "sponsor": 1,
+        "submit": 1,
+        "observe": 1,
+        "verify": 1
+      },
+      "finallyForKilledProcess": 0,
+      "durableLeaseSurvivedDeath": true,
+      "leaseDeniedProcessDidNoProviderWork": true,
+      "leaseAcceleration": "isolated exact-owner CAS after verified SIGKILL exit",
+      "quoteTtlMs": 10000,
+      "status": "authorized",
+      "evidenceRows": 1,
+      "grants": 1,
+      "reservedStroops": "0",
+      "spentStroops": "300000",
+      "ciphertextWiped": true,
+      "identityTermsAndNoncePreserved": true,
+      "elapsedMs": 12694,
+      "events": [
+        {
+          "seq": 1,
+          "actor": "cb20b9cd-9263-42b8-8f60-0034a94d2463",
+          "pid": 21336,
+          "kind": "start",
+          "detail": {
+            "backendPid": 31117,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:38.805Z"
+        },
+        {
+          "seq": 2,
+          "actor": "cb20b9cd-9263-42b8-8f60-0034a94d2463",
+          "pid": 21336,
+          "kind": "sign",
+          "detail": {
+            "operationId": "70efdecd-9caa-4b0c-9b26-20bf10ff4d47"
+          },
+          "at": "2026-11-10T07:59:38.875Z"
+        },
+        {
+          "seq": 3,
+          "actor": "cb20b9cd-9263-42b8-8f60-0034a94d2463",
+          "pid": 21336,
+          "kind": "sponsor",
+          "detail": {
+            "fingerprint": "55ae71a28d93b63676c8c8c1deccb727be2c6c945cab003be3c30ff9776cc17b",
+            "idempotencyKey": "aegispay:70efdecd-9caa-4b0c-9b26-20bf10ff4d47"
+          },
+          "at": "2026-11-10T07:59:38.938Z"
+        },
+        {
+          "seq": 4,
+          "actor": "cb20b9cd-9263-42b8-8f60-0034a94d2463",
+          "pid": 21336,
+          "kind": "submit",
+          "detail": {
+            "innerHash": "e77e8400f6dcd625dc4382d5eb4a905f422c956e8af50a7b854f7547e767ec96",
+            "requestId": "synthetic-process-reservation-df7444fa-7263-4c07-a673-25469fec3491",
+            "maxRetries": 0,
+            "fingerprint": "55ae71a28d93b63676c8c8c1deccb727be2c6c945cab003be3c30ff9776cc17b"
+          },
+          "at": "2026-11-10T07:59:39.013Z"
+        },
+        {
+          "seq": 5,
+          "actor": "cb20b9cd-9263-42b8-8f60-0034a94d2463",
+          "pid": 21336,
+          "kind": "blocked",
+          "detail": {
+            "stage": "after_submit"
+          },
+          "at": "2026-11-10T07:59:39.029Z"
+        },
+        {
+          "seq": 6,
+          "actor": "7170d250-d4a3-4cfb-8762-c5779d71d00b",
+          "pid": 5696,
+          "kind": "start",
+          "detail": {
+            "backendPid": 31125,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:40.373Z"
+        },
+        {
+          "seq": 7,
+          "actor": "7170d250-d4a3-4cfb-8762-c5779d71d00b",
+          "pid": 5696,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:59:40.397Z"
+        },
+        {
+          "seq": 8,
+          "actor": "7170d250-d4a3-4cfb-8762-c5779d71d00b",
+          "pid": 5696,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:59:40.402Z"
+        },
+        {
+          "seq": 9,
+          "actor": "c764545a-1eaf-465c-9f87-1d433943fd25",
+          "pid": 29464,
+          "kind": "start",
+          "detail": {
+            "backendPid": 31154,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:47.898Z"
+        },
+        {
+          "seq": 10,
+          "actor": "c764545a-1eaf-465c-9f87-1d433943fd25",
+          "pid": 29464,
+          "kind": "observe",
+          "detail": {
+            "innerHash": "e77e8400f6dcd625dc4382d5eb4a905f422c956e8af50a7b854f7547e767ec96",
+            "requestId": "synthetic-process-reservation-df7444fa-7263-4c07-a673-25469fec3491"
+          },
+          "at": "2026-11-10T07:59:47.930Z"
+        },
+        {
+          "seq": 11,
+          "actor": "c764545a-1eaf-465c-9f87-1d433943fd25",
+          "pid": 29464,
+          "kind": "verify",
+          "detail": {
+            "innerHash": "e77e8400f6dcd625dc4382d5eb4a905f422c956e8af50a7b854f7547e767ec96",
+            "requestId": "synthetic-process-reservation-df7444fa-7263-4c07-a673-25469fec3491"
+          },
+          "at": "2026-11-10T07:59:47.962Z"
+        },
+        {
+          "seq": 12,
+          "actor": "c764545a-1eaf-465c-9f87-1d433943fd25",
+          "pid": 29464,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:59:48.021Z"
+        },
+        {
+          "seq": 13,
+          "actor": "c764545a-1eaf-465c-9f87-1d433943fd25",
+          "pid": 29464,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:59:48.025Z"
+        },
+        {
+          "seq": 14,
+          "actor": "a3388c72-cd2d-4336-a5f2-a906b16f002c",
+          "pid": 4416,
+          "kind": "start",
+          "detail": {
+            "backendPid": 31155,
+            "environmentNames": [
+              "SystemRoot",
+              "TEMP",
+              "TEST_DATABASE_URL",
+              "TEST_SCHEMA",
+              "TMP",
+              "WINDIR"
+            ]
+          },
+          "at": "2026-11-10T07:59:49.053Z"
+        },
+        {
+          "seq": 15,
+          "actor": "a3388c72-cd2d-4336-a5f2-a906b16f002c",
+          "pid": 4416,
+          "kind": "finally",
+          "detail": {},
+          "at": "2026-11-10T07:59:49.070Z"
+        },
+        {
+          "seq": 16,
+          "actor": "a3388c72-cd2d-4336-a5f2-a906b16f002c",
+          "pid": 4416,
+          "kind": "done",
+          "detail": {},
+          "at": "2026-11-10T07:59:49.074Z"
+        }
+      ]
+    }
+  ]
+}

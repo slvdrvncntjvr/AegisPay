@@ -57,3 +57,7 @@ Target keyboard use, visible focus, labeled inputs, semantic tables, status text
 **Merchant:** two public metadata rows with price edit; 402 challenge preview shows terms only; pending amount and wallet-signed claim. Private reports remain behind the normal entitlement path.
 
 **Audit:** filter by run/attempt; quote ID, operation ID, Velo reservation, inner hash, outer hash, event/ledger, authorization state and separate claim list. Copy only safe IDs/hashes. Unknown fee shows “Unknown.” Recordings are visibly marked “Recorded Testnet run” with timestamp and evidence reference.
+
+## Nov10 independent product implementation
+
+Keep the accepted public recorded-proof experience at `/` intact. Build the authenticated product console at `/app`, reached after successful private login; its Policy, Run, Merchant and Audit sections use actual API data and role permissions. The routing split preserves submitted proof links while implementation and final live gates continue. Pending runs must not appear as executed model choices, and unknown payments expose observation without retry-payment actions. Browser-controlled fixtures are test evidence only; the release still requires actual wallet/model/purchase/recovery observations.

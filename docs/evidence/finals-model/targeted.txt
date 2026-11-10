@@ -1,0 +1,9 @@
+
+ RUN  v5.1.0 C:/Users/Vincent/VS Codes/Noir X Velo
+
+
+ Test Files  3 passed (3)
+      Tests  39 passed (39)
+   Start at  16:08:20
+   Duration  19.84s (tests 86%, import 13%, transform 1%)
+

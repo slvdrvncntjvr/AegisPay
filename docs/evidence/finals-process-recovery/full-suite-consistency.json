@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-11-10T08:14:41.865796+00:00",
+  "head": "6765edbe76405a5398d25c7098ebabb678e87b37",
+  "fullSuiteHashCount": 67,
+  "fullSuiteChanged": [],
+  "targetedHashCount": 23,
+  "targetedChanged": [],
+  "fullIntegration": {
+    "exit": 0,
+    "filesPassed": 9,
+    "testsPassed": 119,
+    "durationSeconds": 166.56
+  }
+}

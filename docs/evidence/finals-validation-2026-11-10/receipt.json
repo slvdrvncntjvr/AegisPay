@@ -1,0 +1,177 @@
+{
+  "observedAt": "2026-11-10T10:24:09.305405+00:00",
+  "baselineCommit": "6765edbe76405a5398d25c7098ebabb678e87b37",
+  "executor": "coordinator after quota-exhausted Orca worker assignments fenced/released",
+  "gates": {
+    "integration": {
+      "exit": 0,
+      "passed": 120,
+      "files": 9,
+      "seconds": 185.36,
+      "transport": "synthetic",
+      "database": "actual PostgreSQL17.11 isolated invocation schemas"
+    },
+    "unit": {
+      "exit": 0,
+      "passed": 88
+    },
+    "offlineSpike": {
+      "exit": 0,
+      "passed": 50,
+      "skipped": 0
+    },
+    "typecheck": {
+      "exit": 0,
+      "scope": "root and web"
+    },
+    "lint": {
+      "exit": 0
+    },
+    "build": {
+      "exit": 0,
+      "framework": "Next16.4.5",
+      "newRoute": "/app"
+    },
+    "browser": {
+      "exit": 0,
+      "passed": 15,
+      "seconds": 43.9,
+      "base": "http://127.0.0.1:3029",
+      "transport": "controlled synthetic API fixtures, protected requests intercepted"
+    }
+  },
+  "initialIntegrationAttempt": {
+    "exit": 1,
+    "cause": "Docker daemon stopped, retained local PostgreSQL connection refused",
+    "repair": "start existing Docker Desktop hidden; retained container healthy, no reset/recreate"
+  },
+  "files": [
+    {
+      "path": "apps/server/src/index.ts",
+      "sha256": "4dac65f21ab75964fc86d35dbe4343d376f60c6c823c44b93dfe59f9e1814307"
+    },
+    {
+      "path": "apps/server/src/worker/payment.ts",
+      "sha256": "8f948da34ee8c574db3e7ff8e25645992af19da79caba3de09361ae1d17490cc"
+    },
+    {
+      "path": "apps/server/src/worker/run.ts",
+      "sha256": "e0395de84109202e397bae1209c5422b4cca4608da761ea5734f050466869f14"
+    },
+    {
+      "path": "apps/web/src/app/app/page.tsx",
+      "sha256": "b8dd1605ecd0b81af7d8adfa9d4e821303e0329562407a79b3ad23b0b3309cc5"
+    },
+    {
+      "path": "apps/web/src/app/login/page.tsx",
+      "sha256": "01da5d5b201250512f5d65654e442ae8fdf457993c14dc087e9a9ba65e91619c"
+    },
+    {
+      "path": "apps/web/src/app/product.css",
+      "sha256": "26354acb4b916ab70439e6dddfe5e08d67f5f1d1c1d9d2c325a0d8e3d50d1dcf"
+    },
+    {
+      "path": "apps/web/src/components/product/api.ts",
+      "sha256": "236caa94bae3c553d5c41f3d19ba42b19defdb359ff6ed528e0ffedee381ef50"
+    },
+    {
+      "path": "apps/web/src/components/product/audit-panel.tsx",
+      "sha256": "efa0a1ca5f7ae1dfc331522592932330c9459b5fdaaa5e8be649e6a165f208bf"
+    },
+    {
+      "path": "apps/web/src/components/product/console.tsx",
+      "sha256": "31b1ec4343a2be9419f2d1c934b1ac8252780e9d0c9f320463fa43c3053e3a52"
+    },
+    {
+      "path": "apps/web/src/components/product/merchant-panel.tsx",
+      "sha256": "377e92426a92e67ae2b0b41f0a162c04af183163f2aa032c7a38c9d495812537"
+    },
+    {
+      "path": "apps/web/src/components/product/primitives.tsx",
+      "sha256": "98c773456cf1ad7023bafcff27c4e142385b595fc0a771ed98d1e56cb348795e"
+    },
+    {
+      "path": "apps/web/src/components/product/run-panel.tsx",
+      "sha256": "9fab28b6f600785afb672459bed551755421d269d445e596b990dc5551e31615"
+    },
+    {
+      "path": "apps/web/src/components/product/wallet-panel.tsx",
+      "sha256": "70d26a0ef9de3d997258e4a35a0dca14e3720bba0783adb5a53c95e81d90a05b"
+    },
+    {
+      "path": "package.json",
+      "sha256": "ffa6b3f0c23d6e3828b0f24a110f3d54c565c37e6b03d68c02facb23e7d23ae3"
+    },
+    {
+      "path": "packages/agent/src/index.ts",
+      "sha256": "78bc6c49dadab28d89e8c82d0dbde3e4fccf29d23ac7c25c15f9f9ba87712fcb"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "04332d2581c767a5466babf32fa166517ae63ac18d6f81e81c1d8f640f0dbc82"
+    },
+    {
+      "path": "scripts/demo-smoke.ts",
+      "sha256": "2dd07cac625b09da0ac3bb491fae95ddb4e5ca4e722a25fbfd1aa66b27ab52a9"
+    },
+    {
+      "path": "src/server/agent/events.ts",
+      "sha256": "49cd7bff6fe8bb60bac16188aac57a754ceae26166eb24f7cb49b9f2ed832a73"
+    },
+    {
+      "path": "src/server/agent/state.ts",
+      "sha256": "065ed2555626ba8140b6945165941b1a2d355eef8eb86e6a6e6ccb39d30e55cf"
+    },
+    {
+      "path": "src/server/agent/tools.ts",
+      "sha256": "8f02d8a4794980c46f687e33dd579bea317a27006b19f89a6ebaf7c8ea1a97e9"
+    },
+    {
+      "path": "src/server/http/application.ts",
+      "sha256": "fc545ce65dde60fed8569e8ae100437625e3fd8f6dfba8696152da273bd4a812"
+    },
+    {
+      "path": "src/server/integrations/model.ts",
+      "sha256": "4c25abb38d0eb6bdf6e2ac237ffa5a72202ab4b2d657fefe0fff202eecd238cc"
+    },
+    {
+      "path": "tests/e2e/authenticated-console.spec.ts",
+      "sha256": "1fd53a56aed5908e788fd78327329539ba1737d7dd49f2d07950f397bcbd603b"
+    },
+    {
+      "path": "tests/e2e/public-proof.spec.ts",
+      "sha256": "d8f79e5ba174201b935a32e6eaef2789b86c879b62e230e4b6ac291cf1c3363b"
+    },
+    {
+      "path": "tests/integration/model-run.test.ts",
+      "sha256": "fbf053ce1b3087830caf515eae4d6458f659a3d3ce1388eb4b812a5248e0e97a"
+    },
+    {
+      "path": "tests/integration/process-death.test.ts",
+      "sha256": "3fb130c2233604473ed5d527bc7813d35011f812ffd9724e23bf5547c17ec5f4"
+    },
+    {
+      "path": "tests/integration/run-events.test.ts",
+      "sha256": "d8cfabc68b1ae5016cdfbdb2c7f9efd1f7c0592b5524e6d2999c943259f643b3"
+    },
+    {
+      "path": "tests/integration/support/payment-process-child.ts",
+      "sha256": "90a03d656b3a48f05e2e2b6470e4f1b7aedb5871dbd3284c5ec52a390723a71b"
+    },
+    {
+      "path": "tests/integration/support/process-death.ts",
+      "sha256": "39a344b7ce676464ab7c7dc0b2721ada37fcbf8fb859ef6ad90fc2e49a619d77"
+    },
+    {
+      "path": "tests/unit/model-run.test.ts",
+      "sha256": "5bee5770301feee5b51ab64b5b200c03909d748b761cff92abb1ed787ae44e16"
+    }
+  ],
+  "limits": [
+    "No actual payment/chain verification, live wallet consent, cloud provisioning or hosted release was performed",
+    "No live app DB was queried or mutated; integration schema changes are isolated",
+    "Original payment identity/hold/unentitled state preserved",
+    "Model-only probe result is a separate artifact, not implied by this receipt"
+  ],
+  "sourceChangesDuringValidation": false
+}

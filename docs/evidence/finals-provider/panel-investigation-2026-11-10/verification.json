@@ -1,0 +1,171 @@
+{
+  "observed_at_utc": "2026-11-10T07:34:48.436579+00:00",
+  "classification": "document-and-artifact-hygiene-only",
+  "screenshot_hashes_and_original_copy_equality": 4,
+  "source_hashes_checked": 12,
+  "prior_source_index_matches": [
+    {
+      "path": "apps/web/features/projects/gas-activity.tsx",
+      "matches_prior_index": true
+    },
+    {
+      "path": "apps/web/features/projects/project-gas.tsx",
+      "matches_prior_index": true
+    },
+    {
+      "path": "packages/backend/convex/gas/queries.ts",
+      "matches_prior_index": true
+    },
+    {
+      "path": "packages/backend/convex/gas/submit.ts",
+      "matches_prior_index": true
+    },
+    {
+      "path": "apps/web/core/api/gas-route-handlers.ts",
+      "matches_prior_index": true
+    },
+    {
+      "path": "packages/backend/convex/gas/execution.ts",
+      "matches_prior_index": true
+    },
+    {
+      "path": "packages/backend/convex/gas/authorization.ts",
+      "matches_prior_index": true
+    }
+  ],
+  "local_markdown_links": [
+    {
+      "from": "diagnosis.md",
+      "target": "../diagnosis.md",
+      "exists": true
+    },
+    {
+      "from": "diagnosis.md",
+      "target": "../primary-source-index.json",
+      "exists": true
+    },
+    {
+      "from": "diagnosis.md",
+      "target": "../operator-request.md",
+      "exists": true
+    },
+    {
+      "from": "diagnosis.md",
+      "target": "screenshots/",
+      "exists": true
+    },
+    {
+      "from": "diagnosis.md",
+      "target": "provenance.json",
+      "exists": true
+    },
+    {
+      "from": "diagnosis.md",
+      "target": "screenshots/dashboard.png",
+      "exists": true
+    },
+    {
+      "from": "diagnosis.md",
+      "target": "screenshots/activity.png",
+      "exists": true
+    },
+    {
+      "from": "diagnosis.md",
+      "target": "screenshots/detail-unavailable.png",
+      "exists": true
+    },
+    {
+      "from": "diagnosis.md",
+      "target": "screenshots/flash-detail.png",
+      "exists": true
+    },
+    {
+      "from": "diagnosis.md",
+      "target": "../../finals-payment/actual-testnet-unresolved-checkpoint.json",
+      "exists": true
+    },
+    {
+      "from": "diagnosis.md",
+      "target": "../../finals-payment/actual-single-status-detail-1794290430016.json",
+      "exists": true
+    },
+    {
+      "from": "diagnosis.md",
+      "target": "support-message.md",
+      "exists": true
+    },
+    {
+      "from": "diagnosis.md",
+      "target": "verification.json",
+      "exists": true
+    },
+    {
+      "from": "diagnosis.md",
+      "target": "verification-initial.json",
+      "exists": true
+    }
+  ],
+  "private_value_marker_scan": {
+    "text_files_checked": 18,
+    "actual_secret_values_read": false,
+    "limitation": "Pattern scan plus visual screenshot inspection; not exhaustive DLP"
+  },
+  "input_provenance": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "2675bdceb63ef6d8a915303ba84d527028d648aaeffadac45b40ce9f956e091f"
+    },
+    {
+      "path": "docs/index.md",
+      "sha256": "d4fd6585d88d860802ffe75b5c0e6e620064e37fd8c8b108b3d4926514158cba"
+    },
+    {
+      "path": "docs/implementation-plan.md",
+      "sha256": "fbc6d863c9b8338d58359db43018cab2c51cb65a91fda021b3fcbc4e549b6727"
+    },
+    {
+      "path": "docs/DECISION-LEDGER.md",
+      "sha256": "05bc8fab21909d8ef8b7b52afb34632be70baf256bb28de68aefd2857c93310e"
+    },
+    {
+      "path": "docs/evidence/finals-provider/diagnosis.md",
+      "sha256": "8694d07b698851223c6176962082e1c328f3deae3c64d2191a74b0a42809d4f9"
+    },
+    {
+      "path": "docs/evidence/finals-provider/primary-source-index.json",
+      "sha256": "0ff96aac08ec5dc00b2ce8adae8fc90deed07d2280307339b98aacdb8c81710b"
+    },
+    {
+      "path": "docs/evidence/finals-provider/operator-request.md",
+      "sha256": "942191ff69b2553aa8d3c015ee07c53640cbfd869a4e50cd046a5cf9ef084c69"
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-single-status-detail-1794290430016.json",
+      "sha256": "e5ebf3ab98e9b2640276a8fe3edd18782d05d57a7dd2c22bcc4858f08b8dbcdb"
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-testnet-unresolved-checkpoint.json",
+      "sha256": "a833897d6eaabdac76db82fa06401b3335b08032078b6e4b6cf7be4f0aa89af8"
+    }
+  ],
+  "documentation_checks": [
+    {
+      "command": "python tools/check-docs.py",
+      "exit_code": 0,
+      "stdout": "PASS \u2014 21 Markdown files; local links, required sections, 12 features, 10 invariants, 31 QA cases, stable references, index inventory and researched SDK peer decision.\nApplication tests and live SDK/ledger integration remain unrun.",
+      "stderr": ""
+    },
+    {
+      "command": "python fmd/tools/check-implementation-plan.py docs/implementation-plan.md --strict",
+      "exit_code": 0,
+      "stdout": "APPROVE: docs\\implementation-plan.md has 16 valid task row(s); dependency/state DAG is coherent\nExecution waves (topological layers; same wave = parallel candidates):\n  wave 0: TASK-001\n  wave 1: TASK-002\n  wave 2: TASK-011, TASK-014\n  wave 3: TASK-003, TASK-015\n  wave 4: TASK-004, TASK-016\n  wave 5: TASK-005\n  wave 6: TASK-006\n  wave 7: TASK-007, TASK-008\n  wave 8: TASK-009\n  wave 9: TASK-010\n  wave 10: TASK-012\n  wave 11: TASK-013\nParallel-safety: no same-wave write-scope overlaps detected",
+      "stderr": ""
+    }
+  ],
+  "provider_gas_calls": 0,
+  "db_or_ledger_queries": 0,
+  "financial_handoffs": 0,
+  "payment_resolved": false,
+  "application_test_claim": false,
+  "failures": []
+}

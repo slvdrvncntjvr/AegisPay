@@ -1,0 +1,13 @@
+{
+  "observedAt": "2026-11-10T10:23:41.338Z",
+  "classification": "model-only-stub-offer-choice",
+  "status": "unavailable",
+  "model": "gemini-3.5-flash",
+  "code": "MODEL_UNAVAILABLE",
+  "generationCalls": "at_most_one",
+  "toolsExecuted": 0,
+  "actualPurchase": false,
+  "financialActions": 0,
+  "livePaymentProof": false,
+  "limit": "No application DB, signing, sponsorship, submission, RPC or protected fixture access; not TASK007 live purchase acceptance."
+}

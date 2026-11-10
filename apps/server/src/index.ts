@@ -8,6 +8,7 @@ import { encryptionKey } from './worker/payment.ts';
 import { createLivePaymentAdapter } from './worker/live-adapter.ts';
 import { workerIngress } from './worker/ingress.ts';
 import { paymentConsumer } from './worker/runtime.ts';
+import { runConsumer } from './worker/run.ts';
 
 export async function startWorker(env: NodeJS.ProcessEnv = process.env) {
   const key = encryptionKey(env.ENVELOPE_ENCRYPTION_KEY), receipt = receiptTokens(env.RECEIPT_SIGNING_KEY);
@@ -20,7 +21,11 @@ export async function startWorker(env: NodeJS.ProcessEnv = process.env) {
     adapter ??= createLivePaymentAdapter(env, store).catch(error => { adapter = undefined; throw error; });
     return adapter;
   } });
-  const wake = () => { void consumer.wake().catch(() => console.info(JSON.stringify({ component: 'payment-worker', code: 'WORKER_DEPENDENCY_UNAVAILABLE' }))); };
+  const runs = runConsumer({ store, env });
+  const wake = () => {
+    void consumer.wake().catch(() => console.info(JSON.stringify({ component: 'payment-worker', code: 'WORKER_DEPENDENCY_UNAVAILABLE' })));
+    void runs.wake().catch(() => console.info(JSON.stringify({ component: 'model-worker', code: 'MODEL_DEPENDENCY_UNAVAILABLE' })));
+  };
   const handler = workerIngress(env.WORKER_WAKE_TOKEN, wake);
   const server = createServer(async (incoming, outgoing) => {
     try {
@@ -38,11 +43,12 @@ export async function startWorker(env: NodeJS.ProcessEnv = process.env) {
   await new Promise<void>((resolve, reject) => { server.once('error', reject); server.listen(port, env.WORKER_HOST ?? '127.0.0.1', resolve); });
   const timer = setInterval(wake, 2000);
   wake();
-  console.info(JSON.stringify({ component: 'payment-worker', state: 'listening', network: 'testnet', port, modelExecution: 'TASK-007' }));
+  console.info(JSON.stringify({ component: 'payment-worker', state: 'listening', network: 'testnet', port, modelExecution: 'bounded-durable-run-consumer' }));
   return async () => {
     clearInterval(timer);
+    const stopped = runs.stop().catch(() => {});
     await new Promise<void>((resolve, reject) => server.close(error => error ? reject(error) : resolve()));
-    await consumer.idle().catch(() => {}); await store.close(); key.fill(0);
+    await Promise.all([consumer.idle().catch(() => {}), stopped]); await store.close(); key.fill(0);
   };
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

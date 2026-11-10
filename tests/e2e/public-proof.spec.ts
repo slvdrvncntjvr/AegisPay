@@ -90,10 +90,17 @@ test('public proof fits all requested viewports and reduced motion disables the 
   expect(await page.locator('.flow-active').evaluate(el => getComputedStyle(el).animationName)).toBe('none');
 });
 
-test('private access preserves request contract and shows integration handoff instead of missing app route', async ({ page }) => {
+test('private access preserves request contract and navigates to authenticated product console', async ({ page }) => {
   let accepted = false;
   const submitted: unknown[] = [];
-  await page.route('**/api/session', async route => {
+  const unhandled: string[] = [];
+  await page.route('**/api/**', async route => {
+    const path = new URL(route.request().url()).pathname;
+    if (path === '/api/v1/state') {
+      await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ role: 'merchant', network: 'testnet', offers: [], claims: [], walletOperations: [] }) });
+      return;
+    }
+    if (path !== '/api/session') { unhandled.push(path); await route.abort('blockedbyclient'); return; }
     submitted.push(route.request().postDataJSON());
     await route.fulfill({ status: accepted ? 201 : 403, contentType: 'application/json', body: JSON.stringify(accepted ? { ok: true } : { error: { message: 'Access token not accepted' } }) });
   });
@@ -102,10 +109,13 @@ test('private access preserves request contract and shows integration handoff in
   await page.getByLabel('Demo access token').fill('synthetic-ui-test-token');
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
   await expect(page.locator('.login-error')).toHaveText('Access token not accepted');
+  await expect(page.getByLabel('Demo access token')).toHaveValue('');
   accepted = true;
+  await page.getByLabel('Demo access token').fill('synthetic-ui-test-token');
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
-  await expect(page.getByRole('status')).toContainText('Session established');
-  await expect(page.getByRole('status')).toContainText('still awaiting integration');
-  expect(new URL(page.url()).pathname).toBe('/login');
+  await expect(page).toHaveURL(base + '/app');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Your terms. Your claim.');
+  expect(await page.evaluate(() => JSON.stringify({ ...localStorage, ...sessionStorage }))).not.toContain('synthetic-ui-test-token');
   expect(submitted).toEqual([{ role: 'merchant', token: 'synthetic-ui-test-token' }, { role: 'merchant', token: 'synthetic-ui-test-token' }]);
+  expect(unhandled).toEqual([]);
 });

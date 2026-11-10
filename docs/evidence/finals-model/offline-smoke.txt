@@ -1,0 +1,10 @@
+
+ RUN  v5.1.0 C:/Users/Vincent/VS Codes/Noir X Velo
+
+
+ Test Files  4 passed (4)
+      Tests  98 passed (98)
+   Start at  16:15:37
+   Duration  15.58s (tests 79%, import 19%, transform 1%)
+
+{"gate":"offline-model-tools","status":"passed","provider":"synthetic","chain":"synthetic","database":"guarded-local-integration-only","livePaymentProof":false,"financialActions":0}

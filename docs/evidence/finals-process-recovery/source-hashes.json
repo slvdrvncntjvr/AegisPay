@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-11-10T08:00:46.231273+00:00",
+  "head": "6765edbe76405a5398d25c7098ebabb678e87b37",
+  "scope": "TASK017 synthetic process qualification; source bytes hashed, no private configuration read",
+  "sha256": {
+    "apps/server/src/worker/payment.ts": "8f948da34ee8c574db3e7ff8e25645992af19da79caba3de09361ae1d17490cc",
+    "apps/server/src/worker/queue.ts": "507ab3b3041b476459b22285eef607b48619821a451e62f59310d6692f2c0985",
+    "apps/server/src/worker/runtime.ts": "baebd775d124e9bb62c9b1d1305ebfc752fdb8bc85495ef466be840b94a06e28",
+    "src/server/db/connection.ts": "38bf27fe97edd4ef957d5b8a4efea5863bffc00e659e02cc72fa348b6e572f0d",
+    "src/server/db/schema.ts": "5470fad2bef751f367ba83ce8bf321723c69ff92ac2ea194000313b09e67fa92",
+    "src/server/db/migrate.ts": "e677cdb9b754ee8a4b278facf15a14f9569782e687f455daeb72265537b1e03a",
+    "src/server/domain/purchases.ts": "eaff1ba879827afafb5ec7fb0090524babfd1f6beb3f4acca654f1ae51085eca",
+    "src/server/domain/evidence.ts": "d824a97d094b242355d9560211e8f257355684651e0c4170db3a292e486eb1c9",
+    "src/server/integrations/velo.ts": "229768e758ffbc9d1c141b62cbe0f062d9c0797f36ec3d64371591b773c27664",
+    "src/server/integrations/noir.ts": "7378ac4566fa0a7c94b1558c39f3131f14e9640f18f7d6c055088c495a1b2afc",
+    "src/server/merchant/receipts.ts": "e3dc7c2deb13280f975c4c38a7838468c02dbe5426935b2120c9d094b2a5ea3f",
+    "tests/integration/support/database.ts": "05bad49d1074251a123fa0a6a88762d00a91bd76840bd2c7c9d582ee9269c3ba",
+    "tests/integration/support/fixtures.ts": "f691c19da540324e50e64acc124e371cd7aacddb70efae615140a191069797e0",
+    "tests/integration/support/payment-adapter.ts": "69f3665a0445a1e39b00ada488399f6f4b7d13205097b9ff3ebbd11fc2f04b71",
+    "tests/integration/payment-recovery.test.ts": "41db44373dc644e90a944d3522040984843573569b7003a7e5fb8bf0a7bcf133",
+    "tests/integration/process-death.test.ts": "3fb130c2233604473ed5d527bc7813d35011f812ffd9724e23bf5547c17ec5f4",
+    "tests/integration/support/process-death.ts": "39a344b7ce676464ab7c7dc0b2721ada37fcbf8fb859ef6ad90fc2e49a619d77",
+    "tests/integration/support/payment-process-child.ts": "90a03d656b3a48f05e2e2b6470e4f1b7aedb5871dbd3284c5ec52a390723a71b",
+    "package.json": "ffa6b3f0c23d6e3828b0f24a110f3d54c565c37e6b03d68c02facb23e7d23ae3",
+    "pnpm-lock.yaml": "04332d2581c767a5466babf32fa166517ae63ac18d6f81e81c1d8f640f0dbc82",
+    "tsconfig.json": "35ca5537bc81bce654ac59a1b2e21ba45742cba8ccfbb4cf26403d3730ffbad0",
+    "vitest.config.ts": "4d4053686610ce7cd64d3119a6c21eda28738987b8b810b4b59e83ba9027a154",
+    "eslint.config.mjs": "ba62f07876b2b4e3ecb5d5a64f7d371408b59211b5a11f5773392d9feb2c0509"
+  }
+}

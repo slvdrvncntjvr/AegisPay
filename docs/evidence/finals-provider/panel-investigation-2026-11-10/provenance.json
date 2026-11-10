@@ -1,0 +1,135 @@
+{
+  "observed_at_utc": "2026-11-10T07:31:27.473349+00:00",
+  "public_source_commit": "c63b3308ad69d2c5a919f94052571a38a2188121",
+  "deployed_version_verified": false,
+  "provider_gas_calls": 0,
+  "authenticated_http_requests": 0,
+  "source_files": [
+    {
+      "path": "apps/web/features/projects/gas-activity.tsx",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/apps/web/features/projects/gas-activity.tsx",
+      "http_status": 200,
+      "bytes": 29308,
+      "sha256": "64ae261312dba12b3c34184b987cc3934214e409a8a1fed436cdfc41ec5e2af3",
+      "line_count": 908
+    },
+    {
+      "path": "apps/web/features/projects/project-gas.tsx",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/apps/web/features/projects/project-gas.tsx",
+      "http_status": 200,
+      "bytes": 11212,
+      "sha256": "da22b7e44e9fa3d77c8cfec9437064d996ddbdfb013985d753ee9fb0a70b1db9",
+      "line_count": 328
+    },
+    {
+      "path": "packages/backend/convex/gas/queries.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/queries.ts",
+      "http_status": 200,
+      "bytes": 15922,
+      "sha256": "e9d0da294034c6de6f92fe0f6a0e2ff089fa79842816fb45a89649f2654b8bae",
+      "line_count": 445
+    },
+    {
+      "path": "packages/backend/convex/gas/submit.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/submit.ts",
+      "http_status": 200,
+      "bytes": 11339,
+      "sha256": "1bddabd7ecd946303b40cc336394d4a4c700264c4d820e5a6f8acd8a2eb2f25b",
+      "line_count": 324
+    },
+    {
+      "path": "apps/web/core/api/gas-route-handlers.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/apps/web/core/api/gas-route-handlers.ts",
+      "http_status": 200,
+      "bytes": 33970,
+      "sha256": "64329ddba39e2b0eb36d601dbba8ebef168022d0ced270e6f18a891b23f0f7ad",
+      "line_count": 1091
+    },
+    {
+      "path": "packages/ui/src/components/ui/sheet.tsx",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/ui/src/components/ui/sheet.tsx",
+      "http_status": 200,
+      "bytes": 4200,
+      "sha256": "6238a1dd6814c5008297bfe8238391e2f8d175910ab4b5ae3847d66967303f57",
+      "line_count": 134
+    },
+    {
+      "path": "packages/ui/package.json",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/ui/package.json",
+      "http_status": 200,
+      "bytes": 1473,
+      "sha256": "95181a1dea16006eee85983014b971e5c9399691bf11fc39bbc96a46629d4adb",
+      "line_count": 53
+    },
+    {
+      "path": "apps/web/features/projects/gas-ui.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/apps/web/features/projects/gas-ui.ts",
+      "http_status": 200,
+      "bytes": 33971,
+      "sha256": "52cf0ad4d6735aa925a269721e5eb4888bfe38b45eef110165ce56b06f033c1f",
+      "line_count": 995
+    },
+    {
+      "path": "packages/backend/convex/gas/execution.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/execution.ts",
+      "http_status": 200,
+      "bytes": 87334,
+      "sha256": "637b2b6ac29ac673f2f51a5ff41c1cfb4ee7d0d7994e94231d616255f7f5f7df",
+      "line_count": 2396
+    },
+    {
+      "path": "packages/backend/convex/gas/authorization.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/authorization.ts",
+      "http_status": 200,
+      "bytes": 4785,
+      "sha256": "5f2eebd628177ad5653619e47e5b2068f61ece12562719967cd25374c7314cb9",
+      "line_count": 147
+    },
+    {
+      "path": "packages/backend/convex/gas/projections.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/projections.ts",
+      "http_status": 200,
+      "bytes": 10632,
+      "sha256": "f8b52e48778c3a278e4b58472b16638beca9ade3b9e70c04fd902618b294cdf7",
+      "line_count": 314
+    },
+    {
+      "path": "packages/backend/convex/gas/settlement.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/settlement.ts",
+      "http_status": 200,
+      "bytes": 24044,
+      "sha256": "0a91b3f0c20a470cf1b0014bc1d640a262d0df9592e03f28362d702b9bc5e317",
+      "line_count": 716
+    }
+  ],
+  "screenshots": [
+    {
+      "copy": "screenshots/dashboard.png",
+      "original_path": "C:\\Users\\Vincent\\AppData\\Local\\Temp\\orca-paste-1794295244274-1e372992-faec-44d0-af74-43c86ff2c187.png",
+      "sha256": "9460b9adfaae7df5997c8a6b9d41dd407d5b6d3cb2e094889b1b74aa220fe669",
+      "bytes": 81712,
+      "provenance": "Voluntarily supplied by user; unmodified byte-for-byte copy; capture timestamp not independently verified"
+    },
+    {
+      "copy": "screenshots/activity.png",
+      "original_path": "C:\\Users\\Vincent\\AppData\\Local\\Temp\\orca-paste-1794295269106-814e1d7a-ca6e-4eab-9fa3-dd0ef7f946ee.png",
+      "sha256": "6b188a6c1b6c681111986f30c14d21c653dd7a0b179b16fcb56ba601a0a3c638",
+      "bytes": 56639,
+      "provenance": "Voluntarily supplied by user; unmodified byte-for-byte copy; capture timestamp not independently verified"
+    },
+    {
+      "copy": "screenshots/detail-unavailable.png",
+      "original_path": "C:\\Users\\Vincent\\AppData\\Local\\Temp\\orca-paste-1794295299526-f3447f5e-9cdd-44af-8430-2ab4b1b1d836.png",
+      "sha256": "dda453dc3c9f8384928a0d384153f4a8075419a985e23705a1589a2a4d134efb",
+      "bytes": 57969,
+      "provenance": "Voluntarily supplied by user; unmodified byte-for-byte copy; capture timestamp not independently verified"
+    },
+    {
+      "copy": "screenshots/flash-detail.png",
+      "original_path": "C:\\Users\\Vincent\\AppData\\Local\\Temp\\orca-paste-1794295442774-c2fcb651-10b8-42f8-a83b-1a3b939d9053.png",
+      "sha256": "31090e7f48bea82d17eb9307e5d809fadc966ecc90a60fe173612bdb3066fa07",
+      "bytes": 118148,
+      "provenance": "Voluntarily supplied by user; unmodified byte-for-byte copy; capture timestamp not independently verified"
+    }
+  ]
+}

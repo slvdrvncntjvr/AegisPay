@@ -1,0 +1,13 @@
+# Draft for user to forward — not sent
+
+**Subject:** Testnet Gas request: disappearing detail panel and retained execution lookup
+
+Please investigate only Velo Gas Testnet request **`3ef113f6-0bb4-449a-ac6a-29407adb4ee5`**, inner hash **`36f71d7ddee16271b6c23e73fa5ef1f1ca4f0e44e3d0a52ef6eca2115f80d0f8`**, in the existing AegisPay project. Our persisted handoff is `2026-11-09T09:36:16.026075Z`; the last validated execution DTO was `claimed`, with no outer hash. One identity-only status observation at `2026-11-10T06:00:30.015Z` returned HTTP409 / `reservation_expired`, safe error correlation ID **`4db7ad55-5519-4e79-9442-a366474099cd`** (not the reservation ID).
+
+The console first showed “Receipt detail unavailable”; after closing/reopening the same request, detail appeared for about one second then disappeared. The captured upper audit says Reserved / Expired, no rejection, recorded `2026-11-09T09:36:15.268Z`, inner maximum fee and historical reservation `0.0080760 XLM`. Lower durable execution fields were not captured. We have not interpreted these audit facts as nonexecution.
+
+Could you return a sanitized read for this exact identity: durable execution state, distinct nullable outer FeeBump hash, nullable actual fee, reconciliation flag, UTC transition/observation times and deployed frontend/backend versions? If considered unsent, please provide retained send-count/first-possible-send facts and terminal settlement/fencing provenance confirming whether any job can still dispatch; omit token/key/envelope values. If executed, provide separately mapped inner/outer hash and ledger references for independent verification.
+
+One possible detail-read defect exists in inspected public commit `c63b3308ad69d2c5a919f94052571a38a2188121`: expiry stores `expired`, but the serializer used by `getExecutionDetail` rejects that lifecycle. See [expiry write L639–657](https://github.com/Velo-Ecosystem-Collection/Velo/blob/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/settlement.ts#L639-L657), [query L436–443](https://github.com/Velo-Ecosystem-Collection/Velo/blob/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/queries.ts#L436-L443), [serializer L280–287](https://github.com/Velo-Ecosystem-Collection/Velo/blob/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/projections.ts#L280-L287). We have not verified this commit is deployed, and a detail error alone does not explain whole-panel dismissal.
+
+Please preserve the existing record and respond read-only; no resubmission, cancellation, reconciliation mutation or replacement purchase is requested. The original AegisPay hold and zero entitlement remain unchanged.
