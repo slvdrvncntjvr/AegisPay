@@ -1,0 +1,320 @@
+{
+  "observedAt": "2026-11-10T06:30:39.451266+00:00",
+  "head": "91f968011b8a8966512928579d85f745c2de38e7",
+  "taskId": "task_99ae5c2f2499",
+  "dispatchId": "ctx_12c267cf2a70",
+  "purpose": "Reviewable LOCAL checkpoint candidates only; no staging, commit, push, build, test, deployment or financial execution.",
+  "links": [
+    {
+      "from": "docs/DECISION-LEDGER.md",
+      "target": "docs/index.md",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/DECISION-LEDGER.md",
+      "target": "docs/research.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/DECISION-LEDGER.md",
+      "target": "docs/evidence/testnet/incompatible-november-agent-registry.json",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/DECISION-LEDGER.md",
+      "target": "docs/evidence/testnet/contracts-1794013516299.json",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/design-system.md",
+      "target": "docs/methods.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/evidence/finals-payment/review-fixes.md",
+      "target": "docs/evidence/finals-review/task-005-review.md",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-payment/review-fixes.md",
+      "target": "docs/evidence/finals-payment/api-contract.md",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-payment/review-fixes.md",
+      "target": "docs/evidence/finals-payment/review-fix-source-fingerprints-final.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-payment/review-fixes.md",
+      "target": "docs/evidence/finals-payment/actual-single-status-detail-1794290430016.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-payment/review-fixes.md",
+      "target": "docs/evidence/finals-provider/operator-request.md",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-payment/review-fixes.md",
+      "target": "docs/evidence/finals-provider/diagnosis.md",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-payment/task-005.md",
+      "target": "docs/evidence/finals-payment/api-contract.md",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-payment/task-005.md",
+      "target": "docs/evidence/finals-payment/actual-testnet-fixture-setup-no-purchase-1794216467460.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-payment/task-005.md",
+      "target": "docs/evidence/finals-payment/actual-read-only-purchase-preflight-1794216580451.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-payment/task-005.md",
+      "target": "docs/evidence/finals-payment/actual-testnet-unresolved-checkpoint.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-payment/task-005.md",
+      "target": "docs/evidence/finals-payment/actual-identity-only-observation-1794288823393.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-payment/task-005.md",
+      "target": "docs/evidence/finals-payment/actual-identity-only-observation-1794289316928.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-payment/task-005.md",
+      "target": "docs/evidence/finals-payment/api-contract.md",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-provider/diagnosis.md",
+      "target": "docs/evidence/finals-payment/actual-identity-only-observation-1794288823393.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-provider/diagnosis.md",
+      "target": "docs/evidence/finals-payment/actual-velo-status-1794217433978.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-provider/diagnosis.md",
+      "target": "docs/evidence/finals-payment/task-005.md",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-provider/diagnosis.md",
+      "target": "docs/evidence/finals-provider/local-sdk-provenance.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-provider/diagnosis.md",
+      "target": "docs/evidence/finals-provider/primary-source-index.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-provider/diagnosis.md",
+      "target": "docs/evidence/finals-provider/inspect-primary.py",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-provider/diagnosis.md",
+      "target": "docs/evidence/finals-provider/operator-request.md",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-provider/diagnosis.md",
+      "target": "docs/evidence/finals-provider/verification.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-provider/operator-request.md",
+      "target": "docs/evidence/finals-payment/actual-single-status-detail-1794290430016.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-review/task-005-recheck-2026-11-10.md",
+      "target": "docs/evidence/finals-payment/review-fixes.md",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-review/task-005-recheck-2026-11-10.md",
+      "target": "docs/evidence/finals-payment/review-fix-source-fingerprints-final.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-review/task-005-recheck-2026-11-10.md",
+      "target": "docs/evidence/finals-review/task-005-recheck-2026-11-10-fingerprints.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-review/task-005-recheck-2026-11-10.md",
+      "target": "docs/evidence/finals-review/task-005-review.md",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-review/task-005-recheck-2026-11-10.md",
+      "target": "docs/evidence/finals-payment/review-fixes.md",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-review/task-005-recheck-2026-11-10.md",
+      "target": "docs/evidence/finals-payment/actual-single-status-detail-1794290430016.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-review/task-005-review.md",
+      "target": "docs/evidence/finals-review/task-005-source-fingerprints.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/evidence/finals-review/task-005-review.md",
+      "target": "docs/evidence/finals-payment/actual-testnet-unresolved-checkpoint.json",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/implementation-plan.md",
+      "target": "docs/prd.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/implementation-plan.md",
+      "target": "docs/qa-test-plan.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/implementation-plan.md",
+      "target": "context.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/implementation-plan.md",
+      "target": "docs/prd.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/implementation-plan.md",
+      "target": "docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "IDEA.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "context.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/prd.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/system-design.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/data-model.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/api-spec.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/methods.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/security-compliance.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/design-system.md",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/qa-test-plan.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/implementation-plan.md",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/DECISION-LEDGER.md",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/change-record.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/onboarding.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/pitch-kit.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/submission/README.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/research.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/document-review.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "docs/index.md",
+      "disposition": "proposed"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "AGENTS.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": "README.md",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "docs/index.md",
+      "target": ".env.example",
+      "disposition": "tracked_baseline"
+    }
+  ],
+  "qualification": "Checks proposed Markdown local targets against current proposal or existing HEAD; existing baseline links are not recursively reaudited."
+}

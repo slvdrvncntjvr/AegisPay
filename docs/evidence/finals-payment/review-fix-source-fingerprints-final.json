@@ -1,0 +1,34 @@
+{
+  "observedAt": "2026-11-10T06:07:13.8962744Z",
+  "taskId": "task_ebef123ec7c2",
+  "dispatchId": "ctx_2ada0a31a5b9",
+  "workRef": "orca:run_3bfef6dba661/payment",
+  "head": "91f968011b8a8966512928579d85f745c2de38e7",
+  "scope": "Final repaired source after 79 PostgreSQL tests and root/web typecheck/lint/unit/spike passed",
+  "files": [
+    {
+      "path": "apps/server/src/worker/payment.ts",
+      "sha256": "8f948da34ee8c574db3e7ff8e25645992af19da79caba3de09361ae1d17490cc"
+    },
+    {
+      "path": "src/server/domain/wallet.ts",
+      "sha256": "67fa6ea4fc6a6da0a2ed621a5c0b67931a4643a3dc6f8cbae73b2b5ffe39aad4"
+    },
+    {
+      "path": "src/server/http/application.ts",
+      "sha256": "fe5e4d69d2eb38152ac35824fd76c5bbaf018c0c591d5fa17bae1f33165ac7d9"
+    },
+    {
+      "path": "tests/integration/payment-recovery.test.ts",
+      "sha256": "41db44373dc644e90a944d3522040984843573569b7003a7e5fb8bf0a7bcf133"
+    },
+    {
+      "path": "tests/integration/wallet.test.ts",
+      "sha256": "6336d5e66c3ab81c3ae5a255579e7d6bca32f93f1c53e822cdee3c7d0a1fd44b"
+    },
+    {
+      "path": "tests/integration/http-boundaries.test.ts",
+      "sha256": "8d2409127bded872e1087821df5370515062ff53f5777b675d0fdbf833368dcb"
+    }
+  ]
+}

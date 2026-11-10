@@ -1,0 +1,59 @@
+{
+  "observed_at_utc": "2026-11-10T05:54:30.572742+00:00",
+  "scope": "credential presence and pinned SDK provenance only",
+  "provider_status_calls": 0,
+  "financial_calls": 0,
+  "db_queries": 0,
+  "private_file_presence": {
+    ".env.worker.local": {
+      "exists": true,
+      "VELO_GAS_API_KEY_present": true,
+      "VELO_GAS_BASE_URL_present": true,
+      "base_url_matches_documented_origin": true
+    },
+    ".env.spike.local": {
+      "exists": true,
+      "VELO_GAS_API_KEY_present": true,
+      "VELO_GAS_BASE_URL_present": true,
+      "base_url_matches_documented_origin": true
+    }
+  },
+  "pinned_sdk_files": [
+    {
+      "path": "node_modules/@carts1024/velo-sdk/package.json",
+      "sha256": "42e33ba283acbd086af84d92bb0e8146e39783239c295fa5c229e85eb71d9610",
+      "bytes": 1115
+    },
+    {
+      "path": "node_modules/@carts1024/velo-sdk/README.md",
+      "sha256": "28b71f46e8496cf27db91dd3369fad5b2338943a358b86bb41cdeb2c6087d5cb",
+      "bytes": 29690
+    },
+    {
+      "path": "node_modules/@carts1024/velo-sdk/CHANGELOG.md",
+      "sha256": "c9f369ed9b2c86dd13bdc0e4519e0f7d2109a600255b1fe8295f4a0fa4293223",
+      "bytes": 2988
+    },
+    {
+      "path": "node_modules/@carts1024/velo-sdk/dist/gas.js",
+      "sha256": "28a95e47e333e0119d39e6c2d40b6195ea290cfe99c2560fd1224c58d8ce24cd",
+      "bytes": 21650
+    },
+    {
+      "path": "node_modules/@carts1024/velo-sdk/dist/errors.js",
+      "sha256": "9072331fe7c220be176909847b9f1da0fe1f1f18947bde1ad3b3187976641a46",
+      "bytes": 6459
+    },
+    {
+      "path": "node_modules/@carts1024/velo-sdk/dist/http.js",
+      "sha256": "06d9c852a830e2ebd1743429da7dc2a42ff48d4368f3caf225c04343bfbad259",
+      "bytes": 11658
+    },
+    {
+      "path": "node_modules/@carts1024/velo-sdk/dist/gas.d.ts",
+      "sha256": "41cf4c57444be02152bd9a37c2229e7a8e870ca2de377b7be0f73a2030829058",
+      "bytes": 784
+    }
+  ],
+  "installed_version": "1.0.0"
+}

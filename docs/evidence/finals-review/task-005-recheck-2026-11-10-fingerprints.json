@@ -1,0 +1,177 @@
+{
+  "taskId": "task_7418e057d029",
+  "dispatchId": "ctx_838fcf3b19b9",
+  "observedUtc": "2026-11-10T06:10:25.961810+00:00",
+  "headObserved": "91f968011b8a8966512928579d85f745c2de38e7",
+  "writerManifest": "docs/evidence/finals-payment/review-fix-source-fingerprints-final.json",
+  "writerManifestSha256": "b121d54837283a29351c3461a9166e5648a70f0849b0496ccbe19dd970395b66",
+  "writerManifestObservedAt": "2026-11-10T06:07:13.8962744Z",
+  "allSixMatch": true,
+  "files": [
+    {
+      "path": "apps/server/src/worker/payment.ts",
+      "expectedSha256": "8f948da34ee8c574db3e7ff8e25645992af19da79caba3de09361ae1d17490cc",
+      "actualSha256": "8f948da34ee8c574db3e7ff8e25645992af19da79caba3de09361ae1d17490cc",
+      "matches": true,
+      "bytes": 14955
+    },
+    {
+      "path": "src/server/domain/wallet.ts",
+      "expectedSha256": "67fa6ea4fc6a6da0a2ed621a5c0b67931a4643a3dc6f8cbae73b2b5ffe39aad4",
+      "actualSha256": "67fa6ea4fc6a6da0a2ed621a5c0b67931a4643a3dc6f8cbae73b2b5ffe39aad4",
+      "matches": true,
+      "bytes": 14378
+    },
+    {
+      "path": "src/server/http/application.ts",
+      "expectedSha256": "fe5e4d69d2eb38152ac35824fd76c5bbaf018c0c591d5fa17bae1f33165ac7d9",
+      "actualSha256": "fe5e4d69d2eb38152ac35824fd76c5bbaf018c0c591d5fa17bae1f33165ac7d9",
+      "matches": true,
+      "bytes": 16699
+    },
+    {
+      "path": "tests/integration/payment-recovery.test.ts",
+      "expectedSha256": "41db44373dc644e90a944d3522040984843573569b7003a7e5fb8bf0a7bcf133",
+      "actualSha256": "41db44373dc644e90a944d3522040984843573569b7003a7e5fb8bf0a7bcf133",
+      "matches": true,
+      "bytes": 18022
+    },
+    {
+      "path": "tests/integration/wallet.test.ts",
+      "expectedSha256": "6336d5e66c3ab81c3ae5a255579e7d6bca32f93f1c53e822cdee3c7d0a1fd44b",
+      "actualSha256": "6336d5e66c3ab81c3ae5a255579e7d6bca32f93f1c53e822cdee3c7d0a1fd44b",
+      "matches": true,
+      "bytes": 9319
+    },
+    {
+      "path": "tests/integration/http-boundaries.test.ts",
+      "expectedSha256": "8d2409127bded872e1087821df5370515062ff53f5777b675d0fdbf833368dcb",
+      "actualSha256": "8d2409127bded872e1087821df5370515062ff53f5777b675d0fdbf833368dcb",
+      "matches": true,
+      "bytes": 5209
+    }
+  ],
+  "supportingFiles": [
+    {
+      "path": "docs/evidence/finals-review/task-005-review.md",
+      "sha256": "6fac8150e74805fed4db4432ba1a1d8361cfbfbfd9d2df352db9cb13b0164e45",
+      "bytes": 18964
+    },
+    {
+      "path": "docs/evidence/finals-review/task-005-source-fingerprints.json",
+      "sha256": "2eacb8f4a89248b81542a65cd0f07d38f15c53d4568b8a45fc02049b7566f5e7",
+      "bytes": 14273
+    },
+    {
+      "path": "docs/evidence/finals-payment/review-fixes.md",
+      "sha256": "8f509557a02672c8d12c489615bfdf0d188484b4949e6b1b400defac5af9fc2b",
+      "bytes": 10001
+    },
+    {
+      "path": "docs/evidence/finals-payment/api-contract.md",
+      "sha256": "c3f0f3624512babea3f1b1883f9e1e0ee7bb3bdb37e042ff1ca1e942c914d383",
+      "bytes": 11464
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-single-status-detail-1794290430016.json",
+      "sha256": "e5ebf3ab98e9b2640276a8fe3edd18782d05d57a7dd2c22bcc4858f08b8dbcdb",
+      "bytes": 716
+    },
+    {
+      "path": "src/server/domain/purchases.ts",
+      "sha256": "eaff1ba879827afafb5ec7fb0090524babfd1f6beb3f4acca654f1ae51085eca",
+      "bytes": 12296
+    },
+    {
+      "path": "src/server/domain/evidence.ts",
+      "sha256": "d824a97d094b242355d9560211e8f257355684651e0c4170db3a292e486eb1c9",
+      "bytes": 7070
+    },
+    {
+      "path": "src/server/db/schema.ts",
+      "sha256": "5470fad2bef751f367ba83ce8bf321723c69ff92ac2ea194000313b09e67fa92",
+      "bytes": 20326
+    },
+    {
+      "path": "src/server/db/migrations/0001_financial_guards.sql",
+      "sha256": "e8199b95592dbfa876487756af2544c477741a9af29e041cda7541313cfa5998",
+      "bytes": 15608
+    },
+    {
+      "path": "src/server/integrations/stellar-evidence.ts",
+      "sha256": "978840bea8a69dccff48d717c28b314606f3abf702a3aecd75436977a1491a21",
+      "bytes": 9647
+    },
+    {
+      "path": "apps/server/src/worker/queue.ts",
+      "sha256": "507ab3b3041b476459b22285eef607b48619821a451e62f59310d6692f2c0985",
+      "bytes": 1622
+    },
+    {
+      "path": "apps/server/src/worker/runtime.ts",
+      "sha256": "baebd775d124e9bb62c9b1d1305ebfc752fdb8bc85495ef466be840b94a06e28",
+      "bytes": 1412
+    },
+    {
+      "path": "tests/integration/support/database.ts",
+      "sha256": "05bad49d1074251a123fa0a6a88762d00a91bd76840bd2c7c9d582ee9269c3ba",
+      "bytes": 2352
+    },
+    {
+      "path": "vitest.config.ts",
+      "sha256": "4d4053686610ce7cd64d3119a6c21eda28738987b8b810b4b59e83ba9027a154",
+      "bytes": 243
+    },
+    {
+      "path": "src/server/merchant/receipts.ts",
+      "sha256": "e3dc7c2deb13280f975c4c38a7838468c02dbe5426935b2120c9d094b2a5ea3f",
+      "bytes": 3644
+    }
+  ],
+  "mode": "Read-only source and exported evidence; no tests/builds/services/database/provider/financial calls",
+  "closingConsistencyCheck": {
+    "observedUtc": "2026-11-10T06:13:12.418938+00:00",
+    "files": [
+      {
+        "path": "apps/server/src/worker/payment.ts",
+        "sha256": "8f948da34ee8c574db3e7ff8e25645992af19da79caba3de09361ae1d17490cc",
+        "matchesFinalWriterManifest": true,
+        "unchangedDuringRecheck": true
+      },
+      {
+        "path": "src/server/domain/wallet.ts",
+        "sha256": "67fa6ea4fc6a6da0a2ed621a5c0b67931a4643a3dc6f8cbae73b2b5ffe39aad4",
+        "matchesFinalWriterManifest": true,
+        "unchangedDuringRecheck": true
+      },
+      {
+        "path": "src/server/http/application.ts",
+        "sha256": "fe5e4d69d2eb38152ac35824fd76c5bbaf018c0c591d5fa17bae1f33165ac7d9",
+        "matchesFinalWriterManifest": true,
+        "unchangedDuringRecheck": true
+      },
+      {
+        "path": "tests/integration/payment-recovery.test.ts",
+        "sha256": "41db44373dc644e90a944d3522040984843573569b7003a7e5fb8bf0a7bcf133",
+        "matchesFinalWriterManifest": true,
+        "unchangedDuringRecheck": true
+      },
+      {
+        "path": "tests/integration/wallet.test.ts",
+        "sha256": "6336d5e66c3ab81c3ae5a255579e7d6bca32f93f1c53e822cdee3c7d0a1fd44b",
+        "matchesFinalWriterManifest": true,
+        "unchangedDuringRecheck": true
+      },
+      {
+        "path": "tests/integration/http-boundaries.test.ts",
+        "sha256": "8d2409127bded872e1087821df5370515062ff53f5777b675d0fdbf833368dcb",
+        "matchesFinalWriterManifest": true,
+        "unchangedDuringRecheck": true
+      }
+    ],
+    "allSixMatch": true,
+    "writerManifestUnchanged": true,
+    "changedSupportingFiles": [],
+    "originalReviewPreserved": true
+  }
+}

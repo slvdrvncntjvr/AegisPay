@@ -25,6 +25,15 @@ At preparation no cloud project, Git remote, live wallet or verified contract tu
 
 ## 3. Pivots & decisions (newest first)
 
+### 2026-11-09 — Execute finals build and replace plain visual defaults
+
+- **Authority:** user explicitly requests the coordinator to execute improvements using Orca, strongly rejects the plain UI, and names Magic UI, Watermelon UI and Impeccable as modern craft references. This supersedes preparation-era visual defaults, not the payment/security architecture.
+- **Choice:** start the earliest unfinished paid-resource worker slice at TASK-005; retain TASK-006 recovery before full model/UI integration. Append TASK-014 for an independently shippable redesign of the existing public proof surface, with disjoint UI/backend write scopes and coordinator-owned task/ledger state. No full product or release gate is bypassed.
+- **Work ref:** Orca run `run_3bfef6dba661`, starting main `180a88d`; user-authorized worker execution is an equivalent recorded work ref. Preserve untracked finals assessment artifacts and historical payment identities. Review preserved unfinished source before selective integration; no wholesale stash restoration.
+- **Delivery:** AegisPay, `https://aegispay-live.vercel.app/` and `docs/submission/AegisPay-pitch-draft.pdf` remain fixed submission identity. User authorizes implementation and tested same-link delivery; keep the recorded proof fallback. No paid cloud resource, mainnet or custom contract deployment is authorized.
+- **Evidence:** completed Nov 9 assessment establishes a saved-proof production slice and incomplete full purchase; current type/lint/73 unit/50 offline spike/docs gates passed. The supplied newer organizer email selects Top 15 with finals logistics TBA; older schedule uncertainty is historical. New implementation outcomes require actual gates and fresh evidence.
+- **Invariants:** INV-001 through INV-010 unchanged. Modern motion/copy cannot imply model purchasing, report delivery, current policy validity or new chain execution before evidence exists. Worker financial keys remain separate from web/model/browser.
+
 ### 2026-11-07 — Reconcile the supplied handbook and mandatory public delivery
 
 - **Source:** user-supplied `Velo x Noir Agentic Payment Hackathon — Builder Handbook.pdf`, updated Nov 5, 2026, SHA256 `ac77495fd5512dc2d62924dbbe9d6fed6b18ea1b64d72a99c010e8a1ba0cd55b`; all 13 pages inspected locally via PyMuPDF. Ignored source is not copied or linked as a public repo file. [Research](research.md#builder-handbook-reconciliation--2026-11-07) records page provenance.

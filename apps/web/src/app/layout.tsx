@@ -3,9 +3,10 @@ import type { ReactNode } from 'react';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'AegisPay · Testnet proof console',
+  icons: { icon: '/icon.svg' },
+  title: 'AegisPay — Useful data. Bounded spending.',
   description:
-    'AegisPay public Testnet proof console: verified same-transaction Noir authorization sponsored by Velo on Stellar Testnet.',
+    'Explore recorded AegisPay proof: bounded Noir authority, the same authorization through Velo, and independently matched evidence on Stellar Testnet.',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

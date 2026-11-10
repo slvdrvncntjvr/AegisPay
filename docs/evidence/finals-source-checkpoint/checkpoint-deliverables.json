@@ -1,0 +1,50 @@
+{
+  "purpose": "Inventory deliverable only; no source staging/publication",
+  "files": [
+    {
+      "path": "docs/evidence/finals-source-checkpoint/audit.py",
+      "sha256": "ec7b077c7e30b6ce433cc9bf455f6d22483908cf1da66a68d8fcbc6da251900f",
+      "bytes": 20087
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/backend-allowlist.json",
+      "sha256": "a593410c629cafb0f9ab29484c6f361667bf16c833bcffe6fbaa790635188cf5",
+      "bytes": 17406
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/baseline-and-dependencies.json",
+      "sha256": "427399ed22eaff902041e949c92fd12a8c7d1611325e545c75a53df8ad865f2d",
+      "bytes": 47403
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/hygiene-scan.json",
+      "sha256": "f56bb4bc6bc10762a0332b15c0fae6edf33c1d1b723449474347fc5a760c0753",
+      "bytes": 19635
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/link-closure.json",
+      "sha256": "a45fb8a252f38a923c1d188661ca890a051a031685509a0d9cf3a28af2ebc52a",
+      "bytes": 10558
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/report.md",
+      "sha256": "9ec7fe27746cd9d5fffca995aab2b6259775df37d182afd3e639b3caeb31f477",
+      "bytes": 8886
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/stored-deployment-review.json",
+      "sha256": "47b4bbc6a9d0039b265a302b29175282cd3c5185864afd54b8b1cc46633ad03c",
+      "bytes": 4534
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/ui-allowlist.json",
+      "sha256": "a006cfe58de5346dae19ea74033f6d6620c3d539a39c02b35309b68acb259bf8",
+      "bytes": 8426
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/working-tree-inventory.json",
+      "sha256": "ffb01a5c7f4da875da49c8db5dee620b70a5e11f92cc10e79f91f7fc78587023",
+      "bytes": 149434
+    }
+  ]
+}

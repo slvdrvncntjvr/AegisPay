@@ -1,0 +1,365 @@
+{
+  "observedUtc": "2026-11-10T05:33:49.249562+00:00",
+  "head": "91f968011b8a8966512928579d85f745c2de38e7",
+  "mode": "static source only; no tests/build/database/provider or payment calls",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "2675bdceb63ef6d8a915303ba84d527028d648aaeffadac45b40ce9f956e091f",
+      "bytes": 4775,
+      "modifiedUtc": "2026-11-06T23:28:02.197048+00:00"
+    },
+    {
+      "path": "docs/index.md",
+      "sha256": "4de8748b89e03dfcf7d7781d220d9a49e1d86b831a560b2c45ab28c5f750c965",
+      "bytes": 5705,
+      "modifiedUtc": "2026-11-10T05:29:18.287951+00:00"
+    },
+    {
+      "path": "docs/implementation-plan.md",
+      "sha256": "e19c61a29a658537671a9e2c310fce231d228bc6d6ea959be65a7924ffbacd1e",
+      "bytes": 25919,
+      "modifiedUtc": "2026-11-10T05:29:17.542653+00:00"
+    },
+    {
+      "path": "docs/DECISION-LEDGER.md",
+      "sha256": "05bc8fab21909d8ef8b7b52afb34632be70baf256bb28de68aefd2857c93310e",
+      "bytes": 17874,
+      "modifiedUtc": "2026-11-09T08:35:57.601308+00:00"
+    },
+    {
+      "path": "docs/system-design.md",
+      "sha256": "d2423dd79c5a9911f51e8b8988f4e1b55100037795c9c52be587e18dc879837b",
+      "bytes": 17027,
+      "modifiedUtc": "2026-11-08T03:50:59.907902+00:00"
+    },
+    {
+      "path": "docs/api-spec.md",
+      "sha256": "1f49045f3635cac89d65fb3e0ad755f7c70d6eaea09f9fa73a6fe7cdba645e79",
+      "bytes": 10328,
+      "modifiedUtc": "2026-11-06T23:29:27.474133+00:00"
+    },
+    {
+      "path": "docs/security-compliance.md",
+      "sha256": "f67f313509eb78fdc9978e8176f749f9c4fa3f22d20e5c0a646b531c77c6a3ba",
+      "bytes": 9844,
+      "modifiedUtc": "2026-11-06T23:29:28.448198+00:00"
+    },
+    {
+      "path": "docs/qa-test-plan.md",
+      "sha256": "41e11300b221f34fa11c0321c467a9a12300dc9bfa0ac9903f8d2dcaf10c524e",
+      "bytes": 13166,
+      "modifiedUtc": "2026-11-07T15:25:52.731109+00:00"
+    },
+    {
+      "path": "docs/data-model.md",
+      "sha256": "37c1910bb334d533fdff4b443dd7468dc582111de6a2cf35d9ef499c07b3e2e4",
+      "bytes": 11518,
+      "modifiedUtc": "2026-11-08T03:50:59.862230+00:00"
+    },
+    {
+      "path": "docs/prd.md",
+      "sha256": "2fb10c889b42a835a1799c3878ffd9547d526ca29cc017810162794145842327",
+      "bytes": 11606,
+      "modifiedUtc": "2026-11-07T15:25:52.730108+00:00"
+    },
+    {
+      "path": "docs/evidence/finals-payment/task-005.md",
+      "sha256": "3e872cbaf9fc5088728b18290319771470fdf1bb6244f8cdd42b7c7c03be83fe",
+      "bytes": 8072,
+      "modifiedUtc": "2026-11-09T09:39:05.958228+00:00"
+    },
+    {
+      "path": "docs/evidence/finals-payment/api-contract.md",
+      "sha256": "7ba730e640a70b28d92f702741f88741c93370db722e21faa09dda3f2b2e69ff",
+      "bytes": 7563,
+      "modifiedUtc": "2026-11-09T09:27:01.705334+00:00"
+    },
+    {
+      "path": "apps/server/src/index.ts",
+      "sha256": "5af6fd94f6f7b3f1a8eab6007fdccd96aed75a57ef5101eb625a4f3b099f6158",
+      "bytes": 3961,
+      "modifiedUtc": "2026-11-09T09:16:40.436342+00:00"
+    },
+    {
+      "path": "apps/server/src/worker/payment.ts",
+      "sha256": "19d00fc0d7ad5184349afb9e5a8e5c4646cc176757545ea7692d780e1fe014a9",
+      "bytes": 11886,
+      "modifiedUtc": "2026-11-09T09:12:45.415050+00:00"
+    },
+    {
+      "path": "apps/server/src/worker/queue.ts",
+      "sha256": "507ab3b3041b476459b22285eef607b48619821a451e62f59310d6692f2c0985",
+      "bytes": 1622,
+      "modifiedUtc": "2026-11-09T09:08:00.196006+00:00"
+    },
+    {
+      "path": "apps/server/src/worker/runtime.ts",
+      "sha256": "baebd775d124e9bb62c9b1d1305ebfc752fdb8bc85495ef466be840b94a06e28",
+      "bytes": 1412,
+      "modifiedUtc": "2026-11-09T09:16:40.443020+00:00"
+    },
+    {
+      "path": "apps/server/src/worker/live-adapter.ts",
+      "sha256": "a22ae3429ecf04e8c1bcc8bc18a1ca3ea1752ce8553e3ab0e7421a1a5b0724c5",
+      "bytes": 7101,
+      "modifiedUtc": "2026-11-09T09:16:40.433858+00:00"
+    },
+    {
+      "path": "apps/server/src/worker/continuity.ts",
+      "sha256": "7d6e16e367dd80c09c7a39157185c907f92aae64e07cb2841cfde26a11b45148",
+      "bytes": 1398,
+      "modifiedUtc": "2026-11-09T09:16:40.428587+00:00"
+    },
+    {
+      "path": "apps/server/src/worker/ingress.ts",
+      "sha256": "31af7bd74c6f07eefc148915176e2bd8aae0a98594260114cd1f88aefe0ef854",
+      "bytes": 1284,
+      "modifiedUtc": "2026-11-09T09:04:17.121270+00:00"
+    },
+    {
+      "path": "src/server/domain/purchases.ts",
+      "sha256": "eaff1ba879827afafb5ec7fb0090524babfd1f6beb3f4acca654f1ae51085eca",
+      "bytes": 12296,
+      "modifiedUtc": "2026-11-09T09:04:32.439046+00:00"
+    },
+    {
+      "path": "src/server/domain/evidence.ts",
+      "sha256": "d824a97d094b242355d9560211e8f257355684651e0c4170db3a292e486eb1c9",
+      "bytes": 7070,
+      "modifiedUtc": "2026-11-09T09:21:01.211547+00:00"
+    },
+    {
+      "path": "src/server/domain/wallet.ts",
+      "sha256": "0753c2c9bdfc4efd1beffd975ce59e8e3fedcb4eb07a454d1b1c69915e0a1554",
+      "bytes": 13972,
+      "modifiedUtc": "2026-11-09T09:17:37.226438+00:00"
+    },
+    {
+      "path": "src/server/http/application.ts",
+      "sha256": "93fd9d876b16f009e56d1017746ce96eaef6f7d1b7f93d6911e3c9944e357289",
+      "bytes": 16221,
+      "modifiedUtc": "2026-11-09T09:08:00.196006+00:00"
+    },
+    {
+      "path": "src/server/http/boundaries.ts",
+      "sha256": "d88f3127f866ea6021b1cdd29abfe316a3ae0008e9d2c9b1efe1a71fcd93f6eb",
+      "bytes": 2666,
+      "modifiedUtc": "2026-11-08T03:50:59.945734+00:00"
+    },
+    {
+      "path": "src/server/http/wake.ts",
+      "sha256": "7a22041bed4f96fdacb7ebcc711efe0d5c720f5b8fd8ef85b7122e91bba7e4d6",
+      "bytes": 799,
+      "modifiedUtc": "2026-11-09T09:04:17.160253+00:00"
+    },
+    {
+      "path": "src/server/auth/session.ts",
+      "sha256": "c88807e64a26bfea6e26c120171b21c361cbf0719fb673b5bbffc22f2f85f070",
+      "bytes": 4780,
+      "modifiedUtc": "2026-11-08T03:50:59.927476+00:00"
+    },
+    {
+      "path": "src/server/merchant/receipts.ts",
+      "sha256": "e3dc7c2deb13280f975c4c38a7838468c02dbe5426935b2120c9d094b2a5ea3f",
+      "bytes": 3644,
+      "modifiedUtc": "2026-11-09T09:21:39.537812+00:00"
+    },
+    {
+      "path": "src/server/merchant/reports.ts",
+      "sha256": "f539b45f99deae425ee02d338722d5f65c6f06ac8f0025ed71bd5377a748a1be",
+      "bytes": 1203,
+      "modifiedUtc": "2026-11-09T09:04:17.227582+00:00"
+    },
+    {
+      "path": "src/server/integrations/noir.ts",
+      "sha256": "7378ac4566fa0a7c94b1558c39f3131f14e9640f18f7d6c055088c495a1b2afc",
+      "bytes": 4982,
+      "modifiedUtc": "2026-11-07T15:25:52.743221+00:00"
+    },
+    {
+      "path": "src/server/integrations/velo.ts",
+      "sha256": "229768e758ffbc9d1c141b62cbe0f062d9c0797f36ec3d64371591b773c27664",
+      "bytes": 4106,
+      "modifiedUtc": "2026-11-08T03:50:59.952001+00:00"
+    },
+    {
+      "path": "src/server/integrations/stellar-evidence.ts",
+      "sha256": "978840bea8a69dccff48d717c28b314606f3abf702a3aecd75436977a1491a21",
+      "bytes": 9647,
+      "modifiedUtc": "2026-11-08T03:50:59.951458+00:00"
+    },
+    {
+      "path": "src/server/integrations/wallet-inspection.ts",
+      "sha256": "a93872c6f4aca2f39bdb5aa461ee4205e6ca7c9e38d3b456cbba746c1b270826",
+      "bytes": 3212,
+      "modifiedUtc": "2026-11-09T09:17:37.220296+00:00"
+    },
+    {
+      "path": "src/server/integrations/wallet-gateway.ts",
+      "sha256": "c80e1533f3f46d315603d7e7f0780c1521f14e252d01bd8f1aec25598c9c83ef",
+      "bytes": 931,
+      "modifiedUtc": "2026-11-08T03:50:59.953092+00:00"
+    },
+    {
+      "path": "src/server/integrations/spike-runtime.ts",
+      "sha256": "b0232ed01c1a1fce887ad8246c7fbb24e2368db4ecffb362261fc59173eac924",
+      "bytes": 3881,
+      "modifiedUtc": "2026-11-09T09:17:37.221449+00:00"
+    },
+    {
+      "path": "src/server/db/schema.ts",
+      "sha256": "5470fad2bef751f367ba83ce8bf321723c69ff92ac2ea194000313b09e67fa92",
+      "bytes": 20326,
+      "modifiedUtc": "2026-11-08T03:50:59.937478+00:00"
+    },
+    {
+      "path": "src/server/db/connection.ts",
+      "sha256": "38bf27fe97edd4ef957d5b8a4efea5863bffc00e659e02cc72fa348b6e572f0d",
+      "bytes": 1446,
+      "modifiedUtc": "2026-11-08T03:50:59.928476+00:00"
+    },
+    {
+      "path": "src/server/db/migrations/0000_foundation.sql",
+      "sha256": "c6ba27dc80ff01d81f4e133934b3343bd7f7e6ae09a12fed7ded18f1dd613852",
+      "bytes": 23802,
+      "modifiedUtc": "2026-11-08T03:50:59.929477+00:00"
+    },
+    {
+      "path": "src/server/db/migrations/0001_financial_guards.sql",
+      "sha256": "e8199b95592dbfa876487756af2544c477741a9af29e041cda7541313cfa5998",
+      "bytes": 15608,
+      "modifiedUtc": "2026-11-08T03:50:59.930478+00:00"
+    },
+    {
+      "path": "src/server/db/migrations/0002_acceptance_keys.sql",
+      "sha256": "48c0fb408fed5fc79357bde620f1518f69f585e6d4a165a1938afb30400c5cb2",
+      "bytes": 1567,
+      "modifiedUtc": "2026-11-08T03:50:59.931477+00:00"
+    },
+    {
+      "path": "src/server/db/migrations/0003_terminal_evidence_guard.sql",
+      "sha256": "596cdf14d2e8ef0aa7c03a5c74ccf9f6bb4ac7d6c051d2c442b6febe0614eff6",
+      "bytes": 598,
+      "modifiedUtc": "2026-11-08T03:50:59.932476+00:00"
+    },
+    {
+      "path": "tests/integration/payment-recovery.test.ts",
+      "sha256": "e2396a9eec8d5d0a5ba10deed019b67e906a9c10d9cbeaef98cf3fb583336a7f",
+      "bytes": 7643,
+      "modifiedUtc": "2026-11-09T09:21:01.218114+00:00"
+    },
+    {
+      "path": "tests/integration/purchase-http.test.ts",
+      "sha256": "7760546b5dd62b40533c7838e743a6faf05cd5c03d587e9ef3b1699f2777f061",
+      "bytes": 9378,
+      "modifiedUtc": "2026-11-09T09:15:39.817642+00:00"
+    },
+    {
+      "path": "tests/integration/foundation.test.ts",
+      "sha256": "bae271d704140631f1895cdb484234620386cfa697bdd02a2e56501d92a46d95",
+      "bytes": 25350,
+      "modifiedUtc": "2026-11-08T03:50:59.954785+00:00"
+    },
+    {
+      "path": "tests/integration/auth.test.ts",
+      "sha256": "e2af9e26704811f83973f71e5bdc3d92256552fa164bacbd2e21a2d636f4f58b",
+      "bytes": 3173,
+      "modifiedUtc": "2026-11-08T03:50:59.953627+00:00"
+    },
+    {
+      "path": "tests/integration/http-boundaries.test.ts",
+      "sha256": "9104bc9ec1953bdf1bb1d4e99eb28dc97196cd9223e2188bf2ecdb43873766f4",
+      "bytes": 4041,
+      "modifiedUtc": "2026-11-08T03:50:59.956389+00:00"
+    },
+    {
+      "path": "tests/integration/wallet.test.ts",
+      "sha256": "148d2b5abf07c0b9abc925acf2858b33dee4ab663a254a523a229c5188aab233",
+      "bytes": 5952,
+      "modifiedUtc": "2026-11-08T03:50:59.958596+00:00"
+    },
+    {
+      "path": "tests/integration/support/payment-adapter.ts",
+      "sha256": "69f3665a0445a1e39b00ada488399f6f4b7d13205097b9ff3ebbd11fc2f04b71",
+      "bytes": 3338,
+      "modifiedUtc": "2026-11-09T09:12:45.409169+00:00"
+    },
+    {
+      "path": "tests/testnet/evidence.test.ts",
+      "sha256": "a45482d5cdc199728cf07c37bee4147451163a21dd98530353f6afe4f94fda58",
+      "bytes": 9010,
+      "modifiedUtc": "2026-11-07T15:25:52.753010+00:00"
+    },
+    {
+      "path": "tests/testnet/guards.test.ts",
+      "sha256": "b3d82e4387cfd8a77a8f44aa83803794b544b46e09637393e0c0a80cebd3b904",
+      "bytes": 6698,
+      "modifiedUtc": "2026-11-07T15:25:52.754025+00:00"
+    },
+    {
+      "path": "node_modules/@carts1024/velo-sdk/dist/gas.js",
+      "sha256": "28a95e47e333e0119d39e6c2d40b6195ea290cfe99c2560fd1224c58d8ce24cd",
+      "bytes": 21650,
+      "modifiedUtc": "2026-11-06T23:54:34.212919+00:00"
+    },
+    {
+      "path": "tests/testnet/handoff.test.ts",
+      "sha256": "c2ff6c586259a58f8ace1e380c9d76140c0270e7a487c3cc6c4aad51f2a840c4",
+      "bytes": 4712,
+      "modifiedUtc": "2026-11-07T15:25:52.755023+00:00",
+      "firstFingerprintUtc": "2026-11-10T05:39:23.101803+00:00"
+    },
+    {
+      "path": "tests/testnet/driver.test.ts",
+      "sha256": "a007de04d56d7606ce759972c83df597a4c495e63156e59f3ac42ee2cb67fa90",
+      "bytes": 19991,
+      "modifiedUtc": "2026-11-07T15:25:52.751896+00:00",
+      "firstFingerprintUtc": "2026-11-10T05:39:23.101803+00:00"
+    },
+    {
+      "path": "scripts/verify-contracts.ts",
+      "sha256": "91209141600f334ae0643e9e9a7415c122973a8cad0d0fba5df2f9a0a1ea1e31",
+      "bytes": 7656,
+      "modifiedUtc": "2026-11-08T03:50:59.925475+00:00",
+      "firstFingerprintUtc": "2026-11-10T05:39:23.101803+00:00"
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-testnet-unresolved-checkpoint.json",
+      "sha256": "a833897d6eaabdac76db82fa06401b3335b08032078b6e4b6cf7be4f0aa89af8",
+      "bytes": 1068,
+      "modifiedUtc": "2026-11-09T09:39:04.727705+00:00",
+      "firstFingerprintUtc": "2026-11-10T05:39:23.101803+00:00"
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-velo-status-1794217433978.json",
+      "sha256": "c7e59d23cfdb77edda00d1a8e08e2cbf713b84cc3d24e809f54d3bd5f03f3806",
+      "bytes": 410,
+      "modifiedUtc": "2026-11-09T09:43:53.988966+00:00",
+      "firstFingerprintUtc": "2026-11-10T05:39:23.101803+00:00"
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-read-only-observation-1794217180681.json",
+      "sha256": "21f45aa73be6c2f33ab2c83af51f94e3d20128f14434d7e8adad6cdef030525e",
+      "bytes": 526,
+      "modifiedUtc": "2026-11-09T09:39:40.672135+00:00",
+      "firstFingerprintUtc": "2026-11-10T05:39:23.101803+00:00"
+    }
+  ],
+  "consistencyCheck": {
+    "observedUtc": "2026-11-10T05:39:23.101803+00:00",
+    "changedFiles": [
+      {
+        "path": "apps/server/src/worker/payment.ts",
+        "initialSha256": "19d00fc0d7ad5184349afb9e5a8e5c4646cc176757545ea7692d780e1fe014a9",
+        "finalSha256": "ba4c2c8cd0687e6d7bc7f3de7c7f8e16c3d75591b22909fd9e5318ae91cb0544"
+      },
+      {
+        "path": "tests/integration/payment-recovery.test.ts",
+        "initialSha256": "e2396a9eec8d5d0a5ba10deed019b67e906a9c10d9cbeaef98cf3fb583336a7f",
+        "finalSha256": "571da2793e25850798b3a2030531b07f3be59385ffc92bd0ef2dcc77dc97fa0c"
+      }
+    ],
+    "checkedFiles": 56
+  }
+}

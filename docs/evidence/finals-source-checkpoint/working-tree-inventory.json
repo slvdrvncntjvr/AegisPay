@@ -1,0 +1,4605 @@
+{
+  "observedAt": "2026-11-10T06:30:39.451266+00:00",
+  "head": "91f968011b8a8966512928579d85f745c2de38e7",
+  "taskId": "task_99ae5c2f2499",
+  "dispatchId": "ctx_12c267cf2a70",
+  "purpose": "Reviewable LOCAL checkpoint candidates only; no staging, commit, push, build, test, deployment or financial execution.",
+  "files": [
+    {
+      "path": ".env.example",
+      "state": "modified",
+      "bytes": 2604,
+      "category": "excluded_config"
+    },
+    {
+      "path": "apps/server/src/index.ts",
+      "state": "modified",
+      "bytes": 3961,
+      "category": "proposed"
+    },
+    {
+      "path": "apps/server/src/worker/continuity.ts",
+      "state": "untracked",
+      "bytes": 1398,
+      "category": "proposed"
+    },
+    {
+      "path": "apps/server/src/worker/ingress.ts",
+      "state": "untracked",
+      "bytes": 1284,
+      "category": "proposed"
+    },
+    {
+      "path": "apps/server/src/worker/live-adapter.ts",
+      "state": "untracked",
+      "bytes": 7101,
+      "category": "proposed"
+    },
+    {
+      "path": "apps/server/src/worker/payment.ts",
+      "state": "untracked",
+      "bytes": 14955,
+      "category": "proposed"
+    },
+    {
+      "path": "apps/server/src/worker/queue.ts",
+      "state": "untracked",
+      "bytes": 1622,
+      "category": "proposed"
+    },
+    {
+      "path": "apps/server/src/worker/runtime.ts",
+      "state": "untracked",
+      "bytes": 1412,
+      "category": "proposed"
+    },
+    {
+      "path": "apps/web/AGENTS.md",
+      "state": "untracked",
+      "bytes": 679,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "apps/web/public/fonts/OFL-Bricolage-Grotesque.txt",
+      "state": "untracked",
+      "bytes": 4403,
+      "category": "proposed"
+    },
+    {
+      "path": "apps/web/public/fonts/README.txt",
+      "state": "untracked",
+      "bytes": 439,
+      "category": "proposed"
+    },
+    {
+      "path": "apps/web/public/fonts/bricolage-grotesque.woff2",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "proposed"
+    },
+    {
+      "path": "apps/web/public/icon.svg",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "proposed"
+    },
+    {
+      "path": "apps/web/src/app/console.tsx",
+      "state": "modified",
+      "bytes": 15306,
+      "category": "proposed"
+    },
+    {
+      "path": "apps/web/src/app/globals.css",
+      "state": "modified",
+      "bytes": 30277,
+      "category": "proposed"
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "state": "modified",
+      "bytes": 577,
+      "category": "proposed"
+    },
+    {
+      "path": "apps/web/src/app/login/page.tsx",
+      "state": "modified",
+      "bytes": 2543,
+      "category": "proposed"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "state": "modified",
+      "bytes": 4381,
+      "category": "proposed"
+    },
+    {
+      "path": "apps/web/src/components/visual.tsx",
+      "state": "untracked",
+      "bytes": 1450,
+      "category": "proposed"
+    },
+    {
+      "path": "deployment/finals/README.md",
+      "state": "untracked",
+      "bytes": 10412,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "deployment/finals/proof-refresh/README.md",
+      "state": "untracked",
+      "bytes": 3596,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "deployment/finals/proof-refresh/anonymous.py",
+      "state": "untracked",
+      "bytes": 1597,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "deployment/finals/proof-refresh/browser.mjs",
+      "state": "untracked",
+      "bytes": 10774,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "deployment/finals/proof-refresh/links.py",
+      "state": "untracked",
+      "bytes": 2273,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "deployment/finals/proof-refresh/prepare.py",
+      "state": "untracked",
+      "bytes": 3667,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "deployment/finals/proof-refresh/provider.py",
+      "state": "untracked",
+      "bytes": 2553,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "deployment/finals/proof-refresh/run_cli.py",
+      "state": "untracked",
+      "bytes": 1472,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "deployment/finals/proof-refresh/scan.py",
+      "state": "untracked",
+      "bytes": 2425,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "deployment/finals/proof-refresh/seal.py",
+      "state": "untracked",
+      "bytes": 2437,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/DECISION-LEDGER.md",
+      "state": "modified",
+      "bytes": 17874,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/design-system.md",
+      "state": "modified",
+      "bytes": 7134,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-coordination.md",
+      "state": "untracked",
+      "bytes": 14662,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-identity-only-observation-1794288823393.json",
+      "state": "untracked",
+      "bytes": 1625,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-identity-only-observation-1794289316928.json",
+      "state": "untracked",
+      "bytes": 1625,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-read-only-observation-1794217180681.json",
+      "state": "untracked",
+      "bytes": 526,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-read-only-purchase-preflight-1794216580451.json",
+      "state": "untracked",
+      "bytes": 10170,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-single-status-detail-1794290430016.json",
+      "state": "untracked",
+      "bytes": 716,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-testnet-fixture-setup-no-purchase-1794216467460.json",
+      "state": "untracked",
+      "bytes": 10909,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-testnet-unresolved-checkpoint.json",
+      "state": "untracked",
+      "bytes": 1068,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-velo-status-1794217433978.json",
+      "state": "untracked",
+      "bytes": 410,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-payment/api-contract.md",
+      "state": "untracked",
+      "bytes": 11464,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-payment/integration.txt",
+      "state": "untracked",
+      "bytes": 198,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-payment/lint.txt",
+      "state": "untracked",
+      "bytes": 466,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-payment/review-fix-source-fingerprints-final.json",
+      "state": "untracked",
+      "bytes": 1268,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-payment/review-fix-source-fingerprints.json",
+      "state": "untracked",
+      "bytes": 1159,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-payment/review-fixes.md",
+      "state": "untracked",
+      "bytes": 10001,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-payment/root-typecheck.txt",
+      "state": "untracked",
+      "bytes": 1443,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-payment/spike.txt",
+      "state": "untracked",
+      "bytes": 5760,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-payment/task-005.md",
+      "state": "untracked",
+      "bytes": 14298,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-payment/unit.txt",
+      "state": "untracked",
+      "bytes": 637,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-payment/web-typecheck.txt",
+      "state": "untracked",
+      "bytes": 0,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/before/old-pdf.json",
+      "state": "untracked",
+      "bytes": 107,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/before/page-1.png",
+      "state": "untracked",
+      "bytes": 69500,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/before/page-2.png",
+      "state": "untracked",
+      "bytes": 85132,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/before/page-3.png",
+      "state": "untracked",
+      "bytes": 95257,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/before/page-4.png",
+      "state": "untracked",
+      "bytes": 90698,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/before/page-5.png",
+      "state": "untracked",
+      "bytes": 105494,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/before/page-6.png",
+      "state": "untracked",
+      "bytes": 96007,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/before/page-7.png",
+      "state": "untracked",
+      "bytes": 83272,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/before/page-8.png",
+      "state": "untracked",
+      "bytes": 113910,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/build_deck.py",
+      "state": "untracked",
+      "bytes": 22694,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/expected.json",
+      "state": "untracked",
+      "bytes": 1049,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/final_edits.py",
+      "state": "untracked",
+      "bytes": 6484,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/publication-readback.json",
+      "state": "untracked",
+      "bytes": 3183,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/style.css",
+      "state": "untracked",
+      "bytes": 9141,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/verify_browser.mjs",
+      "state": "untracked",
+      "bytes": 2998,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/verify_pdf.py",
+      "state": "untracked",
+      "bytes": 1995,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-pitch-refresh/write_report.py",
+      "state": "untracked",
+      "bytes": 19119,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-preflight/final-checks.json",
+      "state": "untracked",
+      "bytes": 1832,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-preflight/final-reconciliation-checks.json",
+      "state": "untracked",
+      "bytes": 1314,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-preflight/observations-current.json",
+      "state": "untracked",
+      "bytes": 13140,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-preflight/observations.json",
+      "state": "untracked",
+      "bytes": 12546,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-preflight/package-audit-current.json",
+      "state": "untracked",
+      "bytes": 8620,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-preflight/package-audit.json",
+      "state": "untracked",
+      "bytes": 8550,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-preflight/package-audit.py",
+      "state": "untracked",
+      "bytes": 4087,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-preflight/probe.py",
+      "state": "untracked",
+      "bytes": 7108,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-preflight/readiness.md",
+      "state": "untracked",
+      "bytes": 26332,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-preflight/render-access-2026-11-10-checks.json",
+      "state": "untracked",
+      "bytes": 1313,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-preflight/render-access-2026-11-10.json",
+      "state": "untracked",
+      "bytes": 2084,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-preflight/supplemental-current.json",
+      "state": "untracked",
+      "bytes": 3298,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-preflight/supplemental.py",
+      "state": "untracked",
+      "bytes": 4512,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/anonymous-origin-checks.json",
+      "state": "untracked",
+      "bytes": 3056,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/build-local.txt",
+      "state": "untracked",
+      "bytes": 584,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/browser-results.json",
+      "state": "untracked",
+      "bytes": 6514,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/desktop-full.png",
+      "state": "untracked",
+      "bytes": 229895,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/desktop-receipt.png",
+      "state": "untracked",
+      "bytes": 354320,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/desktop-recovery.png",
+      "state": "untracked",
+      "bytes": 116025,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/desktop-refusal.png",
+      "state": "untracked",
+      "bytes": 107368,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/desktop-viewport.png",
+      "state": "untracked",
+      "bytes": 107115,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/mobile320-full.png",
+      "state": "untracked",
+      "bytes": 169955,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/mobile320-identities.png",
+      "state": "untracked",
+      "bytes": 29750,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/mobile320-viewport.png",
+      "state": "untracked",
+      "bytes": 43899,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/mobile390-full.png",
+      "state": "untracked",
+      "bytes": 172640,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/mobile390-viewport.png",
+      "state": "untracked",
+      "bytes": 48864,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/projector-focused.png",
+      "state": "untracked",
+      "bytes": 81905,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/projector-full.png",
+      "state": "untracked",
+      "bytes": 214370,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/projector-viewport.png",
+      "state": "untracked",
+      "bytes": 92422,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-1.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-10.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-100.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-101.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-102.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-103.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-104.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-12.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-13.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-14.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-15.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-16.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-17.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-18.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-19.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-2.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-20.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-21.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-23.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-24.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-25.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-26.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-27.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-28.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-29.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-3.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-30.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-31.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-32.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-33.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-34.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-35.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-36.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-37.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-38.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-39.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-4.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-40.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-41.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-42.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-43.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-44.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-45.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-46.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-47.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-48.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-49.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-5.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-50.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-51.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-52.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-53.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-54.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-55.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-56.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-57.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-58.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-59.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-6.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-60.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-61.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-62.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-63.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-64.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-65.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-66.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-67.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-68.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-69.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-7.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-70.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-71.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-72.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-73.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-74.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-75.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-76.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-77.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-78.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-79.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-8.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-80.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-81.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-82.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-83.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-84.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-85.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-86.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-87.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-88.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-89.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-9.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-90.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-91.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-92.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-93.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-94.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-95.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-96.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-97.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-98.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-99.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/route-_api_demo_quick-signal_demo-parser.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/route-_api_health.bin",
+      "state": "untracked",
+      "bytes": 35,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/route-_api_session.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/route-_api_v1_catalog.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/route-_api_v1_receipts_example.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/route-_api_v1_runs.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/route-_api_v1_state.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/route-_app.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/route-_login.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/tablet-full.png",
+      "state": "untracked",
+      "bytes": 205530,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/tablet-viewport.png",
+      "state": "untracked",
+      "bytes": 88885,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-curl.txt",
+      "state": "untracked",
+      "bytes": 762,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-readback.json",
+      "state": "untracked",
+      "bytes": 3102,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/browser-results.json",
+      "state": "untracked",
+      "bytes": 6624,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/desktop-full.png",
+      "state": "untracked",
+      "bytes": 229895,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/desktop-receipt.png",
+      "state": "untracked",
+      "bytes": 354296,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/desktop-recovery.png",
+      "state": "untracked",
+      "bytes": 116025,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/desktop-refusal.png",
+      "state": "untracked",
+      "bytes": 107368,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/desktop-viewport.png",
+      "state": "untracked",
+      "bytes": 107115,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/mobile320-full.png",
+      "state": "untracked",
+      "bytes": 169955,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/mobile320-identities.png",
+      "state": "untracked",
+      "bytes": 29631,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/mobile320-viewport.png",
+      "state": "untracked",
+      "bytes": 43899,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/mobile390-full.png",
+      "state": "untracked",
+      "bytes": 172640,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/mobile390-viewport.png",
+      "state": "untracked",
+      "bytes": 48864,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/projector-focused.png",
+      "state": "untracked",
+      "bytes": 81905,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/projector-full.png",
+      "state": "untracked",
+      "bytes": 214370,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/projector-viewport.png",
+      "state": "untracked",
+      "bytes": 92422,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-1.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-10.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-100.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-101.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-102.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-103.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-104.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-12.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-13.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-14.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-15.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-16.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-17.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-18.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-19.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-2.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-20.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-21.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-23.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-24.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-25.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-26.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-27.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-28.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-29.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-3.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-30.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-31.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-32.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-33.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-34.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-35.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-36.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-37.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-38.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-39.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-4.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-40.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-41.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-42.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-43.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-44.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-45.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-46.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-47.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-48.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-49.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-5.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-50.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-51.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-52.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-53.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-54.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-55.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-56.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-57.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-58.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-59.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-6.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-60.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-61.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-62.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-63.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-64.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-65.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-66.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-67.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-68.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-69.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-7.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-70.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-71.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-72.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-73.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-74.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-75.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-76.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-77.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-78.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-79.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-8.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-80.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-81.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-82.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-83.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-84.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-85.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-86.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-87.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-88.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-89.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-9.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-90.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-91.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-92.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-93.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-94.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-95.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-96.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-97.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-98.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/response-99.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/route-_api_demo_quick-signal_demo-parser.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/route-_api_health.bin",
+      "state": "untracked",
+      "bytes": 35,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/route-_api_session.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/route-_api_v1_catalog.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/route-_api_v1_receipts_example.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/route-_api_v1_runs.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/route-_api_v1_state.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/route-_app.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/route-_login.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/tablet-full.png",
+      "state": "untracked",
+      "bytes": 205530,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/tablet-viewport.png",
+      "state": "untracked",
+      "bytes": 88885,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate/browser-results.json",
+      "state": "untracked",
+      "bytes": 11420,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/deploy-diagnostic.txt",
+      "state": "untracked",
+      "bytes": 17361,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/deploy-dry.json",
+      "state": "untracked",
+      "bytes": 6949,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/deploy-retry.txt",
+      "state": "untracked",
+      "bytes": 430,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/deploy.txt",
+      "state": "untracked",
+      "bytes": 262,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/documentation-gates.txt",
+      "state": "untracked",
+      "bytes": 738,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/external-links.json",
+      "state": "untracked",
+      "bytes": 2781,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/final-readback.json",
+      "state": "untracked",
+      "bytes": 3832,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/install.txt",
+      "state": "untracked",
+      "bytes": 2033,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/browser-results.json",
+      "state": "untracked",
+      "bytes": 6164,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/desktop-full.png",
+      "state": "untracked",
+      "bytes": 229895,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/desktop-receipt.png",
+      "state": "untracked",
+      "bytes": 353766,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/desktop-recovery.png",
+      "state": "untracked",
+      "bytes": 116025,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/desktop-refusal.png",
+      "state": "untracked",
+      "bytes": 107368,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/desktop-viewport.png",
+      "state": "untracked",
+      "bytes": 107115,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/mobile320-full.png",
+      "state": "untracked",
+      "bytes": 169955,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/mobile320-identities.png",
+      "state": "untracked",
+      "bytes": 29750,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/mobile320-viewport.png",
+      "state": "untracked",
+      "bytes": 43899,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/mobile390-full.png",
+      "state": "untracked",
+      "bytes": 172640,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/mobile390-viewport.png",
+      "state": "untracked",
+      "bytes": 48864,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/projector-focused.png",
+      "state": "untracked",
+      "bytes": 81905,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/projector-full.png",
+      "state": "untracked",
+      "bytes": 214370,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/projector-viewport.png",
+      "state": "untracked",
+      "bytes": 92422,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-1.bin",
+      "state": "untracked",
+      "bytes": 37153,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-10.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-100.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-101.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-102.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-103.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-104.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-105.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-11.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-13.bin",
+      "state": "untracked",
+      "bytes": 37153,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-14.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-15.bin",
+      "state": "untracked",
+      "bytes": 17142,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-16.bin",
+      "state": "untracked",
+      "bytes": 186805,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-17.bin",
+      "state": "untracked",
+      "bytes": 229282,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-18.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-19.bin",
+      "state": "untracked",
+      "bytes": 13995,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-2.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-20.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-22.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-23.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-24.bin",
+      "state": "untracked",
+      "bytes": 37153,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-25.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-26.bin",
+      "state": "untracked",
+      "bytes": 17142,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-27.bin",
+      "state": "untracked",
+      "bytes": 186805,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-28.bin",
+      "state": "untracked",
+      "bytes": 229282,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-29.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-3.bin",
+      "state": "untracked",
+      "bytes": 17142,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-30.bin",
+      "state": "untracked",
+      "bytes": 13995,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-31.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-33.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-34.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-35.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-36.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-37.bin",
+      "state": "untracked",
+      "bytes": 37153,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-38.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-39.bin",
+      "state": "untracked",
+      "bytes": 17142,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-4.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-40.bin",
+      "state": "untracked",
+      "bytes": 186805,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-41.bin",
+      "state": "untracked",
+      "bytes": 229282,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-42.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-43.bin",
+      "state": "untracked",
+      "bytes": 13995,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-44.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-46.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-47.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-48.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-49.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-5.bin",
+      "state": "untracked",
+      "bytes": 13995,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-50.bin",
+      "state": "untracked",
+      "bytes": 37153,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-51.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-52.bin",
+      "state": "untracked",
+      "bytes": 17142,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-53.bin",
+      "state": "untracked",
+      "bytes": 186805,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-54.bin",
+      "state": "untracked",
+      "bytes": 229282,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-55.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-56.bin",
+      "state": "untracked",
+      "bytes": 13995,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-57.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-59.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-6.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-60.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-61.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-62.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-63.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-64.bin",
+      "state": "untracked",
+      "bytes": 37153,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-65.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-66.bin",
+      "state": "untracked",
+      "bytes": 17142,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-67.bin",
+      "state": "untracked",
+      "bytes": 186805,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-68.bin",
+      "state": "untracked",
+      "bytes": 229282,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-69.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-7.bin",
+      "state": "untracked",
+      "bytes": 186805,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-70.bin",
+      "state": "untracked",
+      "bytes": 13995,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-71.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-73.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-74.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-75.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-76.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-77.bin",
+      "state": "untracked",
+      "bytes": 37153,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-78.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-79.bin",
+      "state": "untracked",
+      "bytes": 17142,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-8.bin",
+      "state": "untracked",
+      "bytes": 229282,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-80.bin",
+      "state": "untracked",
+      "bytes": 186805,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-81.bin",
+      "state": "untracked",
+      "bytes": 229282,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-82.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-83.bin",
+      "state": "untracked",
+      "bytes": 13995,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-84.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-86.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-87.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-88.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-89.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-9.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-90.bin",
+      "state": "untracked",
+      "bytes": 37153,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-91.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-92.bin",
+      "state": "untracked",
+      "bytes": 17142,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-93.bin",
+      "state": "untracked",
+      "bytes": 186805,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-94.bin",
+      "state": "untracked",
+      "bytes": 229282,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-95.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-96.bin",
+      "state": "untracked",
+      "bytes": 13995,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-97.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/response-99.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/route-_api_demo_quick-signal_demo-parser.bin",
+      "state": "untracked",
+      "bytes": 8120,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/route-_api_health.bin",
+      "state": "untracked",
+      "bytes": 35,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/route-_api_session.bin",
+      "state": "untracked",
+      "bytes": 8120,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/route-_api_v1_catalog.bin",
+      "state": "untracked",
+      "bytes": 8120,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/route-_api_v1_receipts_example.bin",
+      "state": "untracked",
+      "bytes": 8120,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/route-_api_v1_runs.bin",
+      "state": "untracked",
+      "bytes": 8120,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/route-_api_v1_state.bin",
+      "state": "untracked",
+      "bytes": 8120,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/route-_app.bin",
+      "state": "untracked",
+      "bytes": 8120,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/route-_login.bin",
+      "state": "untracked",
+      "bytes": 8120,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/tablet-full.png",
+      "state": "untracked",
+      "bytes": 205525,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/tablet-viewport.png",
+      "state": "untracked",
+      "bytes": 88885,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production-readback.json",
+      "state": "untracked",
+      "bytes": 3102,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/app-anonymous.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/browser-results.json",
+      "state": "untracked",
+      "bytes": 6433,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/catalog-anonymous.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/desktop-full.png",
+      "state": "untracked",
+      "bytes": 229895,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/desktop-receipt.png",
+      "state": "untracked",
+      "bytes": 353766,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/desktop-recovery.png",
+      "state": "untracked",
+      "bytes": 116025,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/desktop-refusal.png",
+      "state": "untracked",
+      "bytes": 107368,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/desktop-viewport.png",
+      "state": "untracked",
+      "bytes": 107115,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/health-anonymous.bin",
+      "state": "untracked",
+      "bytes": 35,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/login-anonymous.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/mobile320-full.png",
+      "state": "untracked",
+      "bytes": 169955,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/mobile320-identities.png",
+      "state": "untracked",
+      "bytes": 29750,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/mobile320-viewport.png",
+      "state": "untracked",
+      "bytes": 43899,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/mobile390-full.png",
+      "state": "untracked",
+      "bytes": 172619,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/mobile390-viewport.png",
+      "state": "untracked",
+      "bytes": 48864,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/projector-focused.png",
+      "state": "untracked",
+      "bytes": 81820,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/projector-full.png",
+      "state": "untracked",
+      "bytes": 214370,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/projector-viewport.png",
+      "state": "untracked",
+      "bytes": 92422,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/purchase-anonymous.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/report-anonymous.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-1.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-10.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-100.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-101.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-102.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-103.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-104.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-105.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-11.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-13.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-14.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-15.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-16.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-17.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-18.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-19.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-2.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-20.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-22.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-23.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-24.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-25.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-26.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-27.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-28.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-29.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-3.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-30.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-31.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-33.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-34.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-35.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-36.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-37.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-38.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-39.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-4.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-40.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-41.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-42.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-43.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-44.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-46.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-47.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-48.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-49.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-5.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-50.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-51.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-52.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-53.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-54.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-55.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-56.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-57.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-59.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-6.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-60.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-61.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-62.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-63.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-64.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-65.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-66.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-67.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-68.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-69.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-7.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-70.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-71.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-73.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-74.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-75.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-76.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-77.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-78.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-79.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-8.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-80.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-81.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-82.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-83.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-84.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-86.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-87.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-88.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-89.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-9.bin",
+      "state": "untracked",
+      "bytes": 205268,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-90.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-91.bin",
+      "state": "untracked",
+      "bytes": 29994,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-92.bin",
+      "state": "untracked",
+      "bytes": 17164,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-93.bin",
+      "state": "untracked",
+      "bytes": 186759,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-94.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-95.bin",
+      "state": "untracked",
+      "bytes": 9974,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-96.bin",
+      "state": "untracked",
+      "bytes": 13993,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-97.bin",
+      "state": "untracked",
+      "bytes": 16875,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/response-99.bin",
+      "state": "untracked",
+      "bytes": 265,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/root-anonymous.bin",
+      "state": "untracked",
+      "bytes": 37344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/route-_api_demo_quick-signal_demo-parser.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/route-_api_health.bin",
+      "state": "untracked",
+      "bytes": 35,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/route-_api_session.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/route-_api_v1_catalog.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/route-_api_v1_receipts_example.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/route-_api_v1_runs.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/route-_api_v1_state.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/route-_app.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/route-_login.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/rsc-anonymous.bin",
+      "state": "untracked",
+      "bytes": 12066,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/state-anonymous.bin",
+      "state": "untracked",
+      "bytes": 8281,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/tablet-full.png",
+      "state": "untracked",
+      "bytes": 205525,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/tablet-viewport.png",
+      "state": "untracked",
+      "bytes": 88885,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/promote.txt",
+      "state": "untracked",
+      "bytes": 283,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/provider-after-fetch-error.json",
+      "state": "untracked",
+      "bytes": 958,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/provider-before.json",
+      "state": "untracked",
+      "bytes": 958,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/scan-all-evidence.json",
+      "state": "untracked",
+      "bytes": 190,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/scan-built-client.json",
+      "state": "untracked",
+      "bytes": 210,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/scan-candidate-runtime.json",
+      "state": "untracked",
+      "bytes": 210,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/scan-local-runtime.json",
+      "state": "untracked",
+      "bytes": 197,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/scan-production-runtime.json",
+      "state": "untracked",
+      "bytes": 202,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/scan-source-and-build.json",
+      "state": "untracked",
+      "bytes": 185,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/source-closure-manifest.json",
+      "state": "untracked",
+      "bytes": 8540,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/staging-link.txt",
+      "state": "untracked",
+      "bytes": 294,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/task-015.md",
+      "state": "untracked",
+      "bytes": 17412,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/upload-manifest.json",
+      "state": "untracked",
+      "bytes": 9935,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-provider/diagnosis.md",
+      "state": "untracked",
+      "bytes": 12296,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-provider/inspect-primary.py",
+      "state": "untracked",
+      "bytes": 2897,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-provider/local-sdk-provenance.json",
+      "state": "untracked",
+      "bytes": 1982,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-provider/operator-request.md",
+      "state": "untracked",
+      "bytes": 5006,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-provider/primary-source-index.json",
+      "state": "untracked",
+      "bytes": 66762,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-provider/verification.json",
+      "state": "untracked",
+      "bytes": 1416,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-review/task-005-recheck-2026-11-10-fingerprints.json",
+      "state": "untracked",
+      "bytes": 6846,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-review/task-005-recheck-2026-11-10.md",
+      "state": "untracked",
+      "bytes": 11680,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-review/task-005-review.md",
+      "state": "untracked",
+      "bytes": 18964,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-review/task-005-source-fingerprints.json",
+      "state": "untracked",
+      "bytes": 14273,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-ui/accessibility-results.json",
+      "state": "untracked",
+      "bytes": 6512,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-ui/audit.mjs",
+      "state": "untracked",
+      "bytes": 4851,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-ui/browser-results.json",
+      "state": "untracked",
+      "bytes": 1543,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-ui/build.txt",
+      "state": "untracked",
+      "bytes": 810,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-ui/capture.mjs",
+      "state": "untracked",
+      "bytes": 4039,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/desktop-full.png",
+      "state": "untracked",
+      "bytes": 229895,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/desktop-login.png",
+      "state": "untracked",
+      "bytes": 53450,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/desktop-receipt.png",
+      "state": "untracked",
+      "bytes": 75386,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/desktop-recovery.png",
+      "state": "untracked",
+      "bytes": 109531,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/desktop-refusal.png",
+      "state": "untracked",
+      "bytes": 105931,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/desktop-viewport.png",
+      "state": "untracked",
+      "bytes": 107115,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/mobile320-full.png",
+      "state": "untracked",
+      "bytes": 169955,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/mobile320-identity.png",
+      "state": "untracked",
+      "bytes": 29750,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/mobile320-login.png",
+      "state": "untracked",
+      "bytes": 35356,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/mobile320-receipt-viewport.png",
+      "state": "untracked",
+      "bytes": 29436,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/mobile320-receipt.png",
+      "state": "untracked",
+      "bytes": 272560,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/mobile320-viewport.png",
+      "state": "untracked",
+      "bytes": 43899,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/mobile390-full.png",
+      "state": "untracked",
+      "bytes": 172640,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/mobile390-viewport.png",
+      "state": "untracked",
+      "bytes": 48864,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/projector-focused.png",
+      "state": "untracked",
+      "bytes": 81898,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/projector-full.png",
+      "state": "untracked",
+      "bytes": 214370,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/projector-viewport.png",
+      "state": "untracked",
+      "bytes": 92422,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/tablet-full.png",
+      "state": "untracked",
+      "bytes": 205530,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/tablet-viewport.png",
+      "state": "untracked",
+      "bytes": 88885,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/checkpoint-desktop.png",
+      "state": "untracked",
+      "bytes": 227332,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/checkpoint-projector.png",
+      "state": "untracked",
+      "bytes": 87842,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/current-projector.png",
+      "state": "untracked",
+      "bytes": 90025,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/current-projector2.png",
+      "state": "untracked",
+      "bytes": 94518,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/direction.md",
+      "state": "untracked",
+      "bytes": 1452,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-ui/e2e.txt",
+      "state": "untracked",
+      "bytes": 1016,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-ui/lint.txt",
+      "state": "untracked",
+      "bytes": 74,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-ui/playwright-results/.last-run.json",
+      "state": "untracked",
+      "bytes": 45,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-ui/preview.mjs",
+      "state": "untracked",
+      "bytes": 583,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-ui/references.md",
+      "state": "untracked",
+      "bytes": 3280,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-ui/references/IMPECCABLE-LICENSE.txt",
+      "state": "untracked",
+      "bytes": 10766,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/evidence/finals-ui/references/impeccable-SKILL.md",
+      "state": "untracked",
+      "bytes": 11762,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-ui/references/impeccable-reference-craft-floor.md",
+      "state": "untracked",
+      "bytes": 5532,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-ui/references/impeccable-reference-new-work.md",
+      "state": "untracked",
+      "bytes": 63005,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-ui/references/impeccable-reference-operate.md",
+      "state": "untracked",
+      "bytes": 4145,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-ui/references/impeccable-reference-polish.md",
+      "state": "untracked",
+      "bytes": 6646,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-ui/revision-mobile320.png",
+      "state": "untracked",
+      "bytes": 170177,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/revision-mobile390.png",
+      "state": "untracked",
+      "bytes": 170540,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/revision-projector.png",
+      "state": "untracked",
+      "bytes": 78221,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/source-manifest.json",
+      "state": "untracked",
+      "bytes": 2368,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/evidence/finals-ui/task-014.md",
+      "state": "untracked",
+      "bytes": 11616,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/evidence/finals-ui/typecheck.txt",
+      "state": "untracked",
+      "bytes": 73,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/finals-assessment/README.md",
+      "state": "untracked",
+      "bytes": 17272,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/finals-assessment/pitch-strategy.md",
+      "state": "untracked",
+      "bytes": 56179,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/finals-assessment/pitch/luma-primary-source.txt",
+      "state": "untracked",
+      "bytes": 561,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/finals-assessment/pitch/public-link-checks.json",
+      "state": "untracked",
+      "bytes": 2552,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/finals-assessment/pitch/submitted-page-1.png",
+      "state": "untracked",
+      "bytes": 65295,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/pitch/submitted-page-2.png",
+      "state": "untracked",
+      "bytes": 81214,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/pitch/submitted-page-3.png",
+      "state": "untracked",
+      "bytes": 90230,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/pitch/submitted-page-4.png",
+      "state": "untracked",
+      "bytes": 85359,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/pitch/submitted-page-5.png",
+      "state": "untracked",
+      "bytes": 99755,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/pitch/submitted-page-6.png",
+      "state": "untracked",
+      "bytes": 91959,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/pitch/submitted-page-7.png",
+      "state": "untracked",
+      "bytes": 81152,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/pitch/submitted-page-8.png",
+      "state": "untracked",
+      "bytes": 108061,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/pitch/submitted-pdf-text.txt",
+      "state": "untracked",
+      "bytes": 7724,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/finals-assessment/pitch/video-proof-frame.png",
+      "state": "untracked",
+      "bytes": 422732,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/pitch/video-site-frame.png",
+      "state": "untracked",
+      "bytes": 321772,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/technical-audit.md",
+      "state": "untracked",
+      "bytes": 40041,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/finals-assessment/technical/docs-check-results.json",
+      "state": "untracked",
+      "bytes": 447,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/finals-assessment/technical/docs-check.txt",
+      "state": "untracked",
+      "bytes": 236,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/finals-assessment/technical/inspection-failures.json",
+      "state": "untracked",
+      "bytes": 954,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/finals-assessment/technical/lint-rerun.txt",
+      "state": "untracked",
+      "bytes": 270,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/finals-assessment/technical/plan-check.txt",
+      "state": "untracked",
+      "bytes": 482,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/finals-assessment/technical/public-get-observations.json",
+      "state": "untracked",
+      "bytes": 6006,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/finals-assessment/technical/spike-rerun.txt",
+      "state": "untracked",
+      "bytes": 5741,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/finals-assessment/technical/text-encoding-observation.json",
+      "state": "untracked",
+      "bytes": 229,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/finals-assessment/technical/tsc-root.txt",
+      "state": "untracked",
+      "bytes": 0,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/finals-assessment/technical/tsc-web.txt",
+      "state": "untracked",
+      "bytes": 0,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/finals-assessment/technical/typecheck-results.json",
+      "state": "untracked",
+      "bytes": 477,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/finals-assessment/technical/unit-rerun.txt",
+      "state": "untracked",
+      "bytes": 636,
+      "category": "excluded_log"
+    },
+    {
+      "path": "docs/finals-assessment/ui-audit.md",
+      "state": "untracked",
+      "bytes": 26828,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/finals-assessment/ui/browser-observations.json",
+      "state": "untracked",
+      "bytes": 12457,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/finals-assessment/ui/capture-audit.mjs",
+      "state": "untracked",
+      "bytes": 4481,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/finals-assessment/ui/deck-page-1.png",
+      "state": "untracked",
+      "bytes": 82463,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/deck-page-3.png",
+      "state": "untracked",
+      "bytes": 112102,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/deck-page-8.png",
+      "state": "untracked",
+      "bytes": 136604,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/desktop-audit.png",
+      "state": "untracked",
+      "bytes": 133344,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/desktop-policy.png",
+      "state": "untracked",
+      "bytes": 144635,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/desktop-run.png",
+      "state": "untracked",
+      "bytes": 147631,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/inspect-details.mjs",
+      "state": "untracked",
+      "bytes": 2276,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/finals-assessment/ui/keyboard-focus.png",
+      "state": "untracked",
+      "bytes": 124186,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/mobile-audit.png",
+      "state": "untracked",
+      "bytes": 86276,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/mobile-first-viewport.png",
+      "state": "untracked",
+      "bytes": 60502,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/mobile-policy.png",
+      "state": "untracked",
+      "bytes": 98201,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/mobile-run.png",
+      "state": "untracked",
+      "bytes": 131616,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/orca-mobile-run.png",
+      "state": "untracked",
+      "bytes": 158246,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/projector-1280x720.png",
+      "state": "untracked",
+      "bytes": 122652,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/reference-langsmith.png",
+      "state": "untracked",
+      "bytes": 257670,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/reference-linear-loaded.png",
+      "state": "untracked",
+      "bytes": 225431,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/reference-linear-product.png",
+      "state": "untracked",
+      "bytes": 692100,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/reference-linear.png",
+      "state": "untracked",
+      "bytes": 18995,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/reference-stripe.png",
+      "state": "untracked",
+      "bytes": 306372,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/rendered-details.json",
+      "state": "untracked",
+      "bytes": 1381,
+      "category": "not_proposed_other_unreviewed_work"
+    },
+    {
+      "path": "docs/implementation-plan.md",
+      "state": "modified",
+      "bytes": 26754,
+      "category": "proposed"
+    },
+    {
+      "path": "docs/index.md",
+      "state": "modified",
+      "bytes": 5705,
+      "category": "proposed"
+    },
+    {
+      "path": "package.json",
+      "state": "modified",
+      "bytes": 3086,
+      "category": "proposed"
+    },
+    {
+      "path": "scripts/purchase-observe.ts",
+      "state": "untracked",
+      "bytes": 4796,
+      "category": "proposed"
+    },
+    {
+      "path": "scripts/purchase-setup.ts",
+      "state": "untracked",
+      "bytes": 6862,
+      "category": "proposed"
+    },
+    {
+      "path": "scripts/purchase-smoke.ts",
+      "state": "untracked",
+      "bytes": 13331,
+      "category": "proposed"
+    },
+    {
+      "path": "src/server/domain/evidence.ts",
+      "state": "modified",
+      "bytes": 7070,
+      "category": "proposed"
+    },
+    {
+      "path": "src/server/domain/purchases.ts",
+      "state": "modified",
+      "bytes": 12296,
+      "category": "proposed"
+    },
+    {
+      "path": "src/server/domain/wallet.ts",
+      "state": "modified",
+      "bytes": 14378,
+      "category": "proposed"
+    },
+    {
+      "path": "src/server/http/application.ts",
+      "state": "modified",
+      "bytes": 16699,
+      "category": "proposed"
+    },
+    {
+      "path": "src/server/http/wake.ts",
+      "state": "untracked",
+      "bytes": 799,
+      "category": "proposed"
+    },
+    {
+      "path": "src/server/integrations/spike-runtime.ts",
+      "state": "modified",
+      "bytes": 3881,
+      "category": "proposed"
+    },
+    {
+      "path": "src/server/integrations/wallet-inspection.ts",
+      "state": "untracked",
+      "bytes": 3212,
+      "category": "proposed"
+    },
+    {
+      "path": "src/server/merchant/receipts.ts",
+      "state": "untracked",
+      "bytes": 3644,
+      "category": "proposed"
+    },
+    {
+      "path": "src/server/merchant/reports.ts",
+      "state": "untracked",
+      "bytes": 1203,
+      "category": "quarantined_private_fixture"
+    },
+    {
+      "path": "tests/e2e/public-proof.spec.ts",
+      "state": "untracked",
+      "bytes": 8014,
+      "category": "proposed"
+    },
+    {
+      "path": "tests/integration/foundation.test.ts",
+      "state": "modified",
+      "bytes": 25443,
+      "category": "proposed"
+    },
+    {
+      "path": "tests/integration/http-boundaries.test.ts",
+      "state": "modified",
+      "bytes": 5209,
+      "category": "proposed"
+    },
+    {
+      "path": "tests/integration/payment-recovery.test.ts",
+      "state": "untracked",
+      "bytes": 18022,
+      "category": "proposed"
+    },
+    {
+      "path": "tests/integration/purchase-http.test.ts",
+      "state": "untracked",
+      "bytes": 9378,
+      "category": "proposed"
+    },
+    {
+      "path": "tests/integration/support/payment-adapter.ts",
+      "state": "untracked",
+      "bytes": 3338,
+      "category": "proposed"
+    },
+    {
+      "path": "tests/integration/wallet.test.ts",
+      "state": "modified",
+      "bytes": 9319,
+      "category": "proposed"
+    }
+  ],
+  "counts": {
+    "excluded_config": 1,
+    "proposed": 63,
+    "not_proposed_other_unreviewed_work": 85,
+    "excluded_log": 29,
+    "excluded_capture_or_binary": 565,
+    "quarantined_private_fixture": 1
+  },
+  "excludedLargestFiles": [
+    {
+      "path": "docs/finals-assessment/ui/reference-linear-product.png",
+      "state": "untracked",
+      "bytes": 692100,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/pitch/video-proof-frame.png",
+      "state": "untracked",
+      "bytes": 422732,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/desktop-receipt.png",
+      "state": "untracked",
+      "bytes": 354320,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/desktop-receipt.png",
+      "state": "untracked",
+      "bytes": 354296,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/desktop-receipt.png",
+      "state": "untracked",
+      "bytes": 353766,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/desktop-receipt.png",
+      "state": "untracked",
+      "bytes": 353766,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/pitch/video-site-frame.png",
+      "state": "untracked",
+      "bytes": 321772,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/reference-stripe.png",
+      "state": "untracked",
+      "bytes": 306372,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/mobile320-receipt.png",
+      "state": "untracked",
+      "bytes": 272560,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/finals-assessment/ui/reference-langsmith.png",
+      "state": "untracked",
+      "bytes": 257670,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/desktop-full.png",
+      "state": "untracked",
+      "bytes": 229895,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-verified/desktop-full.png",
+      "state": "untracked",
+      "bytes": 229895,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/local/desktop-full.png",
+      "state": "untracked",
+      "bytes": 229895,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/production/desktop-full.png",
+      "state": "untracked",
+      "bytes": 229895,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-ui/captures/desktop-full.png",
+      "state": "untracked",
+      "bytes": 229895,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-15.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-27.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-40.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-52.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    },
+    {
+      "path": "docs/evidence/finals-proof-deployment/candidate-authenticated/response-6.bin",
+      "state": "untracked",
+      "bytes": 229783,
+      "category": "excluded_capture_or_binary"
+    }
+  ],
+  "untouchedIndex": true,
+  "noIgnoreOverrides": true
+}

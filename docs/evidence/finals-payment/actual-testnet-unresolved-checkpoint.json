@@ -1,0 +1,28 @@
+{
+  "classification": "actual-testnet-payment-unresolved",
+  "observedAt": "2026-11-09T09:38:15.425Z",
+  "command": "corepack pnpm purchase:smoke --execute",
+  "exitCode": 1,
+  "code": "PAID_RESOURCE_GATE_UNRESOLVED",
+  "attempts": [
+    {
+      "attempt_id": "f69178b7-0b0b-46fa-8e82-65c2dd5deee5",
+      "quote_id": "2919ccca-2d31-4bc4-9140-649c8b1fc0ae",
+      "operation_id": "3ced1846-a7cd-4455-bb27-0b21a253f2c3",
+      "status": "unknown",
+      "nonce": "1",
+      "velo_request_id": "3ef113f6-0bb4-449a-ac6a-29407adb4ee5",
+      "velo_status": "claimed",
+      "inner_hash": "36f71d7ddee16271b6c23e73fa5ef1f1ca4f0e44e3d0a52ef6eca2115f80d0f8",
+      "outer_hash": null,
+      "handoff_committed_at": "2026-11-09 09:36:16.026075+00",
+      "error_code": "PAYMENT_STATUS_UNKNOWN",
+      "amount_stroops": "300000",
+      "expires_at": "2026-11-09 09:37:52.027+00",
+      "reserved_stroops": "300000",
+      "spent_stroops": "0",
+      "entitlement_count": "0"
+    }
+  ],
+  "resumePolicy": "observe original persisted identity only"
+}

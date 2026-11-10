@@ -1,5 +1,13 @@
 # Console UX specification
 
+## Finals redesign direction — 2026-11-09
+
+The user explicitly replaces the plain preparation-era visual defaults below with a substantial modern redesign, drawing from Magic UI, Watermelon UI and Impeccable craft guidance. The older palette, two-column layout and system display type are historical defaults, not constraints on the redesign. Preserve AegisPay, product truth, all evidence/privacy rules and the exact submitted URLs. Do not migrate the selected Next/Node/Postgres architecture or require a new UI framework.
+
+The public surface should make a specific useful task, bounded authority and independently verified receipt understandable immediately. Commit to an authored visual identity: distinctive self-hosted display typography, strong composition, an expressive integration/evidence graphic and restrained stateful motion, with a legible operational console. Choose color and light/dark treatment for actual projector/desktop/mobile use; no generic equal-card feature wall, decorative fake financial metrics or effects that imply fresh historical execution. Public recorded-proof mode stays explicit; full live actions depend on real backend gates.
+
+Magic UI and Watermelon UI are current component/pattern references, not a mandate to install every effect or add dependencies. Use licensed source responsibly. Motion must respect reduced-motion settings and carry meaning through state transitions. Verify rendered output at 320/390px, tablet, desktop and 1280×720; all identifiers remain accessible without horizontal document overflow. TASK-014 owns the independent public redesign; TASK-008 still owns the backend-integrated product console after TASK-006.
+
 **Status:** proposed MVP UI. No existing brand assets or rendered Figma file were supplied. Tokens below are explicitly chosen defaults, not transcribed from a codebase. Last specified: 2026-11-07; implementation sync pending TASK-008.
 
 ## Design principles

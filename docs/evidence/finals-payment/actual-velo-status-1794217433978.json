@@ -1,0 +1,13 @@
+{
+  "classification": "actual-velo-identity-only-status-observation",
+  "observedAt": "2026-11-09T09:43:53.977Z",
+  "identity": {
+    "requestId": "3ef113f6-0bb4-449a-ac6a-29407adb4ee5",
+    "transactionHash": "36f71d7ddee16271b6c23e73fa5ef1f1ca4f0e44e3d0a52ef6eca2115f80d0f8"
+  },
+  "observation": {
+    "code": "VELO_STATUS_OBSERVATION_UNAVAILABLE",
+    "httpStatus": 409
+  },
+  "financialDispatch": false
+}

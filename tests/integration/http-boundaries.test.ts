@@ -1,4 +1,5 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import { eq } from 'drizzle-orm';
 import { createTestDatabase } from './support/database.js';
 import { fixture } from './support/fixtures.js';
 import { issueSession, sessionCookie } from '../../src/server/auth/session.js';
@@ -43,5 +44,16 @@ describe('TC-024 request and response boundaries with real PostgreSQL', () => {
     expect(text).not.toContain(f.run.taskText); expect(text).not.toContain('toolCheckpoint');
     expect(sessionCookie('x', 'https://aegispay-live.vercel.app')).toContain('HttpOnly; SameSite=Strict; Max-Age=28800; Secure');
     expect(() => sessionCookie('x', 'http://external.test')).toThrow();
+  });
+  it('owner state exposes only explicit safe agent columns', async () => {
+    const f = await fixture(db.first);
+    await db.first.db.update(s.agent).set({ leaseOwner: 'INTERNAL_LEASE_SENTINEL', leaseUntil: new Date(Date.now() + 60000) }).where(eq(s.agent.id, f.agent.id));
+    const session = await issueSession(db.first, { role: 'owner', ownerId: f.owner.id });
+    const app = createApplication({ store: db.first, env: { APP_ORIGIN: 'http://localhost:3000' }, wallet: async () => { throw new Error('unused'); } });
+    const response = await app(new Request('http://localhost:3000/api/v1/state', { headers: { cookie: `aegispay_session=${session.token}` } }));
+    expect(response.status).toBe(200);
+    const value = await response.json() as { agent: Record<string, unknown> };
+    expect(Object.keys(value.agent).sort()).toEqual(['id', 'publicKey', 'deviceHash', 'network', 'deviceContractId', 'agentContractId', 'escrowContractId', 'assetContractId', 'status', 'policyMaxStroops', 'policyExpiresAt', 'policyObservedLedger'].sort());
+    expect(JSON.stringify(value)).not.toContain('INTERNAL_LEASE_SENTINEL');
   });
 });

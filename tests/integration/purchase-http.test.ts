@@ -1,0 +1,111 @@
+import { randomBytes, randomUUID } from 'node:crypto';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import { eq, sql } from 'drizzle-orm';
+import { createTestDatabase } from './support/database.ts';
+import { acceptInput, fixture } from './support/fixtures.ts';
+import { acceptQuote } from '../../src/server/domain/purchases.ts';
+import { syntheticAdapter } from './support/payment-adapter.ts';
+import { createApplication } from '../../src/server/http/application.ts';
+import { issueSession } from '../../src/server/auth/session.ts';
+import { receiptTokens } from '../../src/server/merchant/receipts.ts';
+import { paymentSnapshot } from '../../apps/server/src/worker/payment.ts';
+import { claimJob, finishJob } from '../../apps/server/src/worker/queue.ts';
+import { paymentConsumer } from '../../apps/server/src/worker/runtime.ts';
+import { workerIngress } from '../../apps/server/src/worker/ingress.ts';
+import * as s from '../../src/server/db/schema.ts';
+
+const origin = 'http://localhost:3000', secret = randomBytes(32).toString('base64url'), key = randomBytes(32);
+describe('TC-008/020/024/028/030/031 actual PostgreSQL HTTP paid resource', () => {
+  let db: Awaited<ReturnType<typeof createTestDatabase>>;
+  beforeAll(async () => { db = await createTestDatabase(); });
+  afterAll(async () => { await db.cleanup(); });
+  it('quotes immutable 402 terms, queues one acceptance and gates fixture by verified owner receipt', async () => {
+    const f = await fixture(db.first), other = await fixture(db.first);
+    await db.first.db.update(s.resource).set({ routeSlug: 'quick-signal', resourceKey: 'quick-signal:demo-parser:v1' }).where(eq(s.resource.id, f.resource.id));
+    const owner = await issueSession(db.first, { role: 'owner', ownerId: f.owner.id });
+    const foreign = await issueSession(db.first, { role: 'owner', ownerId: other.owner.id });
+    const merchant = await issueSession(db.first, { role: 'merchant', merchantId: f.merchant.id });
+    const worker = await issueSession(db.first, { role: 'worker', ownerId: other.owner.id, runId: other.run.id });
+    let wakes = 0;
+    const app = createApplication({ store: db.first, env: { APP_ORIGIN: origin, RECEIPT_SIGNING_KEY: secret }, wallet: async () => { throw new Error('unused'); }, wake: async () => { wakes++; throw new Error('SYNTHETIC_WAKE_FAILURE'); } });
+    const send = (path: string, token = owner.token, method = 'GET', body?: unknown, headers: Record<string, string> = {}) => app(new Request(origin + path, {
+      method, headers: { cookie: `aegispay_session=${token}`, ...(method === 'GET' ? {} : { origin, 'content-type': 'application/json' }), ...headers }, ...(body === undefined ? {} : { body: JSON.stringify(body) }),
+    }));
+    const path = `/api/demo/quick-signal?dependency=demo-parser&runId=${f.run.id}`;
+    expect((await send(path, '')).status).toBe(401);
+    expect((await send(path, merchant.token)).status).toBe(403);
+    expect((await send(path, foreign.token)).status).toBe(404);
+    expect((await send(path, '', 'GET', undefined, { authorization: `Bearer ${worker.token}` })).status).toBe(404);
+    const challenge = await send(path);
+    expect(challenge.status).toBe(402); expect(challenge.headers.get('cache-control')).toBe('no-store');
+    const q = await challenge.json() as { quoteId: string; amountStroops: string };
+    expect(q.amountStroops).toBe('300000'); expect(JSON.stringify(q)).not.toContain('AEGIS_PRIVATE');
+    expect(challenge.headers.get('aegis-quote')).toBe(q.quoteId);
+    expect((await send(path, owner.token, 'GET', undefined, { 'aegis-receipt': '' })).status).toBe(403);
+    const clientKey = randomUUID();
+    expect((await send('/api/v1/payment-attempts', owner.token, 'POST', { quoteId: q.quoteId, success: true }, { 'idempotency-key': clientKey })).status).toBe(400);
+    expect((await send('/api/v1/payment-attempts', owner.token, 'POST', { quoteId: q.quoteId }, { origin: 'https://foreign.example', 'idempotency-key': clientKey })).status).toBe(403);
+    const accepted = await send('/api/v1/payment-attempts', owner.token, 'POST', { quoteId: q.quoteId }, { 'idempotency-key': clientKey });
+    expect(accepted.status).toBe(202);
+    const a = await accepted.json() as { attemptId: string; operationId: string };
+    expect(await (await send('/api/v1/payment-attempts', owner.token, 'POST', { quoteId: q.quoteId }, { 'idempotency-key': randomUUID() })).json()).toMatchObject(a);
+    expect(wakes).toBe(2);
+    expect((await send(`/api/v1/payment-attempts/${a.attemptId}`, foreign.token)).status).toBe(404);
+    const pending = await (await send(`/api/v1/payment-attempts/${a.attemptId}`)).json() as { receiptId: string | null };
+    expect(pending.receiptId).toBeNull(); expect(JSON.stringify(pending)).not.toMatch(/cipher|signedXdr|SYNTHETIC-TEST-ONLY/i);
+    await db.first.db.update(s.resource).set({ priceStroops: '900000' }).where(eq(s.resource.id, f.resource.id));
+    expect((await paymentSnapshot(db.first, a.attemptId)).quote.amountStroops).toBe('300000');
+    const newer = await (await send(path)).json() as { amountStroops: string };
+    expect(newer.amountStroops).toBe('900000');
+    const t = syntheticAdapter(), sponsor = t.adapter.gas.sponsor;
+    t.adapter.gas.sponsor = async (envelope, input) => ({ ...await sponsor(envelope, input), transactionHash: (await paymentSnapshot(db.first, a.attemptId)).attempt.innerHash!, sourceWallet: f.agent.publicKey, targetContractIds: [f.agent.escrowContractId] });
+    const consumer = paymentConsumer({ store: db.first, key, receiptHash: receiptTokens(secret).hash, adapter: async () => t.adapter });
+    await consumer.wake();
+    const paid = await (await send(`/api/v1/payment-attempts/${a.attemptId}`)).json() as { status: string; receiptId: string };
+    expect(paid.status).toBe('authorized'); expect(t.counts.submit).toBe(1);
+    const metadata = await (await send(`/api/v1/receipts/${paid.receiptId}`)).json() as { aegisReceipt: string; validUntil: string };
+    expect(JSON.stringify(metadata)).not.toContain('AEGIS_PRIVATE');
+    expect(await (await send(`/api/v1/receipts/${paid.receiptId}`)).json()).toMatchObject(metadata);
+    expect((await send(`/api/v1/receipts/${paid.receiptId}/resource`, foreign.token)).status).toBe(404);
+    expect((await send(path, owner.token, 'GET', undefined, { 'aegis-receipt': 'copied-invalid-token' })).status).toBe(403);
+    const content = await send(path, owner.token, 'GET', undefined, { 'aegis-receipt': metadata.aegisReceipt });
+    expect(content.status).toBe(200); expect(content.headers.get('cache-control')).toBe('no-store');
+    expect(await content.text()).toContain('AEGIS_PRIVATE_QUICKSIGNAL_V1');
+    expect((await send(`/api/v1/receipts/${paid.receiptId}/resource`)).status).toBe(200);
+    expect(t.counts.submit).toBe(1);
+    // A receipt cannot authorize another provider even at an identical price.
+    await db.first.db.insert(s.resource).values({ id: randomUUID(), merchantId: f.merchant.id, routeSlug: 'deep-trace', resourceKey: 'deep-trace:demo-parser:v1', fixtureVersion: 'v1', description: 'Public demo metadata', priceStroops: '300000', assetContractId: f.agent.assetContractId, isDemo: true });
+    expect((await send(`/api/demo/deep-trace?dependency=demo-parser&runId=${f.run.id}`, owner.token, 'GET', undefined, { 'aegis-receipt': metadata.aegisReceipt })).status).toBe(403);
+    const [job] = await db.first.db.select().from(s.job).where(eq(s.job.entityId, a.attemptId));
+    expect(job!.status).toBe('done');
+    const [run] = await db.first.db.select().from(s.agentRun).where(eq(s.agentRun.id, f.run.id));
+    expect(run!.reservedStroops).toBe('0'); expect(run!.spentStroops).toBe('300000');
+  });
+  it('filters model jobs and fences stale SQL queue ownership', async () => {
+    const f = await fixture(db.first);
+    await acceptQuote(db.first, acceptInput(f));
+    const jobs = await Promise.all([claimJob(db.first), claimJob(db.second)]);
+    const job = jobs.find(Boolean)!;
+    expect(job.kind).toBe('reconcile');
+    await db.first.db.update(s.job).set({ leaseUntil: sql`clock_timestamp() - interval '1 second'` }).where(eq(s.job.id, job.id));
+    expect(await finishJob(db.first, job, true)).toBe(false);
+    const reclaimed = await claimJob(db.second);
+    expect(reclaimed!.id).toBe(job.id); expect(reclaimed!.leaseOwner).not.toBe(job.leaseOwner);
+    expect(await finishJob(db.first, job, true)).toBe(false);
+    expect(await finishJob(db.second, reclaimed!, true)).toBe(true);
+  });
+});
+
+describe('worker wake boundary', () => {
+  it('accepts only authenticated empty machine wake requests', async () => {
+    let wakes = 0;
+    const token = randomBytes(32).toString('base64url'), handler = workerIngress(token, () => { wakes++; });
+    const send = (body: string, headers: Record<string, string> = {}) => handler(new Request('http://localhost/wake', { method: 'POST', body, headers: { 'content-type': 'application/json', authorization: `Bearer ${token}`, ...headers } }));
+    expect((await send('{}', { authorization: 'Bearer wrong' })).status).toBe(401);
+    expect((await send('{}', { origin })).status).toBe(403);
+    expect((await send('{')).status).toBe(400);
+    expect((await send(' '.repeat(1025))).status).toBe(413);
+    expect((await send('{"signedXdr":"fake"}')).status).toBe(400);
+    expect((await send('{}')).status).toBe(202); expect(wakes).toBe(1);
+  });
+});

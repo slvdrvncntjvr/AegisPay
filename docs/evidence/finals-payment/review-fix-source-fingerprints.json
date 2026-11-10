@@ -1,0 +1,33 @@
+{
+  "observedAt": "2026-11-10T06:01:52.2190317Z",
+  "taskId": "task_ebef123ec7c2",
+  "dispatchId": "ctx_2ada0a31a5b9",
+  "workRef": "orca:run_3bfef6dba661/payment",
+  "head": "91f968011b8a8966512928579d85f745c2de38e7",
+  "files": [
+    {
+      "path": "apps/server/src/worker/payment.ts",
+      "sha256": "7d1bc8a3fcbf90d6bdb7a3ff720041692e9f597eb5831170b85e5b3ed0de6804"
+    },
+    {
+      "path": "src/server/domain/wallet.ts",
+      "sha256": "67fa6ea4fc6a6da0a2ed621a5c0b67931a4643a3dc6f8cbae73b2b5ffe39aad4"
+    },
+    {
+      "path": "src/server/http/application.ts",
+      "sha256": "fe5e4d69d2eb38152ac35824fd76c5bbaf018c0c591d5fa17bae1f33165ac7d9"
+    },
+    {
+      "path": "tests/integration/payment-recovery.test.ts",
+      "sha256": "11ec720f3655a9ed6f91e4134f46e490bd70781cd3e2623b4220e53608899f76"
+    },
+    {
+      "path": "tests/integration/wallet.test.ts",
+      "sha256": "6336d5e66c3ab81c3ae5a255579e7d6bca32f93f1c53e822cdee3c7d0a1fd44b"
+    },
+    {
+      "path": "tests/integration/http-boundaries.test.ts",
+      "sha256": "8d2409127bded872e1087821df5370515062ff53f5777b675d0fdbf833368dcb"
+    }
+  ]
+}

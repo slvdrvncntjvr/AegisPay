@@ -1,0 +1,43 @@
+{
+  "classification": "actual-testnet-identity-only-observation",
+  "observedAt": "2026-11-10T05:33:43.391Z",
+  "persisted": {
+    "attempt_id": "f69178b7-0b0b-46fa-8e82-65c2dd5deee5",
+    "quote_id": "2919ccca-2d31-4bc4-9140-649c8b1fc0ae",
+    "operation_id": "3ced1846-a7cd-4455-bb27-0b21a253f2c3",
+    "status": "unknown",
+    "nonce": "1",
+    "velo_request_id": "3ef113f6-0bb4-449a-ac6a-29407adb4ee5",
+    "velo_status": "claimed",
+    "inner_hash": "36f71d7ddee16271b6c23e73fa5ef1f1ca4f0e44e3d0a52ef6eca2115f80d0f8",
+    "outer_hash": null,
+    "handoff_committed_at": "2026-11-09T09:36:16.026Z",
+    "reserved_stroops": "300000",
+    "spent_stroops": "0",
+    "last_nonce": "1",
+    "device_hash": "790905edd7c6d36e300d0149ed6d73ef60db6bcc6635c50fa2b7312dc7bbeb7c",
+    "merchant_address": "GC3SHUY27GQV7Z5IPHFQWPQJR6SL2CCS72FVNZALHQVX5D7IGGPWHVEX",
+    "ciphertext_present": false,
+    "agent_lease_active": false,
+    "entitlement_count": "0",
+    "attempt_count": "1"
+  },
+  "identity": {
+    "requestId": "3ef113f6-0bb4-449a-ac6a-29407adb4ee5",
+    "transactionHash": "36f71d7ddee16271b6c23e73fa5ef1f1ca4f0e44e3d0a52ef6eca2115f80d0f8"
+  },
+  "velo": {
+    "code": "VELO_STATUS_OBSERVATION_UNAVAILABLE",
+    "httpStatus": 409
+  },
+  "chain": {
+    "status": "NOT_FOUND",
+    "queriedInnerHash": "36f71d7ddee16271b6c23e73fa5ef1f1ca4f0e44e3d0a52ef6eca2115f80d0f8",
+    "ledger": null
+  },
+  "escrowStroops": "10000000",
+  "pendingStroops": "0",
+  "financialDispatch": false,
+  "entitlementGranted": false,
+  "resolution": "observation-only; missing RPC data or provider conflict never establishes terminal failure"
+}

@@ -7,7 +7,7 @@ import { and, eq } from 'drizzle-orm';
 import { accountSchema, contractSchema, amountSchema, nonceSchema, hashSchema, uuidSchema, unsignedAmountSchema } from '@aegispay/shared';
 import type { Store } from '../db/connection.ts';
 import * as s from '../db/schema.ts';
-import { databaseTime, deny, lockScope } from './purchases.ts';
+import { assertWorkerFence, databaseTime, deny, lockScope, type WorkerFence } from './purchases.ts';
 
 const observationSchema = z.strictObject({
   ownerId: uuidSchema, agentId: uuidSchema, runId: uuidSchema, quoteId: uuidSchema, attemptId: uuidSchema,
@@ -22,10 +22,11 @@ export type VerifiedObservation = z.infer<typeof observationSchema>;
 export type ReceiptContext = { id: string; ownerId: string; resourceKey: string; validUntil: Date };
 export type ReceiptHashFactory = (context: ReceiptContext) => string;
 
-export async function attachVerifiedEvidence(store: Store, input: unknown, receiptHash: ReceiptHashFactory) {
+export async function attachVerifiedEvidence(store: Store, input: unknown, receiptHash: ReceiptHashFactory, fence?: WorkerFence) {
   const proof = observationSchema.parse(input);
   return store.transaction(async db => {
     const { agent, run } = await lockScope(db, proof);
+    await assertWorkerFence(db, agent, fence);
     const [quote] = await db.select().from(s.quote).where(and(eq(s.quote.id, proof.quoteId), eq(s.quote.ownerId, proof.ownerId), eq(s.quote.agentId, agent.id), eq(s.quote.runId, run.id))).for('update');
     if (!quote) deny('NOT_FOUND');
     const [attempt] = await db.select().from(s.paymentAttempt).where(and(eq(s.paymentAttempt.id, proof.attemptId), eq(s.paymentAttempt.quoteId, quote.id), eq(s.paymentAttempt.ownerId, proof.ownerId), eq(s.paymentAttempt.agentId, agent.id))).for('update');
@@ -62,7 +63,7 @@ export async function attachVerifiedEvidence(store: Store, input: unknown, recei
     const amount = BigInt(quote.amountStroops);
     if (BigInt(run.reservedStroops) < amount) deny('BUDGET_RESERVATION_MISSING');
     await db.update(s.agentRun).set({ reservedStroops: (BigInt(run.reservedStroops) - amount).toString(), spentStroops: (BigInt(run.spentStroops) + amount).toString(), status: 'running' }).where(eq(s.agentRun.id, run.id));
-    await db.update(s.paymentAttempt).set({ status: 'authorized', updatedAt: verifiedAt }).where(and(eq(s.paymentAttempt.id, attempt.id), eq(s.paymentAttempt.status, attempt.status)));
+    await db.update(s.paymentAttempt).set({ status: 'authorized', errorCode: null, updatedAt: verifiedAt }).where(and(eq(s.paymentAttempt.id, attempt.id), eq(s.paymentAttempt.status, attempt.status)));
     await db.update(s.quote).set({ status: 'paid' }).where(eq(s.quote.id, quote.id));
     await db.insert(s.auditEvent).values({ actorKind: 'worker', actorId: agent.id, entityKind: 'attempt', entityId: attempt.id, kind: 'authorization_verified', correlationId: attempt.operationId, safeMetadata: { quoteId: quote.id, evidenceId: evidence!.id, innerHash: proof.innerHash } });
     return grant!;

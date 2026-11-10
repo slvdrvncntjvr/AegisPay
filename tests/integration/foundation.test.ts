@@ -182,10 +182,10 @@ describe('actual PostgreSQL financial foundation', () => {
     await expect(testDb.first.db.update(s.agentRun).set({ reservedStroops: '0' }).where(eq(s.agentRun.id, f.run.id))).rejects.toThrow();
   });
   it('late verification after timely handoff grants the original terms and normal window', async () => {
-    const f = await fixture(testDb.first, { quoteTtlMs: 500 });
+    const f = await fixture(testDb.first, { quoteTtlMs: 5000 });
     const a = await acceptQuote(testDb.first, acceptInput(f));
     const proof = await observedProof(testDb.first, f, a);
-    await new Promise(resolve => setTimeout(resolve, 600));
+    await testDb.first.db.execute(sql`select pg_sleep(greatest(0, extract(epoch from ${f.quote.expiresAt}::timestamptz - clock_timestamp())) + 0.05)`);
     const grant = await attachVerifiedEvidence(testDb.first, proof, () => '1'.repeat(64));
     expect(grant.validUntil.getTime() - grant.createdAt.getTime()).toBe(900000);
     expect(grant.createdAt.getTime()).toBeGreaterThan(f.quote.expiresAt.getTime());

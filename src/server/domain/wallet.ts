@@ -9,7 +9,7 @@ import * as s from '../db/schema.ts';
 import type { Principal } from '../auth/session.ts';
 import { requireRole } from '../auth/session.ts';
 import { databaseTime, deny } from './purchases.ts';
-import { inspectWalletOperation, type SpikeConfig, type WalletOperation } from '../integrations/spike-runtime.ts';
+import { inspectWalletOperation, type SpikeConfig, type WalletOperation } from '../integrations/wallet-inspection.ts';
 
 export const walletInput = z.discriminatedUnion('kind', [
   z.strictObject({ kind: z.literal('registerDevice') }),
@@ -18,6 +18,14 @@ export const walletInput = z.discriminatedUnion('kind', [
   z.strictObject({ kind: z.enum(['revokeAgent', 'sweepOnRevoke', 'claim']) }),
 ]);
 type WalletInput = z.infer<typeof walletInput>;
+// UPDATE evaluates the current row under PostgreSQL's row lock. A stale RPC
+// snapshot must never undo an operator suspension committed during that read.
+export function observedPolicyStatus(hasPolicy: boolean, revoked = false) {
+  return sql`CASE WHEN ${s.agent.status} = 'disabled' THEN 'disabled'
+    WHEN ${hasPolicy} THEN 'active'
+    WHEN ${revoked} OR ${s.agent.status} = 'revoked' THEN 'revoked'
+    ELSE 'unprovisioned' END`;
+}
 export interface WalletGateway {
   config: SpikeConfig;
   prepare(source: string, operation: WalletOperation): Promise<string>;
@@ -166,7 +174,7 @@ export async function observeWallet(store: Store, actor: Principal, id: string, 
     }
     await store.transaction(async db => {
       await db.update(s.walletOperation).set({ status: 'confirmed', updatedAt: sql`clock_timestamp()` }).where(and(eq(s.walletOperation.id, id), sql`${s.walletOperation.status} IN ('submitting','unknown')`));
-      if (agent) await db.update(s.agent).set({ status: policy ? 'active' : row.operationKind === 'revokeAgent' || agent.status === 'revoked' ? 'revoked' : 'unprovisioned', policyMaxStroops: policy?.maxAmount.toString() ?? '0', policyExpiresAt: policy?.expiresAt ?? new Date(0), policyObservedLedger: BigInt(chain.ledger) }).where(eq(s.agent.id, agent.id));
+      if (agent) await db.update(s.agent).set({ status: observedPolicyStatus(policy !== null, row.operationKind === 'revokeAgent'), policyMaxStroops: policy?.maxAmount.toString() ?? '0', policyExpiresAt: policy?.expiresAt ?? new Date(0), policyObservedLedger: BigInt(chain.ledger) }).where(eq(s.agent.id, agent.id));
       if (op.kind === 'claim') await db.update(s.merchantClaim).set({ status: 'confirmed', txHash: row.txHash, observedClaimAmountStroops: claimAmount, confirmedAt: sql`clock_timestamp()` }).where(eq(s.merchantClaim.walletOperationId, id));
     });
     return { ...walletView(row), status: 'confirmed', ledger: chain.ledger };

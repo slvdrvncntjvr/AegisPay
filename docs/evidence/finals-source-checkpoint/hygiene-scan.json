@@ -1,0 +1,544 @@
+{
+  "observedAt": "2026-11-10T06:30:39.451266+00:00",
+  "head": "91f968011b8a8966512928579d85f745c2de38e7",
+  "taskId": "task_99ae5c2f2499",
+  "dispatchId": "ctx_12c267cf2a70",
+  "purpose": "Reviewable LOCAL checkpoint candidates only; no staging, commit, push, build, test, deployment or financial execution.",
+  "configurationFilePresence": {
+    ".env.worker.local": true,
+    ".env.spike.local": true,
+    ".env.integration.local": true,
+    ".env.local": false,
+    "apps/web/.env.local": false
+  },
+  "knownPrivateValuesAvailableInMemory": true,
+  "candidates": [
+    {
+      "path": "apps/server/src/index.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/server/src/worker/continuity.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/server/src/worker/ingress.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/server/src/worker/live-adapter.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/server/src/worker/payment.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/server/src/worker/queue.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/server/src/worker/runtime.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/web/public/fonts/OFL-Bricolage-Grotesque.txt",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/web/public/fonts/README.txt",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/web/public/fonts/bricolage-grotesque.woff2",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": true
+    },
+    {
+      "path": "apps/web/public/icon.svg",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/web/src/app/console.tsx",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/web/src/app/globals.css",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/web/src/app/login/page.tsx",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/web/src/components/visual.tsx",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/web/src/components/wallet.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "apps/web/src/lib/public-proof.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/DECISION-LEDGER.md",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/design-system.md",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-identity-only-observation-1794288823393.json",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-identity-only-observation-1794289316928.json",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-read-only-purchase-preflight-1794216580451.json",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-single-status-detail-1794290430016.json",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-testnet-fixture-setup-no-purchase-1794216467460.json",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-testnet-unresolved-checkpoint.json",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-velo-status-1794217433978.json",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/api-contract.md",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/review-fix-source-fingerprints-final.json",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/review-fix-source-fingerprints.json",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/review-fixes.md",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/task-005.md",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-provider/diagnosis.md",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-provider/inspect-primary.py",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-provider/local-sdk-provenance.json",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-provider/operator-request.md",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-provider/primary-source-index.json",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-provider/verification.json",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-review/task-005-recheck-2026-11-10-fingerprints.json",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-review/task-005-recheck-2026-11-10.md",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-review/task-005-review.md",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-review/task-005-source-fingerprints.json",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/evidence/finals-ui/source-manifest.json",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/implementation-plan.md",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "docs/index.md",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "package.json",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "scripts/purchase-observe.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "scripts/purchase-setup.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "scripts/purchase-smoke.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "src/server/domain/evidence.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "src/server/domain/purchases.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "src/server/domain/wallet.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "src/server/http/application.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "src/server/http/wake.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "src/server/integrations/spike-runtime.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "src/server/integrations/wallet-inspection.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "src/server/merchant/receipts.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "tests/e2e/public-proof.spec.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "tests/integration/foundation.test.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "tests/integration/http-boundaries.test.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "tests/integration/payment-recovery.test.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "tests/integration/purchase-http.test.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": true,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "tests/integration/support/payment-adapter.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    },
+    {
+      "path": "tests/integration/wallet.test.ts",
+      "knownPrivateValueMatch": false,
+      "stellarSecretLiteralMatch": false,
+      "nonemptySerializedSensitiveField": false,
+      "fixtureSentinelReference": false,
+      "binaryAcceptedAsset": false
+    }
+  ],
+  "unsafeCandidatePaths": [],
+  "limitations": [
+    "No OCR/binary secret proof",
+    "Known-values scan cannot rule out unknown, encoded or previously rotated credentials",
+    "Server-only fixture source is quarantined under private-report exclusion; sentinel references in tests/docs are not report body exports",
+    "Local configuration contents, signed journals and raw logs are excluded and never serialized"
+  ]
+}

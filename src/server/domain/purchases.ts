@@ -6,11 +6,17 @@ import * as s from '../db/schema.ts';
 
 export interface Scope { ownerId: string; agentId: string; runId: string }
 export interface AcceptInput extends Scope { quoteId: string; clientKey: string }
+export interface WorkerFence { leaseOwner: string }
 export class DomainError extends Error { constructor(readonly code: string) { super(code); } }
 export function deny(code: string): never { throw new DomainError(code); }
 export async function databaseTime(db: Database): Promise<Date> {
   const result = await db.execute<{ now: Date }>(sql`select clock_timestamp() as now`);
   return new Date(result.rows[0]!.now);
+}
+// Called only after lockScope acquired the agent row. A stale worker cannot
+// release another worker's reservation or commit a grant after losing its lease.
+export async function assertWorkerFence(db: Database, agent: typeof s.agent.$inferSelect, fence?: WorkerFence) {
+  if (fence && (agent.leaseOwner !== fence.leaseOwner || !agent.leaseUntil || agent.leaseUntil <= await databaseTime(db))) deny('LEASE_LOST');
 }
 function validateScope(scope: Scope) { for (const value of [scope.ownerId, scope.agentId, scope.runId]) uuidSchema.parse(value); }
 
@@ -118,9 +124,10 @@ export async function acceptQuote(store: Store, input: AcceptInput, operationId:
 
 // Definitive local refusal/expiry is not live contract enforcement. This helper
 // cannot release an unresolved handoff; chain failure resolution is a later task.
-export async function refuseBeforeHandoff(store: Store, input: Scope & { quoteId: string; attemptId: string }, status: 'refused' | 'expired') {
+export async function refuseBeforeHandoff(store: Store, input: Scope & { quoteId: string; attemptId: string }, status: 'refused' | 'expired', fence?: WorkerFence) {
   return store.transaction(async db => {
-    const { run } = await lockScope(db, input);
+    const { agent, run } = await lockScope(db, input);
+    await assertWorkerFence(db, agent, fence);
     const [quote] = await db.select().from(s.quote).where(and(eq(s.quote.id, input.quoteId), eq(s.quote.ownerId, input.ownerId), eq(s.quote.agentId, input.agentId), eq(s.quote.runId, input.runId))).for('update');
     if (!quote) deny('NOT_FOUND');
     const [attempt] = await db.select().from(s.paymentAttempt).where(and(eq(s.paymentAttempt.id, input.attemptId), eq(s.paymentAttempt.quoteId, quote.id))).for('update');

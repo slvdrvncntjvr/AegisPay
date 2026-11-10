@@ -1,0 +1,20 @@
+{
+  "classification": "actual-testnet-single-identity-status-detail",
+  "observedAt": "2026-11-10T06:00:30.015Z",
+  "sdkVersion": "1.0.0",
+  "identity": {
+    "requestId": "3ef113f6-0bb4-449a-ac6a-29407adb4ee5",
+    "transactionHash": "36f71d7ddee16271b6c23e73fa5ef1f1ca4f0e44e3d0a52ef6eca2115f80d0f8"
+  },
+  "observation": {
+    "kind": "sdk-error",
+    "name": "VeloValidationError",
+    "code": "reservation_expired",
+    "httpStatus": 409,
+    "requestId": "4db7ad55-5519-4e79-9442-a366474099cd"
+  },
+  "statusCalls": 1,
+  "financialDispatch": false,
+  "applicationMutation": false,
+  "resolution": "not definitive terminal non-success; preserve original held/unentitled state pending provider reconciliation"
+}

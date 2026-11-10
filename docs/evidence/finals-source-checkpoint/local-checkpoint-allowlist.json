@@ -1,0 +1,697 @@
+{
+  "observedAt": "2026-11-10T06:38:50.597119+00:00",
+  "baselineCommit": "91f968011b8a8966512928579d85f745c2de38e7",
+  "scope": "LOCAL Git checkpoint only; no push, deployment or payment action",
+  "acceptedUiAndRepairHashesMatch": true,
+  "requiredFixtureSourceIncludedLocally": true,
+  "fixtureRuntimeAccessRulesUnchanged": true,
+  "environmentTemplateOnly": true,
+  "knownValuesAvailableInMemory": true,
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "4606833c021b4331ea7e443e850b350308a9423c0362ec77d4a54a9f48313924",
+      "bytes": 2604,
+      "gitBlob": "a6a084e487c5b6ada5cf4fd63435e18767a856d7",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/server/src/index.ts",
+      "sha256": "5af6fd94f6f7b3f1a8eab6007fdccd96aed75a57ef5101eb625a4f3b099f6158",
+      "bytes": 3961,
+      "gitBlob": "525b435766f0f421d3801647166257ef7a9c44ac",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/server/src/worker/continuity.ts",
+      "sha256": "7d6e16e367dd80c09c7a39157185c907f92aae64e07cb2841cfde26a11b45148",
+      "bytes": 1398,
+      "gitBlob": "7dc46119b1bc030de9e5ece6435046ea940de02c",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/server/src/worker/ingress.ts",
+      "sha256": "31af7bd74c6f07eefc148915176e2bd8aae0a98594260114cd1f88aefe0ef854",
+      "bytes": 1284,
+      "gitBlob": "f8346abf8f5e03527f03eb3df633221a97234d67",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/server/src/worker/live-adapter.ts",
+      "sha256": "a22ae3429ecf04e8c1bcc8bc18a1ca3ea1752ce8553e3ab0e7421a1a5b0724c5",
+      "bytes": 7101,
+      "gitBlob": "2fd8dd35b979de1359980cea36aeda9c00609aa3",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/server/src/worker/payment.ts",
+      "sha256": "8f948da34ee8c574db3e7ff8e25645992af19da79caba3de09361ae1d17490cc",
+      "bytes": 14955,
+      "gitBlob": "9d25f6f91da13c78f93e5de64d8b5526e7b7ddbe",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/server/src/worker/queue.ts",
+      "sha256": "507ab3b3041b476459b22285eef607b48619821a451e62f59310d6692f2c0985",
+      "bytes": 1622,
+      "gitBlob": "f33e1a10a3258e7a3c68f27a9a5f66f276268e03",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/server/src/worker/runtime.ts",
+      "sha256": "baebd775d124e9bb62c9b1d1305ebfc752fdb8bc85495ef466be840b94a06e28",
+      "bytes": 1412,
+      "gitBlob": "cf0b0638b03e05cddc89fc2031545b8bc0276517",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/web/public/fonts/OFL-Bricolage-Grotesque.txt",
+      "sha256": "4b5a7d8f37f5602621c8a8d7358a6a2e71317e6c231c661e15aef0275d3e07ba",
+      "bytes": 4403,
+      "gitBlob": "a397658a5c4ab27c349964553b7caca61a4346f6",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/web/public/fonts/README.txt",
+      "sha256": "732348aeb5b24c91f58bf3fe44c66d2114674e66ab818579c6aba5fbd19109a8",
+      "bytes": 439,
+      "gitBlob": "c2a0d7fae1866e85f96807422efabf4ba0f7f95f",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/web/public/fonts/bricolage-grotesque.woff2",
+      "sha256": "93afc0e7a3564954f131b319d3564dfbbc022b224dbaff664fa455f57affed25",
+      "bytes": 205268,
+      "gitBlob": "a7fa3310b16546dfc9bca638ad4fbcc387e9de07",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/web/public/icon.svg",
+      "sha256": "666d7c4473e44f73b76b40d5c5598b67e5cad9c5bf81677ab7e20604e4921ea2",
+      "bytes": 265,
+      "gitBlob": "2cecadbc1b2bf771a280eb1172aa86b3fb5518db",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/web/src/app/console.tsx",
+      "sha256": "4f8af7d13fcd1db058f43be236369d6dcf60efe229f7ae66b9bb372b26e41c60",
+      "bytes": 15306,
+      "gitBlob": "33e839b492cf91dfdd69a3e9235c26e87279bef4",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/web/src/app/globals.css",
+      "sha256": "f7b8ee220ea6e11df57c67ae5b4ffb02971e53afd49c3546905b6fe38fb01218",
+      "bytes": 30277,
+      "gitBlob": "8fd93c8fc49da3a9ea9e04d812ef1f5e7d98476e",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "sha256": "5030c89bef9b5adf12f15f7010fa65eae444aea9cc7f8e1beb6f976c7c0235d9",
+      "bytes": 577,
+      "gitBlob": "68203c92a4254d2fd0d8fcb86f86f7dcd83e8ce8",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/web/src/app/login/page.tsx",
+      "sha256": "893477921f3748c1cf80c72358661fb6f44ae16f984bcf904a54ec2f5b3fe982",
+      "bytes": 2543,
+      "gitBlob": "f0dbeb2b015e516b0c7404e34fad4d872009a0f1",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "sha256": "b03573ce499c79e7d253b5c3ce65a2d35cf8832394ae055bfb2021d35a963c60",
+      "bytes": 4381,
+      "gitBlob": "ef90010bb8f0fa9af0ebb10137da45e2214eb2e7",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "apps/web/src/components/visual.tsx",
+      "sha256": "8796bba2d46409634e619021971a8f76533ef331b9ac04cb17111755313471e4",
+      "bytes": 1450,
+      "gitBlob": "ee10d556d92476ac39a650c807344cb9bb6dd034",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/DECISION-LEDGER.md",
+      "sha256": "05bc8fab21909d8ef8b7b52afb34632be70baf256bb28de68aefd2857c93310e",
+      "bytes": 17874,
+      "gitBlob": "044037b976410e1411f559a0bab2739b97d906ad",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/design-system.md",
+      "sha256": "03e858fbe48175fde24ef0db353739099497acd081402841d9040b17f7fcdcf2",
+      "bytes": 7134,
+      "gitBlob": "c03e494ff36ffcfcaa83357751483b620f12c0ab",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-identity-only-observation-1794288823393.json",
+      "sha256": "8a2b574e3b816c23b28a262e2e4cbb1ec8bb43f0be3855b22b5dc7779f8a94d1",
+      "bytes": 1625,
+      "gitBlob": "83bb3367294c490496d3b8c0f0922b8860251ae5",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-identity-only-observation-1794289316928.json",
+      "sha256": "48c4f3c3e3890a3a43b155655d4f9b1a4158837f1e28fd394631351d43660327",
+      "bytes": 1625,
+      "gitBlob": "247d8917d027b965be0784917f9114b619a5a7d3",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-read-only-purchase-preflight-1794216580451.json",
+      "sha256": "74da4f9c24bce482aea2430e0b5dd33e731a0a9f420d03cc3ec30c5ebede8a49",
+      "bytes": 10170,
+      "gitBlob": "5f78836904cf8e3e7345ce4ebf25a9559b5d964f",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-single-status-detail-1794290430016.json",
+      "sha256": "e5ebf3ab98e9b2640276a8fe3edd18782d05d57a7dd2c22bcc4858f08b8dbcdb",
+      "bytes": 716,
+      "gitBlob": "1c09c723fcc7ef7765cbd3708bd5f45a80575bb2",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-testnet-fixture-setup-no-purchase-1794216467460.json",
+      "sha256": "7c10a232d238d5bd946f66bad12b1385ace6acf7361ac004a3075934eb849a8b",
+      "bytes": 10909,
+      "gitBlob": "8ea47d0d910c3d75d2f9480551bfe83b9a3234b9",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-testnet-unresolved-checkpoint.json",
+      "sha256": "a833897d6eaabdac76db82fa06401b3335b08032078b6e4b6cf7be4f0aa89af8",
+      "bytes": 1068,
+      "gitBlob": "2fe5541dc591a1a65140bdb4898db8d803fcbac3",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/actual-velo-status-1794217433978.json",
+      "sha256": "c7e59d23cfdb77edda00d1a8e08e2cbf713b84cc3d24e809f54d3bd5f03f3806",
+      "bytes": 410,
+      "gitBlob": "a4471266db5ef9ca5691b2a05e33cfd3f91945c5",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/api-contract.md",
+      "sha256": "c3f0f3624512babea3f1b1883f9e1e0ee7bb3bdb37e042ff1ca1e942c914d383",
+      "bytes": 11464,
+      "gitBlob": "46ef5f59a66573a364c8054a247083a58650f398",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/review-fix-source-fingerprints-final.json",
+      "sha256": "b121d54837283a29351c3461a9166e5648a70f0849b0496ccbe19dd970395b66",
+      "bytes": 1268,
+      "gitBlob": "3536a3d86b132cef6056f20628093456c217f934",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/review-fix-source-fingerprints.json",
+      "sha256": "75fb05bea6e97a86c2f1c12931065d32133f3987ae433757bf236b5028d13988",
+      "bytes": 1159,
+      "gitBlob": "19777faee29bd42d37aaf69ecbe2134f4b807139",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/review-fixes.md",
+      "sha256": "8f509557a02672c8d12c489615bfdf0d188484b4949e6b1b400defac5af9fc2b",
+      "bytes": 10001,
+      "gitBlob": "2d213fcbd0d50934409cd7b3f6cb6b0a0dfed6ba",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-payment/task-005.md",
+      "sha256": "118891e56d30eddc605857914c9bf56187e040c1ec49f0eb2adfbee90d49345e",
+      "bytes": 14298,
+      "gitBlob": "3cf6b8c5ab68b1e9ec8f1cbf4cb8878c8f8f3bf8",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-provider/diagnosis.md",
+      "sha256": "8694d07b698851223c6176962082e1c328f3deae3c64d2191a74b0a42809d4f9",
+      "bytes": 12296,
+      "gitBlob": "22b137898ec28febbe9ea72bded7c979c0bf9872",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-provider/inspect-primary.py",
+      "sha256": "457edc8b78447532175f8df3b94b7c5696f9805fd87846da55f3b8b5fd87fcf5",
+      "bytes": 2897,
+      "gitBlob": "5b666e06e6635e61797212d89b1ccebbe1551e6d",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-provider/local-sdk-provenance.json",
+      "sha256": "b566f39c08ab71e3d593c9eed42dc0347c44f48a2ff67392d3b81cb5cfe59507",
+      "bytes": 1982,
+      "gitBlob": "73e76baff9739c7ee0a7bb807da66839cdf63804",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-provider/operator-request.md",
+      "sha256": "942191ff69b2553aa8d3c015ee07c53640cbfd869a4e50cd046a5cf9ef084c69",
+      "bytes": 5006,
+      "gitBlob": "5b3fc3628e3b3162cb45262748a9c5179217c37a",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-provider/primary-source-index.json",
+      "sha256": "0ff96aac08ec5dc00b2ce8adae8fc90deed07d2280307339b98aacdb8c81710b",
+      "bytes": 66762,
+      "gitBlob": "50b44ad33887805f0e074128833bcec7b83c8c12",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-provider/verification.json",
+      "sha256": "6e6d3a4dca19f1c2aae939fd32b6689c292c86bb0fdad5587bc7b59673c6aa2d",
+      "bytes": 1416,
+      "gitBlob": "2bc72d269e21ce5146691608adbbba8e81be5302",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-review/task-005-recheck-2026-11-10-fingerprints.json",
+      "sha256": "a92102731330a6768951d8393b1716de11d0596c3b53d59301a8d343233f3282",
+      "bytes": 6846,
+      "gitBlob": "5f99cb72763655b869fe4d0d2d3313edba7c9dd3",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-review/task-005-recheck-2026-11-10.md",
+      "sha256": "54fb3bafe9577205838b8fc65b271fcdb975ac97896da2f3784b1663b5d489d0",
+      "bytes": 11680,
+      "gitBlob": "468fb7fa3f89e05ffb34219f6ffc225c82e87d4e",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-review/task-005-review.md",
+      "sha256": "6fac8150e74805fed4db4432ba1a1d8361cfbfbfd9d2df352db9cb13b0164e45",
+      "bytes": 18964,
+      "gitBlob": "568d16779c59645010c816ac26a9f8a89239a31e",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-review/task-005-source-fingerprints.json",
+      "sha256": "2eacb8f4a89248b81542a65cd0f07d38f15c53d4568b8a45fc02049b7566f5e7",
+      "bytes": 14273,
+      "gitBlob": "c2db588c0cbd799caf6b7b8dc3ce7976f3e15faf",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/audit.py",
+      "sha256": "ec7b077c7e30b6ce433cc9bf455f6d22483908cf1da66a68d8fcbc6da251900f",
+      "bytes": 20087,
+      "gitBlob": "503dcc875ea8e3d2b08b5184d2eb5f2a555dca82",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/backend-allowlist.json",
+      "sha256": "a593410c629cafb0f9ab29484c6f361667bf16c833bcffe6fbaa790635188cf5",
+      "bytes": 17406,
+      "gitBlob": "cdf6efd3d9d690a35e5ee3dd059842dc1e67336a",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/baseline-and-dependencies.json",
+      "sha256": "427399ed22eaff902041e949c92fd12a8c7d1611325e545c75a53df8ad865f2d",
+      "bytes": 47403,
+      "gitBlob": "7691aa7457b016a60e3d4d86b99e96827b48b6c4",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/checkpoint-decision.md",
+      "sha256": "ad42daaa2a669f5f0e86b33026667ac9eacd0436b98823831c654d71bbc912fd",
+      "bytes": 2186,
+      "gitBlob": "1c6d898cc22d46bb840c1a63ad4a2a18baaa9ccd",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/checkpoint-deliverables.json",
+      "sha256": "287f4682db3541ecdac31ff6cea1379c189a49fe71674a6f0ef7e086be8a9b73",
+      "bytes": 1893,
+      "gitBlob": "621c5e934525fc6c7c50b18247f3024a12192da9",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/hygiene-scan.json",
+      "sha256": "f56bb4bc6bc10762a0332b15c0fae6edf33c1d1b723449474347fc5a760c0753",
+      "bytes": 19635,
+      "gitBlob": "45ee4aedd0912c4151c0b1c767c47a7b05a03b35",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/link-closure.json",
+      "sha256": "a45fb8a252f38a923c1d188661ca890a051a031685509a0d9cf3a28af2ebc52a",
+      "bytes": 10558,
+      "gitBlob": "035f515a54178901143447d870aaf4eedae301f1",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/report.md",
+      "sha256": "9ec7fe27746cd9d5fffca995aab2b6259775df37d182afd3e639b3caeb31f477",
+      "bytes": 8886,
+      "gitBlob": "666909591218beb2103cffc00a92596358471bba",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/stored-deployment-review.json",
+      "sha256": "47b4bbc6a9d0039b265a302b29175282cd3c5185864afd54b8b1cc46633ad03c",
+      "bytes": 4534,
+      "gitBlob": "0f01be48031e03fb4a730c391a6ebd25604f7b0a",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/ui-allowlist.json",
+      "sha256": "a006cfe58de5346dae19ea74033f6d6620c3d539a39c02b35309b68acb259bf8",
+      "bytes": 8426,
+      "gitBlob": "ff23cafae35fb2a08cd1d335551520204a7d49dc",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-source-checkpoint/working-tree-inventory.json",
+      "sha256": "ffb01a5c7f4da875da49c8db5dee620b70a5e11f92cc10e79f91f7fc78587023",
+      "bytes": 149434,
+      "gitBlob": "dc5c48c2c68a60af3581c5b28182132004f2afea",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/evidence/finals-ui/source-manifest.json",
+      "sha256": "6a867e89e8d7726d3237dcf6fde6e9c2fe0c44f5b6535d03d60749af0566bc94",
+      "bytes": 2368,
+      "gitBlob": "4361004f6696883474d6c23c267afa3f0ee8447d",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/implementation-plan.md",
+      "sha256": "2dbc2e4d2c4504f4c09d9b78a5dfca4febdbea39b2c9f94f94f6e9e6412c253e",
+      "bytes": 26754,
+      "gitBlob": "5cab5aed8ebf34bba2f794ad16859247aa3c73a9",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "docs/index.md",
+      "sha256": "4de8748b89e03dfcf7d7781d220d9a49e1d86b831a560b2c45ab28c5f750c965",
+      "bytes": 5705,
+      "gitBlob": "ca999dc7a81f36655366cf060337ef734881ba74",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "package.json",
+      "sha256": "ffa6b3f0c23d6e3828b0f24a110f3d54c565c37e6b03d68c02facb23e7d23ae3",
+      "bytes": 3086,
+      "gitBlob": "56b94074fb1c9b94aa9e51439517a72da4542258",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "scripts/purchase-observe.ts",
+      "sha256": "05b9d5ed74536f1901808e6eb020e4cfaf8b8df0d2025fb7b59e3927f1a99ca6",
+      "bytes": 4796,
+      "gitBlob": "5320fd83a824f609fa1920ae2ebd87d114720eb6",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "scripts/purchase-setup.ts",
+      "sha256": "c80386cfe51b4f866ebcd72949a19e606326585fb661cad12c6c4811034b2750",
+      "bytes": 6862,
+      "gitBlob": "3232d3ea8b807b9be3702a5350a5c65d278e6830",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "scripts/purchase-smoke.ts",
+      "sha256": "fb1d159f38b6a18e3e1fc887c382fb2515461ad00c32e3be2c971b6a984f7e09",
+      "bytes": 13331,
+      "gitBlob": "c77e075d8eb825723b196b28d7ba8ccb3b076a54",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "src/server/domain/evidence.ts",
+      "sha256": "d824a97d094b242355d9560211e8f257355684651e0c4170db3a292e486eb1c9",
+      "bytes": 7070,
+      "gitBlob": "046301232c0b75e10709f628815b03cec93d9acd",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "src/server/domain/purchases.ts",
+      "sha256": "eaff1ba879827afafb5ec7fb0090524babfd1f6beb3f4acca654f1ae51085eca",
+      "bytes": 12296,
+      "gitBlob": "ab2a6b385a505ddbf8b8d0a340bd2ebc66003d1b",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "src/server/domain/wallet.ts",
+      "sha256": "67fa6ea4fc6a6da0a2ed621a5c0b67931a4643a3dc6f8cbae73b2b5ffe39aad4",
+      "bytes": 14378,
+      "gitBlob": "6832447bc97409d795c4cea70a8cdb8ce1933357",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "src/server/http/application.ts",
+      "sha256": "fe5e4d69d2eb38152ac35824fd76c5bbaf018c0c591d5fa17bae1f33165ac7d9",
+      "bytes": 16699,
+      "gitBlob": "c09870d329e8e62081eeae49ac8615df1e390b6e",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "src/server/http/wake.ts",
+      "sha256": "7a22041bed4f96fdacb7ebcc711efe0d5c720f5b8fd8ef85b7122e91bba7e4d6",
+      "bytes": 799,
+      "gitBlob": "608344a8b472eb5c99440c15404de45d22531945",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "src/server/integrations/spike-runtime.ts",
+      "sha256": "b0232ed01c1a1fce887ad8246c7fbb24e2368db4ecffb362261fc59173eac924",
+      "bytes": 3881,
+      "gitBlob": "33abf08b11a0ee4c18ffe88f9521665f4d18a1a6",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "src/server/integrations/wallet-inspection.ts",
+      "sha256": "a93872c6f4aca2f39bdb5aa461ee4205e6ca7c9e38d3b456cbba746c1b270826",
+      "bytes": 3212,
+      "gitBlob": "1211ae1577144e85a65b8bd806b25c8814c263ed",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "src/server/merchant/receipts.ts",
+      "sha256": "e3dc7c2deb13280f975c4c38a7838468c02dbe5426935b2120c9d094b2a5ea3f",
+      "bytes": 3644,
+      "gitBlob": "706f1de14999c46d5acc4350f52b38fa76cc517f",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "src/server/merchant/reports.ts",
+      "sha256": "f539b45f99deae425ee02d338722d5f65c6f06ac8f0025ed71bd5377a748a1be",
+      "bytes": 1203,
+      "gitBlob": "6d0ff560aef90d35bbd147a1ecdbb21e613c5b63",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "tests/e2e/public-proof.spec.ts",
+      "sha256": "ade4d37ca9618be82a81a654ea100f4b3f4fa2c3155f89fc30a2402728f9a6ca",
+      "bytes": 8014,
+      "gitBlob": "3ea1bdff86ae74b0143c2e054f5e4d9895585694",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "tests/integration/foundation.test.ts",
+      "sha256": "a157cf9cc181140e80421c040facd744ca90292954a791d2ac3639604bf497ca",
+      "bytes": 25443,
+      "gitBlob": "9dd9fb39d6ef203b047aba72bc709cac18782be2",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "tests/integration/http-boundaries.test.ts",
+      "sha256": "8d2409127bded872e1087821df5370515062ff53f5777b675d0fdbf833368dcb",
+      "bytes": 5209,
+      "gitBlob": "a432f3a2e44c285146e0546fe33932d6657730a2",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "tests/integration/payment-recovery.test.ts",
+      "sha256": "41db44373dc644e90a944d3522040984843573569b7003a7e5fb8bf0a7bcf133",
+      "bytes": 18022,
+      "gitBlob": "61a4afe2fefd6be2d3e314961192277f47b2c5f9",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "tests/integration/purchase-http.test.ts",
+      "sha256": "7760546b5dd62b40533c7838e743a6faf05cd5c03d587e9ef3b1699f2777f061",
+      "bytes": 9378,
+      "gitBlob": "f20ab27878ee88495739b15ab233db06e5da917b",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "tests/integration/support/payment-adapter.ts",
+      "sha256": "69f3665a0445a1e39b00ada488399f6f4b7d13205097b9ff3ebbd11fc2f04b71",
+      "bytes": 3338,
+      "gitBlob": "64c2f42a6b768bab5ebcb45113ddad744b559acc",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    },
+    {
+      "path": "tests/integration/wallet.test.ts",
+      "sha256": "6336d5e66c3ab81c3ae5a255579e7d6bca32f93f1c53e822cdee3c7d0a1fd44b",
+      "bytes": 9319,
+      "gitBlob": "98e221a06f59cd7e7b6d814faef4e454453b7fb3",
+      "knownPrivateValueMatch": false,
+      "stellarSeedMatch": false,
+      "serializedSensitiveField": false
+    }
+  ],
+  "qualification": "This manifest cannot hash itself. It is included by explicit path; all other included files are listed and scanned. Known-value checks do not prove absence of unknown or encoded secrets. No real gate completion is claimed."
+}

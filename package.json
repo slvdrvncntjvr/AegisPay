@@ -17,6 +17,7 @@
     "dev": "pnpm --filter @aegispay/web dev",
     "start": "pnpm --filter @aegispay/web start",
     "worker": "node --env-file-if-exists=.env.worker.local --import tsx apps/server/src/index.ts",
+    "purchase:smoke": "node --env-file-if-exists=.env.worker.local --import tsx scripts/purchase-smoke.ts",
     "verify:sdk-imports": "tsx scripts/sdk-imports.ts",
     "verify:contracts": "node --env-file-if-exists=.env.spike.local --import tsx scripts/verify-contracts.ts",
     "setup:spike": "tsx scripts/setup-spike.ts",

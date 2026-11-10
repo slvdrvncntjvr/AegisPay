@@ -1,0 +1,1332 @@
+{
+  "observedAt": "2026-11-10T06:30:39.451266+00:00",
+  "head": "91f968011b8a8966512928579d85f745c2de38e7",
+  "taskId": "task_99ae5c2f2499",
+  "dispatchId": "ctx_12c267cf2a70",
+  "purpose": "Reviewable LOCAL checkpoint candidates only; no staging, commit, push, build, test, deployment or financial execution.",
+  "unchangedBaselineDependencies": [
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "04332d2581c767a5466babf32fa166517ae63ac18d6f81e81c1d8f640f0dbc82",
+      "bytes": 124429,
+      "state": "tracked_unchanged",
+      "headSha256": "c4f1012e3f05fe459e87c5ad185ed74d5cd6cdd232059a39af5ee0208377f75e",
+      "stageNeeded": false
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "sha256": "59d2e32d6027151ec7a2fc34432d1c41bddd070f4c3fedd69a817ead5040f168",
+      "bytes": 164,
+      "state": "tracked_unchanged",
+      "headSha256": "4d532d8f17fef66645063ae733a220cc274ca8e52978105da036c4eb9677b029",
+      "stageNeeded": false
+    },
+    {
+      "path": ".npmrc",
+      "sha256": "e0b180a89825a2a2a24b0479c3003921930a085ba1e56905ac07b4f8fc05c354",
+      "bytes": 48,
+      "state": "tracked_unchanged",
+      "headSha256": "47181b7836b053c3a4f3c4452337fba021c04477c256efc739350bcc11e3e10b",
+      "stageNeeded": false
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "35ca5537bc81bce654ac59a1b2e21ba45742cba8ccfbb4cf26403d3730ffbad0",
+      "bytes": 625,
+      "state": "tracked_unchanged",
+      "headSha256": "178fa6eb5e97581badf0237fb38c4d470e5437f07a4fd2668a3435df779252d5",
+      "stageNeeded": false
+    },
+    {
+      "path": "apps/web/package.json",
+      "sha256": "15de4de583f19560221c1525a1cf5d0da1775bdd6b99b6470ecce6bbe1f91f4b",
+      "bytes": 355,
+      "state": "tracked_unchanged",
+      "headSha256": "c8e0ed08da6b5bf7cb2e1044be828b5228c38dbf8d4d2517e75502dddbd8edbe",
+      "stageNeeded": false
+    },
+    {
+      "path": "apps/server/package.json",
+      "sha256": "fd6201b63591ce8c35fd522261aad988aacbd140b84e65194c9a5bb0e7f68572",
+      "bytes": 220,
+      "state": "tracked_unchanged",
+      "headSha256": "8d33aa49871eeecae2578aa4672344e20ca2664b5cf8133db698471e71c0adcf",
+      "stageNeeded": false
+    },
+    {
+      "path": "packages/shared/package.json",
+      "sha256": "caaf5b18acd4554af96f618e62139df5f5f21ac4a81a1903ff5261efe4b148d6",
+      "bytes": 171,
+      "state": "tracked_unchanged",
+      "headSha256": "71ab7bda60f7a8946bd99a452704fc3a315954111250d3dd2c4063240da7be12",
+      "stageNeeded": false
+    },
+    {
+      "path": "packages/agent/package.json",
+      "sha256": "8f07a87523848224dea39c2f31caf70518b627002f816f0a3f64c72f9035a0fc",
+      "bytes": 189,
+      "state": "tracked_unchanged",
+      "headSha256": "7b03186251d23a11c279269a5c3618a27b40f1ec2cf002885513eaa417c901b5",
+      "stageNeeded": false
+    },
+    {
+      "path": "packages/shared/src/index.ts",
+      "sha256": "a4f852ecadeb016f9748e3baafa3f56b63ec87fa0d0d122c4cb8d7f259763a66",
+      "bytes": 3504,
+      "state": "tracked_unchanged",
+      "headSha256": "64bf80d473783b93dba32aec5499ff73d389d467d1167fa89af773e50e39b8b4",
+      "stageNeeded": false
+    },
+    {
+      "path": "apps/web/src/app/api/[...path]/route.ts",
+      "sha256": "9891c3131eb1a826910900f7b608198fbcd6de31cbd5c71f44c22be55cce5c7b",
+      "bytes": 902,
+      "state": "tracked_unchanged",
+      "headSha256": "5f1e974277e467fe9b3c5d86f2068ab686fea6ed2f209cb923118b15dc5f05de",
+      "stageNeeded": false
+    },
+    {
+      "path": "apps/web/src/app/api/health/route.ts",
+      "sha256": "acc464db831bb06a6b30d0dc83b1acf04aff6f8a6042a8de22a0636c1410c5b5",
+      "bytes": 247,
+      "state": "tracked_unchanged",
+      "headSha256": "cd175ad0e73c354b04e47d4185a0c4e9331092eee4c1754b515ffe88dca97ad6",
+      "stageNeeded": false
+    },
+    {
+      "path": "src/server/db/schema.ts",
+      "sha256": "5470fad2bef751f367ba83ce8bf321723c69ff92ac2ea194000313b09e67fa92",
+      "bytes": 20326,
+      "state": "tracked_unchanged",
+      "headSha256": "30333f07bba2df7b30d1868bfff3f3f617735e4b69e3d54d30c8f6a4cb7b3655",
+      "stageNeeded": false
+    },
+    {
+      "path": "src/server/db/connection.ts",
+      "sha256": "38bf27fe97edd4ef957d5b8a4efea5863bffc00e659e02cc72fa348b6e572f0d",
+      "bytes": 1446,
+      "state": "tracked_unchanged",
+      "headSha256": "8185e487a9375ffd169181f2cd1a16ce230c7aed56c61b9e92d332dccc027763",
+      "stageNeeded": false
+    },
+    {
+      "path": "src/server/db/migrate.ts",
+      "sha256": "e677cdb9b754ee8a4b278facf15a14f9569782e687f455daeb72265537b1e03a",
+      "bytes": 2077,
+      "state": "tracked_unchanged",
+      "headSha256": "859af856ce8b5a071dcf7aee0a01186d3e3290194e607d475b97b9024ba9255e",
+      "stageNeeded": false
+    },
+    {
+      "path": "src/server/auth/session.ts",
+      "sha256": "c88807e64a26bfea6e26c120171b21c361cbf0719fb673b5bbffc22f2f85f070",
+      "bytes": 4780,
+      "state": "tracked_unchanged",
+      "headSha256": "f65ae820696cc112ef72da632b33ab43a49cc749deeb9a2886de9e075f646eba",
+      "stageNeeded": false
+    },
+    {
+      "path": "src/server/http/boundaries.ts",
+      "sha256": "d88f3127f866ea6021b1cdd29abfe316a3ae0008e9d2c9b1efe1a71fcd93f6eb",
+      "bytes": 2666,
+      "state": "tracked_unchanged",
+      "headSha256": "38573353fddc1211b902b0ce88d07500a25c4983048fd838c82276aeba08bbc0",
+      "stageNeeded": false
+    },
+    {
+      "path": "src/server/integrations/noir.ts",
+      "sha256": "7378ac4566fa0a7c94b1558c39f3131f14e9640f18f7d6c055088c495a1b2afc",
+      "bytes": 4982,
+      "state": "tracked_unchanged",
+      "headSha256": "3d82a7d0512c7af20aec661f4cb900f08f0b141799739da8f0328dea561dd379",
+      "stageNeeded": false
+    },
+    {
+      "path": "src/server/integrations/velo.ts",
+      "sha256": "229768e758ffbc9d1c141b62cbe0f062d9c0797f36ec3d64371591b773c27664",
+      "bytes": 4106,
+      "state": "tracked_unchanged",
+      "headSha256": "ab2a376e6bfd4a1d2a35e83feec0e457a3ce4bccfc3fb0fbbb0faf2c6a67af48",
+      "stageNeeded": false
+    },
+    {
+      "path": "src/server/integrations/stellar-evidence.ts",
+      "sha256": "978840bea8a69dccff48d717c28b314606f3abf702a3aecd75436977a1491a21",
+      "bytes": 9647,
+      "state": "tracked_unchanged",
+      "headSha256": "fccb2ed72f67b7a87801b8160e972117ea064fc9bcb46dc933fa5b2029acacde",
+      "stageNeeded": false
+    },
+    {
+      "path": "src/server/integrations/spike-journal.ts",
+      "sha256": "826c401cd6c4ebece6974629e307c87edbb8675e2aa96a3100e97fb68800e3cd",
+      "bytes": 9137,
+      "state": "tracked_unchanged",
+      "headSha256": "467404432e5941e1bd7509329384263ecfcc0beeb0853c3b66a6206fe398f295",
+      "stageNeeded": false
+    },
+    {
+      "path": "src/server/integrations/spike-driver.ts",
+      "sha256": "e527a1ffc6f6cdd1d6b8dab64d2d9bfc52cb4f04fe80825b63866dcaac70559d",
+      "bytes": 17028,
+      "state": "tracked_unchanged",
+      "headSha256": "1915069dfc664ab272443f196867fc2390aef29bb1f0c5a7e21c06447dd21f49",
+      "stageNeeded": false
+    },
+    {
+      "path": "scripts/verify-contracts.ts",
+      "sha256": "91209141600f334ae0643e9e9a7415c122973a8cad0d0fba5df2f9a0a1ea1e31",
+      "bytes": 7656,
+      "state": "tracked_unchanged",
+      "headSha256": "513a75cecaf47ce5464211c0f104bc4c4ee867b11108aca78255327d74c70f7e",
+      "stageNeeded": false
+    },
+    {
+      "path": "tests/integration/support/database.ts",
+      "sha256": "05bad49d1074251a123fa0a6a88762d00a91bd76840bd2c7c9d582ee9269c3ba",
+      "bytes": 2352,
+      "state": "tracked_unchanged",
+      "headSha256": "0750fd6f11d1b50b2cd56716facf5c6eafd9681affa74c9f592f6d8869d564e1",
+      "stageNeeded": false
+    },
+    {
+      "path": "tests/integration/support/fixtures.ts",
+      "sha256": "f691c19da540324e50e64acc124e371cd7aacddb70efae615140a191069797e0",
+      "bytes": 4453,
+      "state": "tracked_unchanged",
+      "headSha256": "05e938f33f28403cc5c70d18e3087cc8d3138af549a982cd60cd0ee2b076eab6",
+      "stageNeeded": false
+    },
+    {
+      "path": "vitest.config.ts",
+      "sha256": "4d4053686610ce7cd64d3119a6c21eda28738987b8b810b4b59e83ba9027a154",
+      "bytes": 243,
+      "state": "tracked_unchanged",
+      "headSha256": "5459f568d09349b01d04c890af5a70812b3e2d1f146547834b8694848e481b85",
+      "stageNeeded": false
+    },
+    {
+      "path": "docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json",
+      "sha256": "c96b55351bfa4ed330acec185b2404afe336816ff6ea106b31d0ea58d58f9b87",
+      "bytes": 7128,
+      "state": "tracked_unchanged",
+      "headSha256": "bf0f55eb73a789c4b3c2c62d26ca01814420a25bdf5e8b123c27c36e6ddad7e1",
+      "stageNeeded": false
+    },
+    {
+      "path": "docs/submission/AegisPay-pitch-draft.pdf",
+      "sha256": "1856daa7a76675936647dbed78845f5671bad00dee3fd337362dcf01ad81fad5",
+      "bytes": 271724,
+      "state": "tracked_unchanged",
+      "headSha256": "1856daa7a76675936647dbed78845f5671bad00dee3fd337362dcf01ad81fad5",
+      "stageNeeded": false
+    }
+  ],
+  "packagePinsUnchangedAgainstHead": {
+    "dependencies": true,
+    "devDependencies": true,
+    "engines": true,
+    "packageManager": true,
+    "workspaces": true,
+    "pnpm": true
+  },
+  "packageScriptDeltaAgainstHead": {
+    "added": [
+      "purchase:smoke"
+    ],
+    "removed": [],
+    "changed": []
+  },
+  "localImportEdges": [
+    {
+      "from": "tests/integration/support/payment-adapter.ts",
+      "specifier": "../../../apps/server/src/worker/payment.ts",
+      "target": "apps/server/src/worker/payment.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/server/src/worker/payment.ts",
+      "specifier": "../../../../src/server/db/connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/worker/payment.ts",
+      "specifier": "../../../../src/server/db/schema.ts",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/worker/payment.ts",
+      "specifier": "../../../../src/server/domain/purchases.ts",
+      "target": "src/server/domain/purchases.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/server/src/worker/payment.ts",
+      "specifier": "../../../../src/server/domain/evidence.ts",
+      "target": "src/server/domain/evidence.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/server/src/worker/payment.ts",
+      "specifier": "../../../../src/server/integrations/velo.ts",
+      "target": "src/server/integrations/velo.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/worker/payment.ts",
+      "specifier": "../../../../src/server/integrations/noir.ts",
+      "target": "src/server/integrations/noir.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/integrations/velo.ts",
+      "specifier": "./noir.ts",
+      "target": "src/server/integrations/noir.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/domain/evidence.ts",
+      "specifier": "../db/connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/domain/evidence.ts",
+      "specifier": "../db/schema.ts",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/domain/evidence.ts",
+      "specifier": "./purchases.ts",
+      "target": "src/server/domain/purchases.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "src/server/domain/purchases.ts",
+      "specifier": "../db/connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/domain/purchases.ts",
+      "specifier": "../db/schema.ts",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/db/connection.ts",
+      "specifier": "./schema.ts",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/purchase-http.test.ts",
+      "specifier": "./support/database.ts",
+      "target": "tests/integration/support/database.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/purchase-http.test.ts",
+      "specifier": "./support/fixtures.ts",
+      "target": "tests/integration/support/fixtures.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/purchase-http.test.ts",
+      "specifier": "../../src/server/domain/purchases.ts",
+      "target": "src/server/domain/purchases.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/purchase-http.test.ts",
+      "specifier": "./support/payment-adapter.ts",
+      "target": "tests/integration/support/payment-adapter.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/purchase-http.test.ts",
+      "specifier": "../../src/server/http/application.ts",
+      "target": "src/server/http/application.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/purchase-http.test.ts",
+      "specifier": "../../src/server/auth/session.ts",
+      "target": "src/server/auth/session.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/purchase-http.test.ts",
+      "specifier": "../../src/server/merchant/receipts.ts",
+      "target": "src/server/merchant/receipts.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/purchase-http.test.ts",
+      "specifier": "../../apps/server/src/worker/payment.ts",
+      "target": "apps/server/src/worker/payment.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/purchase-http.test.ts",
+      "specifier": "../../apps/server/src/worker/queue.ts",
+      "target": "apps/server/src/worker/queue.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/purchase-http.test.ts",
+      "specifier": "../../apps/server/src/worker/runtime.ts",
+      "target": "apps/server/src/worker/runtime.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/purchase-http.test.ts",
+      "specifier": "../../apps/server/src/worker/ingress.ts",
+      "target": "apps/server/src/worker/ingress.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/purchase-http.test.ts",
+      "specifier": "../../src/server/db/schema.ts",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/worker/ingress.ts",
+      "specifier": "../../../../src/server/auth/session.ts",
+      "target": "src/server/auth/session.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/worker/ingress.ts",
+      "specifier": "../../../../src/server/http/boundaries.ts",
+      "target": "src/server/http/boundaries.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/worker/ingress.ts",
+      "specifier": "../../../../src/server/domain/purchases.ts",
+      "target": "src/server/domain/purchases.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "src/server/http/boundaries.ts",
+      "specifier": "../domain/purchases.ts",
+      "target": "src/server/domain/purchases.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "src/server/http/boundaries.ts",
+      "specifier": "../integrations/noir.ts",
+      "target": "src/server/integrations/noir.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/auth/session.ts",
+      "specifier": "../db/connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/auth/session.ts",
+      "specifier": "../db/schema.ts",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/auth/session.ts",
+      "specifier": "../domain/purchases.ts",
+      "target": "src/server/domain/purchases.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/server/src/worker/runtime.ts",
+      "specifier": "../../../../src/server/db/connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/worker/runtime.ts",
+      "specifier": "../../../../src/server/domain/evidence.ts",
+      "target": "src/server/domain/evidence.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/server/src/worker/runtime.ts",
+      "specifier": "./queue.ts",
+      "target": "apps/server/src/worker/queue.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/server/src/worker/runtime.ts",
+      "specifier": "./payment.ts",
+      "target": "apps/server/src/worker/payment.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/server/src/worker/queue.ts",
+      "specifier": "../../../../src/server/db/connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/worker/queue.ts",
+      "specifier": "../../../../src/server/db/schema.ts",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/merchant/receipts.ts",
+      "specifier": "../db/connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/merchant/receipts.ts",
+      "specifier": "../db/schema.ts",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/merchant/receipts.ts",
+      "specifier": "../auth/session.ts",
+      "target": "src/server/auth/session.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/merchant/receipts.ts",
+      "specifier": "../domain/purchases.ts",
+      "target": "src/server/domain/purchases.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "src/server/merchant/receipts.ts",
+      "specifier": "../domain/evidence.ts",
+      "target": "src/server/domain/evidence.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "src/server/merchant/receipts.ts",
+      "specifier": "./reports.ts",
+      "target": "src/server/merchant/reports.ts",
+      "disposition": "quarantined"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "specifier": "../db/connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "specifier": "../db/schema.ts",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "specifier": "../auth/session.ts",
+      "target": "src/server/auth/session.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "specifier": "../domain/purchases.ts",
+      "target": "src/server/domain/purchases.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "specifier": "../merchant/receipts.ts",
+      "target": "src/server/merchant/receipts.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "specifier": "../domain/wallet.ts",
+      "target": "src/server/domain/wallet.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "specifier": "./boundaries.ts",
+      "target": "src/server/http/boundaries.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "specifier": "./wake.ts",
+      "target": "src/server/http/wake.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "src/server/domain/wallet.ts",
+      "specifier": "../db/connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/domain/wallet.ts",
+      "specifier": "../db/schema.ts",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/domain/wallet.ts",
+      "specifier": "../auth/session.ts",
+      "target": "src/server/auth/session.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/domain/wallet.ts",
+      "specifier": "../auth/session.ts",
+      "target": "src/server/auth/session.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/domain/wallet.ts",
+      "specifier": "./purchases.ts",
+      "target": "src/server/domain/purchases.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "src/server/domain/wallet.ts",
+      "specifier": "../integrations/wallet-inspection.ts",
+      "target": "src/server/integrations/wallet-inspection.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "src/server/integrations/wallet-inspection.ts",
+      "specifier": "./noir.ts",
+      "target": "src/server/integrations/noir.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/support/fixtures.ts",
+      "specifier": "../../../src/server/db/connection.js",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/support/fixtures.ts",
+      "specifier": "../../../src/server/db/schema.js",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/support/fixtures.ts",
+      "specifier": "../../../src/server/domain/purchases.js",
+      "target": "src/server/domain/purchases.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/support/fixtures.ts",
+      "specifier": "../../../src/server/domain/evidence.js",
+      "target": "src/server/domain/evidence.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/support/database.ts",
+      "specifier": "../../../scripts/db/local.js",
+      "target": "scripts/db/local.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/support/database.ts",
+      "specifier": "../../../src/server/db/connection.js",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/support/database.ts",
+      "specifier": "../../../src/server/db/migrate.js",
+      "target": "src/server/db/migrate.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/db/migrate.ts",
+      "specifier": "./connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/payment-recovery.test.ts",
+      "specifier": "./support/database.ts",
+      "target": "tests/integration/support/database.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/payment-recovery.test.ts",
+      "specifier": "./support/fixtures.ts",
+      "target": "tests/integration/support/fixtures.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/payment-recovery.test.ts",
+      "specifier": "./support/payment-adapter.ts",
+      "target": "tests/integration/support/payment-adapter.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/payment-recovery.test.ts",
+      "specifier": "../../src/server/domain/purchases.ts",
+      "target": "src/server/domain/purchases.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/payment-recovery.test.ts",
+      "specifier": "../../apps/server/src/worker/payment.ts",
+      "target": "apps/server/src/worker/payment.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/payment-recovery.test.ts",
+      "specifier": "../../src/server/merchant/receipts.ts",
+      "target": "src/server/merchant/receipts.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/payment-recovery.test.ts",
+      "specifier": "../../src/server/integrations/noir.ts",
+      "target": "src/server/integrations/noir.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/payment-recovery.test.ts",
+      "specifier": "../../src/server/db/schema.ts",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/wallet.test.ts",
+      "specifier": "./support/database.js",
+      "target": "tests/integration/support/database.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/wallet.test.ts",
+      "specifier": "./support/fixtures.js",
+      "target": "tests/integration/support/fixtures.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/wallet.test.ts",
+      "specifier": "../../src/server/auth/session.js",
+      "target": "src/server/auth/session.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/wallet.test.ts",
+      "specifier": "../../src/server/domain/wallet.js",
+      "target": "src/server/domain/wallet.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/wallet.test.ts",
+      "specifier": "../../src/server/domain/purchases.ts",
+      "target": "src/server/domain/purchases.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/wallet.test.ts",
+      "specifier": "../../src/server/http/application.ts",
+      "target": "src/server/http/application.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/wallet.test.ts",
+      "specifier": "../../src/server/db/schema.js",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/http-boundaries.test.ts",
+      "specifier": "./support/database.js",
+      "target": "tests/integration/support/database.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/http-boundaries.test.ts",
+      "specifier": "./support/fixtures.js",
+      "target": "tests/integration/support/fixtures.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/http-boundaries.test.ts",
+      "specifier": "../../src/server/auth/session.js",
+      "target": "src/server/auth/session.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/http-boundaries.test.ts",
+      "specifier": "../../src/server/http/application.js",
+      "target": "src/server/http/application.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/http-boundaries.test.ts",
+      "specifier": "../../src/server/http/boundaries.js",
+      "target": "src/server/http/boundaries.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/http-boundaries.test.ts",
+      "specifier": "../../src/server/db/schema.js",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/foundation.test.ts",
+      "specifier": "./support/database.js",
+      "target": "tests/integration/support/database.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/foundation.test.ts",
+      "specifier": "./support/fixtures.js",
+      "target": "tests/integration/support/fixtures.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/foundation.test.ts",
+      "specifier": "../../src/server/domain/purchases.js",
+      "target": "src/server/domain/purchases.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/foundation.test.ts",
+      "specifier": "../../src/server/domain/evidence.js",
+      "target": "src/server/domain/evidence.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/integration/foundation.test.ts",
+      "specifier": "../../src/server/db/connection.js",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/foundation.test.ts",
+      "specifier": "../../src/server/db/seed.js",
+      "target": "src/server/db/seed.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/foundation.test.ts",
+      "specifier": "../../src/server/db/migrate.js",
+      "target": "src/server/db/migrate.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "tests/integration/foundation.test.ts",
+      "specifier": "../../src/server/db/schema.js",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/db/seed.ts",
+      "specifier": "./connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/db/seed.ts",
+      "specifier": "./schema.ts",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-smoke.ts",
+      "specifier": "../src/server/db/connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-smoke.ts",
+      "specifier": "../src/server/db/schema.ts",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-smoke.ts",
+      "specifier": "../src/server/domain/purchases.ts",
+      "target": "src/server/domain/purchases.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "scripts/purchase-smoke.ts",
+      "specifier": "../src/server/http/application.ts",
+      "target": "src/server/http/application.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "scripts/purchase-smoke.ts",
+      "specifier": "../src/server/auth/session.ts",
+      "target": "src/server/auth/session.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-smoke.ts",
+      "specifier": "../src/server/merchant/receipts.ts",
+      "target": "src/server/merchant/receipts.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "scripts/purchase-smoke.ts",
+      "specifier": "../src/server/integrations/noir.ts",
+      "target": "src/server/integrations/noir.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-smoke.ts",
+      "specifier": "../src/server/integrations/spike-journal.ts",
+      "target": "src/server/integrations/spike-journal.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-smoke.ts",
+      "specifier": "../apps/server/src/worker/live-adapter.ts",
+      "target": "apps/server/src/worker/live-adapter.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "scripts/purchase-smoke.ts",
+      "specifier": "../apps/server/src/worker/payment.ts",
+      "target": "apps/server/src/worker/payment.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "scripts/purchase-smoke.ts",
+      "specifier": "./purchase-setup.ts",
+      "target": "scripts/purchase-setup.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "scripts/purchase-smoke.ts",
+      "specifier": "./verify-contracts.ts",
+      "target": "scripts/verify-contracts.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/verify-contracts.ts",
+      "specifier": "../src/server/integrations/noir.ts",
+      "target": "src/server/integrations/noir.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-setup.ts",
+      "specifier": "../src/server/db/connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-setup.ts",
+      "specifier": "../src/server/db/migrate.ts",
+      "target": "src/server/db/migrate.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-setup.ts",
+      "specifier": "../src/server/db/seed.ts",
+      "target": "src/server/db/seed.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-setup.ts",
+      "specifier": "../src/server/db/schema.ts",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-setup.ts",
+      "specifier": "../src/server/integrations/noir.ts",
+      "target": "src/server/integrations/noir.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-setup.ts",
+      "specifier": "../src/server/integrations/spike-driver.ts",
+      "target": "src/server/integrations/spike-driver.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-setup.ts",
+      "specifier": "../src/server/integrations/spike-runtime.ts",
+      "target": "src/server/integrations/spike-runtime.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "scripts/purchase-setup.ts",
+      "specifier": "../src/server/integrations/spike-journal.ts",
+      "target": "src/server/integrations/spike-journal.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-setup.ts",
+      "specifier": "../src/server/integrations/wallet-inspection.ts",
+      "target": "src/server/integrations/wallet-inspection.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "scripts/purchase-setup.ts",
+      "specifier": "../src/server/integrations/velo.ts",
+      "target": "src/server/integrations/velo.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-setup.ts",
+      "specifier": "./spike-noir-velo.ts",
+      "target": "scripts/spike-noir-velo.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-setup.ts",
+      "specifier": "./verify-contracts.ts",
+      "target": "scripts/verify-contracts.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/spike-noir-velo.ts",
+      "specifier": "../src/server/integrations/noir.ts",
+      "target": "src/server/integrations/noir.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/spike-noir-velo.ts",
+      "specifier": "./verify-contracts.ts",
+      "target": "scripts/verify-contracts.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/spike-noir-velo.ts",
+      "specifier": "../src/server/integrations/velo.ts",
+      "target": "src/server/integrations/velo.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/spike-noir-velo.ts",
+      "specifier": "../src/server/integrations/spike-driver.ts",
+      "target": "src/server/integrations/spike-driver.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/spike-noir-velo.ts",
+      "specifier": "../src/server/integrations/spike-runtime.ts",
+      "target": "src/server/integrations/spike-runtime.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "scripts/spike-noir-velo.ts",
+      "specifier": "../src/server/integrations/spike-journal.ts",
+      "target": "src/server/integrations/spike-journal.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/integrations/spike-journal.ts",
+      "specifier": "./noir.ts",
+      "target": "src/server/integrations/noir.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/integrations/spike-journal.ts",
+      "specifier": "./velo.ts",
+      "target": "src/server/integrations/velo.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/integrations/spike-runtime.ts",
+      "specifier": "./noir.ts",
+      "target": "src/server/integrations/noir.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/integrations/spike-runtime.ts",
+      "specifier": "./spike-journal.ts",
+      "target": "src/server/integrations/spike-journal.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/integrations/spike-runtime.ts",
+      "specifier": "./wallet-inspection.ts",
+      "target": "src/server/integrations/wallet-inspection.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "src/server/integrations/spike-runtime.ts",
+      "specifier": "./wallet-inspection.ts",
+      "target": "src/server/integrations/wallet-inspection.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "src/server/integrations/spike-driver.ts",
+      "specifier": "./spike-journal.ts",
+      "target": "src/server/integrations/spike-journal.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/integrations/spike-driver.ts",
+      "specifier": "./noir.ts",
+      "target": "src/server/integrations/noir.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/integrations/spike-driver.ts",
+      "specifier": "./spike-runtime.ts",
+      "target": "src/server/integrations/spike-runtime.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "src/server/integrations/spike-driver.ts",
+      "specifier": "./velo.ts",
+      "target": "src/server/integrations/velo.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/integrations/spike-driver.ts",
+      "specifier": "./stellar-evidence.ts",
+      "target": "src/server/integrations/stellar-evidence.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/integrations/stellar-evidence.ts",
+      "specifier": "./noir.ts",
+      "target": "src/server/integrations/noir.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "src/server/integrations/stellar-evidence.ts",
+      "specifier": "./velo.ts",
+      "target": "src/server/integrations/velo.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/worker/live-adapter.ts",
+      "specifier": "../../../../src/server/integrations/noir.ts",
+      "target": "src/server/integrations/noir.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/worker/live-adapter.ts",
+      "specifier": "../../../../src/server/integrations/velo.ts",
+      "target": "src/server/integrations/velo.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/worker/live-adapter.ts",
+      "specifier": "../../../../src/server/integrations/stellar-evidence.ts",
+      "target": "src/server/integrations/stellar-evidence.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/worker/live-adapter.ts",
+      "specifier": "../../../../scripts/verify-contracts.ts",
+      "target": "scripts/verify-contracts.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/worker/live-adapter.ts",
+      "specifier": "./payment.ts",
+      "target": "apps/server/src/worker/payment.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/server/src/worker/live-adapter.ts",
+      "specifier": "../../../../src/server/domain/purchases.ts",
+      "target": "src/server/domain/purchases.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/server/src/worker/live-adapter.ts",
+      "specifier": "../../../../src/server/db/connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/worker/live-adapter.ts",
+      "specifier": "./continuity.ts",
+      "target": "apps/server/src/worker/continuity.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/server/src/worker/continuity.ts",
+      "specifier": "../../../../src/server/db/connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/worker/continuity.ts",
+      "specifier": "../../../../src/server/db/schema.ts",
+      "target": "src/server/db/schema.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/worker/continuity.ts",
+      "specifier": "../../../../src/server/domain/purchases.ts",
+      "target": "src/server/domain/purchases.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "scripts/purchase-observe.ts",
+      "specifier": "../src/server/db/connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-observe.ts",
+      "specifier": "../src/server/integrations/noir.ts",
+      "target": "src/server/integrations/noir.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "scripts/purchase-observe.ts",
+      "specifier": "../src/server/integrations/velo.ts",
+      "target": "src/server/integrations/velo.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/index.ts",
+      "specifier": "../../../src/server/db/connection.ts",
+      "target": "src/server/db/connection.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/index.ts",
+      "specifier": "../../../src/server/http/boundaries.ts",
+      "target": "src/server/http/boundaries.ts",
+      "disposition": "tracked_baseline"
+    },
+    {
+      "from": "apps/server/src/index.ts",
+      "specifier": "../../../src/server/merchant/receipts.ts",
+      "target": "src/server/merchant/receipts.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/server/src/index.ts",
+      "specifier": "./worker/payment.ts",
+      "target": "apps/server/src/worker/payment.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/server/src/index.ts",
+      "specifier": "./worker/live-adapter.ts",
+      "target": "apps/server/src/worker/live-adapter.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/server/src/index.ts",
+      "specifier": "./worker/ingress.ts",
+      "target": "apps/server/src/worker/ingress.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/server/src/index.ts",
+      "specifier": "./worker/runtime.ts",
+      "target": "apps/server/src/worker/runtime.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "tests/e2e/public-proof.spec.ts",
+      "specifier": "../../apps/web/src/lib/public-proof.js",
+      "target": "apps/web/src/lib/public-proof.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/web/src/app/login/page.tsx",
+      "specifier": "../../components/visual",
+      "target": "apps/web/src/components/visual.tsx",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/web/src/app/layout.tsx",
+      "specifier": "./globals.css",
+      "target": "apps/web/src/app/globals.css",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/web/src/app/console.tsx",
+      "specifier": "../lib/public-proof",
+      "target": "apps/web/src/lib/public-proof.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/web/src/app/console.tsx",
+      "specifier": "../components/visual",
+      "target": "apps/web/src/components/visual.tsx",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/web/src/app/page.tsx",
+      "specifier": "./console",
+      "target": "apps/web/src/app/console.tsx",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/web/src/app/page.tsx",
+      "specifier": "../lib/public-proof",
+      "target": "apps/web/src/lib/public-proof.ts",
+      "disposition": "proposed"
+    },
+    {
+      "from": "apps/web/src/app/page.tsx",
+      "specifier": "../components/visual",
+      "target": "apps/web/src/components/visual.tsx",
+      "disposition": "proposed"
+    }
+  ],
+  "publicUiExternalLinks": [
+    {
+      "from": "apps/web/src/app/page.tsx",
+      "url": "https://aegispay-live.vercel.app/",
+      "gitObjectAvailableLocally": null,
+      "newNetworkCheck": false
+    },
+    {
+      "from": "apps/web/src/app/page.tsx",
+      "url": "https://drive.google.com/drive/folders/1hqwzOaG_qU9axjcLIjBUb1YeMWdOFq72?usp=sharing",
+      "gitObjectAvailableLocally": null,
+      "newNetworkCheck": false
+    },
+    {
+      "from": "apps/web/src/lib/public-proof.ts",
+      "url": "https://github.com/slvdrvncntjvr/AegisPay",
+      "gitObjectAvailableLocally": null,
+      "newNetworkCheck": false
+    },
+    {
+      "from": "apps/web/src/lib/public-proof.ts",
+      "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf",
+      "gitObjectAvailableLocally": true,
+      "newNetworkCheck": false
+    },
+    {
+      "from": "apps/web/src/lib/public-proof.ts",
+      "url": "https://stellar.expert/explorer/testnet/tx/1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a",
+      "gitObjectAvailableLocally": null,
+      "newNetworkCheck": false
+    },
+    {
+      "from": "apps/web/src/lib/public-proof.ts",
+      "url": "https://stellar.expert/explorer/testnet/tx/6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381",
+      "gitObjectAvailableLocally": null,
+      "newNetworkCheck": false
+    },
+    {
+      "from": "apps/web/src/lib/public-proof.ts",
+      "url": "https://stellar.expert/explorer/testnet/tx/94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18",
+      "gitObjectAvailableLocally": null,
+      "newNetworkCheck": false
+    },
+    {
+      "from": "apps/web/src/app/console.tsx",
+      "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json",
+      "derivation": "PUBLIC_PROOF.githubRepo + /blob/main/ + PUBLIC_PROOF.evidencePath",
+      "gitObjectAvailableLocally": true,
+      "newNetworkCheck": false
+    }
+  ],
+  "newNetworkChecks": false
+}

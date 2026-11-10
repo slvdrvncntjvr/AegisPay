@@ -1,0 +1,206 @@
+{
+  "observedAt": "2026-11-10T06:30:39.451266+00:00",
+  "head": "91f968011b8a8966512928579d85f745c2de38e7",
+  "taskId": "task_99ae5c2f2499",
+  "dispatchId": "ctx_12c267cf2a70",
+  "purpose": "Reviewable LOCAL checkpoint candidates only; no staging, commit, push, build, test, deployment or financial execution.",
+  "files": [
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "sha256": "b03573ce499c79e7d253b5c3ce65a2d35cf8832394ae055bfb2021d35a963c60",
+      "bytes": 4381,
+      "state": "modified",
+      "headSha256": "b2151ea57aae6fbe2ea9c19c35c8d06ca2421635b1cbc69061a2cf6cbc72e7b8",
+      "stageNeeded": true
+    },
+    {
+      "path": "apps/web/src/app/console.tsx",
+      "sha256": "4f8af7d13fcd1db058f43be236369d6dcf60efe229f7ae66b9bb372b26e41c60",
+      "bytes": 15306,
+      "state": "modified",
+      "headSha256": "fa50f9c92651505bb1359a1ef7a296261a32a43ab3d737a9b0d4d77c716f989e",
+      "stageNeeded": true
+    },
+    {
+      "path": "apps/web/src/app/globals.css",
+      "sha256": "f7b8ee220ea6e11df57c67ae5b4ffb02971e53afd49c3546905b6fe38fb01218",
+      "bytes": 30277,
+      "state": "modified",
+      "headSha256": "2b893c308f9e30583052f3093bc86b21f2e2ed4fc9128cece7562b055b263bd6",
+      "stageNeeded": true
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "sha256": "5030c89bef9b5adf12f15f7010fa65eae444aea9cc7f8e1beb6f976c7c0235d9",
+      "bytes": 577,
+      "state": "modified",
+      "headSha256": "42d8ea31a60c68c630414de6ebc93c409855648212c2eb473ed0b84d7f7d4531",
+      "stageNeeded": true
+    },
+    {
+      "path": "apps/web/src/app/login/page.tsx",
+      "sha256": "893477921f3748c1cf80c72358661fb6f44ae16f984bcf904a54ec2f5b3fe982",
+      "bytes": 2543,
+      "state": "modified",
+      "headSha256": "17db86c9cb5c9daa2d59ab4e32580a74cce4323b0f28c4fb23e920099b7e4a11",
+      "stageNeeded": true
+    },
+    {
+      "path": "apps/web/src/components/visual.tsx",
+      "sha256": "8796bba2d46409634e619021971a8f76533ef331b9ac04cb17111755313471e4",
+      "bytes": 1450,
+      "state": "untracked",
+      "headSha256": null,
+      "stageNeeded": true
+    },
+    {
+      "path": "apps/web/src/components/wallet.ts",
+      "sha256": "297b15ad41f83b8838c3ab623af279aacfe499edae04a5c22754cad771588aaa",
+      "bytes": 1327,
+      "state": "tracked_unchanged",
+      "headSha256": "acad3bf1281cdb6d2573c8755cbfa0db4ef9be4150940d3f8007e8c916fb9feb",
+      "stageNeeded": false
+    },
+    {
+      "path": "apps/web/src/lib/public-proof.ts",
+      "sha256": "ffe691683b7505eeade1aa2c02c6f526faa9f9f72c81449b56a76f5f2be77f3d",
+      "bytes": 3063,
+      "state": "tracked_unchanged",
+      "headSha256": "3f902f38446fdccad60e69f4d0b96a361bb3df3bf2df50a7506b17bf315bc8e9",
+      "stageNeeded": false
+    },
+    {
+      "path": "tests/e2e/public-proof.spec.ts",
+      "sha256": "ade4d37ca9618be82a81a654ea100f4b3f4fa2c3155f89fc30a2402728f9a6ca",
+      "bytes": 8014,
+      "state": "untracked",
+      "headSha256": null,
+      "stageNeeded": true
+    },
+    {
+      "path": "apps/web/public/fonts/bricolage-grotesque.woff2",
+      "sha256": "93afc0e7a3564954f131b319d3564dfbbc022b224dbaff664fa455f57affed25",
+      "bytes": 205268,
+      "state": "untracked",
+      "headSha256": null,
+      "stageNeeded": true
+    },
+    {
+      "path": "apps/web/public/fonts/OFL-Bricolage-Grotesque.txt",
+      "sha256": "4b5a7d8f37f5602621c8a8d7358a6a2e71317e6c231c661e15aef0275d3e07ba",
+      "bytes": 4403,
+      "state": "untracked",
+      "headSha256": null,
+      "stageNeeded": true
+    },
+    {
+      "path": "apps/web/public/fonts/README.txt",
+      "sha256": "732348aeb5b24c91f58bf3fe44c66d2114674e66ab818579c6aba5fbd19109a8",
+      "bytes": 439,
+      "state": "untracked",
+      "headSha256": null,
+      "stageNeeded": true
+    },
+    {
+      "path": "apps/web/public/icon.svg",
+      "sha256": "666d7c4473e44f73b76b40d5c5598b67e5cad9c5bf81677ab7e20604e4921ea2",
+      "bytes": 265,
+      "state": "untracked",
+      "headSha256": null,
+      "stageNeeded": true
+    }
+  ],
+  "acceptedManifestChecks": [
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "acceptedSha256": "b03573ce499c79e7d253b5c3ce65a2d35cf8832394ae055bfb2021d35a963c60",
+      "currentSha256": "b03573ce499c79e7d253b5c3ce65a2d35cf8832394ae055bfb2021d35a963c60",
+      "matches": true
+    },
+    {
+      "path": "apps/web/src/app/console.tsx",
+      "acceptedSha256": "4f8af7d13fcd1db058f43be236369d6dcf60efe229f7ae66b9bb372b26e41c60",
+      "currentSha256": "4f8af7d13fcd1db058f43be236369d6dcf60efe229f7ae66b9bb372b26e41c60",
+      "matches": true
+    },
+    {
+      "path": "apps/web/src/app/globals.css",
+      "acceptedSha256": "f7b8ee220ea6e11df57c67ae5b4ffb02971e53afd49c3546905b6fe38fb01218",
+      "currentSha256": "f7b8ee220ea6e11df57c67ae5b4ffb02971e53afd49c3546905b6fe38fb01218",
+      "matches": true
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "acceptedSha256": "5030c89bef9b5adf12f15f7010fa65eae444aea9cc7f8e1beb6f976c7c0235d9",
+      "currentSha256": "5030c89bef9b5adf12f15f7010fa65eae444aea9cc7f8e1beb6f976c7c0235d9",
+      "matches": true
+    },
+    {
+      "path": "apps/web/src/app/login/page.tsx",
+      "acceptedSha256": "893477921f3748c1cf80c72358661fb6f44ae16f984bcf904a54ec2f5b3fe982",
+      "currentSha256": "893477921f3748c1cf80c72358661fb6f44ae16f984bcf904a54ec2f5b3fe982",
+      "matches": true
+    },
+    {
+      "path": "apps/web/src/components/visual.tsx",
+      "acceptedSha256": "8796bba2d46409634e619021971a8f76533ef331b9ac04cb17111755313471e4",
+      "currentSha256": "8796bba2d46409634e619021971a8f76533ef331b9ac04cb17111755313471e4",
+      "matches": true
+    },
+    {
+      "path": "apps/web/src/components/wallet.ts",
+      "acceptedSha256": "297b15ad41f83b8838c3ab623af279aacfe499edae04a5c22754cad771588aaa",
+      "currentSha256": "297b15ad41f83b8838c3ab623af279aacfe499edae04a5c22754cad771588aaa",
+      "matches": true
+    },
+    {
+      "path": "apps/web/src/lib/public-proof.ts",
+      "acceptedSha256": "ffe691683b7505eeade1aa2c02c6f526faa9f9f72c81449b56a76f5f2be77f3d",
+      "currentSha256": "ffe691683b7505eeade1aa2c02c6f526faa9f9f72c81449b56a76f5f2be77f3d",
+      "matches": true
+    },
+    {
+      "path": "tests/e2e/public-proof.spec.ts",
+      "acceptedSha256": "ade4d37ca9618be82a81a654ea100f4b3f4fa2c3155f89fc30a2402728f9a6ca",
+      "currentSha256": "ade4d37ca9618be82a81a654ea100f4b3f4fa2c3155f89fc30a2402728f9a6ca",
+      "matches": true
+    },
+    {
+      "path": "package.json",
+      "acceptedSha256": "0632d57db574973d5d9632967d07dbb6b3a7f15ba84cdcee795080789d0148b0",
+      "currentSha256": "ffa6b3f0c23d6e3828b0f24a110f3d54c565c37e6b03d68c02facb23e7d23ae3",
+      "matches": false
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "acceptedSha256": "04332d2581c767a5466babf32fa166517ae63ac18d6f81e81c1d8f640f0dbc82",
+      "currentSha256": "04332d2581c767a5466babf32fa166517ae63ac18d6f81e81c1d8f640f0dbc82",
+      "matches": true
+    },
+    {
+      "path": "apps/web/public/fonts/bricolage-grotesque.woff2",
+      "acceptedSha256": "93afc0e7a3564954f131b319d3564dfbbc022b224dbaff664fa455f57affed25",
+      "currentSha256": "93afc0e7a3564954f131b319d3564dfbbc022b224dbaff664fa455f57affed25",
+      "matches": true
+    },
+    {
+      "path": "apps/web/public/fonts/OFL-Bricolage-Grotesque.txt",
+      "acceptedSha256": "4b5a7d8f37f5602621c8a8d7358a6a2e71317e6c231c661e15aef0275d3e07ba",
+      "currentSha256": "4b5a7d8f37f5602621c8a8d7358a6a2e71317e6c231c661e15aef0275d3e07ba",
+      "matches": true
+    },
+    {
+      "path": "apps/web/public/fonts/README.txt",
+      "acceptedSha256": "732348aeb5b24c91f58bf3fe44c66d2114674e66ab818579c6aba5fbd19109a8",
+      "currentSha256": "732348aeb5b24c91f58bf3fe44c66d2114674e66ab818579c6aba5fbd19109a8",
+      "matches": true
+    },
+    {
+      "path": "apps/web/public/icon.svg",
+      "acceptedSha256": "666d7c4473e44f73b76b40d5c5598b67e5cad9c5bf81677ab7e20604e4921ea2",
+      "currentSha256": "666d7c4473e44f73b76b40d5c5598b67e5cad9c5bf81677ab7e20604e4921ea2",
+      "matches": true
+    }
+  ],
+  "dependencyQualification": "Root package.json belongs to backend allowlist; current bytes differ from accepted UI reference, while root-lock hash still matches and package pins equal HEAD."
+}

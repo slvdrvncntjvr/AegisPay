@@ -1,0 +1,2153 @@
+{
+  "observed_at_utc": "2026-11-10T05:56:39.361517+00:00",
+  "public_source_commit": "c63b3308ad69d2c5a919f94052571a38a2188121",
+  "deployed_server_commit_verified": false,
+  "gas_api_calls": 0,
+  "files": [
+    {
+      "path": "apps/web/core/api/gas-route-handlers.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/apps/web/core/api/gas-route-handlers.ts",
+      "http_status": 200,
+      "sha256": "64329ddba39e2b0eb36d601dbba8ebef168022d0ced270e6f18a891b23f0f7ad",
+      "line_count": 1091,
+      "semantic_references": [
+        {
+          "line": 43,
+          "source": "\"reconciliationRequired\","
+        },
+        {
+          "line": 50,
+          "source": "\"claimed\","
+        },
+        {
+          "line": 51,
+          "source": "\"submission_unknown\","
+        },
+        {
+          "line": 70,
+          "source": "export const GAS_SPONSOR_MAX_BODY_BYTES = GAS_MAX_BODY_BYTES;"
+        },
+        {
+          "line": 71,
+          "source": "export const GAS_SPONSOR_MAX_XDR_BYTES = TESTNET_TRANSACTION_ENVELOPE_MAX_XDR_BYTES;"
+        },
+        {
+          "line": 72,
+          "source": "export const GAS_SPONSOR_MAX_IDEMPOTENCY_KEY_BYTES = 255;"
+        },
+        {
+          "line": 73,
+          "source": "export const GAS_SUBMIT_MAX_BODY_BYTES = GAS_MAX_BODY_BYTES;"
+        },
+        {
+          "line": 74,
+          "source": "export const GAS_SUBMIT_MAX_REQUEST_ID_BYTES = 128;"
+        },
+        {
+          "line": 75,
+          "source": "export const GAS_SUBMIT_MAX_XDR_BYTES = TESTNET_TRANSACTION_ENVELOPE_MAX_XDR_BYTES;"
+        },
+        {
+          "line": 147,
+          "source": "reconciliationRequired: boolean;"
+        },
+        {
+          "line": 151,
+          "source": "export function createGasSponsorHandler(convex: GasSponsorCaller) {"
+        },
+        {
+          "line": 235,
+          "source": "export function createGasSubmitHandler(convex: GasSubmitCaller) {"
+        },
+        {
+          "line": 642,
+          "source": "status: 409,"
+        },
+        {
+          "line": 649,
+          "source": "status: 409,"
+        },
+        {
+          "line": 683,
+          "source": "result.status === \"claimed\" ||"
+        },
+        {
+          "line": 684,
+          "source": "result.status === \"submission_unknown\" ||"
+        },
+        {
+          "line": 693,
+          "source": "case \"handoff_unavailable\":"
+        },
+        {
+          "line": 697,
+          "source": "code: \"handoff_unavailable\","
+        },
+        {
+          "line": 700,
+          "source": "case \"reservation_expired\":"
+        },
+        {
+          "line": 702,
+          "source": "status: 409,"
+        },
+        {
+          "line": 704,
+          "source": "code: \"reservation_expired\","
+        },
+        {
+          "line": 709,
+          "source": "status: 409,"
+        },
+        {
+          "line": 814,
+          "source": "typeof value.reconciliationRequired === \"boolean\""
+        },
+        {
+          "line": 881,
+          "source": "status: 409,"
+        }
+      ]
+    },
+    {
+      "path": "packages/backend/convex/gas/submit.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/submit.ts",
+      "http_status": 200,
+      "sha256": "1bddabd7ecd946303b40cc336394d4a4c700264c4d820e5a6f8acd8a2eb2f25b",
+      "line_count": 324,
+      "semantic_references": [
+        {
+          "line": 35,
+          "source": "| { status: \"reservation_expired\" }"
+        },
+        {
+          "line": 36,
+          "source": "| { status: \"handoff_unavailable\" };"
+        },
+        {
+          "line": 38,
+          "source": "export const gasSubmitMutationResultValidator = v.union("
+        },
+        {
+          "line": 45,
+          "source": "v.object({ status: v.literal(\"reservation_expired\") }),"
+        },
+        {
+          "line": 46,
+          "source": "v.object({ status: v.literal(\"handoff_unavailable\") }),"
+        },
+        {
+          "line": 127,
+          "source": ".query(\"gasLogs\")"
+        },
+        {
+          "line": 141,
+          "source": ".query(\"gasPolicies\")"
+        },
+        {
+          "line": 153,
+          "source": "return { status: \"reservation_expired\" };"
+        },
+        {
+          "line": 171,
+          "source": "export const submit = internalMutation({"
+        },
+        {
+          "line": 201,
+          "source": "return { status: \"reservation_expired\" };"
+        },
+        {
+          "line": 209,
+          "source": "existingAttempt.lifecycle === GAS_LIFECYCLE_STATES.claimed &&"
+        },
+        {
+          "line": 242,
+          "source": "return { status: \"reservation_expired\" };"
+        },
+        {
+          "line": 245,
+          "source": "reservation.lifecycle === GAS_LIFECYCLE_STATES.claimed ||"
+        },
+        {
+          "line": 280,
+          "source": "return { status: \"handoff_unavailable\" };"
+        },
+        {
+          "line": 289,
+          "source": "if (executionAttempt !== null) return { status: \"handoff_unavailable\" };"
+        },
+        {
+          "line": 309,
+          "source": "return { status: \"reservation_expired\" };"
+        },
+        {
+          "line": 322,
+          "source": "return { status: \"reservation_expired\" };"
+        }
+      ]
+    },
+    {
+      "path": "packages/backend/convex/gas/public_api.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/public_api.ts",
+      "http_status": 200,
+      "sha256": "a1dc8c32fac2f156baacb471b9b69ae9750e4b61706a5c7fbeec4612e6b694ef",
+      "line_count": 460,
+      "semantic_references": [
+        {
+          "line": 60,
+          "source": "| { status: \"handoff_unavailable\" }"
+        },
+        {
+          "line": 61,
+          "source": "| { status: \"reservation_expired\" }"
+        },
+        {
+          "line": 89,
+          "source": "export const gasSponsorResultValidator = v.union("
+        },
+        {
+          "line": 104,
+          "source": "export const gasSubmitResultValidator = v.union("
+        },
+        {
+          "line": 106,
+          "source": "v.object({ status: v.literal(\"handoff_unavailable\") }),"
+        },
+        {
+          "line": 107,
+          "source": "v.object({ status: v.literal(\"reservation_expired\") }),"
+        },
+        {
+          "line": 302,
+          "source": "case \"reservation_expired\":"
+        },
+        {
+          "line": 303,
+          "source": "return { status: \"reservation_expired\" };"
+        },
+        {
+          "line": 304,
+          "source": "case \"handoff_unavailable\":"
+        },
+        {
+          "line": 305,
+          "source": "return { status: \"handoff_unavailable\" };"
+        },
+        {
+          "line": 310,
+          "source": "if (result.status === \"claimed\") return result.execution;"
+        },
+        {
+          "line": 316,
+          "source": "return await ctx.runQuery(internal.gas.public_api_internal.authorize, { apiKeyHash });"
+        },
+        {
+          "line": 320,
+          "source": "export const sponsor = action({"
+        },
+        {
+          "line": 392,
+          "source": "export const submit = action({"
+        }
+      ]
+    },
+    {
+      "path": "packages/backend/convex/gas/public_api_internal.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/public_api_internal.ts",
+      "http_status": 200,
+      "sha256": "9f00f082db86c3ecc012340ab3aa93873e7b1281c763306df86842a7341f5a31",
+      "line_count": 52,
+      "semantic_references": [
+        {
+          "line": 24,
+          "source": "export const authorize = internalQuery({"
+        },
+        {
+          "line": 31,
+          "source": "export const getRelayerMetadata = internalQuery({"
+        },
+        {
+          "line": 36,
+          "source": ".query(\"relayerAccounts\")"
+        }
+      ]
+    },
+    {
+      "path": "packages/backend/convex/gas/queries.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/queries.ts",
+      "http_status": 200,
+      "sha256": "e9d0da294034c6de6f92fe0f6a0e2ff089fa79842816fb45a89649f2654b8bae",
+      "line_count": 445,
+      "semantic_references": [
+        {
+          "line": 12,
+          "source": "import { requireGasConsoleAccess, requireGasFundsOwnerAccess } from \"./authorization\";"
+        },
+        {
+          "line": 53,
+          "source": "v.literal(\"submission_unknown\"),"
+        },
+        {
+          "line": 91,
+          "source": "v.literal(\"submission_unknown\"),"
+        },
+        {
+          "line": 97,
+          "source": "ownerWallet: v.string(),"
+        },
+        {
+          "line": 110,
+          "source": "export const getRelayerFundsForOwner = query({"
+        },
+        {
+          "line": 122,
+          "source": "const access = await requireGasFundsOwnerAccess(ctx, args.projectId);"
+        },
+        {
+          "line": 124,
+          "source": ".query(\"relayerAccounts\")"
+        },
+        {
+          "line": 132,
+          "source": ".query(\"gasRelayerCustody\")"
+        },
+        {
+          "line": 149,
+          "source": "export const getWithdrawalStatus = query({"
+        },
+        {
+          "line": 153,
+          "source": "const access = await requireGasFundsOwnerAccess(ctx, args.projectId);"
+        },
+        {
+          "line": 156,
+          "source": ".query(\"gasWithdrawals\")"
+        },
+        {
+          "line": 163,
+          "source": "if (!withdrawal || withdrawal.ownerWallet !== access.address) return null;"
+        },
+        {
+          "line": 168,
+          "source": "ownerWallet: withdrawal.ownerWallet,"
+        },
+        {
+          "line": 179,
+          "source": "export const getFaucetStatus = query({"
+        },
+        {
+          "line": 183,
+          "source": "await requireGasFundsOwnerAccess(ctx, args.projectId);"
+        },
+        {
+          "line": 186,
+          "source": ".query(\"gasFaucetRequests\")"
+        },
+        {
+          "line": 203,
+          "source": "export const getManagedActivationReview = query({"
+        },
+        {
+          "line": 207,
+          "source": "const access = await requireGasFundsOwnerAccess(ctx, args.projectId);"
+        },
+        {
+          "line": 210,
+          "source": ".query(\"projectContracts\")"
+        },
+        {
+          "line": 217,
+          "source": ".query(\"gasPolicies\")"
+        },
+        {
+          "line": 233,
+          "source": "export const getProvisioningStatus = query({"
+        },
+        {
+          "line": 239,
+          "source": ".query(\"gasRelayerCustody\")"
+        },
+        {
+          "line": 247,
+          "source": ".query(\"relayerAccounts\")"
+        },
+        {
+          "line": 309,
+          "source": "/** Owner-only safe funding status, without signed XDR or custody fields. */"
+        },
+        {
+          "line": 310,
+          "source": "export const getFundingStatus = query({"
+        },
+        {
+          "line": 317,
+          "source": ".query(\"gasFundingIntents\")"
+        },
+        {
+          "line": 339,
+          "source": "export const getPolicy = query({"
+        },
+        {
+          "line": 346,
+          "source": ".query(\"gasPolicies\")"
+        },
+        {
+          "line": 358,
+          "source": "export const getRelayerAccount = query({"
+        },
+        {
+          "line": 365,
+          "source": ".query(\"relayerAccounts\")"
+        },
+        {
+          "line": 378,
+          "source": "export const listLogsPage = query({"
+        },
+        {
+          "line": 388,
+          "source": ".query(\"gasLogs\")"
+        },
+        {
+          "line": 411,
+          "source": "export const getTelemetry = query({"
+        },
+        {
+          "line": 425,
+          "source": "export const getExecutionDetail = query({"
+        }
+      ]
+    },
+    {
+      "path": "packages/backend/convex/gas/authorization.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/authorization.ts",
+      "http_status": 200,
+      "sha256": "5f2eebd628177ad5653619e47e5b2068f61ece12562719967cd25374c7314cb9",
+      "line_count": 147,
+      "semantic_references": [
+        {
+          "line": 8,
+          "source": "import { requireProjectRole } from \"../playground_projects/helpers\";"
+        },
+        {
+          "line": 17,
+          "source": "updateRelayer: \"owner\","
+        },
+        {
+          "line": 30,
+          "source": "export const gasApiKeyAuthorizationResultValidator = v.union("
+        },
+        {
+          "line": 49,
+          "source": "export async function requireGasConsoleAccess("
+        },
+        {
+          "line": 60,
+          "source": "return await requireProjectRole(ctx, projectId, minimumRole);"
+        },
+        {
+          "line": 63,
+          "source": "/** Owner funds access remains available after retirement so managed relayers can be emptied. */"
+        },
+        {
+          "line": 64,
+          "source": "export async function requireGasFundsOwnerAccess("
+        },
+        {
+          "line": 74,
+          "source": "project.ownerAddress !== address &&"
+        },
+        {
+          "line": 75,
+          "source": "project.ownerTokenIdentifier !== identity.tokenIdentifier"
+        },
+        {
+          "line": 77,
+          "source": "throw new Error(\"Owner access required\");"
+        },
+        {
+          "line": 79,
+          "source": "return { identity, project, address, role: \"owner\" as const };"
+        },
+        {
+          "line": 87,
+          "source": "export async function verifyApiKeyForGas("
+        },
+        {
+          "line": 96,
+          "source": ".query(\"apiKeys\")"
+        },
+        {
+          "line": 121,
+          "source": "export async function revalidateGasApiKeyScope("
+        },
+        {
+          "line": 128,
+          "source": ".query(\"apiKeys\")"
+        }
+      ]
+    },
+    {
+      "path": "packages/backend/convex/gas/execution.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/execution.ts",
+      "http_status": 200,
+      "sha256": "637b2b6ac29ac673f2f51a5ff41c1cfb4ee7d0d7994e94231d616255f7f5f7df",
+      "line_count": 2396,
+      "semantic_references": [
+        {
+          "line": 58,
+          "source": "const RECONCILIATION_WINDOW_MS = 24 * 60 * 60 * 1_000;"
+        },
+        {
+          "line": 81,
+          "source": "export const getCustodyRecord = internalQuery({"
+        },
+        {
+          "line": 90,
+          "source": ".query(\"gasRelayerCustody\")"
+        },
+        {
+          "line": 132,
+          "source": "export const getCustodyContextMigrationPreflight = internalQuery({"
+        },
+        {
+          "line": 151,
+          "source": ".query(\"gasPolicies\")"
+        },
+        {
+          "line": 155,
+          "source": ".query(\"relayerAccounts\")"
+        },
+        {
+          "line": 161,
+          "source": ".query(\"gasProjectMaintenance\")"
+        },
+        {
+          "line": 186,
+          "source": "export const markCustodyProvisioningFailed = internalMutation({"
+        },
+        {
+          "line": 195,
+          "source": ".query(\"gasRelayerCustody\")"
+        },
+        {
+          "line": 210,
+          "source": "export const commitProvisionedCustody = internalMutation({"
+        },
+        {
+          "line": 224,
+          "source": ".query(\"gasRelayerCustody\")"
+        },
+        {
+          "line": 235,
+          "source": ".query(\"relayerAccounts\")"
+        },
+        {
+          "line": 242,
+          "source": ".query(\"relayerAccounts\")"
+        },
+        {
+          "line": 247,
+          "source": ".query(\"gasRelayerCustody\")"
+        },
+        {
+          "line": 277,
+          "source": "export const rotateProvisionedCustodyKey = internalMutation({"
+        },
+        {
+          "line": 290,
+          "source": ".query(\"gasRelayerCustody\")"
+        },
+        {
+          "line": 304,
+          "source": ".query(\"relayerAccounts\")"
+        },
+        {
+          "line": 322,
+          "source": "export const migrateProvisionedCustodyDeploymentContext = internalMutation({"
+        },
+        {
+          "line": 343,
+          "source": ".query(\"gasRelayerCustody\")"
+        },
+        {
+          "line": 361,
+          "source": ".query(\"gasPolicies\")"
+        },
+        {
+          "line": 368,
+          "source": ".query(\"gasProjectMaintenance\")"
+        },
+        {
+          "line": 374,
+          "source": ".query(\"relayerAccounts\")"
+        },
+        {
+          "line": 405,
+          "source": "| { status: \"reservation_expired\" }"
+        },
+        {
+          "line": 410,
+          "source": "status: \"claimed\";"
+        },
+        {
+          "line": 434,
+          "source": "v.object({ status: v.literal(\"reservation_expired\") }),"
+        },
+        {
+          "line": 439,
+          "source": "status: v.literal(\"claimed\"),"
+        },
+        {
+          "line": 461,
+          "source": "reconciliationDeadlineAt: number;"
+        },
+        {
+          "line": 468,
+          "source": "| { status: \"reservation_expired\" }"
+        },
+        {
+          "line": 472,
+          "source": "export const gasSendAuthorizationResultValidator = v.union("
+        },
+        {
+          "line": 479,
+          "source": "reconciliationDeadlineAt: v.number(),"
+        },
+        {
+          "line": 486,
+          "source": "v.object({ status: v.literal(\"reservation_expired\") }),"
+        },
+        {
+          "line": 494,
+          "source": "lifecycle: \"submission_unknown\" | \"submitted\";"
+        },
+        {
+          "line": 503,
+          "source": "export const gasSendOutcomeResultValidator = v.union("
+        },
+        {
+          "line": 506,
+          "source": "lifecycle: v.union(v.literal(\"submission_unknown\"), v.literal(\"submitted\")),"
+        },
+        {
+          "line": 538,
+          "source": ".query(\"gasExecutionAttempts\")"
+        },
+        {
+          "line": 552,
+          "source": ".query(\"gasExecutionAttempts\")"
+        },
+        {
+          "line": 566,
+          "source": ".query(\"gasExecutionAttempts\")"
+        },
+        {
+          "line": 576,
+          "source": "export async function findExecutionAttemptByRequestId("
+        },
+        {
+          "line": 585,
+          "source": "export async function findExecutionAttemptByIdempotencyKeyHash("
+        },
+        {
+          "line": 594,
+          "source": "export async function findExecutionAttemptByInnerTransactionHash("
+        },
+        {
+          "line": 608,
+          "source": ".query(\"gasLogs\")"
+        },
+        {
+          "line": 622,
+          "source": ".query(\"gasPolicies\")"
+        },
+        {
+          "line": 634,
+          "source": ".query(\"relayerAccounts\")"
+        },
+        {
+          "line": 648,
+          "source": ".query(\"gasProjectMaintenance\")"
+        },
+        {
+          "line": 787,
+          "source": "status: \"claimed\","
+        },
+        {
+          "line": 805,
+          "source": "return { status: \"reservation_expired\" };"
+        },
+        {
+          "line": 826,
+          "source": "return { status: \"reservation_expired\" };"
+        },
+        {
+          "line": 846,
+          "source": "export const findClaimReplay = internalQuery({"
+        },
+        {
+          "line": 889,
+          "source": "return { status: \"reservation_expired\" };"
+        },
+        {
+          "line": 898,
+          "source": "/** A claimed worker may proceed only while its token and generation are live. */"
+        },
+        {
+          "line": 899,
+          "source": "export function hasLiveGasExecutionFence("
+        },
+        {
+          "line": 908,
+          "source": "(attempt.lifecycle === GAS_LIFECYCLE_STATES.claimed ||"
+        },
+        {
+          "line": 919,
+          "source": "export const claim = internalMutation({"
+        },
+        {
+          "line": 1047,
+          "source": "return { status: \"reservation_expired\" };"
+        },
+        {
+          "line": 1107,
+          "source": "return { status: \"reservation_expired\" };"
+        },
+        {
+          "line": 1111,
+          "source": "lifecycle: GAS_LIFECYCLE_STATES.claimed,"
+        },
+        {
+          "line": 1128,
+          "source": "lifecycle: GAS_LIFECYCLE_STATES.claimed,"
+        },
+        {
+          "line": 1137,
+          "source": "reconciliationRequired: false,"
+        },
+        {
+          "line": 1162,
+          "source": "export const recoverClaim = internalMutation({"
+        },
+        {
+          "line": 1271,
+          "source": "return { status: \"reservation_expired\" };"
+        },
+        {
+          "line": 1279,
+          "source": "existing.lifecycle === GAS_LIFECYCLE_STATES.claimed &&"
+        },
+        {
+          "line": 1286,
+          "source": "// approved exposure held for reconciliation and replay the current DTO."
+        },
+        {
+          "line": 1334,
+          "source": "return { status: \"reservation_expired\" };"
+        },
+        {
+          "line": 1338,
+          "source": "? GAS_LIFECYCLE_STATES.claimed"
+        },
+        {
+          "line": 1460,
+          "source": "attempt.reconciliationDeadlineAt === undefined &&"
+        },
+        {
+          "line": 1463,
+          "source": "attempt.reconciliationLeaseToken === undefined &&"
+        },
+        {
+          "line": 1464,
+          "source": "attempt.reconciliationLeaseExpiresAt === undefined &&"
+        },
+        {
+          "line": 1465,
+          "source": "attempt.reconciliationLastOutcome === undefined &&"
+        },
+        {
+          "line": 1467,
+          "source": "!attempt.reconciliationRequired"
+        },
+        {
+          "line": 1471,
+          "source": "attempt.lifecycle === GAS_LIFECYCLE_STATES.claimed &&"
+        },
+        {
+          "line": 1475,
+          "source": "attempt.reconciliationDeadlineAt === undefined &&"
+        },
+        {
+          "line": 1478,
+          "source": "attempt.reconciliationLeaseToken === undefined &&"
+        },
+        {
+          "line": 1479,
+          "source": "attempt.reconciliationLeaseExpiresAt === undefined &&"
+        },
+        {
+          "line": 1480,
+          "source": "attempt.reconciliationLastOutcome === undefined &&"
+        },
+        {
+          "line": 1481,
+          "source": "!attempt.reconciliationRequired"
+        },
+        {
+          "line": 1502,
+          "source": "attempt.reconciliationDeadlineAt === undefined ||"
+        },
+        {
+          "line": 1503,
+          "source": "!isValidTimestamp(attempt.reconciliationDeadlineAt) ||"
+        },
+        {
+          "line": 1504,
+          "source": "attempt.reconciliationDeadlineAt < attempt.firstPossibleSendAt"
+        },
+        {
+          "line": 1538,
+          "source": "attempt.lifecycle === GAS_LIFECYCLE_STATES.claimed &&"
+        },
+        {
+          "line": 1694,
+          "source": "export const gasSequenceDiagnosisResultValidator = v.union("
+        },
+        {
+          "line": 1815,
+          "source": "export const recordSequenceDiagnosis = internalMutation({"
+        },
+        {
+          "line": 1882,
+          "source": "* Atomically authorizes exactly one send for a live claimed attempt. The"
+        },
+        {
+          "line": 1886,
+          "source": "export const authorizeSend = internalMutation({"
+        },
+        {
+          "line": 1970,
+          "source": "attempt.lifecycle === GAS_LIFECYCLE_STATES.claimed &&"
+        },
+        {
+          "line": 1977,
+          "source": "return { status: \"reservation_expired\" };"
+        },
+        {
+          "line": 2013,
+          "source": "? attempt.lifecycle !== GAS_LIFECYCLE_STATES.claimed ||"
+        },
+        {
+          "line": 2087,
+          "source": "const reconciliationDeadlineAt ="
+        },
+        {
+          "line": 2088,
+          "source": "attempt.reconciliationDeadlineAt ?? now + RECONCILIATION_WINDOW_MS;"
+        },
+        {
+          "line": 2089,
+          "source": "if (!Number.isSafeInteger(reconciliationDeadlineAt)) {"
+        },
+        {
+          "line": 2092,
+          "source": "if (!isValidTimestamp(firstPossibleSendAt) || reconciliationDeadlineAt < firstPossibleSendAt) {"
+        },
+        {
+          "line": 2108,
+          "source": "reconciliationDeadlineAt,"
+        },
+        {
+          "line": 2124,
+          "source": "reconciliationDeadlineAt,"
+        },
+        {
+          "line": 2130,
+          "source": "export const recordSendOutcome = internalMutation({"
+        },
+        {
+          "line": 2168,
+          "source": "attempt.reconciliationDeadlineAt === undefined"
+        },
+        {
+          "line": 2193,
+          "source": "reconciliationRequired: attempt.reconciliationRequired,"
+        },
+        {
+          "line": 2236,
+          "source": "const reconciliationRequired ="
+        },
+        {
+          "line": 2237,
+          "source": "attempt.reconciliationRequired ||"
+        },
+        {
+          "line": 2256,
+          "source": "reconciliationRequired,"
+        },
+        {
+          "line": 2276,
+          "source": "reconciliationRequired,"
+        },
+        {
+          "line": 2294,
+          "source": "* otherwise uncertain attempts retain their exposure for reconciliation."
+        },
+        {
+          "line": 2296,
+          "source": "export const recoverAbandoned = internalMutation({"
+        },
+        {
+          "line": 2301,
+          "source": "const claimed = await ctx.db"
+        },
+        {
+          "line": 2302,
+          "source": ".query(\"gasExecutionAttempts\")"
+        },
+        {
+          "line": 2304,
+          "source": "q.eq(\"lifecycle\", GAS_LIFECYCLE_STATES.claimed).lte(\"leaseExpiresAt\", now),"
+        },
+        {
+          "line": 2308,
+          "source": "const remaining = limit - claimed.length;"
+        },
+        {
+          "line": 2313,
+          "source": ".query(\"gasExecutionAttempts\")"
+        },
+        {
+          "line": 2320,
+          "source": "limit - claimed.length - unresolved.length <= 0"
+        },
+        {
+          "line": 2323,
+          "source": ".query(\"gasExecutionAttempts\")"
+        },
+        {
+          "line": 2325,
+          "source": "q.eq(\"lifecycle\", GAS_LIFECYCLE_STATES.claimed).lte(\"reservationExpiresAt\", now),"
+        },
+        {
+          "line": 2327,
+          "source": ".take(limit - claimed.length - unresolved.length);"
+        },
+        {
+          "line": 2330,
+          "source": "[...claimed, ...unresolved, ...expiredUnsent].map((attempt) => [attempt._id, attempt]),"
+        },
+        {
+          "line": 2336,
+          "source": "attempt.lifecycle === GAS_LIFECYCLE_STATES.claimed &&"
+        },
+        {
+          "line": 2342,
+          "source": "attempt.reconciliationDeadlineAt === undefined &&"
+        },
+        {
+          "line": 2345,
+          "source": "attempt.reconciliationLeaseToken === undefined &&"
+        },
+        {
+          "line": 2346,
+          "source": "attempt.reconciliationLeaseExpiresAt === undefined &&"
+        },
+        {
+          "line": 2347,
+          "source": "attempt.reconciliationLastOutcome === undefined &&"
+        },
+        {
+          "line": 2370,
+          "source": ": GAS_LIFECYCLE_STATES.claimed;"
+        },
+        {
+          "line": 2379,
+          "source": "reconciliationRequired: true,"
+        }
+      ]
+    },
+    {
+      "path": "packages/backend/convex/gas/execution_action.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/execution_action.ts",
+      "http_status": 200,
+      "sha256": "e36b8c2feaaef04311bbe147e2259d3be2299dab82de704fc69f4eb2c301630f",
+      "line_count": 827,
+      "semantic_references": [
+        {
+          "line": 43,
+          "source": "export const gasClaimArgsValidator = {"
+        },
+        {
+          "line": 67,
+          "source": "v.object({ status: v.literal(\"reservation_expired\") }),"
+        },
+        {
+          "line": 72,
+          "source": "status: v.literal(\"claimed\"),"
+        },
+        {
+          "line": 108,
+          "source": "export async function claimGasExecution("
+        },
+        {
+          "line": 117,
+          "source": "const authorization = await ctx.runQuery(internal.gas.public_api_internal.authorize, {"
+        },
+        {
+          "line": 162,
+          "source": "const replay = await ctx.runQuery(internal.gas.execution.findClaimReplay, {"
+        },
+        {
+          "line": 228,
+          "source": "type GasClaimFailure = Exclude<GasClaimResult, { status: \"claimed\" }>;"
+        },
+        {
+          "line": 378,
+          "source": "const result = await ctx.runQuery(internal.gas.public_api_internal.authorize, { apiKeyHash });"
+        },
+        {
+          "line": 428,
+          "source": "export async function executeGasExecution("
+        },
+        {
+          "line": 457,
+          "source": "if (claim.status !== \"claimed\") return claim;"
+        },
+        {
+          "line": 519,
+          "source": "if (recovery.status !== \"claimed\") {"
+        },
+        {
+          "line": 551,
+          "source": "| { kind: \"retry\"; result: Extract<GasClaimResult, { status: \"claimed\" }>; delay: number };"
+        },
+        {
+          "line": 586,
+          "source": "// after expiry. The current projection remains held for reconciliation."
+        },
+        {
+          "line": 816,
+          "source": "export const claim = internalAction({"
+        },
+        {
+          "line": 823,
+          "source": "export const claimWithXdr = internalAction({"
+        }
+      ]
+    },
+    {
+      "path": "packages/backend/convex/gas/reconciliation.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/reconciliation.ts",
+      "http_status": 200,
+      "sha256": "232d74a8068b85187319b4ad844a04f2cb20cde8d337bebf99b6ffa98201c22e",
+      "line_count": 667,
+      "semantic_references": [
+        {
+          "line": 8,
+          "source": "import { gasReconciliationOutcomeInputValidator } from \"./schema\";"
+        },
+        {
+          "line": 11,
+          "source": "GAS_RECONCILIATION_BATCH_LIMIT,"
+        },
+        {
+          "line": 12,
+          "source": "GAS_RECONCILIATION_INITIAL_DELAY_MS,"
+        },
+        {
+          "line": 13,
+          "source": "GAS_RECONCILIATION_LEASE_MS,"
+        },
+        {
+          "line": 14,
+          "source": "GAS_RECONCILIATION_LOOKUP_CLASSIFICATIONS,"
+        },
+        {
+          "line": 15,
+          "source": "GAS_RECONCILIATION_MAX_DELAY_MS,"
+        },
+        {
+          "line": 29,
+          "source": "const RECONCILIATION_PARKED_NEXT_CHECK_AT = 8_640_000_000_000_000;"
+        },
+        {
+          "line": 31,
+          "source": "type ReconciliationAttempt = Doc<\"gasExecutionAttempts\">;"
+        },
+        {
+          "line": 32,
+          "source": "type ReconciliationContext = Pick<MutationCtx, \"db\">;"
+        },
+        {
+          "line": 34,
+          "source": "type ReconciliationClaim = {"
+        },
+        {
+          "line": 38,
+          "source": "reconciliationLeaseToken: string;"
+        },
+        {
+          "line": 39,
+          "source": "reconciliationLeaseGeneration: number;"
+        },
+        {
+          "line": 43,
+          "source": "export type GasReconciliationOperatorClaimResult ="
+        },
+        {
+          "line": 44,
+          "source": "| { status: \"claimed\"; claim: ReconciliationClaim }"
+        },
+        {
+          "line": 52,
+          "source": "| \"already_claimed\";"
+        },
+        {
+          "line": 55,
+          "source": "const reconciliationClaimValidator = v.object({"
+        },
+        {
+          "line": 59,
+          "source": "reconciliationLeaseToken: v.string(),"
+        },
+        {
+          "line": 60,
+          "source": "reconciliationLeaseGeneration: v.number(),"
+        },
+        {
+          "line": 64,
+          "source": "const reconciliationOperatorClaimResultValidator = v.union("
+        },
+        {
+          "line": 65,
+          "source": "v.object({ status: v.literal(\"claimed\"), claim: reconciliationClaimValidator }),"
+        },
+        {
+          "line": 71,
+          "source": "v.object({ status: v.literal(\"already_claimed\") }),"
+        },
+        {
+          "line": 74,
+          "source": "export type GasReconciliationClaim = ReconciliationClaim;"
+        },
+        {
+          "line": 76,
+          "source": "export type GasReconciliationOutcomeResult ="
+        },
+        {
+          "line": 88,
+          "source": "export const gasReconciliationOutcomeResultValidator = v.union("
+        },
+        {
+          "line": 116,
+          "source": "throw new Error(\"Gas reconciliation batch size must be a positive safe integer\");"
+        },
+        {
+          "line": 118,
+          "source": "return Math.min(value ?? GAS_RECONCILIATION_BATCH_LIMIT, GAS_RECONCILIATION_BATCH_LIMIT);"
+        },
+        {
+          "line": 121,
+          "source": "function isReconciliationLifecycle(lifecycle: ReconciliationAttempt[\"lifecycle\"]): boolean {"
+        },
+        {
+          "line": 128,
+          "source": "function hasActiveReconciliationLease(attempt: ReconciliationAttempt, now: number): boolean {"
+        },
+        {
+          "line": 130,
+          "source": "attempt.reconciliationLeaseToken !== undefined &&"
+        },
+        {
+          "line": 131,
+          "source": "attempt.reconciliationLeaseExpiresAt !== undefined &&"
+        },
+        {
+          "line": 132,
+          "source": "attempt.reconciliationLeaseExpiresAt > now"
+        },
+        {
+          "line": 136,
+          "source": "function validReconciliationAttempt(attempt: ReconciliationAttempt): boolean {"
+        },
+        {
+          "line": 139,
+          "source": "!isReconciliationLifecycle(attempt.lifecycle) ||"
+        },
+        {
+          "line": 145,
+          "source": "attempt.reconciliationDeadlineAt === undefined ||"
+        },
+        {
+          "line": 147,
+          "source": "!isValidTimestamp(attempt.reconciliationDeadlineAt) ||"
+        },
+        {
+          "line": 148,
+          "source": "attempt.reconciliationDeadlineAt < attempt.firstPossibleSendAt ||"
+        },
+        {
+          "line": 150,
+          "source": "(attempt.reconciliationPollCount !== undefined &&"
+        },
+        {
+          "line": 151,
+          "source": "(!Number.isSafeInteger(attempt.reconciliationPollCount) ||"
+        },
+        {
+          "line": 152,
+          "source": "attempt.reconciliationPollCount < 0)) ||"
+        },
+        {
+          "line": 153,
+          "source": "(attempt.reconciliationLeaseGeneration !== undefined &&"
+        },
+        {
+          "line": 154,
+          "source": "(!Number.isSafeInteger(attempt.reconciliationLeaseGeneration) ||"
+        },
+        {
+          "line": 155,
+          "source": "attempt.reconciliationLeaseGeneration < 0))"
+        },
+        {
+          "line": 168,
+          "source": "attempt.reconciliationLeaseToken === undefined &&"
+        },
+        {
+          "line": 169,
+          "source": "attempt.reconciliationLeaseExpiresAt !== undefined"
+        },
+        {
+          "line": 174,
+          "source": "attempt.reconciliationLeaseToken !== undefined &&"
+        },
+        {
+          "line": 175,
+          "source": "(attempt.reconciliationLeaseExpiresAt === undefined ||"
+        },
+        {
+          "line": 176,
+          "source": "!isValidTimestamp(attempt.reconciliationLeaseExpiresAt))"
+        },
+        {
+          "line": 181,
+          "source": "attempt.reconciliationLeaseToken !== undefined &&"
+        },
+        {
+          "line": 182,
+          "source": "attempt.reconciliationLeaseGeneration === undefined"
+        },
+        {
+          "line": 187,
+          "source": "attempt.reconciliationLastOutcome !== undefined &&"
+        },
+        {
+          "line": 188,
+          "source": "(!isReconciliationOutcomeStatus(attempt.reconciliationLastOutcome.status) ||"
+        },
+        {
+          "line": 189,
+          "source": "!isValidTimestamp(attempt.reconciliationLastOutcome.observedAt))"
+        },
+        {
+          "line": 206,
+          "source": "ctx: ReconciliationContext,"
+        },
+        {
+          "line": 207,
+          "source": "lifecycle: ReconciliationAttempt[\"lifecycle\"],"
+        },
+        {
+          "line": 213,
+          "source": ".query(\"gasExecutionAttempts\")"
+        },
+        {
+          "line": 220,
+          "source": ".filter((q) => q.eq(q.field(\"reconciliationLeaseToken\"), undefined))"
+        },
+        {
+          "line": 223,
+          "source": ".filter((q) => q.neq(q.field(\"reconciliationLeaseToken\"), undefined))"
+        },
+        {
+          "line": 224,
+          "source": ".filter((q) => q.lte(q.field(\"reconciliationLeaseExpiresAt\"), now))"
+        },
+        {
+          "line": 230,
+          "source": "attempt: ReconciliationAttempt,"
+        },
+        {
+          "line": 233,
+          "source": "): ReconciliationClaim | null {"
+        },
+        {
+          "line": 235,
+          "source": "!validReconciliationAttempt(attempt) ||"
+        },
+        {
+          "line": 238,
+          "source": "attempt.reconciliationDeadlineAt === undefined ||"
+        },
+        {
+          "line": 239,
+          "source": "(!allowExhausted && attempt.reconciliationDeadlineAt <= now) ||"
+        },
+        {
+          "line": 241,
+          "source": "hasActiveReconciliationLease(attempt, now)"
+        },
+        {
+          "line": 246,
+          "source": "const previousGeneration = attempt.reconciliationLeaseGeneration ?? 0;"
+        },
+        {
+          "line": 247,
+          "source": "const reconciliationLeaseGeneration = previousGeneration + 1;"
+        },
+        {
+          "line": 248,
+          "source": "const reconciliationLeaseExpiresAt = now + GAS_RECONCILIATION_LEASE_MS;"
+        },
+        {
+          "line": 249,
+          "source": "const pollCount = (attempt.reconciliationPollCount ?? 0) + 1;"
+        },
+        {
+          "line": 251,
+          "source": "!Number.isSafeInteger(reconciliationLeaseGeneration) ||"
+        },
+        {
+          "line": 253,
+          "source": "!isValidTimestamp(reconciliationLeaseExpiresAt)"
+        },
+        {
+          "line": 262,
+          "source": "reconciliationLeaseToken: crypto.randomUUID(),"
+        },
+        {
+          "line": 263,
+          "source": "reconciliationLeaseGeneration,"
+        },
+        {
+          "line": 268,
+          "source": "/** Claim a bounded page of due, pinned attempts for independent reconciliation. */"
+        },
+        {
+          "line": 269,
+          "source": "export const claimDue = internalMutation({"
+        },
+        {
+          "line": 271,
+          "source": "returns: v.array(reconciliationClaimValidator),"
+        },
+        {
+          "line": 272,
+          "source": "handler: async (ctx, args): Promise<ReconciliationClaim[]> => {"
+        },
+        {
+          "line": 282,
+          "source": "const claims: ReconciliationClaim[] = [];"
+        },
+        {
+          "line": 286,
+          "source": "validReconciliationAttempt(attempt) &&"
+        },
+        {
+          "line": 287,
+          "source": "attempt.reconciliationDeadlineAt !== undefined &&"
+        },
+        {
+          "line": 288,
+          "source": "attempt.reconciliationDeadlineAt <= now &&"
+        },
+        {
+          "line": 290,
+          "source": "!hasActiveReconciliationLease(attempt, now)"
+        },
+        {
+          "line": 293,
+          "source": "reconciliationRequired: true,"
+        },
+        {
+          "line": 294,
+          "source": "nextCheckAt: RECONCILIATION_PARKED_NEXT_CHECK_AT,"
+        },
+        {
+          "line": 303,
+          "source": "reconciliationLeaseToken: claim.reconciliationLeaseToken,"
+        },
+        {
+          "line": 304,
+          "source": "reconciliationLeaseGeneration: claim.reconciliationLeaseGeneration,"
+        },
+        {
+          "line": 305,
+          "source": "reconciliationLeaseExpiresAt: now + GAS_RECONCILIATION_LEASE_MS,"
+        },
+        {
+          "line": 306,
+          "source": "reconciliationPollCount: claim.pollCount,"
+        },
+        {
+          "line": 307,
+          "source": "reconciliationRequired: true,"
+        },
+        {
+          "line": 308,
+          "source": "// A claimed row is hidden from the due queue until the independent"
+        },
+        {
+          "line": 310,
+          "source": "nextCheckAt: now + GAS_RECONCILIATION_LEASE_MS,"
+        },
+        {
+          "line": 320,
+          "source": "ctx: ReconciliationContext,"
+        },
+        {
+          "line": 323,
+          "source": "): Promise<ReconciliationAttempt | null | \"ambiguous\"> {"
+        },
+        {
+          "line": 325,
+          "source": ".query(\"gasExecutionAttempts\")"
+        },
+        {
+          "line": 335,
+          "source": "export const claimOperator = internalMutation({"
+        },
+        {
+          "line": 337,
+          "source": "returns: reconciliationOperatorClaimResultValidator,"
+        },
+        {
+          "line": 338,
+          "source": "handler: async (ctx, args): Promise<GasReconciliationOperatorClaimResult> => {"
+        },
+        {
+          "line": 349,
+          "source": "if (!validReconciliationAttempt(attempt)) return { status: \"invalid_lifecycle\" };"
+        },
+        {
+          "line": 353,
+          "source": "if (attempt.reconciliationDeadlineAt === undefined || attempt.reconciliationDeadlineAt > now) {"
+        },
+        {
+          "line": 356,
+          "source": "if (hasActiveReconciliationLease(attempt, now)) return { status: \"already_claimed\" };"
+        },
+        {
+          "line": 361,
+          "source": "reconciliationLeaseToken: claim.reconciliationLeaseToken,"
+        },
+        {
+          "line": 362,
+          "source": "reconciliationLeaseGeneration: claim.reconciliationLeaseGeneration,"
+        },
+        {
+          "line": 363,
+          "source": "reconciliationLeaseExpiresAt: now + GAS_RECONCILIATION_LEASE_MS,"
+        },
+        {
+          "line": 364,
+          "source": "reconciliationPollCount: claim.pollCount,"
+        },
+        {
+          "line": 365,
+          "source": "reconciliationRequired: true,"
+        },
+        {
+          "line": 366,
+          "source": "nextCheckAt: now + GAS_RECONCILIATION_LEASE_MS,"
+        },
+        {
+          "line": 369,
+          "source": "return { status: \"claimed\", claim };"
+        },
+        {
+          "line": 373,
+          "source": "type ReconciliationEvidenceInput = {"
+        },
+        {
+          "line": 383,
+          "source": "type NormalizedEvidence = ReconciliationEvidenceInput;"
+        },
+        {
+          "line": 404,
+          "source": "evidence: NonNullable<ReconciliationAttempt[\"verifiedLedgerEvidence\"]>,"
+        },
+        {
+          "line": 405,
+          "source": "attempt: ReconciliationAttempt,"
+        },
+        {
+          "line": 423,
+          "source": "evidence: ReconciliationEvidenceInput | undefined,"
+        },
+        {
+          "line": 424,
+          "source": "attempt: ReconciliationAttempt,"
+        },
+        {
+          "line": 459,
+          "source": "stored: ReconciliationAttempt[\"verifiedLedgerEvidence\"],"
+        },
+        {
+          "line": 474,
+          "source": "function reconciliationExecution(attempt: ReconciliationAttempt) {"
+        },
+        {
+          "line": 483,
+          "source": "reconciliationRequired: attempt.reconciliationRequired,"
+        },
+        {
+          "line": 488,
+          "source": "let delay = GAS_RECONCILIATION_INITIAL_DELAY_MS;"
+        },
+        {
+          "line": 489,
+          "source": "for (let index = 1; index < pollCount && delay < GAS_RECONCILIATION_MAX_DELAY_MS; index += 1) {"
+        },
+        {
+          "line": 490,
+          "source": "delay = Math.min(delay * 2, GAS_RECONCILIATION_MAX_DELAY_MS);"
+        },
+        {
+          "line": 495,
+          "source": "function isReconciliationOutcomeStatus("
+        },
+        {
+          "line": 499,
+          "source": "value === GAS_RECONCILIATION_LOOKUP_CLASSIFICATIONS.found ||"
+        },
+        {
+          "line": 500,
+          "source": "value === GAS_RECONCILIATION_LOOKUP_CLASSIFICATIONS.notFound ||"
+        },
+        {
+          "line": 501,
+          "source": "value === GAS_RECONCILIATION_LOOKUP_CLASSIFICATIONS.unavailable ||"
+        },
+        {
+          "line": 502,
+          "source": "value === GAS_RECONCILIATION_LOOKUP_CLASSIFICATIONS.malformedResponse ||"
+        },
+        {
+          "line": 503,
+          "source": "value === GAS_RECONCILIATION_LOOKUP_CLASSIFICATIONS.wrongNetwork"
+        },
+        {
+          "line": 508,
+          "source": "export const recordOutcome = internalMutation({"
+        },
+        {
+          "line": 513,
+          "source": "reconciliationLeaseToken: v.string(),"
+        },
+        {
+          "line": 514,
+          "source": "reconciliationLeaseGeneration: v.number(),"
+        },
+        {
+          "line": 515,
+          "source": "outcome: gasReconciliationOutcomeInputValidator,"
+        },
+        {
+          "line": 517,
+          "source": "returns: gasReconciliationOutcomeResultValidator,"
+        },
+        {
+          "line": 518,
+          "source": "handler: async (ctx, args): Promise<GasReconciliationOutcomeResult> => {"
+        },
+        {
+          "line": 528,
+          "source": "if (!validReconciliationAttempt(attempt) || attempt.projectId !== args.projectId) {"
+        },
+        {
+          "line": 536,
+          "source": "args.outcome.status === GAS_RECONCILIATION_LOOKUP_CLASSIFICATIONS.found"
+        },
+        {
+          "line": 546,
+          "source": "attempt.reconciliationLeaseGeneration !== args.reconciliationLeaseGeneration"
+        },
+        {
+          "line": 555,
+          "source": "execution: reconciliationExecution(attempt),"
+        },
+        {
+          "line": 561,
+          "source": "attempt.reconciliationLeaseToken !== args.reconciliationLeaseToken ||"
+        },
+        {
+          "line": 562,
+          "source": "attempt.reconciliationLeaseGeneration !== args.reconciliationLeaseGeneration ||"
+        },
+        {
+          "line": 563,
+          "source": "attempt.reconciliationLeaseExpiresAt === undefined ||"
+        },
+        {
+          "line": 564,
+          "source": "attempt.reconciliationLeaseExpiresAt <= now"
+        },
+        {
+          "line": 570,
+          "source": "args.outcome.status === GAS_RECONCILIATION_LOOKUP_CLASSIFICATIONS.found &&"
+        },
+        {
+          "line": 573,
+          "source": "? GAS_RECONCILIATION_LOOKUP_CLASSIFICATIONS.found"
+        },
+        {
+          "line": 574,
+          "source": ": args.outcome.status === GAS_RECONCILIATION_LOOKUP_CLASSIFICATIONS.found"
+        },
+        {
+          "line": 575,
+          "source": "? GAS_RECONCILIATION_LOOKUP_CLASSIFICATIONS.malformedResponse"
+        },
+        {
+          "line": 577,
+          "source": "if (!isReconciliationOutcomeStatus(outcomeStatus)) {"
+        },
+        {
+          "line": 582,
+          "source": "const deadline = attempt.reconciliationDeadlineAt!;"
+        },
+        {
+          "line": 594,
+          "source": "reconciliationLastOutcome: lastOutcome,"
+        },
+        {
+          "line": 595,
+          "source": "reconciliationLeaseToken: undefined,"
+        },
+        {
+          "line": 596,
+          "source": "reconciliationLeaseExpiresAt: undefined,"
+        },
+        {
+          "line": 597,
+          "source": "reconciliationLeaseGeneration: args.reconciliationLeaseGeneration,"
+        },
+        {
+          "line": 598,
+          "source": "nextCheckAt: RECONCILIATION_PARKED_NEXT_CHECK_AT,"
+        },
+        {
+          "line": 600,
+          "source": "reconciliationRequired: true,"
+        },
+        {
+          "line": 610,
+          "source": "reconciliationLastOutcome: patchedAttempt.reconciliationLastOutcome,"
+        },
+        {
+          "line": 611,
+          "source": "reconciliationLeaseToken: undefined,"
+        },
+        {
+          "line": 612,
+          "source": "reconciliationLeaseExpiresAt: undefined,"
+        },
+        {
+          "line": 613,
+          "source": "reconciliationLeaseGeneration: patchedAttempt.reconciliationLeaseGeneration,"
+        },
+        {
+          "line": 616,
+          "source": "reconciliationRequired: true,"
+        },
+        {
+          "line": 622,
+          "source": "// Evidence is first retained under the reconciliation fence, then the"
+        },
+        {
+          "line": 633,
+          "source": "execution: reconciliationExecution(settledAttempt ?? patchedAttempt),"
+        },
+        {
+          "line": 637,
+          "source": "const pollCount = attempt.reconciliationPollCount ?? 1;"
+        },
+        {
+          "line": 640,
+          "source": "? RECONCILIATION_PARKED_NEXT_CHECK_AT"
+        },
+        {
+          "line": 644,
+          "source": "reconciliationLastOutcome: lastOutcome,"
+        },
+        {
+          "line": 645,
+          "source": "reconciliationLeaseToken: undefined,"
+        },
+        {
+          "line": 646,
+          "source": "reconciliationLeaseExpiresAt: undefined,"
+        },
+        {
+          "line": 648,
+          "source": "reconciliationRequired: true,"
+        },
+        {
+          "line": 652,
+          "source": "reconciliationLastOutcome: lastOutcome,"
+        },
+        {
+          "line": 653,
+          "source": "reconciliationLeaseToken: undefined,"
+        },
+        {
+          "line": 654,
+          "source": "reconciliationLeaseExpiresAt: undefined,"
+        },
+        {
+          "line": 656,
+          "source": "reconciliationRequired: true,"
+        },
+        {
+          "line": 664,
+          "source": "execution: reconciliationExecution(patchedAttempt),"
+        }
+      ]
+    },
+    {
+      "path": "packages/backend/convex/gas/reconciliation_action.ts",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/packages/backend/convex/gas/reconciliation_action.ts",
+      "http_status": 200,
+      "sha256": "8c29924b63dfd09e35996e152b1e8856e1d47e86afd600b31a76c3341b567c8e",
+      "line_count": 294,
+      "semantic_references": [
+        {
+          "line": 16,
+          "source": "import { type GasReconciliationClaim, type GasReconciliationOutcomeResult } from \"./reconciliation\";"
+        },
+        {
+          "line": 18,
+          "source": "import { GAS_RECONCILIATION_LOOKUP_CONCURRENCY } from \"./types\";"
+        },
+        {
+          "line": 20,
+          "source": "const claimDueRef = makeFunctionReference<\"mutation\">(\"gas/reconciliation:claimDue\");"
+        },
+        {
+          "line": 21,
+          "source": "const claimOperatorRef = makeFunctionReference<\"mutation\">(\"gas/reconciliation:claimOperator\");"
+        },
+        {
+          "line": 22,
+          "source": "const recordOutcomeRef = makeFunctionReference<\"mutation\">(\"gas/reconciliation:recordOutcome\");"
+        },
+        {
+          "line": 23,
+          "source": "const reconcileDueRef = makeFunctionReference<\"action\">(\"gas/reconciliation_action:reconcileDue\");"
+        },
+        {
+          "line": 26,
+          "source": "claimed: v.number(),"
+        },
+        {
+          "line": 44,
+          "source": "v.object({ status: v.literal(\"already_claimed\") }),"
+        },
+        {
+          "line": 47,
+          "source": "export type GasReconciliationDependencies = Readonly<{"
+        },
+        {
+          "line": 48,
+          "source": "/** Injected primary transport for deterministic reconciliation tests. */"
+        },
+        {
+          "line": 59,
+          "source": "type ReconciliationLookupInput ="
+        },
+        {
+          "line": 87,
+          "source": "dependencies: GasReconciliationDependencies,"
+        },
+        {
+          "line": 115,
+          "source": "function lookupInput(outcome: TestnetFeeBumpLookupOutcome): ReconciliationLookupInput {"
+        },
+        {
+          "line": 144,
+          "source": "claim: GasReconciliationClaim,"
+        },
+        {
+          "line": 145,
+          "source": "dependencies: GasReconciliationDependencies,"
+        },
+        {
+          "line": 146,
+          "source": "): Promise<ReconciliationLookupInput> {"
+        },
+        {
+          "line": 175,
+          "source": "claim: GasReconciliationClaim,"
+        },
+        {
+          "line": 176,
+          "source": "outcome: ReconciliationLookupInput,"
+        },
+        {
+          "line": 177,
+          "source": "): Promise<GasReconciliationOutcomeResult> {"
+        },
+        {
+          "line": 182,
+          "source": "reconciliationLeaseToken: claim.reconciliationLeaseToken,"
+        },
+        {
+          "line": 183,
+          "source": "reconciliationLeaseGeneration: claim.reconciliationLeaseGeneration,"
+        },
+        {
+          "line": 185,
+          "source": "})) as GasReconciliationOutcomeResult;"
+        },
+        {
+          "line": 188,
+          "source": "async function reconcileClaims("
+        },
+        {
+          "line": 190,
+          "source": "claims: GasReconciliationClaim[],"
+        },
+        {
+          "line": 191,
+          "source": "dependencies: GasReconciliationDependencies,"
+        },
+        {
+          "line": 196,
+          "source": "for (let offset = 0; offset < claims.length; offset += GAS_RECONCILIATION_LOOKUP_CONCURRENCY) {"
+        },
+        {
+          "line": 198,
+          "source": "claims.slice(offset, offset + GAS_RECONCILIATION_LOOKUP_CONCURRENCY).map(async (claim) => {"
+        },
+        {
+          "line": 218,
+          "source": "export async function reconcileGasExecutionBatch("
+        },
+        {
+          "line": 221,
+          "source": "dependencies: GasReconciliationDependencies = {},"
+        },
+        {
+          "line": 225,
+          "source": "})) as GasReconciliationClaim[];"
+        },
+        {
+          "line": 226,
+          "source": "const result = await reconcileClaims(ctx, claims, dependencies);"
+        },
+        {
+          "line": 229,
+          "source": "await ctx.scheduler.runAfter(0, reconcileDueRef, { limit: normalizedLimit });"
+        },
+        {
+          "line": 231,
+          "source": "return { claimed: claims.length, ...result };"
+        },
+        {
+          "line": 234,
+          "source": "export async function reconcileGasExecutionOperator("
+        },
+        {
+          "line": 238,
+          "source": "dependencies: GasReconciliationDependencies = {},"
+        },
+        {
+          "line": 253,
+          "source": "| \"already_claimed\";"
+        },
+        {
+          "line": 256,
+          "source": "const claimed = (await ctx.runMutation(claimOperatorRef, { projectId, requestId })) as"
+        },
+        {
+          "line": 257,
+          "source": "| { status: \"claimed\"; claim: GasReconciliationClaim }"
+        },
+        {
+          "line": 265,
+          "source": "| \"already_claimed\";"
+        },
+        {
+          "line": 267,
+          "source": "if (claimed.status !== \"claimed\") return claimed;"
+        },
+        {
+          "line": 270,
+          "source": "claimed.claim,"
+        },
+        {
+          "line": 271,
+          "source": "await lookupOnce(claimed.claim, dependencies),"
+        },
+        {
+          "line": 282,
+          "source": "export const reconcileDue = internalAction({"
+        },
+        {
+          "line": 285,
+          "source": "handler: async (ctx, args) => await reconcileGasExecutionBatch(ctx, args.limit),"
+        },
+        {
+          "line": 289,
+          "source": "export const operatorReconcile = internalAction({"
+        },
+        {
+          "line": 293,
+          "source": "await reconcileGasExecutionOperator(ctx, args.projectId, args.requestId),"
+        }
+      ]
+    },
+    {
+      "path": "apps/web/features/projects/project-gas.tsx",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/apps/web/features/projects/project-gas.tsx",
+      "http_status": 200,
+      "sha256": "da22b7e44e9fa3d77c8cfec9437064d996ddbdfb013985d753ee9fb0a70b1db9",
+      "line_count": 328,
+      "semantic_references": [
+        {
+          "line": 10,
+          "source": "import { useQuery } from \"convex/react\";"
+        },
+        {
+          "line": 210,
+          "source": "const access = useQuery("
+        },
+        {
+          "line": 214,
+          "source": "const project = useQuery("
+        },
+        {
+          "line": 224,
+          "source": "const policy = useQuery("
+        },
+        {
+          "line": 228,
+          "source": "const relayer = useQuery("
+        },
+        {
+          "line": 232,
+          "source": "const provisioning = useQuery("
+        },
+        {
+          "line": 279,
+          "source": "{access.role === \"owner\" ? ("
+        },
+        {
+          "line": 281,
+          "source": "<Link href={`/projects/${projectId}/gas/funds`}>Owner relayer funds view</Link>"
+        },
+        {
+          "line": 309,
+          "source": "balance observations are refreshed manually. Owner funding uses a wallet-signed Testnet"
+        },
+        {
+          "line": 318,
+          "source": "export function ProjectGas({ projectId }: ProjectGasProps) {"
+        }
+      ]
+    },
+    {
+      "path": "apps/web/features/projects/gas-activity.tsx",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/apps/web/features/projects/gas-activity.tsx",
+      "http_status": 200,
+      "sha256": "64ae261312dba12b3c34184b987cc3934214e409a8a1fed436cdfc41ec5e2af3",
+      "line_count": 908,
+      "semantic_references": [
+        {
+          "line": 32,
+          "source": "import { useConvex, useConvexConnectionState, usePaginatedQuery, useQuery } from \"convex/react\";"
+        },
+        {
+          "line": 104,
+          "source": "claimed: \"warning\","
+        },
+        {
+          "line": 105,
+          "source": "submission_unknown: \"warning\","
+        },
+        {
+          "line": 113,
+          "source": "claimed: \"warning\","
+        },
+        {
+          "line": 114,
+          "source": "submission_unknown: \"warning\","
+        },
+        {
+          "line": 178,
+          "source": "export function GasReceiptDetailErrorState() {"
+        },
+        {
+          "line": 191,
+          "source": "export function GasActivityErrorState({ onRetry }: { onRetry?: () => void }) {"
+        },
+        {
+          "line": 509,
+          "source": "case \"claimed\":"
+        },
+        {
+          "line": 510,
+          "source": "case \"submission_unknown\":"
+        },
+        {
+          "line": 522,
+          "source": "export function GasReceiptDetailBody({"
+        },
+        {
+          "line": 604,
+          "source": "<ReceiptField label=\"Reconciliation\">"
+        },
+        {
+          "line": 605,
+          "source": "{detail.reconciliationRequired"
+        },
+        {
+          "line": 628,
+          "source": "const detail = useQuery(api.gas.queries.getExecutionDetail, {"
+        },
+        {
+          "line": 636,
+          "source": "export function GasActivityView({"
+        },
+        {
+          "line": 780,
+          "source": "const activityPage = usePaginatedQuery("
+        },
+        {
+          "line": 823,
+          "source": "const page: GasLogPage = await convex.query(api.gas.queries.listLogsPage, {"
+        },
+        {
+          "line": 897,
+          "source": "export function GasActivity({ projectId }: GasActivityProps) {"
+        }
+      ]
+    },
+    {
+      "path": "docs/velo-gas-station.md",
+      "url": "https://raw.githubusercontent.com/Velo-Ecosystem-Collection/Velo/c63b3308ad69d2c5a919f94052571a38a2188121/docs/velo-gas-station.md",
+      "http_status": 200,
+      "sha256": "4a978dbc013024b8c11f23350191d75e6bf7a946d482df9a4c50e88951e6da6f",
+      "line_count": 415,
+      "semantic_references": [
+        {
+          "line": 11,
+          "source": "with managed relayer setup, owner funding and activation, and account"
+        },
+        {
+          "line": 50,
+          "source": "owner can retry after the deployment's Testnet provisioning feature and custody"
+        },
+        {
+          "line": 55,
+          "source": "An owner then:"
+        },
+        {
+          "line": 66,
+          "source": "contract; otherwise sponsorship stays disabled. Pause and resume are owner"
+        },
+        {
+          "line": 70,
+          "source": "the destination to the authenticated owner. Velo pauses sponsorship, waits for"
+        },
+        {
+          "line": 73,
+          "source": "until the owner resumes it."
+        },
+        {
+          "line": 84,
+          "source": "Existing manually configured relayers remain supported. Owners can continue to"
+        },
+        {
+          "line": 95,
+          "source": "| Owner  | Provision/retry, fund, activate, pause/resume, and withdraw; also has editor access. |"
+        },
+        {
+          "line": 98,
+          "source": "readiness. A snapshot older than five minutes is stale. Owners retain access to"
+        },
+        {
+          "line": 174,
+          "source": "import { VeloGasSubmissionUnknownError } from \"@carts1024/velo-sdk\";"
+        },
+        {
+          "line": 176,
+          "source": "export async function sponsorGas(operationId: string, signedTransactionXdr: string) {"
+        },
+        {
+          "line": 196,
+          "source": "the SDK throws <code>VeloGasSubmissionUnknownError</code>. Persist only its"
+        },
+        {
+          "line": 197,
+          "source": "recovery identity and reconcile by status:"
+        },
+        {
+          "line": 200,
+          "source": "import { VeloGasSubmissionUnknownError } from \"@carts1024/velo-sdk\";"
+        },
+        {
+          "line": 205,
+          "source": "if (error instanceof VeloGasSubmissionUnknownError) {"
+        },
+        {
+          "line": 207,
+          "source": "return await velo.gas.getStatus(error.recovery);"
+        },
+        {
+          "line": 225,
+          "source": "| `getStatus()` | `POST /api/gas/submit`  | Sends only the reservation identity; no XDR.         |"
+        },
+        {
+          "line": 261,
+          "source": "### getStatus(identity, options)"
+        },
+        {
+          "line": 266,
+          "source": "const result = await velo.gas.getStatus({"
+        },
+        {
+          "line": 290,
+          "source": "It never sponsors, submits, cancels, or changes backend reconciliation. A local"
+        },
+        {
+          "line": 299,
+          "source": "| <code>claimed</code>            | The backend claimed the execution attempt.                                       |"
+        },
+        {
+          "line": 300,
+          "source": "| <code>submission_unknown</code> | The send result is uncertain; reconcile by identity.                             |"
+        },
+        {
+          "line": 302,
+          "source": "| <code>succeeded</code>          | Trusted ledger evidence was reconciled.                                          |"
+        },
+        {
+          "line": 309,
+          "source": "reconciliation flag in your server-side operation record."
+        },
+        {
+          "line": 344,
+          "source": "reconcile."
+        },
+        {
+          "line": 362,
+          "source": "fee, and reconciliation state. Fixed errors do not include SDK/provider"
+        }
+      ]
+    }
+  ]
+}
