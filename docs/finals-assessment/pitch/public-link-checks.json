@@ -1,0 +1,72 @@
+[
+  {
+    "name": "site",
+    "url": "https://aegispay-live.vercel.app/",
+    "checkedAt": "2026-11-09T07:28:41.879751+00:00",
+    "status": 200,
+    "finalUrl": "https://aegispay-live.vercel.app/",
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 10798
+  },
+  {
+    "name": "health",
+    "url": "https://aegispay-live.vercel.app/api/health",
+    "checkedAt": "2026-11-09T07:29:24.185429+00:00",
+    "status": 200,
+    "finalUrl": "https://aegispay-live.vercel.app/api/health",
+    "contentType": "application/json",
+    "bytes": 35,
+    "body": "{\"status\":\"ok\",\"network\":\"testnet\"}"
+  },
+  {
+    "name": "repo",
+    "url": "https://github.com/slvdrvncntjvr/AegisPay",
+    "checkedAt": "2026-11-09T07:30:07.393343+00:00",
+    "error": "HTTPError: HTTP Error 504: Gateway Time-out"
+  },
+  {
+    "name": "pitch_submitted",
+    "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf",
+    "checkedAt": "2026-11-09T07:30:39.991251+00:00",
+    "error": "HTTPError: HTTP Error 504: Gateway Time-out"
+  },
+  {
+    "name": "pitch_raw",
+    "url": "https://raw.githubusercontent.com/slvdrvncntjvr/AegisPay/main/docs/submission/AegisPay-pitch-draft.pdf",
+    "checkedAt": "2026-11-09T07:31:12.176676+00:00",
+    "status": 200,
+    "finalUrl": "https://raw.githubusercontent.com/slvdrvncntjvr/AegisPay/main/docs/submission/AegisPay-pitch-draft.pdf",
+    "contentType": "application/octet-stream",
+    "bytes": 147856,
+    "sha256": "45a46a0681cfbc8b11d904ec2a3c40b54c3954deb0dfd13a495e7e707a17762c",
+    "matchesLocal": true
+  },
+  {
+    "name": "luma",
+    "url": "https://luma.com/gjclwpkd",
+    "checkedAt": "2026-11-09T07:31:12.572336+00:00",
+    "status": 200,
+    "finalUrl": "https://luma.com/gjclwpkd",
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 172338,
+    "containsOriginalMkvName": false,
+    "containsNewMp4Name": false,
+    "title": [
+      "Noir X Velo Hackathon \u00b7 Luma"
+    ]
+  },
+  {
+    "name": "video_folder",
+    "url": "https://drive.google.com/drive/folders/1hqwzOaG_qU9axjcLIjBUb1YeMWdOFq72?usp=sharing",
+    "checkedAt": "2026-11-09T07:31:14.328745+00:00",
+    "status": 200,
+    "finalUrl": "https://drive.google.com/drive/folders/1hqwzOaG_qU9axjcLIjBUb1YeMWdOFq72?usp=sharing",
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 314662,
+    "containsOriginalMkvName": false,
+    "containsNewMp4Name": false,
+    "title": [
+      "Demo Aegispay - Google Drive"
+    ]
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "name": "tsc-root",
+    "command": [
+      "node",
+      "node_modules/typescript/bin/tsc",
+      "--noEmit"
+    ],
+    "exitCode": 0,
+    "observedAt": "2026-11-09T07:18:28.290677+00:00"
+  },
+  {
+    "name": "tsc-web",
+    "command": [
+      "node",
+      "node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--project",
+      "apps/web/tsconfig.json"
+    ],
+    "exitCode": 0,
+    "observedAt": "2026-11-09T07:18:47.039679+00:00"
+  }
+]

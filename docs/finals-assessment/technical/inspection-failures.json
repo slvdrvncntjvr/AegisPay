@@ -1,0 +1,18 @@
+[
+  {
+    "command": "pnpm typecheck / pnpm lint / pnpm test:unit / pnpm test:spike",
+    "result": "NOT RUN: PowerShell could not resolve pnpm; the initial pipeline wrapper exited 0 despite command discovery failure, so that exit is not treated as success. Installed npm/Node alternatives were subsequently run and passed."
+  },
+  {
+    "command": "Get-Content route with null -LiteralPath",
+    "result": "Initial inspection argument failed; corrected with the actual literal [..path] filename."
+  },
+  {
+    "command": "web open of live site/health/state/login",
+    "result": "Web browsing tool reported inaccessible/internal errors; Python HTTPS GET subsequently succeeded with recorded status/text."
+  },
+  {
+    "command": "first Python documentation-check wrapper",
+    "result": "docs checker itself exited 0, then wrapper console encoding raised UnicodeEncodeError; rerun with UTF-8 completed both checkers successfully."
+  }
+]

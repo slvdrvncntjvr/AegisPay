@@ -1,0 +1,89 @@
+{
+  "observedAt": "2026-11-09T10:35:14.564040+00:00",
+  "anonymous": true,
+  "headersContainCredentials": false,
+  "checks": [
+    {
+      "url": "https://aegispay-live.vercel.app/",
+      "status": 200,
+      "finalUrl": "https://aegispay-live.vercel.app/",
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "bytes": 37344,
+      "expected": 200
+    },
+    {
+      "url": "https://aegispay-live.vercel.app/api/health",
+      "status": 200,
+      "finalUrl": "https://aegispay-live.vercel.app/api/health",
+      "contentType": "application/json",
+      "cacheControl": "no-store",
+      "bytes": 35,
+      "expected": 200
+    },
+    {
+      "url": "https://aegispay-live.vercel.app/?_rsc=proof-refresh-verification",
+      "status": 200,
+      "finalUrl": "https://aegispay-live.vercel.app/?_rsc=proof-refresh-verification",
+      "contentType": "text/x-component",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "bytes": 12066,
+      "expected": 200
+    },
+    {
+      "url": "https://aegispay-live.vercel.app/app",
+      "status": 404,
+      "finalUrl": "https://aegispay-live.vercel.app/app",
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "bytes": 8281,
+      "expected": 404
+    },
+    {
+      "url": "https://aegispay-live.vercel.app/login",
+      "status": 404,
+      "finalUrl": "https://aegispay-live.vercel.app/login",
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "bytes": 8281,
+      "expected": 404
+    },
+    {
+      "url": "https://aegispay-live.vercel.app/api/v1/runs",
+      "status": 404,
+      "finalUrl": "https://aegispay-live.vercel.app/api/v1/runs",
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "bytes": 8281,
+      "expected": 404
+    },
+    {
+      "url": "https://aegispay-live.vercel.app/api/v1/catalog",
+      "status": 404,
+      "finalUrl": "https://aegispay-live.vercel.app/api/v1/catalog",
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "bytes": 8281,
+      "expected": 404
+    },
+    {
+      "url": "https://aegispay-live.vercel.app/api/v1/state",
+      "status": 404,
+      "finalUrl": "https://aegispay-live.vercel.app/api/v1/state",
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "bytes": 8281,
+      "expected": 404
+    },
+    {
+      "url": "https://aegispay-live.vercel.app/api/demo/quick-signal/demo-parser",
+      "status": 404,
+      "finalUrl": "https://aegispay-live.vercel.app/api/demo/quick-signal/demo-parser",
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "bytes": 8281,
+      "expected": 404
+    }
+  ],
+  "passed": true
+}

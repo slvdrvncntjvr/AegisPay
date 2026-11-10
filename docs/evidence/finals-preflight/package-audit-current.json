@@ -1,0 +1,312 @@
+{
+  "observed_at_utc": "2026-11-09T09:20:38.637847+00:00",
+  "kind": "conservative static import closure including types; not a Next build",
+  "web_source_closure": [
+    "apps/web/src/app/api/[...path]/route.ts",
+    "apps/web/src/app/api/health/route.ts",
+    "apps/web/src/app/console.tsx",
+    "apps/web/src/app/globals.css",
+    "apps/web/src/app/layout.tsx",
+    "apps/web/src/app/login/page.tsx",
+    "apps/web/src/app/page.tsx",
+    "apps/web/src/components/visual.tsx",
+    "apps/web/src/components/wallet.ts",
+    "apps/web/src/lib/public-proof.ts",
+    "apps/web/src/runtime.ts",
+    "packages/shared/src/index.ts",
+    "scripts/verify-contracts.ts",
+    "src/server/auth/session.ts",
+    "src/server/db/connection.ts",
+    "src/server/db/schema.ts",
+    "src/server/domain/evidence.ts",
+    "src/server/domain/purchases.ts",
+    "src/server/domain/wallet.ts",
+    "src/server/http/application.ts",
+    "src/server/http/boundaries.ts",
+    "src/server/http/wake.ts",
+    "src/server/integrations/noir.ts",
+    "src/server/integrations/wallet-gateway.ts",
+    "src/server/integrations/wallet-inspection.ts",
+    "src/server/merchant/receipts.ts",
+    "src/server/merchant/reports.ts"
+  ],
+  "edges": [
+    {
+      "from": "apps/web/src/app/login/page.tsx",
+      "to": "apps/web/src/components/visual.tsx"
+    },
+    {
+      "from": "apps/web/src/app/page.tsx",
+      "to": "apps/web/src/app/console.tsx"
+    },
+    {
+      "from": "apps/web/src/app/page.tsx",
+      "to": "apps/web/src/lib/public-proof.ts"
+    },
+    {
+      "from": "apps/web/src/app/page.tsx",
+      "to": "apps/web/src/components/visual.tsx"
+    },
+    {
+      "from": "apps/web/src/app/console.tsx",
+      "to": "apps/web/src/lib/public-proof.ts"
+    },
+    {
+      "from": "apps/web/src/app/console.tsx",
+      "to": "apps/web/src/components/visual.tsx"
+    },
+    {
+      "from": "apps/web/src/app/layout.tsx",
+      "to": "apps/web/src/app/globals.css"
+    },
+    {
+      "from": "apps/web/src/app/api/[...path]/route.ts",
+      "to": "src/server/db/connection.ts"
+    },
+    {
+      "from": "apps/web/src/app/api/[...path]/route.ts",
+      "to": "src/server/http/application.ts"
+    },
+    {
+      "from": "apps/web/src/app/api/[...path]/route.ts",
+      "to": "src/server/integrations/wallet-gateway.ts"
+    },
+    {
+      "from": "apps/web/src/app/api/[...path]/route.ts",
+      "to": "src/server/http/boundaries.ts"
+    },
+    {
+      "from": "src/server/http/boundaries.ts",
+      "to": "src/server/domain/purchases.ts"
+    },
+    {
+      "from": "src/server/http/boundaries.ts",
+      "to": "src/server/integrations/noir.ts"
+    },
+    {
+      "from": "src/server/domain/purchases.ts",
+      "to": "packages/shared/src/index.ts"
+    },
+    {
+      "from": "src/server/domain/purchases.ts",
+      "to": "src/server/db/connection.ts"
+    },
+    {
+      "from": "src/server/domain/purchases.ts",
+      "to": "src/server/db/schema.ts"
+    },
+    {
+      "from": "src/server/db/connection.ts",
+      "to": "src/server/db/schema.ts"
+    },
+    {
+      "from": "src/server/integrations/wallet-gateway.ts",
+      "to": "src/server/integrations/noir.ts"
+    },
+    {
+      "from": "src/server/integrations/wallet-gateway.ts",
+      "to": "scripts/verify-contracts.ts"
+    },
+    {
+      "from": "src/server/integrations/wallet-gateway.ts",
+      "to": "src/server/domain/wallet.ts"
+    },
+    {
+      "from": "src/server/domain/wallet.ts",
+      "to": "packages/shared/src/index.ts"
+    },
+    {
+      "from": "src/server/domain/wallet.ts",
+      "to": "src/server/db/connection.ts"
+    },
+    {
+      "from": "src/server/domain/wallet.ts",
+      "to": "src/server/db/schema.ts"
+    },
+    {
+      "from": "src/server/domain/wallet.ts",
+      "to": "src/server/auth/session.ts"
+    },
+    {
+      "from": "src/server/domain/wallet.ts",
+      "to": "src/server/auth/session.ts"
+    },
+    {
+      "from": "src/server/domain/wallet.ts",
+      "to": "src/server/domain/purchases.ts"
+    },
+    {
+      "from": "src/server/domain/wallet.ts",
+      "to": "src/server/integrations/wallet-inspection.ts"
+    },
+    {
+      "from": "src/server/integrations/wallet-inspection.ts",
+      "to": "src/server/integrations/noir.ts"
+    },
+    {
+      "from": "src/server/auth/session.ts",
+      "to": "src/server/db/connection.ts"
+    },
+    {
+      "from": "src/server/auth/session.ts",
+      "to": "src/server/db/schema.ts"
+    },
+    {
+      "from": "src/server/auth/session.ts",
+      "to": "src/server/domain/purchases.ts"
+    },
+    {
+      "from": "scripts/verify-contracts.ts",
+      "to": "src/server/integrations/noir.ts"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "to": "packages/shared/src/index.ts"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "to": "src/server/db/connection.ts"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "to": "src/server/db/schema.ts"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "to": "src/server/auth/session.ts"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "to": "src/server/domain/purchases.ts"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "to": "src/server/merchant/receipts.ts"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "to": "src/server/domain/wallet.ts"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "to": "src/server/http/boundaries.ts"
+    },
+    {
+      "from": "src/server/http/application.ts",
+      "to": "src/server/http/wake.ts"
+    },
+    {
+      "from": "src/server/merchant/receipts.ts",
+      "to": "src/server/db/connection.ts"
+    },
+    {
+      "from": "src/server/merchant/receipts.ts",
+      "to": "src/server/db/schema.ts"
+    },
+    {
+      "from": "src/server/merchant/receipts.ts",
+      "to": "src/server/auth/session.ts"
+    },
+    {
+      "from": "src/server/merchant/receipts.ts",
+      "to": "src/server/domain/purchases.ts"
+    },
+    {
+      "from": "src/server/merchant/receipts.ts",
+      "to": "src/server/domain/evidence.ts"
+    },
+    {
+      "from": "src/server/merchant/receipts.ts",
+      "to": "src/server/merchant/reports.ts"
+    },
+    {
+      "from": "src/server/merchant/reports.ts",
+      "to": "src/server/domain/purchases.ts"
+    },
+    {
+      "from": "src/server/domain/evidence.ts",
+      "to": "packages/shared/src/index.ts"
+    },
+    {
+      "from": "src/server/domain/evidence.ts",
+      "to": "src/server/db/connection.ts"
+    },
+    {
+      "from": "src/server/domain/evidence.ts",
+      "to": "src/server/db/schema.ts"
+    },
+    {
+      "from": "src/server/domain/evidence.ts",
+      "to": "src/server/domain/purchases.ts"
+    },
+    {
+      "from": "apps/web/src/app/api/health/route.ts",
+      "to": "apps/web/src/runtime.ts"
+    },
+    {
+      "from": "apps/web/src/runtime.ts",
+      "to": "packages/shared/src/index.ts"
+    }
+  ],
+  "unresolved": [],
+  "external_specifiers": [
+    "@noirx402/agent-sdk",
+    "@stellar/freighter-api",
+    "@stellar/stellar-sdk",
+    "drizzle-orm",
+    "drizzle-orm/node-postgres",
+    "drizzle-orm/pg-core",
+    "next",
+    "node:crypto",
+    "node:fs/promises",
+    "node:url",
+    "pg",
+    "react",
+    "server-only",
+    "zod"
+  ],
+  "currently_explicitly_excluded_reachable_files": [],
+  "tools": {
+    "C:\\Users\\Vincent\\AppData\\Local\\node\\corepack\\v1\\pnpm\\12.18.0": {
+      "exists": true,
+      "immediate_filenames": [
+        ".corepack",
+        "CHANGELOG.md",
+        "README.md",
+        "THIRD-PARTY-NOTICES.md",
+        "bin",
+        "dist",
+        "install.js",
+        "native-binary.mjs",
+        "package.json",
+        "pn",
+        "pnpm",
+        "pnpm-native.exe",
+        "pnpx",
+        "pnx"
+      ]
+    },
+    "C:\\Users\\Vincent\\AppData\\Local\\pnpm\\.tools\\pnpm\\12.18.0": {
+      "exists": false,
+      "immediate_filenames": []
+    }
+  },
+  "gemini_metadata": {
+    "key_present": true,
+    "selected_model": "gemini-3.5-flash",
+    "generation_attempted": false,
+    "quota_verified": false,
+    "http_status": 200,
+    "model_name": "models/gemini-3.5-flash",
+    "supported_methods": [
+      "generateContent",
+      "countTokens",
+      "createCachedContent",
+      "batchGenerateContent"
+    ]
+  },
+  "isolated_db_port": {
+    "port": 53371,
+    "tcp_reachable": true
+  }
+}

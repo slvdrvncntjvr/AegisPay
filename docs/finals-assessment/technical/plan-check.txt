@@ -1,0 +1,15 @@
+APPROVE: docs\implementation-plan.md has 13 valid task row(s); dependency/state DAG is coherent
+Execution waves (topological layers; same wave = parallel candidates):
+  wave 0: TASK-001
+  wave 1: TASK-002
+  wave 2: TASK-011
+  wave 3: TASK-003
+  wave 4: TASK-004
+  wave 5: TASK-005
+  wave 6: TASK-006
+  wave 7: TASK-007, TASK-008
+  wave 8: TASK-009
+  wave 9: TASK-010
+  wave 10: TASK-012
+  wave 11: TASK-013
+Parallel-safety: no same-wave write-scope overlaps detected

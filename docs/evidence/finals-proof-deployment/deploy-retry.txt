@@ -1,0 +1,5 @@
+Vercel CLI 65.12.1
+> [debug] [2026-11-09T10:25:58.841Z] Agent/TTY/nonInteractive: isAgent=true agentName=codex stdin.isTTY=undefined --non-interactive=false explicitFalse=false => nonInteractive=true
+> [debug] [2026-11-09T10:25:58.842Z] user supplied known subcommand: "deploy"
+> [debug] [2026-11-09T10:25:58.876Z] Setting target to production
+> [debug] [2026-11-09T10:25:58.958Z] Valid access token, skipping token refresh.

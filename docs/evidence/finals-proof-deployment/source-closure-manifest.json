@@ -1,0 +1,243 @@
+{
+  "observedAt": "2026-11-09T10:12:46.690482+00:00",
+  "stage": "C:\\Users\\Vincent\\VS Codes\\Noir X Velo\\.fmd-work\\proof-refresh-ctx77fd54",
+  "acceptedSourceChecks": [
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "matches": true
+    },
+    {
+      "path": "apps/web/src/app/console.tsx",
+      "matches": true
+    },
+    {
+      "path": "apps/web/src/app/globals.css",
+      "matches": true
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "matches": true
+    },
+    {
+      "path": "apps/web/src/app/login/page.tsx",
+      "matches": true
+    },
+    {
+      "path": "apps/web/src/components/visual.tsx",
+      "matches": true
+    },
+    {
+      "path": "apps/web/src/components/wallet.ts",
+      "matches": true
+    },
+    {
+      "path": "apps/web/src/lib/public-proof.ts",
+      "matches": true
+    },
+    {
+      "path": "tests/e2e/public-proof.spec.ts",
+      "matches": true
+    },
+    {
+      "path": "package.json",
+      "matches": true
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "matches": true
+    },
+    {
+      "path": "apps/web/public/fonts/bricolage-grotesque.woff2",
+      "matches": true
+    },
+    {
+      "path": "apps/web/public/fonts/OFL-Bricolage-Grotesque.txt",
+      "matches": true
+    },
+    {
+      "path": "apps/web/public/fonts/README.txt",
+      "matches": true
+    },
+    {
+      "path": "apps/web/public/icon.svg",
+      "matches": true
+    }
+  ],
+  "files": [
+    {
+      "path": "package.json",
+      "sha256": "0632d57db574973d5d9632967d07dbb6b3a7f15ba84cdcee795080789d0148b0",
+      "bytes": 3195,
+      "provenance": "canonical byte-for-byte package.json"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "04332d2581c767a5466babf32fa166517ae63ac18d6f81e81c1d8f640f0dbc82",
+      "bytes": 124429,
+      "provenance": "canonical byte-for-byte pnpm-lock.yaml"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "sha256": "59d2e32d6027151ec7a2fc34432d1c41bddd070f4c3fedd69a817ead5040f168",
+      "bytes": 164,
+      "provenance": "canonical byte-for-byte pnpm-workspace.yaml"
+    },
+    {
+      "path": ".npmrc",
+      "sha256": "e0b180a89825a2a2a24b0479c3003921930a085ba1e56905ac07b4f8fc05c354",
+      "bytes": 48,
+      "provenance": "canonical byte-for-byte .npmrc"
+    },
+    {
+      "path": ".node-version",
+      "sha256": "7c415154bb9f8e90394317c7109261249d2c4fbd549008ae6d014ee565ee7967",
+      "bytes": 9,
+      "provenance": "canonical byte-for-byte .node-version"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "35ca5537bc81bce654ac59a1b2e21ba45742cba8ccfbb4cf26403d3730ffbad0",
+      "bytes": 625,
+      "provenance": "canonical byte-for-byte tsconfig.json"
+    },
+    {
+      "path": "apps/web/package.json",
+      "sha256": "15de4de583f19560221c1525a1cf5d0da1775bdd6b99b6470ecce6bbe1f91f4b",
+      "bytes": 355,
+      "provenance": "canonical byte-for-byte apps/web/package.json"
+    },
+    {
+      "path": "apps/server/package.json",
+      "sha256": "fd6201b63591ce8c35fd522261aad988aacbd140b84e65194c9a5bb0e7f68572",
+      "bytes": 220,
+      "provenance": "canonical byte-for-byte apps/server/package.json"
+    },
+    {
+      "path": "packages/agent/package.json",
+      "sha256": "8f07a87523848224dea39c2f31caf70518b627002f816f0a3f64c72f9035a0fc",
+      "bytes": 189,
+      "provenance": "canonical byte-for-byte packages/agent/package.json"
+    },
+    {
+      "path": "packages/shared/package.json",
+      "sha256": "caaf5b18acd4554af96f618e62139df5f5f21ac4a81a1903ff5261efe4b148d6",
+      "bytes": 171,
+      "provenance": "canonical byte-for-byte packages/shared/package.json"
+    },
+    {
+      "path": "apps/web/next.config.ts",
+      "sha256": "abcb57e47d5715b45cb745e5eb52eb59f8e636d9100dc640927cdba105cdc1ba",
+      "bytes": 182,
+      "provenance": "canonical byte-for-byte apps/web/next.config.ts"
+    },
+    {
+      "path": "apps/web/tsconfig.json",
+      "sha256": "791f3c88be419d85e583b88ee2e26ed9de09cf631901e2f768b826cabad315eb",
+      "bytes": 292,
+      "provenance": "canonical byte-for-byte apps/web/tsconfig.json"
+    },
+    {
+      "path": "apps/web/vercel.json",
+      "sha256": "61d3bd2b773d168d500d9e2b7cf7a01673ae8db850b10e7c6d718ed67c718555",
+      "bytes": 275,
+      "provenance": "canonical byte-for-byte apps/web/vercel.json"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "sha256": "b03573ce499c79e7d253b5c3ce65a2d35cf8832394ae055bfb2021d35a963c60",
+      "bytes": 4381,
+      "provenance": "canonical byte-for-byte apps/web/src/app/page.tsx"
+    },
+    {
+      "path": "apps/web/src/app/console.tsx",
+      "sha256": "4f8af7d13fcd1db058f43be236369d6dcf60efe229f7ae66b9bb372b26e41c60",
+      "bytes": 15306,
+      "provenance": "canonical byte-for-byte apps/web/src/app/console.tsx"
+    },
+    {
+      "path": "apps/web/src/app/globals.css",
+      "sha256": "f7b8ee220ea6e11df57c67ae5b4ffb02971e53afd49c3546905b6fe38fb01218",
+      "bytes": 30277,
+      "provenance": "canonical byte-for-byte apps/web/src/app/globals.css"
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "sha256": "5030c89bef9b5adf12f15f7010fa65eae444aea9cc7f8e1beb6f976c7c0235d9",
+      "bytes": 577,
+      "provenance": "canonical byte-for-byte apps/web/src/app/layout.tsx"
+    },
+    {
+      "path": "apps/web/src/components/visual.tsx",
+      "sha256": "8796bba2d46409634e619021971a8f76533ef331b9ac04cb17111755313471e4",
+      "bytes": 1450,
+      "provenance": "canonical byte-for-byte apps/web/src/components/visual.tsx"
+    },
+    {
+      "path": "apps/web/src/lib/public-proof.ts",
+      "sha256": "ffe691683b7505eeade1aa2c02c6f526faa9f9f72c81449b56a76f5f2be77f3d",
+      "bytes": 3063,
+      "provenance": "canonical byte-for-byte apps/web/src/lib/public-proof.ts"
+    },
+    {
+      "path": "packages/shared/src/index.ts",
+      "sha256": "a4f852ecadeb016f9748e3baafa3f56b63ec87fa0d0d122c4cb8d7f259763a66",
+      "bytes": 3504,
+      "provenance": "canonical byte-for-byte packages/shared/src/index.ts"
+    },
+    {
+      "path": "apps/web/public/icon.svg",
+      "sha256": "666d7c4473e44f73b76b40d5c5598b67e5cad9c5bf81677ab7e20604e4921ea2",
+      "bytes": 265,
+      "provenance": "canonical byte-for-byte apps/web/public/icon.svg"
+    },
+    {
+      "path": "apps/web/public/fonts/bricolage-grotesque.woff2",
+      "sha256": "93afc0e7a3564954f131b319d3564dfbbc022b224dbaff664fa455f57affed25",
+      "bytes": 205268,
+      "provenance": "canonical byte-for-byte apps/web/public/fonts/bricolage-grotesque.woff2"
+    },
+    {
+      "path": "apps/web/public/fonts/OFL-Bricolage-Grotesque.txt",
+      "sha256": "4b5a7d8f37f5602621c8a8d7358a6a2e71317e6c231c661e15aef0275d3e07ba",
+      "bytes": 4403,
+      "provenance": "canonical byte-for-byte apps/web/public/fonts/OFL-Bricolage-Grotesque.txt"
+    },
+    {
+      "path": "apps/web/public/fonts/README.txt",
+      "sha256": "732348aeb5b24c91f58bf3fe44c66d2114674e66ab818579c6aba5fbd19109a8",
+      "bytes": 439,
+      "provenance": "canonical byte-for-byte apps/web/public/fonts/README.txt"
+    },
+    {
+      "path": "apps/web/src/app/api/health/route.ts",
+      "sha256": "b19d08fa21000ef4bdae9b3c9c9b8a122063dea76026d81de1ff4363a2a77d44",
+      "bytes": 360,
+      "provenance": "staging-only literal in deployment/finals/proof-refresh/prepare.py"
+    },
+    {
+      "path": ".vercelignore",
+      "sha256": "a7fd8a8c76f6d4a329081e9d32dcabee6c78b18578ec10bdbf77d3a050e749b8",
+      "bytes": 66,
+      "provenance": "staging-only literal in deployment/finals/proof-refresh/prepare.py"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "1c06e3934ae9a38ac55eb0c727badae45f50c31820694098860d2b563f998f3a",
+      "bytes": 36,
+      "provenance": "staging-only literal in deployment/finals/proof-refresh/prepare.py"
+    }
+  ],
+  "omitted": [
+    "login route",
+    "authenticated API catchall",
+    "wallet helper",
+    "all apps/server implementation",
+    "all packages/agent implementation",
+    "all root src/server implementation",
+    "all env files",
+    "all protected fixtures and journals",
+    "provider config",
+    ".git"
+  ],
+  "note": "Workspace manifests are preserved for frozen root installation; absent private workspace implementation is unreachable. Health proves public slice liveness only. Generated Next next-env.d.ts is build scaffold, not canonical source."
+}

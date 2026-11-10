@@ -1,0 +1,34 @@
+{
+  "titles": [
+    "Useful data. Bounded authority.",
+    "Should we ship this dependency update?",
+    "Choose the information. Keep the rules.",
+    "Two SDKs. The same authorization.",
+    "One payment. A readable receipt.",
+    "Unknown means hold.",
+    "Start with one developer. And one data provider.",
+    "Next: one complete purchase. Verified end to end."
+  ],
+  "seconds": [
+    25,
+    35,
+    45,
+    45,
+    40,
+    40,
+    35,
+    35
+  ],
+  "totalSeconds": 300,
+  "fixedUrls": [
+    "https://aegispay-live.vercel.app/",
+    "https://github.com/slvdrvncntjvr/AegisPay",
+    "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf",
+    "https://drive.google.com/drive/folders/1hqwzOaG_qU9axjcLIjBUb1YeMWdOFq72?usp=sharing"
+  ],
+  "hashes": [
+    "1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a",
+    "6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381",
+    "94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18"
+  ]
+}

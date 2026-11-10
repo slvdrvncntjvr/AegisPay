@@ -1,0 +1,22 @@
+[
+  {
+    "name": "docs-check",
+    "command": [
+      "python",
+      "tools/check-docs.py"
+    ],
+    "exitCode": 0,
+    "observedAt": "2026-11-09T07:20:12.063715+00:00"
+  },
+  {
+    "name": "plan-check",
+    "command": [
+      "python",
+      "fmd/tools/check-implementation-plan.py",
+      "docs/implementation-plan.md",
+      "--strict"
+    ],
+    "exitCode": 0,
+    "observedAt": "2026-11-09T07:20:12.207598+00:00"
+  }
+]

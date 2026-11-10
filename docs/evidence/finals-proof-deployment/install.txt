@@ -1,0 +1,55 @@
+Scope: all 5 workspace projects
+✓ Lockfile passes supply-chain policies (verified 1d ago)
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: C:\Users\Vincent\AppData\Local\pnpm\store\v11
+  Virtual store is at:             node_modules/.pnpm
+Progress: resolved 69, reused 69, downloaded 0, added 58
+Progress: resolved 140, reused 140, downloaded 0, added 129
+Progress: resolved 203, reused 203, downloaded 0, added 192
+Progress: resolved 234, reused 233, downloaded 0, added 224
+Progress: resolved 237, reused 237, downloaded 0, added 229
+Progress: resolved 238, reused 238, downloaded 0, added 232
+Packages: +238
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 238, reused 238, downloaded 0, added 238, done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.25.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.28.2/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.28.2/node_modules/esbuild postinstall: Done
+.../esbuild@0.25.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+
+dependencies:
++ @aegispay/agent <- packages/agent
++ @aegispay/shared <- packages/shared
++ @anthropic-ai/sdk 1.6.0
++ @carts1024/velo-sdk 1.0.0
++ @noirx402/agent-sdk 0.3.0
++ @stellar/freighter-api 6.0.1
++ @stellar/stellar-sdk 16.4.1
++ drizzle-orm 0.45.4
++ next 16.4.5
++ pg 8.23.1
++ react 19.3.1
++ react-dom 19.3.1
++ zod 4.6.7
+
+devDependencies:
++ @eslint/js 10.0.1
++ @playwright/test 1.65.0
++ @types/node 24.19.2
++ @types/pg 8.23.1
++ @types/react 19.3.0
++ @types/react-dom 19.3.0
++ drizzle-kit 0.31.11
++ eslint 10.14.0
++ tailwindcss 4.3.5
++ tsx 4.23.15
++ typescript 6.0.3
++ typescript-eslint 8.72.1
++ vite 8.3.6
++ vitest 5.1.0
+
+Done in 21.6s using pnpm v12.18.0

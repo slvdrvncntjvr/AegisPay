@@ -1,0 +1,57 @@
+{
+  "observedAt": "2026-11-09T10:31:38.990004+00:00",
+  "destinations": [
+    {
+      "url": "https://github.com/slvdrvncntjvr/AegisPay",
+      "status": 200,
+      "finalUrl": "https://github.com/slvdrvncntjvr/AegisPay",
+      "bytes": 321453
+    },
+    {
+      "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf",
+      "status": 200,
+      "finalUrl": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf",
+      "bytes": 181358
+    },
+    {
+      "url": "https://raw.githubusercontent.com/slvdrvncntjvr/AegisPay/main/docs/submission/AegisPay-pitch-draft.pdf",
+      "status": 200,
+      "finalUrl": "https://raw.githubusercontent.com/slvdrvncntjvr/AegisPay/main/docs/submission/AegisPay-pitch-draft.pdf",
+      "bytes": 147856,
+      "remotePdfSha256": "45a46a0681cfbc8b11d904ec2a3c40b54c3954deb0dfd13a495e7e707a17762c",
+      "localPdfSha256": "45a46a0681cfbc8b11d904ec2a3c40b54c3954deb0dfd13a495e7e707a17762c",
+      "pdfBytesMatch": true
+    },
+    {
+      "url": "https://drive.google.com/drive/folders/1hqwzOaG_qU9axjcLIjBUb1YeMWdOFq72?usp=sharing",
+      "status": 200,
+      "finalUrl": "https://drive.google.com/drive/folders/1hqwzOaG_qU9axjcLIjBUb1YeMWdOFq72?usp=sharing",
+      "bytes": 312655
+    },
+    {
+      "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json",
+      "status": 200,
+      "finalUrl": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json",
+      "bytes": 195104
+    },
+    {
+      "url": "https://stellar.expert/explorer/testnet/tx/6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381",
+      "status": 200,
+      "finalUrl": "https://stellar.expert/explorer/testnet/tx/6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381",
+      "bytes": 3260
+    },
+    {
+      "url": "https://stellar.expert/explorer/testnet/tx/1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a",
+      "status": 200,
+      "finalUrl": "https://stellar.expert/explorer/testnet/tx/1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a",
+      "bytes": 3260
+    },
+    {
+      "url": "https://stellar.expert/explorer/testnet/tx/94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18",
+      "status": 200,
+      "finalUrl": "https://stellar.expert/explorer/testnet/tx/94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18",
+      "bytes": 3260
+    }
+  ],
+  "limit": "HTTP destination checks are not fresh transaction verification, actual video playback or submission eligibility."
+}

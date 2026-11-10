@@ -1,0 +1,5 @@
+npm warn Unknown project config "strict-peer-dependencies". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> aegispay@0.1.0 lint
+> eslint scripts src tests apps packages --no-error-on-unmatched-pattern
+

@@ -1,0 +1,267 @@
+{
+  "observedAt": "2026-11-09T07:18:04.142Z",
+  "browser": "156.0.8078.4",
+  "notes": [
+    {
+      "mobile": false,
+      "arrowRight": {
+        "focused": "Policy",
+        "selected": "Audit"
+      }
+    },
+    {
+      "mobile": false,
+      "enter": "Policy"
+    },
+    {
+      "mobile": false,
+      "pageErrors": []
+    },
+    {
+      "mobile": true,
+      "arrowRight": {
+        "focused": "Policy",
+        "selected": "Audit"
+      }
+    },
+    {
+      "mobile": true,
+      "enter": "Policy"
+    },
+    {
+      "mobile": true,
+      "pageErrors": []
+    }
+  ],
+  "views": [
+    {
+      "mobile": false,
+      "tab": "Run",
+      "http": 200,
+      "innerWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "height": 1000,
+      "selected": "Run",
+      "tabRects": [
+        {
+          "text": "Policy",
+          "width": 73,
+          "height": 40.375
+        },
+        {
+          "text": "Run",
+          "width": 60.0625,
+          "height": 40.375
+        },
+        {
+          "text": "Audit",
+          "width": 70.46875,
+          "height": 40.375
+        }
+      ],
+      "h1": 0,
+      "panel": "Run\n\nRecorded Testnet spike run for operation `c080d947-714b-43cf-92d0-ad9ed7c01439`. This is not a completed autonomous model purchase.\n\nAccepted amount\n300000 stroops (0.0300000 Testnet XLM)\nNonce\n1\nAuthorization\nAuthorized in escrow\nMerchant claim\nClaimed by merchant\nMerchant\nGC3SHUY27GQV7Z5IPHFQWPQJR6SL2CCS72FVNZALHQVX5D7IGGPWHVEX\nAgent\nGB7YL3X5MJ5QSZR3ABWVVOE2QNRVVLFJTXI6GQ55A2SPGAVL6R2F7XBR\nFee (matched)\n82496 stroops · matched (outer ledger = Velo reported)\nObserved at\n2026-11-07T15:23:19.766Z\nOuter auth tx: 6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381\nInner auth tx: 1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a\nClaim tx: 94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18"
+    },
+    {
+      "mobile": false,
+      "tab": "Policy",
+      "http": 200,
+      "innerWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "height": 1000,
+      "selected": "Policy",
+      "tabRects": [
+        {
+          "text": "Policy",
+          "width": 73,
+          "height": 40.375
+        },
+        {
+          "text": "Run",
+          "width": 60.0625,
+          "height": 40.375
+        },
+        {
+          "text": "Audit",
+          "width": 70.46875,
+          "height": 40.375
+        }
+      ],
+      "h1": 0,
+      "panel": "Policy\n\nObserved owner setup from the verified spike fixture. Full Freighter owner console is not claimed here.\n\nNetwork\nStellar Testnet\nPer-payment cap\n1000000 stroops\nEscrow funded\n10000000 stroops\nPolicy expiry (UTC)\n2026-11-07T15:32:08.000Z\nDevice registry\nCAC4KOLHDLDYDWBOKXNKRN5KVHO56PLOIFXDLTBUWGVN6GVDEB7FQHU5\nAgent registry\nCCMZDSPTLX7IIJWCYEUM5DJUHOSOYSTHGK777S2TXZWEMC5ZZGPJ3EBV\nPayment escrow\nCC7EAW5FNJEDBS7THM5IT6XIOHO4AOYMLXT3KSZ3HWUIKEACTW7E5BFS\nAsset (Testnet XLM SAC)\nCDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC\nLive contract simulation refused over-cap 1.2M stroops\n\nRefusal was simulation-only (`AgentNotAuthorized`); no included failed transaction and nothing signed or submitted."
+    },
+    {
+      "mobile": false,
+      "tab": "Audit",
+      "http": 200,
+      "innerWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "height": 1000,
+      "selected": "Audit",
+      "tabRects": [
+        {
+          "text": "Policy",
+          "width": 73,
+          "height": 40.375
+        },
+        {
+          "text": "Run",
+          "width": 60.0625,
+          "height": 40.375
+        },
+        {
+          "text": "Audit",
+          "width": 70.46875,
+          "height": 40.375
+        }
+      ],
+      "h1": 0,
+      "panel": "Audit\n\nSafe public identities from the saved evidence file. Unknown or pending states are not fabricated here.\n\nClassification\nlive-same-transaction-noir-velo-spike\nEvidence path\ndocs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json\nSDK pins\nNoir 0.3.0 · Stellar 16.4.1 · Velo 1.0.0\nBalances after authorization\nescrow 9700000 · pending 300000\nBalances after claim\nescrow 9700000 · pending 0\nHash roles\nOuter fee-bump / observed event transaction; Inner Noir authorization; Separate merchant claim"
+    },
+    {
+      "mobile": true,
+      "tab": "Run",
+      "http": 200,
+      "innerWidth": 597,
+      "clientWidth": 390,
+      "scrollWidth": 597,
+      "height": 1689,
+      "selected": "Run",
+      "tabRects": [
+        {
+          "text": "Policy",
+          "width": 73,
+          "height": 40.375
+        },
+        {
+          "text": "Run",
+          "width": 60.0625,
+          "height": 40.375
+        },
+        {
+          "text": "Audit",
+          "width": 70.46875,
+          "height": 40.375
+        }
+      ],
+      "h1": 0,
+      "panel": "Run\n\nRecorded Testnet spike run for operation `c080d947-714b-43cf-92d0-ad9ed7c01439`. This is not a completed autonomous model purchase.\n\nAccepted amount\n300000 stroops (0.0300000 Testnet XLM)\nNonce\n1\nAuthorization\nAuthorized in escrow\nMerchant claim\nClaimed by merchant\nMerchant\nGC3SHUY27GQV7Z5IPHFQWPQJR6SL2CCS72FVNZALHQVX5D7IGGPWHVEX\nAgent\nGB7YL3X5MJ5QSZR3ABWVVOE2QNRVVLFJTXI6GQ55A2SPGAVL6R2F7XBR\nFee (matched)\n82496 stroops · matched (outer ledger = Velo reported)\nObserved at\n2026-11-07T15:23:19.766Z\nOuter auth tx: 6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381\nInner auth tx: 1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a\nClaim tx: 94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18"
+    },
+    {
+      "mobile": true,
+      "tab": "Policy",
+      "http": 200,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "height": 1669,
+      "selected": "Policy",
+      "tabRects": [
+        {
+          "text": "Policy",
+          "width": 73,
+          "height": 40.375
+        },
+        {
+          "text": "Run",
+          "width": 60.0625,
+          "height": 40.375
+        },
+        {
+          "text": "Audit",
+          "width": 70.46875,
+          "height": 40.375
+        }
+      ],
+      "h1": 0,
+      "panel": "Policy\n\nObserved owner setup from the verified spike fixture. Full Freighter owner console is not claimed here.\n\nNetwork\nStellar Testnet\nPer-payment cap\n1000000 stroops\nEscrow funded\n10000000 stroops\nPolicy expiry (UTC)\n2026-11-07T15:32:08.000Z\nDevice registry\nCAC4KOLHDLDYDWBOKXNKRN5KVHO56PLOIFXDLTBUWGVN6GVDEB7FQHU5\nAgent registry\nCCMZDSPTLX7IIJWCYEUM5DJUHOSOYSTHGK777S2TXZWEMC5ZZGPJ3EBV\nPayment escrow\nCC7EAW5FNJEDBS7THM5IT6XIOHO4AOYMLXT3KSZ3HWUIKEACTW7E5BFS\nAsset (Testnet XLM SAC)\nCDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC\nLive contract simulation refused over-cap 1.2M stroops\n\nRefusal was simulation-only (`AgentNotAuthorized`); no included failed transaction and nothing signed or submitted."
+    },
+    {
+      "mobile": true,
+      "tab": "Audit",
+      "http": 200,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "height": 1381,
+      "selected": "Audit",
+      "tabRects": [
+        {
+          "text": "Policy",
+          "width": 73,
+          "height": 40.375
+        },
+        {
+          "text": "Run",
+          "width": 60.0625,
+          "height": 40.375
+        },
+        {
+          "text": "Audit",
+          "width": 70.46875,
+          "height": 40.375
+        }
+      ],
+      "h1": 0,
+      "panel": "Audit\n\nSafe public identities from the saved evidence file. Unknown or pending states are not fabricated here.\n\nClassification\nlive-same-transaction-noir-velo-spike\nEvidence path\ndocs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json\nSDK pins\nNoir 0.3.0 · Stellar 16.4.1 · Velo 1.0.0\nBalances after authorization\nescrow 9700000 · pending 300000\nBalances after claim\nescrow 9700000 · pending 0\nHash roles\nOuter fee-bump / observed event transaction; Inner Noir authorization; Separate merchant claim"
+    }
+  ],
+  "links": [
+    {
+      "name": "GitHub repository",
+      "url": "https://github.com/slvdrvncntjvr/AegisPay",
+      "title": "GitHub - slvdrvncntjvr/AegisPay · GitHub"
+    },
+    {
+      "name": "Pitch PDF (docs/submission/AegisPay-pitch-draft.pdf)",
+      "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf",
+      "title": "AegisPay/docs/submission/AegisPay-pitch-draft.pdf at main · slvdrvncntjvr/AegisPay · GitHub"
+    },
+    {
+      "href": "https://stellar.expert/explorer/testnet/tx/6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381",
+      "url": "https://stellar.expert/explorer/testnet/tx/6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381",
+      "title": "Transaction 6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381 on Stellar testnet network | StellarExpert",
+      "body": "stellarexpert\nNETWORK STATSASSETSMARKETSSERVICESBLOG\nNetwork testnet\nTransaction 6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381\nSummary\nStatus:Successful\nLedger:5607680\nSource Account:GB7YL3…2F7XBR\nSequence Number:24042866145755137\nTransaction size:2,168 bytes\nProcessed:2026-11-07 14:34:01 UTC\nMax Fee:0.0097971 XLM\nFee Charged:0.0082496 XLM (0.0011153 non-refundable + 0.0071143 refundable + 0.00001 min op fee)\nFee Source Account:GDLNTZ…R55AQ3\nInner transaction:1d39c3…12fa7a\nGB7Y…7XBR invoked contract CC7E…5BFS authorize(GB7Y…7XBR, 4KQccddddgSnhIXJtHOlDx9O+tbTAUSwxj5gNohCrh8=bytes, GC3S…HVEX, CDLZ…CYSC, 300000i128, 1u64)\n"
+    },
+    {
+      "href": "https://stellar.expert/explorer/testnet/tx/1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a",
+      "url": "https://stellar.expert/explorer/testnet/tx/1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a",
+      "title": "Transaction 1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a on Stellar testnet network | StellarExpert",
+      "body": "stellarexpert\nNETWORK STATSASSETSMARKETSSERVICESBLOG\nNetwork testnet\nTransaction 6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381\nSummary\nStatus:Successful\nLedger:5607680\nSource Account:GB7YL3…2F7XBR\nSequence Number:24042866145755137\nTransaction size:2,168 bytes\nProcessed:2026-11-07 14:34:01 UTC\nMax Fee:0.0097971 XLM\nFee Charged:0.0082496 XLM (0.0011153 non-refundable + 0.0071143 refundable + 0.00001 min op fee)\nFee Source Account:GDLNTZ…R55AQ3\nInner transaction:1d39c3…12fa7a\nGB7Y…7XBR invoked contract CC7E…5BFS authorize(GB7Y…7XBR, 4KQccddddgSnhIXJtHOlDx9O+tbTAUSwxj5gNohCrh8=bytes, GC3S…HVEX, CDLZ…CYSC, 300000i128, 1u64)\n"
+    },
+    {
+      "href": "https://stellar.expert/explorer/testnet/tx/94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18",
+      "url": "https://stellar.expert/explorer/testnet/tx/94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18",
+      "title": "Transaction 94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18 on Stellar testnet network | StellarExpert",
+      "body": "stellarexpert\nNETWORK STATSASSETSMARKETSSERVICESBLOG\nNetwork testnet\nTransaction 94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18\nSummary\nStatus:Successful\nLedger:5607763\nSource Account:GC3SHU…PWHVEX\nSequence Number:24042883325624321\nTransaction size:1,040 bytes\nProcessed:2026-11-07 14:40:56 UTC\nMax Fee:0.001499 XLM\nFee Charged:0.0010068 XLM (0.0009176 non-refundable + 0.0000792 refundable + 0.00001 min op fee)\nPreconditions\nValid before 2026-11-07 14:45:51\nGC3S…HVEX invoked contract CC7E…5BFS claim(CDLZ…CYSC, GC3S…HVEX)\n"
+    },
+    {
+      "name": "Health JSON",
+      "url": "https://aegispay-live.vercel.app/api/health",
+      "body": "{\"status\":\"ok\",\"network\":\"testnet\"}"
+    }
+  ],
+  "references": [
+    {
+      "name": "linear",
+      "url": "https://linear.app/",
+      "status": 200,
+      "title": "Linear – The system for product development"
+    },
+    {
+      "name": "stripe",
+      "url": "https://stripe.com/payments",
+      "status": 200,
+      "title": "Stripe Payments | Global Payment Processing Platform"
+    },
+    {
+      "name": "langsmith",
+      "url": "https://www.langchain.com/langsmith/observability",
+      "status": 200,
+      "title": "LangSmith: Agent & LLM Observability Platform"
+    }
+  ]
+}

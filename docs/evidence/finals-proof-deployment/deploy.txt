@@ -1,0 +1,13 @@
+Vercel CLI 65.12.1
+{
+  "status": "error",
+  "reason": "deploy_failed",
+  "message": "fetch failed",
+  "next": [
+    {
+      "command": "vercel deploy --scope vincent-s-projects-57de271b",
+      "when": "retry deploy"
+    }
+  ]
+}
+Error: fetch failed

@@ -1,0 +1,12 @@
+tests/e2e/public-proof.spec.ts(2,39): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../../apps/web/src/lib/public-proof.js'?
+tests/e2e/public-proof.spec.ts(5,12): error TS2322: Type '{ executablePath: string | undefined; }' is not assignable to type 'WorkerFixtureValue<Omit<LaunchOptions, "tracesDir">, PlaywrightWorkerArgs & PlaywrightWorkerOptions> | [...]'.
+  Type '{ executablePath: string | undefined; }' is not assignable to type 'Omit<LaunchOptions, "tracesDir">' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'executablePath' are incompatible.
+      Type 'string | undefined' is not assignable to type 'string'.
+        Type 'undefined' is not assignable to type 'string'.
+tests/e2e/public-proof.spec.ts(67,34): error TS2322: Type 'number | undefined' is not assignable to type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+tests/e2e/public-proof.spec.ts(67,41): error TS2322: Type 'number | undefined' is not assignable to type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+tests/e2e/public-proof.spec.ts(71,134): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number | bigint'.
+  Type 'undefined' is not assignable to type 'number | bigint'.

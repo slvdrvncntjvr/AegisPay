@@ -1,0 +1,289 @@
+{
+  "base": "http://127.0.0.1:3017",
+  "observedAt": "2026-11-09T09:38:31.847Z",
+  "method": "Computed sRGB foreground against composited ancestor background; direct visible text nodes only. Native focus inspection, target rectangles and browser request observation. Not a formal accessibility conformance audit.",
+  "states": [
+    {
+      "state": "Authorization",
+      "width": 1440,
+      "height": 1000,
+      "textCount": 143,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": false,
+      "scrollWidth": 1440
+    },
+    {
+      "state": "Over-cap refusal",
+      "width": 1440,
+      "height": 1000,
+      "textCount": 143,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": false,
+      "scrollWidth": 1440
+    },
+    {
+      "state": "Recovery rule",
+      "width": 1440,
+      "height": 1000,
+      "textCount": 140,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": false,
+      "scrollWidth": 1440
+    },
+    {
+      "state": "Receipt",
+      "width": 1440,
+      "height": 1000,
+      "textCount": 143,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": true,
+      "scrollWidth": 1440
+    },
+    {
+      "state": "Login",
+      "width": 1440,
+      "height": 1000,
+      "textCount": 11,
+      "minRatio": 5.62,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": null,
+      "scrollWidth": 1440
+    },
+    {
+      "state": "Authorization",
+      "width": 1280,
+      "height": 720,
+      "textCount": 142,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": false,
+      "scrollWidth": 1280
+    },
+    {
+      "state": "Over-cap refusal",
+      "width": 1280,
+      "height": 720,
+      "textCount": 142,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": false,
+      "scrollWidth": 1280
+    },
+    {
+      "state": "Recovery rule",
+      "width": 1280,
+      "height": 720,
+      "textCount": 139,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": false,
+      "scrollWidth": 1280
+    },
+    {
+      "state": "Receipt",
+      "width": 1280,
+      "height": 720,
+      "textCount": 142,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": true,
+      "scrollWidth": 1280
+    },
+    {
+      "state": "Login",
+      "width": 1280,
+      "height": 720,
+      "textCount": 11,
+      "minRatio": 5.62,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": null,
+      "scrollWidth": 1280
+    },
+    {
+      "state": "Authorization",
+      "width": 768,
+      "height": 1024,
+      "textCount": 140,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": false,
+      "scrollWidth": 768
+    },
+    {
+      "state": "Over-cap refusal",
+      "width": 768,
+      "height": 1024,
+      "textCount": 140,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": false,
+      "scrollWidth": 768
+    },
+    {
+      "state": "Recovery rule",
+      "width": 768,
+      "height": 1024,
+      "textCount": 137,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": false,
+      "scrollWidth": 768
+    },
+    {
+      "state": "Receipt",
+      "width": 768,
+      "height": 1024,
+      "textCount": 140,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": true,
+      "scrollWidth": 768
+    },
+    {
+      "state": "Login",
+      "width": 768,
+      "height": 1024,
+      "textCount": 11,
+      "minRatio": 5.62,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": null,
+      "scrollWidth": 768
+    },
+    {
+      "state": "Authorization",
+      "width": 390,
+      "height": 844,
+      "textCount": 138,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": false,
+      "scrollWidth": 390
+    },
+    {
+      "state": "Over-cap refusal",
+      "width": 390,
+      "height": 844,
+      "textCount": 138,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": false,
+      "scrollWidth": 390
+    },
+    {
+      "state": "Recovery rule",
+      "width": 390,
+      "height": 844,
+      "textCount": 135,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": false,
+      "scrollWidth": 390
+    },
+    {
+      "state": "Receipt",
+      "width": 390,
+      "height": 844,
+      "textCount": 138,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": true,
+      "scrollWidth": 390
+    },
+    {
+      "state": "Login",
+      "width": 390,
+      "height": 844,
+      "textCount": 11,
+      "minRatio": 5.62,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": null,
+      "scrollWidth": 390
+    },
+    {
+      "state": "Authorization",
+      "width": 320,
+      "height": 740,
+      "textCount": 137,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": false,
+      "scrollWidth": 320
+    },
+    {
+      "state": "Over-cap refusal",
+      "width": 320,
+      "height": 740,
+      "textCount": 137,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": false,
+      "scrollWidth": 320
+    },
+    {
+      "state": "Recovery rule",
+      "width": 320,
+      "height": 740,
+      "textCount": 134,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": false,
+      "scrollWidth": 320
+    },
+    {
+      "state": "Receipt",
+      "width": 320,
+      "height": 740,
+      "textCount": 137,
+      "minRatio": 5.3,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": true,
+      "scrollWidth": 320
+    },
+    {
+      "state": "Login",
+      "width": 320,
+      "height": 740,
+      "textCount": 11,
+      "minRatio": 5.62,
+      "contrastFailures": [],
+      "smallTargets": [],
+      "receiptOpen": null,
+      "scrollWidth": 320
+    }
+  ],
+  "focus": {
+    "name": "Skip to content",
+    "outline": "rgb(46, 96, 68) solid 3px",
+    "visible": true
+  },
+  "externalRuntimeRequests": [],
+  "passes": true
+}

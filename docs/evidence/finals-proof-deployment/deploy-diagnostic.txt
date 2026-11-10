@@ -1,0 +1,147 @@
+Vercel CLI 65.12.1
+> [debug] [2026-11-09T10:26:32.455Z] Agent/TTY/nonInteractive: isAgent=true agentName=codex stdin.isTTY=undefined --non-interactive=false explicitFalse=false => nonInteractive=true
+> [debug] [2026-11-09T10:26:32.457Z] user supplied known subcommand: "deploy"
+> [debug] [2026-11-09T10:26:32.493Z] Setting target to production
+> [debug] [2026-11-09T10:26:32.560Z] Valid access token, skipping token refresh.
+> [debug] [2026-11-09T10:26:32.582Z] #1 → GET https://api.vercel.com/v9/projects/prj_87hFYLDrQpbUsSlAgoFMsTIE7aTq?teamId=team_u8Iy5bGxaqRVmGiBtx6t57LN
+> [debug] [2026-11-09T10:26:35.794Z] #1 ← 200 OK: sin1:sin1:sfo1::29jn2-1794219995483-b8acf00d9bdd [3.21s]
+> [debug] [2026-11-09T10:26:35.806Z] Arrived at home directory
+> [debug] [2026-11-09T10:26:35.851Z] Found git root via "git rev-parse --show-toplevel" - detected "C:/Users/Vincent/VS Codes/Noir X Velo" as repo root
+> [debug] [2026-11-09T10:26:35.852Z] Spinner invoked (Retrieving project…) with a 1000ms delay
+> [debug] [2026-11-09T10:26:35.856Z] #2 → GET https://api.vercel.com/teams/team_u8Iy5bGxaqRVmGiBtx6t57LN
+> [debug] [2026-11-09T10:26:37.047Z] #2 ← 200 OK: sin1:sin1:sfo1::bsvjf-1794219996755-67b0bf96882f [1.19s]
+> [debug] [2026-11-09T10:26:37.063Z] Read local config from root directory (apps/web)
+> [debug] [2026-11-09T10:26:37.112Z] Spinner invoked (Deploying vincent-s-projects-57de271b/aegispay-live) with a 0ms delay
+[client-debug] 2026-11-09T10:26:37.112Z Creating deployment...
+[client-debug] 2026-11-09T10:26:37.113Z Provided 'path' is a directory.
+[client-debug] 2026-11-09T10:26:37.117Z Found 26 rules in .vercelignore
+[client-debug] 2026-11-09T10:26:37.117Z Building file tree...
+[client-debug] 2026-11-09T10:26:37.133Z Found 27 files in the specified directory
+[client-debug] 2026-11-09T10:26:37.140Z Yielding a 'hashes-calculated' event with 27 hashes
+[client-debug] 2026-11-09T10:26:37.140Z Using provided API URL: https://api.vercel.com
+[client-debug] 2026-11-09T10:26:37.140Z Using provided user agent: vercel 65.12.1 node-v24.22.1 win32 (x64)
+[client-debug] 2026-11-09T10:26:37.142Z Setting platform version to harcoded value 2
+[client-debug] 2026-11-09T10:26:37.142Z Creating the deployment and starting upload...
+[client-debug] 2026-11-09T10:26:37.142Z Determining necessary files for upload...
+[client-debug] 2026-11-09T10:26:37.143Z Creating deployment
+[client-debug] 2026-11-09T10:26:37.143Z Sending deployment creation API request
+[client-debug] 2026-11-09T10:26:39.726Z Deployment response: {"alias":["aegispay-live-vincent-s-projects-57de271b.vercel.app"],"aliasAssigned":false,"autoAssignCustomDomains":false,"automaticAliases":["aegispay-live-vincent-s-projects-57de271b.vercel.app"],"bootedAt":1794219999270,"buildingAt":1794219999270,"buildSkipped":false,"createdAt":1794219999270,"creator":{"uid":"[REDACTED]","username":"slvdrvncntjvr"},"duration":{},"id":"dpl_FjfihhCpDKGCzrzxhTSvhHVb6jid","name":"aegispay-live","meta":{"githubCommitAuthorName":"Salvador Vincent Javier","githubCommitAuthorEmail":"slvdrvncntjvr@gmail.com","githubCommitMessage":"Merge verified AegisPay build and preserved demo checkpoint","githubCommitOrg":"slvdrvncntjvr","githubCommitRef":"main","githubCommitRepo":"AegisPay","githubCommitSha":"180a88d5d07de3f8c24221f417f3103f70f23965","githubDeployment":"1","githubOrg":"slvdrvncntjvr","githubRepo":"AegisPay","gitDirty":"1","gitRootDirectory":".fmd-work/proof-refresh-ctx77fd54/apps/web","actor":"codex"},"originCacheRegion":"iad1","project":{"id":"prj_87hFYLDrQpbUsSlAgoFMsTIE7aTq","name":"aegispay-live","framework":"nextjs"},"public":false,"readyState":"INITIALIZING","readySubstate":"STAGED","regions":["iad1"],"source":"cli","status":"INITIALIZING","target":"production","team":{"id":"team_u8Iy5bGxaqRVmGiBtx6t57LN","name":"Vincent 's projects","slug":"vincent-s-projects-57de271b"},"type":"LAMBDAS","url":"aegispay-live-4hvi9y3h0-vincent-s-projects-57de271b.vercel.app","version":2,"previewCommentsEnabled":true,"oidcTokenClaims":{"sub":"owner:vincent-s-projects-57de271b:project:aegispay-live:environment:production","iss":"https://oidc.vercel.com/vincent-s-projects-57de271b","scope":"owner:vincent-s-projects-57de271b:project:aegispay-live:environment:production","aud":"https://vercel.com/vincent-s-projects-57de271b","owner":"vincent-s-projects-57de271b","owner_id":"team_u8Iy5bGxaqRVmGiBtx6t57LN","project":"aegispay-live","project_id":"prj_87hFYLDrQpbUsSlAgoFMsTIE7aTq","deployment_id":"dpl_FjfihhCpDKGCzrzxhTSvhHVb6jid","environment":"production","plan":"hobby"},"nodeVersion":"24.x","lambdas":[{"id":"bld_etwu7djbv","createdAt":1794219999008,"entrypoint":".","readyState":"READY","readyStateAt":1794219999008,"output":[]}],"aliasAssignedAt":null,"build":{"env":[]},"builds":[],"createdIn":"sfo1","env":[],"functions":null,"inspectorUrl":"https://vercel.com/vincent-s-projects-57de271b/aegispay-live/FjfihhCpDKGCzrzxhTSvhHVb6jid","isInConcurrentBuildsQueue":false,"isInSystemBuildsQueue":true,"ownerId":"team_u8Iy5bGxaqRVmGiBtx6t57LN","plan":"hobby","projectId":"prj_87hFYLDrQpbUsSlAgoFMsTIE7aTq","resourceConfig":{"buildMachine":{"defaultPurchaseType":"basic","machineSelectionType":"fixed","purchaseType":"basic","selectionSource":"plan-default","cores":2,"memory":8192}},"projectSettings":{"buildCommand":"node --version && cd ../.. && npx --yes pnpm@12.18.0 --filter @aegispay/web build","devCommand":null,"framework":"nextjs","commandForIgnoringBuildStep":null,"installCommand":"cd ../.. && npx --yes pnpm@12.18.0 install --frozen-lockfile","outputDirectory":null,"speedInsights":{"id":"Q0OHBGNQ3qR6wDNayIktZBFo9jj","hasData":false},"webAnalytics":{"id":"q99of0Gi6woEt55r0lYGAsBV7"},"nodeVersion":"24.x"},"routes":null,"config":{"version":1,"secureComputePrimaryRegion":null,"secureComputeFallbackRegion":null,"functionTimeout":300,"functionType":"fluid","functionMemoryType":"standard","isUsingActiveCPU":true,"resourceConfig":{"buildMachine":{"defaultPurchaseType":"basic","machineSelectionType":"fixed","purchaseType":"basic","selectionSource":"plan-default","cores":2,"memory":8192},"buildQueue":{"configuration":"SKIP_NAMESPACE_QUEUE"}}},"attribution":{"commitMeta":{"name":"Salvador Vincent Javier","email":"slvdrvncntjvr@gmail.com","isVerified":false}}}
+[client-debug] 2026-11-09T10:26:39.727Z Deployment created
+[client-debug] 2026-11-09T10:26:39.727Z Yielding a 'created' event
+  Inspect         https://vercel.com/vincent-s-projects-57de271b/aegispay-live/FjfihhCpDKGCzrzxhTSvhHVb6jid
+▲ Production      https://aegispay-live-4hvi9y3h0-vincent-s-projects-57de271b.vercel.app
+> [debug] [2026-11-09T10:26:39.764Z] Spinner invoked (Building…) with a 0ms delay
+[client-debug] 2026-11-09T10:26:39.765Z Waiting for deployment to be ready...
+[client-debug] 2026-11-09T10:26:39.766Z Waiting for builds and the deployment to complete...
+> [debug] [2026-11-09T10:26:39.768Z] #3 → GET https://api.vercel.com/v3/now/deployments/dpl_FjfihhCpDKGCzrzxhTSvhHVb6jid/events?direction=forward&follow=1&format=lines&teamId=team_u8Iy5bGxaqRVmGiBtx6t57LN
+[client-debug] 2026-11-09T10:26:39.768Z GET https://api.vercel.com/v13/deployments/dpl_FjfihhCpDKGCzrzxhTSvhHVb6jid
+> [debug] [2026-11-09T10:26:42.131Z] #3 ← 200 OK: sin1:sin1:sfo1::xj2gv-1794220000761-d641936bdc5c [2.36s]
+> [debug] [2026-11-09T10:26:42.136Z] Spinner invoked (Running build in Washington, D.C., USA (East) – iad1) with a 0ms delay
+> [debug] [2026-11-09T10:26:42.137Z] Spinner invoked (Build machine configuration: 2 cores, 8 GB) with a 0ms delay
+> [debug] [2026-11-09T10:26:42.137Z] Spinner invoked (Retrieving list of deployment files...) with a 0ms delay
+> [debug] [2026-11-09T10:26:43.155Z] Spinner invoked (Downloading 27 deployment files...) with a 0ms delay
+> [debug] [2026-11-09T10:26:43.155Z] Spinner invoked (Restored build cache from previous deployment (HrHpE7AynXusUNLs73kACPgBnqy6)) with a 0ms delay
+[client-debug] 2026-11-09T10:26:43.953Z DONE in 4185ms: GET https://api.vercel.com/v13/deployments/dpl_FjfihhCpDKGCzrzxhTSvhHVb6jid status=200 requestId=sin1:sin1:sfo1::h7mvs-1794220003459-e2e15fcb0758
+[client-debug] 2026-11-09T10:26:44.107Z Deployment state changed to BUILDING
+[client-debug] 2026-11-09T10:26:44.107Z Yielding a 'building' event
+> [debug] [2026-11-09T10:26:44.107Z] Spinner invoked (Restored build cache from previous deployment (HrHpE7AynXusUNLs73kACPgBnqy6)) with a 0ms delay
+> [debug] [2026-11-09T10:26:44.212Z] Spinner invoked (Running "vercel build") with a 0ms delay
+> [debug] [2026-11-09T10:26:44.212Z] Spinner invoked (Vercel CLI 65.11.0) with a 0ms delay
+> [debug] [2026-11-09T10:26:44.212Z] Spinner invoked (Warning: Detected "engines": { "node": "24.22.1" } in your `package.json` with major.minor.patch, but only major Node.js Version can be selected. Learn More: https://vercel.link/node-version) with a 0ms delay
+> [debug] [2026-11-09T10:26:44.212Z] Spinner invoked (Detected `pnpm-lock.yaml` version 9 generated by pnpm@12.x from package.json#packageManager pnpm@12.18.0) with a 0ms delay
+> [debug] [2026-11-09T10:26:44.212Z] Spinner invoked (Running "install" command: `cd ../.. && npx --yes pnpm@12.18.0 install --frozen-lockfile`...) with a 0ms delay
+[client-debug] 2026-11-09T10:26:45.123Z GET https://api.vercel.com/v13/deployments/dpl_FjfihhCpDKGCzrzxhTSvhHVb6jid
+> [debug] [2026-11-09T10:26:46.256Z] Spinner invoked (npm warn Unknown env config "cache-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.) with a 0ms delay
+> [debug] [2026-11-09T10:26:46.257Z] Spinner invoked (npm warn Unknown project config "strict-peer-dependencies". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.) with a 0ms delay
+[client-debug] 2026-11-09T10:26:47.008Z DONE in 1885ms: GET https://api.vercel.com/v13/deployments/dpl_FjfihhCpDKGCzrzxhTSvhHVb6jid status=200 requestId=sin1:sin1:sfo1::lv6wh-1794220006593-95b630e7e108
+[client-debug] 2026-11-09T10:26:48.012Z GET https://api.vercel.com/v13/deployments/dpl_FjfihhCpDKGCzrzxhTSvhHVb6jid
+> [debug] [2026-11-09T10:26:48.326Z] Spinner invoked (Scope: all 5 workspace projects) with a 0ms delay
+> [debug] [2026-11-09T10:26:49.374Z] Spinner invoked (✓ Lockfile passes supply-chain policies (verified 1d ago)) with a 0ms delay
+> [debug] [2026-11-09T10:26:49.374Z] Spinner invoked (Lockfile is up to date, resolution step is skipped) with a 0ms delay
+> [debug] [2026-11-09T10:26:49.374Z] Spinner invoked (Done in 72ms using pnpm v12.18.0) with a 0ms delay
+> [debug] [2026-11-09T10:26:49.374Z] Spinner invoked (Detected Next.js version: 16.4.5) with a 0ms delay
+> [debug] [2026-11-09T10:26:49.374Z] Spinner invoked (Running "node --version && cd ../.. && npx --yes pnpm@12.18.0 --filter @aegispay/web build") with a 0ms delay
+> [debug] [2026-11-09T10:26:49.374Z] Spinner invoked (v24.22.2) with a 0ms delay
+> [debug] [2026-11-09T10:26:49.374Z] Spinner invoked (npm warn Unknown env config "cache-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.) with a 0ms delay
+> [debug] [2026-11-09T10:26:49.374Z] Spinner invoked (npm warn Unknown project config "strict-peer-dependencies". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.) with a 0ms delay
+> [debug] [2026-11-09T10:26:50.411Z] Spinner invoked ($ next build) with a 0ms delay
+> [debug] [2026-11-09T10:26:51.424Z] Spinner invoked (▲ Next.js 16.4.5 (Turbopack)) with a 0ms delay
+> [debug] [2026-11-09T10:26:51.424Z] Spinner invoked (Applying modifyConfig from Vercel) with a 0ms delay
+> [debug] [2026-11-09T10:26:51.424Z] Spinner invoked (✓ Running next.config.ts took 298ms) with a 0ms delay
+> [debug] [2026-11-09T10:26:51.424Z] Spinner invoked (Creating an optimized production build ...) with a 0ms delay
+[client-debug] 2026-11-09T10:26:51.701Z DONE in 3689ms: GET https://api.vercel.com/v13/deployments/dpl_FjfihhCpDKGCzrzxhTSvhHVb6jid status=200 requestId=sin1:sin1:sfo1::fjmhx-1794220011280-160f8b892c90
+[client-debug] 2026-11-09T10:26:52.712Z GET https://api.vercel.com/v13/deployments/dpl_FjfihhCpDKGCzrzxhTSvhHVb6jid
+> [debug] [2026-11-09T10:26:53.745Z] Spinner invoked (✓ Compiled successfully in 2.0s) with a 0ms delay
+> [debug] [2026-11-09T10:26:53.745Z] Spinner invoked (Running TypeScript ...) with a 0ms delay
+[client-debug] 2026-11-09T10:26:54.644Z DONE in 1932ms: GET https://api.vercel.com/v13/deployments/dpl_FjfihhCpDKGCzrzxhTSvhHVb6jid status=200 requestId=sin1:sin1:sfo1::q8dvx-1794220014235-a70232bda209
+[client-debug] 2026-11-09T10:26:55.667Z GET https://api.vercel.com/v13/deployments/dpl_FjfihhCpDKGCzrzxhTSvhHVb6jid
+> [debug] [2026-11-09T10:26:57.673Z] Spinner invoked (Finished TypeScript in 4.5s ...) with a 0ms delay
+> [debug] [2026-11-09T10:26:57.673Z] Spinner invoked (Collecting page data using 1 worker ...) with a 0ms delay
+> [debug] [2026-11-09T10:26:58.715Z] Spinner invoked (Generating static pages using 1 worker (0/3) ...) with a 0ms delay
+> [debug] [2026-11-09T10:26:58.716Z] Spinner invoked (✓ Generating static pages using 1 worker (3/3) in 220ms) with a 0ms delay
+> [debug] [2026-11-09T10:26:58.716Z] Spinner invoked (Finalizing page optimization ...) with a 0ms delay
+> [debug] [2026-11-09T10:26:58.716Z] Spinner invoked (Running onBuildComplete from Vercel) with a 0ms delay
+> [debug] [2026-11-09T10:26:58.716Z] Spinner invoked (Warning: Detected "engines": { "node": "24.22.1" } in your `package.json` with major.minor.patch, but only major Node.js Version can be selected. Learn More: https://vercel.link/node-version) with a 0ms delay
+> [debug] [2026-11-09T10:26:58.717Z] Spinner invoked (Route (app)) with a 0ms delay
+> [debug] [2026-11-09T10:26:58.717Z] Spinner invoked (┌ ○ /) with a 0ms delay
+> [debug] [2026-11-09T10:26:58.717Z] Spinner invoked (├ ○ /_not-found) with a 0ms delay
+> [debug] [2026-11-09T10:26:58.717Z] Spinner invoked (└ ƒ /api/health) with a 0ms delay
+> [debug] [2026-11-09T10:26:58.717Z] Spinner invoked (○  (Static)   prerendered as static content) with a 0ms delay
+> [debug] [2026-11-09T10:26:58.718Z] Spinner invoked (ƒ  (Dynamic)  server-rendered on demand) with a 0ms delay
+> [debug] [2026-11-09T10:26:59.711Z] Spinner invoked (Build Completed in /vercel/output [15s]) with a 0ms delay
+> [debug] [2026-11-09T10:26:59.711Z] Spinner invoked (Deploying outputs...) with a 0ms delay
+[client-debug] 2026-11-09T10:27:00.604Z DONE in 4937ms: GET https://api.vercel.com/v13/deployments/dpl_FjfihhCpDKGCzrzxhTSvhHVb6jid status=200 requestId=sin1:sin1:sfo1::lrq2j-1794220020195-872418fb4c07
+[client-debug] 2026-11-09T10:27:00.870Z Deployment state changed to READY
+[client-debug] 2026-11-09T10:27:00.870Z Yielding a 'ready' event
+> [debug] [2026-11-09T10:27:00.870Z] Spinner invoked (Completing…) with a 0ms delay
+[client-debug] 2026-11-09T10:27:00.870Z Deployment alias assigned from event stream
+[client-debug] 2026-11-09T10:27:00.870Z Deployment succeeded on file check
+[client-debug] 2026-11-09T10:27:00.870Z Yielding a 'alias-assigned' event
+> [debug] [2026-11-09T10:27:01.033Z] Spinner invoked (Loading https://aegispay-live-4hvi9y3h0-vincent-s-projects-57de271b.vercel.app…) with a 0ms delay
+{
+  "status": "error",
+  "reason": "verification_failed",
+  "message": "Couldn't load https://aegispay-live-4hvi9y3h0-vincent-s-projects-57de271b.vercel.app: fetch failed: Connect Timeout Error (attempted addresses: 64.239.109.65:443, 64:ff9b::40ef:6d81:443, 64.239.123.65:443, 64:ff9b::40ef:6dc1:443, timeout: 10000ms)",
+  "deployment": {
+    "id": "dpl_FjfihhCpDKGCzrzxhTSvhHVb6jid",
+    "url": "https://aegispay-live-4hvi9y3h0-vincent-s-projects-57de271b.vercel.app",
+    "productionUrl": null,
+    "inspectorUrl": "https://vercel.com/vincent-s-projects-57de271b/aegispay-live/FjfihhCpDKGCzrzxhTSvhHVb6jid",
+    "readyState": "READY",
+    "target": "production",
+    "environment": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_FjfihhCpDKGCzrzxhTSvhHVb6jid",
+    "buildMachine": {
+      "cores": 2,
+      "memory": 8192,
+      "machine": "basic",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    },
+    "deploymentProtection": [
+      "vercel_authentication"
+    ],
+    "verification": {
+      "url": "https://aegispay-live-4hvi9y3h0-vincent-s-projects-57de271b.vercel.app",
+      "ok": false,
+      "statusCode": null,
+      "size": null,
+      "title": null,
+      "error": "fetch failed: Connect Timeout Error (attempted addresses: 64.239.109.65:443, 64:ff9b::40ef:6d81:443, 64.239.123.65:443, 64:ff9b::40ef:6dc1:443, timeout: 10000ms)"
+    }
+  },
+  "next": [
+    {
+      "command": "vercel curl https://aegispay-live-4hvi9y3h0-vincent-s-projects-57de271b.vercel.app",
+      "when": "See the full response"
+    },
+    {
+      "command": "vercel inspect aegispay-live-4hvi9y3h0-vincent-s-projects-57de271b.vercel.app --logs --scope vincent-s-projects-57de271b --debug",
+      "when": "read build logs"
+    }
+  ]
+}
+> [debug] [2026-11-09T10:27:23.539Z] Vercel CLI 65.12.1
+
+> [debug] [2026-11-09T10:27:25.381Z] Telemetry subprocess killed due to timeout
+> [debug] [2026-11-09T10:27:25.393Z] Telemetry subprocess exited with code null

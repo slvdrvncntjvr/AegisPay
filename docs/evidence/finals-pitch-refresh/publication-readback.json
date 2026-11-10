@@ -1,0 +1,101 @@
+{
+  "observedAt": "2026-11-09T11:29:33.604276+00:00",
+  "commit": "91f9680",
+  "anonymous": true,
+  "checks": [
+    {
+      "url": "https://aegispay-live.vercel.app/",
+      "httpStatus": 200,
+      "bytes": 37344,
+      "error": null
+    },
+    {
+      "url": "https://drive.google.com/drive/folders/1hqwzOaG_qU9axjcLIjBUb1YeMWdOFq72?usp=sharing",
+      "httpStatus": 200,
+      "bytes": 312590,
+      "error": null
+    },
+    {
+      "url": "https://github.com/slvdrvncntjvr/AegisPay",
+      "httpStatus": 200,
+      "bytes": 321447,
+      "error": null
+    },
+    {
+      "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/952344dd0c036a3ea390d1bfbadc5b8c640aff23/docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json",
+      "httpStatus": 200,
+      "bytes": 195810,
+      "error": null
+    },
+    {
+      "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/finals-pitch-refresh/task-016.md",
+      "httpStatus": 200,
+      "bytes": 287187,
+      "error": null
+    },
+    {
+      "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/prd.md",
+      "httpStatus": 200,
+      "bytes": 248172,
+      "error": null
+    },
+    {
+      "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf",
+      "httpStatus": 200,
+      "bytes": 186976,
+      "error": null
+    },
+    {
+      "url": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/src/server/integrations/stellar-evidence.ts",
+      "httpStatus": 200,
+      "bytes": 319134,
+      "error": null
+    },
+    {
+      "url": "https://stellar.expert/explorer/testnet/tx/1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a",
+      "httpStatus": 200,
+      "bytes": 3260,
+      "error": null
+    },
+    {
+      "url": "https://stellar.expert/explorer/testnet/tx/6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381",
+      "httpStatus": 200,
+      "bytes": 3260,
+      "error": null
+    },
+    {
+      "url": "https://stellar.expert/explorer/testnet/tx/94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18",
+      "httpStatus": 200,
+      "bytes": 3260,
+      "error": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/slvdrvncntjvr/AegisPay/main/docs/submission/AegisPay-pitch-draft.pdf",
+      "httpStatus": 200,
+      "bytes": 271724,
+      "error": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/slvdrvncntjvr/AegisPay/main/docs/evidence/finals-pitch-refresh/task-016.md",
+      "httpStatus": 200,
+      "bytes": 19448,
+      "error": null
+    },
+    {
+      "url": "https://api.github.com/repos/slvdrvncntjvr/AegisPay/branches/main",
+      "httpStatus": 200,
+      "bytes": 5044,
+      "error": null
+    }
+  ],
+  "pdfSha256": "1856daa7a76675936647dbed78845f5671bad00dee3fd337362dcf01ad81fad5",
+  "pages": 8,
+  "evidenceHeadings": {
+    "Deployment": true,
+    "Application attempt": true,
+    "Current sources": true,
+    "Business hypotheses": true
+  },
+  "remoteMain": "91f968011b8a8966512928579d85f745c2de38e7",
+  "allGatesPassed": true
+}

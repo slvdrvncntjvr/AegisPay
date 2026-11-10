@@ -1,0 +1,245 @@
+{
+  "base": "http://127.0.0.1:3026",
+  "label": "local",
+  "observedAt": "2026-11-09T10:15:52.465Z",
+  "views": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "Authorization",
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "fontLoaded": true,
+      "instrumentBottom": 964.59375
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "Over-cap refusal",
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "fontLoaded": true,
+      "instrumentBottom": 964.59375
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "state": "Recovery rule",
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "fontLoaded": true,
+      "instrumentBottom": 964.59375
+    },
+    {
+      "name": "projector",
+      "width": 1280,
+      "height": 720,
+      "state": "Authorization",
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "fontLoaded": true,
+      "instrumentBottom": 713.578125
+    },
+    {
+      "name": "projector",
+      "width": 1280,
+      "height": 720,
+      "state": "Over-cap refusal",
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "fontLoaded": true,
+      "instrumentBottom": 713.578125
+    },
+    {
+      "name": "projector",
+      "width": 1280,
+      "height": 720,
+      "state": "Recovery rule",
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "fontLoaded": true,
+      "instrumentBottom": 727.640625
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024,
+      "state": "Authorization",
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "fontLoaded": true,
+      "instrumentBottom": 1005.28125
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024,
+      "state": "Over-cap refusal",
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "fontLoaded": true,
+      "instrumentBottom": 1005.28125
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024,
+      "state": "Recovery rule",
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "fontLoaded": true,
+      "instrumentBottom": 1005.28125
+    },
+    {
+      "name": "mobile390",
+      "width": 390,
+      "height": 844,
+      "state": "Authorization",
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "fontLoaded": true,
+      "instrumentBottom": 1346.21875
+    },
+    {
+      "name": "mobile390",
+      "width": 390,
+      "height": 844,
+      "state": "Over-cap refusal",
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "fontLoaded": true,
+      "instrumentBottom": 1343.3125
+    },
+    {
+      "name": "mobile390",
+      "width": 390,
+      "height": 844,
+      "state": "Recovery rule",
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "fontLoaded": true,
+      "instrumentBottom": 1333.90625
+    },
+    {
+      "name": "mobile320",
+      "width": 320,
+      "height": 740,
+      "state": "Authorization",
+      "scrollWidth": 320,
+      "clientWidth": 320,
+      "fontLoaded": true,
+      "instrumentBottom": 1318.734375
+    },
+    {
+      "name": "mobile320",
+      "width": 320,
+      "height": 740,
+      "state": "Over-cap refusal",
+      "scrollWidth": 320,
+      "clientWidth": 320,
+      "fontLoaded": true,
+      "instrumentBottom": 1292.734375
+    },
+    {
+      "name": "mobile320",
+      "width": 320,
+      "height": 740,
+      "state": "Recovery rule",
+      "scrollWidth": 320,
+      "clientWidth": 320,
+      "fontLoaded": true,
+      "instrumentBottom": 1306.421875
+    }
+  ],
+  "routes": [
+    {
+      "route": "/api/health",
+      "status": 200,
+      "cacheControl": "no-store"
+    },
+    {
+      "route": "/app",
+      "status": 404,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    },
+    {
+      "route": "/login",
+      "status": 404,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    },
+    {
+      "route": "/api/session",
+      "status": 404,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    },
+    {
+      "route": "/api/v1/state",
+      "status": 404,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    },
+    {
+      "route": "/api/v1/catalog",
+      "status": 404,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    },
+    {
+      "route": "/api/v1/runs",
+      "status": 404,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    },
+    {
+      "route": "/api/v1/receipts/example",
+      "status": 404,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    },
+    {
+      "route": "/api/demo/quick-signal/demo-parser",
+      "status": 404,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    }
+  ],
+  "externalRuntimeRequests": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "nonReadRequests": [],
+  "links": [
+    {
+      "href": "https://github.com/slvdrvncntjvr/AegisPay",
+      "exact": true
+    },
+    {
+      "href": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf",
+      "exact": true
+    },
+    {
+      "href": "https://drive.google.com/drive/folders/1hqwzOaG_qU9axjcLIjBUb1YeMWdOFq72?usp=sharing",
+      "exact": true
+    },
+    {
+      "href": "https://stellar.expert/explorer/testnet/tx/6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381",
+      "exact": true
+    },
+    {
+      "href": "https://stellar.expert/explorer/testnet/tx/1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a",
+      "exact": true
+    },
+    {
+      "href": "https://stellar.expert/explorer/testnet/tx/94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18",
+      "exact": true
+    },
+    {
+      "href": "https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json",
+      "exact": true
+    },
+    {
+      "href": "https://aegispay-live.vercel.app/",
+      "exact": true
+    }
+  ],
+  "responseFiles": 97,
+  "browser": "156.0.8078.4",
+  "passed": true
+}

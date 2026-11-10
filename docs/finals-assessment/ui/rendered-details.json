@@ -1,0 +1,58 @@
+{
+  "observedAt": "2026-11-09T07:20:25.164Z",
+  "rendered": {
+    "status": {
+      "color": "rgb(71, 85, 105)",
+      "background": "rgb(220, 252, 231)",
+      "fontSize": "13.6px",
+      "overflowWrap": "normal",
+      "minWidth": "auto"
+    },
+    "body": {
+      "color": "rgb(15, 23, 42)",
+      "background": "rgb(248, 250, 252)",
+      "fontSize": "16px",
+      "overflowWrap": "normal",
+      "minWidth": "0px"
+    },
+    "link": {
+      "color": "rgb(29, 78, 216)",
+      "background": "rgba(0, 0, 0, 0)",
+      "fontSize": "16px",
+      "overflowWrap": "normal",
+      "minWidth": "0px"
+    },
+    "tabSemantics": [
+      {
+        "text": "Policy",
+        "id": "",
+        "tabIndex": 0,
+        "ariaControls": null
+      },
+      {
+        "text": "Run",
+        "id": "",
+        "tabIndex": 0,
+        "ariaControls": null
+      },
+      {
+        "text": "Audit",
+        "id": "",
+        "tabIndex": 0,
+        "ariaControls": null
+      }
+    ],
+    "panel": {
+      "id": "",
+      "ariaLabelledby": null
+    },
+    "mainTop": 391.796875,
+    "stylesheets": [
+      "https://aegispay-live.vercel.app/_next/static/immutable/chunks/3lgj3c5f_54i5.css"
+    ]
+  },
+  "linear": {
+    "title": "Linear – The system for product development",
+    "h1": "The product development\nsystem for teams and agents\nThe product development system for teams and agents"
+  }
+}

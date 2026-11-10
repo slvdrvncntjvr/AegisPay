@@ -1,0 +1,81 @@
+{
+  "observed_at_utc": "2026-11-10T05:32:09.271853+00:00",
+  "scope": "narrow read-only Render-access recheck; no provider/payment/configuration mutations",
+  "process_key_presence": {
+    "RENDER_API_KEY": false,
+    "RENDER_API_TOKEN": false
+  },
+  "local_key_presence": {
+    ".env.deploy.local": {
+      "file_exists": true,
+      "presence": {
+        "RENDER_API_KEY": false,
+        "RENDER_API_TOKEN": false
+      }
+    },
+    ".env.worker.local": {
+      "file_exists": true,
+      "presence": {
+        "RENDER_API_KEY": false,
+        "RENDER_API_TOKEN": false
+      }
+    },
+    ".env.local": {
+      "file_exists": false,
+      "presence": {
+        "RENDER_API_KEY": false,
+        "RENDER_API_TOKEN": false
+      }
+    }
+  },
+  "render_cli_on_path": false,
+  "render_config_exists": {
+    ".render/cli.yaml": false,
+    ".render/cli.yml": false,
+    ".config/render/cli.yaml": false,
+    ".config/render/cli.yml": false
+  },
+  "authenticated_render_read_attempted": false,
+  "render_account_workspace_free_capacity_expiry": "unverified without usable authenticated access",
+  "local_db_select_only": {
+    "exit_code": 0,
+    "safe_result": {
+      "DATABASE_URL": {
+        "reachable": false
+      },
+      "TEST_DATABASE_URL": {
+        "reachable": false
+      }
+    }
+  },
+  "connected_tools": {
+    "render_specific_runtime_tool_count": 0,
+    "resource_listing_performed": false,
+    "directory_query": "Render",
+    "plugin_available": true,
+    "plugin_installed": false,
+    "new_suggestion_issued": false,
+    "new_access_question_issued": false
+  },
+  "docker_server": {
+    "exit_code": 1,
+    "safe_result": null
+  },
+  "aegispay_containers": {
+    "exit_code": 1,
+    "safe_result": null
+  },
+  "local_db_diagnostic": {
+    "exit_code": 0,
+    "safe_result": {
+      "DATABASE_URL": {
+        "reachable": false,
+        "error_code": "ECONNREFUSED"
+      },
+      "TEST_DATABASE_URL": {
+        "reachable": false,
+        "error_code": "ECONNREFUSED"
+      }
+    }
+  }
+}

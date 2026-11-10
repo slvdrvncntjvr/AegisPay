@@ -1,0 +1,239 @@
+PAGE 1
+01 / THE PREMISE · STELL AR TESTNET
+DRAFT · 07 NOV 2026
+AegisPay
+Let an agent choose useful data.
+Keep the spending authority bounded.
+Agent chooses
+→
+Tools check
+→
+Noir limits
+→
+Velo executes
+Current proof: headless SDK integration. One real authorization and a separate claim.
+The model loop, database, application UI and deployment remain unfinished.
+Salvador Vincent Javier · solo builder · 5-minute pitch + 3-minute Q&A
+Two-minute submission recording is a separate, pending deliverable.
+Source: README / verified Testnet progress · github.com/slvdrvncntjvr/AegisPay
+01 / 08
+
+
+PAGE 2
+02 / THE PROBLEM
+WORKFLOW HYPOTHESIS
+A new data source should not require
+open-ended payment authority.
+For a small agent team, the useful unit to test is one task, one quote and one auditable purchase.
+DEVELOPER
+“Get the useful report.”
+The agent may discover a paid resource
+while working. Its owner still needs a
+finite budget and expiry.
+API PROVIDER
+“Prove this purchase.”
+A payment must match the merchant,
+amount and quoted resource before
+protected data is released.
+WHEN STATUS IS UNCLEAR
+“Did it already pay?”
+A timeout must preserve identity. A
+second signature or blind submission
+can create another charge.
+Prepaid API keys can work well. We are testing whether bounded, per-request wallet purchasing improves this specific workflow. Demand and
+pricing are unvalidated.
+Source: PRD / core journeys, BR-003 and invariants · No customer, revenue or market-size claim.
+02 / 08
+
+
+PAGE 3
+03 / BOUNDED AGENT CHOICES
+INTENDED APP FLOW · UNBUILT
+Choose usefulness.
+Never choose the rules.
+Practical example: an agent developer requests a report to answer a task.
+Both report contents are fictional fixtures.
+QUICKSIGNAL
+0.03 XLM
+300000 stroops
+Within the demo cap
+DEEPTRACE
+0.12 XLM
+1200000 stroops
+Above the demo cap
+Demo cap: 0.1 Testnet XLM / 1000000 stroops.
+Per-payment cap and planned per-run budget ceiling.
+SELECTED BEHAVIOR · STILL TO BUILD
+Model proposes intent
+Discover offers → choose a useful resource → request the
+current HTTP 402 quote.
+Trusted tools decide permission
+Validate immutable terms, reserve budget and enforce policy.
+Keys, price and signing stay outside the model.
+Saved spike: configured headless payment, not an autonomous model
+choice or protected-resource delivery.
+Sources: PRD / UJ-002, BR-002, F-005 · Separate two-minute recording plan · No live app demo available.
+03 / 08
+
+
+PAGE 4
+04 / THE PROVED INTEGRATION BOUNDARY
+HEADLESS · TESTNET ONLY
+Two SDKs.
+The same authorization.
+01 · NOIR 0.3.0
+Prepare & sign
+Constrained agent authorizes
+escrow against the mandatory
+October 24 contracts.
+→
+02 · VELO 1.0.0 GAS
+Sponsor & submit
+Persist reservation identity and
+handoff marker before
+submitting that signed
+invocation.
+→
+03 · INDEPENDENT RPC
+Match & confirm
+Successful Velo execution must
+agree with envelope, invocation
+and Noir event evidence.
+Implemented: guarded spike adapters and a local single-operation
+journal. Stellar SDK 16.4.1. No custom contract redeployment.
+Target app, unbuilt: apps/web ↔ PostgreSQL ↔ private apps/server;
+packages/agent + packages/shared. App database races remain
+unproved.
+Gas is the actual Velo role. Organizer-specific acceptance of this interpretation remains unconfirmed.
+Sources: Velo handoff code · Independent verifier · Verified contract IDs / ABI
+04 / 08
+
+
+PAGE 5
+05 / INSPECTABLE CHAIN PROOF
+SAVED REAL RUN · NOT A MODEL PURCHASE
+One authorization.
+Separate claim.
+0.03 Testnet XLM
+300000 stroops · nonce 1 · authorization ledger 5607680
+The saved report matches Velo execution to the independent
+successful Stellar envelope, invocation and Noir event.
+Re-observation used the same identity.
+Multiple reports do not create another purchase.
+STATE / STROOPS
+ESCROW
+MERCHANT PENDING
+Before
+10000000
+0
+Authorized
+9700000
+300000
+Claimed separately
+9700000
+0
+Refusal also observed: 1200000 against a 1000000 cap. Actual
+deployed-contract simulation; unsigned and unsubmitted. Not an
+included failed transaction.
+Latest observation: 2026-11-07 15:23:19 UTC.
+Post-review opt-in acceptance: 51/51, no failures or skips, recorded at source. Not rerun for
+this deck.
+Inner · 1d39c3e3…12fa7a ↗
+Outer / event · 6e898ad8…33d381 ↗
+Claim · 94cea8bb…0c9a18 ↗
+Inner and fee-bump outer identify one authorization. The event reported the outer hash. Claim is a distinct transaction.
+Sources: Latest redacted proof / full hashes & balances · Recorded acceptance checkpoint
+05 / 08
+
+
+PAGE 6
+06 / SAFET Y AND RECOVERY
+SPIKE PROOF ≠ APP RELEASE
+Uncertainty must not become
+a second payment.
+PERSIST BEFORE DISPATCH
+One handoff
+Save reservation identity and the
+durable marker. Keep the signed
+call out of evidence and client
+code.
+→
+TIMEOUT / UNKNOWN
+Observe that identity
+No re-signing or redispatch.
+Unknown stays unresolved and
+cannot release protected data.
+→
+ONLY AFTER AGREEMENT
+Verify, then deliver
+Velo + envelope + invocation +
+event. Event alone omits asset
+and agent.
+Implemented in the spike
+Persisted nonce and handoff guards, identity-only recovery,
+independent evidence matching and terminal cleanup.
+Required app gates · pending
+Immutable quotes, atomic budget reservation, unique entitlements
+and owner/quote/resource binding under PostgreSQL races.
+Sources: Handoff / recovery implementation · INV-001–INV-010 · App acceptance plan
+06 / 08
+
+
+PAGE 7
+07 / A ROUTE TO PRACTICAL USE
+PROPOSED PILOT · NOT TRACTION
+Start with one developer
+and one paid API provider.
+Test whether bounded purchasing solves a recurring task before claiming a business.
+01 · INTEGRATE
+One narrow workflow
+Choose a real report category with the
+developer. Replace fixture content only
+after provider permission and app
+gates.
+02 · OBSERVE
+Delivery correctness
+Measure setup friction, denied
+purchases, unresolved recovery and
+whether the paid resource reaches its
+rightful owner.
+03 · DECIDE
+Value and actual costs
+Interview both sides. Measure model,
+hosting, RPC and sponsorship costs
+before testing a gateway subscription
+or usage fee.
+No interviews, customers, revenue, market-size estimate, sustainable margins or production security audit are established.
+Source: Pitch source / proposed pilot · Business hypotheses and Q&A
+07 / 08
+
+
+PAGE 8
+08 / PROGRESS AND NE X T GATES
+LOCAL DRAFT · UNPUBLISHED
+A real payment foundation.
+A complete application still ahead.
+DONE AT SOURCE CHECKPOINT
+SDK harness + same-transaction gate
+TASK-001 and TASK-002 complete, including reviewed recovery and
+fee reconciliation fixes. One authorization and separate claim.
+Ask: feedback on the workflow,
+and a future developer pilot.
+github.com/slvdrvncntjvr/AegisPay ↗
+NEXT MILESTONES · ALL PENDING
+01
+Real workspaces → PostgreSQL, authenticated APIs and
+payment recovery.
+02
+Real bounded model → protected resource → UI and
+release gates.
+03
+Deploy app, worker and database → record two-minute
+video → publish deck.
+Missing public assets: app URL, video URL, published deck URL.
+Discord handle and registration confirmation pending.
+This local PDF preparation does not complete TASK-013.
+The Nov 7, 2026 noon Philippine-time deadline has passed; no extension or eligibility assurance is supplied.
+Organizer-specific Gas interpretation and late acceptance remain open. Three-minute Q&A follows; recording is separate.
+Sources: Milestones / authoritative task checkpoint · Event context and limitations · Status as of base 952344d, 7 Nov 2026.
+08 / 08

@@ -1,0 +1,23 @@
+{
+  "observed_at_utc": "2026-11-10T05:33:32.754730+00:00",
+  "scope": "narrow preflight documentation update",
+  "checks": [
+    {
+      "command": "python tools/check-docs.py",
+      "exit_code": 0,
+      "output": "PASS \u2014 21 Markdown files; local links, required sections, 12 features, 10 invariants, 31 QA cases, stable references, index inventory and researched SDK peer decision.\nApplication tests and live SDK/ledger integration remain unrun.",
+      "error": ""
+    },
+    {
+      "command": "python fmd/tools/check-implementation-plan.py docs/implementation-plan.md --strict",
+      "exit_code": 0,
+      "output": "APPROVE: docs\\implementation-plan.md has 16 valid task row(s); dependency/state DAG is coherent\nExecution waves (topological layers; same wave = parallel candidates):\n  wave 0: TASK-001\n  wave 1: TASK-002\n  wave 2: TASK-011, TASK-014\n  wave 3: TASK-003, TASK-015\n  wave 4: TASK-004, TASK-016\n  wave 5: TASK-005\n  wave 6: TASK-006\n  wave 7: TASK-007, TASK-008\n  wave 8: TASK-009\n  wave 9: TASK-010\n  wave 10: TASK-012\n  wave 11: TASK-013\nParallel-safety: no same-wave write-scope overlaps detected",
+      "error": ""
+    }
+  ],
+  "privacy": {
+    "files_checked": 2,
+    "known_secret_value_matches": 0,
+    "secret_values_emitted": false
+  }
+}

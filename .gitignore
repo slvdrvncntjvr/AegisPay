@@ -15,3 +15,7 @@ __pycache__/
 noirxvelohackathoncontext/
 fmd/
 .vercel
+# Generated browser response dumps and transient Playwright run state.
+# Keep reviewed screenshots, summary evidence and reproducible audit scripts.
+/docs/evidence/finals-proof-deployment/**/*.bin
+/docs/evidence/finals-ui/playwright-results/

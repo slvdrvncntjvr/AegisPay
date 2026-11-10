@@ -1,0 +1,73 @@
+{
+  "base": "http://127.0.0.1:3017",
+  "observedAt": "2026-11-09T09:40:35.999Z",
+  "browser": "156.0.8078.4",
+  "views": [
+    {
+      "name": "desktop",
+      "status": 200,
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "h1": 1,
+      "decisionBottom": 749.1875,
+      "amountTop": 581.09375,
+      "fontLoaded": true
+    },
+    {
+      "name": "projector",
+      "status": 200,
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "h1": 1,
+      "decisionBottom": 546.078125,
+      "amountTop": 391.28125,
+      "fontLoaded": true
+    },
+    {
+      "name": "tablet",
+      "status": 200,
+      "width": 768,
+      "height": 1024,
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "h1": 1,
+      "decisionBottom": 759.46875,
+      "amountTop": 599.78125,
+      "fontLoaded": true
+    },
+    {
+      "name": "mobile390",
+      "status": 200,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "h1": 1,
+      "decisionBottom": 741.9375,
+      "amountTop": 592.4375,
+      "fontLoaded": true
+    },
+    {
+      "name": "mobile320",
+      "status": 200,
+      "width": 320,
+      "height": 740,
+      "scrollWidth": 320,
+      "clientWidth": 320,
+      "h1": 1,
+      "decisionBottom": 692.859375,
+      "amountTop": 544.609375,
+      "fontLoaded": true
+    },
+    {
+      "name": "mobile320-identities",
+      "scrollWidth": 320,
+      "clientWidth": 320
+    }
+  ],
+  "errors": []
+}

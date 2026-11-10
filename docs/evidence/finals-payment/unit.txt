@@ -1,0 +1,17 @@
+npm warn Unknown project config "strict-peer-dependencies". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> aegispay@0.1.0 test:unit
+> vitest run tests/unit
+
+
+ RUN  v5.1.0 C:/Users/Vincent/VS Codes/Noir X Velo
+
+
+ Test Files  4 passed (4)
+      Tests  73 passed (73)
+   Start at  17:21:47
+   Duration  7.76s (import 70%, transform 16%, tests 12%, worker 2%)
+
+    Isolate  4 workers spawned · ~870ms startup each (spawn + environment, per file)
+             at least ~2.61s faster with isolate: false — reuses workers across files instead of one per file
+

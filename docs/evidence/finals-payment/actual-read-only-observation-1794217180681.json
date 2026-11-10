@@ -1,0 +1,15 @@
+{
+  "classification": "actual-read-only-unresolved-payment-observation",
+  "observedAt": "2026-11-09T09:39:40.680Z",
+  "attemptId": "f69178b7-0b0b-46fa-8e82-65c2dd5deee5",
+  "queriedInnerHash": "36f71d7ddee16271b6c23e73fa5ef1f1ca4f0e44e3d0a52ef6eca2115f80d0f8",
+  "chain": {
+    "status": "NOT_FOUND",
+    "txHash": "36f71d7ddee16271b6c23e73fa5ef1f1ca4f0e44e3d0a52ef6eca2115f80d0f8",
+    "ledger": null
+  },
+  "escrowStroops": "10000000",
+  "pendingStroops": "0",
+  "financialDispatch": false,
+  "entitlementGranted": false
+}

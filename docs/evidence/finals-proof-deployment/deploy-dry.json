@@ -1,0 +1,292 @@
+{
+  "framework": {
+    "name": "Next.js",
+    "slug": "nextjs"
+  },
+  "basePath": "C:\\Users\\Vincent\\VS Codes\\Noir X Velo\\.fmd-work\\proof-refresh-ctx77fd54",
+  "fileCount": 27,
+  "totalSize": 399808,
+  "ignoredCount": 7,
+  "ignored": [
+    ".gitignore",
+    "apps\\server\\node_modules",
+    "apps\\web\\.next",
+    "apps\\web\\node_modules",
+    "node_modules",
+    "packages\\agent\\node_modules",
+    "packages\\shared\\node_modules"
+  ],
+  "directories": [
+    {
+      "path": "apps",
+      "fileCount": 17,
+      "size": 267408
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "fileCount": 1,
+      "size": 124429
+    },
+    {
+      "path": "packages",
+      "fileCount": 3,
+      "size": 3864
+    },
+    {
+      "path": "package.json",
+      "fileCount": 1,
+      "size": 3195
+    },
+    {
+      "path": "tsconfig.json",
+      "fileCount": 1,
+      "size": 625
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "fileCount": 1,
+      "size": 164
+    },
+    {
+      "path": ".vercelignore",
+      "fileCount": 1,
+      "size": 66
+    },
+    {
+      "path": ".npmrc",
+      "fileCount": 1,
+      "size": 48
+    },
+    {
+      "path": ".node-version",
+      "fileCount": 1,
+      "size": 9
+    }
+  ],
+  "largestFiles": [
+    {
+      "path": "apps/web/public/fonts/bricolage-grotesque.woff2",
+      "size": 205268,
+      "mode": 33206,
+      "sha": "80fcc9802f84b161e3d0de9064ed593624dd1303"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "size": 124429,
+      "mode": 33206,
+      "sha": "fc4077172d8fbd4901a64301ea9b9fedf3c03acc"
+    },
+    {
+      "path": "apps/web/src/app/globals.css",
+      "size": 30277,
+      "mode": 33206,
+      "sha": "0f7c141a9e3ebdb12b454b2672b7e902d1ed7f24"
+    },
+    {
+      "path": "apps/web/src/app/console.tsx",
+      "size": 15306,
+      "mode": 33206,
+      "sha": "398bebb7e6ff0f1dd803880597a22a8047ad3c36"
+    },
+    {
+      "path": "apps/web/public/fonts/OFL-Bricolage-Grotesque.txt",
+      "size": 4403,
+      "mode": 33206,
+      "sha": "f63c11ad3638f6ccc44b188755fea3db7ad4405a"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "size": 4381,
+      "mode": 33206,
+      "sha": "35fbabc51ae1abcc251e7143b9f57ed3aea1e457"
+    },
+    {
+      "path": "packages/shared/src/index.ts",
+      "size": 3504,
+      "mode": 33206,
+      "sha": "981900e56f57870bc84f59df52b19312a4b82d58"
+    },
+    {
+      "path": "package.json",
+      "size": 3195,
+      "mode": 33206,
+      "sha": "8cb0e1239de2064c0c1052e6645c2b19422cbfbd"
+    },
+    {
+      "path": "apps/web/src/lib/public-proof.ts",
+      "size": 3063,
+      "mode": 33206,
+      "sha": "427e430b92ef3ce9c61a4642d9c9d8d55eeef407"
+    },
+    {
+      "path": "apps/web/src/components/visual.tsx",
+      "size": 1450,
+      "mode": 33206,
+      "sha": "357885987d587408519053d8591a3cc4fdaed062"
+    }
+  ],
+  "files": [
+    {
+      "path": ".node-version",
+      "size": 9,
+      "mode": 33206,
+      "sha": "da49b7afcb87f401fe227a7f4e1cac9befbf00c3"
+    },
+    {
+      "path": ".npmrc",
+      "size": 48,
+      "mode": 33206,
+      "sha": "b7a3d40d758ab2b9ee780cbf1d66f4410bae7a18"
+    },
+    {
+      "path": ".vercelignore",
+      "size": 66,
+      "mode": 33206,
+      "sha": "edbe4c0aea0a1e52ec8771582516ae8f0c7ea3df"
+    },
+    {
+      "path": "apps/server/package.json",
+      "size": 220,
+      "mode": 33206,
+      "sha": "353c532f1baa6d2a957da02a7cd3b01b93982ed9"
+    },
+    {
+      "path": "apps/web/next-env.d.ts",
+      "size": 295,
+      "mode": 33206,
+      "sha": "d3fc80b7fae627e01dce199d12132aa4fc32d773"
+    },
+    {
+      "path": "apps/web/next.config.ts",
+      "size": 182,
+      "mode": 33206,
+      "sha": "529c738df77d5cd1067fd79d868d14e7f01d8b83"
+    },
+    {
+      "path": "apps/web/package.json",
+      "size": 355,
+      "mode": 33206,
+      "sha": "69e176a0910e7b00e8a572d85f3ad2a84b9ac283"
+    },
+    {
+      "path": "apps/web/public/fonts/bricolage-grotesque.woff2",
+      "size": 205268,
+      "mode": 33206,
+      "sha": "80fcc9802f84b161e3d0de9064ed593624dd1303"
+    },
+    {
+      "path": "apps/web/public/fonts/OFL-Bricolage-Grotesque.txt",
+      "size": 4403,
+      "mode": 33206,
+      "sha": "f63c11ad3638f6ccc44b188755fea3db7ad4405a"
+    },
+    {
+      "path": "apps/web/public/fonts/README.txt",
+      "size": 439,
+      "mode": 33206,
+      "sha": "eacc99c6cb7256d7309555d1be332807bd936be5"
+    },
+    {
+      "path": "apps/web/public/icon.svg",
+      "size": 265,
+      "mode": 33206,
+      "sha": "0802490fba6e002c34ffa11365b4011bcbbf6fb6"
+    },
+    {
+      "path": "apps/web/src/app/api/health/route.ts",
+      "size": 360,
+      "mode": 33206,
+      "sha": "bfa280715340ecf1a351697594de92cf65104ed4"
+    },
+    {
+      "path": "apps/web/src/app/console.tsx",
+      "size": 15306,
+      "mode": 33206,
+      "sha": "398bebb7e6ff0f1dd803880597a22a8047ad3c36"
+    },
+    {
+      "path": "apps/web/src/app/globals.css",
+      "size": 30277,
+      "mode": 33206,
+      "sha": "0f7c141a9e3ebdb12b454b2672b7e902d1ed7f24"
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "size": 577,
+      "mode": 33206,
+      "sha": "4aaffedb201d8efaf7c2e59cd2d69903d2c30a68"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "size": 4381,
+      "mode": 33206,
+      "sha": "35fbabc51ae1abcc251e7143b9f57ed3aea1e457"
+    },
+    {
+      "path": "apps/web/src/components/visual.tsx",
+      "size": 1450,
+      "mode": 33206,
+      "sha": "357885987d587408519053d8591a3cc4fdaed062"
+    },
+    {
+      "path": "apps/web/src/lib/public-proof.ts",
+      "size": 3063,
+      "mode": 33206,
+      "sha": "427e430b92ef3ce9c61a4642d9c9d8d55eeef407"
+    },
+    {
+      "path": "apps/web/tsconfig.json",
+      "size": 292,
+      "mode": 33206,
+      "sha": "3ead255efc063b743a08ba0815d6c53ef8f18a19"
+    },
+    {
+      "path": "apps/web/vercel.json",
+      "size": 275,
+      "mode": 33206,
+      "sha": "da979a40857ba3d7c16ae252394cd3eba61b8239"
+    },
+    {
+      "path": "package.json",
+      "size": 3195,
+      "mode": 33206,
+      "sha": "8cb0e1239de2064c0c1052e6645c2b19422cbfbd"
+    },
+    {
+      "path": "packages/agent/package.json",
+      "size": 189,
+      "mode": 33206,
+      "sha": "f9121a68bb1e79c577d21f8204d0d2defcc49e34"
+    },
+    {
+      "path": "packages/shared/package.json",
+      "size": 171,
+      "mode": 33206,
+      "sha": "9f2dec3e7f39293d1f6f505b068c4c0447eb5d75"
+    },
+    {
+      "path": "packages/shared/src/index.ts",
+      "size": 3504,
+      "mode": 33206,
+      "sha": "981900e56f57870bc84f59df52b19312a4b82d58"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "size": 124429,
+      "mode": 33206,
+      "sha": "fc4077172d8fbd4901a64301ea9b9fedf3c03acc"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "size": 164,
+      "mode": 33206,
+      "sha": "e4f5d38346ba7175d3ae5cb678de490ad70ccf6b"
+    },
+    {
+      "path": "tsconfig.json",
+      "size": 625,
+      "mode": 33206,
+      "sha": "c3042ad019112994c70aece1552aadc8a0b770f8"
+    }
+  ]
+}

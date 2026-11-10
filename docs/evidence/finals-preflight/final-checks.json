@@ -1,0 +1,54 @@
+{
+  "observed_at_utc": "2026-11-09T09:15:55.244185+00:00",
+  "read_only_public_routes": [
+    {
+      "path": "/api/v1/state",
+      "http_status": 404,
+      "fixture_sentinel_present": false
+    },
+    {
+      "path": "/api/v1/catalog",
+      "http_status": 404,
+      "fixture_sentinel_present": false
+    },
+    {
+      "path": "/api/v1/runs/00000000-0000-4000-8000-000000000000",
+      "http_status": 404,
+      "fixture_sentinel_present": false
+    },
+    {
+      "path": "/api/v1/receipts/00000000-0000-4000-8000-000000000000/resource",
+      "http_status": 404,
+      "fixture_sentinel_present": false
+    },
+    {
+      "path": "/api/demo/quick-signal?dependency=demo-parser&runId=00000000-0000-4000-8000-000000000000",
+      "http_status": 404,
+      "fixture_sentinel_present": false
+    }
+  ],
+  "docker": {
+    "version": {
+      "exit_code": 0,
+      "safe_stdout": "27.2.0"
+    },
+    "aegispay_containers": {
+      "exit_code": 0,
+      "safe_stdout": "aegispay-foundation-...a704-db-1|Exited (0) 29 hours ago|\naegispay-foundation-...c6d0-db-1|Up 9 minutes (healthy)|127.0.0.1:53371->5432/tcp\naegispay-foundation-...f01d-db-1|Exited (0) 29 hours ago|"
+    },
+    "aegispay_volumes": {
+      "exit_code": 0,
+      "safe_stdout": "aegispay-foundation-...a704_postgres_data\naegispay-foundation-...f01d_postgres_data\naegispay-foundation-...c6d0_postgres_data"
+    }
+  },
+  "artifact_privacy": {
+    "files_checked": 6,
+    "known_secret_value_matches": 0,
+    "secret_values_emitted": false
+  },
+  "documentation_gates": {
+    "check_docs": "exit0 PASS 21 Markdown files; 12 features; 10 invariants; 31 QA cases",
+    "strict_plan": "exit0 APPROVE 14 task rows; coherent DAG; no same-wave scope overlaps",
+    "application_release": "not_run_by_preflight"
+  }
+}

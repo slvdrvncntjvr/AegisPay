@@ -1,0 +1,108 @@
+[
+  {
+    "observedAt": "2026-11-09T07:16:28.616787+00:00",
+    "url": "https://aegispay-live.vercel.app/",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "headers": {
+      "cache-control": "public, max-age=0, must-revalidate",
+      "x-vercel-cache": "HIT",
+      "content-security-policy": null,
+      "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+      "x-content-type-options": null
+    },
+    "visibleText": "AegisPay · Testnet proof console\nStellar Testnet proof console · verified spike evidence · full model loop and durable app gates remain unfinished\nAegisPay\nBounded agent spending with Noir policy limits and Velo-sponsored Stellar Testnet execution. This public site surfaces the verified same-transaction authorization, simulation refusal, and separate merchant claim—not a completed autonomous model purchase.\nVerified Testnet spike · not a completed model purchase\nGitHub repository\nPitch PDF (\ndocs/submission/AegisPay-pitch-draft.pdf\n)\nHealth JSON\nPolicy\nRun\nAudit\nRun\nRecorded Testnet spike run for operation `\nc080d947-714b-43cf-92d0-ad9ed7c01439\n`. This is not a completed autonomous model purchase.\nAccepted amount\n300000\nstroops (\n0.0300000\nTestnet XLM)\nNonce\n1\nAuthorization\nAuthorized in escrow\nMerchant claim\nClaimed by merchant\nMerchant\nGC3SHUY27GQV7Z5IPHFQWPQJR6SL2CCS72FVNZALHQVX5D7IGGPWHVEX\nAgent\nGB7YL3X5MJ5QSZR3ABWVVOE2QNRVVLFJTXI6GQ55A2SPGAVL6R2F7XBR\nFee (matched)\n82496\nstroops ·\nmatched (outer ledger = Velo reported)\nObserved at\n2026-11-07T15:23:19.766Z\nOuter auth tx:\n6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381\nInner auth tx:\n1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a\nClaim tx:\n94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18\nEvent-alone evidence is insufficient; independent matching Noir envelope, invocation, and event were required for the saved authorization. Authorization credits merchant-pending escrow; claim is separate.",
+    "scripts": [
+      "/_next/static/immutable/chunks/26ko2vb_692za.js",
+      "/_next/static/immutable/chunks/14runmd8ovx5k.js",
+      "/_next/static/immutable/chunks/turbopack-3xd-7z66s-4wg.js",
+      "/_next/static/immutable/chunks/2a3htt5bfsda5.js",
+      "/_next/static/immutable/chunks/1nk5db09q22jr.js",
+      "/_next/static/immutable/chunks/0c0hxoamwjsbw.js",
+      "/_next/static/immutable/chunks/2_3sfabmlqb3u.js"
+    ]
+  },
+  {
+    "observedAt": "2026-11-09T07:16:29.009590+00:00",
+    "url": "https://aegispay-live.vercel.app/api/health",
+    "status": 200,
+    "contentType": "application/json",
+    "headers": {
+      "cache-control": "no-store",
+      "x-vercel-cache": "MISS",
+      "content-security-policy": null,
+      "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+      "x-content-type-options": null
+    },
+    "body": {
+      "status": "ok",
+      "network": "testnet"
+    }
+  },
+  {
+    "observedAt": "2026-11-09T07:16:29.149330+00:00",
+    "url": "https://aegispay-live.vercel.app/api/v1/state",
+    "status": 404,
+    "contentType": "text/html; charset=utf-8",
+    "headers": {
+      "cache-control": "public, max-age=0, must-revalidate",
+      "x-vercel-cache": "HIT",
+      "content-security-policy": null,
+      "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+      "x-content-type-options": null
+    },
+    "visibleText": "AegisPay · Testnet proof console\n404: This page could not be found.\n404\nThis page could not be found.",
+    "scripts": [
+      "/_next/static/immutable/chunks/26ko2vb_692za.js",
+      "/_next/static/immutable/chunks/14runmd8ovx5k.js",
+      "/_next/static/immutable/chunks/turbopack-3xd-7z66s-4wg.js",
+      "/_next/static/immutable/chunks/2a3htt5bfsda5.js",
+      "/_next/static/immutable/chunks/0c0hxoamwjsbw.js",
+      "/_next/static/immutable/chunks/2_3sfabmlqb3u.js"
+    ]
+  },
+  {
+    "observedAt": "2026-11-09T07:16:29.263263+00:00",
+    "url": "https://aegispay-live.vercel.app/api/v1/runs/00000000-0000-4000-8000-000000000000",
+    "status": 404,
+    "contentType": "text/html; charset=utf-8",
+    "headers": {
+      "cache-control": "public, max-age=0, must-revalidate",
+      "x-vercel-cache": "HIT",
+      "content-security-policy": null,
+      "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+      "x-content-type-options": null
+    },
+    "visibleText": "AegisPay · Testnet proof console\n404: This page could not be found.\n404\nThis page could not be found.",
+    "scripts": [
+      "/_next/static/immutable/chunks/26ko2vb_692za.js",
+      "/_next/static/immutable/chunks/14runmd8ovx5k.js",
+      "/_next/static/immutable/chunks/turbopack-3xd-7z66s-4wg.js",
+      "/_next/static/immutable/chunks/2a3htt5bfsda5.js",
+      "/_next/static/immutable/chunks/0c0hxoamwjsbw.js",
+      "/_next/static/immutable/chunks/2_3sfabmlqb3u.js"
+    ]
+  },
+  {
+    "observedAt": "2026-11-09T07:16:29.396391+00:00",
+    "url": "https://aegispay-live.vercel.app/login",
+    "status": 404,
+    "contentType": "text/html; charset=utf-8",
+    "headers": {
+      "cache-control": "public, max-age=0, must-revalidate",
+      "x-vercel-cache": "HIT",
+      "content-security-policy": null,
+      "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+      "x-content-type-options": null
+    },
+    "visibleText": "AegisPay · Testnet proof console\n404: This page could not be found.\n404\nThis page could not be found.",
+    "scripts": [
+      "/_next/static/immutable/chunks/26ko2vb_692za.js",
+      "/_next/static/immutable/chunks/14runmd8ovx5k.js",
+      "/_next/static/immutable/chunks/turbopack-3xd-7z66s-4wg.js",
+      "/_next/static/immutable/chunks/2a3htt5bfsda5.js",
+      "/_next/static/immutable/chunks/0c0hxoamwjsbw.js",
+      "/_next/static/immutable/chunks/2_3sfabmlqb3u.js"
+    ]
+  }
+]

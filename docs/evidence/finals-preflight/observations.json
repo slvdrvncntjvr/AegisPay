@@ -1,0 +1,411 @@
+{
+  "observed_at_utc": "2026-11-09T09:05:26.740107+00:00",
+  "env_files": {
+    ".env.integration.local": {
+      "exists": true,
+      "presence": {
+        "AEGISPAY_POSTGRES_PASSWORD": true,
+        "AEGISPAY_POSTGRES_PORT": true,
+        "AEGISPAY_POSTGRES_PROJECT": true,
+        "DATABASE_URL": true,
+        "TEST_DATABASE_URL": true
+      },
+      "missing_or_empty_catalog_names": [
+        "NODE_ENV",
+        "APP_ORIGIN",
+        "STELLAR_NETWORK",
+        "STELLAR_RPC_URL",
+        "STELLAR_NETWORK_PASSPHRASE",
+        "NOIR_DEVICE_REGISTRY_ID",
+        "NOIR_AGENT_REGISTRY_ID",
+        "NOIR_PAYMENT_ESCROW_ID",
+        "NOIR_XLM_SAC_ID",
+        "DEMO_OWNER_PUBLIC_KEY",
+        "DEMO_AGENT_PUBLIC_KEY",
+        "DEMO_MERCHANT_PUBLIC_KEY",
+        "DEMO_DEVICE_HASH",
+        "AGENT_SECRET",
+        "VELO_GAS_API_KEY",
+        "VELO_GAS_BASE_URL",
+        "GEMINI_API_KEY",
+        "AGENT_MODEL",
+        "ENVELOPE_ENCRYPTION_KEY",
+        "DEMO_OWNER_LOGIN_TOKEN",
+        "DEMO_MERCHANT_LOGIN_TOKEN",
+        "RECEIPT_SIGNING_KEY",
+        "RUN_TESTNET",
+        "SPIKE_OWNER_SECRET",
+        "SPIKE_MERCHANT_SECRET"
+      ],
+      "safe_public_values": {},
+      "db_project_redacted": "aegis…c6d0",
+      "db_port": 53371,
+      "database_names": {
+        "DATABASE_URL": "aegispay",
+        "TEST_DATABASE_URL": "aegispay_integration"
+      }
+    },
+    ".env.deploy.local": {
+      "exists": true,
+      "presence": {
+        "RENDER_API_KEY": false
+      },
+      "missing_or_empty_catalog_names": [
+        "NODE_ENV",
+        "APP_ORIGIN",
+        "DATABASE_URL",
+        "AEGISPAY_POSTGRES_PROJECT",
+        "AEGISPAY_POSTGRES_PASSWORD",
+        "AEGISPAY_POSTGRES_PORT",
+        "TEST_DATABASE_URL",
+        "STELLAR_NETWORK",
+        "STELLAR_RPC_URL",
+        "STELLAR_NETWORK_PASSPHRASE",
+        "NOIR_DEVICE_REGISTRY_ID",
+        "NOIR_AGENT_REGISTRY_ID",
+        "NOIR_PAYMENT_ESCROW_ID",
+        "NOIR_XLM_SAC_ID",
+        "DEMO_OWNER_PUBLIC_KEY",
+        "DEMO_AGENT_PUBLIC_KEY",
+        "DEMO_MERCHANT_PUBLIC_KEY",
+        "DEMO_DEVICE_HASH",
+        "AGENT_SECRET",
+        "VELO_GAS_API_KEY",
+        "VELO_GAS_BASE_URL",
+        "GEMINI_API_KEY",
+        "AGENT_MODEL",
+        "ENVELOPE_ENCRYPTION_KEY",
+        "DEMO_OWNER_LOGIN_TOKEN",
+        "DEMO_MERCHANT_LOGIN_TOKEN",
+        "RECEIPT_SIGNING_KEY",
+        "RUN_TESTNET",
+        "SPIKE_OWNER_SECRET",
+        "SPIKE_MERCHANT_SECRET"
+      ],
+      "safe_public_values": {}
+    },
+    ".env.worker.local": {
+      "exists": true,
+      "presence": {
+        "AGENT_MODEL": true,
+        "GEMINI_API_KEY": true
+      },
+      "missing_or_empty_catalog_names": [
+        "NODE_ENV",
+        "APP_ORIGIN",
+        "DATABASE_URL",
+        "AEGISPAY_POSTGRES_PROJECT",
+        "AEGISPAY_POSTGRES_PASSWORD",
+        "AEGISPAY_POSTGRES_PORT",
+        "TEST_DATABASE_URL",
+        "STELLAR_NETWORK",
+        "STELLAR_RPC_URL",
+        "STELLAR_NETWORK_PASSPHRASE",
+        "NOIR_DEVICE_REGISTRY_ID",
+        "NOIR_AGENT_REGISTRY_ID",
+        "NOIR_PAYMENT_ESCROW_ID",
+        "NOIR_XLM_SAC_ID",
+        "DEMO_OWNER_PUBLIC_KEY",
+        "DEMO_AGENT_PUBLIC_KEY",
+        "DEMO_MERCHANT_PUBLIC_KEY",
+        "DEMO_DEVICE_HASH",
+        "AGENT_SECRET",
+        "VELO_GAS_API_KEY",
+        "VELO_GAS_BASE_URL",
+        "ENVELOPE_ENCRYPTION_KEY",
+        "DEMO_OWNER_LOGIN_TOKEN",
+        "DEMO_MERCHANT_LOGIN_TOKEN",
+        "RECEIPT_SIGNING_KEY",
+        "RUN_TESTNET",
+        "SPIKE_OWNER_SECRET",
+        "SPIKE_MERCHANT_SECRET"
+      ],
+      "safe_public_values": {
+        "AGENT_MODEL": "gemini-3.5-flash"
+      }
+    },
+    ".env.spike.local": {
+      "exists": true,
+      "presence": {
+        "AGENT_SECRET": true,
+        "DEMO_AGENT_PUBLIC_KEY": true,
+        "DEMO_MERCHANT_PUBLIC_KEY": true,
+        "DEMO_OWNER_PUBLIC_KEY": true,
+        "ENVELOPE_ENCRYPTION_KEY": true,
+        "NOIR_AGENT_REGISTRY_ID": true,
+        "NOIR_DEVICE_REGISTRY_ID": true,
+        "NOIR_PAYMENT_ESCROW_ID": true,
+        "NOIR_XLM_SAC_ID": true,
+        "RUN_TESTNET": true,
+        "SPIKE_MERCHANT_SECRET": true,
+        "SPIKE_OWNER_SECRET": true,
+        "STELLAR_NETWORK": true,
+        "STELLAR_NETWORK_PASSPHRASE": true,
+        "STELLAR_RPC_URL": true,
+        "VELO_GAS_API_KEY": true,
+        "VELO_GAS_BASE_URL": true
+      },
+      "missing_or_empty_catalog_names": [
+        "NODE_ENV",
+        "APP_ORIGIN",
+        "DATABASE_URL",
+        "AEGISPAY_POSTGRES_PROJECT",
+        "AEGISPAY_POSTGRES_PASSWORD",
+        "AEGISPAY_POSTGRES_PORT",
+        "TEST_DATABASE_URL",
+        "DEMO_DEVICE_HASH",
+        "GEMINI_API_KEY",
+        "AGENT_MODEL",
+        "DEMO_OWNER_LOGIN_TOKEN",
+        "DEMO_MERCHANT_LOGIN_TOKEN",
+        "RECEIPT_SIGNING_KEY"
+      ],
+      "safe_public_values": {
+        "STELLAR_NETWORK": "testnet",
+        "NOIR_DEVICE_REGISTRY_ID": "CAC4KOLHDLDYDWBOKXNKRN5KVHO56PLOIFXDLTBUWGVN6GVDEB7FQHU5",
+        "NOIR_AGENT_REGISTRY_ID": "CCMZDSPTLX7IIJWCYEUM5DJUHOSOYSTHGK777S2TXZWEMC5ZZGPJ3EBV",
+        "NOIR_PAYMENT_ESCROW_ID": "CC7EAW5FNJEDBS7THM5IT6XIOHO4AOYMLXT3KSZ3HWUIKEACTW7E5BFS",
+        "NOIR_XLM_SAC_ID": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+        "DEMO_OWNER_PUBLIC_KEY": "GBU2TW5W74HRGWIHWKUUF7VOIM6DPYUQD4AWQ25VH4LGUAOCYLLKQLTR",
+        "DEMO_AGENT_PUBLIC_KEY": "GB7YL3X5MJ5QSZR3ABWVVOE2QNRVVLFJTXI6GQ55A2SPGAVL6R2F7XBR",
+        "DEMO_MERCHANT_PUBLIC_KEY": "GC3SHUY27GQV7Z5IPHFQWPQJR6SL2CCS72FVNZALHQVX5D7IGGPWHVEX"
+      }
+    },
+    "apps/web/.env.local": {
+      "exists": false,
+      "presence": {},
+      "missing_or_empty_catalog_names": [
+        "NODE_ENV",
+        "APP_ORIGIN",
+        "DATABASE_URL",
+        "AEGISPAY_POSTGRES_PROJECT",
+        "AEGISPAY_POSTGRES_PASSWORD",
+        "AEGISPAY_POSTGRES_PORT",
+        "TEST_DATABASE_URL",
+        "STELLAR_NETWORK",
+        "STELLAR_RPC_URL",
+        "STELLAR_NETWORK_PASSPHRASE",
+        "NOIR_DEVICE_REGISTRY_ID",
+        "NOIR_AGENT_REGISTRY_ID",
+        "NOIR_PAYMENT_ESCROW_ID",
+        "NOIR_XLM_SAC_ID",
+        "DEMO_OWNER_PUBLIC_KEY",
+        "DEMO_AGENT_PUBLIC_KEY",
+        "DEMO_MERCHANT_PUBLIC_KEY",
+        "DEMO_DEVICE_HASH",
+        "AGENT_SECRET",
+        "VELO_GAS_API_KEY",
+        "VELO_GAS_BASE_URL",
+        "GEMINI_API_KEY",
+        "AGENT_MODEL",
+        "ENVELOPE_ENCRYPTION_KEY",
+        "DEMO_OWNER_LOGIN_TOKEN",
+        "DEMO_MERCHANT_LOGIN_TOKEN",
+        "RECEIPT_SIGNING_KEY",
+        "RUN_TESTNET",
+        "SPIKE_OWNER_SECRET",
+        "SPIKE_MERCHANT_SECRET"
+      ],
+      "safe_public_values": {}
+    },
+    "apps/web/.env.production.local": {
+      "exists": false,
+      "presence": {},
+      "missing_or_empty_catalog_names": [
+        "NODE_ENV",
+        "APP_ORIGIN",
+        "DATABASE_URL",
+        "AEGISPAY_POSTGRES_PROJECT",
+        "AEGISPAY_POSTGRES_PASSWORD",
+        "AEGISPAY_POSTGRES_PORT",
+        "TEST_DATABASE_URL",
+        "STELLAR_NETWORK",
+        "STELLAR_RPC_URL",
+        "STELLAR_NETWORK_PASSPHRASE",
+        "NOIR_DEVICE_REGISTRY_ID",
+        "NOIR_AGENT_REGISTRY_ID",
+        "NOIR_PAYMENT_ESCROW_ID",
+        "NOIR_XLM_SAC_ID",
+        "DEMO_OWNER_PUBLIC_KEY",
+        "DEMO_AGENT_PUBLIC_KEY",
+        "DEMO_MERCHANT_PUBLIC_KEY",
+        "DEMO_DEVICE_HASH",
+        "AGENT_SECRET",
+        "VELO_GAS_API_KEY",
+        "VELO_GAS_BASE_URL",
+        "GEMINI_API_KEY",
+        "AGENT_MODEL",
+        "ENVELOPE_ENCRYPTION_KEY",
+        "DEMO_OWNER_LOGIN_TOKEN",
+        "DEMO_MERCHANT_LOGIN_TOKEN",
+        "RECEIPT_SIGNING_KEY",
+        "RUN_TESTNET",
+        "SPIKE_OWNER_SECRET",
+        "SPIKE_MERCHANT_SECRET"
+      ],
+      "safe_public_values": {}
+    }
+  },
+  "process_host_key_presence": {
+    "VERCEL_TOKEN": false,
+    "RENDER_API_KEY": false,
+    "RENDER_API_TOKEN": false,
+    "GEMINI_API_KEY": false,
+    "DATABASE_URL": false
+  },
+  "vercel": {
+    "auth_token_present": true,
+    "config_key_names": [
+      "// Docs",
+      "// Note",
+      "cachedTeamIds",
+      "cachedTeamSlugs",
+      "currentTeam",
+      "telemetry"
+    ],
+    "identity": {
+      "http_status": 200,
+      "username": "slvdrvncntjvr"
+    },
+    "project": {
+      "http_status": 200,
+      "id_redacted": "prj_8…7aTq",
+      "name": "aegispay-live",
+      "framework": "nextjs",
+      "rootDirectory": "apps/web",
+      "nodeVersion": "24.x",
+      "sourceFilesOutsideRootDirectory": true,
+      "installCommand": null,
+      "buildCommand": null,
+      "outputDirectory": null,
+      "autoExposeSystemEnvs": true
+    },
+    "git_link": {
+      "type": null,
+      "org": null,
+      "repo": null,
+      "productionBranch": null
+    },
+    "environment": {
+      "http_status": 200,
+      "keys": []
+    },
+    "alias": {
+      "http_status": 200,
+      "alias": "aegispay-live.vercel.app",
+      "deployment_id_redacted": "dpl_H…nqy6",
+      "deployment_hostname": "aegispay-live-88jdujgww-vincent-s-projects-57de271b.vercel.app"
+    },
+    "deployment": {
+      "http_status": 200,
+      "name": "aegispay-live",
+      "readyState": "READY",
+      "target": "production",
+      "createdAt": 1794100915852,
+      "url": "aegispay-live-88jdujgww-vincent-s-projects-57de271b.vercel.app",
+      "source": "cli",
+      "version": 2,
+      "nodeVersion": "24.x",
+      "git_commit": null,
+      "project_settings": {
+        "rootDirectory": null,
+        "framework": "nextjs",
+        "nodeVersion": "24.x",
+        "buildCommand": "node --version && cd ../.. && npx --yes pnpm@12.18.0 --filter @aegispay/web build",
+        "installCommand": "cd ../.. && npx --yes pnpm@12.18.0 install --frozen-lockfile",
+        "sourceFilesOutsideRootDirectory": null
+      }
+    },
+    "source_packaging": {
+      "http_status": 200,
+      "file_paths": [
+        "src/.npmrc",
+        "src/apps/server/package.json",
+        "src/apps/web/next-env.d.ts",
+        "src/apps/web/next.config.ts",
+        "src/apps/web/package.json",
+        "src/apps/web/src/app/api/health/route.ts",
+        "src/apps/web/src/app/console.tsx",
+        "src/apps/web/src/app/globals.css",
+        "src/apps/web/src/app/layout.tsx",
+        "src/apps/web/src/app/page.tsx",
+        "src/apps/web/src/lib/public-proof.ts",
+        "src/apps/web/src/runtime.ts",
+        "src/apps/web/tsconfig.json",
+        "src/apps/web/vercel.json",
+        "src/packages/shared/package.json",
+        "src/packages/shared/src/index.ts",
+        "src/packages/agent/package.json",
+        "src/package.json",
+        "src/pnpm-lock.yaml",
+        "src/pnpm-workspace.yaml",
+        "src/tsconfig.json",
+        "out/index",
+        "out/_global-error",
+        "out/_global-error.rsc",
+        "out/_global-error.segments/__PAGE__.segment.rsc",
+        "out/_global-error.segments/_full.segment.rsc",
+        "out/_global-error.segments/_tree.segment.rsc",
+        "out/index.rsc",
+        "out/index.segments/_full.segment.rsc",
+        "out/index.segments/__PAGE__.segment.rsc",
+        "out/index.segments/_tree.segment.rsc",
+        "out/_not-found",
+        "out/_not-found.rsc",
+        "out/api/health",
+        "out/api/health.rsc"
+      ],
+      "count": 35
+    }
+  },
+  "render": {
+    "cli_on_path": false,
+    "known_config_exists": {
+      ".render/cli.yaml": false,
+      ".render/cli.yml": false,
+      ".config/render/cli.yaml": false,
+      ".config/render/cli.yml": false
+    },
+    "credential_name_presence": {
+      "RENDER_API_KEY": false,
+      "RENDER_API_TOKEN": false
+    }
+  },
+  "public_http": [
+    {
+      "path": "/",
+      "http_status": 200,
+      "safe_health": null
+    },
+    {
+      "path": "/api/health",
+      "http_status": 200,
+      "safe_health": {
+        "status": "ok",
+        "network": "testnet"
+      }
+    },
+    {
+      "path": "/app",
+      "http_status": 404,
+      "safe_health": null
+    },
+    {
+      "path": "/api/auth/session",
+      "http_status": 404,
+      "safe_health": null
+    },
+    {
+      "path": "/api/state",
+      "http_status": 404,
+      "safe_health": null
+    },
+    {
+      "path": "/api/runs",
+      "http_status": 404,
+      "safe_health": null
+    }
+  ],
+  "anonymous_github_status": 200,
+  "submitted_pdf_http_status": 200
+}

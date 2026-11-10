@@ -1,0 +1,10 @@
+Source: https://luma.com/gjclwpkd
+Observed: 2026-11-09T07:31:49.768161+00:00
+Method: anonymous HTTPS GET, HTTP 200; parsed public Event structured data and visible event description.
+
+Page identifies the Noir X Velo Hackathon and both SDK requirements.
+Its historical schedule differs from the supplied handbook.
+No current finalist roster or full judging rubric was recovered from the page.
+The newer supplied organizer email remains the current logistics context.
+
+Full webpage, attendee data and organizer profile images were not retained in this artifact.

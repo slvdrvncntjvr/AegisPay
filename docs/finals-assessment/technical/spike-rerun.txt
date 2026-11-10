@@ -1,0 +1,63 @@
+npm warn Unknown project config "strict-peer-dependencies". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> aegispay@0.1.0 test:spike
+> node --import tsx --test tests/testnet/config.test.ts tests/testnet/contracts.test.ts tests/testnet/guards.test.ts tests/testnet/evidence.test.ts tests/testnet/handoff.test.ts tests/testnet/journal.test.ts tests/testnet/setup.test.ts tests/testnet/driver.test.ts
+
+✔ TC-013: live input guard accepts structurally valid disposable config without making network calls (130.9345ms)
+✔ TC-013: missing input response lists names, never values (103.499ms)
+✔ TC-013: mainnet, missing opt-in, mismatched signers and malformed encryption keys fail closed (40.1339ms)
+✔ TC-013: required lifecycle ABI accepts exact types and rejects absent and duplicate methods (14.4248ms)
+✔ TC-013: matching method names cannot hide wrong amount, nonce, address or device types (2.4578ms)
+✔ TC-013: policy struct fields and their types are part of deployment compatibility (1.0136ms)
+✔ TC-015: provider errors cannot expose credentials or XDR through the safe failure response (2.8632ms)
+✔ TC-024: owner operation matches its prepared source, contract, arguments and auth root (154.7794ms)
+✔ TC-024: escrow funding permits only the exact nested token transfer (27.4343ms)
+✔ TC-029: owner operation persists its hash before dispatch; restart observes without signing or submitting again (130.8958ms)
+✔ TC-024: a saved wallet handoff cannot be reused for different intent (55.6728ms)
+✔ TASK-002 synthetic driver: setup, live-shaped refusal, payment and separate claim resume without another handoff (576.7678ms)
+✔ TASK-002 synthetic driver: disconnect after submit resumes the exact saved payment without a second signature or handoff (476.545ms)
+✔ TASK-002 synthetic driver: post-handoff RPC failure is unresolved and redacted, then recovers without replay (540.4173ms)
+✔ TASK-002 synthetic driver: an RPC claim event without its matching embedded chain event cannot pass (633.5888ms)
+✔ TASK-002 synthetic driver: interrupted terminal cleanup blocks prepare, signing and all Gas calls on restart (378.5419ms)
+✔ TC-011: independent matching envelope and event qualify only with Velo success (206.3528ms)
+✔ TC-027/EQ-004: actual fee requires matching outer ledger and Velo provenance (140.3069ms)
+✔ TC-011: fee-bump inner/outer/event hashes are mapped independently (44.3831ms)
+✔ TC-010: a matching decoded event without an event in successful transaction meta is insufficient (22.8346ms)
+✔ TC-019: post-expiry handoff cannot be turned into timely evidence (14.6335ms)
+✔ TC-006: missing, extra and invalid agent signatures cannot authorize evidence (41.851ms)
+✔ TC-011: omitted RPC success flag is accepted only with the identical embedded event in independently successful transaction evidence (37.2254ms)
+✔ TC-013: missing configuration is explicit and mainnet is refused (4.7658ms)
+✔ TC-006: exact invocation matches, all financial substitutions fail (119.0954ms)
+✔ TC-006: unexpected authorization root and nested calls are refused before signing (7.7813ms)
+✔ TC-017: reservation must match local identity, target, source and expiry (17.2437ms)
+✔ TC-006: multiple auth roots, foreign root and address credentials are rejected (22.1434ms)
+✔ TC-006: an operation source override cannot select a different signer (6.2651ms)
+✔ TC-011: only matching Velo success qualifies; unresolved and null fee remain explicit (2.0137ms)
+✔ TC-029: reservation and handoff are persisted before the sole financial dispatch (9.4737ms)
+✔ TC-012: timeout after handoff recovers by identity even when quote later expires (2.0315ms)
+✔ TC-029: crash after marker but before send conservatively observes without sending (0.9544ms)
+✔ TC-017: reservation mismatch prevents persistence and financial dispatch (2.5982ms)
+✔ TC-019: expiry during commitHandoff preserves the marker and refuses dispatch (2.5964ms)
+✔ TC-019: expiry during deleteEncryptedEnvelope preserves the marker and refuses dispatch (0.8738ms)
+✔ TC-029: process restart retains exact encrypted envelope, nonce and reservation; handoff is exclusive (2311.2368ms)
+✔ TC-029: wrong key, envelope substitution and reservation substitution fail closed (79.934ms)
+✔ TC-029: partial handoff marker after a crash cannot authorize another financial dispatch (103.2314ms)
+✔ TC-015: encrypted envelopes are authenticated to their original operation (69.7438ms)
+✔ TC-019: terminal pre-handoff expiry destroys ciphertext and forbids signing or dispatch on restart (81.6611ms)
+✔ TC-019/TC-029: restart cleans an interrupted refusal and retains its immutable decision (95.9584ms)
+✔ TC-019/TC-029: unlink failure retains refusal, and later recovery retries cleanup (102.1369ms)
+✔ TC-029: refusal winning during an envelope save cleans the late write (80.8272ms)
+✔ TC-029: concurrent handoff and terminal refusal preserve exactly one immutable decision (120.3916ms)
+✔ TC-029: a refusal between handoff check and exclusive create cannot become an observation or send (121.53ms)
+✔ TC-029: handoff winning during an envelope save cleans the late write (117.6617ms)
+✔ TC-029: terminal decision during an envelope read blocks decryption of a late writer (97.5414ms)
+✔ TC-026: setup creates distinct disposable signers and safe Testnet defaults without overwriting (249.0493ms)
+✔ TC-013: account funding rejects non-Testnet configuration before any HTTP request (6.1078ms)
+ℹ tests 50
+ℹ suites 0
+ℹ pass 50
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12233.8274

@@ -1,0 +1,124 @@
+{
+  "observed_at_utc": "2026-11-09T09:20:39.357788+00:00",
+  "environment_name_presence": {
+    ".env.local": {
+      "exists": false,
+      "presence": {}
+    },
+    ".env.worker.local": {
+      "exists": true,
+      "presence": {
+        "GEMINI_API_KEY": true,
+        "AGENT_MODEL": true
+      }
+    },
+    ".env.integration.local": {
+      "exists": true,
+      "presence": {
+        "AEGISPAY_POSTGRES_PROJECT": true,
+        "AEGISPAY_POSTGRES_PASSWORD": true,
+        "AEGISPAY_POSTGRES_PORT": true,
+        "DATABASE_URL": true,
+        "TEST_DATABASE_URL": true
+      }
+    },
+    ".env.deploy.local": {
+      "exists": true,
+      "presence": {
+        "RENDER_API_KEY": false
+      }
+    },
+    "apps/web/.env.local": {
+      "exists": false,
+      "presence": {}
+    },
+    "apps/web/.env.production.local": {
+      "exists": false,
+      "presence": {}
+    }
+  },
+  "process_name_presence": {
+    "RENDER_API_KEY": false,
+    "RENDER_API_TOKEN": false,
+    "VERCEL_TOKEN": false,
+    "WORKER_WAKE_TOKEN": false,
+    "WORKER_WAKE_URL": false,
+    "DATABASE_URL": false,
+    "GEMINI_API_KEY": false
+  },
+  "node": {
+    "exit_code": 0,
+    "safe_result": "v24.22.1"
+  },
+  "pnpm_cached": {
+    "exit_code": 0,
+    "safe_result": "12.18.0"
+  },
+  "vercel_cached": {
+    "exit_code": 0,
+    "safe_result": "65.12.1"
+  },
+  "github_identity": {
+    "exit_code": 0,
+    "safe_result": "slvdrvncntjvr"
+  },
+  "github_repo": {
+    "exit_code": 0,
+    "safe_result": "{\"defaultBranchRef\":{\"name\":\"main\"},\"nameWithOwner\":\"slvdrvncntjvr/AegisPay\",\"viewerPermission\":\"ADMIN\",\"visibility\":\"PUBLIC\"}"
+  },
+  "github_main": {
+    "exit_code": 0,
+    "safe_result": "180a88d5d07de3f8c24221f417f3103f70f23965\trefs/heads/main"
+  },
+  "docker_server": {
+    "exit_code": 0,
+    "safe_result": "27.2.0"
+  },
+  "docker_aegispay_containers": {
+    "exit_code": 0,
+    "safe_result": "aegispay-foundation-8774ce4fa704-db-1|Exited (0) 30 hours ago|\naegispay-foundation-f572f386c6d0-db-1|Up 14 minutes (healthy)|127.0.0.1:53371->5432/tcp\naegispay-foundation-43229a14f01d-db-1|Exited (0) 30 hours ago|"
+  },
+  "docker_aegispay_volumes": {
+    "exit_code": 0,
+    "safe_result": "aegispay-foundation-8774ce4fa704_postgres_data\naegispay-foundation-43229a14f01d_postgres_data\naegispay-foundation-f572f386c6d0_postgres_data"
+  },
+  "local_db_readonly_query": {
+    "exit_code": 0,
+    "result": {
+      "DATABASE_URL": {
+        "reachable": true,
+        "database": "aegispay",
+        "version": "17.11"
+      },
+      "TEST_DATABASE_URL": {
+        "reachable": true,
+        "database": "aegispay_integration",
+        "version": "17.11"
+      }
+    }
+  },
+  "browser_files": {
+    "edge": {
+      "exists": true
+    },
+    "chrome": {
+      "exists": true
+    },
+    "playwright_cache": {
+      "exists": true,
+      "cached_folders": [
+        ".links",
+        "chromium-1208",
+        "chromium-1243",
+        "chromium-1248",
+        "chromium_headless_shell-1208",
+        "chromium_headless_shell-1243",
+        "chromium_headless_shell-1248",
+        "ffmpeg-1010",
+        "ffmpeg-1011",
+        "ffmpeg-1013",
+        "winldd-1007"
+      ]
+    }
+  }
+}

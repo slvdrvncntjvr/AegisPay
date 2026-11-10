@@ -1,0 +1,27 @@
+{
+  "observedAt": "2026-11-09T10:14:08.498506+00:00",
+  "project": {
+    "id": "prj_87hFYLDrQpbUsSlAgoFMsTIE7aTq",
+    "name": "aegispay-live",
+    "accountId": "team_u8Iy5bGxaqRVmGiBtx6t57LN",
+    "rootDirectory": "apps/web",
+    "framework": "nextjs",
+    "nodeVersion": "24.x",
+    "sourceFilesOutsideRootDirectory": true,
+    "buildCommand": null,
+    "installCommand": null
+  },
+  "configuredEnvCount": 0,
+  "alias": {
+    "uid": "fa6542ef9cb9290b0640f7a9d99e80ce34c514b48b4f059d024cf18aa7e2080239eee28ca69dc34d869cc047b9713aa47b95e9eaa29329156d1831201f91b5a2",
+    "alias": "aegispay-live.vercel.app",
+    "deploymentId": "dpl_HrHpE7AynXusUNLs73kACPgBnqy6",
+    "projectId": "prj_87hFYLDrQpbUsSlAgoFMsTIE7aTq"
+  },
+  "aliasDeployment": {
+    "id": "dpl_HrHpE7AynXusUNLs73kACPgBnqy6",
+    "url": "aegispay-live-88jdujgww-vincent-s-projects-57de271b.vercel.app",
+    "readyState": null
+  },
+  "protectionBypassEntryCount": 0
+}

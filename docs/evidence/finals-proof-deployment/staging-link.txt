@@ -1,0 +1,10 @@
+Vercel CLI 65.12.1
+
+  Directory       ~\VS Codes\Noir X Velo\.fmd-work\proof-refresh-ctx77fd54
+
+
+✓ Linked          vincent-s-projects-57de271b/aegispay-live
+
+> Downloading a fresh `VERCEL_OIDC_TOKEN` for aegispay-live
+
+✓ Created         .env.local file and added it to .gitignore

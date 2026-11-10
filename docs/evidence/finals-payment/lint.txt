@@ -1,0 +1,11 @@
+npm warn Unknown project config "strict-peer-dependencies". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> aegispay@0.1.0 lint
+> eslint scripts src tests apps packages --no-error-on-unmatched-pattern
+
+
+C:\Users\Vincent\VS Codes\Noir X Velo\scripts\purchase-smoke.ts
+  4:17  error  'readFile' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
