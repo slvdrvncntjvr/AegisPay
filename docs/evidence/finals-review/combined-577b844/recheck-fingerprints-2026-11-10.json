@@ -1,0 +1,320 @@
+{
+  "observedAt": "2026-11-10T11:37:09.6279032Z",
+  "head": "577b84485b00634c8566060ff8a477dc0e030ba1",
+  "taskId": "task_3da3516796ae",
+  "dispatchId": "ctx_80d0560f29a1",
+  "repairFilesMatched": 10,
+  "repairFileMismatches": 0,
+  "originalReviewMatches": true,
+  "files": [
+    {
+      "path": "apps/server/src/worker/payment.ts",
+      "sha256": "8f948da34ee8c574db3e7ff8e25645992af19da79caba3de09361ae1d17490cc",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "apps/server/src/worker/queue.ts",
+      "sha256": "507ab3b3041b476459b22285eef607b48619821a451e62f59310d6692f2c0985",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "apps/server/src/worker/run.ts",
+      "sha256": "9fb7e83c9927d7935549bb046663e8f7748c117fb49d96d416421efca21f4bb8",
+      "repairReceiptSha256": "9fb7e83c9927d7935549bb046663e8f7748c117fb49d96d416421efca21f4bb8",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/src/app/product.css",
+      "sha256": "d8273e031dd7b9672cfc0f1a7bdc4905c45004d3b946b35048a489e2e38a3bd5",
+      "repairReceiptSha256": "d8273e031dd7b9672cfc0f1a7bdc4905c45004d3b946b35048a489e2e38a3bd5",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/src/components/product/api.ts",
+      "sha256": "236caa94bae3c553d5c41f3d19ba42b19defdb359ff6ed528e0ffedee381ef50",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "apps/web/src/components/product/run-panel.tsx",
+      "sha256": "0039ad72d0d23e8781b67db45e994ed908f25c2d94767d615a7032e33e335dcf",
+      "repairReceiptSha256": "0039ad72d0d23e8781b67db45e994ed908f25c2d94767d615a7032e33e335dcf",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "docs/api-spec.md",
+      "sha256": "d3bf769327c2f61559fae3d62bb61e012dc7da9b5bb9d1b935f0d4bed140eb9e",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "docs/design-system.md",
+      "sha256": "af044e0bc8ca435b84c16c06ccf9c4466ed30001b3efb13003e0c02e9d9e9069",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "docs/evidence/finals-review-fixes-577b844/browser.txt",
+      "sha256": "a802fb76a3edf23dc70aece291e1cd89c7c627fb0a08e5bd88599f333ee1d281",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "docs/evidence/finals-review-fixes-577b844/build.txt",
+      "sha256": "d04229ecd60393ab45a45c209de6253a86ffa03450a882a81ea202cb4e900642",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "docs/evidence/finals-review-fixes-577b844/integration.txt",
+      "sha256": "0fc5bddd080711cd01c5cc3dc6bcd9dd8e2a81193cb9d9465b515afbc87bb07d",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "docs/evidence/finals-review-fixes-577b844/lint.txt",
+      "sha256": "7bbe750af80b7063612cf7b9dc28ab293b1d65d876883b167914cf25141338b1",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "docs/evidence/finals-review-fixes-577b844/report.md",
+      "sha256": "06b4aa60953b6188ee5e173fb594059087a3ace8e92fef655e83da7a778aa405",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "docs/evidence/finals-review-fixes-577b844/source-receipt.json",
+      "sha256": "a25a46ac11af169142a1cc69f1977f60e94ee5d851c58441fb4fa9e3071e531c",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "docs/evidence/finals-review-fixes-577b844/spike.txt",
+      "sha256": "a56b0993b76cc920632ed71746c3f3990d26282bf515ba58052c999a143b89d9",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "docs/evidence/finals-review-fixes-577b844/types.txt",
+      "sha256": "d0b9c3baf7ca9422d85af30a256a623b6d788dac3768ea63687f76742490e247",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "docs/evidence/finals-review-fixes-577b844/unit.txt",
+      "sha256": "b455a2f5ea1cce0669d5e2bff444700ddde3d303f747871e1f358a756c215489",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "docs/evidence/finals-review/combined-577b844/report.md",
+      "sha256": "7718df6ac07c9151ef7f13e7b27c71acef8e5c71057baf7f20e15f0e5fdea0f8",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "packages/agent/src/index.ts",
+      "sha256": "78bc6c49dadab28d89e8c82d0dbde3e4fccf29d23ac7c25c15f9f9ba87712fcb",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "packages/shared/src/index.ts",
+      "sha256": "a4f852ecadeb016f9748e3baafa3f56b63ec87fa0d0d122c4cb8d7f259763a66",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "src/server/agent/choice-summary.ts",
+      "sha256": "342df72aafa49941c2ade0100277df2bf7ea8167a966ee292505ae3023810952",
+      "repairReceiptSha256": "342df72aafa49941c2ade0100277df2bf7ea8167a966ee292505ae3023810952",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "src/server/agent/events.ts",
+      "sha256": "8f2168696067116a3c47c26e7d759f810cf4779cba77d938c8eaf53719d90927",
+      "repairReceiptSha256": "8f2168696067116a3c47c26e7d759f810cf4779cba77d938c8eaf53719d90927",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "src/server/agent/state.ts",
+      "sha256": "065ed2555626ba8140b6945165941b1a2d355eef8eb86e6a6e6ccb39d30e55cf",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "src/server/agent/tools.ts",
+      "sha256": "8f02d8a4794980c46f687e33dd579bea317a27006b19f89a6ebaf7c8ea1a97e9",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "src/server/auth/session.ts",
+      "sha256": "c88807e64a26bfea6e26c120171b21c361cbf0719fb673b5bbffc22f2f85f070",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "src/server/db/connection.ts",
+      "sha256": "38bf27fe97edd4ef957d5b8a4efea5863bffc00e659e02cc72fa348b6e572f0d",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "src/server/domain/purchases.ts",
+      "sha256": "eaff1ba879827afafb5ec7fb0090524babfd1f6beb3f4acca654f1ae51085eca",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "src/server/http/application.ts",
+      "sha256": "fc545ce65dde60fed8569e8ae100437625e3fd8f6dfba8696152da273bd4a812",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "src/server/integrations/model.ts",
+      "sha256": "97b5d79900fdc237baa2f930170605e68d33b757c2dcc5ded4c218a6e5afaad5",
+      "repairReceiptSha256": "97b5d79900fdc237baa2f930170605e68d33b757c2dcc5ded4c218a6e5afaad5",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "src/server/merchant/receipts.ts",
+      "sha256": "e3dc7c2deb13280f975c4c38a7838468c02dbe5426935b2120c9d094b2a5ea3f",
+      "repairReceiptSha256": null,
+      "matchesRepairReceipt": null
+    },
+    {
+      "path": "tests/e2e/authenticated-console.spec.ts",
+      "sha256": "859c19d4e7e24c9f3df96fced9aa8c5b77ad3ddfda4877b611be5ba77b1353e7",
+      "repairReceiptSha256": "859c19d4e7e24c9f3df96fced9aa8c5b77ad3ddfda4877b611be5ba77b1353e7",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "tests/integration/model-run.test.ts",
+      "sha256": "683ea3306e9624a711dfc10cda0134927f8f69d0c60a53c501a0f65ee3196de0",
+      "repairReceiptSha256": "683ea3306e9624a711dfc10cda0134927f8f69d0c60a53c501a0f65ee3196de0",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "tests/integration/run-events.test.ts",
+      "sha256": "caade9ef2afdbbf0cd6bbb9c597c0fbf3622c1874b2cc20991601173f46c975d",
+      "repairReceiptSha256": "caade9ef2afdbbf0cd6bbb9c597c0fbf3622c1874b2cc20991601173f46c975d",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "tests/unit/model-run.test.ts",
+      "sha256": "5dc60badaca6cda815aa1cb5caa2c425d9d83687ae2b7b459c6713f7a7b3cbd1",
+      "repairReceiptSha256": "5dc60badaca6cda815aa1cb5caa2c425d9d83687ae2b7b459c6713f7a7b3cbd1",
+      "matchesRepairReceipt": true
+    }
+  ],
+  "existingStaticArtifacts": [
+    {
+      "path": "apps/web/.next/static/chunks/02qph2wfmsks3.js",
+      "sha256": "0c5e10ac20066528fab9f898c43af05b7fe2a07f2f246818ebd79ea786b72908",
+      "repairReceiptSha256": "0c5e10ac20066528fab9f898c43af05b7fe2a07f2f246818ebd79ea786b72908",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/.next/static/chunks/08ubwt0bs6y8i.js",
+      "sha256": "0b14cc307fe79ab890b4cd3fcc29b8854ebb809f299edfb11f19349d7255afa7",
+      "repairReceiptSha256": "0b14cc307fe79ab890b4cd3fcc29b8854ebb809f299edfb11f19349d7255afa7",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/.next/static/chunks/0bnj_ez2yz5sv.js",
+      "sha256": "01686cf44cbf5468dad704f8f5c3646b4d9e418e6f91a59c5b4588582026d722",
+      "repairReceiptSha256": "01686cf44cbf5468dad704f8f5c3646b4d9e418e6f91a59c5b4588582026d722",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/.next/static/chunks/0cz1d0mv5g_q7.js",
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "repairReceiptSha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/.next/static/chunks/0dq0rafcxbqpi.css",
+      "sha256": "ee458a48e37d9dcc19c5637d0e597a89e8725e1b1c26443afc67c386b1cb04b1",
+      "repairReceiptSha256": "ee458a48e37d9dcc19c5637d0e597a89e8725e1b1c26443afc67c386b1cb04b1",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/.next/static/chunks/1no7zhzpudll9.js",
+      "sha256": "0ad0759e17154ed2b6324bd38e64ef79da20d98ad0f10ea71ca6aaa71e346152",
+      "repairReceiptSha256": "0ad0759e17154ed2b6324bd38e64ef79da20d98ad0f10ea71ca6aaa71e346152",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/.next/static/chunks/2bs5g0snvfazr.js",
+      "sha256": "5fca582b6484b37d69b4d32c98264897d593302d0a92515005d0914a29ea3276",
+      "repairReceiptSha256": "5fca582b6484b37d69b4d32c98264897d593302d0a92515005d0914a29ea3276",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/.next/static/chunks/2tdlxiwai9o0v.js",
+      "sha256": "8110b92a0caeb0d732b8a97ffe0252b8bb699f15385c2b4411ced1a506c38a06",
+      "repairReceiptSha256": "8110b92a0caeb0d732b8a97ffe0252b8bb699f15385c2b4411ced1a506c38a06",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/.next/static/chunks/3durutcfai_w8.css",
+      "sha256": "854af17a0bc396087113313ec266be04676078174e7a2e97b4c31738dd2fd8e6",
+      "repairReceiptSha256": "854af17a0bc396087113313ec266be04676078174e7a2e97b4c31738dd2fd8e6",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/.next/static/chunks/3dz0hr8l_ktjk.js",
+      "sha256": "7b8b2e75f7ad9fae1c783dda17c9eb66359db9db1cdd48bbe2ebb1a5036f64a1",
+      "repairReceiptSha256": "7b8b2e75f7ad9fae1c783dda17c9eb66359db9db1cdd48bbe2ebb1a5036f64a1",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/.next/static/chunks/3xox0l2vpmqpd.js",
+      "sha256": "76ae0a8d48fade96309931636b33eca13defcee7f45658e12306153354d3d7ae",
+      "repairReceiptSha256": "76ae0a8d48fade96309931636b33eca13defcee7f45658e12306153354d3d7ae",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/.next/static/chunks/3yilru_-r_09a.js",
+      "sha256": "9c7fec1beb0e1f0a265d1641c2b20939e0a39612e633a81f00779de6dcdf975b",
+      "repairReceiptSha256": "9c7fec1beb0e1f0a265d1641c2b20939e0a39612e633a81f00779de6dcdf975b",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/.next/static/chunks/turbopack-077hmtqrhcoji.js",
+      "sha256": "3f0ba0c36a0758d76b55b6717fd77e65f46ae1295bb22fa441476e1eb7854d51",
+      "repairReceiptSha256": "3f0ba0c36a0758d76b55b6717fd77e65f46ae1295bb22fa441476e1eb7854d51",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/.next/static/nZzCC8ZHYuqc91rvg6b1S/_buildManifest.js",
+      "sha256": "9476e0afd3f9da68a64e6ec58631191fd3eaca62c9f5a377e7517fe9a89e59ea",
+      "repairReceiptSha256": "9476e0afd3f9da68a64e6ec58631191fd3eaca62c9f5a377e7517fe9a89e59ea",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/.next/static/nZzCC8ZHYuqc91rvg6b1S/_clientMiddlewareManifest.js",
+      "sha256": "5483e3295dc35dfe29ea932efc85341c916f10ff78ff5b0e965e003710893a4a",
+      "repairReceiptSha256": "5483e3295dc35dfe29ea932efc85341c916f10ff78ff5b0e965e003710893a4a",
+      "matchesRepairReceipt": true
+    },
+    {
+      "path": "apps/web/.next/static/nZzCC8ZHYuqc91rvg6b1S/_ssgManifest.js",
+      "sha256": "678f6ce2cb80b1fe72fc67e7412be6e2ab6ada083111b64f7c40d35e3cba5e00",
+      "repairReceiptSha256": "678f6ce2cb80b1fe72fc67e7412be6e2ab6ada083111b64f7c40d35e3cba5e00",
+      "matchesRepairReceipt": true
+    }
+  ],
+  "staticMismatches": 0,
+  "staticScan": {
+    "matchingFiles": 0,
+    "scope": "Existing 16 static artifacts only; no build or hosted assertion",
+    "sentinels": "Two declared protected report prefixes plus private thought/call-signature test sentinels"
+  },
+  "operations": "Read-only source, evidence and hashes; no tests/build/services/network/private config/DB/Git mutation"
+}

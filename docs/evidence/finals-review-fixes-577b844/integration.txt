@@ -1,0 +1,14 @@
+
+START 2026-11-10T11:22:09.258Z corepack pnpm test:integration
+$ vitest run tests/integration
+
+ RUN  v5.1.0 C:/Users/Vincent/VS Codes/Noir X Velo
+
+
+ Test Files  9 passed (9)
+      Tests  123 passed (123)
+   Start at  19:22:11
+   Duration  266.04s (tests 94%, import 6%)
+
+
+EXIT 0 SIGNAL null

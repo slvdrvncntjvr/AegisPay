@@ -50,6 +50,8 @@ Serves F-005, F-010. Owner-only POST `{task:string}`; task budget comes from PRD
 
 Serves F-005, F-010. Auth: owning session. Response 200 `{events:[{id,kind,safePayload,createdAt}],nextCursor}`; ascending cursor, at most 100 rows. A reconnect polls from saved cursor. No thought-chain content, credentials, raw provider exceptions or XDR.
 
+`model_choice` is a bounded public-commentary event, distinct from trusted quote/payment fields. Its `safePayload` is exactly `{turn,decision,summary,summaryStatus}`: turn is an integer1–8; decision is `tools_proposed|no_tool`; summaryStatus is `provided|missing|withheld`. A provided summary is normalized plain text of at most280characters; missing/withheld requires summary:null. The consumer extracts only non-thought public adapter text before any protected report delivery and saves the event atomically with its validated provider turn. After report delivery, choice events are suppressed. Unsafe markup, URI, control, financial-status or credential-like prose is withheld. This conservative presentation check does not establish factuality. UI labels the text untrusted model commentary; `no_tool` records only the absence of a proposed tool in that turn. Provider continuation/thought/signature/tool payloads remain private. Existing auth/cursor/no-store behavior and historical event kinds remain supported; unknown fields are stripped and invalid events omitted while the cursor advances.
+
 ### API-008 — GET /api/demo/:provider?dependency=demo-parser&runId=:id
 
 Serves F-004, F-009. `provider` allowlist is `quick-signal|deep-trace`; dependency is the single demo slug. Auth: owning session or scoped worker for that run. Without receipt, store a quote then return 402 with no report:

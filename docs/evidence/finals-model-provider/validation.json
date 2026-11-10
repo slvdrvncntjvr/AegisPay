@@ -1,0 +1,64 @@
+{
+  "observedAt": "2026-11-10T11:18:25.978Z",
+  "workRef": {
+    "task": "task_401b4a1b173c",
+    "dispatch": "ctx_2694a8e8937d",
+    "baseline": "577b84485b00634c8566060ff8a477dc0e030ba1"
+  },
+  "checks": [
+    {
+      "command": "python tools/check-docs.py",
+      "exitCode": 0,
+      "result": "PASS: 21 Markdown files; structural documentation gate only"
+    },
+    {
+      "command": "python fmd/tools/check-implementation-plan.py docs/implementation-plan.md --strict",
+      "exitCode": 0,
+      "result": "APPROVE: 18 task rows; structural dependency gate only"
+    }
+  ],
+  "secretScan": {
+    "method": "known configured GEMINI_API_KEY byte search, key read privately in memory only",
+    "filesScanned": 10,
+    "matchingFiles": 0,
+    "keyOrFingerprintEmitted": false
+  },
+  "scopedSourceFingerprints": [
+    {
+      "path": "src/server/integrations/model.ts",
+      "sha256": "97b5d79900fdc237baa2f930170605e68d33b757c2dcc5ded4c218a6e5afaad5"
+    },
+    {
+      "path": "scripts/demo-smoke.ts",
+      "sha256": "2dd07cac625b09da0ac3bb491fae95ddb4e5ca4e722a25fbfd1aa66b27ab52a9"
+    },
+    {
+      "path": "packages/shared/src/index.ts",
+      "sha256": "a4f852ecadeb016f9748e3baafa3f56b63ec87fa0d0d122c4cb8d7f259763a66"
+    }
+  ],
+  "limits": {
+    "authenticatedDiscoveryGets": 1,
+    "generationPosts": 2,
+    "maximumGenerationPosts": 2,
+    "redirects": 0,
+    "retries": 0,
+    "toolsExecuted": 0,
+    "financialActions": 0,
+    "appTestsRun": 0,
+    "dbConnections": 0
+  },
+  "evidenceFiles": [
+    "docs/evidence/finals-model-provider/actual-requests.json",
+    "docs/evidence/finals-model-provider/primary-sources.json",
+    "docs/evidence/finals-model-provider/report.md"
+  ],
+  "ignoredHelpers": [
+    ".fmd-work/gemini-provider-diagnostic-docs.mjs",
+    ".fmd-work/gemini-provider-diagnostic-finalize.mjs",
+    ".fmd-work/gemini-provider-diagnostic-live.mjs",
+    ".fmd-work/gemini-provider-diagnostic-primary-sources.mjs",
+    ".fmd-work/gemini-provider-diagnostic-schema.mjs",
+    ".fmd-work/gemini-provider-diagnostic-tool.mjs"
+  ]
+}

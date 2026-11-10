@@ -6,6 +6,7 @@ import { databaseTime, lockScope } from '../../../../src/server/domain/purchases
 import { createGeminiClient, GEMINI_TOOLS, GeminiModelError, toolResponsesContent, userTaskContent, type GeminiClient, type GeminiStep } from '../../../../src/server/integrations/model.ts';
 import { runEventSchemas, safeRunCode, type RunEventKind } from '../../../../src/server/agent/events.ts';
 import { checkedCall, readCheckpoint } from '../../../../src/server/agent/state.ts';
+import { publicChoiceSummary } from '../../../../src/server/agent/choice-summary.ts';
 import { trustedTool } from '../../../../src/server/agent/tools.ts';
 import { claimJob, finishJob } from './queue.ts';
 
@@ -113,11 +114,13 @@ export async function processRun(input: { store: Store; job: RunJob; env: NodeJS
           // Validate the complete batch before accepting even its first tool.
           const calls = step.calls.map(checkedCall);
           if (calls.length > RUN_LIMITS.toolSteps - run.toolSteps) throw new Error('TOOL_STEP_LIMIT');
+          if (!state.delivered) await event('model_choice', { turn: run.modelTurns, decision: 'tools_proposed', ...publicChoiceSummary(step.text) });
           state.pending = { content: step.providerContent, calls, index: 0, counted: false, reports: [] };
           readCheckpoint(state, userTaskContent(run.taskText));
           await scoped.db.update(s.agentRun).set({ toolCheckpoint: state }).where(eq(s.agentRun.id, run.id));
           return false;
         }
+        if (!state.delivered) await event('model_choice', { turn: run.modelTurns, decision: 'no_tool', ...publicChoiceSummary(step.text) });
         const finalAnswer = finalRunAnswer(step.text, state.delivered?.receiptId);
         await scoped.db.update(s.agentRun).set({ toolCheckpoint: state, finalAnswer, status: 'completed', finishedAt: sql`clock_timestamp()`, errorCode: null }).where(eq(s.agentRun.id, run.id));
         await event('run_completed', state.delivered ? { receiptId: state.delivered.receiptId } : {});

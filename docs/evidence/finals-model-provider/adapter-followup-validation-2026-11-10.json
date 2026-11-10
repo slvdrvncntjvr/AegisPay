@@ -1,0 +1,60 @@
+{
+  "observedAt": "2026-11-10T11:26:42.513Z",
+  "workRef": {
+    "task": "task_9a7dc3557c90",
+    "dispatch": "ctx_588f5f513dc5"
+  },
+  "secretScan": {
+    "method": "known configured key byte search in memory only",
+    "filesScanned": 5,
+    "matchingFiles": 0,
+    "keyOrKeyFingerprintEmitted": false,
+    "paths": [
+      "docs/evidence/finals-model-provider/adapter-followup-2026-11-10.json",
+      "docs/evidence/finals-model-provider/adapter-followup-2026-11-10.md",
+      ".fmd-work/gemini-provider-diagnostic-adapter-followup-2026-11-10.mjs",
+      ".fmd-work/gemini-provider-diagnostic-adapter-followup-validation-2026-11-10.mjs",
+      "docs/evidence/finals-model-provider/adapter-followup-validation-2026-11-10.json"
+    ]
+  },
+  "initialArtifactChecks": [
+    {
+      "path": "docs/evidence/finals-model-provider/actual-requests.json",
+      "unchanged": true
+    },
+    {
+      "path": "docs/evidence/finals-model-provider/primary-sources.json",
+      "unchanged": true
+    },
+    {
+      "path": "docs/evidence/finals-model-provider/report.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/evidence/finals-model-provider/validation.json",
+      "unchanged": true
+    }
+  ],
+  "allInitialArtifactsUnchanged": true,
+  "sourceHashesBeforeAfterMatched": true,
+  "actualCalls": {
+    "discoveryGets": 1,
+    "generationPosts": 1,
+    "toolsExecuted": 0,
+    "financialActions": 0
+  },
+  "checks": [
+    {
+      "command": "python tools/check-docs.py",
+      "exitCode": 0,
+      "result": "PASS: 21 Markdown files; structural gate only"
+    },
+    {
+      "command": "python fmd/tools/check-implementation-plan.py docs/implementation-plan.md --strict",
+      "exitCode": 0,
+      "result": "APPROVE: 18 valid task rows; structural gate only"
+    }
+  ],
+  "appTestsRun": 0,
+  "dbConnections": 0
+}

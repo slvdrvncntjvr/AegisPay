@@ -1,0 +1,20 @@
+{
+  "observedAt": "2026-11-10T11:38:44.7128251Z",
+  "head": "577b84485b00634c8566060ff8a477dc0e030ba1",
+  "taskId": "task_3da3516796ae",
+  "dispatchId": "ctx_80d0560f29a1",
+  "fingerprintedFileCount": 34,
+  "changedSinceFingerprint": [],
+  "staticArtifactCount": 16,
+  "staticArtifactsChangedSinceFingerprint": [],
+  "repairedReceiptMatches": 10,
+  "repairedReceiptMismatches": 0,
+  "unexpectedTrackedSourceChanges": [],
+  "newChoiceSummaryPresent": true,
+  "originalReviewSha256": "7718df6ac07c9151ef7f13e7b27c71acef8e5c71057baf7f20e15f0e5fdea0f8",
+  "originalReviewPreserved": true,
+  "recheckReportSha256": "69710d317d80d8386fe81c7608b0175cd8acba9dcbd4081cf7667045ff73a004",
+  "recheckFingerprintsSha256": "6a75c059d34e1ec34b5952000853d789de2a0d8374f03b66bfbd8d31cbc2f134",
+  "disposition": "F1/F2 accepted within scope; no broad release acceptance",
+  "testsBuildsServicesNetworkDatabaseOrGitMutationPerformed": false
+}

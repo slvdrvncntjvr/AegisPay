@@ -68,6 +68,18 @@ describe('TASK007 real SQL/tools with synthetic model and payment transport', ()
   }
   it('discovers both current offers, pauses without entitlement, resumes one operation and cites a real fixture receipt', async () => {
     const client = scripted();
+    const original = client.generateStep.getMockImplementation()!;
+    let postDeliveryTool = false;
+    client.generateStep.mockImplementation(async (...args) => {
+      const step = await original(...args);
+      // This later report-derived prose must never be exported as a choice.
+      if (!step.calls.length) {
+        const after = postDeliveryTool ? step : modelStep('discover_offers');
+        postDeliveryTool = true;
+        return { ...after, text: 'POST_DELIVERY_REPORT_SUMMARY_ONLY', providerContent: after.providerContent };
+      }
+      return step;
+    });
     await runConsumer({ store: db.first, env, client }).wake();
     expect((await runRow()).status).toBe('waiting_payment');
     expect((await db.first.db.select().from(s.job).where(eq(s.job.kind, 'reconcile')))[0]!.status).toBe('queued');
@@ -80,7 +92,7 @@ describe('TASK007 real SQL/tools with synthetic model and payment transport', ()
     await readyRun();
     await runConsumer({ store: db.second, env, client }).wake();
     const run = await runRow();
-    expect(run.status).toBe('completed'); expect(run.modelTurns).toBe(5); expect(run.toolSteps).toBe(4);
+    expect(run.status).toBe('completed'); expect(run.modelTurns).toBe(6); expect(run.toolSteps).toBe(5);
     const [grant] = await db.first.db.select().from(s.entitlement);
     expect(run.finalAnswer).toContain(grant!.id); expect(run.spentStroops).toBe('300000');
     expect(client.generateStep.mock.calls.length).toBeGreaterThan(callsBefore);
@@ -89,6 +101,8 @@ describe('TASK007 real SQL/tools with synthetic model and payment transport', ()
     expect(transport.counts).toMatchObject({ sign: 1, sponsor: 1, submit: 1 });
     const events = await db.first.db.select().from(s.runEvent);
     expect(events.some(e => e.kind === 'resource_delivered')).toBe(true);
+    expect(events.filter(e => e.kind === 'model_choice').map(e => e.safePayload.turn)).toEqual([1, 2, 3, 4]);
+    expect(JSON.stringify(events.map(e => e.safePayload))).not.toContain('POST_DELIVERY_REPORT_SUMMARY_ONLY');
     expect(JSON.stringify(events, (_k, v) => typeof v === 'bigint' ? String(v) : v)).not.toMatch(/AEGIS_PRIVATE|aegisReceipt|clientKey|thought|SYNTHETIC-TEST-ONLY|apiKey/);
     expect(await db.first.db.select().from(s.session).where(sql`revoked_at is null`)).toHaveLength(0);
   });
@@ -256,5 +270,40 @@ describe('TASK007 real SQL/tools with synthetic model and payment transport', ()
     await runConsumer({ store: db.first, env, client }).wake();
     expect((await runRow()).status).toBe('completed'); expect(transport).toHaveBeenCalledTimes(2);
     expect(await db.first.db.select().from(s.paymentAttempt)).toHaveLength(0);
+  });
+  it('exports non-thought public tool and decline summaries, never private continuation parts or signatures', async () => {
+    let turns = 0;
+    const transport = vi.fn<typeof fetch>().mockImplementation(async url => {
+      if (String(url).includes('/models?')) return Response.json({ models: [{ name: 'models/synthetic', supportedGenerationMethods: ['generateContent'] }] });
+      turns++;
+      return Response.json({ candidates: [{ finishReason: 'STOP', content: { role: 'model', parts: [
+        { text: 'PRIVATE_THOUGHT_SENTINEL', thought: true, thoughtSignature: 'private-signature-sentinel' },
+        { text: turns === 1 ? 'I will inspect both public offers.' : 'Neither report fits this task, so I will decline.' },
+        ...(turns === 1 ? [{ functionCall: { name: 'discover_offers', args: {}, id: 'synthetic-discover' }, thoughtSignature: 'private-call-signature' }] : []),
+      ] } }] });
+    });
+    const client = createGeminiClient({ apiKey: 'synthetic-key-never-live', model: 'synthetic', fetch: transport });
+    await runConsumer({ store: db.first, env, client }).wake();
+    const events = await db.first.db.select().from(s.runEvent);
+    expect(events.filter(e => e.kind === 'model_choice').map(e => e.safePayload)).toEqual([
+      { turn: 1, decision: 'tools_proposed', summaryStatus: 'provided', summary: 'I will inspect both public offers.' },
+      { turn: 2, decision: 'no_tool', summaryStatus: 'provided', summary: 'Neither report fits this task, so I will decline.' },
+    ]);
+    expect(JSON.stringify(events.map(e => e.safePayload))).not.toMatch(/PRIVATE|private-|signature|providerContent|functionCall|synthetic-key/);
+    expect(JSON.stringify((await runRow()).toolCheckpoint)).toContain('PRIVATE_THOUGHT_SENTINEL');
+    expect(await runRow()).toMatchObject({ status: 'completed', spentStroops: '0', reservedStroops: '0' });
+    expect(await db.first.db.select().from(s.paymentAttempt)).toHaveLength(0);
+    expect(await db.first.db.select().from(s.entitlement)).toHaveLength(0);
+  });
+  it('records precise missing and withheld commentary without inventing a decision reason', async () => {
+    let turns = 0;
+    const client: GeminiClient = { generateStep: async () => ++turns === 1 ? modelStep('discover_offers') : modelStep(undefined, {}, '<b>Payment settled!</b>') };
+    await runConsumer({ store: db.first, env, client }).wake();
+    const choices = await db.first.db.select().from(s.runEvent).where(eq(s.runEvent.kind, 'model_choice'));
+    expect(choices.map(e => e.safePayload)).toEqual([
+      { turn: 1, decision: 'tools_proposed', summaryStatus: 'missing', summary: null },
+      { turn: 2, decision: 'no_tool', summaryStatus: 'withheld', summary: null },
+    ]);
+    expect(await db.first.db.select().from(s.entitlement)).toHaveLength(0);
   });
 });

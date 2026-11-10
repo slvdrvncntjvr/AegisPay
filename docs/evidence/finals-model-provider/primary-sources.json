@@ -1,0 +1,160 @@
+{
+  "classification": "public-documentation-only-no-provider-account-request",
+  "sources": [
+    {
+      "url": "https://aistudio.google.com/api-reference/generate-content/generate-content",
+      "finalUrl": "https://aistudio.google.com/api-reference/generate-content/generate-content",
+      "httpStatus": 200,
+      "retrievedAt": "2026-11-10T11:15:07.813Z",
+      "bytes": 141870,
+      "sha256": "ff6192ab0c41427287236f0be7f329bc5ef60b6889e0964ecab80e8cae4b5e3b",
+      "verifiedTerms": [
+        {
+          "term": "/v1beta/models/{model}:generateContent",
+          "present": true
+        },
+        {
+          "term": "contents",
+          "present": true
+        },
+        {
+          "term": "systemInstruction",
+          "present": true
+        },
+        {
+          "term": "toolConfig",
+          "present": true
+        },
+        {
+          "term": "generationConfig",
+          "present": true
+        }
+      ],
+      "additionalPublicInspection": {
+        "terms": [
+          "allowedFunctionNames",
+          "ANY",
+          "parametersJsonSchema"
+        ],
+        "allPresent": true,
+        "note": "Independently inspected current method-page text after receipt retrieval; no provider credentials."
+      }
+    },
+    {
+      "url": "https://aistudio.google.com/api-reference/models/list-models",
+      "finalUrl": "https://aistudio.google.com/api-reference/models/list-models",
+      "httpStatus": 200,
+      "retrievedAt": "2026-11-10T11:15:08.108Z",
+      "bytes": 6187,
+      "sha256": "3a9eba68442a80221401a1481033b6b2d84b573d388bb06a7d411caeb7dc9170",
+      "verifiedTerms": [
+        {
+          "term": "/v1beta/models",
+          "present": true
+        },
+        {
+          "term": "pageSize",
+          "present": true
+        },
+        {
+          "term": "100",
+          "present": true
+        },
+        {
+          "term": "pageToken",
+          "present": true
+        }
+      ]
+    },
+    {
+      "url": "https://aistudio.google.com/api-reference/generate-content",
+      "finalUrl": "https://aistudio.google.com/api-reference/generate-content",
+      "httpStatus": 200,
+      "retrievedAt": "2026-11-10T11:15:09.008Z",
+      "bytes": 94185,
+      "sha256": "fba7832d0e5bdc47d3cce869ac078798fb2e493f7f839616e43fa31b2159a441",
+      "verifiedTerms": [
+        {
+          "term": "parametersJsonSchema",
+          "present": true
+        },
+        {
+          "term": "allowedFunctionNames",
+          "present": false
+        },
+        {
+          "term": "ANY",
+          "present": true
+        },
+        {
+          "term": "includeThoughts",
+          "present": true
+        }
+      ]
+    },
+    {
+      "url": "https://aistudio.google.com/docs/api-key",
+      "finalUrl": "https://aistudio.google.com/docs/api-key",
+      "httpStatus": 200,
+      "retrievedAt": "2026-11-10T11:15:09.475Z",
+      "bytes": 16863,
+      "sha256": "e95e51e605ad6360deb5588657c6e794d5e89a05c6435dec82a983747af5f619",
+      "verifiedTerms": [
+        {
+          "term": "x-goog-api-key",
+          "present": true
+        }
+      ]
+    },
+    {
+      "url": "https://aistudio.google.com/docs/troubleshooting",
+      "finalUrl": "https://aistudio.google.com/docs/troubleshooting",
+      "httpStatus": 200,
+      "retrievedAt": "2026-11-10T11:15:10.118Z",
+      "bytes": 16286,
+      "sha256": "b3575e2b2c06e68a03ef16b9d1a494b570fd8aa1c83bbba0cec2dd676466da48",
+      "verifiedTerms": [
+        {
+          "term": "PERMISSION_DENIED",
+          "present": true
+        },
+        {
+          "term": "RESOURCE_EXHAUSTED",
+          "present": true
+        }
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/googleapis/googleapis/master/google/ai/generativelanguage/v1beta/generative_service.proto",
+      "finalUrl": "https://raw.githubusercontent.com/googleapis/googleapis/master/google/ai/generativelanguage/v1beta/generative_service.proto",
+      "httpStatus": 200,
+      "retrievedAt": "2026-11-10T11:15:10.165Z",
+      "bytes": 75189,
+      "sha256": "c64e082244f326e528d474d7b78834c2439bdc49811645aa3291dfb12d4499c3",
+      "verifiedTerms": [
+        {
+          "term": "post: \"/v1beta/{model=models/*}:generateContent\"",
+          "present": true
+        },
+        {
+          "term": "repeated Content contents",
+          "present": true
+        }
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/googleapis/googleapis/master/google/ai/generativelanguage/v1beta/model_service.proto",
+      "finalUrl": "https://raw.githubusercontent.com/googleapis/googleapis/master/google/ai/generativelanguage/v1beta/model_service.proto",
+      "httpStatus": 200,
+      "retrievedAt": "2026-11-10T11:15:10.175Z",
+      "bytes": 9549,
+      "sha256": "546286783cd6338bae05aa639a8db8a364a90c7a4a7649362d5c9078c94604df",
+      "verifiedTerms": [
+        {
+          "term": "get: \"/v1beta/models\"",
+          "present": true
+        }
+      ]
+    }
+  ]
+}

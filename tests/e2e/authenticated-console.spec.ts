@@ -121,6 +121,115 @@ test('run creation recovers an ambiguous intent with one stable key and guards d
   t.assertHandled();
 });
 
+// Recovery entries are unresolved transport intents, never a cache of old runs.
+for (const terminalStatus of ['completed', 'failed']) {
+  test(`acknowledged ${terminalStatus} task then reload and identical Start creates a fresh run/key`, async ({ page }) => {
+    const saved = new Map<string, string>();
+    let current: typeof run | null = null;
+    let modelRevision = 1;
+    const revisions = new Map<string, number>();
+    const task = 'Synthetic repeated explicit task';
+    const t = await transport(page, async (route, path) => {
+      if (path === '/api/v1/state') { await response(route, { ...owner(), runs: current ? [current] : [], attempts: [] }); return true; }
+      if (path === '/api/v1/runs') {
+        const key = route.request().headers()['idempotency-key']!;
+        if (revisions.has(key) && revisions.get(key) !== modelRevision) { await response(route, { error: { code: 'IDEMPOTENCY_CONFLICT' } }, 409); return true; }
+        if (!saved.has(key)) { saved.set(key, id(30 + saved.size)); revisions.set(key, modelRevision); }
+        const runId = saved.get(key)!;
+        current = { ...run, id: runId, task, status: terminalStatus };
+        await response(route, { runId, status: terminalStatus }, 202); return true;
+      }
+      if (path.startsWith('/api/v1/runs/') && !path.endsWith('/events')) { await response(route, { ...current, runId: current!.id }); return true; }
+      if (path.endsWith('/events')) { await response(route, { events: [], nextCursor: null }); return true; }
+      return false;
+    });
+    await page.goto(base + '/app');
+    await page.getByLabel('Task for the demo dependency').fill(task);
+    await page.getByRole('button', { name: 'Start task', exact: true }).dblclick();
+    await expect(page.getByRole('button', { name: 'Run saved' })).toBeDisabled();
+    await expect(page.getByRole('button', { name: 'Compose a new task' })).toBeVisible();
+    expect(t.seen.filter(r => r.path === '/api/v1/runs')).toHaveLength(1);
+    expect(await page.evaluate(() => Object.keys(sessionStorage).filter(k => k.startsWith('aegis-run-intent:')))).toEqual([]);
+    // Simulated operator model revision: a new explicit intent must not conflict
+    // with a historical key. No actual provider configuration is changed.
+    modelRevision++;
+    await page.reload();
+    await page.getByLabel('Task for the demo dependency').fill(task);
+    await page.getByRole('button', { name: 'Start task', exact: true }).click();
+    await expect(page.getByRole('button', { name: 'Run saved' })).toBeDisabled();
+    const requests = t.seen.filter(r => r.path === '/api/v1/runs');
+    expect(requests).toHaveLength(2);
+    expect(requests[1]!.key).not.toBe(requests[0]!.key);
+    expect(saved.size).toBe(2);
+    await expect(page.locator('.pc-run-observation')).toContainText(id(31));
+    expect(await page.evaluate(() => JSON.stringify({ ...localStorage, ...sessionStorage }))).not.toContain(task);
+    t.assertHandled();
+  });
+}
+
+test('lost acknowledgement then reload recovers the original key even with a saved active run', async ({ page }) => {
+  const saved = new Map<string, string>();
+  let posts = 0;
+  const task = 'Synthetic ambiguous reload intent';
+  const t = await transport(page, async (route, path) => {
+    if (path === '/api/v1/state') { await response(route, { ...owner(), runs: saved.size ? [run] : [], attempts: [] }); return true; }
+    if (path === '/api/v1/runs') {
+      posts++;
+      const key = route.request().headers()['idempotency-key']!;
+      if (!saved.has(key)) saved.set(key, run.id);
+      if (posts === 1) await route.abort('failed');
+      else await response(route, { runId: saved.get(key), status: 'queued' }, 202);
+      return true;
+    }
+    if (path === `/api/v1/runs/${run.id}`) { await response(route, { ...run, runId: run.id }); return true; }
+    if (path.endsWith('/events')) { await response(route, { events: [], nextCursor: null }); return true; }
+    return false;
+  });
+  await page.goto(base + '/app');
+  await page.getByLabel('Task for the demo dependency').fill(task);
+  await page.getByRole('button', { name: 'Start task', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Recover run request' })).toBeEnabled();
+  const before = await page.evaluate(() => ({ ...sessionStorage }));
+  expect(Object.keys(before)).toHaveLength(1); expect(JSON.stringify(before)).not.toContain(task);
+  await page.reload();
+  await page.getByLabel('Task for the demo dependency').fill(task);
+  await expect(page.getByRole('button', { name: 'Recover run request' })).toBeEnabled();
+  await page.getByRole('button', { name: 'Recover run request' }).dblclick();
+  await expect(page.getByRole('button', { name: 'Run saved' })).toBeDisabled();
+  const requests = t.seen.filter(r => r.path === '/api/v1/runs');
+  expect(requests).toHaveLength(2); expect(requests[1]!.key).toBe(requests[0]!.key); expect(saved.size).toBe(1);
+  expect(await page.evaluate(() => Object.keys(sessionStorage).filter(k => k.startsWith('aegis-run-intent:')))).toEqual([]);
+  t.assertHandled();
+});
+
+test('authenticated trace displays only public untrusted choice commentary and precise unavailable states', async ({ page }) => {
+  const choices = [
+    { turn: 1, decision: 'tools_proposed', summaryStatus: 'provided', summary: "QuickSignal's brief coverage fits this task." },
+    { turn: 2, decision: 'no_tool', summaryStatus: 'provided', summary: 'Neither report fits, so I will decline.' },
+    { turn: 3, decision: 'tools_proposed', summaryStatus: 'missing', summary: null },
+    { turn: 4, decision: 'no_tool', summaryStatus: 'withheld', summary: null },
+  ];
+  const t = await ownerTransport(page, async (route, path) => {
+    if (path.endsWith('/events')) { await response(route, { events: choices.map((safePayload, i) => ({ id: String(i + 1), kind: 'model_choice', safePayload, createdAt: '2026-11-10T00:00:00Z' })), nextCursor: '4' }); return true; }
+    return false;
+  });
+  for (const [width, height] of [[1280, 900], [390, 844]] as const) {
+    await page.setViewportSize({ width, height }); await page.goto(base + '/app');
+    await expect(page.locator('.pc-choice')).toHaveCount(4);
+    await expect(page.locator('.pc-choice').nth(0)).toContainText("QuickSignal's brief coverage fits this task.");
+    await expect(page.locator('.pc-choice').nth(1)).toContainText('Neither report fits, so I will decline.');
+    await expect(page.locator('.pc-choice').nth(2)).toContainText('Public choice summary unavailable: the model supplied none.');
+    await expect(page.locator('.pc-choice').nth(3)).toContainText('Public choice summary withheld by display rules.');
+    await expect(page.locator('.pc-choice').first()).toContainText('Untrusted model commentary');
+    await expect(page.locator('.pc-choice').first()).toContainText('Commentary is not financial authority or payment evidence.');
+    expect(await page.locator('.pc-choice').locator('a,script,b').count()).toBe(0);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await stamp(page); await page.locator('#run').scrollIntoViewIfNeeded();
+    await page.screenshot({ path: `docs/evidence/finals-review-fixes-577b844/synthetic-choice-${width}.png`, fullPage: true });
+  }
+  expect(t.seen.every(r => r.method === 'GET')).toBe(true); t.assertHandled();
+});
+
 test('trusted accepted quote events keep original terms separate from a changed current offer', async ({ page }) => {
   const t = await ownerTransport(page, async (route,path) => {
     if (path === '/api/v1/state') { await response(route, { ...owner(), offers: [{ ...offer, priceStroops: '900000' }] }); return true; }
@@ -153,7 +262,7 @@ test('receipt metadata precedes a separately gated synthetic report and session 
   await page.getByRole('button', { name: 'Read entitled demo report' }).click();
   await expect(page.getByText('SYNTHETIC_REPORT_BODY_NOT_LIVE')).toBeVisible();
   await stamp(page);
-  await page.screenshot({ path: 'docs/evidence/finals-console/synthetic-receipt-desktop.png', fullPage: true });
+  await page.screenshot({ path: 'docs/evidence/finals-review-fixes-577b844/synthetic-receipt-desktop.png', fullPage: true });
   expect(await page.evaluate(() => JSON.stringify({ ...localStorage, ...sessionStorage }))).not.toContain('SYNTHETIC_TOKEN');
   await page.getByRole('button', { name: 'Read entitled demo report' }).click();
   await expect(page).toHaveURL(/\/login\?expired=1$/);
@@ -213,7 +322,7 @@ test('merchant edits exact integer future metadata and prepares a separate conse
   expect(t.seen.filter(r => r.method === 'POST').map(r => r.body)).toEqual([{ kind: 'claim' }]);
   await page.getByRole('checkbox', { name: /I reviewed this action/ }).check();
   await expect(page.getByRole('button', { name: 'Review & sign in Freighter' })).toBeEnabled();
-  await stamp(page); await page.screenshot({ path: 'docs/evidence/finals-console/synthetic-merchant-desktop.png', fullPage: true });
+  await stamp(page); await page.screenshot({ path: 'docs/evidence/finals-review-fixes-577b844/synthetic-merchant-desktop.png', fullPage: true });
   t.assertHandled();
 });
 
@@ -266,7 +375,7 @@ test('console fits mobile and projector with long identities and supports visibl
     const overflow = await page.evaluate(() => Array.from(document.querySelectorAll('.product-console *')).filter(el => el.getBoundingClientRect().right > innerWidth + 1).slice(0,10).map(el => ({ tag: el.tagName, className: el.className, right: el.getBoundingClientRect().right })));
     expect(overflow, `${width}px overflowing elements`).toEqual([]);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${width}px document overflow`).toBe(true);
-    if (width === 320 || width === 1280) { await stamp(page); await page.screenshot({ path: `docs/evidence/finals-console/synthetic-owner-${width}.png`, fullPage: true }); }
+    if (width === 320 || width === 1280) { await stamp(page); await page.screenshot({ path: `docs/evidence/finals-review-fixes-577b844/synthetic-owner-${width}.png`, fullPage: true }); }
   }
   await page.keyboard.press('Control+Home'); await page.keyboard.press('Tab');
   await page.getByRole('link', { name: 'Policy', exact: true }).focus();

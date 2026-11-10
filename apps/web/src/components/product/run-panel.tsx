@@ -3,7 +3,12 @@ import { useEffect, useRef, useState } from 'react';
 import { activeRun, amount, api, ApiError, errorText, jsonMutation, record, time, type Offer, type Run, type RunEvent } from './api';
 import { Identifier, SectionTitle, Status } from './primitives';
 
-const eventLabels: Record<string, string> = { run_started: 'Worker started', model_turn: 'Model turn', tool_selected: 'Tool selected', quote_received: 'Immutable quote received', payment_accepted: 'Quote accepted', payment_observed: 'Original payment observed', resource_delivered: 'Entitled resource delivered', run_completed: 'Run completed', run_stopped: 'Run stopped' };
+const eventLabels: Record<string, string> = { run_started: 'Worker started', model_turn: 'Model turn', model_choice: 'Public model choice', tool_selected: 'Tool selected', quote_received: 'Immutable quote received', payment_accepted: 'Quote accepted', payment_observed: 'Original payment observed', resource_delivered: 'Entitled resource delivered', run_completed: 'Run completed', run_stopped: 'Run stopped' };
+
+async function intentStorageKey(task: string) {
+  const bytes = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(task.trim()));
+  return `aegis-run-intent:${Array.from(new Uint8Array(bytes), b => b.toString(16).padStart(2, '0')).join('')}`;
+}
 
 export function RunPanel({ runs, offers, fresh, ready, refresh }: { runs: Run[]; offers: Offer[]; fresh: boolean; ready: boolean; refresh: () => Promise<void> }) {
   const [task, setTask] = useState('');
@@ -57,15 +62,29 @@ export function RunPanel({ runs, offers, fresh, ready, refresh }: { runs: Run[];
     return () => { disposed = true; window.clearInterval(timer); };
   }, [selected]);
 
+  // After reload, recovery also works when the server saved an active run but
+  // its acknowledgement was lost. The owner re-enters the task to find its key;
+  // raw task text is never restored from storage.
+  useEffect(() => {
+    if (!task.trim() || confirmed || uncertain) return;
+    let disposed = false;
+    void intentStorageKey(task).then(storageKey => {
+      let saved: string | null = null;
+      try { saved = sessionStorage.getItem(storageKey); } catch { /* optional storage */ }
+      if (!disposed && saved && /^[a-f0-9-]{36}$/.test(saved)) {
+        key.current = saved; storageIntent.current = storageKey; setUncertain(true);
+      }
+    });
+    return () => { disposed = true; };
+  }, [task, confirmed, uncertain]);
+
   async function submit() {
     if (lock.current || confirmed || !task.trim() || !fresh || !ready || active && !uncertain) return;
     lock.current = true; setBusy(true); setError('');
     try {
       // Remember only a task digest and opaque key for ambiguous reload recovery.
       // A transport retry of this intent must never generate another run key.
-      const bytes = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(task.trim()));
-      const digest = Array.from(new Uint8Array(bytes), b => b.toString(16).padStart(2, '0')).join('');
-      const storageKey = `aegis-run-intent:${digest}`;
+      const storageKey = await intentStorageKey(task);
       storageIntent.current = storageKey;
       if (!key.current) {
         try { key.current = sessionStorage.getItem(storageKey); } catch { /* Memory still preserves the key in this tab. */ }
@@ -73,7 +92,11 @@ export function RunPanel({ runs, offers, fresh, ready, refresh }: { runs: Run[];
         try { sessionStorage.setItem(storageKey, key.current); } catch { /* Storage is optional. */ }
       }
       const result = await api<{ runId: string; status: string }>('/api/v1/runs', { ...jsonMutation('POST', { task: task.trim() }), headers: { 'Content-Type': 'application/json', 'Idempotency-Key': key.current } });
-      if (typeof result.runId !== 'string' || typeof result.status !== 'string') throw new ApiError('INVALID_RUN_RESPONSE');
+      if (typeof result.runId !== 'string' || !/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(result.runId) || !['queued', 'running', 'waiting_payment', 'completed', 'failed'].includes(result.status)) throw new ApiError('INVALID_RUN_RESPONSE');
+      // Persistent storage represents only an unresolved transport intent. Keep
+      // the in-memory identity until the owner explicitly composes another task.
+      try { sessionStorage.removeItem(storageKey); } catch { /* optional storage */ }
+      storageIntent.current = null;
       setSelectedId(result.runId); setUncertain(false); setConfirmed(true);
       await refresh();
     } catch (e) { setUncertain(true); setError(`Run request has not been confirmed. ${errorText(e)} Recovering this request reuses its original key.`); }
@@ -100,7 +123,7 @@ export function RunPanel({ runs, offers, fresh, ready, refresh }: { runs: Run[];
         {current.errorCode && <p className="pc-error">Run stopped · {current.errorCode}</p>}
         {pollError && <p role="alert" className="pc-error">{pollError}</p>}
         {traceState && <p className="pc-notice">{traceState}</p>}
-        <ol className="pc-timeline">{events.map(event => <li key={event.id}><div><strong>{eventLabels[event.kind] ?? 'Recorded event'}</strong><time>{time(event.createdAt)}</time></div><div className="pc-event-fields">{['tool', 'turn', 'resourceKey', 'quoteId', 'attemptId', 'operationId', 'status', 'code'].map(field => { const value = event.safePayload[field]; return typeof value === 'string' || typeof value === 'number' ? <p key={field}><span>{field}</span><code>{String(value)}</code></p> : null; })}</div></li>)}</ol>
+        <ol className="pc-timeline">{events.map(event => <li key={event.id}><div><strong>{eventLabels[event.kind] ?? 'Recorded event'}</strong><time>{time(event.createdAt)}</time></div>{event.kind === 'model_choice' && <div className="pc-choice"><p className="pc-choice-label">Untrusted model commentary · {event.safePayload.decision === 'no_tool' ? 'No tool proposed' : 'Tools proposed'}</p><p>{event.safePayload.summaryStatus === 'provided' && typeof event.safePayload.summary === 'string' ? event.safePayload.summary : event.safePayload.summaryStatus === 'withheld' ? 'Public choice summary withheld by display rules.' : 'Public choice summary unavailable: the model supplied none.'}</p><small>Commentary is not financial authority or payment evidence.</small></div>}<div className="pc-event-fields">{['tool', 'turn', 'resourceKey', 'quoteId', 'attemptId', 'operationId', 'status', 'code'].map(field => { const value = event.safePayload[field]; return typeof value === 'string' || typeof value === 'number' ? <p key={field}><span>{field}</span><code>{String(value)}</code></p> : null; })}</div></li>)}</ol>
         <div className="pc-quote"><h3>Accepted quote · immutable</h3>{accepted ? <><p>{String(accepted.safePayload.resourceKey ?? 'Unavailable')}</p><strong>{amount(accepted.safePayload.amountStroops)}</strong><p><code>{String(accepted.safePayload.amountStroops ?? 'Unavailable')} stroops</code> · expires {time(accepted.safePayload.expiresAt)}</p><Identifier label="Accepted quote ID" value={typeof accepted.safePayload.quoteId === 'string' ? accepted.safePayload.quoteId : null} /><Identifier label="Quote merchant" value={typeof accepted.safePayload.merchantAddress === 'string' ? accepted.safePayload.merchantAddress : null} /><Identifier label="Quote asset" value={typeof accepted.safePayload.assetContractId === 'string' ? accepted.safePayload.assetContractId : null} /></> : <p>No accepted quote snapshot returned for this run. Current offer prices cannot establish past payment terms.</p>}</div>
         {current.status === 'completed' && current.finalAnswer && <div className="pc-answer"><h3>Final answer</h3><p>{current.finalAnswer}</p><small>Fictional demo reports. Review the linked receipt in Audit for entitlement and independent evidence.</small></div>}
       </> : <p className="pc-empty">Your task history begins here. No model execution or payment is seeded.</p>}

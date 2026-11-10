@@ -1,0 +1,10 @@
+warning: in the working copy of 'apps/server/src/worker/run.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/api-spec.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/design-system.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/evidence/finals-coordination.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/server/agent/events.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/integration/model-run.test.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/integration/run-events.test.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/unit/model-run.test.ts', LF will be replaced by CRLF the next time Git touches it
+
+EXIT 0

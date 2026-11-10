@@ -1,0 +1,552 @@
+{
+  "observedAt": "2026-11-10T11:05:50.3526666Z",
+  "reviewCommit": "577b84485b00634c8566060ff8a477dc0e030ba1",
+  "head": "577b84485b00634c8566060ff8a477dc0e030ba1",
+  "mode": "read-only source/evidence review; no checks executed",
+  "validationReceiptMatches": 30,
+  "validationReceiptMismatches": 0,
+  "sourceDiffAgainstCommit": [],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "2675bdceb63ef6d8a915303ba84d527028d648aaeffadac45b40ce9f956e091f",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 67fad277804bc0c20fb989566325486947b0e220\tAGENTS.md"
+    },
+    {
+      "path": "apps/server/src/index.ts",
+      "sha256": "4dac65f21ab75964fc86d35dbe4343d376f60c6c823c44b93dfe59f9e1814307",
+      "receiptSha256": "4dac65f21ab75964fc86d35dbe4343d376f60c6c823c44b93dfe59f9e1814307",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 18d7963590f5efad0b0be122e8bb03b4d9f4cbe0\tapps/server/src/index.ts"
+    },
+    {
+      "path": "apps/server/src/worker/payment.ts",
+      "sha256": "8f948da34ee8c574db3e7ff8e25645992af19da79caba3de09361ae1d17490cc",
+      "receiptSha256": "8f948da34ee8c574db3e7ff8e25645992af19da79caba3de09361ae1d17490cc",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 9d25f6f91da13c78f93e5de64d8b5526e7b7ddbe\tapps/server/src/worker/payment.ts"
+    },
+    {
+      "path": "apps/server/src/worker/queue.ts",
+      "sha256": "507ab3b3041b476459b22285eef607b48619821a451e62f59310d6692f2c0985",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob f33e1a10a3258e7a3c68f27a9a5f66f276268e03\tapps/server/src/worker/queue.ts"
+    },
+    {
+      "path": "apps/server/src/worker/run.ts",
+      "sha256": "e0395de84109202e397bae1209c5422b4cca4608da761ea5734f050466869f14",
+      "receiptSha256": "e0395de84109202e397bae1209c5422b4cca4608da761ea5734f050466869f14",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 377c5fcb41495aa641bde5cd1870409498c2fe2c\tapps/server/src/worker/run.ts"
+    },
+    {
+      "path": "apps/server/src/worker/runtime.ts",
+      "sha256": "baebd775d124e9bb62c9b1d1305ebfc752fdb8bc85495ef466be840b94a06e28",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob cf0b0638b03e05cddc89fc2031545b8bc0276517\tapps/server/src/worker/runtime.ts"
+    },
+    {
+      "path": "apps/web/next.config.ts",
+      "sha256": "abcb57e47d5715b45cb745e5eb52eb59f8e636d9100dc640927cdba105cdc1ba",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 81ffff6a359907b1e196e41ac03718e4178c1767\tapps/web/next.config.ts"
+    },
+    {
+      "path": "apps/web/src/app/api/[...path]/route.ts",
+      "sha256": "9891c3131eb1a826910900f7b608198fbcd6de31cbd5c71f44c22be55cce5c7b",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 79664aa6f13fd6ed49e60b8f228c24ab743410b2\tapps/web/src/app/api/[...path]/route.ts"
+    },
+    {
+      "path": "apps/web/src/app/app/page.tsx",
+      "sha256": "b8dd1605ecd0b81af7d8adfa9d4e821303e0329562407a79b3ad23b0b3309cc5",
+      "receiptSha256": "b8dd1605ecd0b81af7d8adfa9d4e821303e0329562407a79b3ad23b0b3309cc5",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob f3a78b5f27c88e829efff12666196a29d2a7ec81\tapps/web/src/app/app/page.tsx"
+    },
+    {
+      "path": "apps/web/src/app/login/page.tsx",
+      "sha256": "01da5d5b201250512f5d65654e442ae8fdf457993c14dc087e9a9ba65e91619c",
+      "receiptSha256": "01da5d5b201250512f5d65654e442ae8fdf457993c14dc087e9a9ba65e91619c",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob db381437b0deed02544ac73db0ada954772dfad2\tapps/web/src/app/login/page.tsx"
+    },
+    {
+      "path": "apps/web/src/app/product.css",
+      "sha256": "26354acb4b916ab70439e6dddfe5e08d67f5f1d1c1d9d2c325a0d8e3d50d1dcf",
+      "receiptSha256": "26354acb4b916ab70439e6dddfe5e08d67f5f1d1c1d9d2c325a0d8e3d50d1dcf",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 9415ef6510d0929f0a0713db2de5cc6ce91cbc3e\tapps/web/src/app/product.css"
+    },
+    {
+      "path": "apps/web/src/components/product/api.ts",
+      "sha256": "236caa94bae3c553d5c41f3d19ba42b19defdb359ff6ed528e0ffedee381ef50",
+      "receiptSha256": "236caa94bae3c553d5c41f3d19ba42b19defdb359ff6ed528e0ffedee381ef50",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 4fec607223389faa32a0c66699f8541c1a71c202\tapps/web/src/components/product/api.ts"
+    },
+    {
+      "path": "apps/web/src/components/product/audit-panel.tsx",
+      "sha256": "efa0a1ca5f7ae1dfc331522592932330c9459b5fdaaa5e8be649e6a165f208bf",
+      "receiptSha256": "efa0a1ca5f7ae1dfc331522592932330c9459b5fdaaa5e8be649e6a165f208bf",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 2a8de90d14cd476a83b6387dd9a5263e1250c580\tapps/web/src/components/product/audit-panel.tsx"
+    },
+    {
+      "path": "apps/web/src/components/product/console.tsx",
+      "sha256": "31b1ec4343a2be9419f2d1c934b1ac8252780e9d0c9f320463fa43c3053e3a52",
+      "receiptSha256": "31b1ec4343a2be9419f2d1c934b1ac8252780e9d0c9f320463fa43c3053e3a52",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob dd9590e73f4d25fe64a84348c1cbf20505b3a69c\tapps/web/src/components/product/console.tsx"
+    },
+    {
+      "path": "apps/web/src/components/product/merchant-panel.tsx",
+      "sha256": "377e92426a92e67ae2b0b41f0a162c04af183163f2aa032c7a38c9d495812537",
+      "receiptSha256": "377e92426a92e67ae2b0b41f0a162c04af183163f2aa032c7a38c9d495812537",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob a9e83e87042a9d79543bdb06ae9c459c10cc6326\tapps/web/src/components/product/merchant-panel.tsx"
+    },
+    {
+      "path": "apps/web/src/components/product/primitives.tsx",
+      "sha256": "98c773456cf1ad7023bafcff27c4e142385b595fc0a771ed98d1e56cb348795e",
+      "receiptSha256": "98c773456cf1ad7023bafcff27c4e142385b595fc0a771ed98d1e56cb348795e",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 9aa648317c3798a474a901332cb4db7234140da2\tapps/web/src/components/product/primitives.tsx"
+    },
+    {
+      "path": "apps/web/src/components/product/run-panel.tsx",
+      "sha256": "9fab28b6f600785afb672459bed551755421d269d445e596b990dc5551e31615",
+      "receiptSha256": "9fab28b6f600785afb672459bed551755421d269d445e596b990dc5551e31615",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob d521900ba1ec912e37213b71f9f0aa4257299d7b\tapps/web/src/components/product/run-panel.tsx"
+    },
+    {
+      "path": "apps/web/src/components/product/wallet-panel.tsx",
+      "sha256": "70d26a0ef9de3d997258e4a35a0dca14e3720bba0783adb5a53c95e81d90a05b",
+      "receiptSha256": "70d26a0ef9de3d997258e4a35a0dca14e3720bba0783adb5a53c95e81d90a05b",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob c26da4ecebbb0488c6da14b4c9a1aca48d0811a6\tapps/web/src/components/product/wallet-panel.tsx"
+    },
+    {
+      "path": "apps/web/src/components/wallet.ts",
+      "sha256": "297b15ad41f83b8838c3ab623af279aacfe499edae04a5c22754cad771588aaa",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 8760fc9d323cb0553f606814ea628841d33fa9bd\tapps/web/src/components/wallet.ts"
+    },
+    {
+      "path": "docs/api-spec.md",
+      "sha256": "1f49045f3635cac89d65fb3e0ad755f7c70d6eaea09f9fa73a6fe7cdba645e79",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 3b2431df1d658c39fe06f3b536714d14f56b85dd\tdocs/api-spec.md"
+    },
+    {
+      "path": "docs/data-model.md",
+      "sha256": "37c1910bb334d533fdff4b443dd7468dc582111de6a2cf35d9ef499c07b3e2e4",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 7c1002fbf63ad2d3724d74d4f7fbc5bf1cf5d6b6\tdocs/data-model.md"
+    },
+    {
+      "path": "docs/DECISION-LEDGER.md",
+      "sha256": "89b548e605df93e728f9dd8785542551deee684e3767c7aeea6dbae5705af352",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 92af0bda1f9979c8a873f4e9837f4da7019228ff\tdocs/DECISION-LEDGER.md"
+    },
+    {
+      "path": "docs/evidence/finals-console/task-008.md",
+      "sha256": "a34e9f2dba7620973b669708a5377f35a7dad0bcbbc77371ce36dd5b30d1153c",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 4db225250ceead5e1838ff27746ed8e1ab88eb9b\tdocs/evidence/finals-console/task-008.md"
+    },
+    {
+      "path": "docs/evidence/finals-model/compatible-model-only-2026-11-10.json",
+      "sha256": "db64e13e0f650a05d07989ba3b2b6899ad2607529285e6ce856de0c9a7ea7716",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 97bd43e6a6bf5c90b85242f19f073b6627e561c4\tdocs/evidence/finals-model/compatible-model-only-2026-11-10.json"
+    },
+    {
+      "path": "docs/evidence/finals-model/task-007.md",
+      "sha256": "a5191327fb0aeed1b3d8cd770c3cd64b3295a6d985e32d2562ca1f8cf726ba28",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 7744dda7cb5674b0025186933ff0257baf8d17f9\tdocs/evidence/finals-model/task-007.md"
+    },
+    {
+      "path": "docs/evidence/finals-process-recovery/coordinator-acceptance.md",
+      "sha256": "49d1804ab8bcb35582a32cf487e10d5cdfe6c937c73b38fd1d9bb9afa8466e62",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob ee003b9355ec819e6a2874ab7427ebdb425f9bc0\tdocs/evidence/finals-process-recovery/coordinator-acceptance.md"
+    },
+    {
+      "path": "docs/evidence/finals-process-recovery/task-017.md",
+      "sha256": "ddbfe501b524ed65da417e2af570aa9937b8a5eb1acdbf19b3c54f8dcbdabba2",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 893dca0326d116b0d656909ca4d07444e89de4df\tdocs/evidence/finals-process-recovery/task-017.md"
+    },
+    {
+      "path": "docs/evidence/finals-validation-2026-11-10/receipt.json",
+      "sha256": "ef71968a2fd41fbb6e52be97a2286b708509c9561c9749216cfbb53ff4cfd1e9",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob e92a699a305c6182b174cf21a5ef702786ac9ff0\tdocs/evidence/finals-validation-2026-11-10/receipt.json"
+    },
+    {
+      "path": "docs/evidence/finals-validation-2026-11-10/report.md",
+      "sha256": "d7ea1d1180ac659199295705cc96aeb0623b1b0afedc5e835e1ac11cc6d4f45c",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob f79b2b84acce43ee14b95686e089b2537b89947e\tdocs/evidence/finals-validation-2026-11-10/report.md"
+    },
+    {
+      "path": "docs/implementation-plan.md",
+      "sha256": "3202eb84dc31dd1e62182178170418ae07fa12986bf6c6fe575ba41237258311",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 043866a0cec01f1365ccd36027d2944cddcc01b6\tdocs/implementation-plan.md"
+    },
+    {
+      "path": "docs/index.md",
+      "sha256": "e948ef5599124c717b6f947977c0567ccd75254101e3f7f3e8979bb31b309b0f",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 35f51079c11db0dd6cb8486a79c39834e8292af5\tdocs/index.md"
+    },
+    {
+      "path": "docs/prd.md",
+      "sha256": "2fb10c889b42a835a1799c3878ffd9547d526ca29cc017810162794145842327",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob f3172099a3d9e2fb83c06ad10142b400a9a503b3\tdocs/prd.md"
+    },
+    {
+      "path": "docs/qa-test-plan.md",
+      "sha256": "41e11300b221f34fa11c0321c467a9a12300dc9bfa0ac9903f8d2dcaf10c524e",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 88e9d2769d932fccb6a3180f9365375cb54d8fc0\tdocs/qa-test-plan.md"
+    },
+    {
+      "path": "docs/security-compliance.md",
+      "sha256": "f67f313509eb78fdc9978e8176f749f9c4fa3f22d20e5c0a646b531c77c6a3ba",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 04d544ae2d7ee93a82ff2243ae9e81444a5dbd57\tdocs/security-compliance.md"
+    },
+    {
+      "path": "docs/system-design.md",
+      "sha256": "d2423dd79c5a9911f51e8b8988f4e1b55100037795c9c52be587e18dc879837b",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob a4c2ac066973ae145fa67769ee4d945e9469a777\tdocs/system-design.md"
+    },
+    {
+      "path": "package.json",
+      "sha256": "ffa6b3f0c23d6e3828b0f24a110f3d54c565c37e6b03d68c02facb23e7d23ae3",
+      "receiptSha256": "ffa6b3f0c23d6e3828b0f24a110f3d54c565c37e6b03d68c02facb23e7d23ae3",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 56b94074fb1c9b94aa9e51439517a72da4542258\tpackage.json"
+    },
+    {
+      "path": "packages/agent/src/index.ts",
+      "sha256": "78bc6c49dadab28d89e8c82d0dbde3e4fccf29d23ac7c25c15f9f9ba87712fcb",
+      "receiptSha256": "78bc6c49dadab28d89e8c82d0dbde3e4fccf29d23ac7c25c15f9f9ba87712fcb",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob f4bf914ba6621603a30a2f48794797c7d8cd62a8\tpackages/agent/src/index.ts"
+    },
+    {
+      "path": "packages/shared/src/index.ts",
+      "sha256": "a4f852ecadeb016f9748e3baafa3f56b63ec87fa0d0d122c4cb8d7f259763a66",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 901b57aba553a792484a9dc8918d83dc6d1c3d90\tpackages/shared/src/index.ts"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "04332d2581c767a5466babf32fa166517ae63ac18d6f81e81c1d8f640f0dbc82",
+      "receiptSha256": "04332d2581c767a5466babf32fa166517ae63ac18d6f81e81c1d8f640f0dbc82",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 3dc0dbc6dddbc1adea605150e58f55202fc3de95\tpnpm-lock.yaml"
+    },
+    {
+      "path": "scripts/demo-smoke.ts",
+      "sha256": "2dd07cac625b09da0ac3bb491fae95ddb4e5ca4e722a25fbfd1aa66b27ab52a9",
+      "receiptSha256": "2dd07cac625b09da0ac3bb491fae95ddb4e5ca4e722a25fbfd1aa66b27ab52a9",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 0e71d9e75dbb2cc0f2551300c50e47aa81a7a56c\tscripts/demo-smoke.ts"
+    },
+    {
+      "path": "src/server/agent/events.ts",
+      "sha256": "49cd7bff6fe8bb60bac16188aac57a754ceae26166eb24f7cb49b9f2ed832a73",
+      "receiptSha256": "49cd7bff6fe8bb60bac16188aac57a754ceae26166eb24f7cb49b9f2ed832a73",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob f91bbde21247686c81f4b6ca9c0f156f8b0af46d\tsrc/server/agent/events.ts"
+    },
+    {
+      "path": "src/server/agent/state.ts",
+      "sha256": "065ed2555626ba8140b6945165941b1a2d355eef8eb86e6a6e6ccb39d30e55cf",
+      "receiptSha256": "065ed2555626ba8140b6945165941b1a2d355eef8eb86e6a6e6ccb39d30e55cf",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 19f0f9dfc058692d7529741f9c724f6e8fd6186f\tsrc/server/agent/state.ts"
+    },
+    {
+      "path": "src/server/agent/tools.ts",
+      "sha256": "8f02d8a4794980c46f687e33dd579bea317a27006b19f89a6ebaf7c8ea1a97e9",
+      "receiptSha256": "8f02d8a4794980c46f687e33dd579bea317a27006b19f89a6ebaf7c8ea1a97e9",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob c397c1a3259bf0d0f1ab29b6c41b3e57d38ab9ab\tsrc/server/agent/tools.ts"
+    },
+    {
+      "path": "src/server/auth/session.ts",
+      "sha256": "c88807e64a26bfea6e26c120171b21c361cbf0719fb673b5bbffc22f2f85f070",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 3cece1e7d9c3812e05beba576ab245817d19cfa7\tsrc/server/auth/session.ts"
+    },
+    {
+      "path": "src/server/db/connection.ts",
+      "sha256": "38bf27fe97edd4ef957d5b8a4efea5863bffc00e659e02cc72fa348b6e572f0d",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob cc63086fae2383dd0d906672f8afe720dd2048f7\tsrc/server/db/connection.ts"
+    },
+    {
+      "path": "src/server/db/migrations/0000_foundation.sql",
+      "sha256": "c6ba27dc80ff01d81f4e133934b3343bd7f7e6ae09a12fed7ded18f1dd613852",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 77e556430b5c3f487ba97e89aff52198a5078962\tsrc/server/db/migrations/0000_foundation.sql"
+    },
+    {
+      "path": "src/server/db/migrations/0001_financial_guards.sql",
+      "sha256": "e8199b95592dbfa876487756af2544c477741a9af29e041cda7541313cfa5998",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 8d293e0a3fa0014721373e9164d35ab0214226fd\tsrc/server/db/migrations/0001_financial_guards.sql"
+    },
+    {
+      "path": "src/server/db/schema.ts",
+      "sha256": "5470fad2bef751f367ba83ce8bf321723c69ff92ac2ea194000313b09e67fa92",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob c084a23f9adfde875b4324f082f9b2ecf9534891\tsrc/server/db/schema.ts"
+    },
+    {
+      "path": "src/server/db/seed.ts",
+      "sha256": "240c7bfda2276213fa8b271713ac31e276dd777f94a651e8cb9e34bdd1ad99f1",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 9a3a3feb19e4ad37e506fae61c28a1f166124708\tsrc/server/db/seed.ts"
+    },
+    {
+      "path": "src/server/domain/evidence.ts",
+      "sha256": "d824a97d094b242355d9560211e8f257355684651e0c4170db3a292e486eb1c9",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 046301232c0b75e10709f628815b03cec93d9acd\tsrc/server/domain/evidence.ts"
+    },
+    {
+      "path": "src/server/domain/purchases.ts",
+      "sha256": "eaff1ba879827afafb5ec7fb0090524babfd1f6beb3f4acca654f1ae51085eca",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob ab2a6b385a505ddbf8b8d0a340bd2ebc66003d1b\tsrc/server/domain/purchases.ts"
+    },
+    {
+      "path": "src/server/domain/wallet.ts",
+      "sha256": "67fa6ea4fc6a6da0a2ed621a5c0b67931a4643a3dc6f8cbae73b2b5ffe39aad4",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 6832447bc97409d795c4cea70a8cdb8ce1933357\tsrc/server/domain/wallet.ts"
+    },
+    {
+      "path": "src/server/http/application.ts",
+      "sha256": "fc545ce65dde60fed8569e8ae100437625e3fd8f6dfba8696152da273bd4a812",
+      "receiptSha256": "fc545ce65dde60fed8569e8ae100437625e3fd8f6dfba8696152da273bd4a812",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 9359c8bfb26c4f7613dbdb8bf30cbc277795c0a6\tsrc/server/http/application.ts"
+    },
+    {
+      "path": "src/server/http/boundaries.ts",
+      "sha256": "d88f3127f866ea6021b1cdd29abfe316a3ae0008e9d2c9b1efe1a71fcd93f6eb",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 730f37d0a7999458e944a5598270d09bbae2943e\tsrc/server/http/boundaries.ts"
+    },
+    {
+      "path": "src/server/integrations/model.ts",
+      "sha256": "4c25abb38d0eb6bdf6e2ac237ffa5a72202ab4b2d657fefe0fff202eecd238cc",
+      "receiptSha256": "4c25abb38d0eb6bdf6e2ac237ffa5a72202ab4b2d657fefe0fff202eecd238cc",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 7f1dc2d255cc5ce13b73949805b4563e9c28c025\tsrc/server/integrations/model.ts"
+    },
+    {
+      "path": "src/server/merchant/receipts.ts",
+      "sha256": "e3dc7c2deb13280f975c4c38a7838468c02dbe5426935b2120c9d094b2a5ea3f",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 706f1de14999c46d5acc4350f52b38fa76cc517f\tsrc/server/merchant/receipts.ts"
+    },
+    {
+      "path": "src/server/merchant/reports.ts",
+      "sha256": "f539b45f99deae425ee02d338722d5f65c6f06ac8f0025ed71bd5377a748a1be",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 6d0ff560aef90d35bbd147a1ecdbb21e613c5b63\tsrc/server/merchant/reports.ts"
+    },
+    {
+      "path": "tests/e2e/authenticated-console.spec.ts",
+      "sha256": "1fd53a56aed5908e788fd78327329539ba1737d7dd49f2d07950f397bcbd603b",
+      "receiptSha256": "1fd53a56aed5908e788fd78327329539ba1737d7dd49f2d07950f397bcbd603b",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 6bca2f199a16aaf18ad5881ae1ab313abf0b0298\ttests/e2e/authenticated-console.spec.ts"
+    },
+    {
+      "path": "tests/e2e/public-proof.spec.ts",
+      "sha256": "d8f79e5ba174201b935a32e6eaef2789b86c879b62e230e4b6ac291cf1c3363b",
+      "receiptSha256": "d8f79e5ba174201b935a32e6eaef2789b86c879b62e230e4b6ac291cf1c3363b",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob b3db3f1f4b4bd13034bd735a7c4f56da9cedd214\ttests/e2e/public-proof.spec.ts"
+    },
+    {
+      "path": "tests/integration/model-run.test.ts",
+      "sha256": "fbf053ce1b3087830caf515eae4d6458f659a3d3ce1388eb4b812a5248e0e97a",
+      "receiptSha256": "fbf053ce1b3087830caf515eae4d6458f659a3d3ce1388eb4b812a5248e0e97a",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 12ab98c0477721fdfd1172baf2989599c233f88e\ttests/integration/model-run.test.ts"
+    },
+    {
+      "path": "tests/integration/process-death.test.ts",
+      "sha256": "3fb130c2233604473ed5d527bc7813d35011f812ffd9724e23bf5547c17ec5f4",
+      "receiptSha256": "3fb130c2233604473ed5d527bc7813d35011f812ffd9724e23bf5547c17ec5f4",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob abf9274b182e6b0cbec1ef4dc60b37e57b9184ba\ttests/integration/process-death.test.ts"
+    },
+    {
+      "path": "tests/integration/run-events.test.ts",
+      "sha256": "d8cfabc68b1ae5016cdfbdb2c7f9efd1f7c0592b5524e6d2999c943259f643b3",
+      "receiptSha256": "d8cfabc68b1ae5016cdfbdb2c7f9efd1f7c0592b5524e6d2999c943259f643b3",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 36163e18c82488e253a48e33c589186e6bebb65f\ttests/integration/run-events.test.ts"
+    },
+    {
+      "path": "tests/integration/support/database.ts",
+      "sha256": "05bad49d1074251a123fa0a6a88762d00a91bd76840bd2c7c9d582ee9269c3ba",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 6f95614f9806c16b8867b18905e3ba07ea04d048\ttests/integration/support/database.ts"
+    },
+    {
+      "path": "tests/integration/support/fixtures.ts",
+      "sha256": "f691c19da540324e50e64acc124e371cd7aacddb70efae615140a191069797e0",
+      "receiptSha256": null,
+      "matchesValidationReceipt": null,
+      "commitTreeEntry": "100644 blob 7cecf6ae91c0d86fe0cb13e1c992e76c94cb04ef\ttests/integration/support/fixtures.ts"
+    },
+    {
+      "path": "tests/integration/support/payment-process-child.ts",
+      "sha256": "90a03d656b3a48f05e2e2b6470e4f1b7aedb5871dbd3284c5ec52a390723a71b",
+      "receiptSha256": "90a03d656b3a48f05e2e2b6470e4f1b7aedb5871dbd3284c5ec52a390723a71b",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 929dc6a1d2b41fea25961ea3b54aa2c4a7edf050\ttests/integration/support/payment-process-child.ts"
+    },
+    {
+      "path": "tests/integration/support/process-death.ts",
+      "sha256": "39a344b7ce676464ab7c7dc0b2721ada37fcbf8fb859ef6ad90fc2e49a619d77",
+      "receiptSha256": "39a344b7ce676464ab7c7dc0b2721ada37fcbf8fb859ef6ad90fc2e49a619d77",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 3a4a1c30ee9f08a0c8a7813bd96da3801ed9af9a\ttests/integration/support/process-death.ts"
+    },
+    {
+      "path": "tests/unit/model-run.test.ts",
+      "sha256": "5bee5770301feee5b51ab64b5b200c03909d748b761cff92abb1ed787ae44e16",
+      "receiptSha256": "5bee5770301feee5b51ab64b5b200c03909d748b761cff92abb1ed787ae44e16",
+      "matchesValidationReceipt": true,
+      "commitTreeEntry": "100644 blob 8ad8f9f9305d9fa09edf6618182c149223e7388c\ttests/unit/model-run.test.ts"
+    }
+  ],
+  "existingStaticArtifacts": [
+    {
+      "path": "apps/web/.next/static/chunks/0bnj_ez2yz5sv.js",
+      "sha256": "01686cf44cbf5468dad704f8f5c3646b4d9e418e6f91a59c5b4588582026d722"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/08ubwt0bs6y8i.js",
+      "sha256": "0b14cc307fe79ab890b4cd3fcc29b8854ebb809f299edfb11f19349d7255afa7"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/0__bpv3b7vxt2.js",
+      "sha256": "113f4b913294f485ace4d62878dde739be69dca5417a730e063c6489b25d8b37"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/02qph2wfmsks3.js",
+      "sha256": "0c5e10ac20066528fab9f898c43af05b7fe2a07f2f246818ebd79ea786b72908"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/0dq0rafcxbqpi.css",
+      "sha256": "ee458a48e37d9dcc19c5637d0e597a89e8725e1b1c26443afc67c386b1cb04b1"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/1no7zhzpudll9.js",
+      "sha256": "0ad0759e17154ed2b6324bd38e64ef79da20d98ad0f10ea71ca6aaa71e346152"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/0cz1d0mv5g_q7.js",
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/turbopack-077hmtqrhcoji.js",
+      "sha256": "3f0ba0c36a0758d76b55b6717fd77e65f46ae1295bb22fa441476e1eb7854d51"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/3yilru_-r_09a.js",
+      "sha256": "9c7fec1beb0e1f0a265d1641c2b20939e0a39612e633a81f00779de6dcdf975b"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/3xox0l2vpmqpd.js",
+      "sha256": "76ae0a8d48fade96309931636b33eca13defcee7f45658e12306153354d3d7ae"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/3dz0hr8l_ktjk.js",
+      "sha256": "7b8b2e75f7ad9fae1c783dda17c9eb66359db9db1cdd48bbe2ebb1a5036f64a1"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/2xs7x4moa08cb.css",
+      "sha256": "137bc5581167ab66d2bad4161f891811c04e2e899989a80a5ad3fb0fea181b98"
+    },
+    {
+      "path": "apps/web/.next/static/TEmqjtH69KP30PW4PUrkx/_buildManifest.js",
+      "sha256": "9476e0afd3f9da68a64e6ec58631191fd3eaca62c9f5a377e7517fe9a89e59ea"
+    },
+    {
+      "path": "apps/web/.next/static/TEmqjtH69KP30PW4PUrkx/_clientMiddlewareManifest.js",
+      "sha256": "5483e3295dc35dfe29ea932efc85341c916f10ff78ff5b0e965e003710893a4a"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/040ht0__2zu63.js",
+      "sha256": "ad9f5684efa76c5f914521c9d2a90a5c5489d657e41d10e39a6733bfc343f9a6"
+    },
+    {
+      "path": "apps/web/.next/static/TEmqjtH69KP30PW4PUrkx/_ssgManifest.js",
+      "sha256": "678f6ce2cb80b1fe72fc67e7412be6e2ab6ada083111b64f7c40d35e3cba5e00"
+    }
+  ],
+  "staticArtifactProvenance": "Existing on-disk build only; source-to-build linkage not independently rebuilt or attested",
+  "staticFixtureSentinelScan": {
+    "search": "Two declared protected report sentinel prefixes only; rg exit1 means no match",
+    "files": 16,
+    "matchingFiles": 0
+  }
+}

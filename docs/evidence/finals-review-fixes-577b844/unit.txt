@@ -1,0 +1,17 @@
+
+START 2026-11-10T11:25:15.682Z corepack pnpm test:unit
+$ vitest run tests/unit
+
+ RUN  v5.1.0 C:/Users/Vincent/VS Codes/Noir X Velo
+
+
+ Test Files  5 passed (5)
+      Tests  107 passed (107)
+   Start at  19:25:18
+   Duration  8.24s (import 73%, tests 15%, transform 9%, worker 3%)
+
+    Isolate  5 workers spawned · ~633ms startup each (spawn + environment, per file)
+             at least ~2.53s faster with isolate: false — reuses workers across files instead of one per file
+
+
+EXIT 0 SIGNAL null

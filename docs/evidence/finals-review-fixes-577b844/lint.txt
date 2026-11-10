@@ -1,0 +1,18 @@
+
+START 2026-11-10T11:20:02.735Z corepack pnpm lint
+$ eslint scripts src tests apps packages --no-error-on-unmatched-pattern
+
+C:\Users\Vincent\VS Codes\Noir X Velo\src\server\agent\choice-summary.ts
+   9:49   error  Unnecessary escape character: \[  no-useless-escape
+  11:155  error  Unnecessary escape character: \/  no-useless-escape
+
+✖ 2 problems (2 errors, 0 warnings)
+
+[ELIFECYCLE] Command failed with exit code 1.
+
+EXIT 1 SIGNAL null
+
+START 2026-11-10T11:23:32.650Z corepack pnpm lint
+$ eslint scripts src tests apps packages --no-error-on-unmatched-pattern
+
+EXIT 0 SIGNAL null

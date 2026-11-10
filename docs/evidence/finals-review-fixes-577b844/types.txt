@@ -1,0 +1,14 @@
+
+START 2026-11-10T11:20:02.800Z corepack pnpm typecheck
+$ tsc --noEmit && pnpm --filter @aegispay/web typecheck
+'pnpm' is not recognized as an internal or external command,
+operable program or batch file.
+[ELIFECYCLE] Command failed with exit code 1.
+
+EXIT 1 SIGNAL null
+
+START 2026-11-10T11:23:32.389Z corepack pnpm typecheck
+$ tsc --noEmit && pnpm --filter @aegispay/web typecheck
+$ tsc --noEmit
+
+EXIT 0 SIGNAL null

@@ -63,4 +63,24 @@ describe('API007 SQL cursor, run ownership and event projection (offline)', () =
     expect(response.events).toHaveLength(1); expect(response.nextCursor).toBe(inserted.at(-1)!.id.toString());
     expect(JSON.stringify(response)).not.toContain('PRIVATE');
   });
+  it('exports public commentary only to the owning run, stripping private extras and rejecting unsafe summaries', async () => {
+    const prior = await db.first.db.select().from(s.runEvent).where(eq(s.runEvent.runId, runId)).orderBy(s.runEvent.id);
+    const inserted = await db.first.db.insert(s.runEvent).values([
+      { runId, kind: 'model_choice', safePayload: { turn: 1, decision: 'tools_proposed', summaryStatus: 'provided', summary: 'QuickSignal fits the task.', providerContent: 'PRIVATE_THOUGHT', thoughtSignature: 'PRIVATE_SIGNATURE', args: { token: 'PRIVATE_TOKEN' }, report: 'AEGIS_PRIVATE_REPORT' } },
+      { runId, kind: 'model_choice', safePayload: { turn: 2, decision: 'no_tool', summaryStatus: 'missing', summary: null, checkpoint: 'PRIVATE_CHECKPOINT' } },
+      { runId, kind: 'model_choice', safePayload: { turn: 3, decision: 'no_tool', summaryStatus: 'provided', summary: 'Payment settled.' } },
+    ]).returning();
+    const response = await send(`?after=${prior.at(-1)!.id}`);
+    expect(response.status).toBe(200); expect(response.headers.get('cache-control')).toBe('no-store');
+    const payload = await response.json();
+    expect(payload.events.map((e: { safePayload: unknown }) => e.safePayload)).toEqual([
+      { turn: 1, decision: 'tools_proposed', summaryStatus: 'provided', summary: 'QuickSignal fits the task.' },
+      { turn: 2, decision: 'no_tool', summaryStatus: 'missing', summary: null },
+    ]);
+    expect(payload.nextCursor).toBe(inserted.at(-1)!.id.toString());
+    expect(JSON.stringify(payload)).not.toMatch(/PRIVATE|signature|providerContent|token|checkpoint|settled/);
+    expect((await send('', foreign)).status).toBe(404);
+    expect((await send('', merchant)).status).toBe(403);
+    expect((await send('', wrongWorker, true)).status).toBe(404);
+  });
 });

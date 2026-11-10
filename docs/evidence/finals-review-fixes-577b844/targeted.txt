@@ -1,0 +1,13 @@
+
+START 2026-11-10T11:19:40.193Z corepack pnpm exec vitest run tests/unit/model-run.test.ts tests/integration/model-run.test.ts tests/integration/run-events.test.ts
+
+ RUN  v5.1.0 C:/Users/Vincent/VS Codes/Noir X Velo
+
+
+ Test Files  3 passed (3)
+      Tests  69 passed (69)
+   Start at  19:19:51
+   Duration  74.88s (tests 49%, import 48%, transform 3%)
+
+
+EXIT 0 SIGNAL null

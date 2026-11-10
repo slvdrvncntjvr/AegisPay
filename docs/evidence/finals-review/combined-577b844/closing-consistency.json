@@ -1,0 +1,13 @@
+{
+  "observedAt": "2026-11-10T11:07:35.9521962Z",
+  "head": "577b84485b00634c8566060ff8a477dc0e030ba1",
+  "fingerprintedFiles": 67,
+  "changedSinceReviewFingerprint": [],
+  "sourceDiffAgainstReviewedCommit": [],
+  "receiptMatches": 30,
+  "receiptMismatches": 0,
+  "reportSha256": "7718df6ac07c9151ef7f13e7b27c71acef8e5c71057baf7f20e15f0e5fdea0f8",
+  "fingerprintsSha256": "8d1e5a54f77119b38dfe30cf79830edcf5aad023c5d909492c9fc3f204ee8b6f",
+  "testsOrBuildsRun": false,
+  "liveOperationsPerformed": false
+}

@@ -1,0 +1,74 @@
+{
+  "classification": "bounded-direct-google-provider-diagnostic",
+  "configuredModel": "models/gemini-3.5-flash",
+  "limits": {
+    "generationPostMaximum": 2,
+    "requestBytes": 8192,
+    "responseBytes": 262144,
+    "timeoutMs": 35000,
+    "redirects": 0,
+    "retries": 0
+  },
+  "calls": [
+    {
+      "observedAt": "2026-11-10T11:14:34.623Z",
+      "method": "GET",
+      "host": "generativelanguage.googleapis.com",
+      "path": "/v1beta/models?pageSize=100",
+      "httpStatus": 200,
+      "googleErrorCode": null,
+      "googleErrorStatus": null,
+      "category": "discovery_ok",
+      "configuredModelListed": true,
+      "reviewedModels": [
+        {
+          "name": "models/gemini-2.5-flash",
+          "advertisesGenerateContent": true
+        },
+        {
+          "name": "models/gemini-3.5-flash",
+          "advertisesGenerateContent": true
+        }
+      ],
+      "hasFurtherPage": false
+    },
+    {
+      "observedAt": "2026-11-10T11:14:39.249Z",
+      "method": "POST",
+      "host": "generativelanguage.googleapis.com",
+      "path": "/v1beta/models/gemini-3.5-flash:generateContent",
+      "httpStatus": 200,
+      "googleErrorCode": null,
+      "googleErrorStatus": null,
+      "category": "generation_http_ok",
+      "minimalTextGenerationWorks": true,
+      "replyOkMatches": true
+    },
+    {
+      "observedAt": "2026-11-10T11:16:17.163Z",
+      "method": "POST",
+      "host": "generativelanguage.googleapis.com",
+      "path": "/v1beta/models/gemini-3.5-flash:generateContent",
+      "requestClass": "existing-demo-smoke-request-quote-only",
+      "httpStatus": 503,
+      "googleErrorCode": 503,
+      "googleErrorStatus": "UNAVAILABLE",
+      "category": "endpoint_unavailable"
+    }
+  ],
+  "generationPosts": 2,
+  "toolsExecuted": 0,
+  "financialActions": 0,
+  "actualPurchase": false,
+  "livePaymentProof": false,
+  "toolChoiceWorks": null,
+  "completedAt": "2026-11-10T11:16:17.164Z",
+  "secretScan": {
+    "knownKeyAbsent": true,
+    "scope": "all owned evidence and ignored diagnostic helper files; see validation.json"
+  },
+  "secondPostJustification": "Minimal configured-model generation succeeded; compare existing ANY request_quote schema and generation options on the same model without executing tools.",
+  "transport": "node:https.request; no application imports or fetch adapter execution",
+  "toolChoiceOutcome": "unavailable; no successful choice observed",
+  "historical404Cause": "unknown"
+}

@@ -1,0 +1,278 @@
+{
+  "observedAt": "2026-11-10T11:24:59.700583+00:00",
+  "baselineCommit": "577b84485b00634c8566060ff8a477dc0e030ba1",
+  "workRef": "orca:run_3bfef6dba661/task_7a04682f6919/ctx_9318cbc7e7c0",
+  "files": [
+    {
+      "path": "apps/web/src/components/product/run-panel.tsx",
+      "sha256": "0039ad72d0d23e8781b67db45e994ed908f25c2d94767d615a7032e33e335dcf",
+      "baselineGitBlobSha256": "9fab28b6f600785afb672459bed551755421d269d445e596b990dc5551e31615",
+      "reviewedBaselineWorkingFileSha256": "9fab28b6f600785afb672459bed551755421d269d445e596b990dc5551e31615"
+    },
+    {
+      "path": "apps/web/src/app/product.css",
+      "sha256": "d8273e031dd7b9672cfc0f1a7bdc4905c45004d3b946b35048a489e2e38a3bd5",
+      "baselineGitBlobSha256": "26354acb4b916ab70439e6dddfe5e08d67f5f1d1c1d9d2c325a0d8e3d50d1dcf",
+      "reviewedBaselineWorkingFileSha256": "26354acb4b916ab70439e6dddfe5e08d67f5f1d1c1d9d2c325a0d8e3d50d1dcf"
+    },
+    {
+      "path": "src/server/agent/events.ts",
+      "sha256": "8f2168696067116a3c47c26e7d759f810cf4779cba77d938c8eaf53719d90927",
+      "baselineGitBlobSha256": "49cd7bff6fe8bb60bac16188aac57a754ceae26166eb24f7cb49b9f2ed832a73",
+      "reviewedBaselineWorkingFileSha256": "49cd7bff6fe8bb60bac16188aac57a754ceae26166eb24f7cb49b9f2ed832a73"
+    },
+    {
+      "path": "src/server/agent/choice-summary.ts",
+      "sha256": "342df72aafa49941c2ade0100277df2bf7ea8167a966ee292505ae3023810952",
+      "baselineGitBlobSha256": null,
+      "reviewedBaselineWorkingFileSha256": null
+    },
+    {
+      "path": "apps/server/src/worker/run.ts",
+      "sha256": "9fb7e83c9927d7935549bb046663e8f7748c117fb49d96d416421efca21f4bb8",
+      "baselineGitBlobSha256": "e0395de84109202e397bae1209c5422b4cca4608da761ea5734f050466869f14",
+      "reviewedBaselineWorkingFileSha256": "e0395de84109202e397bae1209c5422b4cca4608da761ea5734f050466869f14"
+    },
+    {
+      "path": "src/server/integrations/model.ts",
+      "sha256": "97b5d79900fdc237baa2f930170605e68d33b757c2dcc5ded4c218a6e5afaad5",
+      "baselineGitBlobSha256": "eaaea6bb3ca36e671ade79b0be34cd9273921a6a311a7540c5d26c87f40b27b8",
+      "reviewedBaselineWorkingFileSha256": "4c25abb38d0eb6bdf6e2ac237ffa5a72202ab4b2d657fefe0fff202eecd238cc"
+    },
+    {
+      "path": "tests/e2e/authenticated-console.spec.ts",
+      "sha256": "859c19d4e7e24c9f3df96fced9aa8c5b77ad3ddfda4877b611be5ba77b1353e7",
+      "baselineGitBlobSha256": "1fd53a56aed5908e788fd78327329539ba1737d7dd49f2d07950f397bcbd603b",
+      "reviewedBaselineWorkingFileSha256": "1fd53a56aed5908e788fd78327329539ba1737d7dd49f2d07950f397bcbd603b"
+    },
+    {
+      "path": "tests/unit/model-run.test.ts",
+      "sha256": "5dc60badaca6cda815aa1cb5caa2c425d9d83687ae2b7b459c6713f7a7b3cbd1",
+      "baselineGitBlobSha256": "5bee5770301feee5b51ab64b5b200c03909d748b761cff92abb1ed787ae44e16",
+      "reviewedBaselineWorkingFileSha256": "5bee5770301feee5b51ab64b5b200c03909d748b761cff92abb1ed787ae44e16"
+    },
+    {
+      "path": "tests/integration/model-run.test.ts",
+      "sha256": "683ea3306e9624a711dfc10cda0134927f8f69d0c60a53c501a0f65ee3196de0",
+      "baselineGitBlobSha256": "fbf053ce1b3087830caf515eae4d6458f659a3d3ce1388eb4b812a5248e0e97a",
+      "reviewedBaselineWorkingFileSha256": "fbf053ce1b3087830caf515eae4d6458f659a3d3ce1388eb4b812a5248e0e97a"
+    },
+    {
+      "path": "tests/integration/run-events.test.ts",
+      "sha256": "caade9ef2afdbbf0cd6bbb9c597c0fbf3622c1874b2cc20991601173f46c975d",
+      "baselineGitBlobSha256": "d8cfabc68b1ae5016cdfbdb2c7f9efd1f7c0592b5524e6d2999c943259f643b3",
+      "reviewedBaselineWorkingFileSha256": "d8cfabc68b1ae5016cdfbdb2c7f9efd1f7c0592b5524e6d2999c943259f643b3"
+    }
+  ],
+  "originalReviewReportSha256": "7718df6ac07c9151ef7f13e7b27c71acef8e5c71057baf7f20e15f0e5fdea0f8",
+  "limits": "Synthetic provider, chain, browser transport only; isolated local integration DB schemas; no live app/financial/model/provider calls or deployment.",
+  "verifiedAt": "2026-11-10T11:29:02.413577+00:00",
+  "reviewReceiptComparison": {
+    "reviewCommit": "577b84485b00634c8566060ff8a477dc0e030ba1",
+    "validationReceiptMatches": 30,
+    "validationReceiptMismatches": 0,
+    "sourceDiffAgainstCommit": []
+  },
+  "buildId": "nZzCC8ZHYuqc91rvg6b1S",
+  "builtStaticArtifacts": [
+    {
+      "path": "apps/web/.next/static/chunks/02qph2wfmsks3.js",
+      "sha256": "0c5e10ac20066528fab9f898c43af05b7fe2a07f2f246818ebd79ea786b72908"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/08ubwt0bs6y8i.js",
+      "sha256": "0b14cc307fe79ab890b4cd3fcc29b8854ebb809f299edfb11f19349d7255afa7"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/0bnj_ez2yz5sv.js",
+      "sha256": "01686cf44cbf5468dad704f8f5c3646b4d9e418e6f91a59c5b4588582026d722"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/0cz1d0mv5g_q7.js",
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/0dq0rafcxbqpi.css",
+      "sha256": "ee458a48e37d9dcc19c5637d0e597a89e8725e1b1c26443afc67c386b1cb04b1"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/1no7zhzpudll9.js",
+      "sha256": "0ad0759e17154ed2b6324bd38e64ef79da20d98ad0f10ea71ca6aaa71e346152"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/2bs5g0snvfazr.js",
+      "sha256": "5fca582b6484b37d69b4d32c98264897d593302d0a92515005d0914a29ea3276"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/2tdlxiwai9o0v.js",
+      "sha256": "8110b92a0caeb0d732b8a97ffe0252b8bb699f15385c2b4411ced1a506c38a06"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/3durutcfai_w8.css",
+      "sha256": "854af17a0bc396087113313ec266be04676078174e7a2e97b4c31738dd2fd8e6"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/3dz0hr8l_ktjk.js",
+      "sha256": "7b8b2e75f7ad9fae1c783dda17c9eb66359db9db1cdd48bbe2ebb1a5036f64a1"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/3xox0l2vpmqpd.js",
+      "sha256": "76ae0a8d48fade96309931636b33eca13defcee7f45658e12306153354d3d7ae"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/3yilru_-r_09a.js",
+      "sha256": "9c7fec1beb0e1f0a265d1641c2b20939e0a39612e633a81f00779de6dcdf975b"
+    },
+    {
+      "path": "apps/web/.next/static/chunks/turbopack-077hmtqrhcoji.js",
+      "sha256": "3f0ba0c36a0758d76b55b6717fd77e65f46ae1295bb22fa441476e1eb7854d51"
+    },
+    {
+      "path": "apps/web/.next/static/nZzCC8ZHYuqc91rvg6b1S/_buildManifest.js",
+      "sha256": "9476e0afd3f9da68a64e6ec58631191fd3eaca62c9f5a377e7517fe9a89e59ea"
+    },
+    {
+      "path": "apps/web/.next/static/nZzCC8ZHYuqc91rvg6b1S/_clientMiddlewareManifest.js",
+      "sha256": "5483e3295dc35dfe29ea932efc85341c916f10ff78ff5b0e965e003710893a4a"
+    },
+    {
+      "path": "apps/web/.next/static/nZzCC8ZHYuqc91rvg6b1S/_ssgManifest.js",
+      "sha256": "678f6ce2cb80b1fe72fc67e7412be6e2ab6ada083111b64f7c40d35e3cba5e00"
+    }
+  ],
+  "gates": [
+    {
+      "gate": "lint",
+      "command": "corepack pnpm lint",
+      "startedAt": "2026-11-10T11:20:02.735Z",
+      "finishedAt": "2026-11-10T11:20:27.001Z",
+      "exit": 1,
+      "signal": null,
+      "environment": "allowlisted OS only; no private env file or application env inherited",
+      "transport": "synthetic/local only"
+    },
+    {
+      "gate": "types",
+      "command": "corepack pnpm typecheck",
+      "startedAt": "2026-11-10T11:20:02.800Z",
+      "finishedAt": "2026-11-10T11:20:59.958Z",
+      "exit": 1,
+      "signal": null,
+      "environment": "allowlisted OS only; no private env file or application env inherited",
+      "transport": "synthetic/local only"
+    },
+    {
+      "gate": "targeted",
+      "command": "corepack pnpm exec vitest run tests/unit/model-run.test.ts tests/integration/model-run.test.ts tests/integration/run-events.test.ts",
+      "startedAt": "2026-11-10T11:19:40.193Z",
+      "finishedAt": "2026-11-10T11:21:06.691Z",
+      "exit": 0,
+      "signal": null,
+      "environment": "allowlisted OS only; no private env file or application env inherited",
+      "transport": "synthetic/local only"
+    },
+    {
+      "gate": "build",
+      "command": "corepack pnpm build",
+      "startedAt": "2026-11-10T11:21:36.538Z",
+      "finishedAt": "2026-11-10T11:22:06.454Z",
+      "exit": 0,
+      "signal": null,
+      "environment": "allowlisted OS only; no private env file or application env inherited",
+      "transport": "synthetic/local only"
+    },
+    {
+      "gate": "lint",
+      "command": "corepack pnpm lint",
+      "startedAt": "2026-11-10T11:23:32.650Z",
+      "finishedAt": "2026-11-10T11:23:49.961Z",
+      "exit": 0,
+      "signal": null,
+      "environment": "allowlisted OS only; no private env file or application env inherited",
+      "transport": "synthetic/local only"
+    },
+    {
+      "gate": "types",
+      "command": "corepack pnpm typecheck",
+      "startedAt": "2026-11-10T11:23:32.389Z",
+      "finishedAt": "2026-11-10T11:24:32.425Z",
+      "exit": 0,
+      "signal": null,
+      "environment": "allowlisted OS only; no private env file or application env inherited",
+      "transport": "synthetic/local only"
+    },
+    {
+      "gate": "browser",
+      "command": "corepack pnpm exec playwright test tests/e2e --workers=1 --reporter=line --output=C:\\Users\\Vincent\\VS Codes\\Noir X Velo\\docs\\evidence\\finals-review-fixes-577b844\\playwright-output",
+      "startedAt": "2026-11-10T11:23:32.664Z",
+      "finishedAt": "2026-11-10T11:24:48.178Z",
+      "exit": 0,
+      "signal": null,
+      "environment": "allowlisted OS only; no private env file or application env inherited",
+      "transport": "synthetic/local only"
+    },
+    {
+      "gate": "spike",
+      "command": "corepack pnpm test:spike",
+      "startedAt": "2026-11-10T11:25:15.742Z",
+      "finishedAt": "2026-11-10T11:25:26.311Z",
+      "exit": 0,
+      "signal": null,
+      "environment": "allowlisted OS only; no private env file or application env inherited",
+      "transport": "synthetic/local only"
+    },
+    {
+      "gate": "unit",
+      "command": "corepack pnpm test:unit",
+      "startedAt": "2026-11-10T11:25:15.682Z",
+      "finishedAt": "2026-11-10T11:25:27.429Z",
+      "exit": 0,
+      "signal": null,
+      "environment": "allowlisted OS only; no private env file or application env inherited",
+      "transport": "synthetic/local only"
+    },
+    {
+      "gate": "integration",
+      "command": "corepack pnpm test:integration",
+      "startedAt": "2026-11-10T11:22:09.258Z",
+      "finishedAt": "2026-11-10T11:26:37.587Z",
+      "exit": 0,
+      "signal": null,
+      "environment": "allowlisted OS only; no private env file or application env inherited",
+      "transport": "synthetic/local only"
+    }
+  ],
+  "docsGates": [
+    {
+      "observedAt": "2026-11-10T19:27:19.6331294+08:00",
+      "docsExit": 0,
+      "planExit": 0
+    }
+  ],
+  "captures": [
+    {
+      "path": "docs/evidence/finals-review-fixes-577b844/synthetic-choice-1280.png",
+      "sha256": "1d014294ebfd25f939e32d8134af8944a488fb9fcbf00f7832e85b903e72eab4"
+    },
+    {
+      "path": "docs/evidence/finals-review-fixes-577b844/synthetic-choice-390.png",
+      "sha256": "b15e9c4796e2517f8958bf80e3d04f11452b872490dc5f13a223a97275afbffd"
+    },
+    {
+      "path": "docs/evidence/finals-review-fixes-577b844/synthetic-merchant-desktop.png",
+      "sha256": "6a6c1fc23edaad8f5a81f78ed5a99311d0c8c2b590f684674985ba2645220465"
+    },
+    {
+      "path": "docs/evidence/finals-review-fixes-577b844/synthetic-owner-1280.png",
+      "sha256": "2316510e556f68a3a4fe1d7f764f940cca3ac1aa4a58d4645e6f365f28d0f8fe"
+    },
+    {
+      "path": "docs/evidence/finals-review-fixes-577b844/synthetic-owner-320.png",
+      "sha256": "6d40cb44433a4602cab8524f8e1eb1408bbf3a76319b153a54bd8ff0f3a1dbb6"
+    },
+    {
+      "path": "docs/evidence/finals-review-fixes-577b844/synthetic-receipt-desktop.png",
+      "sha256": "a8d3892f4fb986e001c7c0a8229758036eb24ca4e7352a585b25a3ed988bb8a2"
+    }
+  ]
+}

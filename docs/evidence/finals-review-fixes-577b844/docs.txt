@@ -1,0 +1,2 @@
+PASS � 21 Markdown files; local links, required sections, 12 features, 10 invariants, 31 QA cases, stable references, index inventory and researched SDK peer decision.
+Application tests and live SDK/ledger integration remain unrun.

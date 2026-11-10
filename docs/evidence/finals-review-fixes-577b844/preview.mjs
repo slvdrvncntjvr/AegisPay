@@ -1,0 +1,17 @@
+import { spawn } from 'node:child_process';
+import { appendFileSync } from 'node:fs';
+import net from 'node:net';
+import { resolve } from 'node:path';
+const evidence = resolve('docs/evidence/finals-review-fixes-577b844');
+const probe = net.createServer();
+await new Promise((ok, fail) => { probe.once('error', fail); probe.listen(3033, '127.0.0.1', ok); });
+await new Promise(ok => probe.close(ok));
+const allowed = ['PATH', 'PATHEXT', 'SYSTEMROOT', 'WINDIR', 'COMSPEC', 'TEMP', 'TMP', 'USERPROFILE', 'LOCALAPPDATA', 'APPDATA', 'PROGRAMFILES', 'PROGRAMFILES(X86)', 'PROGRAMDATA', 'SYSTEMDRIVE', 'HOMEDRIVE', 'HOMEPATH'];
+const env = Object.fromEntries(Object.entries(process.env).filter(([key]) => allowed.includes(key.toUpperCase())));
+Object.assign(env, { NODE_ENV: 'production', NEXT_TELEMETRY_DISABLED: '1' });
+const child = spawn(process.execPath, [resolve('apps/web/node_modules/next/dist/bin/next'), 'start', '--hostname', '127.0.0.1', '--port', '3033'], { cwd: resolve('apps/web'), env, windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] });
+const record = value => { appendFileSync(resolve(evidence, 'preview.jsonl'), `${JSON.stringify({ at: new Date().toISOString(), ...value })}\n`); console.log(JSON.stringify(value)); };
+record({ action: 'start', pid: child.pid, port: 3033, host: '127.0.0.1', environment: 'OS allowlist only; no application or private environment loaded' });
+for (const output of [child.stdout, child.stderr]) output.on('data', data => { appendFileSync(resolve(evidence, 'preview.txt'), data); process.stdout.write(data); });
+process.stdin.on('data', data => { if (String(data).trim() === 'stop') { record({ action: 'stop', pid: child.pid }); child.kill(); } });
+child.on('exit', (exit, signal) => { record({ action: 'exit', exit, signal }); process.exitCode = exit ?? 0; process.stdin.pause(); });
