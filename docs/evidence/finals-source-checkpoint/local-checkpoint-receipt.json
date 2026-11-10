@@ -1,0 +1,26 @@
+{
+  "observedAt": "2026-11-10T06:41:42.774971+00:00",
+  "commit": "4ae5f9fe95a158d15b7d76fe0f850985d55eb653",
+  "parent": "91f968011b8a8966512928579d85f745c2de38e7",
+  "committedFiles": 77,
+  "committedPathsEqualAllowlist": true,
+  "allCommittedGitBlobsMatch": true,
+  "indexEmptyAfterCommit": true,
+  "localOnly": true,
+  "pushPerformed": false,
+  "deploymentPerformed": false,
+  "financialActionPerformed": false,
+  "realPaidResourceGate": "blocked; original identity held/unentitled",
+  "unrestrictedWhitespaceCheck": {
+    "exitCode": 1,
+    "preservedCosmeticWarnings": [
+      "apps/web/public/fonts/OFL-Bricolage-Grotesque.txt:21 trailing whitespace",
+      "docs/evidence/finals-review/task-005-review.md:77 blank line at EOF",
+      "src/server/integrations/wallet-inspection.ts:39 blank line at EOF"
+    ]
+  },
+  "whitespaceCheckExcludingExactlyThoseFiles": {
+    "exitCode": 0
+  },
+  "untrackedWorkPreserved": true
+}
