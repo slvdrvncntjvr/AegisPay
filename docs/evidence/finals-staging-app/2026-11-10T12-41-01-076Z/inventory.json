@@ -1,0 +1,22 @@
+{
+  "at": "2026-11-10T12:41:28.108Z",
+  "known_secret_full_id_raw_dsn_client_ip_matches": 0,
+  "fixture_findings_excluded_from_public_evidence": true,
+  "files": [
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "bytes": 44796,
+      "sha256": "58fb185b8ec360533c1b3b6df507fab57692b00576f5f0cb253e4a32ffab6606"
+    },
+    {
+      "path": "deployment/finals/staging-app/tls-observer.cjs",
+      "bytes": 1703,
+      "sha256": "0939c210587d077e939000c3d79a32b65afe408f79eb54e4ff52d1f2b76b7ce3"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-41-01-076Z/result.json",
+      "bytes": 34551,
+      "sha256": "31b2eb67ad55b9104c8d76d0b0bfe4f73a3ac26b4914849f5de297b7cee712e4"
+    }
+  ]
+}

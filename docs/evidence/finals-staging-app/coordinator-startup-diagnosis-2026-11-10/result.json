@@ -1,0 +1,20 @@
+{
+  "observedAt": "2026-11-10T15:13:23.347Z",
+  "scope": "single no-secret no-DB production Next startup diagnosis",
+  "port": 3038,
+  "readiness": true,
+  "probes": 3,
+  "codeBeforeCleanup": null,
+  "signalBeforeCleanup": null,
+  "spawnError": null,
+  "logCategories": [
+    "Ready in"
+  ],
+  "providerCalls": 0,
+  "databaseCalls": 0,
+  "financialActions": 0,
+  "elapsedMs": 530,
+  "logBytes": 116,
+  "logSha256": "d66f63a8d7a5f01d66e3010519eadb714605d1439c260214c39d6efe8129ed68",
+  "ownedProcessExited": true
+}

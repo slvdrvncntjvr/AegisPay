@@ -1,0 +1,38 @@
+{
+  "at": "2026-11-10T15:18:43.964Z",
+  "task": "task_eb0e2e40e433",
+  "dispatch": "ctx_7ffda5859c9c",
+  "authorization": "distinct bounded F1/F2 repair; at most three offline check executions, two startup-only launches, one refreshed capture preflight and one conditional actual gate",
+  "linked": [
+    {
+      "role": "prior_actual_marker",
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/continuation-execution.json",
+      "sha256": "8691c5aef0a83c55cb8ba73e0e1684b5720e95acb6be91ad214d9b3d991bc516"
+    },
+    {
+      "role": "prior_passing_preflight",
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/preflight-1.json",
+      "sha256": "7905fe54053bc27d85094300f75cf6826b6ac1afc650620806092e0adecda797"
+    },
+    {
+      "role": "coordinator_database_prerequisite",
+      "path": "docs/evidence/finals-staging-app/coordinator-db-diagnosis-2026-11-10/after-rule-rotation.json",
+      "sha256": "c47e792c857dd6741804ed5a66fe483785f1a13210eabfbe37ff275ee5081ada"
+    },
+    {
+      "role": "unchanged_capture_source",
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "sha256": "56ffa717115e77e02c90aeec82cfa0ceb91804cbb9a9f4fba666c8d9bc1ac19c"
+    },
+    {
+      "role": "review",
+      "path": "docs/evidence/finals-review/staging-app-2026-11-10/report.md",
+      "sha256": "0161e39980d84b22c24a3acde1d5f8febcf4abb8412253bd458c8886b2249a88"
+    },
+    {
+      "role": "coordinator_startup_diagnosis",
+      "path": "docs/evidence/finals-staging-app/coordinator-startup-diagnosis-2026-11-10/result.json",
+      "sha256": "aea425a0c19f828ee8d8df7d109488f5ff4430bdb6d699494ce0b61b912605db"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "attempt": 1,
+  "started_at": "2026-11-10T14:51:38.119Z",
+  "source_files": [
+    {
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "sha256": "b846032d42ea705ec2922c14ebb4c90ba094c1f6c8e261a56dec9372561de1b5"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-preflight.ts",
+      "sha256": "9c5f9afc142d184a06f2537f014495d888c7c5fa5a31333a830d8d3eb143327d"
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "sha256": "0e5ba0387a903b77902da2823b5cfaa00bf966efbcd198dc05009fec99b8c7d8"
+    }
+  ]
+}

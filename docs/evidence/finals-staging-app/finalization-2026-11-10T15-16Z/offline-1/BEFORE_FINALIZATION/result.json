@@ -1,0 +1,5 @@
+{
+  "outcome": "passed",
+  "kind": "synthetic offline fixture",
+  "requires_terminal_finalization_and_observed_exit": true
+}

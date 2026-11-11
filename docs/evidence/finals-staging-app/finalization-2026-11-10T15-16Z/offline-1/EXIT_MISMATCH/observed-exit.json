@@ -1,0 +1,5 @@
+{
+  "exit_code": 1,
+  "finalization_sha256": "d2f5918f82d4ba789682f2ed3d3fd49679887d4427a1d4f5b4feaea0afe0b841",
+  "source": "external command runner observed actual process exit"
+}

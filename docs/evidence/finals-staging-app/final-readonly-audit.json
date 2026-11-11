@@ -1,0 +1,165 @@
+{
+  "started_at": "2026-11-10T12:43:32.114Z",
+  "purpose": "final read-only audit; failed TASK-019 gate remains unfinished",
+  "outcome": "passed",
+  "qualification_gate_outcome": "failed",
+  "tls": {
+    "encrypted": true,
+    "authorized": true,
+    "hostname_verified": true,
+    "protocol": "TLSv1.3",
+    "real_createStore": true,
+    "max_connections": 1
+  },
+  "final_counts": {
+    "owner": 1,
+    "merchant": 1,
+    "agent": 1,
+    "resource": 2,
+    "schema_migration": 4,
+    "session": 8,
+    "auth_throttle": 13,
+    "agent_run": 0,
+    "quote": 0,
+    "payment_attempt": 0,
+    "payment_evidence": 0,
+    "entitlement": 0,
+    "job": 0,
+    "wallet_operation": 0,
+    "merchant_claim": 0,
+    "run_event": 0,
+    "audit_event": 0,
+    "payment_accept_key": 0
+  },
+  "sessions": {
+    "total": 8,
+    "revoked": 8,
+    "unrevoked": 0
+  },
+  "login_throttles": {
+    "owner": {
+      "attempts": 5,
+      "window_active": true
+    },
+    "merchant": {
+      "attempts": 3,
+      "window_active": true
+    }
+  },
+  "agent": {
+    "status": "unprovisioned",
+    "nonce": "0",
+    "policy_stroops": "0",
+    "expiry_epoch": true,
+    "observed_ledger_null": true
+  },
+  "migration_history": [
+    {
+      "name": "0000_foundation.sql",
+      "sha256": "87b1c61455b75829c8d123fa0b4a6798dd0d280a32271d10621a63fb58d6a8b8"
+    },
+    {
+      "name": "0001_financial_guards.sql",
+      "sha256": "c3874d0db27af1b4606f32620142f11616244d8ec5dda0e61ad0b9d0413f78d2"
+    },
+    {
+      "name": "0002_acceptance_keys.sql",
+      "sha256": "01ce6252cd258ca88657014b225ef49aace0c0ea0a4213754a1ee394b198a06b"
+    },
+    {
+      "name": "0003_terminal_evidence_guard.sql",
+      "sha256": "806391307230c2f4b0867c6693dc45b0c491a64b2eb1da7844e4ca64ad3faf7a"
+    }
+  ],
+  "original_staging_config_sha256": "d0af8bf40b67722107848b68416daeed76682881181bb986cf5bd305086afbdd",
+  "original_staging_config_unchanged": true,
+  "last_gate_receipt": "2026-11-10T12-41-01-076Z/result.json",
+  "build_id_sha256": "8377827b6c1b2e97c1ceabca1c0a1e00b8407c51ead728dfdff07100973b9a9c",
+  "source_sha256": "1eca1bfbfc838513ced491d53aedeb5e173400e935125f45f03694e4874acc00",
+  "source_files_verified": 72,
+  "browser_bundle_boundary": {
+    "server_fixture_matches": 10,
+    "client_fixture_matches": 0,
+    "all_client_assets_also_fetched_over_http": 16,
+    "server_fixture_text_not_published": true
+  },
+  "build_inventory_sha256": "3e6d864cf2f90759c110bbb283cbe53d4028a6b63c199a8a03f81662c12f07b0",
+  "build_inventory_files": 233,
+  "public_inventory": [
+    {
+      "path": "deployment/finals/staging-app/audit.ts",
+      "bytes": 10926,
+      "sha256": "c9bf1ca2c2675db7947f314a9008e91809412128b50f82970b735b94d81d39f3"
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "bytes": 44796,
+      "sha256": "58fb185b8ec360533c1b3b6df507fab57692b00576f5f0cb253e4a32ffab6606"
+    },
+    {
+      "path": "deployment/finals/staging-app/tls-observer.cjs",
+      "bytes": 1703,
+      "sha256": "0939c210587d077e939000c3d79a32b65afe408f79eb54e4ff52d1f2b76b7ce3"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-35-49-545Z/inventory.json",
+      "bytes": 730,
+      "sha256": "c467dcbb4f61b7e8ed43417c50514990d2c4e24e5287dfedc23f56ff37437657"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-35-49-545Z/result.json",
+      "bytes": 1027,
+      "sha256": "7a3e231823fcb95d3637cb574cceb51c5fda2138f665b65989c455bbb98ce958"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-37-22-303Z/checkpoint-before-build.json",
+      "bytes": 15090,
+      "sha256": "47ebdd33771f3c4a14f85859ea91a67dd9bb9c76f011944eb863ecaf32b60311"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-37-22-303Z/inventory.json",
+      "bytes": 953,
+      "sha256": "e870c67ddf8041fb34698f554448fc468b0ec9e203879433618df6e93f4c6aef"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-37-22-303Z/result.json",
+      "bytes": 20544,
+      "sha256": "cdcc07207f3a7891b211c36a9683fd1cc6cea496759eb7f6dcc842439e8c1a0b"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-39-15-029Z/inventory.json",
+      "bytes": 731,
+      "sha256": "cdf685b0f2d9f2b9acbdc56557857be79e8f6fcfd4a44a9a0685ec48da4ce60b"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-39-15-029Z/result.json",
+      "bytes": 32669,
+      "sha256": "31b3159c196d51944818337e28d6632be8fbdb79d0e5b597c8774cc44c0adc36"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-41-01-076Z/inventory.json",
+      "bytes": 731,
+      "sha256": "97de49d8035cae9a803b917cd7da010cf2a302e77afaaf7d78c36192da892999"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-41-01-076Z/result.json",
+      "bytes": 34551,
+      "sha256": "31b2eb67ad55b9104c8d76d0b0bfe4f73a3ac26b4914849f5de297b7cee712e4"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/build-inventory.json",
+      "bytes": 62270,
+      "sha256": "dd14ce3088ae7881d5780724933125851ebb326bd9a4bd23de2480307357eaa5"
+    }
+  ],
+  "hygiene": {
+    "known_secret_matches": 0,
+    "full_provider_id_matches": 0,
+    "raw_dsn_matches": 0,
+    "client_ip_matches": 0,
+    "protected_findings_matches": 0,
+    "memory_only": true
+  },
+  "owned_port_no_listener": true,
+  "finished_at": "2026-11-10T12:43:37.252Z"
+}

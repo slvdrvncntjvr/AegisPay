@@ -1,0 +1,39 @@
+{
+  "at": "2026-11-10T14:39:34.464Z",
+  "documentation": [
+    {
+      "command": [
+        "python",
+        "tools/check-docs.py"
+      ],
+      "exit": 0,
+      "output_sha256": "56af1170024fd9057586a5b41795fea08311bcea836f3e7859076b7c45e2b97e"
+    },
+    {
+      "command": [
+        "python",
+        "fmd/tools/check-implementation-plan.py",
+        "docs/implementation-plan.md",
+        "--strict"
+      ],
+      "exit": 0,
+      "output_sha256": "f6643a95cd03387f26f0aaaa8ffc09610ff242faaba8e3e3cc3636a8209d87c3"
+    }
+  ],
+  "syntax_checks_previously_observed_exit_0": [
+    "capture.ts",
+    "capture-preflight.ts",
+    "capture-followup-audit.ts",
+    "qualify.ts"
+  ],
+  "preflight_exit": 1,
+  "preflight_safe_failure": "SYNTHETIC_ENTITY_CHANGED",
+  "actual_staging_rerun_attempted": false,
+  "actual_staging_exit": null,
+  "offline_audit_exit": 0,
+  "offline_audit_outcome": "passed",
+  "original_files_verified": 16,
+  "custody_files_verified": 4,
+  "source_files_verified": 72,
+  "build_files_verified": 233
+}

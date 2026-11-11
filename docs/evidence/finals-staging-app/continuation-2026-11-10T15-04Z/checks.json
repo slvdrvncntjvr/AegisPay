@@ -1,0 +1,165 @@
+{
+  "at": "2026-11-10T15:11:32.817Z",
+  "documentation": [
+    {
+      "command": [
+        "python",
+        "tools/check-docs.py"
+      ],
+      "exit": 0,
+      "output_sha256": "56af1170024fd9057586a5b41795fea08311bcea836f3e7859076b7c45e2b97e"
+    },
+    {
+      "command": [
+        "python",
+        "fmd/tools/check-implementation-plan.py",
+        "docs/implementation-plan.md",
+        "--strict"
+      ],
+      "exit": 0,
+      "output_sha256": "f6643a95cd03387f26f0aaaa8ffc09610ff242faaba8e3e3cc3636a8209d87c3"
+    }
+  ],
+  "syntax": [
+    {
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation.ts",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-preflight.ts",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation-audit.ts",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "source_bound_passing_receipt_still_matches": true,
+  "unchanged_proxy_capture_sha256": "56ffa717115e77e02c90aeec82cfa0ceb91804cbb9a9f4fba666c8d9bc1ac19c",
+  "synthetic_executions": 1,
+  "synthetic_exit": 0,
+  "synthetic_contexts": 2,
+  "actual_executions": 1,
+  "actual_exit": 1,
+  "actual_failure": "PRODUCTION_NEXT_START_FAILED",
+  "actual_failure_stage": "production-http",
+  "actual_http_checks": 0,
+  "actual_browser_cases": 0,
+  "actual_helper_tls": {
+    "real_createStore": true,
+    "encrypted": true,
+    "authorized": true,
+    "hostname_verified": true,
+    "wrong_hostname_rejected": true,
+    "protocol": "TLSv1.3",
+    "server_pg_stat_ssl": true,
+    "server_tls_version": "TLSv1.3",
+    "pool_max": 1,
+    "server_max_connections": 100,
+    "helper_connections": 1,
+    "production_app_pool_max": 10,
+    "requests_serialized": true
+  },
+  "actual_database_time": "2026-11-10T15:06:58.485Z",
+  "actual_budget_sufficient": true,
+  "final_counts": {
+    "owner": 1,
+    "merchant": 1,
+    "agent": 1,
+    "resource": 2,
+    "schema_migration": 4,
+    "session": 8,
+    "auth_throttle": 13,
+    "agent_run": 0,
+    "quote": 0,
+    "payment_attempt": 0,
+    "payment_evidence": 0,
+    "entitlement": 0,
+    "job": 0,
+    "wallet_operation": 0,
+    "merchant_claim": 0,
+    "run_event": 0,
+    "audit_event": 0,
+    "payment_accept_key": 0
+  },
+  "final_sessions": {
+    "total": 8,
+    "revoked": 8,
+    "unrevoked": 0
+  },
+  "audit_exit": 0,
+  "audit_outcome": "passed",
+  "independent_database_reconnect_after_failure": false,
+  "bundle_boundary": {
+    "server_fixture_matches": 10,
+    "client_fixture_matches": 0,
+    "source_build_files_unchanged": true
+  },
+  "hygiene": {
+    "known_secret_matches": 0,
+    "full_provider_id_matches": 0,
+    "raw_dsn_matches": 0,
+    "client_ip_matches": 0,
+    "protected_fixture_matches": 0,
+    "raw_values_memory_only": true
+  },
+  "preserved_historical_public_files": 39,
+  "custody_files_unchanged": 6,
+  "source_files_unchanged": 72,
+  "build_files_unchanged": 233,
+  "artifacts": [
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/report.md",
+      "sha256": "17768ed7b598d9c7386d0c696738c8fcb2ec58ea74103130ebad1a9bdd3a2a2a"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/preserved-baseline.json",
+      "sha256": "ac1a049d09017f526235b186fd2b39a936ad3a8d508ce9da266647d7a98ef30b"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/continuation-authorization.json",
+      "sha256": "893f132a0a29d779bcf89fd4d3f834b287093c6154e70ea3c5869c090ae83862"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/continuation-source-binding.json",
+      "sha256": "3c40138294856c76118a52971e4b41a6176ebc0218cdb3df1fc323fb45ed33a5"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/continuation-execution.json",
+      "sha256": "8691c5aef0a83c55cb8ba73e0e1684b5720e95acb6be91ad214d9b3d991bc516"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/preflight-1.json",
+      "sha256": "7905fe54053bc27d85094300f75cf6826b6ac1afc650620806092e0adecda797"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/synthetic-execution-1.json",
+      "sha256": "61d3ddc64b6f773846922c4fae843322b43c07303e50e1040937f9c03ef02afb"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/actual/result.json",
+      "sha256": "19ac18461d72fb77f896c1fb40f0efafc5c3e2b733b24250e4ed1f1148313d7a"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/actual/inventory.json",
+      "sha256": "13a750b1f812d17037949ca4b13a2e11df243ccd211d36622c1f8a004a3996ff"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/final-continuation-audit.json",
+      "sha256": "b0057cbb7c006ae20e83c3088bfd81333f16a907d9e6674be945ebea82aa2f52"
+    }
+  ]
+}

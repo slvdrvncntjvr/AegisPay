@@ -1,0 +1,43 @@
+{
+  "at": "2026-11-10T15:25:19.448Z",
+  "authorization_sha256": "9c34f85727db8488210e016ff98b90ff937527db375685112074a4cabc519b50",
+  "repair_prerequisites_sha256": "f50b29d56a07d7e7df429327b86c3bb8fde2aad247b8387b3a67bf57861cc6c1",
+  "source_files": [
+    {
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "sha256": "56ffa717115e77e02c90aeec82cfa0ceb91804cbb9a9f4fba666c8d9bc1ac19c"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-preflight.ts",
+      "sha256": "80932c305f4b374135d0a001a1924934f13778f72f151adf4089d902726f1b8a"
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "sha256": "7d91ff89c79b492a672f8d22ca9e1983eea573a7d24bf89888338c18f34725ec"
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation.ts",
+      "sha256": "767ad98f62a595c7f449c4c572574c944d17747a7a69290f2810fe1361a9be6a"
+    },
+    {
+      "path": "deployment/finals/staging-app/evidence-terminal.ts",
+      "sha256": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3"
+    },
+    {
+      "path": "deployment/finals/staging-app/startup.ts",
+      "sha256": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54"
+    },
+    {
+      "path": "deployment/finals/staging-app/startup-only.ts",
+      "sha256": "75b32720af0f259d6f4401d5d10ea70f17e42e6c94cfeaa2aedeb6dcf46f0d9b"
+    },
+    {
+      "path": "deployment/finals/staging-app/tooling-checks.ts",
+      "sha256": "ad7e74f749acf5d7e0f0b81f3df9aa0dbb194d08c3cd544167ab160d33d8b9b7"
+    },
+    {
+      "path": "deployment/finals/staging-app/final-audit.ts",
+      "sha256": "4ae498121aa77f34815a86863305c7351ff36474480e7d7ba1268e04e051e9c8"
+    }
+  ]
+}

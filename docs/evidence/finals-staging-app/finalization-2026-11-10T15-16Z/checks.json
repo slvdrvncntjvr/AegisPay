@@ -1,0 +1,236 @@
+{
+  "at": "2026-11-10T15:31:52.326Z",
+  "documentation": [
+    {
+      "command": [
+        "python",
+        "tools/check-docs.py"
+      ],
+      "exit": 0,
+      "output_sha256": "56af1170024fd9057586a5b41795fea08311bcea836f3e7859076b7c45e2b97e"
+    },
+    {
+      "command": [
+        "python",
+        "fmd/tools/check-implementation-plan.py",
+        "docs/implementation-plan.md",
+        "--strict"
+      ],
+      "exit": 0,
+      "output_sha256": "f6643a95cd03387f26f0aaaa8ffc09610ff242faaba8e3e3cc3636a8209d87c3"
+    }
+  ],
+  "syntax": [
+    {
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-preflight.ts",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation.ts",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deployment/finals/staging-app/evidence-terminal.ts",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deployment/finals/staging-app/startup.ts",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deployment/finals/staging-app/startup-only.ts",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deployment/finals/staging-app/tooling-checks.ts",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deployment/finals/staging-app/final-audit.ts",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "all_source_binding_hashes_still_match": true,
+  "offline_protocol_executions": 2,
+  "startup_only_launches": 1,
+  "refreshed_capture_preflights": 1,
+  "actual_executions": 1,
+  "observed_actual_exit": 1,
+  "terminal_accepted": true,
+  "terminal_passed": false,
+  "actual_outcome": "failed",
+  "actual_failed_stage": "real-browser",
+  "actual_safe_failure": "QUALIFICATION_ASSERTION_OR_DEPENDENCY_FAILED",
+  "capture_diagnostic": "DRAIN_TIMEOUT_AFTER_TRANSITION",
+  "http_checks": 37,
+  "http_statuses_match": true,
+  "client_assets": 16,
+  "complete_browser_cases": 0,
+  "startup": {
+    "classification": "READY",
+    "tcp_ready": true,
+    "probes": 3,
+    "probe_results": {
+      "connect": 1,
+      "refused": 2,
+      "timeout": 0,
+      "other": 0
+    },
+    "elapsed_ms": 533,
+    "pre_cleanup_exit_code": null,
+    "pre_cleanup_signal_code": null,
+    "legacy_strict_exit_code_null": true,
+    "spawn_error": null,
+    "natural_exit_observed": false,
+    "log_categories": [
+      "READY_BANNER",
+      "NEXT_BANNER"
+    ],
+    "log_bytes": 116,
+    "log_sha256": "87d5c73d5bc18588e0057cfe2814c3b542c2e4392cff3c1afc95f7f84fff77dc",
+    "staging_tls_observations": 0
+  },
+  "app_pool_tls": [
+    {
+      "resource_matches": true,
+      "encrypted": true,
+      "authorized": true,
+      "hostname_verified": true,
+      "wrong_hostname_rejected": true,
+      "strict_configuration": true,
+      "protocol": "TLSv1.3",
+      "pool_max": 10,
+      "connections_at_observation": 1
+    }
+  ],
+  "response_hygiene": {
+    "response_bodies": 165,
+    "response_bytes": 3497795,
+    "fixture_matches": 0,
+    "known_secret_matches": 0,
+    "full_provider_id_matches": 0,
+    "raw_dsn_matches": 0,
+    "client_ip_matches": 0
+  },
+  "final_counts": {
+    "owner": 1,
+    "merchant": 1,
+    "agent": 1,
+    "resource": 2,
+    "schema_migration": 4,
+    "session": 10,
+    "auth_throttle": 15,
+    "agent_run": 0,
+    "quote": 0,
+    "payment_attempt": 0,
+    "payment_evidence": 0,
+    "entitlement": 0,
+    "job": 0,
+    "wallet_operation": 0,
+    "merchant_claim": 0,
+    "run_event": 0,
+    "audit_event": 0,
+    "payment_accept_key": 0
+  },
+  "final_sessions": {
+    "total": 10,
+    "revoked": 10,
+    "unrevoked": 0
+  },
+  "final_audit_exit": 0,
+  "final_audit_outcome": "passed",
+  "preserved_public_files": 52,
+  "custody_files_unchanged": 6,
+  "source_files_unchanged": 72,
+  "build_files_unchanged": 233,
+  "bundle_boundary": {
+    "server_fixture_matches": 10,
+    "client_fixture_matches": 0,
+    "source_build_files_unchanged": true
+  },
+  "hygiene": {
+    "known_secret_matches": 0,
+    "full_provider_id_matches": 0,
+    "raw_dsn_matches": 0,
+    "client_ip_matches": 0,
+    "protected_fixture_matches": 0,
+    "raw_values_memory_only": true
+  },
+  "post_audit_report_link_correction": {
+    "performed": true,
+    "only_change": "correct relative link to existing independent review; no bound source or gate artifact change",
+    "report_sha256_in_audit_snapshot": "16f031075093b505e4f3ccfdeb320922c97543126c2452062293053fdf8c82c4",
+    "final_report_sha256": "58f58f2e672833dfad78d66063f41d6baf539b173b7270429a303e374abd76bc"
+  },
+  "artifacts": [
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/report.md",
+      "sha256": "58f58f2e672833dfad78d66063f41d6baf539b173b7270429a303e374abd76bc"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/preflight-1.json",
+      "sha256": "adf4d175a20985ce4759c3076118e9ccd50f15c626e7df7bca34816a234b8ce7"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/continuation-source-binding.json",
+      "sha256": "be44af2d616b816204a6876c2cc166b415ac73a6f14dfe57d70b09308c3e4393"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/continuation-execution.json",
+      "sha256": "2fe49b34eba216208ea97e68d5aa46c5ab158d6da6bfdb41bb397713b76ec035"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/repair-prerequisites.json",
+      "sha256": "f50b29d56a07d7e7df429327b86c3bb8fde2aad247b8387b3a67bf57861cc6c1"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-check-1.json",
+      "sha256": "c94f03086d5c48e57f84d53e5fa7b075214b67d7dec190831956934f991c08db"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-check-2.json",
+      "sha256": "c94f03086d5c48e57f84d53e5fa7b075214b67d7dec190831956934f991c08db"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/startup-only-1.json",
+      "sha256": "555e180107568045c3f90c90a6e6dbd7279e3d8d83c6649e910874a5ad4bbfde"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/result.json",
+      "sha256": "96286d3e04c4812b580f626612e7d837bc72f9dcfbff4b810ce763781be72f5d"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/inventory.json",
+      "sha256": "6e46a76ad88dbc7604c2525ddcf340eceedb6468c20fe2a756904fc965855a60"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/finalization.json",
+      "sha256": "cdcc9eb3f3d4e88abd7931074391524b2038c06c1b4010141d0bb811200ffab6"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/observed-exit.json",
+      "sha256": "d9d3737a2c9d9c0de937be6fb254c71382d8d278ed75bae8c24ad3ec03ae7524"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/final-terminal-audit.json",
+      "sha256": "9a38917f39c6f4d1ada253025381033b09473d6ea3f7cadef4dd53696ed9c2aa"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "at": "2026-11-10T15:05:18.933Z",
+  "task": "task_8fd0bc2e0af5",
+  "dispatch": "ctx_e52040b71ecb",
+  "authorization": "new coordinator-directed continuation after externally repaired exact-database client IPv4 prerequisite; at most one synthetic and one actual invocation",
+  "linked": [
+    {
+      "role": "prior_actual_marker",
+      "path": "docs/evidence/finals-staging-app/proxy-2026-11-10T14-43Z/actual-execution.json",
+      "sha256": "82d80efd9b408110a12d64b5d1e436096d352b161da53f503aad5375cf5095d3"
+    },
+    {
+      "role": "prior_passing_preflight",
+      "path": "docs/evidence/finals-staging-app/proxy-2026-11-10T14-43Z/preflight-2.json",
+      "sha256": "0f76d9995132b83f3e3bdfee92881aedfa33adcb05b3408d19bf42539fb3d198"
+    },
+    {
+      "role": "coordinator_database_prerequisite",
+      "path": "docs/evidence/finals-staging-app/coordinator-db-diagnosis-2026-11-10/after-rule-rotation.json",
+      "sha256": "c47e792c857dd6741804ed5a66fe483785f1a13210eabfbe37ff275ee5081ada"
+    },
+    {
+      "role": "unchanged_capture_source",
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "sha256": "56ffa717115e77e02c90aeec82cfa0ceb91804cbb9a9f4fba666c8d9bc1ac19c"
+    }
+  ]
+}

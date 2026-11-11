@@ -1,0 +1,58 @@
+{
+  "kind": "reviewer static file checks only; no application/database/provider execution",
+  "source": {
+    "files": 72,
+    "changed_paths": []
+  },
+  "build": {
+    "files": 233,
+    "changed_paths": []
+  },
+  "historical_public": {
+    "files": 23,
+    "changed_paths": []
+  },
+  "build_id_matches": true,
+  "continuation": {
+    "source_files": [
+      {
+        "path": "deployment/finals/staging-app/proxy-capture.ts",
+        "sha256": "56ffa717115e77e02c90aeec82cfa0ceb91804cbb9a9f4fba666c8d9bc1ac19c"
+      },
+      {
+        "path": "deployment/finals/staging-app/capture-preflight.ts",
+        "sha256": "80932c305f4b374135d0a001a1924934f13778f72f151adf4089d902726f1b8a"
+      },
+      {
+        "path": "deployment/finals/staging-app/qualify.ts",
+        "sha256": "bbe89a7273d2c2ce910c3ad233fd55c9fcdca699fb81a8e0067a119406efe1fd"
+      },
+      {
+        "path": "deployment/finals/staging-app/continuation.ts",
+        "sha256": "53382c1932f2487b07fc0b1ec5002ca6d481abf9ba323204ac3351ee253228f5"
+      }
+    ],
+    "source_files_match": true,
+    "source_maps_match_across_binding_marker_preflight_actual": true,
+    "authorization_binding_matches": true,
+    "linked_prior_receipts_match": true,
+    "preflight_hash_matches": true,
+    "preflight_outcome": "passed",
+    "actual_outcome": "failed",
+    "actual_failure": "PRODUCTION_NEXT_START_FAILED",
+    "actual_result_sha256": "19ac18461d72fb77f896c1fb40f0efafc5c3e2b733b24250e4ed1f1148313d7a",
+    "actual_http_checks": 0,
+    "actual_browser_cases": 0,
+    "actual_app_tls_connections": 0
+  },
+  "public_pattern_scan": {
+    "files": 51,
+    "match_counts": {
+      "raw_credential_dsn": 0,
+      "stellar_secret_seed": 0,
+      "full_provider_id": 0,
+      "raw_session_cookie": 0
+    },
+    "limits": "Pattern scan only; no access to private known-value corpus, private IP permit, or protected custody. No raw matches retained."
+  }
+}

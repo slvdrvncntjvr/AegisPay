@@ -1,0 +1,274 @@
+{
+  "kind": "synthetic proxy/capture preflight only; not app/financial evidence",
+  "started_at": "2026-11-10T14:51:38.119Z",
+  "outcome": "failed",
+  "contexts": [
+    {
+      "context": 0,
+      "completed": false,
+      "browser_requests": 11,
+      "upstream_requests": 11,
+      "exact_request_count_maps_match": true,
+      "canceled_before_proxy": 0,
+      "proxy_only_requests": 0,
+      "delivered_responses": 10,
+      "missing_delivered_captures": 0,
+      "canceled_requests": 0,
+      "canceled_prefetches": 0,
+      "upstream_captured": 11,
+      "pending_captures": 0,
+      "pending_browser_requests": 1,
+      "failures": 2,
+      "browser_cache_disabled": true,
+      "raw_urls_headers_bodies_errors_exported": false,
+      "diagnostics": [
+        {
+          "method": "OTHER",
+          "status": null,
+          "path_category": "OTHER",
+          "category": "DRAIN_BEFORE_NAVIGATION"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "DELIVERED_AFTER_CAPTURE"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "DELIVERED_AFTER_CAPTURE"
+        },
+        {
+          "method": "OTHER",
+          "status": null,
+          "path_category": "OTHER",
+          "category": "DRAIN_AFTER_TRANSITION"
+        },
+        {
+          "method": "POST",
+          "status": 204,
+          "path_category": "SYNTHETIC",
+          "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+        },
+        {
+          "method": "POST",
+          "status": 204,
+          "path_category": "SYNTHETIC",
+          "category": "DELIVERED_AFTER_CAPTURE"
+        },
+        {
+          "method": "OTHER",
+          "status": null,
+          "path_category": "OTHER",
+          "category": "DRAIN_AFTER_TRANSITION"
+        },
+        {
+          "method": "OTHER",
+          "status": null,
+          "path_category": "OTHER",
+          "category": "DRAIN_BEFORE_NAVIGATION"
+        },
+        {
+          "method": "GET",
+          "status": 303,
+          "path_category": "SYNTHETIC",
+          "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+        },
+        {
+          "method": "GET",
+          "status": 303,
+          "path_category": "SYNTHETIC",
+          "category": "DELIVERED_AFTER_CAPTURE"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "DELIVERED_AFTER_CAPTURE"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "DELIVERED_AFTER_CAPTURE"
+        },
+        {
+          "method": "OTHER",
+          "status": null,
+          "path_category": "OTHER",
+          "category": "DRAIN_AFTER_TRANSITION"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "DELIVERED_AFTER_CAPTURE"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "DELIVERED_AFTER_CAPTURE"
+        },
+        {
+          "method": "OTHER",
+          "status": null,
+          "path_category": "OTHER",
+          "category": "DRAIN_AFTER_TRANSITION"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "DELIVERED_AFTER_CAPTURE"
+        },
+        {
+          "method": "GET",
+          "status": null,
+          "path_category": "SYNTHETIC",
+          "category": "CLIENT_CANCELED"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "CANCELED_CAPTURE_RETAINED"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "DELIVERED_AFTER_CAPTURE"
+        },
+        {
+          "method": "OTHER",
+          "status": null,
+          "path_category": "OTHER",
+          "category": "DRAIN_TIMEOUT_AFTER_TRANSITION"
+        },
+        {
+          "method": "OTHER",
+          "status": null,
+          "path_category": "OTHER",
+          "category": "DRAIN_TIMEOUT_BEFORE_CLOSE"
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "context": 0,
+      "independent_empty_cookie_context": true,
+      "empty_204_preserved": true,
+      "duplicate_http_only_cookies": true,
+      "redirect_body_and_cookie_preserved": true,
+      "gzip_decoded_matches": true,
+      "gzip_headers_match": true,
+      "gzip_upstream_raw_scanned": true,
+      "gzip_decoded_scanned": true,
+      "gzip_synthetic_decoded_sha256": "b03552d1d99a15269bd1d1499387f2246266ed5420bd9052d1f16fe9634103a8",
+      "gzip_synthetic_upstream_sha256": "93636193cb162021279ef1ba8ca035943fcc00c25861b886d0f1b57487e4cb3a",
+      "binary_matches": true,
+      "binary_headers_match": true,
+      "binary_upstream_scanned": true,
+      "binary_synthetic_sha256": "f58452139dc66886579a1e60a27c45ccfca7ff93ac0490c01a0f26e6c3dbed02",
+      "safe_failure": "BROWSER_CAPTURE_DRAIN_TIMEOUT",
+      "capture_detach_failed": true,
+      "post_disposal_browser_body_available": false
+    }
+  ],
+  "source_files": [
+    {
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "sha256": "b846032d42ea705ec2922c14ebb4c90ba094c1f6c8e261a56dec9372561de1b5"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-preflight.ts",
+      "sha256": "9c5f9afc142d184a06f2537f014495d888c7c5fa5a31333a830d8d3eb143327d"
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "sha256": "0e5ba0387a903b77902da2823b5cfaa00bf966efbcd198dc05009fec99b8c7d8"
+    }
+  ],
+  "installed_browser_version": "156.0.8078.4",
+  "safe_failure": "BROWSER_CAPTURE_DRAIN_TIMEOUT",
+  "proxy": {
+    "transport": "fixed-target normal Node HTTP reverse observation proxy",
+    "upstream_requests": 11,
+    "upstream_captured": 11,
+    "upstream_entity_bytes": 513,
+    "pending": 0,
+    "failures": 0,
+    "redirect_following": 0,
+    "retries": 0,
+    "cookie_jar": false,
+    "response_overrides": false,
+    "original_status_statusMessage_raw_duplicate_headers_entity": true,
+    "decoded_compressed_entities_also_scanned": true,
+    "request_body_limit": 65536,
+    "response_body_limit": 16777216,
+    "upstream_timeout_ms": 20000,
+    "total_request_timeout_ms": 25000,
+    "limits": "loopback only; fully buffers responses and alters streaming/timing/hop framing; browser cache disabled for capture contexts; no unintercepted/native-cache/hosted-egress qualification"
+  },
+  "fixture_request_fidelity_failures": 0,
+  "attempt": 1,
+  "finished_at": "2026-11-10T14:52:33.493Z"
+}

@@ -1,0 +1,37 @@
+{
+  "task": "TASK-019",
+  "started_at": "2026-11-10T12:35:49.552Z",
+  "outcome": "failed",
+  "scope": "loopback production Next.js against exact isolated cloud staging DB; no hosted app or release acceptance",
+  "commands": [],
+  "checks": [],
+  "http": [],
+  "browser": [],
+  "app_pool_tls": [],
+  "cleanup": {},
+  "failed_stage": "configuration",
+  "safe_failure": "PROTECTED_ACL_OPERATION_FAILED",
+  "app_logs": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "hygiene": {
+      "fixture_matches": 0,
+      "known_secret_matches": 0,
+      "full_provider_id_matches": 0,
+      "raw_dsn_matches": 0,
+      "client_ip_matches": 0
+    },
+    "raw_logs_saved": false
+  },
+  "response_hygiene": {
+    "response_bodies": 0,
+    "response_bytes": 0,
+    "fixture_matches": 0,
+    "known_secret_matches": 0,
+    "full_provider_id_matches": 0,
+    "raw_dsn_matches": 0,
+    "client_ip_matches": 0
+  },
+  "docs_check_failed": true,
+  "finished_at": "2026-11-10T12:35:52.313Z"
+}

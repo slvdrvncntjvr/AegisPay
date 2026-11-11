@@ -1,0 +1,62 @@
+{
+  "at": "2026-11-10T15:07:12.459Z",
+  "known_secret_full_id_raw_dsn_client_ip_matches": 0,
+  "fixture_findings_excluded_from_public_evidence": true,
+  "files": [
+    {
+      "path": "deployment/finals/staging-app/README.md",
+      "bytes": 3835,
+      "sha256": "6d5748115209cf9abb6a38fd090f44868aa8e6125c99c0087c4965ed43a36e02"
+    },
+    {
+      "path": "deployment/finals/staging-app/audit.ts",
+      "bytes": 10926,
+      "sha256": "c9bf1ca2c2675db7947f314a9008e91809412128b50f82970b735b94d81d39f3"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-followup-audit.ts",
+      "bytes": 5982,
+      "sha256": "10caf07ba0b3da1d1363e57edd0b4c2c319dd2179d33ab75b329e545e8e72a6a"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-preflight.ts",
+      "bytes": 12181,
+      "sha256": "80932c305f4b374135d0a001a1924934f13778f72f151adf4089d902726f1b8a"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture.ts",
+      "bytes": 10206,
+      "sha256": "6fa2b3e119606e7f578ce6742a482ea10acbd2d2ca208b86f62467bc119e4c11"
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation.ts",
+      "bytes": 474,
+      "sha256": "53382c1932f2487b07fc0b1ec5002ca6d481abf9ba323204ac3351ee253228f5"
+    },
+    {
+      "path": "deployment/finals/staging-app/proxy-audit.ts",
+      "bytes": 6996,
+      "sha256": "143ef7f4f89f74b150999d7de99f427a2f40caff7962d2738a3838491cf1c316"
+    },
+    {
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "bytes": 13467,
+      "sha256": "56ffa717115e77e02c90aeec82cfa0ceb91804cbb9a9f4fba666c8d9bc1ac19c"
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "bytes": 51587,
+      "sha256": "bbe89a7273d2c2ce910c3ad233fd55c9fcdca699fb81a8e0067a119406efe1fd"
+    },
+    {
+      "path": "deployment/finals/staging-app/tls-observer.cjs",
+      "bytes": 1703,
+      "sha256": "0939c210587d077e939000c3d79a32b65afe408f79eb54e4ff52d1f2b76b7ce3"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/actual/result.json",
+      "bytes": 22815,
+      "sha256": "19ac18461d72fb77f896c1fb40f0efafc5c3e2b733b24250e4ed1f1148313d7a"
+    }
+  ]
+}

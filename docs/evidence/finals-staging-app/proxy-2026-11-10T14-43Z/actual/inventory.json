@@ -1,0 +1,57 @@
+{
+  "at": "2026-11-10T14:55:15.573Z",
+  "known_secret_full_id_raw_dsn_client_ip_matches": 0,
+  "fixture_findings_excluded_from_public_evidence": true,
+  "files": [
+    {
+      "path": "deployment/finals/staging-app/README.md",
+      "bytes": 3835,
+      "sha256": "6d5748115209cf9abb6a38fd090f44868aa8e6125c99c0087c4965ed43a36e02"
+    },
+    {
+      "path": "deployment/finals/staging-app/audit.ts",
+      "bytes": 10926,
+      "sha256": "c9bf1ca2c2675db7947f314a9008e91809412128b50f82970b735b94d81d39f3"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-followup-audit.ts",
+      "bytes": 5982,
+      "sha256": "10caf07ba0b3da1d1363e57edd0b4c2c319dd2179d33ab75b329e545e8e72a6a"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-preflight.ts",
+      "bytes": 11841,
+      "sha256": "2b01f3cac2581a6fbad9758d50e8243904e2e063c270e81c7baf35458467c808"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture.ts",
+      "bytes": 10206,
+      "sha256": "6fa2b3e119606e7f578ce6742a482ea10acbd2d2ca208b86f62467bc119e4c11"
+    },
+    {
+      "path": "deployment/finals/staging-app/proxy-audit.ts",
+      "bytes": 6325,
+      "sha256": "85f3eacdef9b14b04948db885941f29b285a54205607b59dd6006a918291b3dd"
+    },
+    {
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "bytes": 13467,
+      "sha256": "56ffa717115e77e02c90aeec82cfa0ceb91804cbb9a9f4fba666c8d9bc1ac19c"
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "bytes": 49110,
+      "sha256": "3ea134a53314eb3bdebbeff462b96cc253c7a3a2fad6b42885f61be666e95a97"
+    },
+    {
+      "path": "deployment/finals/staging-app/tls-observer.cjs",
+      "bytes": 1703,
+      "sha256": "0939c210587d077e939000c3d79a32b65afe408f79eb54e4ff52d1f2b76b7ce3"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/proxy-2026-11-10T14-43Z/actual/result.json",
+      "bytes": 4459,
+      "sha256": "c574b5db1fea107a5410d3f11c395b19e6e344b02afd85e0d49a0e6f077f36de"
+    }
+  ]
+}

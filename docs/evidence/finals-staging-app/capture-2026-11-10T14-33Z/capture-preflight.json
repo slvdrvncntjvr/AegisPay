@@ -1,0 +1,10 @@
+{
+  "kind": "synthetic capture/navigation preflight; not app evidence",
+  "started_at": "2026-11-10T14:36:02.449Z",
+  "outcome": "failed",
+  "checks": [],
+  "contexts": [],
+  "installed_browser_version": "156.0.8078.4",
+  "safe_failure": "SYNTHETIC_ENTITY_CHANGED",
+  "finished_at": "2026-11-10T14:36:05.614Z"
+}

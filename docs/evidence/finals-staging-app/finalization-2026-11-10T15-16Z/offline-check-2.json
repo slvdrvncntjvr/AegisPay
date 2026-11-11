@@ -1,0 +1,59 @@
+{
+  "kind": "offline synthetic F1/F2 checks; not application evidence",
+  "outcome": "passed",
+  "cases": [
+    {
+      "fault": "NONE",
+      "synthetic_modeled_exit": 0,
+      "published_passed_result": true,
+      "terminal_accepted": true,
+      "passed": true
+    },
+    {
+      "fault": "VALIDATION",
+      "synthetic_modeled_exit": 1,
+      "published_passed_result": false,
+      "terminal_accepted": false,
+      "passed": false
+    },
+    {
+      "fault": "BEFORE_INVENTORY",
+      "synthetic_modeled_exit": 1,
+      "published_passed_result": false,
+      "terminal_accepted": false,
+      "passed": false
+    },
+    {
+      "fault": "AFTER_INVENTORY",
+      "synthetic_modeled_exit": 1,
+      "published_passed_result": false,
+      "terminal_accepted": false,
+      "passed": false
+    },
+    {
+      "fault": "AFTER_RESULT",
+      "synthetic_modeled_exit": 1,
+      "published_passed_result": true,
+      "terminal_accepted": false,
+      "passed": false
+    },
+    {
+      "fault": "BEFORE_FINALIZATION",
+      "synthetic_modeled_exit": 1,
+      "published_passed_result": true,
+      "terminal_accepted": false,
+      "passed": false
+    },
+    {
+      "fault": "OBSERVED_EXIT_MISMATCH",
+      "synthetic_modeled_exit": 1,
+      "terminal_accepted": false
+    }
+  ],
+  "startup_classes": [
+    "READY",
+    "SPAWN_ERROR",
+    "NATURAL_EXIT",
+    "READINESS_TIMEOUT"
+  ]
+}

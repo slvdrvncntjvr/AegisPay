@@ -1,0 +1,141 @@
+{
+  "outcome": "passed",
+  "started_at": "2026-11-10T15:21:41.945Z",
+  "launch": 1,
+  "tcp_only": true,
+  "no_health_or_api_requests": true,
+  "web_config_sha256": "ca491f4b1e0bf3a6bc00b03d2504486f14ffac33ad437fe767ca2fcb2fe30015",
+  "environment_keys": [
+    "APP_ORIGIN",
+    "COMSPEC",
+    "COREPACK_ENABLE_NETWORK",
+    "DATABASE_URL",
+    "DEMO_AGENT_PUBLIC_KEY",
+    "DEMO_DEVICE_HASH",
+    "DEMO_MERCHANT_LOGIN_TOKEN",
+    "DEMO_MERCHANT_PUBLIC_KEY",
+    "DEMO_OWNER_LOGIN_TOKEN",
+    "DEMO_OWNER_PUBLIC_KEY",
+    "LOCALAPPDATA",
+    "NEXT_TELEMETRY_DISABLED",
+    "NODE_ENV",
+    "NOIR_AGENT_REGISTRY_ID",
+    "NOIR_DEVICE_REGISTRY_ID",
+    "NOIR_PAYMENT_ESCROW_ID",
+    "NOIR_XLM_SAC_ID",
+    "PATH",
+    "PATHEXT",
+    "RECEIPT_SIGNING_KEY",
+    "STELLAR_NETWORK",
+    "STELLAR_NETWORK_PASSPHRASE",
+    "SystemRoot",
+    "TEMP",
+    "TMP",
+    "USERPROFILE",
+    "WINDIR"
+  ],
+  "startup": {
+    "classification": "READY",
+    "tcp_ready": true,
+    "probes": 3,
+    "probe_results": {
+      "connect": 1,
+      "refused": 2,
+      "timeout": 0,
+      "other": 0
+    },
+    "elapsed_ms": 531,
+    "pre_cleanup_exit_code": null,
+    "pre_cleanup_signal_code": null,
+    "legacy_strict_exit_code_null": true,
+    "spawn_error": null,
+    "natural_exit_observed": false,
+    "log_categories": [
+      "READY_BANNER",
+      "NEXT_BANNER"
+    ],
+    "log_bytes": 116,
+    "log_sha256": "87d5c73d5bc18588e0057cfe2814c3b542c2e4392cff3c1afc95f7f84fff77dc",
+    "staging_tls_observations": 0
+  },
+  "pre_cleanup": {
+    "classification": "READY",
+    "tcp_ready": true,
+    "probes": 3,
+    "probe_results": {
+      "connect": 1,
+      "refused": 2,
+      "timeout": 0,
+      "other": 0
+    },
+    "elapsed_ms": 531,
+    "pre_cleanup_exit_code": null,
+    "pre_cleanup_signal_code": null,
+    "legacy_strict_exit_code_null": true,
+    "spawn_error": null,
+    "natural_exit_observed": false,
+    "log_categories": [
+      "READY_BANNER",
+      "NEXT_BANNER"
+    ],
+    "log_bytes": 116,
+    "log_sha256": "87d5c73d5bc18588e0057cfe2814c3b542c2e4392cff3c1afc95f7f84fff77dc",
+    "staging_tls_observations": 0
+  },
+  "proxy": {
+    "transport": "fixed-target normal Node HTTP reverse observation proxy",
+    "upstream_requests": 0,
+    "upstream_captured": 0,
+    "upstream_entity_bytes": 0,
+    "pending": 0,
+    "failures": 0,
+    "redirect_following": 0,
+    "retries": 0,
+    "cookie_jar": false,
+    "response_overrides": false,
+    "original_status_statusMessage_raw_duplicate_headers_entity": true,
+    "decoded_compressed_entities_also_scanned": true,
+    "request_body_limit": 65536,
+    "response_body_limit": 16777216,
+    "upstream_timeout_ms": 20000,
+    "total_request_timeout_ms": 25000,
+    "limits": "loopback only; fully buffers responses and alters streaming/timing/hop framing; browser cache disabled for capture contexts; no unintercepted/native-cache/hosted-egress qualification"
+  },
+  "cleanup": {
+    "pid": 21668,
+    "before_cleanup": {
+      "classification": "READY",
+      "tcp_ready": true,
+      "probes": 3,
+      "probe_results": {
+        "connect": 1,
+        "refused": 2,
+        "timeout": 0,
+        "other": 0
+      },
+      "elapsed_ms": 532,
+      "pre_cleanup_exit_code": null,
+      "pre_cleanup_signal_code": null,
+      "legacy_strict_exit_code_null": true,
+      "spawn_error": null,
+      "natural_exit_observed": false,
+      "log_categories": [
+        "READY_BANNER",
+        "NEXT_BANNER"
+      ],
+      "log_bytes": 116,
+      "log_sha256": "87d5c73d5bc18588e0057cfe2814c3b542c2e4392cff3c1afc95f7f84fff77dc",
+      "staging_tls_observations": 0
+    },
+    "owned_process_exited": true,
+    "exit_code": null,
+    "signal_code": "SIGTERM"
+  },
+  "log_hygiene": {
+    "known_secret_matches": 0,
+    "client_ip_matches": 0,
+    "full_provider_id_matches": 0,
+    "raw_dsn_matches": 0
+  },
+  "finished_at": "2026-11-10T15:21:42.516Z"
+}

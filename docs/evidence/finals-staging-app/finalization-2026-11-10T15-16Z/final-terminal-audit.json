@@ -1,0 +1,2578 @@
+{
+  "started_at": "2026-11-10T15:30:45.388Z",
+  "outcome": "passed",
+  "kind": "new bounded continuation integrity/hygiene audit; independent read-only database audit only after actual gate passed",
+  "capture_preflight": [
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/preflight-1.json",
+      "sha256": "adf4d175a20985ce4759c3076118e9ccd50f15c626e7df7bca34816a234b8ce7",
+      "outcome": "passed",
+      "safe_failure": null,
+      "contexts": 2
+    }
+  ],
+  "actual_staging_rerun_attempted": true,
+  "actual_staging_exit": 1,
+  "preserved_original_public_files": 52,
+  "custody_files_unchanged": 6,
+  "source_files_unchanged": 72,
+  "source_sha256": "1eca1bfbfc838513ced491d53aedeb5e173400e935125f45f03694e4874acc00",
+  "build_id_sha256": "8377827b6c1b2e97c1ceabca1c0a1e00b8407c51ead728dfdff07100973b9a9c",
+  "build_files_unchanged": 233,
+  "build_inventory_sha256": "3e6d864cf2f90759c110bbb283cbe53d4028a6b63c199a8a03f81662c12f07b0",
+  "bundle_boundary": {
+    "server_fixture_matches": 10,
+    "client_fixture_matches": 0,
+    "source_build_files_unchanged": true
+  },
+  "application_source_files": [
+    {
+      "path": "apps/web/AGENTS.md",
+      "sha256": "063098f6cb31bb44c6f8fbea25b3876de7ee1e5f7d00a50dbab506f6415eb7f0"
+    },
+    {
+      "path": "apps/web/next-env.d.ts",
+      "sha256": "1b59d4c6b83807db275d43f3cf2cc8e9323f465fab764eea091cc5becd5bad37"
+    },
+    {
+      "path": "apps/web/next.config.ts",
+      "sha256": "abcb57e47d5715b45cb745e5eb52eb59f8e636d9100dc640927cdba105cdc1ba"
+    },
+    {
+      "path": "apps/web/package.json",
+      "sha256": "15de4de583f19560221c1525a1cf5d0da1775bdd6b99b6470ecce6bbe1f91f4b"
+    },
+    {
+      "path": "apps/web/public/fonts/OFL-Bricolage-Grotesque.txt",
+      "sha256": "4b5a7d8f37f5602621c8a8d7358a6a2e71317e6c231c661e15aef0275d3e07ba"
+    },
+    {
+      "path": "apps/web/public/fonts/README.txt",
+      "sha256": "732348aeb5b24c91f58bf3fe44c66d2114674e66ab818579c6aba5fbd19109a8"
+    },
+    {
+      "path": "apps/web/public/fonts/bricolage-grotesque.woff2",
+      "sha256": "93afc0e7a3564954f131b319d3564dfbbc022b224dbaff664fa455f57affed25"
+    },
+    {
+      "path": "apps/web/public/icon.svg",
+      "sha256": "666d7c4473e44f73b76b40d5c5598b67e5cad9c5bf81677ab7e20604e4921ea2"
+    },
+    {
+      "path": "apps/web/src/app/api/[...path]/route.ts",
+      "sha256": "9891c3131eb1a826910900f7b608198fbcd6de31cbd5c71f44c22be55cce5c7b"
+    },
+    {
+      "path": "apps/web/src/app/api/health/route.ts",
+      "sha256": "acc464db831bb06a6b30d0dc83b1acf04aff6f8a6042a8de22a0636c1410c5b5"
+    },
+    {
+      "path": "apps/web/src/app/app/page.tsx",
+      "sha256": "b8dd1605ecd0b81af7d8adfa9d4e821303e0329562407a79b3ad23b0b3309cc5"
+    },
+    {
+      "path": "apps/web/src/app/console.tsx",
+      "sha256": "4f8af7d13fcd1db058f43be236369d6dcf60efe229f7ae66b9bb372b26e41c60"
+    },
+    {
+      "path": "apps/web/src/app/globals.css",
+      "sha256": "f7b8ee220ea6e11df57c67ae5b4ffb02971e53afd49c3546905b6fe38fb01218"
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "sha256": "5030c89bef9b5adf12f15f7010fa65eae444aea9cc7f8e1beb6f976c7c0235d9"
+    },
+    {
+      "path": "apps/web/src/app/login/page.tsx",
+      "sha256": "01da5d5b201250512f5d65654e442ae8fdf457993c14dc087e9a9ba65e91619c"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "sha256": "b03573ce499c79e7d253b5c3ce65a2d35cf8832394ae055bfb2021d35a963c60"
+    },
+    {
+      "path": "apps/web/src/app/product.css",
+      "sha256": "d8273e031dd7b9672cfc0f1a7bdc4905c45004d3b946b35048a489e2e38a3bd5"
+    },
+    {
+      "path": "apps/web/src/components/product/api.ts",
+      "sha256": "236caa94bae3c553d5c41f3d19ba42b19defdb359ff6ed528e0ffedee381ef50"
+    },
+    {
+      "path": "apps/web/src/components/product/audit-panel.tsx",
+      "sha256": "efa0a1ca5f7ae1dfc331522592932330c9459b5fdaaa5e8be649e6a165f208bf"
+    },
+    {
+      "path": "apps/web/src/components/product/console.tsx",
+      "sha256": "31b1ec4343a2be9419f2d1c934b1ac8252780e9d0c9f320463fa43c3053e3a52"
+    },
+    {
+      "path": "apps/web/src/components/product/merchant-panel.tsx",
+      "sha256": "377e92426a92e67ae2b0b41f0a162c04af183163f2aa032c7a38c9d495812537"
+    },
+    {
+      "path": "apps/web/src/components/product/primitives.tsx",
+      "sha256": "98c773456cf1ad7023bafcff27c4e142385b595fc0a771ed98d1e56cb348795e"
+    },
+    {
+      "path": "apps/web/src/components/product/run-panel.tsx",
+      "sha256": "0039ad72d0d23e8781b67db45e994ed908f25c2d94767d615a7032e33e335dcf"
+    },
+    {
+      "path": "apps/web/src/components/product/wallet-panel.tsx",
+      "sha256": "70d26a0ef9de3d997258e4a35a0dca14e3720bba0783adb5a53c95e81d90a05b"
+    },
+    {
+      "path": "apps/web/src/components/visual.tsx",
+      "sha256": "8796bba2d46409634e619021971a8f76533ef331b9ac04cb17111755313471e4"
+    },
+    {
+      "path": "apps/web/src/components/wallet.ts",
+      "sha256": "297b15ad41f83b8838c3ab623af279aacfe499edae04a5c22754cad771588aaa"
+    },
+    {
+      "path": "apps/web/src/lib/public-proof.ts",
+      "sha256": "ffe691683b7505eeade1aa2c02c6f526faa9f9f72c81449b56a76f5f2be77f3d"
+    },
+    {
+      "path": "apps/web/src/runtime.ts",
+      "sha256": "90e370da42dfc214c7327343b39c82096aa23b9ac3d19d84e1a993133eb24418"
+    },
+    {
+      "path": "apps/web/tsconfig.json",
+      "sha256": "791f3c88be419d85e583b88ee2e26ed9de09cf631901e2f768b826cabad315eb"
+    },
+    {
+      "path": "apps/web/vercel.json",
+      "sha256": "61d3bd2b773d168d500d9e2b7cf7a01673ae8db850b10e7c6d718ed67c718555"
+    },
+    {
+      "path": "package.json",
+      "sha256": "ffa6b3f0c23d6e3828b0f24a110f3d54c565c37e6b03d68c02facb23e7d23ae3"
+    },
+    {
+      "path": "packages/agent/package.json",
+      "sha256": "8f07a87523848224dea39c2f31caf70518b627002f816f0a3f64c72f9035a0fc"
+    },
+    {
+      "path": "packages/agent/src/index.ts",
+      "sha256": "78bc6c49dadab28d89e8c82d0dbde3e4fccf29d23ac7c25c15f9f9ba87712fcb"
+    },
+    {
+      "path": "packages/shared/package.json",
+      "sha256": "caaf5b18acd4554af96f618e62139df5f5f21ac4a81a1903ff5261efe4b148d6"
+    },
+    {
+      "path": "packages/shared/src/index.ts",
+      "sha256": "a4f852ecadeb016f9748e3baafa3f56b63ec87fa0d0d122c4cb8d7f259763a66"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "04332d2581c767a5466babf32fa166517ae63ac18d6f81e81c1d8f640f0dbc82"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "sha256": "59d2e32d6027151ec7a2fc34432d1c41bddd070f4c3fedd69a817ead5040f168"
+    },
+    {
+      "path": "src/server/agent/choice-summary.ts",
+      "sha256": "342df72aafa49941c2ade0100277df2bf7ea8167a966ee292505ae3023810952"
+    },
+    {
+      "path": "src/server/agent/events.ts",
+      "sha256": "8f2168696067116a3c47c26e7d759f810cf4779cba77d938c8eaf53719d90927"
+    },
+    {
+      "path": "src/server/agent/state.ts",
+      "sha256": "065ed2555626ba8140b6945165941b1a2d355eef8eb86e6a6e6ccb39d30e55cf"
+    },
+    {
+      "path": "src/server/agent/tools.ts",
+      "sha256": "8f02d8a4794980c46f687e33dd579bea317a27006b19f89a6ebaf7c8ea1a97e9"
+    },
+    {
+      "path": "src/server/auth/session.ts",
+      "sha256": "c88807e64a26bfea6e26c120171b21c361cbf0719fb673b5bbffc22f2f85f070"
+    },
+    {
+      "path": "src/server/db/connection.ts",
+      "sha256": "38bf27fe97edd4ef957d5b8a4efea5863bffc00e659e02cc72fa348b6e572f0d"
+    },
+    {
+      "path": "src/server/db/migrate.ts",
+      "sha256": "e677cdb9b754ee8a4b278facf15a14f9569782e687f455daeb72265537b1e03a"
+    },
+    {
+      "path": "src/server/db/migrations/0000_foundation.sql",
+      "sha256": "c6ba27dc80ff01d81f4e133934b3343bd7f7e6ae09a12fed7ded18f1dd613852"
+    },
+    {
+      "path": "src/server/db/migrations/0001_financial_guards.sql",
+      "sha256": "e8199b95592dbfa876487756af2544c477741a9af29e041cda7541313cfa5998"
+    },
+    {
+      "path": "src/server/db/migrations/0002_acceptance_keys.sql",
+      "sha256": "48c0fb408fed5fc79357bde620f1518f69f585e6d4a165a1938afb30400c5cb2"
+    },
+    {
+      "path": "src/server/db/migrations/0003_terminal_evidence_guard.sql",
+      "sha256": "596cdf14d2e8ef0aa7c03a5c74ccf9f6bb4ac7d6c051d2c442b6febe0614eff6"
+    },
+    {
+      "path": "src/server/db/migrations/meta/0000_snapshot.json",
+      "sha256": "a241d1c9cc57588ddd99b91658087d905abe67066bd735184ff2537cb6856f07"
+    },
+    {
+      "path": "src/server/db/migrations/meta/0002_snapshot.json",
+      "sha256": "7190d3adde86ab475d57e773506374a114ad3320b321da9ee03669a6fd2b2d5a"
+    },
+    {
+      "path": "src/server/db/migrations/meta/_journal.json",
+      "sha256": "e013a7440ac9e598b4bff52c8cdcba9fcb596ba4162abfe97400d5a0289ecb8a"
+    },
+    {
+      "path": "src/server/db/schema.ts",
+      "sha256": "5470fad2bef751f367ba83ce8bf321723c69ff92ac2ea194000313b09e67fa92"
+    },
+    {
+      "path": "src/server/db/seed.ts",
+      "sha256": "240c7bfda2276213fa8b271713ac31e276dd777f94a651e8cb9e34bdd1ad99f1"
+    },
+    {
+      "path": "src/server/domain/evidence.ts",
+      "sha256": "d824a97d094b242355d9560211e8f257355684651e0c4170db3a292e486eb1c9"
+    },
+    {
+      "path": "src/server/domain/protocol.ts",
+      "sha256": "18075246fd2c5c5aa584e6c2a996a648156dbc09d57d4b2fadb640179d3506a8"
+    },
+    {
+      "path": "src/server/domain/purchases.ts",
+      "sha256": "eaff1ba879827afafb5ec7fb0090524babfd1f6beb3f4acca654f1ae51085eca"
+    },
+    {
+      "path": "src/server/domain/wallet.ts",
+      "sha256": "67fa6ea4fc6a6da0a2ed621a5c0b67931a4643a3dc6f8cbae73b2b5ffe39aad4"
+    },
+    {
+      "path": "src/server/http/application.ts",
+      "sha256": "fc545ce65dde60fed8569e8ae100437625e3fd8f6dfba8696152da273bd4a812"
+    },
+    {
+      "path": "src/server/http/boundaries.ts",
+      "sha256": "d88f3127f866ea6021b1cdd29abfe316a3ae0008e9d2c9b1efe1a71fcd93f6eb"
+    },
+    {
+      "path": "src/server/http/wake.ts",
+      "sha256": "7a22041bed4f96fdacb7ebcc711efe0d5c720f5b8fd8ef85b7122e91bba7e4d6"
+    },
+    {
+      "path": "src/server/integrations/model.ts",
+      "sha256": "97b5d79900fdc237baa2f930170605e68d33b757c2dcc5ded4c218a6e5afaad5"
+    },
+    {
+      "path": "src/server/integrations/noir.ts",
+      "sha256": "7378ac4566fa0a7c94b1558c39f3131f14e9640f18f7d6c055088c495a1b2afc"
+    },
+    {
+      "path": "src/server/integrations/spike-driver.ts",
+      "sha256": "e527a1ffc6f6cdd1d6b8dab64d2d9bfc52cb4f04fe80825b63866dcaac70559d"
+    },
+    {
+      "path": "src/server/integrations/spike-journal.ts",
+      "sha256": "826c401cd6c4ebece6974629e307c87edbb8675e2aa96a3100e97fb68800e3cd"
+    },
+    {
+      "path": "src/server/integrations/spike-runtime.ts",
+      "sha256": "b0232ed01c1a1fce887ad8246c7fbb24e2368db4ecffb362261fc59173eac924"
+    },
+    {
+      "path": "src/server/integrations/stellar-evidence.ts",
+      "sha256": "978840bea8a69dccff48d717c28b314606f3abf702a3aecd75436977a1491a21"
+    },
+    {
+      "path": "src/server/integrations/velo.ts",
+      "sha256": "229768e758ffbc9d1c141b62cbe0f062d9c0797f36ec3d64371591b773c27664"
+    },
+    {
+      "path": "src/server/integrations/wallet-gateway.ts",
+      "sha256": "c80e1533f3f46d315603d7e7f0780c1521f14e252d01bd8f1aec25598c9c83ef"
+    },
+    {
+      "path": "src/server/integrations/wallet-inspection.ts",
+      "sha256": "a93872c6f4aca2f39bdb5aa461ee4205e6ca7c9e38d3b456cbba746c1b270826"
+    },
+    {
+      "path": "src/server/merchant/receipts.ts",
+      "sha256": "e3dc7c2deb13280f975c4c38a7838468c02dbe5426935b2120c9d094b2a5ea3f"
+    },
+    {
+      "path": "src/server/merchant/reports.ts",
+      "sha256": "f539b45f99deae425ee02d338722d5f65c6f06ac8f0025ed71bd5377a748a1be"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "35ca5537bc81bce654ac59a1b2e21ba45742cba8ccfbb4cf26403d3730ffbad0"
+    }
+  ],
+  "build_files": [
+    {
+      "path": "apps/web/.next/server/app-paths-manifest.json",
+      "bytes": 308,
+      "sha256": "d4146ad7b82b8df3073ac34fa1885b3a5615ddfc0024f9c4b492adc19a9b70e7",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_global-error.html",
+      "bytes": 8788,
+      "sha256": "6a6c6eb9065008a3faa5bb207e71af45e441c7bc782aa9ee7dd2a602aae1decb",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_global-error.meta",
+      "bytes": 676,
+      "sha256": "909f5986ec494f6136f1f6738d36df13a49e05892a43e68c8eb97d0fd0b6d3e9",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_global-error.rsc",
+      "bytes": 4539,
+      "sha256": "7e29398177bbece6689f73f348d643953f5aab145abea6f322bb246fa1c987b4",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_global-error.segments/__PAGE__.segment.rsc",
+      "bytes": 4208,
+      "sha256": "b58293d0ac70b7e7ab781d5063d87c460886629cd36b581841358b5fcdf10680",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_global-error.segments/_full.segment.rsc",
+      "bytes": 4539,
+      "sha256": "7e29398177bbece6689f73f348d643953f5aab145abea6f322bb246fa1c987b4",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_global-error.segments/_tree.segment.rsc",
+      "bytes": 110,
+      "sha256": "706c9ef3738c949bf89b48dd38a2bb72902d304c9e8f33417970278323db9aa7",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_global-error/page.js",
+      "bytes": 648,
+      "sha256": "1de2161c627f9eb5eeef8c3904c43ae472cb6161921a71a3dcc37b92563af004",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_global-error/page.js.map",
+      "bytes": 53,
+      "sha256": "a8ae20908e3aa88a005bf3b5cadedd7f1107cf28a6e4db9da80280fe9f54de95",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_global-error/page.js.nft.json",
+      "bytes": 31126,
+      "sha256": "5e2e811b4b0193d5b3fc3a1868d90de382b04f336afa760e00a3a1a14fe44212",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_global-error/page/app-paths-manifest.json",
+      "bytes": 56,
+      "sha256": "67d788223a06e3479a7e8372879e18c1595dae22d20db1434676dfa06f2b154c",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_global-error/page/build-manifest.json",
+      "bytes": 633,
+      "sha256": "32d36e0294cde36f970361b2bcf9bb552ce22dc28277b5b36d35e0b00a399ecb",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_global-error/page/next-font-manifest.json",
+      "bytes": 94,
+      "sha256": "dc1719fb3b97327924884a5839c5cfa68896e28803f0cd5e969b7c20f519d1e5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_global-error/page/react-loadable-manifest.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_global-error/page/server-reference-manifest.json",
+      "bytes": 30,
+      "sha256": "d0c7f70e7b24a0f6f6b52e64bddbd51705dad21e63403dddeb723b03e70be9a5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_global-error/page_client-reference-manifest.js",
+      "bytes": 5018,
+      "sha256": "dfc021a5bebc3a20e6fc91f355d817b5daad35f4778c00ae9be829477caadb07",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_not-found.html",
+      "bytes": 8121,
+      "sha256": "310752f083c5ac23a272320aa07264517f133f8f9529a474ce7b8494f3543e74",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_not-found.meta",
+      "bytes": 766,
+      "sha256": "4b112114c74c5dc53232472280e8b7ed0c236907b5f245e47dd2967d0f2bdef2",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_not-found.rsc",
+      "bytes": 5032,
+      "sha256": "32e1214c79279811e7d0e3524398145e0b4aca8a861a5475b88221c11b06a656",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_not-found.segments/_full.segment.rsc",
+      "bytes": 5032,
+      "sha256": "32e1214c79279811e7d0e3524398145e0b4aca8a861a5475b88221c11b06a656",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_not-found.segments/_not-found/__PAGE__.segment.rsc",
+      "bytes": 4317,
+      "sha256": "c28b48da1b24bf7ad19cafb6b2b83e17ac5195566aa993d701d94326767142b8",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_not-found.segments/_tree.segment.rsc",
+      "bytes": 218,
+      "sha256": "6836313c3f64c04c4fa2d0af80708ac9e31a431b32aa88a84e32094f16949211",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_not-found/page.js",
+      "bytes": 845,
+      "sha256": "f59ba1235b39bc02a2db8da085a45be7347462a0101dc21daf4f7853a250dcc4",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_not-found/page.js.map",
+      "bytes": 53,
+      "sha256": "a8ae20908e3aa88a005bf3b5cadedd7f1107cf28a6e4db9da80280fe9f54de95",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_not-found/page.js.nft.json",
+      "bytes": 31384,
+      "sha256": "131236f398949dff24209eca011d1e95831ff2b3780c13a22d643e3ac4cac848",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_not-found/page/app-paths-manifest.json",
+      "bytes": 50,
+      "sha256": "e96e120dd8e4ae7f5c12a0e9695e528fd90b9b885af3e592cd2695ba972bebe1",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_not-found/page/build-manifest.json",
+      "bytes": 630,
+      "sha256": "384e1a9dafb8df4114b05218a32721c209ba15a330bc7f971a376386acdb99e8",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_not-found/page/next-font-manifest.json",
+      "bytes": 94,
+      "sha256": "dc1719fb3b97327924884a5839c5cfa68896e28803f0cd5e969b7c20f519d1e5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_not-found/page/react-loadable-manifest.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_not-found/page/server-reference-manifest.json",
+      "bytes": 30,
+      "sha256": "d0c7f70e7b24a0f6f6b52e64bddbd51705dad21e63403dddeb723b03e70be9a5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/_not-found/page_client-reference-manifest.js",
+      "bytes": 4835,
+      "sha256": "63b555c4d2d431716888d094467fe2f437c49e29b1233b1771ba0dccd57fa052",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/api/[...path]/route.js",
+      "bytes": 561,
+      "sha256": "1ecdbf8eff2df301670d9c5ad69b0cce2368c9cc7d9cfc44a6067360f95ce79c",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/api/[...path]/route.js.map",
+      "bytes": 53,
+      "sha256": "a8ae20908e3aa88a005bf3b5cadedd7f1107cf28a6e4db9da80280fe9f54de95",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/api/[...path]/route.js.nft.json",
+      "bytes": 44301,
+      "sha256": "c6a30caf889eb8cf8f1a8251cf0946d39912a442fbf577bcfd3113f362081f1c",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/api/[...path]/route/app-paths-manifest.json",
+      "bytes": 58,
+      "sha256": "c5c721267c3407a0246c6731d7cf64093e087e1237874346901277d469561695",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/api/[...path]/route/build-manifest.json",
+      "bytes": 255,
+      "sha256": "e4bd095c1cd1f90f87a2e8a0687076d901758d47de688103471925b023ce71f7",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/api/[...path]/route/server-reference-manifest.json",
+      "bytes": 30,
+      "sha256": "d0c7f70e7b24a0f6f6b52e64bddbd51705dad21e63403dddeb723b03e70be9a5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/api/[...path]/route_client-reference-manifest.js",
+      "bytes": 299,
+      "sha256": "a5eff4cc16184b8e32a0f70d6781e21b4ef41461dfab46146c19568e81df8026",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/api/health/route.js",
+      "bytes": 389,
+      "sha256": "cefe29a904ca2410d464621254bbd9c4743f76881bc38f6a0aa054eddde2b60b",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/api/health/route.js.map",
+      "bytes": 53,
+      "sha256": "a8ae20908e3aa88a005bf3b5cadedd7f1107cf28a6e4db9da80280fe9f54de95",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/api/health/route.js.nft.json",
+      "bytes": 31164,
+      "sha256": "a8bb2483944c2d67658ab89e8c6f95fb9122f0c187ee6d915111c71fd00ce3c0",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/api/health/route/app-paths-manifest.json",
+      "bytes": 52,
+      "sha256": "08fa058f7bfc8178589566427e7dde80335cfa7459c7d339bdae432dabc109b4",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/api/health/route/build-manifest.json",
+      "bytes": 255,
+      "sha256": "e4bd095c1cd1f90f87a2e8a0687076d901758d47de688103471925b023ce71f7",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/api/health/route/server-reference-manifest.json",
+      "bytes": 30,
+      "sha256": "d0c7f70e7b24a0f6f6b52e64bddbd51705dad21e63403dddeb723b03e70be9a5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/api/health/route_client-reference-manifest.js",
+      "bytes": 296,
+      "sha256": "263c8220c1dd512bc504b1fc5e59210839f5e7f199eb04dfbe2ffcb18e635ba0",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/app.html",
+      "bytes": 8257,
+      "sha256": "efad1358638226301d2e6dfc5332861c0a836ba8004d5550fb10dc4a2ca08336",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/app.meta",
+      "bytes": 707,
+      "sha256": "dca26c9accdd57946aeb1a0a7142feee48b411371a57bfb8bf9d221d93c2ff93",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/app.rsc",
+      "bytes": 4524,
+      "sha256": "162256405e25e5b5ca49ed78de4951608521fad9fc76666edcbc9314522c5560",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/app.segments/_full.segment.rsc",
+      "bytes": 4524,
+      "sha256": "162256405e25e5b5ca49ed78de4951608521fad9fc76666edcbc9314522c5560",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/app.segments/_tree.segment.rsc",
+      "bytes": 264,
+      "sha256": "1eb7006daee55744bc3a40b5a5235a0b1f6169f3b3dadd5631e5e852b8475440",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/app.segments/app/__PAGE__.segment.rsc",
+      "bytes": 3726,
+      "sha256": "5d860b773b79318fec116a748b34d26b7de5298052848609e6a9f0aa30fbf5b5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/app/page.js",
+      "bytes": 890,
+      "sha256": "0d0ee0ddc34e75528de5e83358b00201ebf3cc179d8428c22f17109a6aef35c3",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/app/page.js.map",
+      "bytes": 53,
+      "sha256": "a8ae20908e3aa88a005bf3b5cadedd7f1107cf28a6e4db9da80280fe9f54de95",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/app/page.js.nft.json",
+      "bytes": 31753,
+      "sha256": "cde6b57b643566efd3f8375cbcf5b9211da585462a679baca8403cf12b40837d",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/app/page/app-paths-manifest.json",
+      "bytes": 36,
+      "sha256": "0a9251d952ddf361f33359ebb0bd87e8fb15a64b64c82525c2cf0d58998f4a96",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/app/page/build-manifest.json",
+      "bytes": 623,
+      "sha256": "1f1a3e36ac7cb496c2dc8a9202dc070c47b047651d2369d29030e9b78aaa4e2e",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/app/page/next-font-manifest.json",
+      "bytes": 94,
+      "sha256": "dc1719fb3b97327924884a5839c5cfa68896e28803f0cd5e969b7c20f519d1e5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/app/page/react-loadable-manifest.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/app/page/server-reference-manifest.json",
+      "bytes": 30,
+      "sha256": "d0c7f70e7b24a0f6f6b52e64bddbd51705dad21e63403dddeb723b03e70be9a5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/app/page_client-reference-manifest.js",
+      "bytes": 5732,
+      "sha256": "019a95fec3d3e97c5a9ab40b7f8de5cfa67e77a1204dfbb1407cfe11ddc366e4",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/index.html",
+      "bytes": 37154,
+      "sha256": "bb7f60e4d1a9ea8f02510b7dc06527c4ad6eb34a6afdb693000f3e4e441310d3",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/index.meta",
+      "bytes": 595,
+      "sha256": "364b5f5dfdd03a659407755e2d891feb1100a3e1242d1753888957d41158c31c",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/index.rsc",
+      "bytes": 11996,
+      "sha256": "4279b4f1d999d3dc4f7a52184f410350a22baca59a9ad896f865a1bdd1c5220c",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/index.segments/__PAGE__.segment.rsc",
+      "bytes": 11449,
+      "sha256": "0e6ba6441ca931bd9edafb6e15cedf3078eb4f3c2ab59703cd26390b81944279",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/index.segments/_full.segment.rsc",
+      "bytes": 11996,
+      "sha256": "4279b4f1d999d3dc4f7a52184f410350a22baca59a9ad896f865a1bdd1c5220c",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/index.segments/_tree.segment.rsc",
+      "bytes": 164,
+      "sha256": "bb055a026b8d110fba675edc2c331f5b722b0d8c529d68ffc54a2b6dd3a10c6b",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/login.html",
+      "bytes": 8114,
+      "sha256": "ab922054a34e98535d3878a7dd8f919abd19bf56b6667e520f8e734a159405e5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/login.meta",
+      "bytes": 719,
+      "sha256": "0072ce36552995e40828293fc07e7d130d80c8d4c174b0f3ea15c2deaf713a53",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/login.rsc",
+      "bytes": 4308,
+      "sha256": "dd30244461f8823eab5b32842ae746a93413a88c3d7fd03a08b6cff481521c08",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/login.segments/_full.segment.rsc",
+      "bytes": 4308,
+      "sha256": "dd30244461f8823eab5b32842ae746a93413a88c3d7fd03a08b6cff481521c08",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/login.segments/_tree.segment.rsc",
+      "bytes": 212,
+      "sha256": "1e33e5ae06c4ebb5af2f6d9422fec52ef82d1bb875589bcfcbf2cdab1d1a6a9d",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/login.segments/login/__PAGE__.segment.rsc",
+      "bytes": 3578,
+      "sha256": "3289ff0915adf82d660cf600fc20bb682e84a30f8212dc46edf9326eb8e5823d",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/login/page.js",
+      "bytes": 894,
+      "sha256": "f3f91eb92aa7cc292c4716260cf8992b0adef556e52cb65888fcb1bd3c03c9da",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/login/page.js.map",
+      "bytes": 53,
+      "sha256": "a8ae20908e3aa88a005bf3b5cadedd7f1107cf28a6e4db9da80280fe9f54de95",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/login/page.js.nft.json",
+      "bytes": 31680,
+      "sha256": "6f18c03ca0ac0624e60fc92856a2000aaae3123e20a2d39d0762d87a373d96dd",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/login/page/app-paths-manifest.json",
+      "bytes": 40,
+      "sha256": "ae750dd750832b8b17737b0c36d9add90e5aa57eeb7fb4edab86ae59717da911",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/login/page/build-manifest.json",
+      "bytes": 625,
+      "sha256": "fdd036c15bcc4dcdc959dfc45bc2c4ce125030ed81e6eb86d3981bc4795c01e5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/login/page/next-font-manifest.json",
+      "bytes": 94,
+      "sha256": "dc1719fb3b97327924884a5839c5cfa68896e28803f0cd5e969b7c20f519d1e5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/login/page/react-loadable-manifest.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/login/page/server-reference-manifest.json",
+      "bytes": 30,
+      "sha256": "d0c7f70e7b24a0f6f6b52e64bddbd51705dad21e63403dddeb723b03e70be9a5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/login/page_client-reference-manifest.js",
+      "bytes": 5598,
+      "sha256": "553551b9fe24268ed415068a7db480a5e91d44163de99abf7d6a4f7e7206abfd",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/page.js",
+      "bytes": 940,
+      "sha256": "6beca43033be3145d973b83d5e025efec7d65d8a959bd6b89ad744a46632b2a3",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/page.js.map",
+      "bytes": 53,
+      "sha256": "a8ae20908e3aa88a005bf3b5cadedd7f1107cf28a6e4db9da80280fe9f54de95",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/page.js.nft.json",
+      "bytes": 31209,
+      "sha256": "c5802d04a1139f3e201fe66c9263a4e873589c1361ba8691d312c5320104b16d",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/page/app-paths-manifest.json",
+      "bytes": 28,
+      "sha256": "e0be75c853555b01e1a9823abf81903c8d8934e5c7ca49e887afd6d00905d77a",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/page/build-manifest.json",
+      "bytes": 619,
+      "sha256": "4cd0bca303f84c36448be0754989bf0f9be6274a93a838819ea23967dda991b1",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/page/next-font-manifest.json",
+      "bytes": 94,
+      "sha256": "dc1719fb3b97327924884a5839c5cfa68896e28803f0cd5e969b7c20f519d1e5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/page/react-loadable-manifest.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/page/server-reference-manifest.json",
+      "bytes": 30,
+      "sha256": "d0c7f70e7b24a0f6f6b52e64bddbd51705dad21e63403dddeb723b03e70be9a5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/app/page_client-reference-manifest.js",
+      "bytes": 5575,
+      "sha256": "711430c11f09de2b85c5176952ec7d6a9133db1a489d056a8c1218737dc8b644",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/0zdz_@stellar_stellar-sdk_lib_esm_1y4bq06w7u5uv._.js",
+      "bytes": 104386,
+      "sha256": "956729eb457aee96ea026fb679b8de7be99fc090896b4ad0a82619359aa73dd0",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/0zdz_@stellar_stellar-sdk_lib_esm_1y4bq06w7u5uv._.js.map",
+      "bytes": 594703,
+      "sha256": "f14dd733b5b058eaf202fda6b6061fa19cb48f3b558f10d4732d633bc45567a6",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/0zdz_@stellar_stellar-sdk_lib_esm_bindings_sac-spec_04r-_ro0llkex.js",
+      "bytes": 9921,
+      "sha256": "d3a2df62f884596ded298cb88ee356169727cda0ab6c23912bce344a2c6d60b1",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/0zdz_@stellar_stellar-sdk_lib_esm_bindings_sac-spec_04r-_ro0llkex.js.map",
+      "bytes": 10119,
+      "sha256": "679521c013b27172179ba9ec06c0d84ed2016d1712a42d637e2360d3e239452e",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/0zdz_@stellar_stellar-sdk_lib_esm_index_07v4gb-0gi5u_.js",
+      "bytes": 57657,
+      "sha256": "ee0f34b8097667e4c25f146bec062a7919f3d40adce3c23ada4478d5f0e4d6d1",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/0zdz_@stellar_stellar-sdk_lib_esm_index_07v4gb-0gi5u_.js.map",
+      "bytes": 381571,
+      "sha256": "9368f9212419ce0b830360299e90253db8360c5cff9d9679c0225f11ffb08298",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/[externals]__0o95afu5qyuc6._.js",
+      "bytes": 1079,
+      "sha256": "7b57e6a9522af58f7f8ed589805ab345d081bdd316c66fe0ba4f4e150b77ef6a",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/[externals]__0o95afu5qyuc6._.js.map",
+      "bytes": 51,
+      "sha256": "bba91168b8031003cc96ad9268cf613f0df3f39694a6b6dfa788d47ed5b30c18",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/[root-of-the-server]__02v47z1ujqyia._.js",
+      "bytes": 172500,
+      "sha256": "3d8291d59d9dbfc2048632df77c040bf1721ff8213fff0c7345b050e80c2f740",
+      "client": false,
+      "protected_fixture_matches": 5
+    },
+    {
+      "path": "apps/web/.next/server/chunks/[root-of-the-server]__02v47z1ujqyia._.js.map",
+      "bytes": 709207,
+      "sha256": "0fc6e782264f6c305ef4ea121d632f807d748d27284229a54e8654455497da9e",
+      "client": false,
+      "protected_fixture_matches": 5
+    },
+    {
+      "path": "apps/web/.next/server/chunks/[root-of-the-server]__11yd7v6emipuj._.js",
+      "bytes": 213743,
+      "sha256": "78a286c1a2b6375ab47c392840a23ade596f2e8fdb6aadb81d9ed583f0bbac97",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/[root-of-the-server]__11yd7v6emipuj._.js.map",
+      "bytes": 1226537,
+      "sha256": "400ec8b3b61eccd5437bdadfd4f7e6c9374352081ce098c51b7a17a9a2d2bb13",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/[root-of-the-server]__164xm7shpprv2._.js",
+      "bytes": 227505,
+      "sha256": "3762532d53e7d5f4f2543d641d328c75bc9811f9ef82a56bf0ae002187e292ed",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/[root-of-the-server]__164xm7shpprv2._.js.map",
+      "bytes": 1236461,
+      "sha256": "7142ebf21c2e6d1219f39b911fa8a3637b96a86152b751519df22865191ff0bf",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/[root-of-the-server]__1dd5mzl-eroyx._.js",
+      "bytes": 2159,
+      "sha256": "6bee2ec7fab45ce16d1064b58a378b8cc3cd1ecd71ae3a7e1e5b1b616c5e8ce5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/[root-of-the-server]__1dd5mzl-eroyx._.js.map",
+      "bytes": 1683,
+      "sha256": "ea314081a6b2a867bfb38dbaa461f8f61f5f9b7b0c639eceb2d113cd505b1b81",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/[root-of-the-server]__1i7juidgtz8ef._.js",
+      "bytes": 213743,
+      "sha256": "5d0db0f90d96c0372bf56c9324065d066f89d3f4e476a57abff63a46a5664e18",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/[root-of-the-server]__1i7juidgtz8ef._.js.map",
+      "bytes": 1226537,
+      "sha256": "400ec8b3b61eccd5437bdadfd4f7e6c9374352081ce098c51b7a17a9a2d2bb13",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/[turbopack]_runtime.js",
+      "bytes": 42683,
+      "sha256": "9f0ba335fa7dabbf1526db74af3bdf5b46475c23ad7310477d74d8587c1e0a26",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/[turbopack]_runtime.js.map",
+      "bytes": 72504,
+      "sha256": "216b34ecb51b663edd033b2f85b9aef2c1077736a0f8318c8d307a8bb2561ed8",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/_0tkp4ag4p9zii._.js",
+      "bytes": 6654,
+      "sha256": "09fa5afa717fc1433aa8fd16b8557bce3bb63966faf16e0395eb4a18a3488eec",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/_0tkp4ag4p9zii._.js.map",
+      "bytes": 34052,
+      "sha256": "6c7952aff6b19d25257fd7c5090cb2f493105cb2e5a757a7a0ebd9b6f57d3b4a",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/apps_web__next-internal_server_app_api_[___path]_route_actions_0rfy0z850s__1.js",
+      "bytes": 158,
+      "sha256": "1f1996e432ddc5043d80f47fff3298b58634815b6838db4acdc2150dac4b3187",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/apps_web__next-internal_server_app_api_[___path]_route_actions_0rfy0z850s__1.js.map",
+      "bytes": 51,
+      "sha256": "bba91168b8031003cc96ad9268cf613f0df3f39694a6b6dfa788d47ed5b30c18",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/apps_web__next-internal_server_app_api_health_route_actions_0eww65m8dmoow.js",
+      "bytes": 152,
+      "sha256": "723330e8c910fc753da3bfbd8ff2ad1e1391390c877970d15ca53e7330f84626",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/apps_web__next-internal_server_app_api_health_route_actions_0eww65m8dmoow.js.map",
+      "bytes": 51,
+      "sha256": "bba91168b8031003cc96ad9268cf613f0df3f39694a6b6dfa788d47ed5b30c18",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_0vmhezbuc4xw0._.js",
+      "bytes": 27114,
+      "sha256": "5942d3eb13396b92be1bb766fe880dd17b46583f20f7be2b82ad5aafb49891ce",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_0vmhezbuc4xw0._.js.map",
+      "bytes": 151832,
+      "sha256": "e9daff084b193dc240992f3ebb9a310a000fbf6114a7b950403f2633ce7684aa",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_0y44qfbo7yt64._.js",
+      "bytes": 47575,
+      "sha256": "da18615a1906063da7d6e72436bb1067fc6795688d9de89acba88e46a1fd78ed",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_0y44qfbo7yt64._.js.map",
+      "bytes": 991563,
+      "sha256": "f7fc5aa6b55f38cf9219a39eb2954cbf614ff15ea6e1860b2de7dcf7eb72903d",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_1nlol8tmai20r._.js",
+      "bytes": 487,
+      "sha256": "b3ca90f6038b21ef38db79fee7ed5fa60fc0be1548a7068dea920dfd438fc7a2",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_1nlol8tmai20r._.js.map",
+      "bytes": 4143,
+      "sha256": "750a025c23a412d31e95573d9b0022eb29a668ec19153912148d1471f1a9f328",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_client_components_1r0houn63u37g._.js",
+      "bytes": 2527,
+      "sha256": "4dbb18939128f59f2b4394df273bc7c5008bc1df051702749680a17cb49b0267",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_client_components_1r0houn63u37g._.js.map",
+      "bytes": 4562,
+      "sha256": "9a1f8203e31d7d9c1639744f97329a5a97270b682b36ddd31a38bda7ddcc0b26",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_client_components_builtin_forbidden_18h3xn4rt-kf_.js",
+      "bytes": 658,
+      "sha256": "71aef5fe3e53732a594ec869c59beef57f093eb2235af2637a7de30bce50c65b",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_client_components_builtin_forbidden_18h3xn4rt-kf_.js.map",
+      "bytes": 712,
+      "sha256": "797f7708d233a8331dac651dc4cd9e9c2a5520aea42c8a3df47e0065b0a3bf37",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_client_components_builtin_unauthorized_1ah_lny9de3vx.js",
+      "bytes": 671,
+      "sha256": "0d773ebc67053a3013df32e22cf57d9982939e749ad185cdfbf021720f891560",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_client_components_builtin_unauthorized_1ah_lny9de3vx.js.map",
+      "bytes": 731,
+      "sha256": "8cbd05767e1791b24ec7b6047284df6459f9cfd49fc252e9de262b46924ee665",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_esm_build_templates_app-page_07g8i2urm9z9c.js",
+      "bytes": 2633,
+      "sha256": "6732056ba1a633320ee82ee6bf2e8c2a8ae1c14eaa5f99b05ab3778af7046e72",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_esm_build_templates_app-page_07g8i2urm9z9c.js.map",
+      "bytes": 3056,
+      "sha256": "442fad82851c318e03c050dd3581ac7a5ea6dce92f3612b5e2c69661ac0e03fa",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_esm_build_templates_app-page_0gm7-u16r31ir.js",
+      "bytes": 3286,
+      "sha256": "65105d2a5a2a5060212cdab9489ece85b214e5f7f8e914e4a4b1d8e2c374c189",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_esm_build_templates_app-page_0gm7-u16r31ir.js.map",
+      "bytes": 4714,
+      "sha256": "2fa0237a2d0309e9088efb8bdd408b2cad447e368ecd34c971134657ea597fb4",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_esm_build_templates_app-page_0hwzwkbgbykqy.js",
+      "bytes": 3295,
+      "sha256": "68686cc4b28a9874cea4c0ae95e10d98cb5968e76f1fda75c02220ead1454b88",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_esm_build_templates_app-page_0hwzwkbgbykqy.js.map",
+      "bytes": 4724,
+      "sha256": "83b1b9c6399625dce316f752a45715ec8a30afcf65a3451a6ac223fce464fa19",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_esm_build_templates_app-page_1n87h3_ve43vt.js",
+      "bytes": 3420,
+      "sha256": "917e6ee7bd5dc8d6beb8add35b63ed1adf9f2fbcccc6ee2a053b77049d6f7e85",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_esm_build_templates_app-page_1n87h3_ve43vt.js.map",
+      "bytes": 4856,
+      "sha256": "763e5b1031ad16a3e950ec4c44afabb0ad5cd35661158fcca96c5949ace65119",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_esm_build_templates_app-page_1w_fa4pxsv1fp.js",
+      "bytes": 3240,
+      "sha256": "ce643bcb3b4f68b4a39b4c1b8166c65ed5cc1ed53e42822010042a5e1ddeb2d0",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/10kp_next_dist_esm_build_templates_app-page_1w_fa4pxsv1fp.js.map",
+      "bytes": 4584,
+      "sha256": "920aa4fedabc01337b39e155a227a4ed37005e3923cf703415f44e95998af5f3",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__07xvwazxh5x3p._.js",
+      "bytes": 2966,
+      "sha256": "b52d8ed41e72727da9c9b6d4f23e6a8da38231c809e01b900afb2ac4879977bd",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__07xvwazxh5x3p._.js.map",
+      "bytes": 5323,
+      "sha256": "f16d5623a88533f3ea42535836ac5fb4639f7af414d768d4c1d1037bda338bf8",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__0pfgwwp_zd7dw._.js",
+      "bytes": 1497,
+      "sha256": "9ec5e6f68fbfe72471be6501aa4bf33749f22154c95880c09bf18da8b6a94db7",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__0pfgwwp_zd7dw._.js.map",
+      "bytes": 2672,
+      "sha256": "611ff9aac25863c6acf2e439677268a085a6f4471a8eb51cadbf62f850af768f",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__0prvvpt7gwwwd._.js",
+      "bytes": 851,
+      "sha256": "66e8ad31fddc3828da339ca0f100aa20d458a932a3b7f17170282045c5521d97",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__0prvvpt7gwwwd._.js.map",
+      "bytes": 3212,
+      "sha256": "e36b323bb0125245c4044eadea4dd3648cf8a572f0ce89f4093c20d33ed3a377",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__10s3jym8s_0z-._.js",
+      "bytes": 2877,
+      "sha256": "be29f27eed856941f8344f4c3b269d03511fa8b24d9de6327ae55cd5410ec33f",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__10s3jym8s_0z-._.js.map",
+      "bytes": 4886,
+      "sha256": "880268507b2b86fb36da9dd37ef5c77619b97cb39f216f02aefd8841f4aa325c",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__13-94hm65a7jy._.js",
+      "bytes": 3287,
+      "sha256": "78197ef55638e854b9840fede50326d5c0bc00e0b84fbe0debb945f8e09c88b3",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__13-94hm65a7jy._.js.map",
+      "bytes": 8927,
+      "sha256": "4747bbd7d8f23296db66bbed3326fe1c6e4335f9cadf269a9f78df1c70e2e01f",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__18_clm8x1pzgo._.js",
+      "bytes": 241210,
+      "sha256": "282c5fe0db238261bf634b4acfdee4843aa44a5573efedc028dc0fb3b857bd35",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__18_clm8x1pzgo._.js.map",
+      "bytes": 1573098,
+      "sha256": "d134a43a3019815f9166deca55bfdd43aac10cf3e9f5656a316e081bb69a07db",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__18ou391f65nxy._.js",
+      "bytes": 3599,
+      "sha256": "80e270ff06f3c00e030b0152e3f6a4920a0d11a77b703fe5e2d64f1993c4bf61",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__18ou391f65nxy._.js.map",
+      "bytes": 6554,
+      "sha256": "565324afe249c30ed1b2b065d84b2a3290c412ca8cb4095e97b433ce73bb0d7e",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__1bkwl7v781a74._.js",
+      "bytes": 722,
+      "sha256": "523c75f9f5403602aac1a1c1cc7a19b12af94b4651e83afa183c7c33d0aebcc7",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__1bkwl7v781a74._.js.map",
+      "bytes": 5861,
+      "sha256": "d2d058658841645904b20ee63b6ac998a6156a7a75d546ac64274bb5fcfcfb84",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__1kqtnb9p1rxdd._.js",
+      "bytes": 3399,
+      "sha256": "c3b048f46f0ce75a5d5b5fb57b58c73d2dbf1ce1e8ca16f6da1c62ed59264d25",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[root-of-the-server]__1kqtnb9p1rxdd._.js.map",
+      "bytes": 5740,
+      "sha256": "ce069f285e3d65886ee2a8c1c46ff9655e67dfd9309f6918a75005e494f6b962",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[turbopack]_runtime.js",
+      "bytes": 42693,
+      "sha256": "fd1ef88bcdb0958031e273f4283981544452b337afee4ffb48aea1e00d38e997",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/[turbopack]_runtime.js.map",
+      "bytes": 72504,
+      "sha256": "216b34ecb51b663edd033b2f85b9aef2c1077736a0f8318c8d307a8bb2561ed8",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/_003il19tk6o9h._.js",
+      "bytes": 7128,
+      "sha256": "2f284e5ff1cc3226bfa746edec0daeec10a7fe1bdb2841e977e5e9cb6ab2c470",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/_003il19tk6o9h._.js.map",
+      "bytes": 40534,
+      "sha256": "c1c6f9cfd12f644d96570dfe29a6f601876b75fdbdce3e0252fdccd357a57716",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web__next-internal_server_app__global-error_page_actions_1vxuwj7k4qe4h.js",
+      "bytes": 154,
+      "sha256": "bebefce1032cbd5026321bbb283e3d5697fa410a6dfb96c333c062c764729bd2",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web__next-internal_server_app__global-error_page_actions_1vxuwj7k4qe4h.js.map",
+      "bytes": 51,
+      "sha256": "bba91168b8031003cc96ad9268cf613f0df3f39694a6b6dfa788d47ed5b30c18",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web__next-internal_server_app__not-found_page_actions_0iqyci7_6a_s1.js",
+      "bytes": 151,
+      "sha256": "d43b12cf213cc6c6b95ba9f3a99f7c2558d2e25fe53886c3f9c338d5bd395ff9",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web__next-internal_server_app__not-found_page_actions_0iqyci7_6a_s1.js.map",
+      "bytes": 51,
+      "sha256": "bba91168b8031003cc96ad9268cf613f0df3f39694a6b6dfa788d47ed5b30c18",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web__next-internal_server_app_app_page_actions_0o-eo760r3kw9.js",
+      "bytes": 144,
+      "sha256": "f36036cf239223d175456b2becc3f7163a0b7c67ead77c3629760aaff34d6e29",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web__next-internal_server_app_app_page_actions_0o-eo760r3kw9.js.map",
+      "bytes": 51,
+      "sha256": "bba91168b8031003cc96ad9268cf613f0df3f39694a6b6dfa788d47ed5b30c18",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web__next-internal_server_app_login_page_actions_1cgde9j3z2umr.js",
+      "bytes": 146,
+      "sha256": "99619e83ca6e1ecbb673fdc11fec1fa2017a8bc01e095c5403778de0c9a38569",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web__next-internal_server_app_login_page_actions_1cgde9j3z2umr.js.map",
+      "bytes": 51,
+      "sha256": "bba91168b8031003cc96ad9268cf613f0df3f39694a6b6dfa788d47ed5b30c18",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web__next-internal_server_app_page_actions_1agtzgh5rpndk.js",
+      "bytes": 140,
+      "sha256": "fbabe7a6241233ba54e554d69bdc7eef1447f19314d59e70130df63a039cfe77",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web__next-internal_server_app_page_actions_1agtzgh5rpndk.js.map",
+      "bytes": 51,
+      "sha256": "bba91168b8031003cc96ad9268cf613f0df3f39694a6b6dfa788d47ed5b30c18",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web_src_app_0iv3a3mu6fpjt._.js",
+      "bytes": 7833,
+      "sha256": "35dd06386fdd6ec2d14426298642be810ef6285b01ba05c621d8d7cdf187c90b",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web_src_app_0iv3a3mu6fpjt._.js.map",
+      "bytes": 16510,
+      "sha256": "0dcadf6fe1ba04475a6c4c5a6b6db6646dbd84bb4e1df42b3776a99e04966a76",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web_src_app_console_tsx_1-7_p_1ojt9f-._.js",
+      "bytes": 15775,
+      "sha256": "b2d397636a4dc80492a2e69ec83c94936d5459e42ea8797a2aa621e32dea924a",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web_src_app_console_tsx_1-7_p_1ojt9f-._.js.map",
+      "bytes": 32341,
+      "sha256": "50ec450e7b446a43a4459188d55ad5d726be3e8c40933fd3d392e9c21387d76b",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web_src_app_login_page_tsx_0dez73ggcl0ua._.js",
+      "bytes": 3009,
+      "sha256": "2833027c482fc059b76532e0badd783367b36658c6d93d866474cef8de092d89",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web_src_app_login_page_tsx_0dez73ggcl0ua._.js.map",
+      "bytes": 6551,
+      "sha256": "1ac465a3610ac3275560e48789f5b2f0825e8e2e999bbba076cd531f014bf041",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web_src_components_1qia097g5uw66._.js",
+      "bytes": 1728,
+      "sha256": "5871da19bb36cf290a285a37fa44ab8668ccdb1ad944e44bb1e3ff1e55e911ec",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web_src_components_1qia097g5uw66._.js.map",
+      "bytes": 3469,
+      "sha256": "6a101d0402e62e8b8bdc001bc1ecd530c5ababa89f922a6cd013495f904d4d7b",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web_src_components_product_console_tsx_0isp4onfl64g9._.js",
+      "bytes": 35758,
+      "sha256": "8407a0ebc6bdeded74b1bcef058d7b208e6ad2d19b7d80226b4b129f85950d10",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web_src_components_product_console_tsx_0isp4onfl64g9._.js.map",
+      "bytes": 85517,
+      "sha256": "3b6314da5e39f27b916cb9be657067d6f899abafa744b5c3da5f5f5371445a55",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web_src_components_visual_tsx_1r5m7nxh_yp2b._.js",
+      "bytes": 1631,
+      "sha256": "ef92cd082ed846fce3f6d0fc0ee1f4ad8f38ef53a21c19fb5a931a9c6c058a87",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/apps_web_src_components_visual_tsx_1r5m7nxh_yp2b._.js.map",
+      "bytes": 3469,
+      "sha256": "6a101d0402e62e8b8bdc001bc1ecd530c5ababa89f922a6cd013495f904d4d7b",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/node_modules__pnpm_089iin3q4h88w._.js",
+      "bytes": 6759,
+      "sha256": "9470026163fb5178ec9862a0af9e89fbe3a9559e8ff3de4f0b4c4390276c3503",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/node_modules__pnpm_089iin3q4h88w._.js.map",
+      "bytes": 13052,
+      "sha256": "5a97d49bf415761b816f69ba4abc9aeb92b622ce27e1213da13a94c29810b300",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/node_modules__pnpm_0iwgftr7yinat._.js",
+      "bytes": 5084,
+      "sha256": "de2af30ca5bfbb5953b5646e5e7ce92fa505e087bf1a9826db9496a32bc4d403",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/chunks/ssr/node_modules__pnpm_0iwgftr7yinat._.js.map",
+      "bytes": 8755,
+      "sha256": "82dab22f77e1941d1eaf3273467ab29d515cf5550b4720d80983254a2ee6892c",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/functions-config-manifest.json",
+      "bytes": 88,
+      "sha256": "0f3711a44b5da18702b118f53422be2c9bc225453eaf17c1100e16b9f5a1c7a8",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/interception-route-rewrite-manifest.js",
+      "bytes": 48,
+      "sha256": "fc5133e40acf09e6517b073ddd7b5c0c218d09938848902210f2cc13f08e1c81",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/middleware-build-manifest.js",
+      "bytes": 1821,
+      "sha256": "1d085c6555032d6c478851cb15684cb0af0d468ff9dc302d25bbe8131f208608",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/middleware-manifest.json",
+      "bytes": 83,
+      "sha256": "3e662212864bc4c124cfc53fa5d428813c619852b447c9fd2d9926cd39d7a4a6",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/next-font-manifest.js",
+      "bytes": 135,
+      "sha256": "36feb6ff9eda2c958da55bdf3e7280596902cbaf7050cfaca0d5c68ee25d2be2",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/next-font-manifest.json",
+      "bytes": 94,
+      "sha256": "65f953122fe2fb5910d84495421ee32397b0be6321daa59118bd85d3cbc51d4d",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/pages-manifest.json",
+      "bytes": 58,
+      "sha256": "c354059caa217e72bdeb145e351b2038990972872c52df215cb1e4105c35097b",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/pages/404.html",
+      "bytes": 8121,
+      "sha256": "310752f083c5ac23a272320aa07264517f133f8f9529a474ce7b8494f3543e74",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/pages/500.html",
+      "bytes": 8788,
+      "sha256": "6a6c6eb9065008a3faa5bb207e71af45e441c7bc782aa9ee7dd2a602aae1decb",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/prefetch-hints.json",
+      "bytes": 935,
+      "sha256": "3aab8c2419cf938cbf31ffdd28ff18dcce3a13959a3dd58c4164a7a375de5b70",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/preview-props.json",
+      "bytes": 250,
+      "sha256": "eda7f130b57785a873620b6d6be172a5a5f57f6ecda0323368d5742415655664",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/16d1ab46157a868f438fa01e04bf53e805c71cddec593ea1535905c59625cd42/$/login.html",
+      "bytes": 8114,
+      "sha256": "ab922054a34e98535d3878a7dd8f919abd19bf56b6667e520f8e734a159405e5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/16d1ab46157a868f438fa01e04bf53e805c71cddec593ea1535905c59625cd42/$/login.meta",
+      "bytes": 545,
+      "sha256": "c6195df2a80fb6f7fdc215b1ab24cae90e0346d1c2b276f66befb48b1e8f44af",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/16d1ab46157a868f438fa01e04bf53e805c71cddec593ea1535905c59625cd42/$/login.rsc",
+      "bytes": 4308,
+      "sha256": "dd30244461f8823eab5b32842ae746a93413a88c3d7fd03a08b6cff481521c08",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/16d1ab46157a868f438fa01e04bf53e805c71cddec593ea1535905c59625cd42/$/login.segments/_full.segment.rsc",
+      "bytes": 4308,
+      "sha256": "dd30244461f8823eab5b32842ae746a93413a88c3d7fd03a08b6cff481521c08",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/16d1ab46157a868f438fa01e04bf53e805c71cddec593ea1535905c59625cd42/$/login.segments/_tree.segment.rsc",
+      "bytes": 212,
+      "sha256": "1e33e5ae06c4ebb5af2f6d9422fec52ef82d1bb875589bcfcbf2cdab1d1a6a9d",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/16d1ab46157a868f438fa01e04bf53e805c71cddec593ea1535905c59625cd42/$/login.segments/login/__PAGE__.segment.rsc",
+      "bytes": 3578,
+      "sha256": "3289ff0915adf82d660cf600fc20bb682e84a30f8212dc46edf9326eb8e5823d",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/337e6267dc814d3f506db400a910c23dc5792087ac85290082b30cfe193d80be/$/app.html",
+      "bytes": 8257,
+      "sha256": "efad1358638226301d2e6dfc5332861c0a836ba8004d5550fb10dc4a2ca08336",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/337e6267dc814d3f506db400a910c23dc5792087ac85290082b30cfe193d80be/$/app.meta",
+      "bytes": 533,
+      "sha256": "3829ad8a36598f89994d62eb21885d3dc3085532e556753294da3a4f2c6bbe3d",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/337e6267dc814d3f506db400a910c23dc5792087ac85290082b30cfe193d80be/$/app.rsc",
+      "bytes": 4524,
+      "sha256": "162256405e25e5b5ca49ed78de4951608521fad9fc76666edcbc9314522c5560",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/337e6267dc814d3f506db400a910c23dc5792087ac85290082b30cfe193d80be/$/app.segments/_full.segment.rsc",
+      "bytes": 4524,
+      "sha256": "162256405e25e5b5ca49ed78de4951608521fad9fc76666edcbc9314522c5560",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/337e6267dc814d3f506db400a910c23dc5792087ac85290082b30cfe193d80be/$/app.segments/_tree.segment.rsc",
+      "bytes": 264,
+      "sha256": "1eb7006daee55744bc3a40b5a5235a0b1f6169f3b3dadd5631e5e852b8475440",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/337e6267dc814d3f506db400a910c23dc5792087ac85290082b30cfe193d80be/$/app.segments/app/__PAGE__.segment.rsc",
+      "bytes": 3726,
+      "sha256": "5d860b773b79318fec116a748b34d26b7de5298052848609e6a9f0aa30fbf5b5",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/c6377dd9ce6a1c2cd100eb4344e843eb4639b9ed26f84643f77680e9eb454c4b/$/index.html",
+      "bytes": 37154,
+      "sha256": "bb7f60e4d1a9ea8f02510b7dc06527c4ad6eb34a6afdb693000f3e4e441310d3",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/c6377dd9ce6a1c2cd100eb4344e843eb4639b9ed26f84643f77680e9eb454c4b/$/index.meta",
+      "bytes": 481,
+      "sha256": "34d3acefe349c6bd5208dcfaaef21c3fa6c6ac70a2d7bfd9d71bb69f6404e22f",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/c6377dd9ce6a1c2cd100eb4344e843eb4639b9ed26f84643f77680e9eb454c4b/$/index.rsc",
+      "bytes": 11996,
+      "sha256": "4279b4f1d999d3dc4f7a52184f410350a22baca59a9ad896f865a1bdd1c5220c",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/c6377dd9ce6a1c2cd100eb4344e843eb4639b9ed26f84643f77680e9eb454c4b/$/index.segments/__PAGE__.segment.rsc",
+      "bytes": 11449,
+      "sha256": "0e6ba6441ca931bd9edafb6e15cedf3078eb4f3c2ab59703cd26390b81944279",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/c6377dd9ce6a1c2cd100eb4344e843eb4639b9ed26f84643f77680e9eb454c4b/$/index.segments/_full.segment.rsc",
+      "bytes": 11996,
+      "sha256": "4279b4f1d999d3dc4f7a52184f410350a22baca59a9ad896f865a1bdd1c5220c",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/route-cache/APP_PAGE/c6377dd9ce6a1c2cd100eb4344e843eb4639b9ed26f84643f77680e9eb454c4b/$/index.segments/_tree.segment.rsc",
+      "bytes": 164,
+      "sha256": "bb055a026b8d110fba675edc2c331f5b722b0d8c529d68ffc54a2b6dd3a10c6b",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/server-reference-manifest.js",
+      "bytes": 138,
+      "sha256": "482edf2b6377ed7435a014f55ee3b1449b1255b57d6a07820e41560efaa5e92d",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/server/server-reference-manifest.json",
+      "bytes": 97,
+      "sha256": "56b8a97fbb8d34dd756b76d9e412241f8275704ff05e02f5fce4c3cffba95be6",
+      "client": false,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/static/3tjLp-PtHdn0idtnbPe2R/_buildManifest.js",
+      "bytes": 219,
+      "sha256": "9476e0afd3f9da68a64e6ec58631191fd3eaca62c9f5a377e7517fe9a89e59ea",
+      "client": true,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/static/3tjLp-PtHdn0idtnbPe2R/_clientMiddlewareManifest.js",
+      "bytes": 96,
+      "sha256": "5483e3295dc35dfe29ea932efc85341c916f10ff78ff5b0e965e003710893a4a",
+      "client": true,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/static/3tjLp-PtHdn0idtnbPe2R/_ssgManifest.js",
+      "bytes": 80,
+      "sha256": "678f6ce2cb80b1fe72fc67e7412be6e2ab6ada083111b64f7c40d35e3cba5e00",
+      "client": true,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/static/chunks/02qph2wfmsks3.js",
+      "bytes": 186804,
+      "sha256": "0c5e10ac20066528fab9f898c43af05b7fe2a07f2f246818ebd79ea786b72908",
+      "client": true,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/static/chunks/08ubwt0bs6y8i.js",
+      "bytes": 17106,
+      "sha256": "0b14cc307fe79ab890b4cd3fcc29b8854ebb809f299edfb11f19349d7255afa7",
+      "client": true,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/static/chunks/0bnj_ez2yz5sv.js",
+      "bytes": 14000,
+      "sha256": "01686cf44cbf5468dad704f8f5c3646b4d9e418e6f91a59c5b4588582026d722",
+      "client": true,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/static/chunks/0cz1d0mv5g_q7.js",
+      "bytes": 112594,
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "client": true,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/static/chunks/0dq0rafcxbqpi.css",
+      "bytes": 29994,
+      "sha256": "ee458a48e37d9dcc19c5637d0e597a89e8725e1b1c26443afc67c386b1cb04b1",
+      "client": true,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/static/chunks/1no7zhzpudll9.js",
+      "bytes": 11315,
+      "sha256": "0ad0759e17154ed2b6324bd38e64ef79da20d98ad0f10ea71ca6aaa71e346152",
+      "client": true,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/static/chunks/2bs5g0snvfazr.js",
+      "bytes": 35763,
+      "sha256": "5fca582b6484b37d69b4d32c98264897d593302d0a92515005d0914a29ea3276",
+      "client": true,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/static/chunks/2tdlxiwai9o0v.js",
+      "bytes": 1749,
+      "sha256": "8110b92a0caeb0d732b8a97ffe0252b8bb699f15385c2b4411ced1a506c38a06",
+      "client": true,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/static/chunks/3durutcfai_w8.css",
+      "bytes": 15524,
+      "sha256": "854af17a0bc396087113313ec266be04676078174e7a2e97b4c31738dd2fd8e6",
+      "client": true,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/static/chunks/3dz0hr8l_ktjk.js",
+      "bytes": 229287,
+      "sha256": "7b8b2e75f7ad9fae1c783dda17c9eb66359db9db1cdd48bbe2ebb1a5036f64a1",
+      "client": true,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/static/chunks/3xox0l2vpmqpd.js",
+      "bytes": 4566,
+      "sha256": "76ae0a8d48fade96309931636b33eca13defcee7f45658e12306153354d3d7ae",
+      "client": true,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/static/chunks/3yilru_-r_09a.js",
+      "bytes": 17334,
+      "sha256": "9c7fec1beb0e1f0a265d1641c2b20939e0a39612e633a81f00779de6dcdf975b",
+      "client": true,
+      "protected_fixture_matches": 0
+    },
+    {
+      "path": "apps/web/.next/static/chunks/turbopack-077hmtqrhcoji.js",
+      "bytes": 11199,
+      "sha256": "3f0ba0c36a0758d76b55b6717fd77e65f46ae1295bb22fa441476e1eb7854d51",
+      "client": true,
+      "protected_fixture_matches": 0
+    }
+  ],
+  "hygiene": {
+    "known_secret_matches": 0,
+    "full_provider_id_matches": 0,
+    "raw_dsn_matches": 0,
+    "client_ip_matches": 0,
+    "protected_fixture_matches": 0,
+    "raw_values_memory_only": true
+  },
+  "inventory": [
+    {
+      "path": "deployment/finals/staging-app/audit.ts",
+      "bytes": 10926,
+      "sha256": "c9bf1ca2c2675db7947f314a9008e91809412128b50f82970b735b94d81d39f3"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-followup-audit.ts",
+      "bytes": 5982,
+      "sha256": "10caf07ba0b3da1d1363e57edd0b4c2c319dd2179d33ab75b329e545e8e72a6a"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-preflight.ts",
+      "bytes": 12181,
+      "sha256": "80932c305f4b374135d0a001a1924934f13778f72f151adf4089d902726f1b8a"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture.ts",
+      "bytes": 10206,
+      "sha256": "6fa2b3e119606e7f578ce6742a482ea10acbd2d2ca208b86f62467bc119e4c11"
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation-audit.ts",
+      "bytes": 12650,
+      "sha256": "ea60ff3a4a91cb63b66610663c03b4bb18c17a67723f066c416d9d82b99c3a25"
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation.ts",
+      "bytes": 730,
+      "sha256": "767ad98f62a595c7f449c4c572574c944d17747a7a69290f2810fe1361a9be6a"
+    },
+    {
+      "path": "deployment/finals/staging-app/evidence-terminal.ts",
+      "bytes": 3895,
+      "sha256": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3"
+    },
+    {
+      "path": "deployment/finals/staging-app/final-audit.ts",
+      "bytes": 13373,
+      "sha256": "4ae498121aa77f34815a86863305c7351ff36474480e7d7ba1268e04e051e9c8"
+    },
+    {
+      "path": "deployment/finals/staging-app/proxy-audit.ts",
+      "bytes": 6996,
+      "sha256": "143ef7f4f89f74b150999d7de99f427a2f40caff7962d2738a3838491cf1c316"
+    },
+    {
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "bytes": 13467,
+      "sha256": "56ffa717115e77e02c90aeec82cfa0ceb91804cbb9a9f4fba666c8d9bc1ac19c"
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "bytes": 52601,
+      "sha256": "7d91ff89c79b492a672f8d22ca9e1983eea573a7d24bf89888338c18f34725ec"
+    },
+    {
+      "path": "deployment/finals/staging-app/README.md",
+      "bytes": 3835,
+      "sha256": "6d5748115209cf9abb6a38fd090f44868aa8e6125c99c0087c4965ed43a36e02"
+    },
+    {
+      "path": "deployment/finals/staging-app/startup-only.ts",
+      "bytes": 5061,
+      "sha256": "75b32720af0f259d6f4401d5d10ea70f17e42e6c94cfeaa2aedeb6dcf46f0d9b"
+    },
+    {
+      "path": "deployment/finals/staging-app/startup.ts",
+      "bytes": 4535,
+      "sha256": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54"
+    },
+    {
+      "path": "deployment/finals/staging-app/tls-observer.cjs",
+      "bytes": 1703,
+      "sha256": "0939c210587d077e939000c3d79a32b65afe408f79eb54e4ff52d1f2b76b7ce3"
+    },
+    {
+      "path": "deployment/finals/staging-app/tooling-checks.ts",
+      "bytes": 3581,
+      "sha256": "ad7e74f749acf5d7e0f0b81f3df9aa0dbb194d08c3cd544167ab160d33d8b9b7"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-35-49-545Z/inventory.json",
+      "bytes": 730,
+      "sha256": "c467dcbb4f61b7e8ed43417c50514990d2c4e24e5287dfedc23f56ff37437657"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-35-49-545Z/result.json",
+      "bytes": 1027,
+      "sha256": "7a3e231823fcb95d3637cb574cceb51c5fda2138f665b65989c455bbb98ce958"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-37-22-303Z/checkpoint-before-build.json",
+      "bytes": 15090,
+      "sha256": "47ebdd33771f3c4a14f85859ea91a67dd9bb9c76f011944eb863ecaf32b60311"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-37-22-303Z/inventory.json",
+      "bytes": 953,
+      "sha256": "e870c67ddf8041fb34698f554448fc468b0ec9e203879433618df6e93f4c6aef"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-37-22-303Z/result.json",
+      "bytes": 20544,
+      "sha256": "cdcc07207f3a7891b211c36a9683fd1cc6cea496759eb7f6dcc842439e8c1a0b"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-39-15-029Z/inventory.json",
+      "bytes": 731,
+      "sha256": "cdf685b0f2d9f2b9acbdc56557857be79e8f6fcfd4a44a9a0685ec48da4ce60b"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-39-15-029Z/result.json",
+      "bytes": 32669,
+      "sha256": "31b3159c196d51944818337e28d6632be8fbdb79d0e5b597c8774cc44c0adc36"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-41-01-076Z/inventory.json",
+      "bytes": 731,
+      "sha256": "97de49d8035cae9a803b917cd7da010cf2a302e77afaaf7d78c36192da892999"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-41-01-076Z/result.json",
+      "bytes": 34551,
+      "sha256": "31b2eb67ad55b9104c8d76d0b0bfe4f73a3ac26b4914849f5de297b7cee712e4"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/build-inventory.json",
+      "bytes": 62270,
+      "sha256": "dd14ce3088ae7881d5780724933125851ebb326bd9a4bd23de2480307357eaa5"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/capture-2026-11-10T14-33Z/capture-preflight.json",
+      "bytes": 312,
+      "sha256": "771496570e88c174c64829f0f52aebc6777cf8ce59c58f4456f6444fc4e8a8dc"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/capture-2026-11-10T14-33Z/checks.json",
+      "bytes": 1026,
+      "sha256": "92db785c085af752f3f2f04e73e3b43090bc82e0881e7891543d362915e4dce5"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/capture-2026-11-10T14-33Z/final-offline-audit.json",
+      "bytes": 5484,
+      "sha256": "6fe2b174dca021e1b2d3e888e18d18b0374e2b6f1133b15af0557fa06c0be276"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/capture-2026-11-10T14-33Z/preserved-baseline.json",
+      "bytes": 2984,
+      "sha256": "48470484c8cbeb0402efcd1bfc1399a76acab8de75e211101edebd186f122dc2"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/capture-2026-11-10T14-33Z/report.md",
+      "bytes": 7210,
+      "sha256": "2371c3acda291aad0f880ecdd7f472fe3eeaa75e9226f6c9b0bb3525b2eec54f"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/actual/inventory.json",
+      "bytes": 2184,
+      "sha256": "13a750b1f812d17037949ca4b13a2e11df243ccd211d36622c1f8a004a3996ff"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/actual/result.json",
+      "bytes": 22815,
+      "sha256": "19ac18461d72fb77f896c1fb40f0efafc5c3e2b733b24250e4ed1f1148313d7a"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/checks.json",
+      "bytes": 5537,
+      "sha256": "5972024c36800220ca708e5339810eaf5f24aace675d2150fa2ef953b2301d2f"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/continuation-authorization.json",
+      "bytes": 1214,
+      "sha256": "893f132a0a29d779bcf89fd4d3f834b287093c6154e70ea3c5869c090ae83862"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/continuation-execution.json",
+      "bytes": 905,
+      "sha256": "8691c5aef0a83c55cb8ba73e0e1684b5720e95acb6be91ad214d9b3d991bc516"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/continuation-source-binding.json",
+      "bytes": 794,
+      "sha256": "3c40138294856c76118a52971e4b41a6176ebc0218cdb3df1fc323fb45ed33a5"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/final-continuation-audit.json",
+      "bytes": 86007,
+      "sha256": "b0057cbb7c006ae20e83c3088bfd81333f16a907d9e6674be945ebea82aa2f52"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/preflight-1.json",
+      "bytes": 16212,
+      "sha256": "7905fe54053bc27d85094300f75cf6826b6ac1afc650620806092e0adecda797"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/preserved-baseline.json",
+      "bytes": 7276,
+      "sha256": "ac1a049d09017f526235b186fd2b39a936ad3a8d508ce9da266647d7a98ef30b"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/report.md",
+      "bytes": 11051,
+      "sha256": "17768ed7b598d9c7386d0c696738c8fcb2ec58ea74103130ebad1a9bdd3a2a2a"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/continuation-2026-11-10T15-04Z/synthetic-execution-1.json",
+      "bytes": 724,
+      "sha256": "61d3ddc64b6f773846922c4fae843322b43c07303e50e1040937f9c03ef02afb"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/coordinator-db-diagnosis-2026-11-10/after-rule-rotation.json",
+      "bytes": 582,
+      "sha256": "c47e792c857dd6741804ed5a66fe483785f1a13210eabfbe37ff275ee5081ada"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/coordinator-db-diagnosis-2026-11-10/ip-rule-rotation.json",
+      "bytes": 405,
+      "sha256": "4084427765ec3e97717f1e3c27ea36e628cca62d0c5ed9380978227b819d597e"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/coordinator-db-diagnosis-2026-11-10/result.json",
+      "bytes": 321,
+      "sha256": "f7558b81a72b00c91c0c9cce43c073a046db871681e759de768534faf86351fa"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/coordinator-startup-diagnosis-2026-11-10/result.json",
+      "bytes": 514,
+      "sha256": "aea425a0c19f828ee8d8df7d109488f5ff4430bdb6d699494ce0b61b912605db"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/final-hygiene.json",
+      "bytes": 4355,
+      "sha256": "0b3a7542af3abf3c9960b5bea9362a9d9666e17ff24263de28e488f548b99b94"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/final-readonly-audit.json",
+      "bytes": 5404,
+      "sha256": "57312ab92ddb6a5e07060b600f0466c7554029792803ed6458d9a2f7545c4a64"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/finalization.json",
+      "bytes": 280,
+      "sha256": "cdcc9eb3f3d4e88abd7931074391524b2038c06c1b4010141d0bb811200ffab6"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/inventory.json",
+      "bytes": 3089,
+      "sha256": "6e46a76ad88dbc7604c2525ddcf340eceedb6468c20fe2a756904fc965855a60"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/observed-exit.json",
+      "bytes": 182,
+      "sha256": "d9d3737a2c9d9c0de937be6fb254c71382d8d278ed75bae8c24ad3ec03ae7524"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/result.json",
+      "bytes": 50654,
+      "sha256": "96286d3e04c4812b580f626612e7d837bc72f9dcfbff4b810ce763781be72f5d"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/continuation-authorization.json",
+      "bytes": 1687,
+      "sha256": "9c34f85727db8488210e016ff98b90ff937527db375685112074a4cabc519b50"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/continuation-execution.json",
+      "bytes": 1571,
+      "sha256": "2fe49b34eba216208ea97e68d5aa46c5ab158d6da6bfdb41bb397713b76ec035"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/continuation-source-binding.json",
+      "bytes": 1691,
+      "sha256": "be44af2d616b816204a6876c2cc166b415ac73a6f14dfe57d70b09308c3e4393"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/AFTER_INVENTORY/inventory.json",
+      "bytes": 201,
+      "sha256": "15cd9f7c01b9c4375d34693e8117b13d6e6cbe0d828efe0d33772de0ac6689da"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/AFTER_INVENTORY/observed-exit.json",
+      "bytes": 120,
+      "sha256": "57316f48f735c72cda1f07469f899ff9db9bd677b8c5032844edfd6e5e6d4782"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/AFTER_RESULT/inventory.json",
+      "bytes": 201,
+      "sha256": "b0b36ba2e125bcaa6df482792e6ecf27d4e2dd7183a070c55343a027f52b51c3"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/AFTER_RESULT/observed-exit.json",
+      "bytes": 120,
+      "sha256": "57316f48f735c72cda1f07469f899ff9db9bd677b8c5032844edfd6e5e6d4782"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/AFTER_RESULT/result.json",
+      "bytes": 125,
+      "sha256": "b59c2609054f06d02f61f1c0caffb9b3d373c1a2c3e0482dd47b142a8780d4dd"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/BEFORE_FINALIZATION/inventory.json",
+      "bytes": 201,
+      "sha256": "5c6ef2b90a150285464e98508f2add18bc8560dce0338f9a9525fcba7703c499"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/BEFORE_FINALIZATION/observed-exit.json",
+      "bytes": 120,
+      "sha256": "57316f48f735c72cda1f07469f899ff9db9bd677b8c5032844edfd6e5e6d4782"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/BEFORE_FINALIZATION/result.json",
+      "bytes": 125,
+      "sha256": "b59c2609054f06d02f61f1c0caffb9b3d373c1a2c3e0482dd47b142a8780d4dd"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/BEFORE_INVENTORY/observed-exit.json",
+      "bytes": 120,
+      "sha256": "57316f48f735c72cda1f07469f899ff9db9bd677b8c5032844edfd6e5e6d4782"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/EXIT_MISMATCH/finalization.json",
+      "bytes": 280,
+      "sha256": "d2f5918f82d4ba789682f2ed3d3fd49679887d4427a1d4f5b4feaea0afe0b841"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/EXIT_MISMATCH/inventory.json",
+      "bytes": 201,
+      "sha256": "f3e9f920976a3d0b84107488af651f6b7c2da98af9159247213fd20a74144815"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/EXIT_MISMATCH/observed-exit.json",
+      "bytes": 182,
+      "sha256": "ff6f9df8036facb68049c2f93cdcd6e4a2ba06ef5fccc556b2de19867302a549"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/EXIT_MISMATCH/result.json",
+      "bytes": 123,
+      "sha256": "59bd9486dc68e297fef495c51810fb773332052ff1464126ab23efad8cf8b71c"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/SUCCESS/finalization.json",
+      "bytes": 280,
+      "sha256": "7e4c043aeaf08ff7c1e9d63acf527765fe41f6c74a05408a5366c24c645ca734"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/SUCCESS/inventory.json",
+      "bytes": 201,
+      "sha256": "0ef428be6a686f45495cbec20386a744c35696052a724216f5953f54a2a3e795"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/SUCCESS/observed-exit.json",
+      "bytes": 182,
+      "sha256": "1311f5c5e01fdd34532f21dbe9a832b2d6a7969a1b067136b84462f9c67b5ea1"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/SUCCESS/result.json",
+      "bytes": 125,
+      "sha256": "b59c2609054f06d02f61f1c0caffb9b3d373c1a2c3e0482dd47b142a8780d4dd"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-1/VALIDATION/observed-exit.json",
+      "bytes": 120,
+      "sha256": "57316f48f735c72cda1f07469f899ff9db9bd677b8c5032844edfd6e5e6d4782"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/AFTER_INVENTORY/inventory.json",
+      "bytes": 201,
+      "sha256": "2acbfb721ca2ee3b56770e32e423d6ce54bce173f79454702b0cd6cb6e58ba55"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/AFTER_INVENTORY/observed-exit.json",
+      "bytes": 116,
+      "sha256": "a6297273da34bcb0b07e2cdbcbd7ad9e9a176429c386210913a5df86b3863e87"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/AFTER_RESULT/inventory.json",
+      "bytes": 201,
+      "sha256": "36c95318f748ea7b38371797e6b39013b4205d90beef2949f82e41cacf1da5b5"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/AFTER_RESULT/observed-exit.json",
+      "bytes": 116,
+      "sha256": "a6297273da34bcb0b07e2cdbcbd7ad9e9a176429c386210913a5df86b3863e87"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/AFTER_RESULT/result.json",
+      "bytes": 125,
+      "sha256": "b59c2609054f06d02f61f1c0caffb9b3d373c1a2c3e0482dd47b142a8780d4dd"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/BEFORE_FINALIZATION/inventory.json",
+      "bytes": 201,
+      "sha256": "d60390073f5eed1eb0cd771ac59c84fffc907835fb424547fda618141c0d4079"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/BEFORE_FINALIZATION/observed-exit.json",
+      "bytes": 116,
+      "sha256": "a6297273da34bcb0b07e2cdbcbd7ad9e9a176429c386210913a5df86b3863e87"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/BEFORE_FINALIZATION/result.json",
+      "bytes": 125,
+      "sha256": "b59c2609054f06d02f61f1c0caffb9b3d373c1a2c3e0482dd47b142a8780d4dd"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/BEFORE_INVENTORY/observed-exit.json",
+      "bytes": 116,
+      "sha256": "a6297273da34bcb0b07e2cdbcbd7ad9e9a176429c386210913a5df86b3863e87"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/EXIT_MISMATCH/finalization.json",
+      "bytes": 280,
+      "sha256": "58b5b1f64c4eb4610546379a6b763269bbc41498274ee4becf6b9477d45633aa"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/EXIT_MISMATCH/inventory.json",
+      "bytes": 201,
+      "sha256": "b63b88d3f4dd00e84f44681bea7b25bb9b1cb9df4725052211aebd78bd338309"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/EXIT_MISMATCH/observed-exit.json",
+      "bytes": 178,
+      "sha256": "c45805aedefa001b121a48541d07145a614b25aa87098dc1c667193c2d0dfb37"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/EXIT_MISMATCH/result.json",
+      "bytes": 123,
+      "sha256": "59bd9486dc68e297fef495c51810fb773332052ff1464126ab23efad8cf8b71c"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/SUCCESS/finalization.json",
+      "bytes": 280,
+      "sha256": "380d0fca081de1728f1cb2262a4d3787978e7b0d7fb618f530326c3ec9e590d3"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/SUCCESS/inventory.json",
+      "bytes": 201,
+      "sha256": "02a6e46b0e30271f550edb229bcd17991e8d95f4cd26f649329cc3b36a11aa99"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/SUCCESS/observed-exit.json",
+      "bytes": 178,
+      "sha256": "cfdd4fd2d1f2977575e6f374a2ffd9f337d6bf73647209991624cb05956d0fc2"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/SUCCESS/result.json",
+      "bytes": 125,
+      "sha256": "b59c2609054f06d02f61f1c0caffb9b3d373c1a2c3e0482dd47b142a8780d4dd"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-2/VALIDATION/observed-exit.json",
+      "bytes": 116,
+      "sha256": "a6297273da34bcb0b07e2cdbcbd7ad9e9a176429c386210913a5df86b3863e87"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-check-1.json",
+      "bytes": 1388,
+      "sha256": "c94f03086d5c48e57f84d53e5fa7b075214b67d7dec190831956934f991c08db"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-check-2.json",
+      "bytes": 1388,
+      "sha256": "c94f03086d5c48e57f84d53e5fa7b075214b67d7dec190831956934f991c08db"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-execution-1.json",
+      "bytes": 105,
+      "sha256": "929c832b969543b0a69e907dc7d831dd3f988eb4d1539b417ccef83b7360773b"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-execution-2.json",
+      "bytes": 105,
+      "sha256": "fb5927f3e0fb2685556db64290defad8d63951bc7485ac6b80256687838291d7"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/preflight-1.json",
+      "bytes": 17008,
+      "sha256": "adf4d175a20985ce4759c3076118e9ccd50f15c626e7df7bca34816a234b8ce7"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/preserved-baseline.json",
+      "bytes": 9841,
+      "sha256": "4af1a1cde7c4fe0a1d656237519737f48a363982158d4c7b1c3f277f79293c61"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/repair-prerequisites.json",
+      "bytes": 504,
+      "sha256": "f50b29d56a07d7e7df429327b86c3bb8fde2aad247b8387b3a67bf57861cc6c1"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/report.md",
+      "bytes": 13316,
+      "sha256": "16f031075093b505e4f3ccfdeb320922c97543126c2452062293053fdf8c82c4"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/startup-only-1.json",
+      "bytes": 3884,
+      "sha256": "555e180107568045c3f90c90a6e6dbd7279e3d8d83c6649e910874a5ad4bbfde"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/startup-only-execution-1.json",
+      "bytes": 109,
+      "sha256": "c98b9f34bdf35124b9b8a4cfbb64131a86214ac44d5af0340e0e98df0b39eb22"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/synthetic-execution-1.json",
+      "bytes": 1520,
+      "sha256": "aba8fe8737cdff0ee0f6a9b072caaef803b965bfdab3c84595773d23b0fa67a2"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/proxy-2026-11-10T14-43Z/actual/inventory.json",
+      "bytes": 1997,
+      "sha256": "37c4e8b82baec7f34198e6def6638df0e4396418751342ba107e7e35c3493cfe"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/proxy-2026-11-10T14-43Z/actual/result.json",
+      "bytes": 4459,
+      "sha256": "c574b5db1fea107a5410d3f11c395b19e6e344b02afd85e0d49a0e6f077f36de"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/proxy-2026-11-10T14-43Z/actual-execution.json",
+      "bytes": 208,
+      "sha256": "82d80efd9b408110a12d64b5d1e436096d352b161da53f503aad5375cf5095d3"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/proxy-2026-11-10T14-43Z/checks.json",
+      "bytes": 3339,
+      "sha256": "83adc7cbcab85a962ab34a2d793f81270e17627609b7cca5a0604ee8db3403c4"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/proxy-2026-11-10T14-43Z/final-offline-audit.json",
+      "bytes": 8948,
+      "sha256": "d6b12145c77d54a75ee139c2cd5e484236683a036378a63f8fd233b172d83e30"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/proxy-2026-11-10T14-43Z/preflight-1.json",
+      "bytes": 8312,
+      "sha256": "ff06493df66521896616b6e1d15498e438a902d755fa54cf4562cac3f2415413"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/proxy-2026-11-10T14-43Z/preflight-2.json",
+      "bytes": 15946,
+      "sha256": "0f76d9995132b83f3e3bdfee92881aedfa33adcb05b3408d19bf42539fb3d198"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/proxy-2026-11-10T14-43Z/preserved-baseline.json",
+      "bytes": 4261,
+      "sha256": "bb52e58b529ce6be41f983e8bd1c1aa7a36ddf7916dd6a706888f80f12e02d5b"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/proxy-2026-11-10T14-43Z/report.md",
+      "bytes": 11014,
+      "sha256": "5dfb9c97e21baf366de2aaade34c4dfad44105a34628a5909e0ac3da5b362d34"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/proxy-2026-11-10T14-43Z/synthetic-execution-1.json",
+      "bytes": 565,
+      "sha256": "d80dcf86b792a65b05025ef298ff3be2af329d12fec21865059501be93017a9a"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/proxy-2026-11-10T14-43Z/synthetic-execution-2.json",
+      "bytes": 565,
+      "sha256": "12a11516d2ef8d366b68b81b6e7f0f4324164de783c4bf0c0ece3e674cfbd5dc"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/report.md",
+      "bytes": 11756,
+      "sha256": "b8bfa9a47659bd0c8d9ac370000563999e0409a4fa5c5cb106518fdc4c9f9acc"
+    }
+  ],
+  "app_and_proxy_ports_no_listener": true,
+  "actual_terminal_consistency": {
+    "accepted": true,
+    "passed": false,
+    "safe_failure": null,
+    "finalization_sha256": "cdcc9eb3f3d4e88abd7931074391524b2038c06c1b4010141d0bb811200ffab6"
+  },
+  "actual_staging_outcome": "failed",
+  "actual_staging_safe_failure": "QUALIFICATION_ASSERTION_OR_DEPENDENCY_FAILED",
+  "actual_staging_failed_stage": "real-browser",
+  "actual_http_checks": 37,
+  "actual_browser_cases": 0,
+  "final_database_checkpoint_from_actual_receipt": {
+    "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/result.json",
+    "sha256": "96286d3e04c4812b580f626612e7d837bc72f9dcfbff4b810ce763781be72f5d",
+    "counts": {
+      "owner": 1,
+      "merchant": 1,
+      "agent": 1,
+      "resource": 2,
+      "schema_migration": 4,
+      "session": 10,
+      "auth_throttle": 15,
+      "agent_run": 0,
+      "quote": 0,
+      "payment_attempt": 0,
+      "payment_evidence": 0,
+      "entitlement": 0,
+      "job": 0,
+      "wallet_operation": 0,
+      "merchant_claim": 0,
+      "run_event": 0,
+      "audit_event": 0,
+      "payment_accept_key": 0
+    },
+    "sessions": {
+      "total": 10,
+      "revoked": 10,
+      "unrevoked": 0
+    },
+    "independent_new_database_observation": false
+  },
+  "independent_database_audit": {
+    "attempted": false,
+    "reason": "actual gate failed or absent; no diagnostic reconnect or second gate"
+  },
+  "finished_at": "2026-11-10T15:30:46.971Z"
+}

@@ -1,0 +1,15 @@
+{
+  "at": "2026-11-10T15:25:19.423Z",
+  "receipts": [
+    {
+      "role": "offline",
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-check-2.json",
+      "sha256": "c94f03086d5c48e57f84d53e5fa7b075214b67d7dec190831956934f991c08db"
+    },
+    {
+      "role": "startup",
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/startup-only-1.json",
+      "sha256": "555e180107568045c3f90c90a6e6dbd7279e3d8d83c6649e910874a5ad4bbfde"
+    }
+  ]
+}

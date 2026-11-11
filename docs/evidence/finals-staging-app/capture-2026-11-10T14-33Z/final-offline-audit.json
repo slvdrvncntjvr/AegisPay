@@ -1,0 +1,142 @@
+{
+  "started_at": "2026-11-10T14:38:55.403Z",
+  "outcome": "passed",
+  "kind": "offline followup integrity and hygiene audit; no new database observation",
+  "capture_preflight": "failed",
+  "actual_staging_rerun_attempted": false,
+  "actual_staging_exit": null,
+  "preserved_original_public_files": 16,
+  "custody_files_unchanged": 4,
+  "source_files_unchanged": 72,
+  "source_sha256": "1eca1bfbfc838513ced491d53aedeb5e173400e935125f45f03694e4874acc00",
+  "build_id_sha256": "8377827b6c1b2e97c1ceabca1c0a1e00b8407c51ead728dfdff07100973b9a9c",
+  "build_files_unchanged": 233,
+  "build_inventory_sha256": "3e6d864cf2f90759c110bbb283cbe53d4028a6b63c199a8a03f81662c12f07b0",
+  "hygiene": {
+    "known_secret_matches": 0,
+    "full_provider_id_matches": 0,
+    "raw_dsn_matches": 0,
+    "client_ip_matches": 0,
+    "protected_fixture_matches": 0,
+    "raw_values_memory_only": true
+  },
+  "inventory": [
+    {
+      "path": "deployment/finals/staging-app/audit.ts",
+      "bytes": 10926,
+      "sha256": "c9bf1ca2c2675db7947f314a9008e91809412128b50f82970b735b94d81d39f3"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-followup-audit.ts",
+      "bytes": 5982,
+      "sha256": "10caf07ba0b3da1d1363e57edd0b4c2c319dd2179d33ab75b329e545e8e72a6a"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-preflight.ts",
+      "bytes": 8304,
+      "sha256": "91ce8866ae233bc576ce7b34f3465421a7c7711c149aadb43eb3cdf6cae6215d"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture.ts",
+      "bytes": 10206,
+      "sha256": "6fa2b3e119606e7f578ce6742a482ea10acbd2d2ca208b86f62467bc119e4c11"
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "bytes": 44589,
+      "sha256": "41e56182194d976d634c54af5c10582307f2cc3c967cc665df071b5cc1990806"
+    },
+    {
+      "path": "deployment/finals/staging-app/README.md",
+      "bytes": 3835,
+      "sha256": "6d5748115209cf9abb6a38fd090f44868aa8e6125c99c0087c4965ed43a36e02"
+    },
+    {
+      "path": "deployment/finals/staging-app/tls-observer.cjs",
+      "bytes": 1703,
+      "sha256": "0939c210587d077e939000c3d79a32b65afe408f79eb54e4ff52d1f2b76b7ce3"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-35-49-545Z/inventory.json",
+      "bytes": 730,
+      "sha256": "c467dcbb4f61b7e8ed43417c50514990d2c4e24e5287dfedc23f56ff37437657"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-35-49-545Z/result.json",
+      "bytes": 1027,
+      "sha256": "7a3e231823fcb95d3637cb574cceb51c5fda2138f665b65989c455bbb98ce958"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-37-22-303Z/checkpoint-before-build.json",
+      "bytes": 15090,
+      "sha256": "47ebdd33771f3c4a14f85859ea91a67dd9bb9c76f011944eb863ecaf32b60311"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-37-22-303Z/inventory.json",
+      "bytes": 953,
+      "sha256": "e870c67ddf8041fb34698f554448fc468b0ec9e203879433618df6e93f4c6aef"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-37-22-303Z/result.json",
+      "bytes": 20544,
+      "sha256": "cdcc07207f3a7891b211c36a9683fd1cc6cea496759eb7f6dcc842439e8c1a0b"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-39-15-029Z/inventory.json",
+      "bytes": 731,
+      "sha256": "cdf685b0f2d9f2b9acbdc56557857be79e8f6fcfd4a44a9a0685ec48da4ce60b"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-39-15-029Z/result.json",
+      "bytes": 32669,
+      "sha256": "31b3159c196d51944818337e28d6632be8fbdb79d0e5b597c8774cc44c0adc36"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-41-01-076Z/inventory.json",
+      "bytes": 731,
+      "sha256": "97de49d8035cae9a803b917cd7da010cf2a302e77afaaf7d78c36192da892999"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/2026-11-10T12-41-01-076Z/result.json",
+      "bytes": 34551,
+      "sha256": "31b2eb67ad55b9104c8d76d0b0bfe4f73a3ac26b4914849f5de297b7cee712e4"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/build-inventory.json",
+      "bytes": 62270,
+      "sha256": "dd14ce3088ae7881d5780724933125851ebb326bd9a4bd23de2480307357eaa5"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/capture-2026-11-10T14-33Z/capture-preflight.json",
+      "bytes": 312,
+      "sha256": "771496570e88c174c64829f0f52aebc6777cf8ce59c58f4456f6444fc4e8a8dc"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/capture-2026-11-10T14-33Z/preserved-baseline.json",
+      "bytes": 2984,
+      "sha256": "48470484c8cbeb0402efcd1bfc1399a76acab8de75e211101edebd186f122dc2"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/capture-2026-11-10T14-33Z/report.md",
+      "bytes": 7210,
+      "sha256": "2371c3acda291aad0f880ecdd7f472fe3eeaa75e9226f6c9b0bb3525b2eec54f"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/final-hygiene.json",
+      "bytes": 4355,
+      "sha256": "0b3a7542af3abf3c9960b5bea9362a9d9666e17ff24263de28e488f548b99b94"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/final-readonly-audit.json",
+      "bytes": 5404,
+      "sha256": "57312ab92ddb6a5e07060b600f0466c7554029792803ed6458d9a2f7545c4a64"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/report.md",
+      "bytes": 11756,
+      "sha256": "b8bfa9a47659bd0c8d9ac370000563999e0409a4fa5c5cb106518fdc4c9f9acc"
+    }
+  ],
+  "app_port_no_listener": true,
+  "finished_at": "2026-11-10T14:39:03.406Z"
+}

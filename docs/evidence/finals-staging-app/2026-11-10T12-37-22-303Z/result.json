@@ -1,0 +1,606 @@
+{
+  "task": "TASK-019",
+  "started_at": "2026-11-10T12:37:22.303Z",
+  "outcome": "failed",
+  "scope": "loopback production Next.js against exact isolated cloud staging DB; no hosted app or release acceptance",
+  "commands": [
+    {
+      "executable": "node",
+      "args": [
+        "node_modules/.pnpm/next@16.4.5_@opentelemetry+_455a116f59a90c6268330f87a8cb244c/node_modules/next/dist/bin/next",
+        "build"
+      ],
+      "cwd": "apps/web",
+      "started_at": "2026-11-10T12:37:33.797Z",
+      "exit": 0,
+      "output_sha256": "5ad2500bc6591bfa06be896b32bbcade335ba62d48379c47a5f32f7b8d85c9bd",
+      "output_bytes": 751,
+      "hygiene": {
+        "fixture_matches": 0,
+        "known_secret_matches": 0,
+        "full_provider_id_matches": 0,
+        "raw_dsn_matches": 0,
+        "client_ip_matches": 0
+      }
+    },
+    {
+      "executable": "C:\\Users\\Vincent\\Miniconda3\\python.exe",
+      "args": [
+        "tools/check-docs.py"
+      ],
+      "cwd": ".",
+      "started_at": "2026-11-10T12:38:05.431Z",
+      "exit": 0,
+      "output_sha256": "56af1170024fd9057586a5b41795fea08311bcea836f3e7859076b7c45e2b97e",
+      "output_bytes": 236,
+      "hygiene": {
+        "fixture_matches": 0,
+        "known_secret_matches": 0,
+        "full_provider_id_matches": 0,
+        "raw_dsn_matches": 0,
+        "client_ip_matches": 0
+      }
+    },
+    {
+      "executable": "C:\\Users\\Vincent\\Miniconda3\\python.exe",
+      "args": [
+        "fmd/tools/check-implementation-plan.py",
+        "docs/implementation-plan.md",
+        "--strict"
+      ],
+      "cwd": ".",
+      "started_at": "2026-11-10T12:38:05.670Z",
+      "exit": 0,
+      "output_sha256": "f6643a95cd03387f26f0aaaa8ffc09610ff242faaba8e3e3cc3636a8209d87c3",
+      "output_bytes": 520,
+      "hygiene": {
+        "fixture_matches": 0,
+        "known_secret_matches": 0,
+        "full_provider_id_matches": 0,
+        "raw_dsn_matches": 0,
+        "client_ip_matches": 0
+      }
+    }
+  ],
+  "checks": [],
+  "http": [
+    {
+      "label": "anonymous /",
+      "method": "GET",
+      "status": 200,
+      "expected": 200,
+      "no_store": false,
+      "content_type": "text/html",
+      "bytes": 37154,
+      "sha256": "bb7f60e4d1a9ea8f02510b7dc06527c4ad6eb34a6afdb693000f3e4e441310d3"
+    },
+    {
+      "label": "anonymous /login",
+      "method": "GET",
+      "status": 200,
+      "expected": 200,
+      "no_store": false,
+      "content_type": "text/html",
+      "bytes": 8114,
+      "sha256": "ab922054a34e98535d3878a7dd8f919abd19bf56b6667e520f8e734a159405e5"
+    },
+    {
+      "label": "anonymous /app",
+      "method": "GET",
+      "status": 200,
+      "expected": 200,
+      "no_store": false,
+      "content_type": "text/html",
+      "bytes": 8257,
+      "sha256": "efad1358638226301d2e6dfc5332861c0a836ba8004d5550fb10dc4a2ca08336"
+    },
+    {
+      "label": "anonymous RSC app shell",
+      "method": "GET",
+      "status": 307,
+      "expected": 200,
+      "no_store": false,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "browser": [],
+  "app_pool_tls": [],
+  "cleanup": {
+    "owned_next_pid": 4092,
+    "owned_next_exited": true,
+    "final_allowlisted_counts": {
+      "owner": 1,
+      "merchant": 1,
+      "agent": 1,
+      "resource": 2,
+      "schema_migration": 4,
+      "session": 0,
+      "auth_throttle": 0,
+      "agent_run": 0,
+      "quote": 0,
+      "payment_attempt": 0,
+      "payment_evidence": 0,
+      "entitlement": 0,
+      "job": 0,
+      "wallet_operation": 0,
+      "merchant_claim": 0,
+      "run_event": 0,
+      "audit_event": 0,
+      "payment_accept_key": 0
+    },
+    "test_session_revocation_by_invocation_hash_only": true,
+    "original_staging_config_unchanged": true
+  },
+  "configuration": {
+    "exact_resource_sha256": "feaa345c7d4172d22feb6dd8c92794128061a2f357b2e5372c0739138b6f8f85",
+    "created_at": "2026-11-10T11:55:40.452333Z",
+    "expires_at": "2026-12-10T11:55:40.452333Z",
+    "strict_tls": true,
+    "original_custody_acl_verified": true,
+    "original_staging_file_sha256": "d0af8bf40b67722107848b68416daeed76682881181bb986cf5bd305086afbdd"
+  },
+  "web_configuration": {
+    "keys": [
+      "APP_ORIGIN",
+      "DATABASE_URL",
+      "DEMO_AGENT_PUBLIC_KEY",
+      "DEMO_DEVICE_HASH",
+      "DEMO_MERCHANT_LOGIN_TOKEN",
+      "DEMO_MERCHANT_PUBLIC_KEY",
+      "DEMO_OWNER_LOGIN_TOKEN",
+      "DEMO_OWNER_PUBLIC_KEY",
+      "NODE_ENV",
+      "NOIR_AGENT_REGISTRY_ID",
+      "NOIR_DEVICE_REGISTRY_ID",
+      "NOIR_PAYMENT_ESCROW_ID",
+      "NOIR_XLM_SAC_ID",
+      "RECEIPT_SIGNING_KEY",
+      "STELLAR_NETWORK",
+      "STELLAR_NETWORK_PASSPHRASE"
+    ],
+    "acl_verified_before_secret_write": true,
+    "exclusive_atomic_persistence": true,
+    "fresh_distinct_secrets_48_bytes_each": true,
+    "public_agent_sha256": "8edf1c732461da6048edaadbf6c499dc638a350a5fa5a3740f339f74408a215a",
+    "device_sha256": "4016f16e098e27e69f4ad584aad5449c1711f34460cae58e4780f7e7b13710c4",
+    "differs_from_original_configured_identities": true,
+    "agent_secret_separate_protected_custody_only": true,
+    "no_worker_model_wake_or_financial_credentials_in_app": true,
+    "app_origin": "http://127.0.0.1:3037",
+    "trust_proxy_unset": true
+  },
+  "store_tls": {
+    "real_createStore": true,
+    "encrypted": true,
+    "authorized": true,
+    "hostname_verified": true,
+    "wrong_hostname_rejected": true,
+    "protocol": "TLSv1.3",
+    "server_pg_stat_ssl": true,
+    "server_tls_version": "TLSv1.3",
+    "pool_max": 1,
+    "server_max_connections": 100,
+    "helper_connections": 1,
+    "production_app_pool_max": 10,
+    "requests_serialized": true
+  },
+  "fresh_schema_guard": {
+    "first_run": true,
+    "observed_public_objects_before_migration": 0,
+    "observed_public_routines_before_migration": 0,
+    "protected_initial_empty_schema_receipt": true
+  },
+  "migrations": [
+    {
+      "name": "0000_foundation.sql",
+      "sha256": "87b1c61455b75829c8d123fa0b4a6798dd0d280a32271d10621a63fb58d6a8b8"
+    },
+    {
+      "name": "0001_financial_guards.sql",
+      "sha256": "c3874d0db27af1b4606f32620142f11616244d8ec5dda0e61ad0b9d0413f78d2"
+    },
+    {
+      "name": "0002_acceptance_keys.sql",
+      "sha256": "01ce6252cd258ca88657014b225ef49aace0c0ea0a4213754a1ee394b198a06b"
+    },
+    {
+      "name": "0003_terminal_evidence_guard.sql",
+      "sha256": "806391307230c2f4b0867c6693dc45b0c491a64b2eb1da7844e4ca64ad3faf7a"
+    }
+  ],
+  "after_seed_counts": {
+    "owner": 1,
+    "merchant": 1,
+    "agent": 1,
+    "resource": 2,
+    "schema_migration": 4,
+    "session": 0,
+    "auth_throttle": 0,
+    "agent_run": 0,
+    "quote": 0,
+    "payment_attempt": 0,
+    "payment_evidence": 0,
+    "entitlement": 0,
+    "job": 0,
+    "wallet_operation": 0,
+    "merchant_claim": 0,
+    "run_event": 0,
+    "audit_event": 0,
+    "payment_accept_key": 0
+  },
+  "seed": {
+    "existing_seedDemo": true,
+    "metadata_only": true,
+    "policy_stroops": "0",
+    "expiry_epoch": true,
+    "observed_ledger_null": true,
+    "nonce": "0",
+    "status": "unprovisioned",
+    "verified_public_contract_tuple": true,
+    "no_chain_registration_or_funding": true
+  },
+  "source": {
+    "baseline_head": "0bf81ff36d7c2bb5bba22b5f127b9519535bf494",
+    "application_commit": "b2661c0",
+    "sha256": "1eca1bfbfc838513ced491d53aedeb5e173400e935125f45f03694e4874acc00",
+    "files": [
+      {
+        "path": "apps/web/AGENTS.md",
+        "sha256": "063098f6cb31bb44c6f8fbea25b3876de7ee1e5f7d00a50dbab506f6415eb7f0"
+      },
+      {
+        "path": "apps/web/next-env.d.ts",
+        "sha256": "1b59d4c6b83807db275d43f3cf2cc8e9323f465fab764eea091cc5becd5bad37"
+      },
+      {
+        "path": "apps/web/next.config.ts",
+        "sha256": "abcb57e47d5715b45cb745e5eb52eb59f8e636d9100dc640927cdba105cdc1ba"
+      },
+      {
+        "path": "apps/web/package.json",
+        "sha256": "15de4de583f19560221c1525a1cf5d0da1775bdd6b99b6470ecce6bbe1f91f4b"
+      },
+      {
+        "path": "apps/web/public/fonts/OFL-Bricolage-Grotesque.txt",
+        "sha256": "4b5a7d8f37f5602621c8a8d7358a6a2e71317e6c231c661e15aef0275d3e07ba"
+      },
+      {
+        "path": "apps/web/public/fonts/README.txt",
+        "sha256": "732348aeb5b24c91f58bf3fe44c66d2114674e66ab818579c6aba5fbd19109a8"
+      },
+      {
+        "path": "apps/web/public/fonts/bricolage-grotesque.woff2",
+        "sha256": "93afc0e7a3564954f131b319d3564dfbbc022b224dbaff664fa455f57affed25"
+      },
+      {
+        "path": "apps/web/public/icon.svg",
+        "sha256": "666d7c4473e44f73b76b40d5c5598b67e5cad9c5bf81677ab7e20604e4921ea2"
+      },
+      {
+        "path": "apps/web/src/app/api/[...path]/route.ts",
+        "sha256": "9891c3131eb1a826910900f7b608198fbcd6de31cbd5c71f44c22be55cce5c7b"
+      },
+      {
+        "path": "apps/web/src/app/api/health/route.ts",
+        "sha256": "acc464db831bb06a6b30d0dc83b1acf04aff6f8a6042a8de22a0636c1410c5b5"
+      },
+      {
+        "path": "apps/web/src/app/app/page.tsx",
+        "sha256": "b8dd1605ecd0b81af7d8adfa9d4e821303e0329562407a79b3ad23b0b3309cc5"
+      },
+      {
+        "path": "apps/web/src/app/console.tsx",
+        "sha256": "4f8af7d13fcd1db058f43be236369d6dcf60efe229f7ae66b9bb372b26e41c60"
+      },
+      {
+        "path": "apps/web/src/app/globals.css",
+        "sha256": "f7b8ee220ea6e11df57c67ae5b4ffb02971e53afd49c3546905b6fe38fb01218"
+      },
+      {
+        "path": "apps/web/src/app/layout.tsx",
+        "sha256": "5030c89bef9b5adf12f15f7010fa65eae444aea9cc7f8e1beb6f976c7c0235d9"
+      },
+      {
+        "path": "apps/web/src/app/login/page.tsx",
+        "sha256": "01da5d5b201250512f5d65654e442ae8fdf457993c14dc087e9a9ba65e91619c"
+      },
+      {
+        "path": "apps/web/src/app/page.tsx",
+        "sha256": "b03573ce499c79e7d253b5c3ce65a2d35cf8832394ae055bfb2021d35a963c60"
+      },
+      {
+        "path": "apps/web/src/app/product.css",
+        "sha256": "d8273e031dd7b9672cfc0f1a7bdc4905c45004d3b946b35048a489e2e38a3bd5"
+      },
+      {
+        "path": "apps/web/src/components/product/api.ts",
+        "sha256": "236caa94bae3c553d5c41f3d19ba42b19defdb359ff6ed528e0ffedee381ef50"
+      },
+      {
+        "path": "apps/web/src/components/product/audit-panel.tsx",
+        "sha256": "efa0a1ca5f7ae1dfc331522592932330c9459b5fdaaa5e8be649e6a165f208bf"
+      },
+      {
+        "path": "apps/web/src/components/product/console.tsx",
+        "sha256": "31b1ec4343a2be9419f2d1c934b1ac8252780e9d0c9f320463fa43c3053e3a52"
+      },
+      {
+        "path": "apps/web/src/components/product/merchant-panel.tsx",
+        "sha256": "377e92426a92e67ae2b0b41f0a162c04af183163f2aa032c7a38c9d495812537"
+      },
+      {
+        "path": "apps/web/src/components/product/primitives.tsx",
+        "sha256": "98c773456cf1ad7023bafcff27c4e142385b595fc0a771ed98d1e56cb348795e"
+      },
+      {
+        "path": "apps/web/src/components/product/run-panel.tsx",
+        "sha256": "0039ad72d0d23e8781b67db45e994ed908f25c2d94767d615a7032e33e335dcf"
+      },
+      {
+        "path": "apps/web/src/components/product/wallet-panel.tsx",
+        "sha256": "70d26a0ef9de3d997258e4a35a0dca14e3720bba0783adb5a53c95e81d90a05b"
+      },
+      {
+        "path": "apps/web/src/components/visual.tsx",
+        "sha256": "8796bba2d46409634e619021971a8f76533ef331b9ac04cb17111755313471e4"
+      },
+      {
+        "path": "apps/web/src/components/wallet.ts",
+        "sha256": "297b15ad41f83b8838c3ab623af279aacfe499edae04a5c22754cad771588aaa"
+      },
+      {
+        "path": "apps/web/src/lib/public-proof.ts",
+        "sha256": "ffe691683b7505eeade1aa2c02c6f526faa9f9f72c81449b56a76f5f2be77f3d"
+      },
+      {
+        "path": "apps/web/src/runtime.ts",
+        "sha256": "90e370da42dfc214c7327343b39c82096aa23b9ac3d19d84e1a993133eb24418"
+      },
+      {
+        "path": "apps/web/tsconfig.json",
+        "sha256": "791f3c88be419d85e583b88ee2e26ed9de09cf631901e2f768b826cabad315eb"
+      },
+      {
+        "path": "apps/web/vercel.json",
+        "sha256": "61d3bd2b773d168d500d9e2b7cf7a01673ae8db850b10e7c6d718ed67c718555"
+      },
+      {
+        "path": "package.json",
+        "sha256": "ffa6b3f0c23d6e3828b0f24a110f3d54c565c37e6b03d68c02facb23e7d23ae3"
+      },
+      {
+        "path": "packages/agent/package.json",
+        "sha256": "8f07a87523848224dea39c2f31caf70518b627002f816f0a3f64c72f9035a0fc"
+      },
+      {
+        "path": "packages/agent/src/index.ts",
+        "sha256": "78bc6c49dadab28d89e8c82d0dbde3e4fccf29d23ac7c25c15f9f9ba87712fcb"
+      },
+      {
+        "path": "packages/shared/package.json",
+        "sha256": "caaf5b18acd4554af96f618e62139df5f5f21ac4a81a1903ff5261efe4b148d6"
+      },
+      {
+        "path": "packages/shared/src/index.ts",
+        "sha256": "a4f852ecadeb016f9748e3baafa3f56b63ec87fa0d0d122c4cb8d7f259763a66"
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "sha256": "04332d2581c767a5466babf32fa166517ae63ac18d6f81e81c1d8f640f0dbc82"
+      },
+      {
+        "path": "pnpm-workspace.yaml",
+        "sha256": "59d2e32d6027151ec7a2fc34432d1c41bddd070f4c3fedd69a817ead5040f168"
+      },
+      {
+        "path": "src/server/agent/choice-summary.ts",
+        "sha256": "342df72aafa49941c2ade0100277df2bf7ea8167a966ee292505ae3023810952"
+      },
+      {
+        "path": "src/server/agent/events.ts",
+        "sha256": "8f2168696067116a3c47c26e7d759f810cf4779cba77d938c8eaf53719d90927"
+      },
+      {
+        "path": "src/server/agent/state.ts",
+        "sha256": "065ed2555626ba8140b6945165941b1a2d355eef8eb86e6a6e6ccb39d30e55cf"
+      },
+      {
+        "path": "src/server/agent/tools.ts",
+        "sha256": "8f02d8a4794980c46f687e33dd579bea317a27006b19f89a6ebaf7c8ea1a97e9"
+      },
+      {
+        "path": "src/server/auth/session.ts",
+        "sha256": "c88807e64a26bfea6e26c120171b21c361cbf0719fb673b5bbffc22f2f85f070"
+      },
+      {
+        "path": "src/server/db/connection.ts",
+        "sha256": "38bf27fe97edd4ef957d5b8a4efea5863bffc00e659e02cc72fa348b6e572f0d"
+      },
+      {
+        "path": "src/server/db/migrate.ts",
+        "sha256": "e677cdb9b754ee8a4b278facf15a14f9569782e687f455daeb72265537b1e03a"
+      },
+      {
+        "path": "src/server/db/migrations/0000_foundation.sql",
+        "sha256": "c6ba27dc80ff01d81f4e133934b3343bd7f7e6ae09a12fed7ded18f1dd613852"
+      },
+      {
+        "path": "src/server/db/migrations/0001_financial_guards.sql",
+        "sha256": "e8199b95592dbfa876487756af2544c477741a9af29e041cda7541313cfa5998"
+      },
+      {
+        "path": "src/server/db/migrations/0002_acceptance_keys.sql",
+        "sha256": "48c0fb408fed5fc79357bde620f1518f69f585e6d4a165a1938afb30400c5cb2"
+      },
+      {
+        "path": "src/server/db/migrations/0003_terminal_evidence_guard.sql",
+        "sha256": "596cdf14d2e8ef0aa7c03a5c74ccf9f6bb4ac7d6c051d2c442b6febe0614eff6"
+      },
+      {
+        "path": "src/server/db/migrations/meta/0000_snapshot.json",
+        "sha256": "a241d1c9cc57588ddd99b91658087d905abe67066bd735184ff2537cb6856f07"
+      },
+      {
+        "path": "src/server/db/migrations/meta/0002_snapshot.json",
+        "sha256": "7190d3adde86ab475d57e773506374a114ad3320b321da9ee03669a6fd2b2d5a"
+      },
+      {
+        "path": "src/server/db/migrations/meta/_journal.json",
+        "sha256": "e013a7440ac9e598b4bff52c8cdcba9fcb596ba4162abfe97400d5a0289ecb8a"
+      },
+      {
+        "path": "src/server/db/schema.ts",
+        "sha256": "5470fad2bef751f367ba83ce8bf321723c69ff92ac2ea194000313b09e67fa92"
+      },
+      {
+        "path": "src/server/db/seed.ts",
+        "sha256": "240c7bfda2276213fa8b271713ac31e276dd777f94a651e8cb9e34bdd1ad99f1"
+      },
+      {
+        "path": "src/server/domain/evidence.ts",
+        "sha256": "d824a97d094b242355d9560211e8f257355684651e0c4170db3a292e486eb1c9"
+      },
+      {
+        "path": "src/server/domain/protocol.ts",
+        "sha256": "18075246fd2c5c5aa584e6c2a996a648156dbc09d57d4b2fadb640179d3506a8"
+      },
+      {
+        "path": "src/server/domain/purchases.ts",
+        "sha256": "eaff1ba879827afafb5ec7fb0090524babfd1f6beb3f4acca654f1ae51085eca"
+      },
+      {
+        "path": "src/server/domain/wallet.ts",
+        "sha256": "67fa6ea4fc6a6da0a2ed621a5c0b67931a4643a3dc6f8cbae73b2b5ffe39aad4"
+      },
+      {
+        "path": "src/server/http/application.ts",
+        "sha256": "fc545ce65dde60fed8569e8ae100437625e3fd8f6dfba8696152da273bd4a812"
+      },
+      {
+        "path": "src/server/http/boundaries.ts",
+        "sha256": "d88f3127f866ea6021b1cdd29abfe316a3ae0008e9d2c9b1efe1a71fcd93f6eb"
+      },
+      {
+        "path": "src/server/http/wake.ts",
+        "sha256": "7a22041bed4f96fdacb7ebcc711efe0d5c720f5b8fd8ef85b7122e91bba7e4d6"
+      },
+      {
+        "path": "src/server/integrations/model.ts",
+        "sha256": "97b5d79900fdc237baa2f930170605e68d33b757c2dcc5ded4c218a6e5afaad5"
+      },
+      {
+        "path": "src/server/integrations/noir.ts",
+        "sha256": "7378ac4566fa0a7c94b1558c39f3131f14e9640f18f7d6c055088c495a1b2afc"
+      },
+      {
+        "path": "src/server/integrations/spike-driver.ts",
+        "sha256": "e527a1ffc6f6cdd1d6b8dab64d2d9bfc52cb4f04fe80825b63866dcaac70559d"
+      },
+      {
+        "path": "src/server/integrations/spike-journal.ts",
+        "sha256": "826c401cd6c4ebece6974629e307c87edbb8675e2aa96a3100e97fb68800e3cd"
+      },
+      {
+        "path": "src/server/integrations/spike-runtime.ts",
+        "sha256": "b0232ed01c1a1fce887ad8246c7fbb24e2368db4ecffb362261fc59173eac924"
+      },
+      {
+        "path": "src/server/integrations/stellar-evidence.ts",
+        "sha256": "978840bea8a69dccff48d717c28b314606f3abf702a3aecd75436977a1491a21"
+      },
+      {
+        "path": "src/server/integrations/velo.ts",
+        "sha256": "229768e758ffbc9d1c141b62cbe0f062d9c0797f36ec3d64371591b773c27664"
+      },
+      {
+        "path": "src/server/integrations/wallet-gateway.ts",
+        "sha256": "c80e1533f3f46d315603d7e7f0780c1521f14e252d01bd8f1aec25598c9c83ef"
+      },
+      {
+        "path": "src/server/integrations/wallet-inspection.ts",
+        "sha256": "a93872c6f4aca2f39bdb5aa461ee4205e6ca7c9e38d3b456cbba746c1b270826"
+      },
+      {
+        "path": "src/server/merchant/receipts.ts",
+        "sha256": "e3dc7c2deb13280f975c4c38a7838468c02dbe5426935b2120c9d094b2a5ea3f"
+      },
+      {
+        "path": "src/server/merchant/reports.ts",
+        "sha256": "f539b45f99deae425ee02d338722d5f65c6f06ac8f0025ed71bd5377a748a1be"
+      },
+      {
+        "path": "tsconfig.json",
+        "sha256": "35ca5537bc81bce654ac59a1b2e21ba45742cba8ccfbb4cf26403d3730ffbad0"
+      }
+    ]
+  },
+  "build_started_at": "2026-11-10T12:37:33.790Z",
+  "build": {
+    "fresh_build": true,
+    "reason": "no accepted build-to-source closure receipt; one bounded rebuild",
+    "build_id_sha256": "8377827b6c1b2e97c1ceabca1c0a1e00b8407c51ead728dfdff07100973b9a9c",
+    "source_sha256": "1eca1bfbfc838513ced491d53aedeb5e173400e935125f45f03694e4874acc00"
+  },
+  "app_process": {
+    "pid": 4092,
+    "host": "127.0.0.1",
+    "port": 3037,
+    "windows_hidden": true,
+    "minimal_environment_keys": [
+      "APP_ORIGIN",
+      "COMSPEC",
+      "COREPACK_ENABLE_NETWORK",
+      "DATABASE_URL",
+      "DEMO_AGENT_PUBLIC_KEY",
+      "DEMO_DEVICE_HASH",
+      "DEMO_MERCHANT_LOGIN_TOKEN",
+      "DEMO_MERCHANT_PUBLIC_KEY",
+      "DEMO_OWNER_LOGIN_TOKEN",
+      "DEMO_OWNER_PUBLIC_KEY",
+      "LOCALAPPDATA",
+      "NEXT_TELEMETRY_DISABLED",
+      "NODE_ENV",
+      "NOIR_AGENT_REGISTRY_ID",
+      "NOIR_DEVICE_REGISTRY_ID",
+      "NOIR_PAYMENT_ESCROW_ID",
+      "NOIR_XLM_SAC_ID",
+      "PATH",
+      "PATHEXT",
+      "RECEIPT_SIGNING_KEY",
+      "STELLAR_NETWORK",
+      "STELLAR_NETWORK_PASSPHRASE",
+      "SystemRoot",
+      "TEMP",
+      "TMP",
+      "USERPROFILE",
+      "WINDIR"
+    ],
+    "instrumentation": "read-only TLS observation on actual pg Pool connect; no API mocks or configuration changes"
+  },
+  "failed_stage": "production-http",
+  "safe_failure": "HTTP_EXPECTATION_FAILED_4",
+  "app_logs": {
+    "bytes": 153,
+    "sha256": "a1793cf09c728e5aff0c2eb147110a2f3d9ddc1692a0b640234f52e5d5a205a7",
+    "hygiene": {
+      "fixture_matches": 0,
+      "known_secret_matches": 0,
+      "full_provider_id_matches": 0,
+      "raw_dsn_matches": 0,
+      "client_ip_matches": 0
+    },
+    "raw_logs_saved": false
+  },
+  "safe_app_tls_failure": "ACTUAL_NEXT_POOL_TLS_NOT_VERIFIED",
+  "response_hygiene": {
+    "response_bodies": 4,
+    "response_bytes": 53525,
+    "fixture_matches": 0,
+    "known_secret_matches": 0,
+    "full_provider_id_matches": 0,
+    "raw_dsn_matches": 0,
+    "client_ip_matches": 0
+  },
+  "finished_at": "2026-11-10T12:38:05.860Z"
+}
