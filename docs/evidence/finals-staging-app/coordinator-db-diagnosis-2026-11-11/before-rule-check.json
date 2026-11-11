@@ -1,0 +1,11 @@
+{
+  "observedAt": "2026-11-11T01:24:03.846Z",
+  "classification": "same-staging-readonly-dependency-diagnosis",
+  "providerMutations": 0,
+  "financialActions": 0,
+  "sqlStatements": 0,
+  "currentClientMatchesExistingRule": false,
+  "outcome": "failed",
+  "failedStage": "connect",
+  "safeCode": "CONNECTION_TERMINATED"
+}

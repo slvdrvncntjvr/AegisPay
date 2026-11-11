@@ -1,0 +1,47 @@
+{
+  "observed_at": "2026-11-11T04:24:40.724951+00:00",
+  "files": [
+    {
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "sha256": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9",
+      "sha256_after": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-completion-check.ts",
+      "sha256": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25",
+      "sha256_after": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/evidence-terminal.ts",
+      "sha256": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3",
+      "sha256_after": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/startup.ts",
+      "sha256": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54",
+      "sha256_after": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/final-audit.ts",
+      "sha256": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae",
+      "sha256_after": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "sha256": "09a5fa6911c05f8d5e856cd7f57f46b03c720bc15e62e10284dddd77960a0b6f",
+      "sha256_after": "09a5fa6911c05f8d5e856cd7f57f46b03c720bc15e62e10284dddd77960a0b6f",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation.ts",
+      "sha256": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356",
+      "sha256_after": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356",
+      "stable": true
+    }
+  ]
+}

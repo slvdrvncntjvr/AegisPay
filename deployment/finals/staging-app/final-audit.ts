@@ -22,7 +22,7 @@ try{
   const baseline=JSON.parse(await readFile(FOLLOWUP+'/preserved-baseline.json','utf8'));
   for(const f of baseline.public_files)check(digest(await readFile(f.path))===f.sha256,'HISTORICAL_ARTIFACT_CHANGED');
   report.preserved_original_public_files=baseline.public_files.length;
-  const custody=[...await files('.fmd-work/staging-app-custody'),'.env.staging.local','.env.staging.web.local','.fmd-work/staging-ip-allow-permit.json','.fmd-work/staging-ip-rotation-permit-2026-11-10.json'];
+  const custody=[...await files('.fmd-work/staging-app-custody'),'.env.staging.local','.env.staging.web.local','.fmd-work/staging-ip-allow-permit.json','.fmd-work/staging-ip-rotation-permit-2026-11-10.json','.fmd-work/staging-ip-rotation-permit-2026-11-11.json'];
   const privateHashes=[];for(const p of custody)privateHashes.push({path:p,sha256:digest(await readFile(p))});
   check(digest(JSON.stringify(privateHashes))===baseline.custody_aggregate_sha256,'CUSTODY_CHANGED');
   report.custody_files_unchanged=custody.length;
@@ -38,14 +38,17 @@ try{
   secrets.add(JSON.parse(await readFile('.fmd-work/staging-app-custody/independent-agent.json','utf8')).agent_secret);
   for(const ip of (await readFile('.fmd-work/staging-ip-allow-permit.json','utf8')).match(/\b(?:\d{1,3}\.){3}\d{1,3}\b/g)??[])ips.add(ip);
   for(const ip of (await readFile('.fmd-work/staging-ip-rotation-permit-2026-11-10.json','utf8')).match(/\b(?:\d{1,3}\.){3}\d{1,3}\b/g)??[])ips.add(ip);
-  check(ips.size===2,'OLD_AND_NEW_IP_SCAN_CONFIGURATION_FAILED');
+  const today=(await readFile('.fmd-work/staging-ip-rotation-permit-2026-11-11.json','utf8')).match(/\b(?:\d{1,3}\.){3}\d{1,3}\b/g)??[];
+  check(today.length>0,'CURRENT_IP_PERMIT_ADDRESS_REQUIRED');
+  for(const ip of today)ips.add(ip);
+  check(ips.size>=2,'CLIENT_IP_HYGIENE_SET_INCOMPLETE');
   let serverFixtures=0,clientFixtures=0;
   for(const f of build.files){const raw=await readFile(f.path);const hits=matches(raw);const{protected_fixture_matches,...privateHits}=hits;check(Object.values(privateHits).every(v=>v===0),'BUILD_PRIVATE_DATA_HYGIENE_FAILED');if(f.client)clientFixtures+=protected_fixture_matches;else serverFixtures+=protected_fixture_matches;}
   check(clientFixtures===0&&serverFixtures>0,'CLIENT_SERVER_FIXTURE_BOUNDARY_FAILED');
   report.bundle_boundary={server_fixture_matches:serverFixtures,client_fixture_matches:clientFixtures,source_build_files_unchanged:true};report.application_source_files=original.source.files;report.build_files=build.files;
   const inventory=[];
   for(const p of [...await files('deployment/finals/staging-app'),...await files('docs/evidence/finals-staging-app')]){const b=await readFile(p);check(Object.values(matches(b)).every(v=>v===0),'PUBLIC_EVIDENCE_HYGIENE_FAILED');inventory.push({path:p.replaceAll('\\','/'),bytes:b.length,sha256:digest(b)});}
-  report.hygiene={known_secret_matches:0,full_provider_id_matches:0,raw_dsn_matches:0,client_ip_matches:0,protected_fixture_matches:0,raw_values_memory_only:true};report.inventory=inventory;
+  report.hygiene={known_secret_matches:0,full_provider_id_matches:0,raw_dsn_matches:0,client_ip_matches:0,protected_fixture_matches:0,raw_values_memory_only:true,client_ip_values_checked:ips.size};report.inventory=inventory;
   const port=spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-Command',"$r=@(Get-NetTCPConnection -LocalAddress 127.0.0.1 -LocalPort 3037,3038 -State Listen -ErrorAction SilentlyContinue); Write-Output $r.Count"],{windowsHide:true,encoding:'utf8',env:{...process.env,PSModulePath:`${process.env.SystemRoot}/System32/WindowsPowerShell/v1.0/Modules`}});
   check(port.status===0&&port.stdout.trim()==='0','APP_OR_PROXY_PORT_LISTENER_PRESENT');report.app_and_proxy_ports_no_listener=true;
   const actualPath=FOLLOWUP+'/actual/result.json';let actualExists=false;try{await readFile(actualPath);actualExists=true;}catch{}

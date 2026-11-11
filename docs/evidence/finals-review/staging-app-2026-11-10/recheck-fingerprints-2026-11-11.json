@@ -1,0 +1,352 @@
+[
+  {
+    "path": "AGENTS.md",
+    "sha256_before": "2675bdceb63ef6d8a915303ba84d527028d648aaeffadac45b40ce9f956e091f",
+    "sha256_after": "2675bdceb63ef6d8a915303ba84d527028d648aaeffadac45b40ce9f956e091f",
+    "stable": true,
+    "selection": "1-51"
+  },
+  {
+    "path": "docs/index.md",
+    "sha256_before": "40a68f64a0354f485e264db3fdf801f49e0f5452bdb923ed3bc4c43791f44862",
+    "sha256_after": "40a68f64a0354f485e264db3fdf801f49e0f5452bdb923ed3bc4c43791f44862",
+    "stable": true,
+    "selection": "29-43"
+  },
+  {
+    "path": "docs/implementation-plan.md",
+    "sha256_before": "f00a07dea5c9eb3df4b318a8698d3ac1cd307a4dc8d6b4b7986a26d075a10d87",
+    "sha256_after": "f00a07dea5c9eb3df4b318a8698d3ac1cd307a4dc8d6b4b7986a26d075a10d87",
+    "stable": true,
+    "selection": "1-11"
+  },
+  {
+    "path": "docs/implementation-plan.md",
+    "sha256_before": "f00a07dea5c9eb3df4b318a8698d3ac1cd307a4dc8d6b4b7986a26d075a10d87",
+    "sha256_after": "f00a07dea5c9eb3df4b318a8698d3ac1cd307a4dc8d6b4b7986a26d075a10d87",
+    "stable": true,
+    "selection": "59-65"
+  },
+  {
+    "path": "docs/DECISION-LEDGER.md",
+    "sha256_before": "9a44c791ddd1b9fc398d48d0da1ae43b200f30c9ed5d03ea6acff6ae92fca384",
+    "sha256_after": "9a44c791ddd1b9fc398d48d0da1ae43b200f30c9ed5d03ea6acff6ae92fca384",
+    "stable": true,
+    "selection": "94-100"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/report.md",
+    "sha256_before": "58f58f2e672833dfad78d66063f41d6baf539b173b7270429a303e374abd76bc",
+    "sha256_after": "58f58f2e672833dfad78d66063f41d6baf539b173b7270429a303e374abd76bc",
+    "stable": true,
+    "selection": "all"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/report.md",
+    "sha256_before": "9247559af9c483648d3e139e70847004535ef3083512a39e3549d4f0e9e38e96",
+    "sha256_after": "9247559af9c483648d3e139e70847004535ef3083512a39e3549d4f0e9e38e96",
+    "stable": true,
+    "selection": "all"
+  },
+  {
+    "path": "deployment/finals/staging-app/evidence-terminal.ts",
+    "sha256_before": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3",
+    "sha256_after": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3",
+    "stable": true,
+    "selection": "all"
+  },
+  {
+    "path": "deployment/finals/staging-app/startup.ts",
+    "sha256_before": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54",
+    "sha256_after": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54",
+    "stable": true,
+    "selection": "all"
+  },
+  {
+    "path": "deployment/finals/staging-app/proxy-capture.ts",
+    "sha256_before": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9",
+    "sha256_after": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9",
+    "stable": true,
+    "selection": "all"
+  },
+  {
+    "path": "deployment/finals/staging-app/tooling-checks.ts",
+    "sha256_before": "ad7e74f749acf5d7e0f0b81f3df9aa0dbb194d08c3cd544167ab160d33d8b9b7",
+    "sha256_after": "ad7e74f749acf5d7e0f0b81f3df9aa0dbb194d08c3cd544167ab160d33d8b9b7",
+    "stable": true,
+    "selection": "all"
+  },
+  {
+    "path": "deployment/finals/staging-app/capture-completion-check.ts",
+    "sha256_before": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25",
+    "sha256_after": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25",
+    "stable": true,
+    "selection": "all"
+  },
+  {
+    "path": "deployment/finals/staging-app/final-audit.ts",
+    "sha256_before": "4ae498121aa77f34815a86863305c7351ff36474480e7d7ba1268e04e051e9c8",
+    "sha256_after": "4ae498121aa77f34815a86863305c7351ff36474480e7d7ba1268e04e051e9c8",
+    "stable": true,
+    "selection": "all"
+  },
+  {
+    "path": "deployment/finals/staging-app/continuation.ts",
+    "sha256_before": "ab2821831071aa3102f681c5790ca5aa6650e52e2c8eee79a27e3873e511accf",
+    "sha256_after": "ab2821831071aa3102f681c5790ca5aa6650e52e2c8eee79a27e3873e511accf",
+    "stable": true,
+    "selection": "all"
+  },
+  {
+    "path": "deployment/finals/staging-app/qualify.ts",
+    "sha256_before": "e3dea1f8ab09025c80d68912378df42d1c2cbd28e8cd05ed38994f529d5bd04e",
+    "sha256_after": "e3dea1f8ab09025c80d68912378df42d1c2cbd28e8cd05ed38994f529d5bd04e",
+    "stable": true,
+    "selection": "1-60"
+  },
+  {
+    "path": "deployment/finals/staging-app/qualify.ts",
+    "sha256_before": "e3dea1f8ab09025c80d68912378df42d1c2cbd28e8cd05ed38994f529d5bd04e",
+    "sha256_after": "e3dea1f8ab09025c80d68912378df42d1c2cbd28e8cd05ed38994f529d5bd04e",
+    "stable": true,
+    "selection": "195-310"
+  },
+  {
+    "path": "deployment/finals/staging-app/qualify.ts",
+    "sha256_before": "e3dea1f8ab09025c80d68912378df42d1c2cbd28e8cd05ed38994f529d5bd04e",
+    "sha256_after": "e3dea1f8ab09025c80d68912378df42d1c2cbd28e8cd05ed38994f529d5bd04e",
+    "stable": true,
+    "selection": "340-640"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-check-2.json",
+    "sha256_before": "c94f03086d5c48e57f84d53e5fa7b075214b67d7dec190831956934f991c08db",
+    "sha256_after": "c94f03086d5c48e57f84d53e5fa7b075214b67d7dec190831956934f991c08db",
+    "stable": true,
+    "selection": "json"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/startup-only-1.json",
+    "sha256_before": "555e180107568045c3f90c90a6e6dbd7279e3d8d83c6649e910874a5ad4bbfde",
+    "sha256_after": "555e180107568045c3f90c90a6e6dbd7279e3d8d83c6649e910874a5ad4bbfde",
+    "stable": true,
+    "selection": "json"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/completion-check-2.json",
+    "sha256_before": "51890ae8165a70a2fdcc96b7109632354e016b4125ebdc41a58a2024a3d93043",
+    "sha256_after": "51890ae8165a70a2fdcc96b7109632354e016b4125ebdc41a58a2024a3d93043",
+    "stable": true,
+    "selection": "json"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/preflight-1.json",
+    "sha256_before": "d16653a4e6bc1d02aec46ea9f1ba0488a3b3f908837709c4d158dffeeed8148e",
+    "sha256_after": "d16653a4e6bc1d02aec46ea9f1ba0488a3b3f908837709c4d158dffeeed8148e",
+    "stable": true,
+    "selection": "json"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/coordinator-db-diagnosis-2026-11-11/after-rule-rotation.json",
+    "sha256_before": "7f6a9dc5634716d7aa4bc94467d9388bdd14621dc27dd73067b0f060789e1c90",
+    "sha256_after": "7f6a9dc5634716d7aa4bc94467d9388bdd14621dc27dd73067b0f060789e1c90",
+    "stable": true,
+    "selection": "json"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/coordinator-db-diagnosis-2026-11-11/ip-rule-rotation.json",
+    "sha256_before": "24c09a4afac1d7832bf9acb4e5aee67b52a24f9c042286b7f86a6c03ec5fb009",
+    "sha256_after": "24c09a4afac1d7832bf9acb4e5aee67b52a24f9c042286b7f86a6c03ec5fb009",
+    "stable": true,
+    "selection": "json"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/finalization.json",
+    "sha256_before": "cdcc9eb3f3d4e88abd7931074391524b2038c06c1b4010141d0bb811200ffab6",
+    "sha256_after": "cdcc9eb3f3d4e88abd7931074391524b2038c06c1b4010141d0bb811200ffab6",
+    "stable": true,
+    "selection": "json"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/observed-exit.json",
+    "sha256_before": "d9d3737a2c9d9c0de937be6fb254c71382d8d278ed75bae8c24ad3ec03ae7524",
+    "sha256_after": "d9d3737a2c9d9c0de937be6fb254c71382d8d278ed75bae8c24ad3ec03ae7524",
+    "stable": true,
+    "selection": "json"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/actual/result.json",
+    "sha256_before": "9ca42ef6f72de120229d03af43ef86c1b7285ba6d173dd9880f29604bb9a6858",
+    "sha256_after": "9ca42ef6f72de120229d03af43ef86c1b7285ba6d173dd9880f29604bb9a6858",
+    "stable": true,
+    "selection": "json"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/actual/finalization.json",
+    "sha256_before": "9dea4465c13ddcd09801b7b1e2ac5f10ea5c86ed85537c45bf9f9c713001dd7c",
+    "sha256_after": "9dea4465c13ddcd09801b7b1e2ac5f10ea5c86ed85537c45bf9f9c713001dd7c",
+    "stable": true,
+    "selection": "json"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/actual/observed-exit.json",
+    "sha256_before": "15e9eeecd1af82b1ab9e7cdff0929983250b9f17ef251e20f2e54c797e370ff0",
+    "sha256_after": "15e9eeecd1af82b1ab9e7cdff0929983250b9f17ef251e20f2e54c797e370ff0",
+    "stable": true,
+    "selection": "json"
+  },
+  {
+    "path": "deployment/finals/staging-app/qualify.ts",
+    "sha256_before": "e3dea1f8ab09025c80d68912378df42d1c2cbd28e8cd05ed38994f529d5bd04e",
+    "sha256_after": "e3dea1f8ab09025c80d68912378df42d1c2cbd28e8cd05ed38994f529d5bd04e",
+    "stable": true,
+    "selection": "156-185"
+  },
+  {
+    "path": "deployment/finals/staging-app/qualify.ts",
+    "sha256_before": "e3dea1f8ab09025c80d68912378df42d1c2cbd28e8cd05ed38994f529d5bd04e",
+    "sha256_after": "e3dea1f8ab09025c80d68912378df42d1c2cbd28e8cd05ed38994f529d5bd04e",
+    "stable": true,
+    "selection": "350-360"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/result.json",
+    "sha256_before": "96286d3e04c4812b580f626612e7d837bc72f9dcfbff4b810ce763781be72f5d",
+    "sha256_after": "96286d3e04c4812b580f626612e7d837bc72f9dcfbff4b810ce763781be72f5d",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/inventory.json",
+    "sha256_before": "6e46a76ad88dbc7604c2525ddcf340eceedb6468c20fe2a756904fc965855a60",
+    "sha256_after": "6e46a76ad88dbc7604c2525ddcf340eceedb6468c20fe2a756904fc965855a60",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/finalization.json",
+    "sha256_before": "cdcc9eb3f3d4e88abd7931074391524b2038c06c1b4010141d0bb811200ffab6",
+    "sha256_after": "cdcc9eb3f3d4e88abd7931074391524b2038c06c1b4010141d0bb811200ffab6",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/observed-exit.json",
+    "sha256_before": "d9d3737a2c9d9c0de937be6fb254c71382d8d278ed75bae8c24ad3ec03ae7524",
+    "sha256_after": "d9d3737a2c9d9c0de937be6fb254c71382d8d278ed75bae8c24ad3ec03ae7524",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/actual/result.json",
+    "sha256_before": "9ca42ef6f72de120229d03af43ef86c1b7285ba6d173dd9880f29604bb9a6858",
+    "sha256_after": "9ca42ef6f72de120229d03af43ef86c1b7285ba6d173dd9880f29604bb9a6858",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/actual/inventory.json",
+    "sha256_before": "ae2c5a79331e33bd103adab579bb2e10eec6848eecb93805b9d593d2f557da35",
+    "sha256_after": "ae2c5a79331e33bd103adab579bb2e10eec6848eecb93805b9d593d2f557da35",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/actual/finalization.json",
+    "sha256_before": "9dea4465c13ddcd09801b7b1e2ac5f10ea5c86ed85537c45bf9f9c713001dd7c",
+    "sha256_after": "9dea4465c13ddcd09801b7b1e2ac5f10ea5c86ed85537c45bf9f9c713001dd7c",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/actual/observed-exit.json",
+    "sha256_before": "15e9eeecd1af82b1ab9e7cdff0929983250b9f17ef251e20f2e54c797e370ff0",
+    "sha256_after": "15e9eeecd1af82b1ab9e7cdff0929983250b9f17ef251e20f2e54c797e370ff0",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/continuation-source-binding.json",
+    "sha256_before": "fb5c8e9d3d55d0177fa2ed94bc094fcb9b2a7eb4ebddc65da4ebc6ccebc903d8",
+    "sha256_after": "fb5c8e9d3d55d0177fa2ed94bc094fcb9b2a7eb4ebddc65da4ebc6ccebc903d8",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "deployment/finals/staging-app/proxy-capture.ts",
+    "sha256_before": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9",
+    "sha256_after": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "deployment/finals/staging-app/capture-preflight.ts",
+    "sha256_before": "80932c305f4b374135d0a001a1924934f13778f72f151adf4089d902726f1b8a",
+    "sha256_after": "80932c305f4b374135d0a001a1924934f13778f72f151adf4089d902726f1b8a",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "deployment/finals/staging-app/qualify.ts",
+    "sha256_before": "09a5fa6911c05f8d5e856cd7f57f46b03c720bc15e62e10284dddd77960a0b6f",
+    "sha256_after": "09a5fa6911c05f8d5e856cd7f57f46b03c720bc15e62e10284dddd77960a0b6f",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "deployment/finals/staging-app/continuation.ts",
+    "sha256_before": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356",
+    "sha256_after": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "deployment/finals/staging-app/evidence-terminal.ts",
+    "sha256_before": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3",
+    "sha256_after": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "deployment/finals/staging-app/startup.ts",
+    "sha256_before": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54",
+    "sha256_after": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "deployment/finals/staging-app/startup-only.ts",
+    "sha256_before": "75b32720af0f259d6f4401d5d10ea70f17e42e6c94cfeaa2aedeb6dcf46f0d9b",
+    "sha256_after": "75b32720af0f259d6f4401d5d10ea70f17e42e6c94cfeaa2aedeb6dcf46f0d9b",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "deployment/finals/staging-app/tooling-checks.ts",
+    "sha256_before": "ad7e74f749acf5d7e0f0b81f3df9aa0dbb194d08c3cd544167ab160d33d8b9b7",
+    "sha256_after": "ad7e74f749acf5d7e0f0b81f3df9aa0dbb194d08c3cd544167ab160d33d8b9b7",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "deployment/finals/staging-app/final-audit.ts",
+    "sha256_before": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae",
+    "sha256_after": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "deployment/finals/staging-app/capture-completion-check.ts",
+    "sha256_before": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25",
+    "sha256_after": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25",
+    "stable": true,
+    "selection": "static receipt comparison"
+  },
+  {
+    "path": "C:/Users/Vincent/VS Codes/Noir X Velo/docs/evidence/finals-review/staging-app-2026-11-10/report.md",
+    "sha256_before": "0161e39980d84b22c24a3acde1d5f8febcf4abb8412253bd458c8886b2249a88",
+    "sha256_after": "0161e39980d84b22c24a3acde1d5f8febcf4abb8412253bd458c8886b2249a88",
+    "stable": true,
+    "selection": "static receipt comparison"
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "observed_at": "2026-11-11T04:27:12.319127+00:00",
+  "path": "deployment/finals/staging-app/qualify.ts",
+  "sha256": "32455a87b9aa7c121b3594f946e0a94928ba083456efcd87ff9a32e5ef74d686",
+  "sha256_after": "32455a87b9aa7c121b3594f946e0a94928ba083456efcd87ff9a32e5ef74d686",
+  "stable": true,
+  "only_change_from_inspected_snapshot_is_dispatch_literal": true,
+  "snapshot_sha256": "09a5fa6911c05f8d5e856cd7f57f46b03c720bc15e62e10284dddd77960a0b6f",
+  "normalized_sha256": "09a5fa6911c05f8d5e856cd7f57f46b03c720bc15e62e10284dddd77960a0b6f",
+  "binding_qualifier_hash_matches": true,
+  "execution_qualifier_hash_matches": true,
+  "authorization_dispatch_matches_source": true,
+  "execution_dispatch_matches_authorization": true,
+  "receipt_fingerprints": [
+    {
+      "path": "docs/evidence/finals-staging-app/completion-resume-2026-11-11T01-27Z/continuation-source-binding.json",
+      "sha256": "6f07e42c2ec9565c8ec8130a1d0caf4fb62d86f234f2c183853fb9fb05b266b1"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/completion-resume-2026-11-11T01-27Z/continuation-execution.json",
+      "sha256": "4bdd5b2ed07c50dc0fe82729b0d6cce61afc7d505869efa6059200230884ad6e"
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/completion-resume-2026-11-11T01-27Z/continuation-authorization.json",
+      "sha256": "008875201e6e01792a28132e93cf87ec21b62cca41e2a13c09df3efcf0dd73f1"
+    }
+  ]
+}

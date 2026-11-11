@@ -1,0 +1,14 @@
+{
+  "at": "2026-11-11T04:26:46.153321+00:00",
+  "current_precheck_exit": 0,
+  "actual_process_started": true,
+  "execution_marker": "continuation-execution.json",
+  "capture_sources_unchanged": true,
+  "reused_focused_regression": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/completion-check-2.json",
+  "reused_preflight": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/preflight-1.json",
+  "scope_changes": [
+    "active dispatch identity check",
+    "standalone bounded read-only prerequisite probe"
+  ],
+  "actual_exit_not_yet_observed": true
+}

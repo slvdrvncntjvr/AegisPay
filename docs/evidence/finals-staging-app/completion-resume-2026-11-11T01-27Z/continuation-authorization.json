@@ -1,0 +1,49 @@
+{
+  "at": "2026-11-11T04:25:45.995520+00:00",
+  "task": "task_35cf627dcc9a",
+  "dispatch": "ctx_95b52e773108",
+  "checkpoint": "4dc3889",
+  "authorization": "Coordinator msg_c3489b89e7ae directs same-task recovery after prior quota exit, one current read-only precheck then same-state actual qualification with unchanged capture/test sources and preserved receipts",
+  "linked": [
+    {
+      "role": "prior_continuation-execution",
+      "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/continuation-execution.json",
+      "sha256": "2a226ef04419be6b52aed7cee54205e5c2c8b5788f4eab7d61472864ca1b7801"
+    },
+    {
+      "role": "prior_actual/result",
+      "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/actual/result.json",
+      "sha256": "9ca42ef6f72de120229d03af43ef86c1b7285ba6d173dd9880f29604bb9a6858"
+    },
+    {
+      "role": "prior_actual/finalization",
+      "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/actual/finalization.json",
+      "sha256": "9dea4465c13ddcd09801b7b1e2ac5f10ea5c86ed85537c45bf9f9c713001dd7c"
+    },
+    {
+      "role": "prior_actual/observed-exit",
+      "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/actual/observed-exit.json",
+      "sha256": "15e9eeecd1af82b1ab9e7cdff0929983250b9f17ef251e20f2e54c797e370ff0"
+    },
+    {
+      "role": "prior_report.md",
+      "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/report.md",
+      "sha256": "9247559af9c483648d3e139e70847004535ef3083512a39e3549d4f0e9e38e96"
+    },
+    {
+      "role": "current_readonly_precheck",
+      "path": "docs/evidence/finals-staging-app/completion-resume-2026-11-11T01-27Z/current-precheck.json",
+      "sha256": "d6d8718c4d2af53eb97be2d97f821bfdaca49412e6f8e4659b6cb057b34b08d9"
+    },
+    {
+      "role": "current_precheck_source",
+      "path": "deployment/finals/staging-app/current-precheck.ts",
+      "sha256": "e2bd250dffebcdb1fd931e201637272005169cb1304c0da384ab75a3be339cc8"
+    },
+    {
+      "role": "prior_recovery_bookkeeping",
+      "path": "docs/evidence/finals-staging-app/completion-resume-2026-11-11T01-27Z/bookkeeping.patch",
+      "sha256": "b9eab6010c3a01bf1d679c6b1da7c64ddbd7ec7123765ed6bffce70951578c33"
+    }
+  ]
+}

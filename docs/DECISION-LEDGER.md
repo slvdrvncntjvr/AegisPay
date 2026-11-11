@@ -93,6 +93,12 @@ At preparation no cloud project, Git remote, live wallet or verified contract tu
 
 ## 4. Rejected approaches
 
+### 2026-11-11 — Prepare a separate authenticated hosting preview
+
+TASK-019's actual production-app/cloud-DB rehearsal and independent review passed. Continued user authorization for hackathon deployment now advances TASK-020, a separate Free Node web preview using the accepted application and isolated staging metadata. Prepare and review exact source, provider schema, Free configuration, environment allowlist and qualification commands before creation. Render supports Next.js web services and same-region database connections. Actual authenticated service readiness and HTTPS security checks must be observed. The Free DB's December10 expiry and Free service idle startup remain rehearsal constraints.
+
+The preview runs without worker/model/financial credentials or execution, and uses a separate HTTPS origin with owner/merchant authentication and zero unprovisioned policy. Existing source/metadata identities stay preserved. A tested, scanned source checkpoint can be published to the existing repository for this preview after current auto-deployment settings are checked. The submitted Vercel alias and PDF path retain their separately accepted delivery status until the complete live release gates pass. TASK-020 adds deployment evidence without removing any TASK-010/012 payment, wallet, model, recovery or content boundary requirement.
+
 ### 2026-11-10 — Rehearse the real application against isolated staging state
 
 The exact Free staging database passed its minimal TLS/SQL prerequisite. A single corroborated current-client IPv4/32 rule replaces its empty external-access policy; no broad access rule or paid feature is selected. Its provider expiry remains December10 with finals TBA. TASK-019 may apply existing checksum migrations and metadata-only catalog seed to this exact independent database, using a freshly generated distinct agent/device identity with zero policy and unprovisioned status. Original unknown-payment state, nonce, holds and database remain untouched. No financial history or entitlement is copied or invented.

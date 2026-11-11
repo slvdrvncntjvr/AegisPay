@@ -1,0 +1,46 @@
+{
+  "at": "2026-11-11T01:27:12.466Z",
+  "focused_regression_exits": [
+    0,
+    0
+  ],
+  "preflight_exit": 0,
+  "actual_exit": 1,
+  "actual_failure_stage": "database-tls-verification",
+  "actual_safe_failure": "QUALIFICATION_ASSERTION_OR_DEPENDENCY_FAILED",
+  "documentation": [
+    {
+      "args": [
+        "tools/check-docs.py"
+      ],
+      "exit": 0,
+      "output_sha256": "56af1170024fd9057586a5b41795fea08311bcea836f3e7859076b7c45e2b97e"
+    },
+    {
+      "args": [
+        "fmd/tools/check-implementation-plan.py",
+        "docs/implementation-plan.md",
+        "--strict"
+      ],
+      "exit": 0,
+      "output_sha256": "f6643a95cd03387f26f0aaaa8ffc09610ff242faaba8e3e3cc3636a8209d87c3"
+    }
+  ],
+  "terminal_audit_exit": 0,
+  "terminal_audit_outcome": "passed",
+  "source_bindings_match": true,
+  "preserved_public_files": 113,
+  "custody_files_unchanged": 6,
+  "source_files_unchanged": 72,
+  "build_files_unchanged": 233,
+  "hygiene": {
+    "known_secret_matches": 0,
+    "full_provider_id_matches": 0,
+    "raw_dsn_matches": 0,
+    "client_ip_matches": 0,
+    "protected_fixture_matches": 0,
+    "raw_values_memory_only": true
+  },
+  "report_sha256": "9247559af9c483648d3e139e70847004535ef3083512a39e3549d4f0e9e38e96",
+  "coordinator_continuation_received": true
+}

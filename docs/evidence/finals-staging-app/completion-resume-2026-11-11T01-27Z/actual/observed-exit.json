@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "finalization_sha256": "f320e1807480505142764f6b43b909b81a2b534718ea15b0e81d4d2bc63d9e6f",
+  "source": "external exec runner session 30183 observed actual process exit 0"
+}

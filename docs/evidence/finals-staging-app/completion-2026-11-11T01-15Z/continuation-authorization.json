@@ -1,0 +1,39 @@
+{
+  "at": "2026-11-11T01:21:49.486Z",
+  "task": "task_35cf627dcc9a",
+  "dispatch": "ctx_b7e5bf88bb7d",
+  "checkpoint": "4dc3889",
+  "authorization": "coordinator-directed exact matched captured response plus real proxy finish completion repair, focused regression, source-bound preflight and new same-state gate",
+  "linked": [
+    {
+      "role": "prior_terminal_result",
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/result.json",
+      "sha256": "96286d3e04c4812b580f626612e7d837bc72f9dcfbff4b810ce763781be72f5d"
+    },
+    {
+      "role": "prior_actual_marker",
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/continuation-execution.json",
+      "sha256": "2fe49b34eba216208ea97e68d5aa46c5ab158d6da6bfdb41bb397713b76ec035"
+    },
+    {
+      "role": "prior_terminal_finalization",
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/finalization.json",
+      "sha256": "cdcc9eb3f3d4e88abd7931074391524b2038c06c1b4010141d0bb811200ffab6"
+    },
+    {
+      "role": "prior_observed_exit",
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/observed-exit.json",
+      "sha256": "d9d3737a2c9d9c0de937be6fb254c71382d8d278ed75bae8c24ad3ec03ae7524"
+    },
+    {
+      "role": "prior_passing_preflight",
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/preflight-1.json",
+      "sha256": "adf4d175a20985ce4759c3076118e9ccd50f15c626e7df7bca34816a234b8ce7"
+    },
+    {
+      "role": "repaired_proxy_source",
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "sha256": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9"
+    }
+  ]
+}

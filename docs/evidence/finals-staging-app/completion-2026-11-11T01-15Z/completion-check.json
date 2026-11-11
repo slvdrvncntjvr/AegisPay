@@ -1,0 +1,80 @@
+{
+  "outcome": "passed",
+  "scope": "synthetic lifecycle regression with real loopback proxy and ServerResponse finish",
+  "started_at": "2026-11-11T01:19:12.458Z",
+  "pending_before_delivery": [
+    {
+      "method": "GET",
+      "status": null,
+      "path_category": "SYNTHETIC",
+      "category": "AWAITING_BROWSER_RESPONSE_OR_PROVED_CANCELLATION"
+    },
+    {
+      "method": "GET",
+      "status": null,
+      "path_category": "SYNTHETIC",
+      "category": "PROXY_RESPONSE_NOT_FINISHED"
+    }
+  ],
+  "matched_completion": {
+    "browser_requests": 1,
+    "upstream_requests": 1,
+    "exact_request_count_maps_match": true,
+    "canceled_before_proxy": 0,
+    "proxy_only_requests": 0,
+    "delivered_responses": 1,
+    "missing_delivered_captures": 0,
+    "canceled_requests": 0,
+    "canceled_prefetches": 0,
+    "upstream_captured": 1,
+    "upstream_response_finished": 1,
+    "completed_by_matched_proxy_finish": 1,
+    "pending_captures": 0,
+    "pending_browser_requests": 0,
+    "pending_proxy_responses": 0,
+    "pending_categories": [],
+    "failures": 0,
+    "browser_cache_disabled": true,
+    "raw_urls_headers_bodies_errors_exported": false,
+    "diagnostics": [
+      {
+        "method": "GET",
+        "status": 200,
+        "path_category": "SYNTHETIC",
+        "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+      },
+      {
+        "method": "GET",
+        "status": 200,
+        "path_category": "SYNTHETIC",
+        "category": "PROXY_RESPONSE_FINISHED"
+      },
+      {
+        "method": "GET",
+        "status": 200,
+        "path_category": "SYNTHETIC",
+        "category": "DELIVERED_AFTER_CAPTURE"
+      },
+      {
+        "method": "GET",
+        "status": 200,
+        "path_category": "SYNTHETIC",
+        "category": "COMPLETED_BY_MATCHED_PROXY_RESPONSE_FINISH"
+      },
+      {
+        "method": "OTHER",
+        "status": null,
+        "path_category": "OTHER",
+        "category": "DRAIN_AFTER_TRANSITION"
+      },
+      {
+        "method": "OTHER",
+        "status": null,
+        "path_category": "OTHER",
+        "category": "DRAIN_BEFORE_CLOSE"
+      }
+    ]
+  },
+  "mismatched_status_rejected": true,
+  "finished_at": "2026-11-11T01:19:13.053Z"
+}

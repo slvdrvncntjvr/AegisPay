@@ -1,0 +1,221 @@
+{
+  "task": "TASK-019",
+  "started_at": "2026-11-11T01:22:38.518Z",
+  "outcome": "failed",
+  "scope": "loopback production Next.js against exact isolated cloud staging DB; no hosted app or release acceptance",
+  "commands": [
+    {
+      "executable": "C:\\Users\\Vincent\\Miniconda3\\python.exe",
+      "args": [
+        "tools/check-docs.py"
+      ],
+      "cwd": ".",
+      "started_at": "2026-11-11T01:22:44.848Z",
+      "exit": 0,
+      "output_sha256": "56af1170024fd9057586a5b41795fea08311bcea836f3e7859076b7c45e2b97e",
+      "output_bytes": 236,
+      "hygiene": {
+        "fixture_matches": 0,
+        "known_secret_matches": 0,
+        "full_provider_id_matches": 0,
+        "raw_dsn_matches": 0,
+        "client_ip_matches": 0
+      }
+    },
+    {
+      "executable": "C:\\Users\\Vincent\\Miniconda3\\python.exe",
+      "args": [
+        "fmd/tools/check-implementation-plan.py",
+        "docs/implementation-plan.md",
+        "--strict"
+      ],
+      "cwd": ".",
+      "started_at": "2026-11-11T01:22:45.434Z",
+      "exit": 0,
+      "output_sha256": "f6643a95cd03387f26f0aaaa8ffc09610ff242faaba8e3e3cc3636a8209d87c3",
+      "output_bytes": 520,
+      "hygiene": {
+        "fixture_matches": 0,
+        "known_secret_matches": 0,
+        "full_provider_id_matches": 0,
+        "raw_dsn_matches": 0,
+        "client_ip_matches": 0
+      }
+    }
+  ],
+  "checks": [],
+  "http": [],
+  "browser": [],
+  "app_pool_tls": [],
+  "cleanup": {
+    "test_session_revocation_by_invocation_hash_only": true,
+    "original_staging_config_unchanged": true
+  },
+  "continuation": {
+    "task": "task_35cf627dcc9a",
+    "dispatch": "ctx_b7e5bf88bb7d",
+    "authorization_sha256": "d99571da5e1accde5819e7a39f67630d73ed17fadd93ff895e569567fb9391db",
+    "linked": [
+      {
+        "role": "prior_terminal_result",
+        "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/result.json",
+        "sha256": "96286d3e04c4812b580f626612e7d837bc72f9dcfbff4b810ce763781be72f5d"
+      },
+      {
+        "role": "prior_actual_marker",
+        "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/continuation-execution.json",
+        "sha256": "2fe49b34eba216208ea97e68d5aa46c5ab158d6da6bfdb41bb397713b76ec035"
+      },
+      {
+        "role": "prior_terminal_finalization",
+        "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/finalization.json",
+        "sha256": "cdcc9eb3f3d4e88abd7931074391524b2038c06c1b4010141d0bb811200ffab6"
+      },
+      {
+        "role": "prior_observed_exit",
+        "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/observed-exit.json",
+        "sha256": "d9d3737a2c9d9c0de937be6fb254c71382d8d278ed75bae8c24ad3ec03ae7524"
+      },
+      {
+        "role": "prior_passing_preflight",
+        "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/preflight-1.json",
+        "sha256": "adf4d175a20985ce4759c3076118e9ccd50f15c626e7df7bca34816a234b8ce7"
+      },
+      {
+        "role": "repaired_proxy_source",
+        "path": "deployment/finals/staging-app/proxy-capture.ts",
+        "sha256": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9"
+      }
+    ],
+    "source_binding_sha256": "fb5c8e9d3d55d0177fa2ed94bc094fcb9b2a7eb4ebddc65da4ebc6ccebc903d8"
+  },
+  "repair_prerequisites": {
+    "at": "2026-11-11T01:21:49.489Z",
+    "receipts": [
+      {
+        "role": "completion",
+        "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/completion-check-2.json",
+        "sha256": "51890ae8165a70a2fdcc96b7109632354e016b4125ebdc41a58a2024a3d93043"
+      },
+      {
+        "role": "offline",
+        "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-check-2.json",
+        "sha256": "c94f03086d5c48e57f84d53e5fa7b075214b67d7dec190831956934f991c08db"
+      },
+      {
+        "role": "startup",
+        "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/startup-only-1.json",
+        "sha256": "555e180107568045c3f90c90a6e6dbd7279e3d8d83c6649e910874a5ad4bbfde"
+      }
+    ]
+  },
+  "capture_preflight": {
+    "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/preflight-1.json",
+    "sha256": "d16653a4e6bc1d02aec46ea9f1ba0488a3b3f908837709c4d158dffeeed8148e",
+    "source_files": [
+      {
+        "path": "deployment/finals/staging-app/proxy-capture.ts",
+        "sha256": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9"
+      },
+      {
+        "path": "deployment/finals/staging-app/capture-preflight.ts",
+        "sha256": "80932c305f4b374135d0a001a1924934f13778f72f151adf4089d902726f1b8a"
+      },
+      {
+        "path": "deployment/finals/staging-app/qualify.ts",
+        "sha256": "e3dea1f8ab09025c80d68912378df42d1c2cbd28e8cd05ed38994f529d5bd04e"
+      },
+      {
+        "path": "deployment/finals/staging-app/continuation.ts",
+        "sha256": "ab2821831071aa3102f681c5790ca5aa6650e52e2c8eee79a27e3873e511accf"
+      },
+      {
+        "path": "deployment/finals/staging-app/evidence-terminal.ts",
+        "sha256": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3"
+      },
+      {
+        "path": "deployment/finals/staging-app/startup.ts",
+        "sha256": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54"
+      },
+      {
+        "path": "deployment/finals/staging-app/startup-only.ts",
+        "sha256": "75b32720af0f259d6f4401d5d10ea70f17e42e6c94cfeaa2aedeb6dcf46f0d9b"
+      },
+      {
+        "path": "deployment/finals/staging-app/tooling-checks.ts",
+        "sha256": "ad7e74f749acf5d7e0f0b81f3df9aa0dbb194d08c3cd544167ab160d33d8b9b7"
+      },
+      {
+        "path": "deployment/finals/staging-app/final-audit.ts",
+        "sha256": "4ae498121aa77f34815a86863305c7351ff36474480e7d7ba1268e04e051e9c8"
+      },
+      {
+        "path": "deployment/finals/staging-app/capture-completion-check.ts",
+        "sha256": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25"
+      }
+    ]
+  },
+  "configuration": {
+    "exact_resource_sha256": "feaa345c7d4172d22feb6dd8c92794128061a2f357b2e5372c0739138b6f8f85",
+    "created_at": "2026-11-10T11:55:40.452333Z",
+    "expires_at": "2026-12-10T11:55:40.452333Z",
+    "strict_tls": true,
+    "original_custody_acl_verified": true,
+    "original_staging_file_sha256": "d0af8bf40b67722107848b68416daeed76682881181bb986cf5bd305086afbdd"
+  },
+  "web_configuration": {
+    "keys": [
+      "APP_ORIGIN",
+      "DATABASE_URL",
+      "DEMO_AGENT_PUBLIC_KEY",
+      "DEMO_DEVICE_HASH",
+      "DEMO_MERCHANT_LOGIN_TOKEN",
+      "DEMO_MERCHANT_PUBLIC_KEY",
+      "DEMO_OWNER_LOGIN_TOKEN",
+      "DEMO_OWNER_PUBLIC_KEY",
+      "NODE_ENV",
+      "NOIR_AGENT_REGISTRY_ID",
+      "NOIR_DEVICE_REGISTRY_ID",
+      "NOIR_PAYMENT_ESCROW_ID",
+      "NOIR_XLM_SAC_ID",
+      "RECEIPT_SIGNING_KEY",
+      "STELLAR_NETWORK",
+      "STELLAR_NETWORK_PASSPHRASE"
+    ],
+    "acl_verified_before_secret_write": true,
+    "exclusive_atomic_persistence": true,
+    "fresh_distinct_secrets_48_bytes_each": true,
+    "public_agent_sha256": "8edf1c732461da6048edaadbf6c499dc638a350a5fa5a3740f339f74408a215a",
+    "device_sha256": "4016f16e098e27e69f4ad584aad5449c1711f34460cae58e4780f7e7b13710c4",
+    "differs_from_original_configured_identities": true,
+    "agent_secret_separate_protected_custody_only": true,
+    "no_worker_model_wake_or_financial_credentials_in_app": true,
+    "app_origin": "http://127.0.0.1:3037",
+    "trust_proxy_unset": true
+  },
+  "failed_stage": "database-tls-verification",
+  "safe_failure": "QUALIFICATION_ASSERTION_OR_DEPENDENCY_FAILED",
+  "app_logs": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "hygiene": {
+      "fixture_matches": 0,
+      "known_secret_matches": 0,
+      "full_provider_id_matches": 0,
+      "raw_dsn_matches": 0,
+      "client_ip_matches": 0
+    },
+    "raw_logs_saved": false
+  },
+  "response_hygiene": {
+    "response_bodies": 0,
+    "response_bytes": 0,
+    "fixture_matches": 0,
+    "known_secret_matches": 0,
+    "full_provider_id_matches": 0,
+    "raw_dsn_matches": 0,
+    "client_ip_matches": 0
+  },
+  "finished_at": "2026-11-11T01:22:45.726Z",
+  "requires_terminal_finalization_and_observed_exit": true
+}

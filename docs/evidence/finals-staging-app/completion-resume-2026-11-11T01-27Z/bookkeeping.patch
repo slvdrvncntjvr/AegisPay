@@ -1,0 +1,86 @@
+--- deployment\finals\staging-app\qualify.ts before
++++ deployment\finals\staging-app\qualify.ts after
+@@ -217,13 +217,22 @@
+   check(binding.repair_prerequisites_sha256===hash(await readFile(path.join(ROOT,FOLLOWUP,'repair-prerequisites.json'))),'REPAIR_PREREQUISITE_BINDING_FAILED');
+   for(const p of prerequisites.receipts){check(hash(await readFile(path.join(ROOT,p.path)))===p.sha256,'REPAIR_PREREQUISITE_CHANGED');const item=JSON.parse(await read(path.join(ROOT,p.path)));check(item.outcome==='passed','REPAIR_PREREQUISITE_NOT_PASSED');if(p.role==='startup')check(item.startup.classification==='READY'&&item.cleanup.owned_process_exited&&item.proxy.upstream_requests===0&&item.startup.staging_tls_observations===0,'CONCRETE_STARTUP_READINESS_REQUIRED');}
+   report.repair_prerequisites=prerequisites;
+-  let accepted:any;
+-  for(const name of (await readdir(path.join(ROOT,FOLLOWUP))).filter(p=>/^preflight-[1-3]\.json$/.test(p)).sort().reverse()){
+-    const receipt=JSON.parse(await read(path.join(ROOT,FOLLOWUP,name)));
+-    if(receipt.outcome==='passed'&&JSON.stringify(receipt.source_files)===JSON.stringify(source_files)){accepted={path:FOLLOWUP+'/'+name,sha256:hash(await readFile(path.join(ROOT,FOLLOWUP,name))),receipt};break;}
+-  }
+-  check(accepted&&accepted.receipt.contexts.length===2&&accepted.receipt.contexts.every((c:any)=>c.completed&&c.exact_request_count_maps_match&&c.missing_delivered_captures===0&&c.failures===0),'IMMUTABLE_MATCHING_CAPTURE_PREFLIGHT_REQUIRED');
+-  report.capture_preflight={path:accepted.path,sha256:accepted.sha256,source_files};
++  const proof=binding.capture_preflight;
++  check(proof&&typeof proof.path==='string','REUSED_CAPTURE_PREFLIGHT_REQUIRED');
++  const receiptBytes=await readFile(path.join(ROOT,proof.path));
++  check(hash(receiptBytes)===proof.sha256,'REUSED_CAPTURE_PREFLIGHT_CHANGED');
++  const receipt=JSON.parse(receiptBytes.toString());
++  const behaviorSources=[];
++  for(const name of ['proxy-capture.ts','capture-preflight.ts']){
++    const sourcePath='deployment/finals/staging-app/'+name;
++    const previous=receipt.source_files.find((item:any)=>item.path===sourcePath);
++    check(previous&&previous.sha256===hash(await readFile(path.join(ROOT,sourcePath))),'CAPTURE_BEHAVIOR_OR_TEST_SOURCE_CHANGED');
++    behaviorSources.push(previous);
++  }
++  const accepted={path:proof.path,sha256:proof.sha256,receipt};
++  check(receipt.outcome==='passed'&&receipt.contexts.length===2&&receipt.contexts.every((c:any)=>c.completed&&c.exact_request_count_maps_match&&c.missing_delivered_captures===0&&c.failures===0),'IMMUTABLE_MATCHING_CAPTURE_PREFLIGHT_REQUIRED');
++  check(binding.bookkeeping_diff_sha256===hash(await readFile(path.join(ROOT,FOLLOWUP,'bookkeeping.patch'))),'BOOKKEEPING_DIFF_BINDING_FAILED');
++  report.capture_preflight={path:accepted.path,sha256:accepted.sha256,reused:true,verified_behavior_sources:behaviorSources,current_source_binding:source_files};
+   // New explicit continuation receipt; the exhausted original marker remains.
+   const marker=await open(path.join(ROOT,FOLLOWUP,'continuation-execution.json'),'wx');
+   try{await marker.writeFile(JSON.stringify({at:new Date().toISOString(),command:'node --import tsx deployment/finals/staging-app/qualify.ts --resume',task:authorization.task,dispatch:authorization.dispatch,authorization_sha256:report.continuation.authorization_sha256,capture_preflight_sha256:accepted.sha256,source_files})+'\n');}finally{await marker.close();}
+@@ -244,7 +253,12 @@
+   for (const ip of JSON.stringify(permit).match(/\b(?:\d{1,3}\.){3}\d{1,3}\b/g) ?? []) clientIPs.add(ip);
+   const rotationPermit=await read(path.join(ROOT,'.fmd-work/staging-ip-rotation-permit-2026-11-10.json'));
+   for(const ip of rotationPermit.match(/\b(?:\d{1,3}\.){3}\d{1,3}\b/g)??[])clientIPs.add(ip);
+-  check(clientIPs.size === 2, 'OLD_AND_NEW_CLIENT_IP_SCAN_CONFIGURATION_FAILED');
++  const todayPermit=await read(path.join(ROOT,'.fmd-work/staging-ip-rotation-permit-2026-11-11.json'));
++  const todayAddresses=todayPermit.match(/\b(?:\d{1,3}\.){3}\d{1,3}\b/g)??[];
++  check(todayAddresses.length>0,'CURRENT_IP_PERMIT_ADDRESS_REQUIRED');
++  for(const ip of todayAddresses)clientIPs.add(ip);
++  check(clientIPs.size>=2,'CLIENT_IP_HYGIENE_SET_INCOMPLETE');
++  report.client_ip_hygiene={permit_files:3,address_values_checked:clientIPs.size};
+   for (const name of ['.env', '.env.local', '.env.production', '.env.production.local']) check(!await exists(path.join(ROOT,'apps/web',name)), 'NEXT_AUTOMATIC_ENV_FILE_PRESENT');
+   await requireFreePorts();
+   if (!await exists(CUSTODY)) { await mkdir(CUSTODY); acl(CUSTODY, true); } else acl(CUSTODY);
+--- deployment\finals\staging-app\continuation.ts before
++++ deployment\finals\staging-app\continuation.ts after
+@@ -1,5 +1,5 @@
+ /** Evidence directory and source binding for the browser completion repair. */
+-export const FOLLOWUP='docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z';
++export const FOLLOWUP='docs/evidence/finals-staging-app/completion-resume-2026-11-11T01-27Z';
+ export const sourcePaths=[
+   'deployment/finals/staging-app/proxy-capture.ts',
+   'deployment/finals/staging-app/capture-preflight.ts',
+--- deployment\finals\staging-app\final-audit.ts before
++++ deployment\finals\staging-app\final-audit.ts after
+@@ -22,7 +22,7 @@
+   const baseline=JSON.parse(await readFile(FOLLOWUP+'/preserved-baseline.json','utf8'));
+   for(const f of baseline.public_files)check(digest(await readFile(f.path))===f.sha256,'HISTORICAL_ARTIFACT_CHANGED');
+   report.preserved_original_public_files=baseline.public_files.length;
+-  const custody=[...await files('.fmd-work/staging-app-custody'),'.env.staging.local','.env.staging.web.local','.fmd-work/staging-ip-allow-permit.json','.fmd-work/staging-ip-rotation-permit-2026-11-10.json'];
++  const custody=[...await files('.fmd-work/staging-app-custody'),'.env.staging.local','.env.staging.web.local','.fmd-work/staging-ip-allow-permit.json','.fmd-work/staging-ip-rotation-permit-2026-11-10.json','.fmd-work/staging-ip-rotation-permit-2026-11-11.json'];
+   const privateHashes=[];for(const p of custody)privateHashes.push({path:p,sha256:digest(await readFile(p))});
+   check(digest(JSON.stringify(privateHashes))===baseline.custody_aggregate_sha256,'CUSTODY_CHANGED');
+   report.custody_files_unchanged=custody.length;
+@@ -38,14 +38,17 @@
+   secrets.add(JSON.parse(await readFile('.fmd-work/staging-app-custody/independent-agent.json','utf8')).agent_secret);
+   for(const ip of (await readFile('.fmd-work/staging-ip-allow-permit.json','utf8')).match(/\b(?:\d{1,3}\.){3}\d{1,3}\b/g)??[])ips.add(ip);
+   for(const ip of (await readFile('.fmd-work/staging-ip-rotation-permit-2026-11-10.json','utf8')).match(/\b(?:\d{1,3}\.){3}\d{1,3}\b/g)??[])ips.add(ip);
+-  check(ips.size===2,'OLD_AND_NEW_IP_SCAN_CONFIGURATION_FAILED');
++  const today=(await readFile('.fmd-work/staging-ip-rotation-permit-2026-11-11.json','utf8')).match(/\b(?:\d{1,3}\.){3}\d{1,3}\b/g)??[];
++  check(today.length>0,'CURRENT_IP_PERMIT_ADDRESS_REQUIRED');
++  for(const ip of today)ips.add(ip);
++  check(ips.size>=2,'CLIENT_IP_HYGIENE_SET_INCOMPLETE');
+   let serverFixtures=0,clientFixtures=0;
+   for(const f of build.files){const raw=await readFile(f.path);const hits=matches(raw);const{protected_fixture_matches,...privateHits}=hits;check(Object.values(privateHits).every(v=>v===0),'BUILD_PRIVATE_DATA_HYGIENE_FAILED');if(f.client)clientFixtures+=protected_fixture_matches;else serverFixtures+=protected_fixture_matches;}
+   check(clientFixtures===0&&serverFixtures>0,'CLIENT_SERVER_FIXTURE_BOUNDARY_FAILED');
+   report.bundle_boundary={server_fixture_matches:serverFixtures,client_fixture_matches:clientFixtures,source_build_files_unchanged:true};report.application_source_files=original.source.files;report.build_files=build.files;
+   const inventory=[];
+   for(const p of [...await files('deployment/finals/staging-app'),...await files('docs/evidence/finals-staging-app')]){const b=await readFile(p);check(Object.values(matches(b)).every(v=>v===0),'PUBLIC_EVIDENCE_HYGIENE_FAILED');inventory.push({path:p.replaceAll('\\','/'),bytes:b.length,sha256:digest(b)});}
+-  report.hygiene={known_secret_matches:0,full_provider_id_matches:0,raw_dsn_matches:0,client_ip_matches:0,protected_fixture_matches:0,raw_values_memory_only:true};report.inventory=inventory;
++  report.hygiene={known_secret_matches:0,full_provider_id_matches:0,raw_dsn_matches:0,client_ip_matches:0,protected_fixture_matches:0,raw_values_memory_only:true,client_ip_values_checked:ips.size};report.inventory=inventory;
+   const port=spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-Command',"$r=@(Get-NetTCPConnection -LocalAddress 127.0.0.1 -LocalPort 3037,3038 -State Listen -ErrorAction SilentlyContinue); Write-Output $r.Count"],{windowsHide:true,encoding:'utf8',env:{...process.env,PSModulePath:`${process.env.SystemRoot}/System32/WindowsPowerShell/v1.0/Modules`}});
+   check(port.status===0&&port.stdout.trim()==='0','APP_OR_PROXY_PORT_LISTENER_PRESENT');report.app_and_proxy_ports_no_listener=true;
+   const actualPath=FOLLOWUP+'/actual/result.json';let actualExists=false;try{await readFile(actualPath);actualExists=true;}catch{}

@@ -1,0 +1,8 @@
+{
+  "phase": "TERMINAL",
+  "outcome": "failed",
+  "exit_code": 1,
+  "all_validation_completed": true,
+  "result_sha256": "9ca42ef6f72de120229d03af43ef86c1b7285ba6d173dd9880f29604bb9a6858",
+  "inventory_sha256": "ae2c5a79331e33bd103adab579bb2e10eec6848eecb93805b9d593d2f557da35"
+}

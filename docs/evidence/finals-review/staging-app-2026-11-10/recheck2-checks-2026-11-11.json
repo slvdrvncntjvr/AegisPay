@@ -1,0 +1,17 @@
+{
+  "kind": "reviewer static documentation checks; not application or live integration tests",
+  "commands": [
+    {
+      "command": "python tools/check-docs.py",
+      "observed_exit": 0,
+      "result": "PASS; 21 canonical Markdown files, required sections, links, stable references, feature/invariant/QA coverage and SDK peer decision"
+    },
+    {
+      "command": "python fmd/tools/check-implementation-plan.py docs/implementation-plan.md --strict",
+      "observed_exit": 0,
+      "result": "APPROVE; 19 valid task rows and coherent dependency/state DAG"
+    }
+  ],
+  "application_helper_browser_network_database_execution_by_reviewer": false,
+  "actual_resumed_gate_acceptance": "pending at bounded evidence snapshot"
+}

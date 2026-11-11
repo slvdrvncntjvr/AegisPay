@@ -206,7 +206,7 @@ function verifyState(state: any, role: string) {
 async function main() {
   await mkdir(OUT, { recursive: true });
   const authorization=JSON.parse(await read(path.join(ROOT,FOLLOWUP,'continuation-authorization.json')));
-  check(authorization.task==='task_eb0e2e40e433'&&authorization.dispatch==='ctx_7ffda5859c9c','EXPLICIT_CONTINUATION_AUTHORIZATION_REQUIRED');
+  check(authorization.task==='task_35cf627dcc9a'&&authorization.dispatch==='ctx_95b52e773108','EXPLICIT_CONTINUATION_AUTHORIZATION_REQUIRED');
   for(const link of authorization.linked)check(hash(await readFile(path.join(ROOT,link.path)))===link.sha256,'CONTINUATION_PREREQUISITE_OR_PRIOR_RECEIPT_CHANGED');
   report.continuation={task:authorization.task,dispatch:authorization.dispatch,authorization_sha256:hash(await readFile(path.join(ROOT,FOLLOWUP,'continuation-authorization.json'))),linked:authorization.linked};
   const source_files=await Promise.all(sourcePaths.map(async p=>({path:p,sha256:hash(await readFile(path.join(ROOT,p)))})));
@@ -217,13 +217,22 @@ async function main() {
   check(binding.repair_prerequisites_sha256===hash(await readFile(path.join(ROOT,FOLLOWUP,'repair-prerequisites.json'))),'REPAIR_PREREQUISITE_BINDING_FAILED');
   for(const p of prerequisites.receipts){check(hash(await readFile(path.join(ROOT,p.path)))===p.sha256,'REPAIR_PREREQUISITE_CHANGED');const item=JSON.parse(await read(path.join(ROOT,p.path)));check(item.outcome==='passed','REPAIR_PREREQUISITE_NOT_PASSED');if(p.role==='startup')check(item.startup.classification==='READY'&&item.cleanup.owned_process_exited&&item.proxy.upstream_requests===0&&item.startup.staging_tls_observations===0,'CONCRETE_STARTUP_READINESS_REQUIRED');}
   report.repair_prerequisites=prerequisites;
-  let accepted:any;
-  for(const name of (await readdir(path.join(ROOT,FOLLOWUP))).filter(p=>/^preflight-[1-3]\.json$/.test(p)).sort().reverse()){
-    const receipt=JSON.parse(await read(path.join(ROOT,FOLLOWUP,name)));
-    if(receipt.outcome==='passed'&&JSON.stringify(receipt.source_files)===JSON.stringify(source_files)){accepted={path:FOLLOWUP+'/'+name,sha256:hash(await readFile(path.join(ROOT,FOLLOWUP,name))),receipt};break;}
+  const proof=binding.capture_preflight;
+  check(proof&&typeof proof.path==='string','REUSED_CAPTURE_PREFLIGHT_REQUIRED');
+  const receiptBytes=await readFile(path.join(ROOT,proof.path));
+  check(hash(receiptBytes)===proof.sha256,'REUSED_CAPTURE_PREFLIGHT_CHANGED');
+  const receipt=JSON.parse(receiptBytes.toString());
+  const behaviorSources=[];
+  for(const name of ['proxy-capture.ts','capture-preflight.ts']){
+    const sourcePath='deployment/finals/staging-app/'+name;
+    const previous=receipt.source_files.find((item:any)=>item.path===sourcePath);
+    check(previous&&previous.sha256===hash(await readFile(path.join(ROOT,sourcePath))),'CAPTURE_BEHAVIOR_OR_TEST_SOURCE_CHANGED');
+    behaviorSources.push(previous);
   }
-  check(accepted&&accepted.receipt.contexts.length===2&&accepted.receipt.contexts.every((c:any)=>c.completed&&c.exact_request_count_maps_match&&c.missing_delivered_captures===0&&c.failures===0),'IMMUTABLE_MATCHING_CAPTURE_PREFLIGHT_REQUIRED');
-  report.capture_preflight={path:accepted.path,sha256:accepted.sha256,source_files};
+  const accepted={path:proof.path,sha256:proof.sha256,receipt};
+  check(receipt.outcome==='passed'&&receipt.contexts.length===2&&receipt.contexts.every((c:any)=>c.completed&&c.exact_request_count_maps_match&&c.missing_delivered_captures===0&&c.failures===0),'IMMUTABLE_MATCHING_CAPTURE_PREFLIGHT_REQUIRED');
+  check(binding.bookkeeping_diff_sha256===hash(await readFile(path.join(ROOT,FOLLOWUP,'bookkeeping.patch'))),'BOOKKEEPING_DIFF_BINDING_FAILED');
+  report.capture_preflight={path:accepted.path,sha256:accepted.sha256,reused:true,verified_behavior_sources:behaviorSources,current_source_binding:source_files};
   // New explicit continuation receipt; the exhausted original marker remains.
   const marker=await open(path.join(ROOT,FOLLOWUP,'continuation-execution.json'),'wx');
   try{await marker.writeFile(JSON.stringify({at:new Date().toISOString(),command:'node --import tsx deployment/finals/staging-app/qualify.ts --resume',task:authorization.task,dispatch:authorization.dispatch,authorization_sha256:report.continuation.authorization_sha256,capture_preflight_sha256:accepted.sha256,source_files})+'\n');}finally{await marker.close();}
@@ -244,7 +253,12 @@ async function main() {
   for (const ip of JSON.stringify(permit).match(/\b(?:\d{1,3}\.){3}\d{1,3}\b/g) ?? []) clientIPs.add(ip);
   const rotationPermit=await read(path.join(ROOT,'.fmd-work/staging-ip-rotation-permit-2026-11-10.json'));
   for(const ip of rotationPermit.match(/\b(?:\d{1,3}\.){3}\d{1,3}\b/g)??[])clientIPs.add(ip);
-  check(clientIPs.size === 2, 'OLD_AND_NEW_CLIENT_IP_SCAN_CONFIGURATION_FAILED');
+  const todayPermit=await read(path.join(ROOT,'.fmd-work/staging-ip-rotation-permit-2026-11-11.json'));
+  const todayAddresses=todayPermit.match(/\b(?:\d{1,3}\.){3}\d{1,3}\b/g)??[];
+  check(todayAddresses.length>0,'CURRENT_IP_PERMIT_ADDRESS_REQUIRED');
+  for(const ip of todayAddresses)clientIPs.add(ip);
+  check(clientIPs.size>=2,'CLIENT_IP_HYGIENE_SET_INCOMPLETE');
+  report.client_ip_hygiene={permit_files:3,address_values_checked:clientIPs.size};
   for (const name of ['.env', '.env.local', '.env.production', '.env.production.local']) check(!await exists(path.join(ROOT,'apps/web',name)), 'NEXT_AUTOMATIC_ENV_FILE_PRESENT');
   await requireFreePorts();
   if (!await exists(CUSTODY)) { await mkdir(CUSTODY); acl(CUSTODY, true); } else acl(CUSTODY);
@@ -409,6 +423,7 @@ async function main() {
   try {
     for (const viewport of [{name:'desktop',width:1440,height:1000},{name:'mobile',width:390,height:844}]) for (const role of ['owner','merchant']) {
       const context=await browser.newContext({viewport:{width:viewport.width,height:viewport.height}, serviceWorkers:'block'});
+      report.browser_case_phase={viewport:viewport.name,role,phase:'ANONYMOUS_NAVIGATION'};
       const page=await context.newPage(); let forbiddenRequests=0; let unexpectedNetwork=0; let pageErrors=0;
       const capture=await proxy.capture(context,page);
       try {
@@ -420,7 +435,9 @@ async function main() {
       page.on('pageerror',()=>{ pageErrors++; });
       await capture.drain('BEFORE_NAVIGATION');
       await page.goto(ORIGIN+'/app'); await expect(page).toHaveURL(/\/login\?expired=1$/);
+      report.browser_case_phase.phase='INITIAL_DRAIN';
       await capture.drain('AFTER_TRANSITION');
+      report.browser_case_phase.phase='LOGIN';
       await page.getByRole('combobox',{name:'Role',exact:true}).selectOption(role);
       await page.getByLabel('Demo access token').fill(web[role==='owner'?'DEMO_OWNER_LOGIN_TOKEN':'DEMO_MERCHANT_LOGIN_TOKEN']!);
       await capture.drain('BEFORE_NAVIGATION');
@@ -430,26 +447,30 @@ async function main() {
       if(role==='owner') await expect(page.getByRole('button',{name:'Start task',exact:true})).toBeDisabled();
       else await expect(page.getByRole('heading',{level:1})).toHaveText('Your terms. Your claim.');
       const cookie=(await context.cookies()).find(c=>c.name==='aegispay_session');
+      report.browser_case_phase.phase='READ_STATE';
       check(cookie?.httpOnly && cookie.sameSite==='Strict' && !cookie.secure && cookie.path==='/', 'BROWSER_COOKIE_ATTRIBUTES_FAILED');
       sessions.add(hash(cookie.value)); privateValues.add(cookie.value);
       const inBrowser=await page.evaluate(async()=>({state:await(await fetch('/api/v1/state',{cache:'no-store'})).json(), storage:JSON.stringify({...localStorage,...sessionStorage}), html:document.documentElement.outerHTML, cookie:document.cookie}));
       verifyState(inBrowser.state,role); scanResponse(JSON.stringify(inBrowser.state)); scanResponse(inBrowser.storage); scanResponse(inBrowser.html);
       check(!inBrowser.cookie.includes('aegispay_session'),'BROWSER_COOKIE_NOT_HTTPONLY');
       await capture.drain('BEFORE_NAVIGATION');
+      report.browser_case_phase.phase='RELOAD';
       await page.reload(); await expect(page.getByRole('button',{name:'Sign out',exact:true})).toBeVisible();
       await expect(page.getByText('Authenticated database snapshot',{exact:false})).toBeVisible();
       check(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1),'BROWSER_HORIZONTAL_OVERFLOW');
       await capture.drain('BEFORE_LOGOUT');
+      report.browser_case_phase.phase='LOGOUT';
       await page.getByRole('button',{name:'Sign out',exact:true}).click(); await expect(page).toHaveURL(ORIGIN+'/login');
       await capture.drain('AFTER_TRANSITION');
       check(!(await context.cookies()).some(c=>c.name==='aegispay_session'),'BROWSER_LOGOUT_COOKIE_RETAINED');
       // This independent security GET is outside browser request correlation;
       // it never substitutes for any captured browser body.
       await capture.detach();
+      report.browser_case_phase.phase='REVOKED_COOKIE_CHECK';
       const previous=await http('/api/v1/state',{headers:{Cookie:'aegispay_session='+cookie.value}},401,`${viewport.name} ${role} previous browser cookie revoked`);
       check(previous.response.status===401 && forbiddenRequests===0 && unexpectedNetwork===0 && pageErrors===0,'BROWSER_NETWORK_OR_RUNTIME_FAILED');
       const summary=capture.summary();
-      check(summary.exact_request_count_maps_match&&summary.failures===0&&summary.missing_delivered_captures===0&&summary.pending_captures===0&&summary.pending_browser_requests===0,'BROWSER_CAPTURE_INCOMPLETE');
+      check(summary.exact_request_count_maps_match&&summary.failures===0&&summary.missing_delivered_captures===0&&summary.pending_captures===0&&summary.pending_browser_requests===0&&summary.pending_proxy_responses===0,'BROWSER_CAPTURE_INCOMPLETE');
       report.browser.push({viewport:viewport.name,role,real_login:true,real_database_state:true,reload_session_persisted:true,logout_revoked_previous_cookie:true,
         http_only_same_site_cookie:true,private_storage_clean:true,no_horizontal_overflow:true,no_forbidden_financial_requests:true,no_external_network_requests:true,page_errors:pageErrors,
         traces_screenshots_video_storage_exports:false,route_mocks:false,reverse_observation_proxy:true,native_browser_cache_qualified:false});
@@ -494,7 +515,8 @@ catch(error) {
   const code=typeof(error as any)?.code==='string'?(error as any).code:'';
   const connections=['ECONNREFUSED','ECONNRESET','ETIMEDOUT','EHOSTUNREACH','ENETUNREACH','ENOTFOUND','EAI_AGAIN','CERT_HAS_EXPIRED','ERR_TLS_CERT_ALTNAME_INVALID','UNABLE_TO_VERIFY_LEAF_SIGNATURE','DEPTH_ZERO_SELF_SIGNED_CERT','SELF_SIGNED_CERT_IN_CHAIN','UNABLE_TO_GET_ISSUER_CERT_LOCALLY'];
   const sqlstates=['08000','08001','08003','08004','08006','08007','08P01','28P01','28000','3D000','42501','42P01','42703','53300','53400','57P01','57P02','57P03','57014','40001','40P01','23505','23503','23514','25006','25P02','22003','22007'];
-  report.safe_failure=error instanceof QualificationFailure?error.message:connections.includes(code)?'ALLOWLISTED_CONNECTION_FAILURE':sqlstates.includes(code)?'ALLOWLISTED_DATABASE_FAILURE':(error as any)?.name==='TimeoutError'?'BROWSER_OR_OPERATION_TIMEOUT':'QUALIFICATION_ASSERTION_OR_DEPENDENCY_FAILED';
+  const captureFailure=error instanceof Error&&['BROWSER_CAPTURE_DRAIN_TIMEOUT','BROWSER_CAPTURE_FAILED'].includes(error.message);
+  report.safe_failure=error instanceof QualificationFailure||captureFailure?(error as Error).message:connections.includes(code)?'ALLOWLISTED_CONNECTION_FAILURE':sqlstates.includes(code)?'ALLOWLISTED_DATABASE_FAILURE':(error as any)?.name==='TimeoutError'?'BROWSER_OR_OPERATION_TIMEOUT':'QUALIFICATION_ASSERTION_OR_DEPENDENCY_FAILED';
   if(connections.includes(code))report.connection_category=code;
   if(sqlstates.includes(code))report.sqlstate=code;
 }
@@ -503,7 +525,7 @@ finally {
   if(proxy){
     await proxy.close().catch(()=>{report.outcome='failed';report.cleanup.proxy_close_failed=true;});
     report.observation_proxy=proxy.summary();report.cleanup.owned_proxy_closed=true;
-    if(report.observation_proxy.failures||report.observation_proxy.pending||report.observation_proxy.upstream_requests!==report.observation_proxy.upstream_captured){report.outcome='failed';report.safe_capture_failure='PROXY_BODY_COVERAGE_INCOMPLETE';}
+    if(report.observation_proxy.failures||report.observation_proxy.pending||report.observation_proxy.upstream_requests!==report.observation_proxy.upstream_captured||report.observation_proxy.upstream_requests!==report.observation_proxy.upstream_response_finished+report.observation_proxy.upstream_canceled){report.outcome='failed';report.safe_capture_failure='PROXY_BODY_OR_RESPONSE_COMPLETION_INCOMPLETE';}
   }
   if(launch) {
     report.cleanup.production_launch=await launch.stop();report.cleanup.owned_next_pid=app?.pid;report.cleanup.owned_next_exited=report.cleanup.production_launch.owned_process_exited;

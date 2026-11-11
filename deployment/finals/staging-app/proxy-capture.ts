@@ -10,8 +10,32 @@ export const CHROME='C:/Users/Vincent/AppData/Local/ms-playwright/chromium-1248/
 export const sourcePaths=['deployment/finals/staging-app/proxy-capture.ts','deployment/finals/staging-app/capture-preflight.ts','deployment/finals/staging-app/qualify.ts'];
 export function category(raw:string){const p=new URL(raw,'http://127.0.0.1').pathname;return p==='/api/session'?'SESSION':p==='/api/v1/state'?'STATE':p.startsWith('/_next/static/')?'STATIC':p==='/app'?'APP':p==='/login'?'LOGIN':p==='/'?'PUBLIC':p.startsWith('/fixture/')||p==='/favicon.ico'?'SYNTHETIC':'OTHER';}
 const method=(s:string)=>['GET','HEAD','POST','DELETE','PUT','PATCH','OPTIONS'].includes(s)?s:'OTHER';
-type Item={key:string;method:string;path_category:string;status:number|null;captured:boolean;matched:boolean;canceled:boolean;prefetch:boolean;bytes:number};
-type BrowserItem={key:string;method:string;path_category:string;status:number|null;finished:boolean;delivered:boolean;canceled:boolean;prefetch:boolean};
+type Item = {
+  key: string;
+  method: string;
+  path_category: string;
+  status: number | null;
+  captured: boolean;
+  matched: boolean;
+  responseFinished: boolean;
+  canceled: boolean;
+  prefetch: boolean;
+  bytes: number;
+};
+type BrowserItem = {
+  key: string;
+  method: string;
+  path_category: string;
+  status: number | null;
+  finished: boolean;
+  delivered: boolean;
+  canceled: boolean;
+  prefetch: boolean;
+  upstream?: Item;
+  uniqueMatch?: boolean;
+  completedByProxyFinish?: boolean;
+  terminalEvidence?: 'CDP_FINISHED' | 'CDP_FAILED' | 'REDIRECT_RESPONSE' | 'CLIENT_SOCKET_CANCELED';
+};
 type Diagnostic={method:string;status:number|null;path_category:string;category:string};
 export class ObservationProxy {
   private server=http.createServer((req,res)=>{
@@ -40,9 +64,14 @@ export class ObservationProxy {
   get origin(){return `http://127.0.0.1:${this.addressPort}`;}
   private async forward(req:IncomingMessage,res:ServerResponse,group:BrowserCapture|undefined){
     if(!req.url?.startsWith('/')||req.url.startsWith('//')||req.headers.host!==`127.0.0.1:${this.addressPort}`){this.failures++;group?.fault('INVALID_PROXY_REQUEST_TARGET');res.destroy();return;}
-    const i:Item={key:req.method+' '+req.url,method:method(req.method??''),path_category:category(req.url),status:null,captured:false,matched:false,canceled:false,prefetch:!!(req.headers['next-router-prefetch']||req.headers['next-router-segment-prefetch']||/prefetch/i.test(String(req.headers.purpose??req.headers['sec-purpose']??''))),bytes:0};
+    const i:Item={key:req.method+' '+req.url,method:method(req.method??''),path_category:category(req.url),status:null,captured:false,matched:false,responseFinished:false,canceled:false,prefetch:!!(req.headers['next-router-prefetch']||req.headers['next-router-segment-prefetch']||/prefetch/i.test(String(req.headers.purpose??req.headers['sec-purpose']??''))),bytes:0};
     this.records.push(i);group?.upstream.push(i);group?.touch();
-    res.once('close',()=>{if(!res.writableFinished){i.canceled=true;group?.emit(i,'CLIENT_CANCELED');group?.touch();}});
+    const recordFinish=()=>{
+      if(!res.writableFinished||i.responseFinished)return;
+      i.responseFinished=true;group?.emit(i,'PROXY_RESPONSE_FINISHED');group?.touch();
+    };
+    res.once('finish',recordFinish);
+    res.once('close',()=>{if(res.writableFinished)recordFinish();else{i.canceled=true;group?.emit(i,'CLIENT_CANCELED');group?.touch();}});
     const deadline=setTimeout(()=>{req.destroy();res.destroy();},25000);
     try{
       const chunks:Buffer[]=[];let size=0;
@@ -80,7 +109,7 @@ export class ObservationProxy {
     const group=new BrowserCapture(this,context,this.origin,synthetic);this.active=group;await group.attach(page);return group;
   }
   release(group:BrowserCapture){if(this.active!==group)throw new Error('CAPTURE_CONTEXT_MISMATCH');this.active=undefined;}
-  summary(){return{transport:'fixed-target normal Node HTTP reverse observation proxy',upstream_requests:this.records.length,upstream_captured:this.records.filter(i=>i.captured).length,upstream_entity_bytes:this.records.reduce((a,i)=>a+i.bytes,0),pending:this.pending.size,failures:this.failures,redirect_following:0,retries:0,cookie_jar:false,response_overrides:false,original_status_statusMessage_raw_duplicate_headers_entity:true,decoded_compressed_entities_also_scanned:true,request_body_limit:65536,response_body_limit:16777216,upstream_timeout_ms:20000,total_request_timeout_ms:25000,limits:'loopback only; fully buffers responses and alters streaming/timing/hop framing; browser cache disabled for capture contexts; no unintercepted/native-cache/hosted-egress qualification'};}
+  summary(){return{transport:'fixed-target normal Node HTTP reverse observation proxy',upstream_requests:this.records.length,upstream_captured:this.records.filter(i=>i.captured).length,upstream_response_finished:this.records.filter(i=>i.responseFinished).length,upstream_canceled:this.records.filter(i=>i.canceled).length,upstream_entity_bytes:this.records.reduce((a,i)=>a+i.bytes,0),pending:this.pending.size,failures:this.failures,redirect_following:0,retries:0,cookie_jar:false,response_overrides:false,original_status_statusMessage_raw_duplicate_headers_entity:true,decoded_compressed_entities_also_scanned:true,request_body_limit:65536,response_body_limit:16777216,upstream_timeout_ms:20000,total_request_timeout_ms:25000,limits:'loopback only; fully buffers responses and alters streaming/timing/hop framing; browser cache disabled for capture contexts; no unintercepted/native-cache/hosted-egress qualification'};}
   async close(){await Promise.all([...this.pending]);await new Promise<void>(r=>{this.server.close(()=>r());this.server.closeIdleConnections();});}
 }
 export class BrowserCapture {
@@ -94,22 +123,40 @@ export class BrowserCapture {
   fault(c:string){this.failures++;this.emit({method:'OTHER',status:null,path_category:'OTHER'},c);}
   private delivered(i:BrowserItem,status:number){
     i.delivered=true;i.status=status;
-    const own=this.upstream.find(u=>u.key===i.key&&u.captured&&!u.matched);
-    if(!own)this.fault('DELIVERED_BODY_NOT_CAPTURED');else{own.matched=true;if(own.status!==status)this.fault('DELIVERED_STATUS_CHANGED');}
+    const candidates=this.upstream.filter(u=>u.key===i.key&&u.captured&&!u.matched);
+    const own=candidates[0];
+    if(!own)this.fault('DELIVERED_BODY_NOT_CAPTURED');
+    else{
+      own.matched=true;
+      i.upstream=own;
+      i.uniqueMatch=candidates.length===1;
+      if(own.status!==status)this.fault('DELIVERED_STATUS_CHANGED');
+    }
     this.emit(i,own?'DELIVERED_AFTER_CAPTURE':'MISSING_DELIVERED_CAPTURE');this.touch();
+  }
+  private pendingBrowser(){return this.requests.filter(i=>!i.finished&&!i.completedByProxyFinish);}
+  private pendingProxy(){return this.upstream.filter(i=>!i.responseFinished&&!i.canceled);}
+  private pendingCategory(i:BrowserItem){
+    if(!i.delivered)return 'AWAITING_BROWSER_RESPONSE_OR_PROVED_CANCELLATION';
+    if(!i.upstream?.captured)return 'DELIVERED_WITHOUT_CAPTURE';
+    if(i.upstream.status!==i.status)return 'DELIVERED_STATUS_MISMATCH';
+    if(!i.uniqueMatch)return 'AMBIGUOUS_UPSTREAM_MATCH';
+    if(i.canceled||i.upstream.canceled)return 'CANCELED_WITHOUT_TERMINAL_EVIDENCE';
+    if(!i.upstream.responseFinished)return 'AWAITING_PROXY_RESPONSE_FINISH';
+    return 'AWAITING_BROWSER_TERMINAL_EVENT';
   }
   async attach(page:Page){
     this.cdp=await this.context.newCDPSession(page);
     this.cdp.on('Network.requestWillBeSent',(e:any)=>{
-      if(e.redirectResponse){const previous=this.byId.get(e.requestId);if(previous){this.delivered(previous,e.redirectResponse.status);previous.finished=true;}}
+      if(e.redirectResponse){const previous=this.byId.get(e.requestId);if(previous){this.delivered(previous,e.redirectResponse.status);previous.finished=true;previous.terminalEvidence='REDIRECT_RESPONSE';}}
       const u=new URL(e.request.url);if(u.origin!==this.origin){this.fault('OUTSIDE_BROWSER_ORIGIN');return;}
       const headers=e.request.headers;
       const i:BrowserItem={key:e.request.method+' '+u.pathname+u.search,method:method(e.request.method),path_category:category(u.pathname),status:null,finished:false,delivered:false,canceled:false,prefetch:Object.entries(headers).some(([k,v])=>/^(next-router-prefetch|next-router-segment-prefetch)$/i.test(k)||/^(purpose|sec-purpose)$/i.test(k)&&/prefetch/i.test(String(v)))};
       this.requests.push(i);this.byId.set(e.requestId,i);this.touch();
     });
     this.cdp.on('Network.responseReceived',(e:any)=>{const i=this.byId.get(e.requestId);if(i)this.delivered(i,e.response.status);else this.fault('RESPONSE_WITHOUT_REQUEST');});
-    this.cdp.on('Network.loadingFinished',(e:any)=>{const i=this.byId.get(e.requestId);if(i)i.finished=true;this.touch();});
-    this.cdp.on('Network.loadingFailed',(e:any)=>{const i=this.byId.get(e.requestId);if(!i)return;i.finished=true;i.canceled=e.canceled===true;if(!i.canceled||!this.synthetic&&!i.prefetch&&!i.delivered)this.fault('UNEXPECTED_BROWSER_REQUEST_FAILURE');this.emit(i,i.prefetch?'PREFETCH_CANCELED':'REQUEST_CANCELED');this.touch();});
+    this.cdp.on('Network.loadingFinished',(e:any)=>{const i=this.byId.get(e.requestId);if(i){i.finished=true;i.terminalEvidence='CDP_FINISHED';}this.touch();});
+    this.cdp.on('Network.loadingFailed',(e:any)=>{const i=this.byId.get(e.requestId);if(!i)return;i.finished=true;i.terminalEvidence='CDP_FAILED';i.canceled=e.canceled===true;if(!i.canceled||!this.synthetic&&!i.prefetch&&!i.delivered)this.fault('UNEXPECTED_BROWSER_REQUEST_FAILURE');this.emit(i,i.prefetch?'PREFETCH_CANCELED':'REQUEST_CANCELED');this.touch();});
     await this.cdp.send('Network.enable');await this.cdp.send('Network.setCacheDisabled',{cacheDisabled:true});
   }
   async drain(point:'BEFORE_NAVIGATION'|'BEFORE_LOGOUT'|'BEFORE_CLOSE'|'AFTER_TRANSITION'){
@@ -121,12 +168,26 @@ export class BrowserCapture {
       for(const i of this.requests.filter(i=>!i.finished&&!i.delivered)){
         const own=this.upstream.find(u=>u.key===i.key&&u.canceled&&u.captured&&!u.matched);
         if(own&&(this.synthetic||i.prefetch||own.prefetch)){
-          own.matched=true;i.finished=true;i.canceled=true;i.prefetch=i.prefetch||own.prefetch;
+          own.matched=true;i.finished=true;i.terminalEvidence='CLIENT_SOCKET_CANCELED';i.canceled=true;i.prefetch=i.prefetch||own.prefetch;
           this.emit(i,'CLIENT_SOCKET_CANCELED_UPSTREAM_CAPTURE_RETAINED');this.touch();
         }
       }
       if(this.failures&&!this.pending.size)throw new Error('BROWSER_CAPTURE_FAILED');
-      const v=this.version;if(!this.pending.size&&this.requests.every(i=>i.finished)&&Date.now()-this.lastActivity>180){await new Promise(r=>setTimeout(r,30));if(v===this.version){this.emit({method:'OTHER',status:null,path_category:'OTHER'},'DRAIN_'+point);if(this.failures)throw new Error('BROWSER_CAPTURE_FAILED');return;}}await new Promise(r=>setTimeout(r,25));
+      // Allow the normal lifecycle event to arrive during the existing quiet
+      // interval. A separate proof can settle a delivered response after that.
+      if(!this.pending.size&&!this.pendingProxy().length&&Date.now()-this.lastActivity>180){
+        const version=this.version;
+        await new Promise(r=>setTimeout(r,30));
+        if(version===this.version){
+          for(const i of this.pendingBrowser()){
+            if(this.pendingCategory(i)!=='AWAITING_BROWSER_TERMINAL_EVENT')continue;
+            i.completedByProxyFinish=true;
+            this.emit(i,'COMPLETED_BY_MATCHED_PROXY_RESPONSE_FINISH');
+          }
+          if(!this.pendingBrowser().length){this.emit({method:'OTHER',status:null,path_category:'OTHER'},'DRAIN_'+point);return;}
+        }
+      }
+      await new Promise(r=>setTimeout(r,25));
     }
     this.fault('DRAIN_TIMEOUT_'+point);throw new Error('BROWSER_CAPTURE_DRAIN_TIMEOUT');
   }
@@ -134,7 +195,41 @@ export class BrowserCapture {
     const b=new Map<string,number>(),u=new Map<string,number>();for(const i of this.requests)b.set(i.key,(b.get(i.key)??0)+1);for(const i of this.upstream)u.set(i.key,(u.get(i.key)??0)+1);
     const unmatchedBrowser=this.requests.filter(i=>i.canceled&&!i.delivered&&!this.upstream.some(q=>q.key===i.key)).length;
     const exact=[...b].every(([k,v])=>u.get(k)===v)&&[...u].every(([k,v])=>b.get(k)===v);
-    return{browser_requests:this.requests.length,upstream_requests:this.upstream.length,exact_request_count_maps_match:exact,canceled_before_proxy:unmatchedBrowser,proxy_only_requests:[...u].filter(([k])=>!b.has(k)).length,delivered_responses:this.requests.filter(i=>i.delivered).length,missing_delivered_captures:this.diagnostics.filter(d=>d.category==='MISSING_DELIVERED_CAPTURE').length,canceled_requests:this.requests.filter(i=>i.canceled).length,canceled_prefetches:this.requests.filter(i=>i.canceled&&i.prefetch).length,upstream_captured:this.upstream.filter(i=>i.captured).length,pending_captures:this.pending.size,pending_browser_requests:this.requests.filter(i=>!i.finished).length,failures:this.failures,browser_cache_disabled:true,raw_urls_headers_bodies_errors_exported:false,diagnostics:this.diagnostics};
+    const pending=this.pendingBrowser();
+    const pendingProxy=this.pendingProxy();
+    const completionEvidence = {
+      cdp_loading_finished: this.requests.filter(i => i.terminalEvidence === 'CDP_FINISHED').length,
+      cdp_loading_failed: this.requests.filter(i => i.terminalEvidence === 'CDP_FAILED').length,
+      redirect_response: this.requests.filter(i => i.terminalEvidence === 'REDIRECT_RESPONSE').length,
+      client_socket_cancellation: this.requests.filter(i => i.terminalEvidence === 'CLIENT_SOCKET_CANCELED').length,
+      matched_proxy_response_finish: this.requests.filter(i => i.completedByProxyFinish && !i.finished).length,
+    };
+    return {
+      browser_requests: this.requests.length,
+      upstream_requests: this.upstream.length,
+      exact_request_count_maps_match: exact,
+      canceled_before_proxy: unmatchedBrowser,
+      proxy_only_requests: [...u].filter(([k]) => !b.has(k)).length,
+      delivered_responses: this.requests.filter(i => i.delivered).length,
+      missing_delivered_captures: this.diagnostics.filter(d => d.category === 'MISSING_DELIVERED_CAPTURE').length,
+      canceled_requests: this.requests.filter(i => i.canceled).length,
+      canceled_prefetches: this.requests.filter(i => i.canceled && i.prefetch).length,
+      upstream_captured: this.upstream.filter(i => i.captured).length,
+      upstream_response_finished: this.upstream.filter(i => i.responseFinished).length,
+      completed_by_matched_proxy_finish: completionEvidence.matched_proxy_response_finish,
+      completion_evidence: completionEvidence,
+      pending_captures: this.pending.size,
+      pending_browser_requests: pending.length,
+      pending_proxy_responses: pendingProxy.length,
+      pending_categories: [
+        ...pending.map(i => ({ method: i.method, status: i.status, path_category: i.path_category, category: this.pendingCategory(i) })),
+        ...pendingProxy.map(i => ({ method: i.method, status: i.status, path_category: i.path_category, category: 'PROXY_RESPONSE_NOT_FINISHED' })),
+      ],
+      failures: this.failures,
+      browser_cache_disabled: true,
+      raw_urls_headers_bodies_errors_exported: false,
+      diagnostics: this.diagnostics,
+    };
   }
   async detach(){if(this.detached)return;await this.drain('BEFORE_CLOSE');await this.cdp.detach();this.proxy.release(this);this.detached=true;}
 }

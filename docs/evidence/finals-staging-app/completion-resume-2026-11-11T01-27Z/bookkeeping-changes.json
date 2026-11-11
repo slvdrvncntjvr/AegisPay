@@ -1,0 +1,21 @@
+{
+  "scope": "run namespace, preflight receipt reuse, execution binding and current private IP hygiene",
+  "capture_and_test_sources_edited": false,
+  "changes": [
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "before_sha256": "e3dea1f8ab09025c80d68912378df42d1c2cbd28e8cd05ed38994f529d5bd04e",
+      "after_sha256": "09a5fa6911c05f8d5e856cd7f57f46b03c720bc15e62e10284dddd77960a0b6f"
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation.ts",
+      "before_sha256": "ab2821831071aa3102f681c5790ca5aa6650e52e2c8eee79a27e3873e511accf",
+      "after_sha256": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356"
+    },
+    {
+      "path": "deployment/finals/staging-app/final-audit.ts",
+      "before_sha256": "4ae498121aa77f34815a86863305c7351ff36474480e7d7ba1268e04e051e9c8",
+      "after_sha256": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae"
+    }
+  ]
+}

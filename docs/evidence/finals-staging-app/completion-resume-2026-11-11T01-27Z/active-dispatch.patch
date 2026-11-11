@@ -1,0 +1,11 @@
+--- deployment/finals/staging-app/qualify.ts prior recovery
++++ deployment/finals/staging-app/qualify.ts active dispatch
+@@ -206,7 +206,7 @@
+ async function main() {
+   await mkdir(OUT, { recursive: true });
+   const authorization=JSON.parse(await read(path.join(ROOT,FOLLOWUP,'continuation-authorization.json')));
+-  check(authorization.task==='task_35cf627dcc9a'&&authorization.dispatch==='ctx_b7e5bf88bb7d','EXPLICIT_CONTINUATION_AUTHORIZATION_REQUIRED');
++  check(authorization.task==='task_35cf627dcc9a'&&authorization.dispatch==='ctx_95b52e773108','EXPLICIT_CONTINUATION_AUTHORIZATION_REQUIRED');
+   for(const link of authorization.linked)check(hash(await readFile(path.join(ROOT,link.path)))===link.sha256,'CONTINUATION_PREREQUISITE_OR_PRIOR_RECEIPT_CHANGED');
+   report.continuation={task:authorization.task,dispatch:authorization.dispatch,authorization_sha256:hash(await readFile(path.join(ROOT,FOLLOWUP,'continuation-authorization.json'))),linked:authorization.linked};
+   const source_files=await Promise.all(sourcePaths.map(async p=>({path:p,sha256:hash(await readFile(path.join(ROOT,p)))})));

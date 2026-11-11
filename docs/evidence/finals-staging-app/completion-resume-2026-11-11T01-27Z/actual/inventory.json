@@ -1,0 +1,100 @@
+{
+  "at": "2026-11-11T04:26:54.224Z",
+  "files": [
+    {
+      "path": "deployment/finals/staging-app/README.md",
+      "bytes": 3835,
+      "sha256": "6d5748115209cf9abb6a38fd090f44868aa8e6125c99c0087c4965ed43a36e02"
+    },
+    {
+      "path": "deployment/finals/staging-app/audit.ts",
+      "bytes": 10926,
+      "sha256": "c9bf1ca2c2675db7947f314a9008e91809412128b50f82970b735b94d81d39f3"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-completion-check.ts",
+      "bytes": 5737,
+      "sha256": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-followup-audit.ts",
+      "bytes": 5982,
+      "sha256": "10caf07ba0b3da1d1363e57edd0b4c2c319dd2179d33ab75b329e545e8e72a6a"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-preflight.ts",
+      "bytes": 12181,
+      "sha256": "80932c305f4b374135d0a001a1924934f13778f72f151adf4089d902726f1b8a"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture.ts",
+      "bytes": 10206,
+      "sha256": "6fa2b3e119606e7f578ce6742a482ea10acbd2d2ca208b86f62467bc119e4c11"
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation-audit.ts",
+      "bytes": 12650,
+      "sha256": "ea60ff3a4a91cb63b66610663c03b4bb18c17a67723f066c416d9d82b99c3a25"
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation.ts",
+      "bytes": 728,
+      "sha256": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356"
+    },
+    {
+      "path": "deployment/finals/staging-app/current-precheck.ts",
+      "bytes": 5387,
+      "sha256": "e2bd250dffebcdb1fd931e201637272005169cb1304c0da384ab75a3be339cc8"
+    },
+    {
+      "path": "deployment/finals/staging-app/evidence-terminal.ts",
+      "bytes": 3895,
+      "sha256": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3"
+    },
+    {
+      "path": "deployment/finals/staging-app/final-audit.ts",
+      "bytes": 13689,
+      "sha256": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae"
+    },
+    {
+      "path": "deployment/finals/staging-app/proxy-audit.ts",
+      "bytes": 6996,
+      "sha256": "143ef7f4f89f74b150999d7de99f427a2f40caff7962d2738a3838491cf1c316"
+    },
+    {
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "bytes": 16996,
+      "sha256": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9"
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "bytes": 54301,
+      "sha256": "32455a87b9aa7c121b3594f946e0a94928ba083456efcd87ff9a32e5ef74d686"
+    },
+    {
+      "path": "deployment/finals/staging-app/startup-only.ts",
+      "bytes": 5061,
+      "sha256": "75b32720af0f259d6f4401d5d10ea70f17e42e6c94cfeaa2aedeb6dcf46f0d9b"
+    },
+    {
+      "path": "deployment/finals/staging-app/startup.ts",
+      "bytes": 4535,
+      "sha256": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54"
+    },
+    {
+      "path": "deployment/finals/staging-app/tls-observer.cjs",
+      "bytes": 1703,
+      "sha256": "0939c210587d077e939000c3d79a32b65afe408f79eb54e4ff52d1f2b76b7ce3"
+    },
+    {
+      "path": "deployment/finals/staging-app/tooling-checks.ts",
+      "bytes": 3581,
+      "sha256": "ad7e74f749acf5d7e0f0b81f3df9aa0dbb194d08c3cd544167ab160d33d8b9b7"
+    },
+    {
+      "path": "result.json",
+      "bytes": 187648,
+      "sha256": "02205d2c1bce707fb21db584a48dcd7d0485f62cf5b256d7642a30fa1071fec4"
+    }
+  ]
+}

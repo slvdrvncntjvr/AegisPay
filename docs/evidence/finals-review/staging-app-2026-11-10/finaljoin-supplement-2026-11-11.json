@@ -1,0 +1,22 @@
+{
+  "observed_at": "2026-11-11T04:33:20.353852+00:00",
+  "source_file_entries_result_match_audit": true,
+  "build_file_entries_manifest_match_audit": true,
+  "fingerprints": [
+    {
+      "path": "docs/evidence/finals-staging-app/completion-resume-2026-11-11T01-27Z/actual/result.json",
+      "sha256": "02205d2c1bce707fb21db584a48dcd7d0485f62cf5b256d7642a30fa1071fec4",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/completion-resume-2026-11-11T01-27Z/final-terminal-audit.json",
+      "sha256": "c0a757c86899c5f758b243331e8bd2257dc22a2f0e2bc63f50be6344a629e72d",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/build-inventory.json",
+      "sha256": "dd14ce3088ae7881d5780724933125851ebb326bd9a4bd23de2480307357eaa5",
+      "stable": true
+    }
+  ]
+}

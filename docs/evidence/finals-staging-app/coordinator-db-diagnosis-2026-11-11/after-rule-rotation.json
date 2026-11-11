@@ -1,0 +1,27 @@
+{
+  "observedAt": "2026-11-11T01:24:43.084Z",
+  "classification": "same-staging-readonly-dependency-diagnosis",
+  "providerMutations": 0,
+  "financialActions": 0,
+  "sqlStatements": 4,
+  "currentClientMatchesExistingRule": true,
+  "connectionPassed": true,
+  "tls": {
+    "encrypted": true,
+    "authorized": true,
+    "hostnameVerified": true,
+    "protocol": "TLSv1.3"
+  },
+  "databaseTime": "2026-11-11T01:24:45.999Z",
+  "loginWindows": [
+    {
+      "attempts": 1,
+      "expired": true
+    },
+    {
+      "attempts": 1,
+      "expired": true
+    }
+  ],
+  "outcome": "passed"
+}

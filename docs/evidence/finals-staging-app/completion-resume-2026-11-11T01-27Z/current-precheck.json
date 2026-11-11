@@ -1,0 +1,42 @@
+{
+  "started_at": "2026-11-11T04:25:12.175Z",
+  "outcome": "passed",
+  "read_only": true,
+  "connection_attempts": 1,
+  "provider_mutations": 0,
+  "login_attempts": 0,
+  "tls": {
+    "real_createStore": true,
+    "encrypted": true,
+    "authorized": true,
+    "hostname_verified": true,
+    "wrong_hostname_rejected": true,
+    "protocol": "TLSv1.3"
+  },
+  "database_time": "2026-11-11T04:25:15.279Z",
+  "roles": {
+    "owner": {
+      "attempts": 1,
+      "window_active": false,
+      "expires_at": "2026-11-10T15:41:15.665Z",
+      "remaining": 5,
+      "required": 3
+    },
+    "merchant": {
+      "attempts": 1,
+      "window_active": false,
+      "expires_at": "2026-11-10T15:41:17.816Z",
+      "remaining": 5,
+      "required": 3
+    },
+    "global": {
+      "attempts": 2,
+      "window_active": false,
+      "expires_at": "2026-11-10T15:27:15.612Z",
+      "remaining": 50,
+      "required": 6
+    }
+  },
+  "sufficient": true,
+  "finished_at": "2026-11-11T04:25:13.811Z"
+}

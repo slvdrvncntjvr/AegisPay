@@ -1,0 +1,1838 @@
+{
+  "kind": "independent static public evidence review; no application, DB, network or browser execution",
+  "observed_at": "2026-11-11T04:26:23.076798+00:00",
+  "historical_terminals": [
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual",
+      "consistent": true,
+      "checks": {
+        "result_hash": true,
+        "inventory_hash": true,
+        "finalization_hash": true,
+        "terminal_flags": true,
+        "outcome_and_exit": true,
+        "inventory_result_entry": true
+      },
+      "hashes": {
+        "result": "96286d3e04c4812b580f626612e7d837bc72f9dcfbff4b810ce763781be72f5d",
+        "inventory": "6e46a76ad88dbc7604c2525ddcf340eceedb6468c20fe2a756904fc965855a60",
+        "finalization": "cdcc9eb3f3d4e88abd7931074391524b2038c06c1b4010141d0bb811200ffab6",
+        "observed-exit": "d9d3737a2c9d9c0de937be6fb254c71382d8d278ed75bae8c24ad3ec03ae7524"
+      },
+      "outcome": "failed",
+      "observed_exit": 1,
+      "failed_stage": "real-browser",
+      "safe_failure": "QUALIFICATION_ASSERTION_OR_DEPENDENCY_FAILED",
+      "http_count": 37,
+      "all_http_expected": true,
+      "browser": [],
+      "capture_contexts": [
+        {
+          "viewport": "desktop",
+          "role": "owner",
+          "browser_requests": 23,
+          "upstream_requests": 23,
+          "exact_request_count_maps_match": true,
+          "canceled_before_proxy": 0,
+          "proxy_only_requests": 0,
+          "delivered_responses": 23,
+          "missing_delivered_captures": 0,
+          "canceled_requests": 0,
+          "canceled_prefetches": 0,
+          "upstream_captured": 23,
+          "pending_captures": 0,
+          "pending_browser_requests": 1,
+          "failures": 1,
+          "browser_cache_disabled": true,
+          "raw_urls_headers_bodies_errors_exported": false,
+          "diagnostics": [
+            {
+              "method": "OTHER",
+              "status": null,
+              "path_category": "OTHER",
+              "category": "DRAIN_BEFORE_NAVIGATION"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "APP",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "APP",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "OTHER",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "OTHER",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 401,
+              "path_category": "STATE",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "OTHER",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 401,
+              "path_category": "STATE",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "OTHER",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "LOGIN",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "LOGIN",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "OTHER",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "STATIC",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "OTHER",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "OTHER",
+              "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+            },
+            {
+              "method": "GET",
+              "status": 200,
+              "path_category": "OTHER",
+              "category": "DELIVERED_AFTER_CAPTURE"
+            },
+            {
+              "method": "OTHER",
+              "status": null,
+              "path_category": "OTHER",
+              "category": "DRAIN_TIMEOUT_AFTER_TRANSITION"
+            }
+          ]
+        }
+      ],
+      "app_pool_tls": [
+        {
+          "resource_matches": true,
+          "encrypted": true,
+          "authorized": true,
+          "hostname_verified": true,
+          "wrong_hostname_rejected": true,
+          "strict_configuration": true,
+          "protocol": "TLSv1.3",
+          "pool_max": 10,
+          "connections_at_observation": 1
+        }
+      ],
+      "startup": {
+        "classification": "READY",
+        "tcp_ready": true,
+        "probes": 3,
+        "probe_results": {
+          "connect": 1,
+          "refused": 2,
+          "timeout": 0,
+          "other": 0
+        },
+        "elapsed_ms": 533,
+        "pre_cleanup_exit_code": null,
+        "pre_cleanup_signal_code": null,
+        "legacy_strict_exit_code_null": true,
+        "spawn_error": null,
+        "natural_exit_observed": false,
+        "log_categories": [
+          "READY_BANNER",
+          "NEXT_BANNER"
+        ],
+        "log_bytes": 116,
+        "log_sha256": "87d5c73d5bc18588e0057cfe2814c3b542c2e4392cff3c1afc95f7f84fff77dc",
+        "staging_tls_observations": 0
+      },
+      "startup_pre_cleanup": {
+        "classification": "READY",
+        "tcp_ready": true,
+        "probes": 3,
+        "probe_results": {
+          "connect": 1,
+          "refused": 2,
+          "timeout": 0,
+          "other": 0
+        },
+        "elapsed_ms": 39368,
+        "pre_cleanup_exit_code": null,
+        "pre_cleanup_signal_code": null,
+        "legacy_strict_exit_code_null": true,
+        "spawn_error": null,
+        "natural_exit_observed": false,
+        "log_categories": [
+          "READY_BANNER",
+          "NEXT_BANNER"
+        ],
+        "log_bytes": 379,
+        "log_sha256": "08eae9879adee9bba0bf7eb1e35bab407bfccbec82a8dea13ba04cc79b5ab5e9",
+        "staging_tls_observations": 1
+      },
+      "sessions": null,
+      "cleanup": {
+        "owned_proxy_closed": true,
+        "production_launch": {
+          "pid": 20888,
+          "before_cleanup": {
+            "classification": "READY",
+            "tcp_ready": true,
+            "probes": 3,
+            "probe_results": {
+              "connect": 1,
+              "refused": 2,
+              "timeout": 0,
+              "other": 0
+            },
+            "elapsed_ms": 39370,
+            "pre_cleanup_exit_code": null,
+            "pre_cleanup_signal_code": null,
+            "legacy_strict_exit_code_null": true,
+            "spawn_error": null,
+            "natural_exit_observed": false,
+            "log_categories": [
+              "READY_BANNER",
+              "NEXT_BANNER"
+            ],
+            "log_bytes": 379,
+            "log_sha256": "08eae9879adee9bba0bf7eb1e35bab407bfccbec82a8dea13ba04cc79b5ab5e9",
+            "staging_tls_observations": 1
+          },
+          "owned_process_exited": true,
+          "exit_code": null,
+          "signal_code": "SIGTERM"
+        },
+        "owned_next_pid": 20888,
+        "owned_next_exited": true,
+        "final_allowlisted_counts": {
+          "owner": 1,
+          "merchant": 1,
+          "agent": 1,
+          "resource": 2,
+          "schema_migration": 4,
+          "session": 10,
+          "auth_throttle": 15,
+          "agent_run": 0,
+          "quote": 0,
+          "payment_attempt": 0,
+          "payment_evidence": 0,
+          "entitlement": 0,
+          "job": 0,
+          "wallet_operation": 0,
+          "merchant_claim": 0,
+          "run_event": 0,
+          "audit_event": 0,
+          "payment_accept_key": 0
+        },
+        "sessions": {
+          "total": 10,
+          "revoked": 10,
+          "unrevoked": 0
+        },
+        "test_session_revocation_by_invocation_hash_only": true,
+        "original_staging_config_unchanged": true
+      },
+      "response_hygiene": {
+        "response_bodies": 165,
+        "response_bytes": 3497795,
+        "fixture_matches": 0,
+        "known_secret_matches": 0,
+        "full_provider_id_matches": 0,
+        "raw_dsn_matches": 0,
+        "client_ip_matches": 0
+      },
+      "proxy": {
+        "transport": "fixed-target normal Node HTTP reverse observation proxy",
+        "upstream_requests": 77,
+        "upstream_captured": 77,
+        "upstream_entity_bytes": 948596,
+        "pending": 0,
+        "failures": 0,
+        "redirect_following": 0,
+        "retries": 0,
+        "cookie_jar": false,
+        "response_overrides": false,
+        "original_status_statusMessage_raw_duplicate_headers_entity": true,
+        "decoded_compressed_entities_also_scanned": true,
+        "request_body_limit": 65536,
+        "response_body_limit": 16777216,
+        "upstream_timeout_ms": 20000,
+        "total_request_timeout_ms": 25000,
+        "limits": "loopback only; fully buffers responses and alters streaming/timing/hop framing; browser cache disabled for capture contexts; no unintercepted/native-cache/hosted-egress qualification"
+      },
+      "client_assets": 16
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/actual",
+      "consistent": true,
+      "checks": {
+        "result_hash": true,
+        "inventory_hash": true,
+        "finalization_hash": true,
+        "terminal_flags": true,
+        "outcome_and_exit": true,
+        "inventory_result_entry": true
+      },
+      "hashes": {
+        "result": "9ca42ef6f72de120229d03af43ef86c1b7285ba6d173dd9880f29604bb9a6858",
+        "inventory": "ae2c5a79331e33bd103adab579bb2e10eec6848eecb93805b9d593d2f557da35",
+        "finalization": "9dea4465c13ddcd09801b7b1e2ac5f10ea5c86ed85537c45bf9f9c713001dd7c",
+        "observed-exit": "15e9eeecd1af82b1ab9e7cdff0929983250b9f17ef251e20f2e54c797e370ff0"
+      },
+      "outcome": "failed",
+      "observed_exit": 1,
+      "failed_stage": "database-tls-verification",
+      "safe_failure": "QUALIFICATION_ASSERTION_OR_DEPENDENCY_FAILED",
+      "http_count": 0,
+      "all_http_expected": true,
+      "browser": [],
+      "capture_contexts": [],
+      "app_pool_tls": [],
+      "startup": null,
+      "startup_pre_cleanup": null,
+      "sessions": null,
+      "cleanup": {
+        "test_session_revocation_by_invocation_hash_only": true,
+        "original_staging_config_unchanged": true
+      },
+      "response_hygiene": {
+        "response_bodies": 0,
+        "response_bytes": 0,
+        "fixture_matches": 0,
+        "known_secret_matches": 0,
+        "full_provider_id_matches": 0,
+        "raw_dsn_matches": 0,
+        "client_ip_matches": 0
+      },
+      "proxy": null,
+      "client_assets": 0
+    }
+  ],
+  "offline_protocol": {
+    "kind": "offline synthetic F1/F2 checks; not application evidence",
+    "outcome": "passed",
+    "cases": [
+      {
+        "fault": "NONE",
+        "synthetic_modeled_exit": 0,
+        "published_passed_result": true,
+        "terminal_accepted": true,
+        "passed": true
+      },
+      {
+        "fault": "VALIDATION",
+        "synthetic_modeled_exit": 1,
+        "published_passed_result": false,
+        "terminal_accepted": false,
+        "passed": false
+      },
+      {
+        "fault": "BEFORE_INVENTORY",
+        "synthetic_modeled_exit": 1,
+        "published_passed_result": false,
+        "terminal_accepted": false,
+        "passed": false
+      },
+      {
+        "fault": "AFTER_INVENTORY",
+        "synthetic_modeled_exit": 1,
+        "published_passed_result": false,
+        "terminal_accepted": false,
+        "passed": false
+      },
+      {
+        "fault": "AFTER_RESULT",
+        "synthetic_modeled_exit": 1,
+        "published_passed_result": true,
+        "terminal_accepted": false,
+        "passed": false
+      },
+      {
+        "fault": "BEFORE_FINALIZATION",
+        "synthetic_modeled_exit": 1,
+        "published_passed_result": true,
+        "terminal_accepted": false,
+        "passed": false
+      },
+      {
+        "fault": "OBSERVED_EXIT_MISMATCH",
+        "synthetic_modeled_exit": 1,
+        "terminal_accepted": false
+      }
+    ],
+    "startup_classes": [
+      "READY",
+      "SPAWN_ERROR",
+      "NATURAL_EXIT",
+      "READINESS_TIMEOUT"
+    ]
+  },
+  "startup_only": {
+    "outcome": "passed",
+    "started_at": "2026-11-10T15:21:41.945Z",
+    "launch": 1,
+    "tcp_only": true,
+    "no_health_or_api_requests": true,
+    "web_config_sha256": "ca491f4b1e0bf3a6bc00b03d2504486f14ffac33ad437fe767ca2fcb2fe30015",
+    "environment_keys": [
+      "APP_ORIGIN",
+      "COMSPEC",
+      "COREPACK_ENABLE_NETWORK",
+      "DATABASE_URL",
+      "DEMO_AGENT_PUBLIC_KEY",
+      "DEMO_DEVICE_HASH",
+      "DEMO_MERCHANT_LOGIN_TOKEN",
+      "DEMO_MERCHANT_PUBLIC_KEY",
+      "DEMO_OWNER_LOGIN_TOKEN",
+      "DEMO_OWNER_PUBLIC_KEY",
+      "LOCALAPPDATA",
+      "NEXT_TELEMETRY_DISABLED",
+      "NODE_ENV",
+      "NOIR_AGENT_REGISTRY_ID",
+      "NOIR_DEVICE_REGISTRY_ID",
+      "NOIR_PAYMENT_ESCROW_ID",
+      "NOIR_XLM_SAC_ID",
+      "PATH",
+      "PATHEXT",
+      "RECEIPT_SIGNING_KEY",
+      "STELLAR_NETWORK",
+      "STELLAR_NETWORK_PASSPHRASE",
+      "SystemRoot",
+      "TEMP",
+      "TMP",
+      "USERPROFILE",
+      "WINDIR"
+    ],
+    "startup": {
+      "classification": "READY",
+      "tcp_ready": true,
+      "probes": 3,
+      "probe_results": {
+        "connect": 1,
+        "refused": 2,
+        "timeout": 0,
+        "other": 0
+      },
+      "elapsed_ms": 531,
+      "pre_cleanup_exit_code": null,
+      "pre_cleanup_signal_code": null,
+      "legacy_strict_exit_code_null": true,
+      "spawn_error": null,
+      "natural_exit_observed": false,
+      "log_categories": [
+        "READY_BANNER",
+        "NEXT_BANNER"
+      ],
+      "log_bytes": 116,
+      "log_sha256": "87d5c73d5bc18588e0057cfe2814c3b542c2e4392cff3c1afc95f7f84fff77dc",
+      "staging_tls_observations": 0
+    },
+    "pre_cleanup": {
+      "classification": "READY",
+      "tcp_ready": true,
+      "probes": 3,
+      "probe_results": {
+        "connect": 1,
+        "refused": 2,
+        "timeout": 0,
+        "other": 0
+      },
+      "elapsed_ms": 531,
+      "pre_cleanup_exit_code": null,
+      "pre_cleanup_signal_code": null,
+      "legacy_strict_exit_code_null": true,
+      "spawn_error": null,
+      "natural_exit_observed": false,
+      "log_categories": [
+        "READY_BANNER",
+        "NEXT_BANNER"
+      ],
+      "log_bytes": 116,
+      "log_sha256": "87d5c73d5bc18588e0057cfe2814c3b542c2e4392cff3c1afc95f7f84fff77dc",
+      "staging_tls_observations": 0
+    },
+    "proxy": {
+      "transport": "fixed-target normal Node HTTP reverse observation proxy",
+      "upstream_requests": 0,
+      "upstream_captured": 0,
+      "upstream_entity_bytes": 0,
+      "pending": 0,
+      "failures": 0,
+      "redirect_following": 0,
+      "retries": 0,
+      "cookie_jar": false,
+      "response_overrides": false,
+      "original_status_statusMessage_raw_duplicate_headers_entity": true,
+      "decoded_compressed_entities_also_scanned": true,
+      "request_body_limit": 65536,
+      "response_body_limit": 16777216,
+      "upstream_timeout_ms": 20000,
+      "total_request_timeout_ms": 25000,
+      "limits": "loopback only; fully buffers responses and alters streaming/timing/hop framing; browser cache disabled for capture contexts; no unintercepted/native-cache/hosted-egress qualification"
+    },
+    "cleanup": {
+      "pid": 21668,
+      "before_cleanup": {
+        "classification": "READY",
+        "tcp_ready": true,
+        "probes": 3,
+        "probe_results": {
+          "connect": 1,
+          "refused": 2,
+          "timeout": 0,
+          "other": 0
+        },
+        "elapsed_ms": 532,
+        "pre_cleanup_exit_code": null,
+        "pre_cleanup_signal_code": null,
+        "legacy_strict_exit_code_null": true,
+        "spawn_error": null,
+        "natural_exit_observed": false,
+        "log_categories": [
+          "READY_BANNER",
+          "NEXT_BANNER"
+        ],
+        "log_bytes": 116,
+        "log_sha256": "87d5c73d5bc18588e0057cfe2814c3b542c2e4392cff3c1afc95f7f84fff77dc",
+        "staging_tls_observations": 0
+      },
+      "owned_process_exited": true,
+      "exit_code": null,
+      "signal_code": "SIGTERM"
+    },
+    "log_hygiene": {
+      "known_secret_matches": 0,
+      "client_ip_matches": 0,
+      "full_provider_id_matches": 0,
+      "raw_dsn_matches": 0
+    },
+    "finished_at": "2026-11-10T15:21:42.516Z"
+  },
+  "focused_completion": {
+    "outcome": "passed",
+    "scope": "synthetic lifecycle regression with real loopback proxy and ServerResponse finish",
+    "started_at": "2026-11-11T01:20:29.981Z",
+    "pending_before_delivery": [
+      {
+        "method": "GET",
+        "status": null,
+        "path_category": "SYNTHETIC",
+        "category": "AWAITING_BROWSER_RESPONSE_OR_PROVED_CANCELLATION"
+      },
+      {
+        "method": "GET",
+        "status": null,
+        "path_category": "SYNTHETIC",
+        "category": "PROXY_RESPONSE_NOT_FINISHED"
+      }
+    ],
+    "matched_completion": {
+      "browser_requests": 1,
+      "upstream_requests": 1,
+      "exact_request_count_maps_match": true,
+      "canceled_before_proxy": 0,
+      "proxy_only_requests": 0,
+      "delivered_responses": 1,
+      "missing_delivered_captures": 0,
+      "canceled_requests": 0,
+      "canceled_prefetches": 0,
+      "upstream_captured": 1,
+      "upstream_response_finished": 1,
+      "completed_by_matched_proxy_finish": 1,
+      "completion_evidence": {
+        "cdp_loading_finished": 0,
+        "cdp_loading_failed": 0,
+        "redirect_response": 0,
+        "client_socket_cancellation": 0,
+        "matched_proxy_response_finish": 1
+      },
+      "pending_captures": 0,
+      "pending_browser_requests": 0,
+      "pending_proxy_responses": 0,
+      "pending_categories": [],
+      "failures": 0,
+      "browser_cache_disabled": true,
+      "raw_urls_headers_bodies_errors_exported": false,
+      "diagnostics": [
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "PROXY_RESPONSE_FINISHED"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "DELIVERED_AFTER_CAPTURE"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "path_category": "SYNTHETIC",
+          "category": "COMPLETED_BY_MATCHED_PROXY_RESPONSE_FINISH"
+        },
+        {
+          "method": "OTHER",
+          "status": null,
+          "path_category": "OTHER",
+          "category": "DRAIN_AFTER_TRANSITION"
+        },
+        {
+          "method": "OTHER",
+          "status": null,
+          "path_category": "OTHER",
+          "category": "DRAIN_BEFORE_CLOSE"
+        }
+      ]
+    },
+    "mismatched_status_rejected": true,
+    "finished_at": "2026-11-11T01:20:30.580Z"
+  },
+  "preflight": {
+    "kind": "synthetic proxy/capture preflight only; not app/financial evidence",
+    "started_at": "2026-11-11T01:21:52.152Z",
+    "outcome": "passed",
+    "contexts": [
+      {
+        "context": 0,
+        "completed": true,
+        "browser_requests": 12,
+        "upstream_requests": 12,
+        "exact_request_count_maps_match": true,
+        "canceled_before_proxy": 0,
+        "proxy_only_requests": 0,
+        "delivered_responses": 11,
+        "missing_delivered_captures": 0,
+        "canceled_requests": 2,
+        "canceled_prefetches": 1,
+        "upstream_captured": 12,
+        "upstream_response_finished": 11,
+        "completed_by_matched_proxy_finish": 0,
+        "completion_evidence": {
+          "cdp_loading_finished": 9,
+          "cdp_loading_failed": 1,
+          "redirect_response": 1,
+          "client_socket_cancellation": 1,
+          "matched_proxy_response_finish": 0
+        },
+        "pending_captures": 0,
+        "pending_browser_requests": 0,
+        "pending_proxy_responses": 0,
+        "pending_categories": [],
+        "failures": 0,
+        "browser_cache_disabled": true,
+        "raw_urls_headers_bodies_errors_exported": false,
+        "diagnostics": [
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_BEFORE_NAVIGATION"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_AFTER_TRANSITION"
+          },
+          {
+            "method": "POST",
+            "status": 204,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "POST",
+            "status": 204,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "POST",
+            "status": 204,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_AFTER_TRANSITION"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_BEFORE_NAVIGATION"
+          },
+          {
+            "method": "GET",
+            "status": 303,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 303,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "GET",
+            "status": 303,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_AFTER_TRANSITION"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_AFTER_TRANSITION"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "GET",
+            "status": null,
+            "path_category": "SYNTHETIC",
+            "category": "CLIENT_CANCELED"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "CANCELED_CAPTURE_RETAINED"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "GET",
+            "status": null,
+            "path_category": "SYNTHETIC",
+            "category": "CLIENT_SOCKET_CANCELED_UPSTREAM_CAPTURE_RETAINED"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_AFTER_TRANSITION"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_BEFORE_LOGOUT"
+          },
+          {
+            "method": "DELETE",
+            "status": 204,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "DELETE",
+            "status": 204,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "DELETE",
+            "status": 204,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "DELETE",
+            "status": 204,
+            "path_category": "SYNTHETIC",
+            "category": "REQUEST_CANCELED"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_AFTER_TRANSITION"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_BEFORE_CLOSE"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_BEFORE_CLOSE"
+          }
+        ]
+      },
+      {
+        "context": 1,
+        "completed": true,
+        "browser_requests": 9,
+        "upstream_requests": 9,
+        "exact_request_count_maps_match": true,
+        "canceled_before_proxy": 0,
+        "proxy_only_requests": 0,
+        "delivered_responses": 9,
+        "missing_delivered_captures": 0,
+        "canceled_requests": 1,
+        "canceled_prefetches": 0,
+        "upstream_captured": 9,
+        "upstream_response_finished": 9,
+        "completed_by_matched_proxy_finish": 0,
+        "completion_evidence": {
+          "cdp_loading_finished": 7,
+          "cdp_loading_failed": 1,
+          "redirect_response": 1,
+          "client_socket_cancellation": 0,
+          "matched_proxy_response_finish": 0
+        },
+        "pending_captures": 0,
+        "pending_browser_requests": 0,
+        "pending_proxy_responses": 0,
+        "pending_categories": [],
+        "failures": 0,
+        "browser_cache_disabled": true,
+        "raw_urls_headers_bodies_errors_exported": false,
+        "diagnostics": [
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_BEFORE_NAVIGATION"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_AFTER_TRANSITION"
+          },
+          {
+            "method": "POST",
+            "status": 204,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "POST",
+            "status": 204,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "POST",
+            "status": 204,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_AFTER_TRANSITION"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_BEFORE_NAVIGATION"
+          },
+          {
+            "method": "GET",
+            "status": 303,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 303,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "GET",
+            "status": 303,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_AFTER_TRANSITION"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "GET",
+            "status": 200,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_AFTER_TRANSITION"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_BEFORE_LOGOUT"
+          },
+          {
+            "method": "DELETE",
+            "status": 204,
+            "path_category": "SYNTHETIC",
+            "category": "UPSTREAM_CAPTURED_BEFORE_DELIVERY"
+          },
+          {
+            "method": "DELETE",
+            "status": 204,
+            "path_category": "SYNTHETIC",
+            "category": "PROXY_RESPONSE_FINISHED"
+          },
+          {
+            "method": "DELETE",
+            "status": 204,
+            "path_category": "SYNTHETIC",
+            "category": "DELIVERED_AFTER_CAPTURE"
+          },
+          {
+            "method": "DELETE",
+            "status": 204,
+            "path_category": "SYNTHETIC",
+            "category": "REQUEST_CANCELED"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_AFTER_TRANSITION"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_BEFORE_CLOSE"
+          },
+          {
+            "method": "OTHER",
+            "status": null,
+            "path_category": "OTHER",
+            "category": "DRAIN_BEFORE_CLOSE"
+          }
+        ]
+      }
+    ],
+    "checks": [
+      {
+        "context": 0,
+        "independent_empty_cookie_context": true,
+        "empty_204_preserved": true,
+        "duplicate_http_only_cookies": true,
+        "redirect_body_and_cookie_preserved": true,
+        "gzip_decoded_matches": true,
+        "gzip_headers_match": true,
+        "gzip_upstream_raw_scanned": true,
+        "gzip_decoded_scanned": true,
+        "gzip_synthetic_decoded_sha256": "b03552d1d99a15269bd1d1499387f2246266ed5420bd9052d1f16fe9634103a8",
+        "gzip_synthetic_upstream_sha256": "93636193cb162021279ef1ba8ca035943fcc00c25861b886d0f1b57487e4cb3a",
+        "binary_matches": true,
+        "binary_headers_match": true,
+        "binary_upstream_scanned": true,
+        "binary_synthetic_sha256": "f58452139dc66886579a1e60a27c45ccfca7ff93ac0490c01a0f26e6c3dbed02",
+        "canceled_body_owned": true,
+        "browser_cancellation_observed": true,
+        "logout_cookie_cleared": true,
+        "upstream_ownership_verified_before_disposal": true,
+        "post_disposal_browser_body_available": false
+      },
+      {
+        "context": 1,
+        "independent_empty_cookie_context": true,
+        "empty_204_preserved": true,
+        "duplicate_http_only_cookies": true,
+        "redirect_body_and_cookie_preserved": true,
+        "gzip_decoded_matches": true,
+        "gzip_headers_match": true,
+        "gzip_upstream_raw_scanned": true,
+        "gzip_decoded_scanned": true,
+        "gzip_synthetic_decoded_sha256": "b03552d1d99a15269bd1d1499387f2246266ed5420bd9052d1f16fe9634103a8",
+        "gzip_synthetic_upstream_sha256": "93636193cb162021279ef1ba8ca035943fcc00c25861b886d0f1b57487e4cb3a",
+        "binary_matches": true,
+        "binary_headers_match": true,
+        "binary_upstream_scanned": true,
+        "binary_synthetic_sha256": "f58452139dc66886579a1e60a27c45ccfca7ff93ac0490c01a0f26e6c3dbed02",
+        "logout_cookie_cleared": true,
+        "upstream_ownership_verified_before_disposal": true,
+        "post_disposal_browser_body_available": false
+      }
+    ],
+    "continuation_authorization_sha256": "d99571da5e1accde5819e7a39f67630d73ed17fadd93ff895e569567fb9391db",
+    "installed_browser_version": "156.0.8078.4",
+    "exactly_once": {
+      "browser_requests": 21,
+      "proxy_requests": 21,
+      "fixture_upstream_requests": 21,
+      "exact_maps_each_context": true,
+      "includes_canceled_and_favicon_requests": true
+    },
+    "proxy": {
+      "transport": "fixed-target normal Node HTTP reverse observation proxy",
+      "upstream_requests": 21,
+      "upstream_captured": 21,
+      "upstream_response_finished": 20,
+      "upstream_canceled": 1,
+      "upstream_entity_bytes": 842,
+      "pending": 0,
+      "failures": 0,
+      "redirect_following": 0,
+      "retries": 0,
+      "cookie_jar": false,
+      "response_overrides": false,
+      "original_status_statusMessage_raw_duplicate_headers_entity": true,
+      "decoded_compressed_entities_also_scanned": true,
+      "request_body_limit": 65536,
+      "response_body_limit": 16777216,
+      "upstream_timeout_ms": 20000,
+      "total_request_timeout_ms": 25000,
+      "limits": "loopback only; fully buffers responses and alters streaming/timing/hop framing; browser cache disabled for capture contexts; no unintercepted/native-cache/hosted-egress qualification"
+    },
+    "fixture_request_fidelity_failures": 0,
+    "attempt": 1,
+    "finished_at": "2026-11-11T01:21:58.170Z"
+  },
+  "source_still_matches_snapshot": [
+    {
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "snapshot_sha256": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9",
+      "current_sha256": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-completion-check.ts",
+      "snapshot_sha256": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25",
+      "current_sha256": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25"
+    },
+    {
+      "path": "deployment/finals/staging-app/evidence-terminal.ts",
+      "snapshot_sha256": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3",
+      "current_sha256": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3"
+    },
+    {
+      "path": "deployment/finals/staging-app/startup.ts",
+      "snapshot_sha256": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54",
+      "current_sha256": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54"
+    },
+    {
+      "path": "deployment/finals/staging-app/final-audit.ts",
+      "snapshot_sha256": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae",
+      "current_sha256": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae"
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "snapshot_sha256": "09a5fa6911c05f8d5e856cd7f57f46b03c720bc15e62e10284dddd77960a0b6f",
+      "current_sha256": "32455a87b9aa7c121b3594f946e0a94928ba083456efcd87ff9a32e5ef74d686"
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation.ts",
+      "snapshot_sha256": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356",
+      "current_sha256": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356"
+    }
+  ],
+  "bookkeeping_source_checks": [
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "expected": "09a5fa6911c05f8d5e856cd7f57f46b03c720bc15e62e10284dddd77960a0b6f",
+      "actual": "32455a87b9aa7c121b3594f946e0a94928ba083456efcd87ff9a32e5ef74d686"
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation.ts",
+      "expected": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356",
+      "actual": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356"
+    },
+    {
+      "path": "deployment/finals/staging-app/final-audit.ts",
+      "expected": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae",
+      "actual": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae"
+    }
+  ],
+  "completion_binding_sources": [
+    {
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "historical": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9",
+      "current": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-preflight.ts",
+      "historical": "80932c305f4b374135d0a001a1924934f13778f72f151adf4089d902726f1b8a",
+      "current": "80932c305f4b374135d0a001a1924934f13778f72f151adf4089d902726f1b8a"
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "historical": "e3dea1f8ab09025c80d68912378df42d1c2cbd28e8cd05ed38994f529d5bd04e",
+      "current": "32455a87b9aa7c121b3594f946e0a94928ba083456efcd87ff9a32e5ef74d686"
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation.ts",
+      "historical": "ab2821831071aa3102f681c5790ca5aa6650e52e2c8eee79a27e3873e511accf",
+      "current": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356"
+    },
+    {
+      "path": "deployment/finals/staging-app/evidence-terminal.ts",
+      "historical": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3",
+      "current": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3"
+    },
+    {
+      "path": "deployment/finals/staging-app/startup.ts",
+      "historical": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54",
+      "current": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54"
+    },
+    {
+      "path": "deployment/finals/staging-app/startup-only.ts",
+      "historical": "75b32720af0f259d6f4401d5d10ea70f17e42e6c94cfeaa2aedeb6dcf46f0d9b",
+      "current": "75b32720af0f259d6f4401d5d10ea70f17e42e6c94cfeaa2aedeb6dcf46f0d9b"
+    },
+    {
+      "path": "deployment/finals/staging-app/tooling-checks.ts",
+      "historical": "ad7e74f749acf5d7e0f0b81f3df9aa0dbb194d08c3cd544167ab160d33d8b9b7",
+      "current": "ad7e74f749acf5d7e0f0b81f3df9aa0dbb194d08c3cd544167ab160d33d8b9b7"
+    },
+    {
+      "path": "deployment/finals/staging-app/final-audit.ts",
+      "historical": "4ae498121aa77f34815a86863305c7351ff36474480e7d7ba1268e04e051e9c8",
+      "current": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-completion-check.ts",
+      "historical": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25",
+      "current": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25"
+    }
+  ],
+  "original_report_unchanged": true,
+  "resume_observation_at": "2026-11-11T04:26:23.095105+00:00",
+  "resume_files": [
+    "bookkeeping-changes.json",
+    "bookkeeping.patch",
+    "continuation-authorization.json",
+    "continuation-execution.json",
+    "continuation-source-binding.json",
+    "current-precheck.json",
+    "preserved-baseline.json",
+    "repair-prerequisites.json"
+  ],
+  "resumed_terminal": {
+    "complete": false,
+    "acceptance": "pending final writer receipts",
+    "files_present": []
+  },
+  "fingerprints": [
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/result.json",
+      "sha256": "96286d3e04c4812b580f626612e7d837bc72f9dcfbff4b810ce763781be72f5d",
+      "sha256_after": "96286d3e04c4812b580f626612e7d837bc72f9dcfbff4b810ce763781be72f5d",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/inventory.json",
+      "sha256": "6e46a76ad88dbc7604c2525ddcf340eceedb6468c20fe2a756904fc965855a60",
+      "sha256_after": "6e46a76ad88dbc7604c2525ddcf340eceedb6468c20fe2a756904fc965855a60",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/finalization.json",
+      "sha256": "cdcc9eb3f3d4e88abd7931074391524b2038c06c1b4010141d0bb811200ffab6",
+      "sha256_after": "cdcc9eb3f3d4e88abd7931074391524b2038c06c1b4010141d0bb811200ffab6",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/actual/observed-exit.json",
+      "sha256": "d9d3737a2c9d9c0de937be6fb254c71382d8d278ed75bae8c24ad3ec03ae7524",
+      "sha256_after": "d9d3737a2c9d9c0de937be6fb254c71382d8d278ed75bae8c24ad3ec03ae7524",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/actual/result.json",
+      "sha256": "9ca42ef6f72de120229d03af43ef86c1b7285ba6d173dd9880f29604bb9a6858",
+      "sha256_after": "9ca42ef6f72de120229d03af43ef86c1b7285ba6d173dd9880f29604bb9a6858",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/actual/inventory.json",
+      "sha256": "ae2c5a79331e33bd103adab579bb2e10eec6848eecb93805b9d593d2f557da35",
+      "sha256_after": "ae2c5a79331e33bd103adab579bb2e10eec6848eecb93805b9d593d2f557da35",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/actual/finalization.json",
+      "sha256": "9dea4465c13ddcd09801b7b1e2ac5f10ea5c86ed85537c45bf9f9c713001dd7c",
+      "sha256_after": "9dea4465c13ddcd09801b7b1e2ac5f10ea5c86ed85537c45bf9f9c713001dd7c",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/actual/observed-exit.json",
+      "sha256": "15e9eeecd1af82b1ab9e7cdff0929983250b9f17ef251e20f2e54c797e370ff0",
+      "sha256_after": "15e9eeecd1af82b1ab9e7cdff0929983250b9f17ef251e20f2e54c797e370ff0",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/offline-check-2.json",
+      "sha256": "c94f03086d5c48e57f84d53e5fa7b075214b67d7dec190831956934f991c08db",
+      "sha256_after": "c94f03086d5c48e57f84d53e5fa7b075214b67d7dec190831956934f991c08db",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/finalization-2026-11-10T15-16Z/startup-only-1.json",
+      "sha256": "555e180107568045c3f90c90a6e6dbd7279e3d8d83c6649e910874a5ad4bbfde",
+      "sha256_after": "555e180107568045c3f90c90a6e6dbd7279e3d8d83c6649e910874a5ad4bbfde",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/completion-check-2.json",
+      "sha256": "51890ae8165a70a2fdcc96b7109632354e016b4125ebdc41a58a2024a3d93043",
+      "sha256_after": "51890ae8165a70a2fdcc96b7109632354e016b4125ebdc41a58a2024a3d93043",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/preflight-1.json",
+      "sha256": "d16653a4e6bc1d02aec46ea9f1ba0488a3b3f908837709c4d158dffeeed8148e",
+      "sha256_after": "d16653a4e6bc1d02aec46ea9f1ba0488a3b3f908837709c4d158dffeeed8148e",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-review/staging-app-2026-11-10/recheck2-fingerprints-2026-11-11.json",
+      "sha256": "1c133477aa2783d1f791cbe485d8406154fff6bae5cc5f01168e3cac0807991a",
+      "sha256_after": "1c133477aa2783d1f791cbe485d8406154fff6bae5cc5f01168e3cac0807991a",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "sha256": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9",
+      "sha256_after": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-completion-check.ts",
+      "sha256": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25",
+      "sha256_after": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/evidence-terminal.ts",
+      "sha256": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3",
+      "sha256_after": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/startup.ts",
+      "sha256": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54",
+      "sha256_after": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/final-audit.ts",
+      "sha256": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae",
+      "sha256_after": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "sha256": "32455a87b9aa7c121b3594f946e0a94928ba083456efcd87ff9a32e5ef74d686",
+      "sha256_after": "32455a87b9aa7c121b3594f946e0a94928ba083456efcd87ff9a32e5ef74d686",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation.ts",
+      "sha256": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356",
+      "sha256_after": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/completion-resume-2026-11-11T01-27Z/bookkeeping-changes.json",
+      "sha256": "e185af439691c044f4a28ee0eb8325d96d0bbaf184741592b4c3c21df5906ffd",
+      "sha256_after": "e185af439691c044f4a28ee0eb8325d96d0bbaf184741592b4c3c21df5906ffd",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "sha256": "32455a87b9aa7c121b3594f946e0a94928ba083456efcd87ff9a32e5ef74d686",
+      "sha256_after": "32455a87b9aa7c121b3594f946e0a94928ba083456efcd87ff9a32e5ef74d686",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation.ts",
+      "sha256": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356",
+      "sha256_after": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/final-audit.ts",
+      "sha256": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae",
+      "sha256_after": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/continuation-source-binding.json",
+      "sha256": "fb5c8e9d3d55d0177fa2ed94bc094fcb9b2a7eb4ebddc65da4ebc6ccebc903d8",
+      "sha256_after": "fb5c8e9d3d55d0177fa2ed94bc094fcb9b2a7eb4ebddc65da4ebc6ccebc903d8",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "sha256": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9",
+      "sha256_after": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-preflight.ts",
+      "sha256": "80932c305f4b374135d0a001a1924934f13778f72f151adf4089d902726f1b8a",
+      "sha256_after": "80932c305f4b374135d0a001a1924934f13778f72f151adf4089d902726f1b8a",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "sha256": "32455a87b9aa7c121b3594f946e0a94928ba083456efcd87ff9a32e5ef74d686",
+      "sha256_after": "32455a87b9aa7c121b3594f946e0a94928ba083456efcd87ff9a32e5ef74d686",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation.ts",
+      "sha256": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356",
+      "sha256_after": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/evidence-terminal.ts",
+      "sha256": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3",
+      "sha256_after": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/startup.ts",
+      "sha256": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54",
+      "sha256_after": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/startup-only.ts",
+      "sha256": "75b32720af0f259d6f4401d5d10ea70f17e42e6c94cfeaa2aedeb6dcf46f0d9b",
+      "sha256_after": "75b32720af0f259d6f4401d5d10ea70f17e42e6c94cfeaa2aedeb6dcf46f0d9b",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/tooling-checks.ts",
+      "sha256": "ad7e74f749acf5d7e0f0b81f3df9aa0dbb194d08c3cd544167ab160d33d8b9b7",
+      "sha256_after": "ad7e74f749acf5d7e0f0b81f3df9aa0dbb194d08c3cd544167ab160d33d8b9b7",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/final-audit.ts",
+      "sha256": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae",
+      "sha256_after": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae",
+      "stable": true
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-completion-check.ts",
+      "sha256": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25",
+      "sha256_after": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25",
+      "stable": true
+    },
+    {
+      "path": "docs/evidence/finals-review/staging-app-2026-11-10/report.md",
+      "sha256": "0161e39980d84b22c24a3acde1d5f8febcf4abb8412253bd458c8886b2249a88",
+      "sha256_after": "0161e39980d84b22c24a3acde1d5f8febcf4abb8412253bd458c8886b2249a88",
+      "stable": true
+    }
+  ]
+}

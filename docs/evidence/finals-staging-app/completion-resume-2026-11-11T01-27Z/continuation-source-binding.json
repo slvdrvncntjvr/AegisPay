@@ -1,0 +1,52 @@
+{
+  "at": "2026-11-11T04:25:45.997815+00:00",
+  "authorization_sha256": "008875201e6e01792a28132e93cf87ec21b62cca41e2a13c09df3efcf0dd73f1",
+  "repair_prerequisites_sha256": "84fb4aa81b72e9a849f7f2a398bd5f8607941e9739fac84081a72bc26eb96461",
+  "bookkeeping_diff_sha256": "b9eab6010c3a01bf1d679c6b1da7c64ddbd7ec7123765ed6bffce70951578c33",
+  "capture_preflight": {
+    "path": "docs/evidence/finals-staging-app/completion-2026-11-11T01-15Z/preflight-1.json",
+    "sha256": "d16653a4e6bc1d02aec46ea9f1ba0488a3b3f908837709c4d158dffeeed8148e"
+  },
+  "source_files": [
+    {
+      "path": "deployment/finals/staging-app/proxy-capture.ts",
+      "sha256": "d1fbf66b6b8bdb0c56a0e5d16e606f1adbcc334a8efc3b7e978132658bdddfa9"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-preflight.ts",
+      "sha256": "80932c305f4b374135d0a001a1924934f13778f72f151adf4089d902726f1b8a"
+    },
+    {
+      "path": "deployment/finals/staging-app/qualify.ts",
+      "sha256": "32455a87b9aa7c121b3594f946e0a94928ba083456efcd87ff9a32e5ef74d686"
+    },
+    {
+      "path": "deployment/finals/staging-app/continuation.ts",
+      "sha256": "28d2be66074df2a27824935220398e0e867de9c449fc1e4456b3609f18a0a356"
+    },
+    {
+      "path": "deployment/finals/staging-app/evidence-terminal.ts",
+      "sha256": "7fad6673fdcabd4455d9758460ae532314ad12f40985062d1d23939db3596dc3"
+    },
+    {
+      "path": "deployment/finals/staging-app/startup.ts",
+      "sha256": "32f6bfd7cd150000b54cfbed9fbd39b902bbe74c08da26df74a354f897534c54"
+    },
+    {
+      "path": "deployment/finals/staging-app/startup-only.ts",
+      "sha256": "75b32720af0f259d6f4401d5d10ea70f17e42e6c94cfeaa2aedeb6dcf46f0d9b"
+    },
+    {
+      "path": "deployment/finals/staging-app/tooling-checks.ts",
+      "sha256": "ad7e74f749acf5d7e0f0b81f3df9aa0dbb194d08c3cd544167ab160d33d8b9b7"
+    },
+    {
+      "path": "deployment/finals/staging-app/final-audit.ts",
+      "sha256": "a11692c5c825aae4c856b52980d4ac145a94a75a770304e26a3fc628893285ae"
+    },
+    {
+      "path": "deployment/finals/staging-app/capture-completion-check.ts",
+      "sha256": "a31f8d9c0d033f7b2ac13ad94bbbbe76ab76099f30a12a7f7a78a6f0cb10ee25"
+    }
+  ]
+}
