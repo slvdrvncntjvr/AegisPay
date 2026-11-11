@@ -1,0 +1,36 @@
+{
+  "at": "2026-11-11T05:03:49.586211+00:00",
+  "outcome": "passed",
+  "phase": "final source seal after synthetic DSN fixture hygiene correction",
+  "documentation": [
+    {
+      "command": [
+        "python",
+        "tools/check-docs.py"
+      ],
+      "exit": 0,
+      "output_sha256": "8d1124e299e157ec5282a73daaa30a3e1288155e011b951022f1c060718e3fd5"
+    },
+    {
+      "command": [
+        "python",
+        "fmd/tools/check-implementation-plan.py",
+        "docs/implementation-plan.md",
+        "--strict"
+      ],
+      "exit": 0,
+      "output_sha256": "1202264495a4d3fe1ab977b128ae6f96e40285bcde6a05e6aa5d0855953b8560"
+    }
+  ],
+  "targeted_qualifier_typecheck": {
+    "exit": 0,
+    "reused_from": "final-validation.json",
+    "qualifier_source_unchanged": true
+  },
+  "offline_check": "offline-check-5.json",
+  "offline_exit": 0,
+  "report_sha256": "3f31ef4c59bc6e41be99b70a26fb78b09d311c612a6f542c47b71c3d2cfe7c54",
+  "source_closure_sha256": "0aa0f3c92a606a1f613791222e787f8716e7cf15328b54337988b3b2ebecbf7a",
+  "remote_gate_run": false,
+  "provider_mutations": 0
+}

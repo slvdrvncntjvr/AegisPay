@@ -1,0 +1,81 @@
+{
+  "at": "2026-11-11T04:57:43.209113+00:00",
+  "outcome": "passed",
+  "checks": [
+    {
+      "name": "targeted preview TypeScript",
+      "command": [
+        "node",
+        "node_modules/typescript/bin/tsc",
+        "--ignoreConfig",
+        "--noEmit",
+        "--moduleResolution",
+        "bundler",
+        "--module",
+        "esnext",
+        "--target",
+        "es2022",
+        "--allowJs",
+        "--checkJs",
+        "false",
+        "--skipLibCheck",
+        "--allowImportingTsExtensions",
+        "deployment/finals/preview/qualify.ts"
+      ],
+      "exit": 0,
+      "output_bytes": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "documentation",
+      "command": [
+        "python",
+        "tools/check-docs.py"
+      ],
+      "exit": 0,
+      "output_bytes": 234,
+      "output_sha256": "8d1124e299e157ec5282a73daaa30a3e1288155e011b951022f1c060718e3fd5"
+    },
+    {
+      "name": "strict task plan",
+      "command": [
+        "python",
+        "fmd/tools/check-implementation-plan.py",
+        "docs/implementation-plan.md",
+        "--strict"
+      ],
+      "exit": 0,
+      "output_bytes": 530,
+      "output_sha256": "1202264495a4d3fe1ab977b128ae6f96e40285bcde6a05e6aa5d0855953b8560"
+    }
+  ],
+  "prior_repaired_checks": [
+    {
+      "check": "offline-check-1",
+      "exit": 1,
+      "category": "package metadata subpath not exported",
+      "resolution": "read parser package metadata alongside resolved entry",
+      "preserved": true
+    },
+    {
+      "check": "initial targeted typecheck invocation",
+      "exit": 1,
+      "category": "TS5112 requires ignoreConfig with explicit entry",
+      "resolution": "explicit ignoreConfig"
+    },
+    {
+      "check": "targeted preview TypeScript intermediate",
+      "exit": 1,
+      "category": "preview error typing/optional values plus accepted terminal helper static type diagnostics",
+      "resolution": "preview types corrected; unchanged accepted terminal protocol consumed through runtime module boundary"
+    },
+    {
+      "check": "targeted preview TypeScript intermediate follow-up",
+      "exit": 1,
+      "category": "implicit callback parameter",
+      "resolution": "explicit string callback type"
+    }
+  ],
+  "remote_qualification_executed": false,
+  "host_build_executed": false
+}

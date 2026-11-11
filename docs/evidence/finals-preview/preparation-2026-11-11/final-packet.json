@@ -1,0 +1,168 @@
+{
+  "at": "2026-11-11T05:04:27.695Z",
+  "outcome": "passed",
+  "scope": "offline final preparation packet; no provider or database connection",
+  "known_secret_matches": 0,
+  "protected_fixture_matches": 0,
+  "full_provider_id_matches": 0,
+  "raw_dsn_matches": 0,
+  "client_ip_matches": 0,
+  "prior_rehearsal_artifacts_unchanged": 156,
+  "prior_protected_custody_files_unchanged": 7,
+  "sealed_helpers_verified": 16,
+  "tracked_files_changed": 0,
+  "real_preview_permits_created": 0,
+  "raw_values_in_memory_only": true,
+  "inventory": [
+    {
+      "path": "deployment/finals/preview/apply.mjs",
+      "bytes": 7664,
+      "sha256": "b4f00689cd2e4bc5c0af4e5b5eb792bfb5c79988b01405914f1141cba929172a"
+    },
+    {
+      "path": "deployment/finals/preview/build.mjs",
+      "bytes": 3304,
+      "sha256": "b42ca55feec1d5b73e173955d3583778a7a42f9bbaf83150260c7344114bf00a"
+    },
+    {
+      "path": "deployment/finals/preview/common.mjs",
+      "bytes": 3303,
+      "sha256": "31ed631a03682f0fb117108c7fc953845ce5483d798dd9797a4cc32bef71b97b"
+    },
+    {
+      "path": "deployment/finals/preview/environment.json",
+      "bytes": 1121,
+      "sha256": "984bafe89e845e6d5fb2fd53cd02645172a583f6eaae1102dd1447647a86985b"
+    },
+    {
+      "path": "deployment/finals/preview/guards.mjs",
+      "bytes": 1544,
+      "sha256": "9f8feeb6d9dffcddddb20bf18ba2a7e3ff9e575c07d11b57fbf773458725a1b8"
+    },
+    {
+      "path": "deployment/finals/preview/inspect.mjs",
+      "bytes": 6251,
+      "sha256": "7fc7e3c20d617c9c67926198d0422a3f6340d8e60ee63a51cacb8d1425cfdc7a"
+    },
+    {
+      "path": "deployment/finals/preview/network-plan.mjs",
+      "bytes": 2344,
+      "sha256": "22558043cab6f7b877ff2d1fdf2b9c520127a8c4ec1e057285b212fb6ea0f344"
+    },
+    {
+      "path": "deployment/finals/preview/offline-check.mjs",
+      "bytes": 6839,
+      "sha256": "7d58c437e3e7ffb6ec5a2ff90b9a54ea5c85c08615630647ee8aa39921ff2ff4"
+    },
+    {
+      "path": "deployment/finals/preview/qualify.mjs",
+      "bytes": 1408,
+      "sha256": "9cff96403ea4b2ad765d7eb01ce1997894e2f52eac10d17236c354a4c2800307"
+    },
+    {
+      "path": "deployment/finals/preview/qualify.ts",
+      "bytes": 21087,
+      "sha256": "bc243d276cf06334ad505a1b93e39d6b805ce0ea132555066ef86d62906568d8"
+    },
+    {
+      "path": "deployment/finals/preview/README.md",
+      "bytes": 8457,
+      "sha256": "600d8f0ba0f6318a596b91c8b13573e395cf90e96adab49ad0c76d121671dd90"
+    },
+    {
+      "path": "deployment/finals/preview/request-template.json",
+      "bytes": 791,
+      "sha256": "27ebe895597986f2872043dff65bd77bb152447fe96a652108d374ee70105a46"
+    },
+    {
+      "path": "deployment/finals/preview/schema.mjs",
+      "bytes": 1830,
+      "sha256": "36c90502ecedd698dbf666f2d744fa2eef22ec6857c19d21cb74b729425cbdd0"
+    },
+    {
+      "path": "deployment/finals/preview/seal.mjs",
+      "bytes": 2317,
+      "sha256": "3519cefbe2c116421307865cec3d97fc1379af0b028c567849a4f75b11f7ff47"
+    },
+    {
+      "path": "deployment/finals/preview/source-closure.json",
+      "bytes": 22245,
+      "sha256": "0aa0f3c92a606a1f613791222e787f8716e7cf15328b54337988b3b2ebecbf7a"
+    },
+    {
+      "path": "deployment/finals/preview/start.mjs",
+      "bytes": 2177,
+      "sha256": "3a337eac923e527032ff47742b510527ef08c74fbb046c69e401ffd86a51142d"
+    },
+    {
+      "path": "deployment/finals/preview/tls-observer.cjs",
+      "bytes": 1190,
+      "sha256": "cb2879ea959de75df21f5dfe156fb229147471f89669087f19d4a34269232825"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/api-response-review.json",
+      "bytes": 722,
+      "sha256": "d975e6626e071b6fd87865f4cb69c34a30e1344c146b5f5e984dbcb1cf01784c"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/final-validation-2.json",
+      "bytes": 1084,
+      "sha256": "9bc2132a4dde3f2e3677fd08cfb3de712376523f81c41bda0bc6c5fc3895d186"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/final-validation.json",
+      "bytes": 1424,
+      "sha256": "bbd36f29e804196b39db9033113a1cc97f6070543794b328e026211245c48352"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/hygiene-first-failure.json",
+      "bytes": 343,
+      "sha256": "e925bf2972a571835038499bc39daa61b320cab21a2d34b2f8e90ea1ab70cfae"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/official-schema.json",
+      "bytes": 38132,
+      "sha256": "1dc3600c24a77c924c2a7f0e57f8af7a5e7ca9c4f633034f830c73a0e8f12ee1"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/offline-check-1.json",
+      "bytes": 1414,
+      "sha256": "285bf14813eaa80963b4cebd44827ef0f4879a2174be16c9c40904e95850aa9e"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/offline-check-2.json",
+      "bytes": 4664,
+      "sha256": "2b9023ad1e554df59e2c1b4e312b5361b3efb6e2a8c66cbb18e796d6743033a6"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/offline-check-3.json",
+      "bytes": 4837,
+      "sha256": "6cf630bdcf8ed272849b6562caa10f7d66edba916625b99c3fd6b293c006faab"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/offline-check-4.json",
+      "bytes": 4837,
+      "sha256": "f60d4c6dc782ad177e08c0ae4962ca472c9278663414e7d2a1874cbdb8532b70"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/offline-check-5.json",
+      "bytes": 4837,
+      "sha256": "959f05a5171a15bf439dfbb76328222b6d5ff42b0c443e3e5a0fff451db43cc1"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/provider-readonly.json",
+      "bytes": 2692,
+      "sha256": "5f3a166f29ee19a042dfb7d2a5ed78a4aef46bbfce776e8ac54d47c4948c1271"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/report.md",
+      "bytes": 14803,
+      "sha256": "3f31ef4c59bc6e41be99b70a26fb78b09d311c612a6f542c47b71c3d2cfe7c54"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/validation.json",
+      "bytes": 2354,
+      "sha256": "2859f529257d399c93380cae5b992e20d3890c62a729082e260403971c10c02d"
+    }
+  ]
+}

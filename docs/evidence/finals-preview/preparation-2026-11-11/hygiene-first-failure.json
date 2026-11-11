@@ -1,0 +1,17 @@
+{
+  "outcome": "failed",
+  "safe_category": "PREVIEW_PUBLIC_PACKET_HYGIENE_FAILED",
+  "hits": [
+    {
+      "path": "deployment/finals/preview/offline-check.mjs",
+      "categories": {
+        "known_secret": 0,
+        "ip": 0,
+        "fixture": 0,
+        "provider": 0,
+        "dsn": 2
+      }
+    }
+  ],
+  "raw_values_exported": false
+}

@@ -1,0 +1,95 @@
+{
+  "started_at": "2026-11-11T04:41:33.138Z",
+  "scope": "authenticated read-only provider inventory; no application/SQL traffic",
+  "outcome": "passed",
+  "provider_mutations": 0,
+  "sql_statements": 0,
+  "logins": 0,
+  "requests": [
+    {
+      "label": "caller",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "label": "workspaces",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "label": "exact-workspace",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "label": "membership",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "label": "workspace-services",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "label": "exact-staging-database",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "label": "exact-connection-info",
+      "method": "GET",
+      "status": 200
+    }
+  ],
+  "workspace": {
+    "id_sha256": "e2540012b36b62464cc5045e3521e9dc9a40283b69582258941f9d099d11894e",
+    "active_admin": true,
+    "inventory_complete_within_100": true,
+    "services": 5,
+    "matching_preview_names": 0,
+    "unrelated_resources_exported": false
+  },
+  "database": {
+    "resource_sha256": "feaa345c7d4172d22feb6dd8c92794128061a2f357b2e5372c0739138b6f8f85",
+    "owner_matches": true,
+    "plan": "free",
+    "region": "singapore",
+    "version": "17",
+    "status": "available",
+    "expires_at": "2026-12-10T11:55:40.452333Z",
+    "allowlist_rules": 1,
+    "internal_host_sha256": "feaa345c7d4172d22feb6dd8c92794128061a2f357b2e5372c0739138b6f8f85",
+    "internal_host_is_external_host": false,
+    "internal_url_sslmode": null,
+    "connection_attempted": false
+  },
+  "vercel": {
+    "authenticated_gets": 2,
+    "project_matches": true,
+    "alias": "aegispay-live.vercel.app",
+    "alias_project_matches": true,
+    "alias_deployment_sha256": "c4568b59d7ae19b651cbdc39653df1e01b467e5e681d60df7bddd5171d1dbc93",
+    "git_link_present": false,
+    "git_production_branch": null,
+    "git_deployment_enabled": null,
+    "git_link_fields": [],
+    "root_directory": "apps/web",
+    "source_outside_root": true
+  },
+  "github": {
+    "authenticated_gets": 3,
+    "default_branch": "main",
+    "remote_default_commit": "91f968011b8a8966512928579d85f745c2de38e7",
+    "accepted_local_commit": "edbd15f955190e1b12f93a3990a24248c8ee6318",
+    "accepted_local_tree": "49a30597da11b6ecad4cc05c9b2bdde81cfeb9d8",
+    "source_publication_required": true,
+    "hook_count": 0,
+    "active_hook_count": 0,
+    "vercel_hook_count": 0,
+    "render_hook_count": 0,
+    "app_installation_hooks_not_proved_by_repo_hook_inventory": true
+  },
+  "private_custody_created": true,
+  "finished_at": "2026-11-11T04:41:40.369Z"
+}

@@ -1,0 +1,27 @@
+{
+  "type": "web_service",
+  "name": "aegispay-auth-preview",
+  "ownerId": "$protected.ownerId",
+  "repo": "https://github.com/slvdrvncntjvr/AegisPay",
+  "branch": "main",
+  "rootDir": "",
+  "autoDeployTrigger": "off",
+  "envVars": [
+    {"key":"NODE_VERSION","value":"24.22.1"},
+    {"key":"NODE_ENV","value":"production"},
+    {"key":"NEXT_TELEMETRY_DISABLED","value":"1"},
+    {"key":"AEGIS_PREVIEW_ENABLED","value":"0"}
+  ],
+  "serviceDetails": {
+    "runtime": "node",
+    "plan": "free",
+    "region": "singapore",
+    "numInstances": 1,
+    "previews": {"generation":"off"},
+    "healthCheckPath": "/api/health",
+    "envSpecificDetails": {
+      "buildCommand": "node deployment/finals/preview/build.mjs",
+      "startCommand": "node deployment/finals/preview/start.mjs"
+    }
+  }
+}

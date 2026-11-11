@@ -1,0 +1,53 @@
+{
+  "at": "2026-11-11T05:01:11.245426+00:00",
+  "outcome": "passed",
+  "checks": [
+    {
+      "command": [
+        "node",
+        "node_modules/typescript/bin/tsc",
+        "--ignoreConfig",
+        "--noEmit",
+        "--moduleResolution",
+        "bundler",
+        "--module",
+        "esnext",
+        "--target",
+        "es2022",
+        "--allowJs",
+        "--checkJs",
+        "false",
+        "--skipLibCheck",
+        "--allowImportingTsExtensions",
+        "deployment/finals/preview/qualify.ts"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/check-docs.py"
+      ],
+      "exit": 0,
+      "output_sha256": "8d1124e299e157ec5282a73daaa30a3e1288155e011b951022f1c060718e3fd5",
+      "output_bytes": 234
+    },
+    {
+      "command": [
+        "python",
+        "fmd/tools/check-implementation-plan.py",
+        "docs/implementation-plan.md",
+        "--strict"
+      ],
+      "exit": 0,
+      "output_sha256": "1202264495a4d3fe1ab977b128ae6f96e40285bcde6a05e6aa5d0855953b8560",
+      "output_bytes": 530
+    }
+  ],
+  "remote_gate_run": false,
+  "provider_mutations": 0,
+  "source_closure_sha256": "d9dba6f5882eb44b4d3bf1fb64c283810a3d15d5486a9f45a55a47c3ad08e11d",
+  "report_sha256": "3a5e586a7256dc218ecf645f1618c4c905dad9451ed599126227d54294ad5d39"
+}

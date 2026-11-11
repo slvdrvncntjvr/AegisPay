@@ -1,0 +1,18 @@
+import { readFile } from 'node:fs/promises';
+import { createRequire } from 'node:module';
+import { spawn } from 'node:child_process';
+import path from 'node:path';
+const fail=c=>{throw Error(c);};
+if(process.version!=='v24.22.1'||process.env.AEGIS_PREVIEW_ENABLED!=='1')fail('PREVIEW_START_FENCED');
+const origin=new URL(process.env.APP_ORIGIN??'https://invalid');
+if(origin.protocol!=='https:'||origin.origin!==process.env.APP_ORIGIN||!origin.hostname.endsWith('.onrender.com')||origin.origin!==process.env.RENDER_EXTERNAL_URL||process.env.RENDER_SERVICE_ID!==process.env.AEGIS_PREVIEW_SERVICE_ID||process.env.RENDER_GIT_COMMIT!==process.env.AEGIS_PREVIEW_COMMIT)fail('EXACT_PREVIEW_CUSTODY_REQUIRED');
+const names=JSON.parse(await readFile('deployment/finals/preview/environment.json','utf8'));
+if(names.forbidden.some(k=>process.env[k])||Object.keys(process.env).some(k=>k.startsWith('NEXT_PUBLIC_')))fail('FORBIDDEN_PREVIEW_ENVIRONMENT');
+for(const k of names.generate_independent_48_byte_base64url_after_review)if(!/^[A-Za-z0-9_-]{64}$/.test(process.env[k]??''))fail('PREVIEW_PRIVATE_AUTH_REQUIRED');
+const db=new URL(process.env.DATABASE_URL??'https://invalid');if(!db.hostname.endsWith('.singapore-postgres.render.com')||[...db.searchParams].length!==1||db.searchParams.get('sslmode')!=='verify-full')fail('EXTERNAL_VERIFY_FULL_REQUIRED');
+const port=process.env.PORT;if(!/^\d+$/.test(port??'')||Number(port)<1||Number(port)>65535)fail('PROVIDER_PORT_REQUIRED');
+const receipt=JSON.parse(await readFile('apps/web/.next/preview-build.json','utf8'));if(receipt.commit!==process.env.RENDER_GIT_COMMIT)fail('BUILD_COMMIT_MISMATCH');
+const next=createRequire(import.meta.url).resolve('next/dist/bin/next');
+const child=spawn(process.execPath,['--require',path.resolve('deployment/finals/preview/tls-observer.cjs'),next,'start','--hostname','0.0.0.0','--port',port],{cwd:path.resolve('apps/web'),env:process.env,stdio:'inherit'});
+for(const sig of ['SIGTERM','SIGINT'])process.on(sig,()=>child.kill(sig));
+child.once('error',()=>{process.stderr.write('PREVIEW_NEXT_START_FAILED\n');process.exitCode=1;});child.once('exit',(code,signal)=>{process.exitCode=signal?1:code??1;});

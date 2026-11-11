@@ -1,0 +1,36 @@
+{
+  "at": "2026-11-11T04:57:43.211103+00:00",
+  "source": "https://api-docs.render.com/openapi/render-public-api-1.json",
+  "classification": "read-only public official response shape inspection",
+  "verified": {
+    "create_201": [
+      "service",
+      "deployId"
+    ],
+    "retrieve_service": [
+      "id",
+      "name",
+      "ownerId",
+      "serviceDetails",
+      "autoDeployTrigger"
+    ],
+    "deploy_201_and_retrieve": [
+      "id",
+      "commit.id",
+      "status",
+      "createdAt"
+    ],
+    "logs_200": [
+      "hasMore",
+      "nextStartTime",
+      "nextEndTime",
+      "logs"
+    ],
+    "env_var_list": [
+      "envVar.key",
+      "envVar.value",
+      "cursor"
+    ]
+  },
+  "provider_mutations": 0
+}

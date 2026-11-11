@@ -1,0 +1,1225 @@
+{
+  "fetched_at": "2026-11-11T04:44:09.866Z",
+  "url": "https://api-docs.render.com/openapi/render-public-api-1.json",
+  "canonical_json_sha256": "3bab1850e7bcb251681311238fb1faf26f984e680999a18560be935dcfd4f0fc",
+  "operations": {
+    "create": {
+      "method": "POST",
+      "path": "/services",
+      "request": {
+        "type": "object",
+        "required": [
+          "type",
+          "name",
+          "ownerId"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "static_site",
+              "web_service",
+              "private_service",
+              "background_worker",
+              "cron_job"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "ownerId": {
+            "type": "string"
+          },
+          "repo": {
+            "type": "string"
+          },
+          "autoDeploy": {
+            "type": "string",
+            "enum": [
+              "yes",
+              "no"
+            ]
+          },
+          "autoDeployTrigger": {
+            "type": "string",
+            "enum": [
+              "commit",
+              "off",
+              "checksPass"
+            ]
+          },
+          "branch": {
+            "type": "string"
+          },
+          "image": {
+            "type": "object",
+            "required": [
+              "imagePath",
+              "ownerId"
+            ],
+            "properties": {
+              "ownerId": {
+                "type": "string"
+              },
+              "registryCredentialId": {
+                "type": "string"
+              },
+              "imagePath": {
+                "type": "string"
+              }
+            }
+          },
+          "buildFilter": {
+            "type": "object",
+            "required": [
+              "paths",
+              "ignoredPaths"
+            ],
+            "properties": {
+              "paths": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ignoredPaths": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "rootDir": {
+            "type": "string"
+          },
+          "envVars": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": [
+                    "key",
+                    "value"
+                  ],
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "key",
+                    "generateValue"
+                  ],
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "generateValue": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "secretFiles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "content"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "environmentId": {
+            "type": "string"
+          },
+          "serviceDetails": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "buildCommand": {
+                    "type": "string"
+                  },
+                  "headers": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "path",
+                        "name",
+                        "value"
+                      ],
+                      "properties": {
+                        "path": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "publishPath": {
+                    "type": "string"
+                  },
+                  "pullRequestPreviewsEnabled": {
+                    "type": "string",
+                    "enum": [
+                      "yes",
+                      "no"
+                    ]
+                  },
+                  "previews": {
+                    "type": "object",
+                    "properties": {
+                      "generation": {
+                        "type": "string",
+                        "enum": [
+                          "off",
+                          "manual",
+                          "automatic"
+                        ]
+                      }
+                    }
+                  },
+                  "routes": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "source",
+                        "destination"
+                      ],
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "redirect",
+                            "rewrite"
+                          ]
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "destination": {
+                          "type": "string"
+                        },
+                        "priority": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  },
+                  "renderSubdomainPolicy": {
+                    "type": "string",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ]
+                  },
+                  "ipAllowList": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "cidrBlock",
+                        "description"
+                      ],
+                      "properties": {
+                        "cidrBlock": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "buildSourceId": {
+                    "type": "string"
+                  },
+                  "autoscaling": {
+                    "type": "object",
+                    "required": [
+                      "enabled",
+                      "min",
+                      "max",
+                      "criteria"
+                    ],
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean"
+                      },
+                      "min": {
+                        "type": "integer"
+                      },
+                      "max": {
+                        "type": "integer"
+                      },
+                      "criteria": {
+                        "type": "object",
+                        "required": [
+                          "cpu",
+                          "memory"
+                        ],
+                        "properties": {
+                          "cpu": {
+                            "type": "object",
+                            "required": [
+                              "enabled",
+                              "percentage"
+                            ],
+                            "properties": {
+                              "enabled": {
+                                "type": "boolean"
+                              },
+                              "percentage": {
+                                "type": "integer"
+                              }
+                            }
+                          },
+                          "memory": {
+                            "type": "object",
+                            "required": [
+                              "enabled",
+                              "percentage"
+                            ],
+                            "properties": {
+                              "enabled": {
+                                "type": "boolean"
+                              },
+                              "percentage": {
+                                "type": "integer"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "disk": {
+                    "type": "object",
+                    "required": [
+                      "name",
+                      "mountPath"
+                    ],
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "mountPath": {
+                        "type": "string"
+                      },
+                      "sizeGB": {
+                        "type": "integer",
+                        "minimum": 1
+                      }
+                    }
+                  },
+                  "env": {
+                    "type": "string",
+                    "enum": [
+                      "docker",
+                      "elixir",
+                      "go",
+                      "node",
+                      "python",
+                      "ruby",
+                      "rust",
+                      "image"
+                    ]
+                  },
+                  "runtime": {
+                    "type": "string",
+                    "enum": [
+                      "docker",
+                      "elixir",
+                      "go",
+                      "node",
+                      "python",
+                      "ruby",
+                      "rust",
+                      "image"
+                    ]
+                  },
+                  "envSpecificDetails": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "dockerCommand": {
+                            "type": "string"
+                          },
+                          "dockerContext": {
+                            "type": "string"
+                          },
+                          "dockerfilePath": {
+                            "type": "string"
+                          },
+                          "registryCredentialId": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "required": [
+                          "buildCommand",
+                          "startCommand"
+                        ],
+                        "properties": {
+                          "buildCommand": {
+                            "type": "string"
+                          },
+                          "startCommand": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "healthCheckPath": {
+                    "type": "string"
+                  },
+                  "maintenanceMode": {
+                    "type": "object",
+                    "required": [
+                      "enabled",
+                      "uri"
+                    ],
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean"
+                      },
+                      "uri": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "numInstances": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "plan": {
+                    "type": "string",
+                    "enum": [
+                      "starter",
+                      "starter_plus",
+                      "standard",
+                      "standard_plus",
+                      "pro",
+                      "pro_plus",
+                      "pro_max",
+                      "pro_ultra",
+                      "free",
+                      "custom",
+                      "starter_legacy",
+                      "standard_legacy",
+                      "standard_plus_legacy",
+                      "pro_legacy",
+                      "pro_plus_legacy",
+                      "0.5c-512mb",
+                      "1c-2g",
+                      "2c-4g",
+                      "2c-8g",
+                      "2c-16g",
+                      "4c-8g",
+                      "4c-16g",
+                      "4c-32g",
+                      "8c-16g",
+                      "8c-32g",
+                      "8c-64g",
+                      "12c-24g",
+                      "12c-48g",
+                      "12c-96g"
+                    ]
+                  },
+                  "preDeployCommand": {
+                    "type": "string"
+                  },
+                  "pullRequestPreviewsEnabled": {
+                    "type": "string",
+                    "enum": [
+                      "yes",
+                      "no"
+                    ]
+                  },
+                  "previews": {
+                    "type": "object",
+                    "properties": {
+                      "generation": {
+                        "type": "string",
+                        "enum": [
+                          "off",
+                          "manual",
+                          "automatic"
+                        ]
+                      }
+                    }
+                  },
+                  "region": {
+                    "type": "string",
+                    "enum": [
+                      "frankfurt",
+                      "oregon",
+                      "ohio",
+                      "singapore",
+                      "virginia"
+                    ]
+                  },
+                  "maxShutdownDelaySeconds": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 300
+                  },
+                  "renderSubdomainPolicy": {
+                    "type": "string",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ]
+                  },
+                  "ipAllowList": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "cidrBlock",
+                        "description"
+                      ],
+                      "properties": {
+                        "cidrBlock": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "buildSourceId": {
+                    "type": "string"
+                  },
+                  "autoscaling": {
+                    "type": "object",
+                    "required": [
+                      "enabled",
+                      "min",
+                      "max",
+                      "criteria"
+                    ],
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean"
+                      },
+                      "min": {
+                        "type": "integer"
+                      },
+                      "max": {
+                        "type": "integer"
+                      },
+                      "criteria": {
+                        "type": "object",
+                        "required": [
+                          "cpu",
+                          "memory"
+                        ],
+                        "properties": {
+                          "cpu": {
+                            "type": "object",
+                            "required": [
+                              "enabled",
+                              "percentage"
+                            ],
+                            "properties": {
+                              "enabled": {
+                                "type": "boolean"
+                              },
+                              "percentage": {
+                                "type": "integer"
+                              }
+                            }
+                          },
+                          "memory": {
+                            "type": "object",
+                            "required": [
+                              "enabled",
+                              "percentage"
+                            ],
+                            "properties": {
+                              "enabled": {
+                                "type": "boolean"
+                              },
+                              "percentage": {
+                                "type": "integer"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "disk": {
+                    "type": "object",
+                    "required": [
+                      "name",
+                      "mountPath"
+                    ],
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "mountPath": {
+                        "type": "string"
+                      },
+                      "sizeGB": {
+                        "type": "integer",
+                        "minimum": 1
+                      }
+                    }
+                  },
+                  "env": {
+                    "type": "string",
+                    "enum": [
+                      "docker",
+                      "elixir",
+                      "go",
+                      "node",
+                      "python",
+                      "ruby",
+                      "rust",
+                      "image"
+                    ]
+                  },
+                  "runtime": {
+                    "type": "string",
+                    "enum": [
+                      "docker",
+                      "elixir",
+                      "go",
+                      "node",
+                      "python",
+                      "ruby",
+                      "rust",
+                      "image"
+                    ]
+                  },
+                  "envSpecificDetails": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "dockerCommand": {
+                            "type": "string"
+                          },
+                          "dockerContext": {
+                            "type": "string"
+                          },
+                          "dockerfilePath": {
+                            "type": "string"
+                          },
+                          "registryCredentialId": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "required": [
+                          "buildCommand",
+                          "startCommand"
+                        ],
+                        "properties": {
+                          "buildCommand": {
+                            "type": "string"
+                          },
+                          "startCommand": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "numInstances": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "plan": {
+                    "type": "string",
+                    "enum": [
+                      "starter",
+                      "standard",
+                      "pro",
+                      "pro_plus",
+                      "pro_max",
+                      "pro_ultra",
+                      "0.5c-512mb",
+                      "1c-2g",
+                      "2c-4g",
+                      "2c-8g",
+                      "2c-16g",
+                      "4c-8g",
+                      "4c-16g",
+                      "4c-32g",
+                      "8c-16g",
+                      "8c-32g",
+                      "8c-64g",
+                      "12c-24g",
+                      "12c-48g",
+                      "12c-96g"
+                    ]
+                  },
+                  "preDeployCommand": {
+                    "type": "string"
+                  },
+                  "pullRequestPreviewsEnabled": {
+                    "type": "string",
+                    "enum": [
+                      "yes",
+                      "no"
+                    ]
+                  },
+                  "previews": {
+                    "type": "object",
+                    "properties": {
+                      "generation": {
+                        "type": "string",
+                        "enum": [
+                          "off",
+                          "manual",
+                          "automatic"
+                        ]
+                      }
+                    }
+                  },
+                  "region": {
+                    "type": "string",
+                    "enum": [
+                      "frankfurt",
+                      "oregon",
+                      "ohio",
+                      "singapore",
+                      "virginia"
+                    ]
+                  },
+                  "maxShutdownDelaySeconds": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 300
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "buildSourceId": {
+                    "type": "string"
+                  },
+                  "autoscaling": {
+                    "type": "object",
+                    "required": [
+                      "enabled",
+                      "min",
+                      "max",
+                      "criteria"
+                    ],
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean"
+                      },
+                      "min": {
+                        "type": "integer"
+                      },
+                      "max": {
+                        "type": "integer"
+                      },
+                      "criteria": {
+                        "type": "object",
+                        "required": [
+                          "cpu",
+                          "memory"
+                        ],
+                        "properties": {
+                          "cpu": {
+                            "type": "object",
+                            "required": [
+                              "enabled",
+                              "percentage"
+                            ],
+                            "properties": {
+                              "enabled": {
+                                "type": "boolean"
+                              },
+                              "percentage": {
+                                "type": "integer"
+                              }
+                            }
+                          },
+                          "memory": {
+                            "type": "object",
+                            "required": [
+                              "enabled",
+                              "percentage"
+                            ],
+                            "properties": {
+                              "enabled": {
+                                "type": "boolean"
+                              },
+                              "percentage": {
+                                "type": "integer"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "disk": {
+                    "type": "object",
+                    "required": [
+                      "name",
+                      "mountPath"
+                    ],
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "mountPath": {
+                        "type": "string"
+                      },
+                      "sizeGB": {
+                        "type": "integer",
+                        "minimum": 1
+                      }
+                    }
+                  },
+                  "env": {
+                    "type": "string",
+                    "enum": [
+                      "docker",
+                      "elixir",
+                      "go",
+                      "node",
+                      "python",
+                      "ruby",
+                      "rust",
+                      "image"
+                    ]
+                  },
+                  "runtime": {
+                    "type": "string",
+                    "enum": [
+                      "docker",
+                      "elixir",
+                      "go",
+                      "node",
+                      "python",
+                      "ruby",
+                      "rust",
+                      "image"
+                    ]
+                  },
+                  "envSpecificDetails": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "dockerCommand": {
+                            "type": "string"
+                          },
+                          "dockerContext": {
+                            "type": "string"
+                          },
+                          "dockerfilePath": {
+                            "type": "string"
+                          },
+                          "registryCredentialId": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "required": [
+                          "buildCommand",
+                          "startCommand"
+                        ],
+                        "properties": {
+                          "buildCommand": {
+                            "type": "string"
+                          },
+                          "startCommand": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "numInstances": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "plan": {
+                    "type": "string",
+                    "enum": [
+                      "starter",
+                      "standard",
+                      "pro",
+                      "pro_plus",
+                      "pro_max",
+                      "pro_ultra",
+                      "0.5c-512mb",
+                      "1c-2g",
+                      "2c-4g",
+                      "2c-8g",
+                      "2c-16g",
+                      "4c-8g",
+                      "4c-16g",
+                      "4c-32g",
+                      "8c-16g",
+                      "8c-32g",
+                      "8c-64g",
+                      "12c-24g",
+                      "12c-48g",
+                      "12c-96g"
+                    ]
+                  },
+                  "preDeployCommand": {
+                    "type": "string"
+                  },
+                  "pullRequestPreviewsEnabled": {
+                    "type": "string",
+                    "enum": [
+                      "yes",
+                      "no"
+                    ]
+                  },
+                  "previews": {
+                    "type": "object",
+                    "properties": {
+                      "generation": {
+                        "type": "string",
+                        "enum": [
+                          "off",
+                          "manual",
+                          "automatic"
+                        ]
+                      }
+                    }
+                  },
+                  "region": {
+                    "type": "string",
+                    "enum": [
+                      "frankfurt",
+                      "oregon",
+                      "ohio",
+                      "singapore",
+                      "virginia"
+                    ]
+                  },
+                  "maxShutdownDelaySeconds": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 300
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "required": [
+                  "schedule"
+                ],
+                "properties": {
+                  "buildSourceId": {
+                    "type": "string"
+                  },
+                  "env": {
+                    "type": "string",
+                    "enum": [
+                      "docker",
+                      "elixir",
+                      "go",
+                      "node",
+                      "python",
+                      "ruby",
+                      "rust",
+                      "image"
+                    ]
+                  },
+                  "runtime": {
+                    "type": "string",
+                    "enum": [
+                      "docker",
+                      "elixir",
+                      "go",
+                      "node",
+                      "python",
+                      "ruby",
+                      "rust",
+                      "image"
+                    ]
+                  },
+                  "envSpecificDetails": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "required": [
+                          "dockerCommand",
+                          "dockerContext",
+                          "dockerfilePath"
+                        ],
+                        "properties": {
+                          "dockerCommand": {
+                            "type": "string"
+                          },
+                          "dockerContext": {
+                            "type": "string"
+                          },
+                          "dockerfilePath": {
+                            "type": "string"
+                          },
+                          "preDeployCommand": {
+                            "type": "string"
+                          },
+                          "registryCredential": {
+                            "type": "object",
+                            "required": [
+                              "id",
+                              "name",
+                              "username",
+                              "registry",
+                              "updatedAt"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "registry": {
+                                "type": "string",
+                                "enum": [
+                                  "GITHUB",
+                                  "GITLAB",
+                                  "DOCKER",
+                                  "GOOGLE_ARTIFACT",
+                                  "AWS_ECR"
+                                ]
+                              },
+                              "username": {
+                                "type": "string"
+                              },
+                              "updatedAt": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "required": [
+                          "buildCommand",
+                          "startCommand"
+                        ],
+                        "properties": {
+                          "buildCommand": {
+                            "type": "string"
+                          },
+                          "startCommand": {
+                            "type": "string"
+                          },
+                          "preDeployCommand": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "plan": {
+                    "type": "string",
+                    "enum": [
+                      "starter",
+                      "standard",
+                      "pro",
+                      "pro_plus",
+                      "pro_max",
+                      "pro_ultra",
+                      "0.5c-512mb",
+                      "1c-2g",
+                      "2c-4g",
+                      "2c-8g",
+                      "2c-16g",
+                      "4c-8g",
+                      "4c-16g",
+                      "4c-32g",
+                      "8c-16g",
+                      "8c-32g",
+                      "8c-64g",
+                      "12c-24g",
+                      "12c-48g",
+                      "12c-96g"
+                    ]
+                  },
+                  "region": {
+                    "type": "string",
+                    "enum": [
+                      "frankfurt",
+                      "oregon",
+                      "ohio",
+                      "singapore",
+                      "virginia"
+                    ]
+                  },
+                  "schedule": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "environment": {
+      "method": "PUT",
+      "path": "/services/{serviceId}/env-vars",
+      "request": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "oneOf": [
+            {
+              "type": "object",
+              "required": [
+                "key",
+                "value"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "required": [
+                "key",
+                "generateValue"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "generateValue": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "deploy": {
+      "method": "POST",
+      "path": "/services/{serviceId}/deploys",
+      "request": {
+        "type": "object",
+        "properties": {
+          "buildId": {
+            "type": "string"
+          },
+          "clearCache": {
+            "type": "string",
+            "enum": [
+              "clear",
+              "do_not_clear"
+            ]
+          },
+          "commitId": {
+            "type": "string"
+          },
+          "imageUrl": {
+            "type": "string"
+          },
+          "deployMode": {
+            "type": "string",
+            "enum": [
+              "deploy_only",
+              "build_and_deploy"
+            ]
+          }
+        }
+      }
+    },
+    "suspend": {
+      "method": "POST",
+      "path": "/services/{serviceId}/suspend",
+      "request": null
+    }
+  },
+  "outbound_ips": {
+    "type": "object",
+    "required": [
+      "type",
+      "ips"
+    ],
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": [
+          "shared",
+          "dedicated"
+        ]
+      },
+      "dedicatedIpId": {
+        "type": "string"
+      },
+      "ips": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "official_internal_tls": "https://render.com/docs/postgresql-creating-connecting#ssl-modes-for-internal-connections"
+}

@@ -1,0 +1,65 @@
+{
+  "at": "2026-11-11T04:51:09.587Z",
+  "outcome": "failed",
+  "scope": "syntax, selected official schema structure, fail-closed guards, installed pg parse and source closure; no DB/provider/browser/login/build",
+  "commands": [],
+  "cases": [
+    {
+      "name": "exact Free manual Node request",
+      "passed": true
+    },
+    {
+      "name": "selected official web/native schema fields",
+      "passed": true
+    },
+    {
+      "name": "reject paid plan",
+      "passed": true
+    },
+    {
+      "name": "reject autodeploy",
+      "passed": true
+    },
+    {
+      "name": "reject extra worker field",
+      "passed": true
+    },
+    {
+      "name": "reject create token",
+      "passed": true
+    },
+    {
+      "name": "reject replicas",
+      "passed": true
+    },
+    {
+      "name": "HTTPS exact preview origin",
+      "passed": true
+    },
+    {
+      "name": "reject unsafe origin 8",
+      "passed": true
+    },
+    {
+      "name": "reject unsafe origin 9",
+      "passed": true
+    },
+    {
+      "name": "reject unsafe origin 10",
+      "passed": true
+    },
+    {
+      "name": "reject unsafe origin 11",
+      "passed": true
+    },
+    {
+      "name": "installed pg verify-full retains certificate and hostname verification",
+      "passed": true
+    },
+    {
+      "name": "bare internal URL does not itself request TLS",
+      "passed": true
+    }
+  ],
+  "safe_failure": "OFFLINE_CHECK_FAILED"
+}

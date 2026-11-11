@@ -1,0 +1,175 @@
+{
+  "at": "2026-11-11T05:00:26.581Z",
+  "outcome": "passed",
+  "scope": "syntax, selected official schema structure, fail-closed guards, installed pg parse and source closure; no DB/provider/browser/login/build",
+  "commands": [
+    {
+      "purpose": "syntax",
+      "file": "apply.mjs",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "purpose": "syntax",
+      "file": "build.mjs",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "purpose": "syntax",
+      "file": "common.mjs",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "purpose": "syntax",
+      "file": "guards.mjs",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "purpose": "syntax",
+      "file": "inspect.mjs",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "purpose": "syntax",
+      "file": "network-plan.mjs",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "purpose": "syntax",
+      "file": "offline-check.mjs",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "purpose": "syntax",
+      "file": "qualify.mjs",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "purpose": "syntax",
+      "file": "qualify.ts",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "purpose": "syntax",
+      "file": "schema.mjs",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "purpose": "syntax",
+      "file": "seal.mjs",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "purpose": "syntax",
+      "file": "start.mjs",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "purpose": "syntax",
+      "file": "tls-observer.cjs",
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "purpose": "expected fail-closed no-op",
+      "file": "build.mjs",
+      "exit": 1,
+      "expected_refusal": "PREVIEW_INITIAL_BUILD_FENCED"
+    },
+    {
+      "purpose": "expected fail-closed no-op",
+      "file": "start.mjs",
+      "exit": 1,
+      "expected_refusal": "PREVIEW_START_FENCED"
+    }
+  ],
+  "cases": [
+    {
+      "name": "exact Free manual Node request",
+      "passed": true
+    },
+    {
+      "name": "selected official web/native schema fields",
+      "passed": true
+    },
+    {
+      "name": "reject paid plan",
+      "passed": true
+    },
+    {
+      "name": "reject autodeploy",
+      "passed": true
+    },
+    {
+      "name": "reject extra worker field",
+      "passed": true
+    },
+    {
+      "name": "reject create token",
+      "passed": true
+    },
+    {
+      "name": "reject replicas",
+      "passed": true
+    },
+    {
+      "name": "HTTPS exact preview origin",
+      "passed": true
+    },
+    {
+      "name": "reject unsafe origin 8",
+      "passed": true
+    },
+    {
+      "name": "reject unsafe origin 9",
+      "passed": true
+    },
+    {
+      "name": "reject unsafe origin 10",
+      "passed": true
+    },
+    {
+      "name": "reject unsafe origin 11",
+      "passed": true
+    },
+    {
+      "name": "installed pg verify-full retains certificate and hostname verification",
+      "passed": true
+    },
+    {
+      "name": "bare internal URL does not itself request TLS",
+      "passed": true
+    },
+    {
+      "name": "actual auth cookie HTTPS flags",
+      "passed": true
+    }
+  ],
+  "installed_pg": {
+    "version": "8.23.1",
+    "parser_version": "2.14.1",
+    "parser_source_sha256": "d8c0ca43dc70daf05a9ff5469c92fd0a3cbcd11cacf68156ebb19ee32d127cfd",
+    "external_verify_full_parsed": true,
+    "internal_connection_attempted": false,
+    "internal_tls_suitability": "official docs state self-signed; verify-full unsupported; not used"
+  },
+  "accepted_source": {
+    "commit": "edbd15f955190e1b12f93a3990a24248c8ee6318",
+    "tree": "49a30597da11b6ecad4cc05c9b2bdde81cfeb9d8",
+    "application_files": 72,
+    "runtime_files": 2,
+    "application_git_blob_closure_sha256": "724b45046b27aed73a4d671b9cfe6fa30ede9d75a7b1411c65e3353e6b5e1a55",
+    "rehearsal_windows_source_sha256": "1eca1bfbfc838513ced491d53aedeb5e173400e935125f45f03694e4874acc00"
+  }
+}
