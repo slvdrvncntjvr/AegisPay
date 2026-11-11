@@ -1,0 +1,9 @@
+{
+  "at": "2026-11-11T05:45:15.994725+00:00",
+  "kind": "binary fingerprint only; executable never launched by reviewer",
+  "path": "C:/Users/Vincent/AppData/Local/ms-playwright/chromium-1248/chrome-win64/chrome.exe",
+  "bytes": 4578816,
+  "sha256": "7f08161bbeb2853ffe1780a9ded4985087f52efb9725d7d8207aabdd42f7cfb9",
+  "stable_size_and_mtime": true,
+  "matches_regression_and_reviewed_permit_identity": true
+}

@@ -1,0 +1,53 @@
+# TASK-020 F1/F2/F3 independent repair recheck
+
+**Scoped ready-to-apply acceptance for the reviewed repair package: F1, F2 and F3 are addressed; no remaining concrete blocker was established in this recheck.** The original hold is superseded for these repaired helper bytes. Prior valid request/environment/provider-boundary review remains applicable. This is permission to continue the already authorized staged workflow within its guards, not evidence that TASK-020 is done or that a service has been created, deployed or qualified.
+
+Work ref: task `task_095364b4427c`, dispatch `ctx_67bf3ced0ce4`; author repair dispatch `ctx_a1af7d86b86f`, prepared checkpoint `9710aefde3d74ef2c1189cd7599e501481c34824`. Only new review files were written. No helper/test, app/build/gate, browser, DB, provider, network or Git command was run; no private environment/custody/permit/credential was read. Original reports and fingerprints remain unchanged. Static Python readers compare public source/evidence bytes; their success is not an application test.
+
+## F1 — accepted with explicit capture limits
+
+`deployment/finals/preview/original-responses.mjs:34` retains the actual Fetch request ID, network ID, method/URL key and response status. Identity is checked before body coverage. Entity responses use **`Fetch.getResponseBody` while the original response is paused**, scan those bytes and then use `Fetch.continueResponse` with only that same request ID (lines61–66). There is no high-level Playwright `.body()` call, `Network.getResponseBody`/`loadNetworkResource` fallback, response fulfillment or replacement entity in this path. Failed capture aborts the response rather than releasing an unscanned entity. Request-stage inspection retains the origin/method/financial-route guard before continuation.
+
+`validateEntity()` requires an available Buffer, bounds entity size and accepts an empty entity only with an explicit zero Content-Length; zero/nonzero contradictions fail. HEAD and204/205/304 are explicitly HTTP non-entities. A recognized301/302/303/307/308 with Location is **redirect headers-only accounting**, with body length/hash left null; `drain()` additionally requires its linked successor, exact request-count maps, complete coverage/continuation, zero missing entities/pending/failures. The intermediary redirect body is not scanned or claimed. This limitation is acceptable within the explicitly requested recheck scope; it does not establish leak absence in arbitrary redirect bodies.
+
+Unscanned cancellation/unavailable entity fails. Cancellation after original capture can retain its coverage, with cancellation recorded separately. The passing synthetic context honestly reports three cancellation flags on already covered declared-empty/non-entity records; it does not invent native completion events. Main qualification closes each context, settles capture work and rechecks its final summary at `qualify.ts:131`; an incomplete/disposal result blocks the browser matrix. Cache is disabled, service workers blocked, and paused full-body interception changes streaming/timing. Native caching and unintercepted HTTPS behavior remain outside acceptance.
+
+The final **`docs/evidence/finals-preview/repair-2026-11-11/regression-4.json`** is source-bound to the final five repair/test/qualifier files and records16passed synthetic cases. The successful fixture has8browser requests/8covered records: four original entities, one declared-empty entity, two non-entities and one followed redirect with headers-only accounting. Five original-body calls and eight unchanged response continuations are recorded, with no forbidden body/refetch/fulfillment command. The inspected regression source also requires fixture request count equality, original entity hash and no replay. Separate cancellation and disposal cases record missing-entity failures; disposal reaches zero pending work. Redirect, invalid identity, unjustified empties and zero-length mismatch cases are explicit. This is loopback fixture evidence, not remote app/TLS evidence. The selected installed protocol-declaration hash matches the saved provenance.
+
+## F2 — accepted explicit installed browser prerequisite
+
+`browser.mjs:4` selects the existing revision1248 full Chromium executable explicitly. The qualifier calls it and compares its fingerprint with required `permit.browser_sha256` at lines49–51, before provider, DB or login work. The helper records actual launch version and binary hash, rather than assuming the package's missing default revision1254 is installed.
+
+The author regression and protocol receipt agree on version **156.0.8078.4** and SHA-256 **`7f08161bbeb2853ffe1780a9ded4985087f52efb9725d7d8207aabdd42f7cfb9`**, at `C:/Users/Vincent/AppData/Local/ms-playwright/chromium-1248/chrome-win64/chrome.exe`. The reviewer independently hashed that installed file without executing it; the hash matches, with stable size/mtime. Future HTTPS/UI compatibility still belongs to the real gate.
+
+## F3 — accepted header-first identity and unresolved-commit handling
+
+`session-tracking.mjs:19` registers valid cookie identities immediately after direct HTTP fetch headers arrive and before the caller reads/scans the body or checks status/cache/cookie flags. Browser Fetch response headers are registered before response identity/status/body assertions (`original-responses.mjs:48`), including a valid cookie on an unexpected status. Browser cookie inspection likewise registers identity before attribute assertions (`qualify.ts:125`). Plain tokens remain in memory for hygiene checking; only their hashes identify cleanup rows.
+
+Lost/unidentified possible commits remain uncertain unless an identified cookie or an exact pre-creation rejection is observed. Final success requires zero uncertain commits (line139); outer cleanup settles browser capture work before token-hash-only revocation and forces failure on any uncertain commit (lines142–146). It does not globally revoke, reset state or manufacture a clean outcome.
+
+The regression retains three known synthetic identities through cache/flag/body assertion failures, separately exercises browser cookie capture before an intentionally mismatched identity assertion, and models revocation of only those three fixture sessions while preserving16prior revoked entries. Unknown possible commit remains unresolved. These are synthetic identity/cleanup checks, not SQL revocation evidence.
+
+`qualify.mjs:9` now permit-binds `qualify.mjs`, `qualify.ts`, `common.mjs`, `browser.mjs`, `original-responses.mjs` and `session-tracking.mjs`. The qualifier requires the explicitly reviewed `prior_revoked_sessions` count, all revoked, rather than hardcoding the post-attempt baseline. It requires that observed baseline plus six identified sessions at final success. The current historical checkpoint is16; any partial attempt requires a freshly reviewed checkpoint, without assuming22or resetting history. No actual permit was inspected or assumed to exist.
+
+## Binding, preservation and limits
+
+The new source-closure file hashes to **`29c2bb753fbf73b9fde3eb8a78ce8495d8fd2899c72ef53ea42ba52b4ece201f`**. All94declared application/runtime/helper files match raw or appropriate canonical-LF bytes. The72application plus two runtime inventories exactly preserve the previously independently verified accepted inventories; the application closure recomputes to `724b45046b27aed73a4d671b9cfe6fa30ede9d75a7b1411c65e3353e6b5e1a55`. Binary font bytes are unchanged. `seal.mjs:5` now enforces accepted ancestry rather than HEAD equality; line8 compares both accepted and current committed blobs, and line11 fixes the accepted closure/counts. Its saved exit0receipt binds the prepared descendant and accepted application commit. No new Git ancestry command was executed by this reviewer, and the delivery commit/publication remains future coordinator work.
+
+Apply/build/start, common guards, request/environment, network planning and TLS observer fingerprints remain identical to the original review. All31repair packet inventory entries and all20preserved preparation/reviewer artifacts independently match. The author's packet also records seven unchanged protected custody files; private custody preservation and exact-private-value hygiene were not independently reopened. Public-pattern scans found no credential DSNs, Stellar secret seeds, full provider IDs or literal session-cookie values.
+
+Exact inspected repaired hashes under `deployment/finals/preview/`:
+
+| File | SHA-256 |
+| --- | --- |
+| `original-responses.mjs` | `145d42d7a7c7945f5b2206d1a5803250ce01dc9f94fe7e556e3b2dd3013a3943` |
+| `session-tracking.mjs` | `d92a4f946e7e1d14cc34444a0c1559e149bee955b3238be6867f780025dd81fa` |
+| `browser.mjs` | `89f87d248235ef105aca9f5e745e9be303276e76d9acfc8781a032ea18e05b8c` |
+| `qualify.mjs` | `70ba6910869cdca86aa8f0b297c151a6f0532eac7477592a17e04c4ee8a048e4` |
+| `qualify.ts` | `7b1752ad05f2214bcbc9a1c381016edb3c4f0f3af6e0a1f7f428fdac74e1eb12` |
+| `repair-check.mjs` | `c11367c7127e8dc2c21f26b87497df7b27d268904069b11800092357aad84382` |
+| `seal.mjs` | `579c7789d0f6f50d5d13aad31ce502e7d038e088d11d173d868cce6d349cfb9c` |
+
+Final regression SHA-256 is `591356d057faf5b4781afb19c71cb3b76ed94a712de3dff0d88524ad0ac24f2b`; author final packet is `f684a3fdab3e3091fbb3df05627379a2ecbfddc20b7d61899cd7de352cc76fd6`. The author receipts record18syntax/type commands and both documentation checks exiting0; none was rerun. `repair-fingerprints.json` retains stable latest source reads; `repair-static-join-confirmed.json` records22passing comparisons, complete closure/packet/preservation fingerprints and no source drift. `repair-browser-binary.json` records the independent non-executing executable hash. The initial comparator output remains in `repair-static-join.json`: its two false comparisons came from omitted SQL/.node-version LF handling and selecting the wrong public-baseline key, corrected in the confirmed join; they were not product defects.
+
+No actual service create, reviewed regional egress/rule application, private environment transfer, published exact-commit host build/deploy, remote HTTPS role matrix, provider build/log/asset attestations, actual app-pool TLS or final real session/financial-zero/cleanup terminal join has occurred in this repair. Those remain required and must fail honestly if unavailable. Redirect headers-only limits must remain explicit in actual results. No hosted/native-cache/live financial/model/worker/recovery/MVP acceptance or submitted-alias change follows from this report. The coordinator can now commit and continue the already authorized staged process using the repaired exact bindings.
