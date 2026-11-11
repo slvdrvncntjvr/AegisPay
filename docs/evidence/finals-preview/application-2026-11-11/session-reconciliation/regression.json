@@ -1,0 +1,38 @@
+{
+  "outcome": "passed",
+  "scope": "synthetic session identity reconciliation",
+  "cases": [
+    "two actual browser contexts resolve omitted login headers independently",
+    "ambiguous context login is rejected",
+    "lost login response remains unresolved",
+    "rejected login cannot acquire a cookie identity",
+    "conflicting identities remain failed while both cleanup hashes are retained",
+    "cookie-only evidence remains distinct from header evidence"
+  ],
+  "contexts": [
+    {
+      "requests": 2,
+      "covered": 2,
+      "uncertainty_resolved": true
+    },
+    {
+      "requests": 2,
+      "covered": 2,
+      "uncertainty_resolved": true
+    }
+  ],
+  "browser": {
+    "executable": "C:/Users/Vincent/AppData/Local/ms-playwright/chromium-1248/chrome-win64/chrome.exe",
+    "sha256": "7f08161bbeb2853ffe1780a9ded4985087f52efb9725d7d8207aabdd42f7cfb9",
+    "version": "156.0.8078.4",
+    "explicit_executable": true,
+    "downloaded": false
+  },
+  "helper_hashes": {
+    "session-reconciliation-check.mjs": "5ee1d4d88be320f9b0142310de70af8fd37d8ac30864f671b2cb6452ef4af050",
+    "session-tracking.mjs": "43a13b3d0d88d5196b789ba98ab564ae531ae2b51ea6e4ad5b537da637e06466",
+    "original-responses.mjs": "485a5cd71fd23dad1e08bcc5fb61d0f4d5e86da01470f6f7ba55f2fcd3e7516a",
+    "qualify.ts": "a64cf8f71b81c8285b6e0aa0b50b5130ee1620a7400f171feb53f910516b2f37",
+    "qualify.mjs": "4f6875f38428618d719b4a41b2284dc181edb47b94a92078b7ee082b46e38eca"
+  }
+}

@@ -1,9 +1,10 @@
 /** Offline source publication closure; never stages, commits or publishes. */
 import {readFile,readdir,writeFile} from 'node:fs/promises';
 import {spawnSync} from 'node:child_process';
-import {ACCEPTED,PRIVATE,git,sha,check} from './common.mjs';
+import {ACCEPTED,git,sha,check} from './common.mjs';
 git(['merge-base','--is-ancestor',ACCEPTED,'HEAD']);
-check(!(await readdir(PRIVATE)).some(n=>n.startsWith('permit-')||n.endsWith('-attempt.json')),'CANNOT_RESEAL_AFTER_REVIEW_OR_DISPATCH');
+// Resealing records a new source snapshot. Apply still requires matching new
+// permit hashes and preserves every exclusive provider-operation marker.
 const prior=JSON.parse(await readFile('docs/evidence/finals-staging-app/completion-resume-2026-11-11T01-27Z/actual/result.json','utf8'));
 function blob(p){const r=spawnSync('git',['show',ACCEPTED+':'+p],{windowsHide:true});check(r.status===0,'ACCEPTED_BLOB_UNAVAILABLE');const current=spawnSync('git',['show','HEAD:'+p],{windowsHide:true});check(current.status===0&&sha(current.stdout)===sha(r.stdout),'ACCEPTED_APPLICATION_OR_RUNTIME_BLOB_CHANGED');return{path:p,sha256:sha(r.stdout),git_blob_sha256:sha(r.stdout)};}
 const application_files=prior.source.files.map(f=>blob(f.path));

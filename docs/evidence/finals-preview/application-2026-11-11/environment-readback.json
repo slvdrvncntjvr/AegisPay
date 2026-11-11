@@ -1,0 +1,30 @@
+{
+  "observedAt": "2026-11-11T05:51:46.181Z",
+  "outcome": "passed",
+  "names": [
+    "AEGIS_PREVIEW_COMMIT",
+    "AEGIS_PREVIEW_ENABLED",
+    "AEGIS_PREVIEW_SERVICE_ID",
+    "APP_ORIGIN",
+    "DATABASE_URL",
+    "DEMO_AGENT_PUBLIC_KEY",
+    "DEMO_DEVICE_HASH",
+    "DEMO_MERCHANT_LOGIN_TOKEN",
+    "DEMO_MERCHANT_PUBLIC_KEY",
+    "DEMO_OWNER_LOGIN_TOKEN",
+    "DEMO_OWNER_PUBLIC_KEY",
+    "NEXT_TELEMETRY_DISABLED",
+    "NODE_ENV",
+    "NODE_VERSION",
+    "NOIR_AGENT_REGISTRY_ID",
+    "NOIR_DEVICE_REGISTRY_ID",
+    "NOIR_PAYMENT_ESCROW_ID",
+    "NOIR_XLM_SAC_ID",
+    "RECEIPT_SIGNING_KEY",
+    "STELLAR_NETWORK",
+    "STELLAR_NETWORK_PASSPHRASE"
+  ],
+  "values_equal": true,
+  "worker_model_financial_secrets_present": false,
+  "private_values_exported": false
+}

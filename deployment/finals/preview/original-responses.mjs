@@ -106,9 +106,30 @@ export class OriginalResponses{
   };
  }
  async drain(){
-  const end=Date.now()+20000;await new Promise(r=>setTimeout(r,180));
-  while(Date.now()<end&&(this.pending.size||[...this.records.values()].some(r=>!r.covered||!r.continued))){if(this.failures.length&&!this.pending.size)break;await new Promise(r=>setTimeout(r,30));}
-  const s=this.summary();check(!s.pending&&!s.failures&&!s.missing_entities&&!s.unfollowed_redirects&&s.exact_request_maps&&s.covered===s.requests,'ORIGINAL_BROWSER_COVERAGE_INCOMPLETE');
+  const end=Date.now()+20000;
+  let previous=null;
+  let stableSince=Date.now();
+  while(Date.now()<end){
+   const state=this.summary();
+   const signature=JSON.stringify([state.requests,state.browser_requests,state.covered,state.pending,state.failures,state.unfollowed_redirects]);
+   if(signature!==previous){previous=signature;stableSince=Date.now();}
+   check(!state.failures||state.pending>0,'ORIGINAL_BROWSER_COVERAGE_INCOMPLETE');
+   const complete=!state.pending&&!state.failures&&!state.missing_entities&&!state.unfollowed_redirects&&state.exact_request_maps&&state.covered===state.requests;
+   // Browser request events can precede their paused Fetch events. Wait for
+   // both maps to agree and remain stable before accepting the transition.
+   if(complete&&Date.now()-stableSince>=180)return;
+   await new Promise(resolve=>setTimeout(resolve,30));
+  }
+  throw Error('ORIGINAL_BROWSER_COVERAGE_INCOMPLETE');
+ }
+ trackSessionCookie(value){
+  // Each qualification context starts without cookies and performs one login.
+  // Match that context's completed login, never an unrelated global attempt.
+  const logins=[...this.records.values()].filter(r=>r.login);
+  check(logins.length===1,'AMBIGUOUS_BROWSER_LOGIN_FOR_COOKIE');
+  const login=logins[0];
+  check(login.status===204&&login.covered&&login.continued,'COMPLETED_BROWSER_LOGIN_REQUIRED');
+  this.tracking.browserCookie(login.login,value);
  }
  async settleAfterClose(){
   // Caller closes its context first. This cancels in-flight protocol body

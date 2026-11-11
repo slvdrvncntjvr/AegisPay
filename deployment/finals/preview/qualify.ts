@@ -12,7 +12,7 @@ import { PRIVATE,OUT,DBHASH,NAME,check,sha,exclusive,envFile,jsonGET,safe,cleanN
 // Reuse the accepted terminal protocol through its runtime module boundary.
 const {publishTerminal}=await import(new URL('../staging-app/evidence-terminal.ts',import.meta.url).href);
 
-const directory=OUT+'/qualification';
+const directory='docs/evidence/finals-preview/application-2026-11-11/session-reconciliation/stable-capture-qualification';
 const result:any={started_at:new Date().toISOString(),outcome:'failed',scope:'separate real HTTPS Free preview; no financial/model/worker actions',http:[],browser:[],cleanup:{},body_capture:{scans:0,bytes:0,missing_bodies:0}};
 let store:ReturnType<typeof createStore>|undefined;
 const tokens=new Set<string>(),secrets=new Set<string>();
@@ -43,8 +43,10 @@ async function dbSnapshot(){
 }
 try{
  cleanNetworkEnvironment();
- const permit=JSON.parse(await readFile(PRIVATE+'/permit-qualify.json','utf8'));
+ const permit=JSON.parse(await readFile(PRIVATE+'/permit-qualify-stable-capture.json','utf8'));
  check(permit.coordinator_reviewed===true&&permit.operation==='qualify'&&Date.parse(permit.expires_at)>Date.now(),'REMOTE_QUALIFICATION_PERMIT_REQUIRED');
+ result.qualification_helpers=permit.helper_hashes;
+ result.session_identity_binding='unique completed login request in a fresh browser context';
  await mkdir(directory,{recursive:true});await exclusive(directory+'/execution.json',{started_at:result.started_at,permit_sha256:sha(await readFile(PRIVATE+'/permit-qualify.json'))});
  phase='reviewed-browser-prerequisite';
  const launched=await launchReviewedBrowser();browser=launched.browser;result.browser_identity=launched.identity;
@@ -122,14 +124,21 @@ try{
    await page.getByRole('combobox',{name:'Role',exact:true}).selectOption(role);await page.getByLabel('Demo access token').fill(config[role==='owner'?'DEMO_OWNER_LOGIN_TOKEN':'DEMO_MERCHANT_LOGIN_TOKEN']);
    await page.getByRole('button',{name:'Sign in',exact:true}).click();await expect(page).toHaveURL(owned.origin+'/app');await expect(page.getByText('Authenticated database snapshot',{exact:false})).toBeVisible();
    if(role==='owner')await expect(page.getByRole('button',{name:'Start task',exact:true})).toBeDisabled();else await expect(page.getByRole('heading',{level:1})).toHaveText('Your terms. Your claim.');
-   const cookie=(await context.cookies()).find(c=>c.name==='aegispay_session');if(cookie&&/^[A-Za-z0-9_-]{43}$/.test(cookie.value)){tokens.add(sha(cookie.value));secrets.add(cookie.value);}check(cookie?.httpOnly&&cookie.secure&&cookie.sameSite==='Strict','BROWSER_HTTPS_COOKIE_FAILED');
+   const cookie=(await context.cookies([owned.origin])).find(c=>c.name==='aegispay_session');
+   if(cookie&&/^[A-Za-z0-9_-]{43}$/.test(cookie.value))capture.trackSessionCookie(cookie.value);
+   check(cookie?.httpOnly&&cookie.secure&&cookie.sameSite==='Strict','BROWSER_HTTPS_COOKIE_FAILED');
    const state=await page.evaluate(async()=>({state:await(await fetch('/api/v1/state',{cache:'no-store'})).json(),storage:JSON.stringify({...localStorage,...sessionStorage}),html:document.documentElement.outerHTML,cookie:document.cookie}));stateCheck(state.state,role);scan(state.storage);scan(state.html);check(!state.cookie.includes('aegispay_session'),'BROWSER_COOKIE_NOT_HTTPONLY');await drain();
    await page.reload();await expect(page.getByRole('button',{name:'Sign out',exact:true})).toBeVisible();check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'HORIZONTAL_OVERFLOW');await drain();
    await page.getByRole('button',{name:'Sign out',exact:true}).click();await expect(page).toHaveURL(owned.origin+'/login');await drain();check(!(await context.cookies()).some(c=>c.name==='aegispay_session'),'BROWSER_LOGOUT_COOKIE_RETAINED');
    await request('/api/v1/state',{headers:{Cookie:'aegispay_session='+cookie!.value}},401);check(pageErrors===0,'BROWSER_NETWORK_OR_RUNTIME_FAILED');
    result.browser.push({viewport:viewport.name,role,real_https:true,real_login:true,real_state:true,reload:true,logout_revoked:true,original_response_capture:capture.summary(),page_errors:pageErrors,raw_exports:false,route_response_mocks:false});
   }finally{
-   await drain().catch(()=>{result.browser_capture_failure=true;});await context.close();await capture.settleAfterClose();
+   await drain().catch(()=>{result.browser_capture_failure=true;});
+   try{
+    const remainingCookie=(await context.cookies([owned.origin])).find(c=>c.name==='aegispay_session');
+    if(remainingCookie&&/^[A-Za-z0-9_-]{43}$/.test(remainingCookie.value))capture.trackSessionCookie(remainingCookie.value);
+   }catch{result.browser_capture_failure=true;}
+   await context.close();await capture.settleAfterClose();
    const finalCapture=capture.summary();(result.browser_capture_cleanup??=[]).push({viewport:viewport.name,role,...finalCapture});
    if(finalCapture.failures||finalCapture.pending||finalCapture.missing_entities||!finalCapture.exact_request_maps||finalCapture.covered!==finalCapture.requests)result.browser_capture_failure=true;
   }

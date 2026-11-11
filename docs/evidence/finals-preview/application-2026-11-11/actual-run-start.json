@@ -1,0 +1,10 @@
+{
+  "observed_at": "2026-11-11T05:58:04.271700+00:00",
+  "command": "node deployment/finals/preview/qualify.mjs",
+  "external_runner_session": 93900,
+  "source_commit": "7411e9d1f7eba0e947f6b72d90523f9f5ca75985",
+  "sealed_source_closure_sha256": "29c2bb753fbf73b9fde3eb8a78ce8495d8fd2899c72ef53ea42ba52b4ece201f",
+  "qualification_execution_marker_exists": true,
+  "actual_exit_not_yet_observed": true,
+  "qualification_attempts_this_dispatch": 1
+}

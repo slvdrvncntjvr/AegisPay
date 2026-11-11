@@ -1,0 +1,8 @@
+{
+  "at": "2026-11-11T05:51:52.993Z",
+  "outcome": "request-accepted-not-qualified",
+  "status": 201,
+  "operation": "deploy",
+  "source_commit": "7411e9d1f7eba0e947f6b72d90523f9f5ca75985",
+  "service_id_sha256": "45f213aaccf48b37f2418996f40f9f357e28fe53c573b3622519ea5fccf3c56d"
+}

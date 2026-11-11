@@ -1,0 +1,32 @@
+{
+  "outcome": "passed",
+  "actual_exit": 0,
+  "http_checks": 45,
+  "flows": 4,
+  "assets": 16,
+  "captured_browser_requests": 244,
+  "original_entities": 236,
+  "redirect_headers_only": 0,
+  "sessions": {
+    "total": 31,
+    "unrevoked": 0
+  },
+  "session_tracking": {
+    "login_requests": 9,
+    "identified_sessions": 6,
+    "identities_from_headers": 2,
+    "identities_from_browser_cookie_only": 4,
+    "conflicting_identities": 0,
+    "uncertain_commits": 0
+  },
+  "app_tls_observations": 3,
+  "body_capture": {
+    "scans": 290,
+    "bytes": 15536802,
+    "missing_bodies": 0
+  },
+  "source_commit": "7411e9d1f7eba0e947f6b72d90523f9f5ca75985",
+  "result_sha256": "ce3922547862cbb6715c4bf9ec725ffc4e421e14fda4f090638e435b09c9ae2a",
+  "finalization_sha256": "7ec6b4618b7d25ba266fad27a7da478fd0b5a6ef23f238ff4573d34f2c43ab78",
+  "observed_exit_sha256": "44aabe1e0cc70407ca70bfcb74a72d62531e50fa6482d87210d8a337f2196873"
+}

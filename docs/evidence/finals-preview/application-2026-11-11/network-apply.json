@@ -1,0 +1,21 @@
+{
+  "observedAt": "2026-11-11T05:50:44.763Z",
+  "operation": "allow-reviewed-preview-shared-egress",
+  "http_status": 200,
+  "mutations": 1,
+  "old_rules": 1,
+  "new_rules": 3,
+  "added_ranges": 2,
+  "added_prefix_lengths": [
+    24,
+    24
+  ],
+  "existing_client_rule_preserved": true,
+  "shared_regional_scope": true,
+  "broad_zero_prefix": false,
+  "paid_features": false,
+  "financialActions": 0,
+  "sqlStatements": 0,
+  "outcome": "passed",
+  "readback_matches": true
+}

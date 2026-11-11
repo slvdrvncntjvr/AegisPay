@@ -1,0 +1,13 @@
+{
+  "outcome": "prepared-only",
+  "provider_mutations": 0,
+  "source": "GET /services/{serviceId}/outbound-ips",
+  "outbound_type": "shared",
+  "range_count": 2,
+  "existing_rules_preserved": 1,
+  "proposed_rule_count": 3,
+  "service_exclusive": false,
+  "shared_regional_egress": true,
+  "network_expansion_requires_explicit_coordinator_review": true,
+  "request_sha256": "aad68934e2f941192815c8da754f2dc62e8aa1d147787fb8f21e3d2e3f0bfb17"
+}

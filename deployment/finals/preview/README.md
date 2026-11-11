@@ -1,4 +1,19 @@
-# Separate authenticated Free preview — preparation only
+# Separate authenticated Free preview
+
+The preview is live at https://aegispay-auth-preview.onrender.com on deployed
+commit7411e9d. Its final HTTPS qualification passed four role/viewport flows,
+45HTTP checks,16assets, actual app TLS and complete session cleanup. The
+[application report](../../../docs/evidence/finals-preview/application-2026-11-11/report.md)
+records the final local harness repairs and31revoked-session checkpoint.
+Private login instructions are in the protected ignored preview custody file
+`login-access.txt`.
+
+The steps below preserve the original preparation workflow. Creation,
+environment and deployment markers have been consumed. The hosted source
+manifest is retained with the actual deployment evidence. Later local
+qualification repairs use fresh helper-bound permits and distinct evidence
+directories; their source differs from the deployed build's helper snapshot.
+Future publication/builds require the corresponding current source manifest.
 
 This is TASK-020's review packet, based on accepted commit
 `edbd15f955190e1b12f93a3990a24248c8ee6318` and application `b2661c0`.

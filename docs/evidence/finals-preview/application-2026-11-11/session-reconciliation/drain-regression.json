@@ -1,0 +1,9 @@
+{
+  "outcome": "passed",
+  "cases": 2,
+  "asynchronous_request_map_settled": true,
+  "stable_complete_coverage_required": true,
+  "missing_body_failure_preserved": true,
+  "elapsed_ms": 464,
+  "helper_sha256": "6442fefa326acde94629435a5f706e9674a9995f7256bf0d9b09dfa1d635989d"
+}

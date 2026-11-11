@@ -1,0 +1,121 @@
+{
+  "classification": "single-compatibility-model-check-after-configured-503",
+  "workRef": {
+    "task": "TASK-007",
+    "executor": "coordinator"
+  },
+  "startedAt": "2026-11-11T15:18:11.111Z",
+  "configuredModel": "gemini-3.5-flash",
+  "testedModel": "models/gemini-2.5-flash",
+  "configurationChanged": false,
+  "limits": {
+    "generationPostMaximum": 1,
+    "discoveryGetMaximum": 10,
+    "overallDeadlineMs": 35000,
+    "adapterRequestTimeoutMs": 30000,
+    "adapterRequestBytes": 131072,
+    "adapterResponseBytes": 262144,
+    "retries": 0,
+    "redirects": 0
+  },
+  "calls": [
+    {
+      "startedAt": "2026-11-11T15:18:11.222Z",
+      "method": "GET",
+      "path": "/v1beta/models",
+      "httpStatus": 200,
+      "observedAt": "2026-11-11T15:18:11.545Z"
+    },
+    {
+      "startedAt": "2026-11-11T15:18:11.574Z",
+      "method": "POST",
+      "path": "/v1beta/models/gemini-2.5-flash:generateContent",
+      "httpStatus": 404,
+      "observedAt": "2026-11-11T15:18:11.943Z"
+    }
+  ],
+  "generationPosts": 1,
+  "discoveryGets": 1,
+  "toolsExecuted": 0,
+  "financialActions": 0,
+  "actualPurchase": false,
+  "livePaymentProof": false,
+  "initialArtifacts": [
+    {
+      "path": "docs/evidence/finals-model-provider/actual-requests.json",
+      "sha256": "f49ac8b0ced204cbc7530cbe8db8c16182907ac9dda28933ed2f2d693087ac56"
+    },
+    {
+      "path": "docs/evidence/finals-model-provider/adapter-followup-2026-11-10.json",
+      "sha256": "2febcc931b563d2ecc23dbf51e116b3be4b920c9bd8ea1d400a1e2ab818bb183"
+    },
+    {
+      "path": "docs/evidence/finals-model-provider/adapter-followup-2026-11-10.md",
+      "sha256": "c8ae155c3fe4582d90fc032b7411cc039dc1f22a866d7a73892d29c27c92795e"
+    },
+    {
+      "path": "docs/evidence/finals-model-provider/adapter-followup-validation-2026-11-10.json",
+      "sha256": "18cac04476fb72181cf7d42989997ea75fcc341c0796c8472fca2459acb8d3d9"
+    },
+    {
+      "path": "docs/evidence/finals-model-provider/adapter-readiness-2026-11-11.json",
+      "sha256": "790546af41e093178f8b6cfdcdc6893ce1f501038b96dd5e656e2b00d6f3f70e"
+    },
+    {
+      "path": "docs/evidence/finals-model-provider/primary-sources.json",
+      "sha256": "2f6881e0736bfe25536e91670484886947bebf0d38ed1c02fb0a409509f9de0d"
+    },
+    {
+      "path": "docs/evidence/finals-model-provider/report.md",
+      "sha256": "2a816315e531ec247468b6817344d25d29358ec7160df4d7d1797602150262e5"
+    },
+    {
+      "path": "docs/evidence/finals-model-provider/validation.json",
+      "sha256": "a3fb0f71ac1bc29ded951e8f63089b33a6127952a6dd4e6a648bf4efe346609d"
+    }
+  ],
+  "sourceBefore": {
+    "observedAt": "2026-11-11T15:18:11.112Z",
+    "files": [
+      {
+        "path": "src/server/integrations/model.ts",
+        "sha256": "97b5d79900fdc237baa2f930170605e68d33b757c2dcc5ded4c218a6e5afaad5"
+      },
+      {
+        "path": "packages/shared/src/index.ts",
+        "sha256": "a4f852ecadeb016f9748e3baafa3f56b63ec87fa0d0d122c4cb8d7f259763a66"
+      }
+    ]
+  },
+  "result": {
+    "status": "unavailable",
+    "adapterParsed": false,
+    "toolChoiceWorks": null,
+    "code": "MODEL_UNAVAILABLE",
+    "googleErrorCode": null,
+    "googleErrorStatus": null,
+    "googleErrorDetailAvailable": false,
+    "note": "The existing adapter cancels error bodies; no raw body read, clone, log or transport replacement."
+  },
+  "sourceAfter": {
+    "observedAt": "2026-11-11T15:18:11.949Z",
+    "files": [
+      {
+        "path": "src/server/integrations/model.ts",
+        "sha256": "97b5d79900fdc237baa2f930170605e68d33b757c2dcc5ded4c218a6e5afaad5"
+      },
+      {
+        "path": "packages/shared/src/index.ts",
+        "sha256": "a4f852ecadeb016f9748e3baafa3f56b63ec87fa0d0d122c4cb8d7f259763a66"
+      }
+    ]
+  },
+  "sourceUnchanged": true,
+  "initialArtifactsUnchanged": true,
+  "completedAt": "2026-11-11T15:18:11.951Z",
+  "transport": "existing createGeminiClient plus observational wrapper delegating unchanged arguments to original globalThis.fetch and returning the same Response",
+  "secretScan": {
+    "knownKeyMatches": 0,
+    "scope": "this new JSON receipt and ignored followup helper; final report scan recorded separately"
+  }
+}

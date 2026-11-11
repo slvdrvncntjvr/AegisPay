@@ -1,0 +1,15 @@
+{
+  "observed_at": "2026-11-11T05:54:52.340Z",
+  "outcome": "passed",
+  "scope": "one official exact owned deployment GET",
+  "provider_mutations": 0,
+  "deployment_id_sha256": "e2e49205f1c2ec620e88446a6b36f65051990c691facc139cb384bf11b3ba784",
+  "service_id_sha256": "45f213aaccf48b37f2418996f40f9f357e28fe53c573b3622519ea5fccf3c56d",
+  "source_commit": "7411e9d1f7eba0e947f6b72d90523f9f5ca75985",
+  "status": "live",
+  "created_at": "2026-11-11T05:51:54.422589Z",
+  "started_at": "2026-11-11T05:51:54.417383Z",
+  "finished_at": "2026-11-11T05:53:07.746571Z",
+  "updated_at": "2026-11-11T05:53:38.345397Z",
+  "verified_preview_url": "https://aegispay-auth-preview.onrender.com"
+}

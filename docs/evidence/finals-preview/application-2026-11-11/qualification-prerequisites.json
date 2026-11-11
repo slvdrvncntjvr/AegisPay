@@ -1,0 +1,103 @@
+{
+  "started_at": "2026-11-11T05:56:20.926Z",
+  "outcome": "passed",
+  "provider_mutations": 0,
+  "sql_read_only": true,
+  "login_attempts": 0,
+  "connection_attempts": 1,
+  "provider": {
+    "preview_url": "https://aegispay-auth-preview.onrender.com",
+    "source_commit": "7411e9d1f7eba0e947f6b72d90523f9f5ca75985",
+    "plan": "free",
+    "region": "singapore",
+    "instances": 1,
+    "auto_deploy": "off",
+    "root": "repository root",
+    "health_path": "/api/health",
+    "environment_names": [
+      "AEGIS_PREVIEW_COMMIT",
+      "AEGIS_PREVIEW_ENABLED",
+      "AEGIS_PREVIEW_SERVICE_ID",
+      "APP_ORIGIN",
+      "DATABASE_URL",
+      "DEMO_AGENT_PUBLIC_KEY",
+      "DEMO_DEVICE_HASH",
+      "DEMO_MERCHANT_LOGIN_TOKEN",
+      "DEMO_MERCHANT_PUBLIC_KEY",
+      "DEMO_OWNER_LOGIN_TOKEN",
+      "DEMO_OWNER_PUBLIC_KEY",
+      "NEXT_TELEMETRY_DISABLED",
+      "NODE_ENV",
+      "NODE_VERSION",
+      "NOIR_AGENT_REGISTRY_ID",
+      "NOIR_DEVICE_REGISTRY_ID",
+      "NOIR_PAYMENT_ESCROW_ID",
+      "NOIR_XLM_SAC_ID",
+      "RECEIPT_SIGNING_KEY",
+      "STELLAR_NETWORK",
+      "STELLAR_NETWORK_PASSPHRASE"
+    ],
+    "environment_values_equal": true
+  },
+  "tls": {
+    "real_createStore": true,
+    "encrypted": true,
+    "authorized": true,
+    "hostname_verified": true,
+    "wrong_hostname_rejected": true,
+    "protocol": "TLSv1.3",
+    "pool_max": 1
+  },
+  "database_time": "2026-11-11T05:56:25.066Z",
+  "login_budget": {
+    "owner": {
+      "attempts": 3,
+      "window_active": false,
+      "expires_at": "2026-11-11T04:41:31.547Z",
+      "remaining": 5,
+      "required": 3
+    },
+    "merchant": {
+      "attempts": 3,
+      "window_active": false,
+      "expires_at": "2026-11-11T04:41:33.444Z",
+      "remaining": 5,
+      "required": 3
+    },
+    "global": {
+      "attempts": 6,
+      "window_active": false,
+      "expires_at": "2026-11-11T04:27:31.446Z",
+      "remaining": 50,
+      "required": 6
+    }
+  },
+  "login_budget_sufficient": true,
+  "sessions": {
+    "total": 16,
+    "revoked": 16,
+    "unrevoked": 0
+  },
+  "financial_counts": {
+    "agent_run": 0,
+    "quote": 0,
+    "payment_attempt": 0,
+    "payment_evidence": 0,
+    "entitlement": 0,
+    "job": 0,
+    "wallet_operation": 0,
+    "merchant_claim": 0,
+    "run_event": 0,
+    "audit_event": 0,
+    "payment_accept_key": 0
+  },
+  "agent": {
+    "status": "unprovisioned",
+    "nonce": "0",
+    "policy": "0",
+    "expiry_epoch": true,
+    "policy_observed_ledger_null": true,
+    "identity_matches": true
+  },
+  "finished_at": "2026-11-11T05:56:24.118Z"
+}
