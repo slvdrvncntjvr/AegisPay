@@ -2,7 +2,10 @@
 import { readFile,mkdir } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { checkServerIdentity } from 'node:tls';
-import { chromium,expect } from '@playwright/test';
+import { expect,type Browser } from '@playwright/test';
+import {launchReviewedBrowser} from './browser.mjs';
+import {OriginalResponses} from './original-responses.mjs';
+import {SessionTracking,fetchWithSessionTracking} from './session-tracking.mjs';
 import { createStore } from '../../../src/server/db/connection.ts';
 import { reportFixture } from '../../../src/server/merchant/reports.ts';
 import { PRIVATE,OUT,DBHASH,NAME,check,sha,exclusive,envFile,jsonGET,safe,cleanNetworkEnvironment } from './common.mjs';
@@ -14,6 +17,9 @@ const result:any={started_at:new Date().toISOString(),outcome:'failed',scope:'se
 let store:ReturnType<typeof createStore>|undefined;
 const tokens=new Set<string>(),secrets=new Set<string>();
 const privateIPs=new Set<string>();
+const sessionTracking=new SessionTracking(tokens,secrets);
+let browser:Browser|undefined;
+const captures:any[]=[];
 const findings=['quick-signal:demo-parser:v1','deep-trace:demo-parser:v1'].flatMap(k=>reportFixture(k,'v1').findings);
 let phase='private-permit';
 function scan(bytes:Buffer|string,count=true){const s=bytes.toString();if(count){result.body_capture.scans++;result.body_capture.bytes+=Buffer.byteLength(bytes);}check(![...findings,...secrets].some(v=>s.includes(v)||s.includes(encodeURIComponent(v))||s.includes(JSON.stringify(v).slice(1,-1)))&&![...privateIPs].some(v=>s.includes(v))&&!/postgres(?:ql)?:\/\/[^\s"']+:[^\s"']+@/.test(s)&&!(/\b(?:dpg|usr|tea|srv)-[a-z0-9]{10,}(?:-[a-z0-9]+)?\b/.test(s)),'REMOTE_RESPONSE_PRIVATE_LEAK');}
@@ -40,6 +46,9 @@ try{
  const permit=JSON.parse(await readFile(PRIVATE+'/permit-qualify.json','utf8'));
  check(permit.coordinator_reviewed===true&&permit.operation==='qualify'&&Date.parse(permit.expires_at)>Date.now(),'REMOTE_QUALIFICATION_PERMIT_REQUIRED');
  await mkdir(directory,{recursive:true});await exclusive(directory+'/execution.json',{started_at:result.started_at,permit_sha256:sha(await readFile(PRIVATE+'/permit-qualify.json'))});
+ phase='reviewed-browser-prerequisite';
+ const launched=await launchReviewedBrowser();browser=launched.browser;result.browser_identity=launched.identity;
+ check(permit.browser_sha256===launched.identity.sha256,'REVIEWED_BROWSER_BINARY_CHANGED');
  const config=JSON.parse(await readFile(PRIVATE+'/preview-environment.json','utf8'));
  const spec=JSON.parse(await readFile('deployment/finals/preview/environment.json','utf8'));
  const requiredNames=[...Object.keys(spec.fixed),...spec.provider_verified,...spec.private_external_verify_full,...spec.copy_only_public_staging_values,...spec.generate_independent_48_byte_base64url_after_review].sort();
@@ -66,12 +75,12 @@ try{
  result.provider={service_sha256:sha(owned.id),origin:owned.origin,source_commit:permit.source_commit,plan:'free',region:'singapore',auto_deploy:'off',environment_names:Object.keys(config).sort()};
  phase='database-before-login';
  const db=await envFile('.env.staging.local');store=createStore(db.DATABASE_URL!,'public',1);store.pool.on('error',()=>{});
- result.before=await dbSnapshot();check(result.before.sessions.total===16&&result.before.sessions.unrevoked===0,'EXPECTED_16_PRIOR_REVOKED_SESSIONS');
+ result.before=await dbSnapshot();check(Number.isSafeInteger(permit.prior_revoked_sessions)&&permit.prior_revoked_sessions>=16&&result.before.sessions.total===permit.prior_revoked_sessions&&result.before.sessions.unrevoked===0,'REVIEWED_PRIOR_REVOKED_SESSION_CHECKPOINT_REQUIRED');
  const prior=JSON.parse(await readFile('docs/evidence/finals-staging-app/completion-resume-2026-11-11T01-27Z/actual/result.json','utf8'));check(JSON.stringify(result.before.migrations)===JSON.stringify(prior.migrations),'ACCEPTED_MIGRATION_HISTORY_CHANGED');
  for(const b of Object.values(result.before.budget) as any[])check(b.remaining>=b.required,'NATURAL_LOGIN_BUDGET_INSUFFICIENT');
  check(result.before.agent_identity.public_key_sha256===sha(config.DEMO_AGENT_PUBLIC_KEY)&&result.before.agent_identity.device_hash_sha256===sha(config.DEMO_DEVICE_HASH),'PREVIEW_AGENT_IDENTITY_MISMATCH');
  const request=async(p:string,options:RequestInit={},expected=200)=>{
-  const r=await fetch(owned.origin+p,{...options,redirect:'manual',signal:AbortSignal.timeout(20000)});const body=Buffer.from(await r.arrayBuffer());scan(body);
+  const r=await fetchWithSessionTracking(owned.origin+p,{...options,redirect:'manual',signal:AbortSignal.timeout(20000)},sessionTracking);const body=Buffer.from(await r.arrayBuffer());scan(body);
   result.http.push({path_category:p.startsWith('/_next/static/')?'STATIC':p.split('?')[0],method:options.method??'GET',status:r.status,bytes:body.length,sha256:sha(body)});
   check(r.status===expected,'HTTPS_HTTP_STATUS_MISMATCH');if(p.startsWith('/api/'))check(r.headers.get('cache-control')==='no-store','API_NO_STORE_REQUIRED');return{r,body,json:()=>JSON.parse(body.toString())};
  };
@@ -100,32 +109,40 @@ try{
  const attestations=(data:any)=>{check(data.hasMore!==true,'ATTESTATION_LOG_WINDOW_INCOMPLETE');const rows=data.logs??data;check(Array.isArray(rows),'PROVIDER_LOG_SCHEMA_CHANGED');return rows.map((v:any)=>String(v.message??'')).filter((m:string)=>m.startsWith('[preview-attestation]')).map((m:string)=>JSON.parse(m.slice('[preview-attestation]'.length))).filter((v:any)=>v.commit===permit.source_commit);};
  phase='remote-build-assets';const build=attestations(await logs()).filter((v:any)=>v.kind==='build');check(build.length===1&&build[0].assets.length>0&&build[0].source_closure_sha256===JSON.parse(await readFile('deployment/finals/preview/source-closure.json','utf8')).application_sha256,'EXACT_REMOTE_BUILD_RECEIPT_REQUIRED');
  result.build=build[0];for(const a of build[0].assets){check(/^\/_next\/static\/[A-Za-z0-9_./-]+$/.test(a.path)&&!a.path.includes('..'),'UNSAFE_BUILD_ASSET_PATH');const response=await request(a.path);check(sha(response.body)===a.sha256&&response.body.length===a.bytes,'DEPLOYED_ASSET_BUILD_MISMATCH');}
- phase='actual-https-browser';const browser=await chromium.launch({headless:true});
+ phase='actual-https-browser';
  try{for(const viewport of [{name:'desktop',width:1440,height:1000},{name:'mobile',width:390,height:844}])for(const role of ['owner','merchant']){
-  const context=await browser.newContext({viewport:{width:viewport.width,height:viewport.height},serviceWorkers:'block'}),pending=new Set<Promise<void>>(),coverage=new Map<object,boolean>();let failures=0,responses=0,forbidden=0,pageErrors=0;
-  context.on('request',r=>coverage.set(r,false));
-  await context.route('**/*',route=>{const r=route.request(),u=new URL(r.url());if(u.origin!==owned.origin||r.method()!=='GET'&&u.pathname!=='/api/session'||/wallet-state|wallet-operations|payment-attempts|\/demo\/|\/runs(?:\/|$)/.test(u.pathname)){forbidden++;return route.abort();}return route.continue();});
-  context.on('response',response=>{const p=(async()=>{try{if(response.request().method()==='POST'&&new URL(response.url()).pathname==='/api/session'&&response.status()===204){const set=await response.headerValue('set-cookie');const token=/^aegispay_session=([A-Za-z0-9_-]{43});/.exec(set??'');if(token){tokens.add(sha(token[1]!));secrets.add(token[1]!);}}const b=await response.body();scan(b);coverage.set(response.request(),true);responses++;}catch{failures++;result.body_capture.missing_bodies++;}})();pending.add(p);void p.finally(()=>pending.delete(p));});
+  const context=await browser!.newContext({viewport:{width:viewport.width,height:viewport.height},serviceWorkers:'block'});
+  let pageErrors=0;
   const page=await context.newPage();page.on('pageerror',()=>pageErrors++);
-  const drain=async()=>{const until=Date.now()+20000;await new Promise(r=>setTimeout(r,180));while((pending.size||[...coverage.values()].some(v=>!v))&&Date.now()<until)await new Promise(r=>setTimeout(r,50));check(!pending.size&&failures===0&&[...coverage.values()].every(Boolean),'BROWSER_EXACT_BODY_CAPTURE_INCOMPLETE');};
+  const capture=new OriginalResponses(owned.origin,scan,sessionTracking,(r:any)=>{const u=new URL(r.url);return u.origin===owned.origin&&(r.method==='GET'||r.url===owned.origin+'/api/session')&&!/wallet-state|wallet-operations|payment-attempts|\/demo\/|\/runs(?:\/|$)/.test(u.pathname);});
+  captures.push(capture);await capture.attach(context,page);
+  const drain=()=>capture.drain();
   try{
    await page.goto(owned.origin+'/app');await expect(page).toHaveURL(/\/login\?expired=1$/);await drain();
    await page.getByRole('combobox',{name:'Role',exact:true}).selectOption(role);await page.getByLabel('Demo access token').fill(config[role==='owner'?'DEMO_OWNER_LOGIN_TOKEN':'DEMO_MERCHANT_LOGIN_TOKEN']);
    await page.getByRole('button',{name:'Sign in',exact:true}).click();await expect(page).toHaveURL(owned.origin+'/app');await expect(page.getByText('Authenticated database snapshot',{exact:false})).toBeVisible();
    if(role==='owner')await expect(page.getByRole('button',{name:'Start task',exact:true})).toBeDisabled();else await expect(page.getByRole('heading',{level:1})).toHaveText('Your terms. Your claim.');
-   const cookie=(await context.cookies()).find(c=>c.name==='aegispay_session');check(cookie?.httpOnly&&cookie.secure&&cookie.sameSite==='Strict','BROWSER_HTTPS_COOKIE_FAILED');tokens.add(sha(cookie!.value));secrets.add(cookie!.value);
+   const cookie=(await context.cookies()).find(c=>c.name==='aegispay_session');if(cookie&&/^[A-Za-z0-9_-]{43}$/.test(cookie.value)){tokens.add(sha(cookie.value));secrets.add(cookie.value);}check(cookie?.httpOnly&&cookie.secure&&cookie.sameSite==='Strict','BROWSER_HTTPS_COOKIE_FAILED');
    const state=await page.evaluate(async()=>({state:await(await fetch('/api/v1/state',{cache:'no-store'})).json(),storage:JSON.stringify({...localStorage,...sessionStorage}),html:document.documentElement.outerHTML,cookie:document.cookie}));stateCheck(state.state,role);scan(state.storage);scan(state.html);check(!state.cookie.includes('aegispay_session'),'BROWSER_COOKIE_NOT_HTTPONLY');await drain();
    await page.reload();await expect(page.getByRole('button',{name:'Sign out',exact:true})).toBeVisible();check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'HORIZONTAL_OVERFLOW');await drain();
    await page.getByRole('button',{name:'Sign out',exact:true}).click();await expect(page).toHaveURL(owned.origin+'/login');await drain();check(!(await context.cookies()).some(c=>c.name==='aegispay_session'),'BROWSER_LOGOUT_COOKIE_RETAINED');
-   await request('/api/v1/state',{headers:{Cookie:'aegispay_session='+cookie!.value}},401);check(forbidden===0&&pageErrors===0,'BROWSER_NETWORK_OR_RUNTIME_FAILED');
-   result.browser.push({viewport:viewport.name,role,real_https:true,real_login:true,real_state:true,reload:true,logout_revoked:true,requests:coverage.size,responses_scanned:responses,exact_per_request_body_coverage:[...coverage.values()].every(Boolean),missing_bodies:failures,forbidden_requests:forbidden,page_errors:pageErrors,raw_exports:false,route_response_mocks:false});
-  }finally{await drain().catch(()=>{result.browser_capture_failure=true;});await context.close();}
- }}finally{await browser.close();}
+   await request('/api/v1/state',{headers:{Cookie:'aegispay_session='+cookie!.value}},401);check(pageErrors===0,'BROWSER_NETWORK_OR_RUNTIME_FAILED');
+   result.browser.push({viewport:viewport.name,role,real_https:true,real_login:true,real_state:true,reload:true,logout_revoked:true,original_response_capture:capture.summary(),page_errors:pageErrors,raw_exports:false,route_response_mocks:false});
+  }finally{
+   await drain().catch(()=>{result.browser_capture_failure=true;});await context.close();await capture.settleAfterClose();
+   const finalCapture=capture.summary();(result.browser_capture_cleanup??=[]).push({viewport:viewport.name,role,...finalCapture});
+   if(finalCapture.failures||finalCapture.pending||finalCapture.missing_entities||!finalCapture.exact_request_maps||finalCapture.covered!==finalCapture.requests)result.browser_capture_failure=true;
+  }
+ }}finally{await browser!.close();browser=undefined;}
  check(result.browser.length===4&&!result.browser_capture_failure,'BROWSER_MATRIX_INCOMPLETE');
  phase='actual-app-pool-tls';const tls=attestations(await logs()).filter((v:any)=>v.kind==='app_pool_tls');check(tls.length>0&&tls.every((v:any)=>v.resource_matches&&v.encrypted&&v.authorized&&v.hostname_verified&&v.wrong_hostname_rejected&&v.strict_configuration&&v.pool_max===10),'ACTUAL_APP_POOL_STRICT_TLS_REQUIRED');result.app_pool_tls=tls;
- phase='final-database';result.after=await dbSnapshot();check(result.after.sessions.total===22&&result.after.sessions.unrevoked===0&&tokens.size===6&&JSON.stringify(result.before.migrations)===JSON.stringify(result.after.migrations),'FINAL_SESSIONS_OR_MIGRATIONS_MISMATCH');result.outcome='passed';
+ phase='final-database';result.after=await dbSnapshot();check(result.after.sessions.total===result.before.sessions.total+6&&result.after.sessions.unrevoked===0&&tokens.size===6&&sessionTracking.summary().uncertain_commits===0&&JSON.stringify(result.before.migrations)===JSON.stringify(result.after.migrations),'FINAL_SESSIONS_OR_MIGRATIONS_MISMATCH');result.outcome='passed';
 }catch(e){result.safe_failure=safe(e);result.failed_phase=phase;}
 finally{
+ if(browser)await browser.close().catch(()=>{result.outcome='failed';});
+ await Promise.allSettled(captures.map(c=>c.settleAfterClose()));
+ result.cleanup.session_capture=sessionTracking.summary();
+ if(result.cleanup.session_capture.uncertain_commits){result.cleanup.uncertain_session_commit=true;result.outcome='failed';}
  if(store){try{if(tokens.size)await store.pool.query('UPDATE session SET revoked_at=clock_timestamp() WHERE token_hash=ANY($1::text[]) AND revoked_at IS NULL',[[...tokens]]);result.cleanup.database=await dbSnapshot();check(result.cleanup.database.sessions.unrevoked===0,'UNREVOKED_TEST_SESSION');}catch{result.cleanup.database_failed=true;result.outcome='failed';}await store.close();}
  result.finished_at=new Date().toISOString();await mkdir(directory,{recursive:true});
  try{const t=await publishTerminal(directory,result,[],(text:string)=>scan(text,false));process.stdout.write(JSON.stringify({outcome:result.outcome,report:directory+'/result.json',safe_failure:result.safe_failure,finalization_sha256:t.finalization_sha256,requires_external_observed_exit:true})+'\n');}catch{process.stdout.write('{"outcome":"failed","safe_failure":"TERMINAL_PUBLICATION_FAILED"}\n');result.outcome='failed';}

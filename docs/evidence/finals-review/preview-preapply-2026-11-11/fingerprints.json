@@ -1,0 +1,170 @@
+[
+  {
+    "path": "deployment/finals/preview/apply.mjs",
+    "sha256": "b4f00689cd2e4bc5c0af4e5b5eb792bfb5c79988b01405914f1141cba929172a",
+    "sha256_after": "b4f00689cd2e4bc5c0af4e5b5eb792bfb5c79988b01405914f1141cba929172a",
+    "stable": true,
+    "at": "2026-11-11T05:08:22.049373+00:00"
+  },
+  {
+    "path": "deployment/finals/preview/common.mjs",
+    "sha256": "31ed631a03682f0fb117108c7fc953845ce5483d798dd9797a4cc32bef71b97b",
+    "sha256_after": "31ed631a03682f0fb117108c7fc953845ce5483d798dd9797a4cc32bef71b97b",
+    "stable": true,
+    "at": "2026-11-11T05:08:22.049373+00:00"
+  },
+  {
+    "path": "deployment/finals/preview/guards.mjs",
+    "sha256": "9f8feeb6d9dffcddddb20bf18ba2a7e3ff9e575c07d11b57fbf773458725a1b8",
+    "sha256_after": "9f8feeb6d9dffcddddb20bf18ba2a7e3ff9e575c07d11b57fbf773458725a1b8",
+    "stable": true,
+    "at": "2026-11-11T05:08:22.050418+00:00"
+  },
+  {
+    "path": "deployment/finals/preview/environment.json",
+    "sha256": "984bafe89e845e6d5fb2fd53cd02645172a583f6eaae1102dd1447647a86985b",
+    "sha256_after": "984bafe89e845e6d5fb2fd53cd02645172a583f6eaae1102dd1447647a86985b",
+    "stable": true,
+    "at": "2026-11-11T05:08:22.050418+00:00"
+  },
+  {
+    "path": "deployment/finals/preview/request-template.json",
+    "sha256": "27ebe895597986f2872043dff65bd77bb152447fe96a652108d374ee70105a46",
+    "sha256_after": "27ebe895597986f2872043dff65bd77bb152447fe96a652108d374ee70105a46",
+    "stable": true,
+    "at": "2026-11-11T05:08:22.050418+00:00"
+  },
+  {
+    "path": "deployment/finals/preview/build.mjs",
+    "sha256": "b42ca55feec1d5b73e173955d3583778a7a42f9bbaf83150260c7344114bf00a",
+    "sha256_after": "b42ca55feec1d5b73e173955d3583778a7a42f9bbaf83150260c7344114bf00a",
+    "stable": true,
+    "at": "2026-11-11T05:08:27.693046+00:00"
+  },
+  {
+    "path": "deployment/finals/preview/start.mjs",
+    "sha256": "3a337eac923e527032ff47742b510527ef08c74fbb046c69e401ffd86a51142d",
+    "sha256_after": "3a337eac923e527032ff47742b510527ef08c74fbb046c69e401ffd86a51142d",
+    "stable": true,
+    "at": "2026-11-11T05:08:27.693046+00:00"
+  },
+  {
+    "path": "deployment/finals/preview/network-plan.mjs",
+    "sha256": "22558043cab6f7b877ff2d1fdf2b9c520127a8c4ec1e057285b212fb6ea0f344",
+    "sha256_after": "22558043cab6f7b877ff2d1fdf2b9c520127a8c4ec1e057285b212fb6ea0f344",
+    "stable": true,
+    "at": "2026-11-11T05:08:27.693046+00:00"
+  },
+  {
+    "path": "deployment/finals/preview/qualify.mjs",
+    "sha256": "9cff96403ea4b2ad765d7eb01ce1997894e2f52eac10d17236c354a4c2800307",
+    "sha256_after": "9cff96403ea4b2ad765d7eb01ce1997894e2f52eac10d17236c354a4c2800307",
+    "stable": true,
+    "at": "2026-11-11T05:08:27.694401+00:00"
+  },
+  {
+    "path": "deployment/finals/preview/tls-observer.cjs",
+    "sha256": "cb2879ea959de75df21f5dfe156fb229147471f89669087f19d4a34269232825",
+    "sha256_after": "cb2879ea959de75df21f5dfe156fb229147471f89669087f19d4a34269232825",
+    "stable": true,
+    "at": "2026-11-11T05:08:27.694401+00:00"
+  },
+  {
+    "path": "deployment/finals/preview/qualify.ts",
+    "sha256": "bc243d276cf06334ad505a1b93e39d6b805ce0ea132555066ef86d62906568d8",
+    "sha256_after": "bc243d276cf06334ad505a1b93e39d6b805ce0ea132555066ef86d62906568d8",
+    "stable": true,
+    "at": "2026-11-11T05:08:38.126061+00:00"
+  },
+  {
+    "path": "deployment/finals/preview/seal.mjs",
+    "sha256": "3519cefbe2c116421307865cec3d97fc1379af0b028c567849a4f75b11f7ff47",
+    "sha256_after": "3519cefbe2c116421307865cec3d97fc1379af0b028c567849a4f75b11f7ff47",
+    "stable": true,
+    "at": "2026-11-11T05:09:20.670158+00:00"
+  },
+  {
+    "path": "deployment/finals/preview/offline-check.mjs",
+    "sha256": "7d58c437e3e7ffb6ec5a2ff90b9a54ea5c85c08615630647ee8aa39921ff2ff4",
+    "sha256_after": "7d58c437e3e7ffb6ec5a2ff90b9a54ea5c85c08615630647ee8aa39921ff2ff4",
+    "stable": true,
+    "at": "2026-11-11T05:09:20.670158+00:00"
+  },
+  {
+    "path": "deployment/finals/preview/inspect.mjs",
+    "sha256": "7fc7e3c20d617c9c67926198d0422a3f6340d8e60ee63a51cacb8d1425cfdc7a",
+    "sha256_after": "7fc7e3c20d617c9c67926198d0422a3f6340d8e60ee63a51cacb8d1425cfdc7a",
+    "stable": true,
+    "at": "2026-11-11T05:09:20.671078+00:00"
+  },
+  {
+    "path": "src/server/http/application.ts",
+    "sha256": "fc545ce65dde60fed8569e8ae100437625e3fd8f6dfba8696152da273bd4a812",
+    "sha256_after": "fc545ce65dde60fed8569e8ae100437625e3fd8f6dfba8696152da273bd4a812",
+    "stable": true,
+    "at": "2026-11-11T05:09:31.847070+00:00"
+  },
+  {
+    "path": "src/server/auth/session.ts",
+    "sha256": "c88807e64a26bfea6e26c120171b21c361cbf0719fb673b5bbffc22f2f85f070",
+    "sha256_after": "c88807e64a26bfea6e26c120171b21c361cbf0719fb673b5bbffc22f2f85f070",
+    "stable": true,
+    "at": "2026-11-11T05:09:31.847070+00:00"
+  },
+  {
+    "path": "src/server/db/connection.ts",
+    "sha256": "38bf27fe97edd4ef957d5b8a4efea5863bffc00e659e02cc72fa348b6e572f0d",
+    "sha256_after": "38bf27fe97edd4ef957d5b8a4efea5863bffc00e659e02cc72fa348b6e572f0d",
+    "stable": true,
+    "at": "2026-11-11T05:09:31.848054+00:00"
+  },
+  {
+    "path": "package.json",
+    "sha256": "ffa6b3f0c23d6e3828b0f24a110f3d54c565c37e6b03d68c02facb23e7d23ae3",
+    "sha256_after": "ffa6b3f0c23d6e3828b0f24a110f3d54c565c37e6b03d68c02facb23e7d23ae3",
+    "stable": true,
+    "at": "2026-11-11T05:09:31.848054+00:00"
+  },
+  {
+    "path": "pnpm-workspace.yaml",
+    "sha256": "59d2e32d6027151ec7a2fc34432d1c41bddd070f4c3fedd69a817ead5040f168",
+    "sha256_after": "59d2e32d6027151ec7a2fc34432d1c41bddd070f4c3fedd69a817ead5040f168",
+    "stable": true,
+    "at": "2026-11-11T05:09:31.848054+00:00"
+  },
+  {
+    "path": "apps/web/package.json",
+    "sha256": "15de4de583f19560221c1525a1cf5d0da1775bdd6b99b6470ecce6bbe1f91f4b",
+    "sha256_after": "15de4de583f19560221c1525a1cf5d0da1775bdd6b99b6470ecce6bbe1f91f4b",
+    "stable": true,
+    "at": "2026-11-11T05:09:31.848054+00:00"
+  },
+  {
+    "path": "apps/web/next.config.ts",
+    "sha256": "abcb57e47d5715b45cb745e5eb52eb59f8e636d9100dc640927cdba105cdc1ba",
+    "sha256_after": "abcb57e47d5715b45cb745e5eb52eb59f8e636d9100dc640927cdba105cdc1ba",
+    "stable": true,
+    "at": "2026-11-11T05:09:31.848054+00:00"
+  },
+  {
+    "path": "apps/web/src/app/api/[...path]/route.ts",
+    "sha256": "9891c3131eb1a826910900f7b608198fbcd6de31cbd5c71f44c22be55cce5c7b",
+    "sha256_after": "9891c3131eb1a826910900f7b608198fbcd6de31cbd5c71f44c22be55cce5c7b",
+    "stable": true,
+    "at": "2026-11-11T05:12:18.603936+00:00"
+  },
+  {
+    "path": "apps/web/src/app/api/health/route.ts",
+    "sha256": "acc464db831bb06a6b30d0dc83b1acf04aff6f8a6042a8de22a0636c1410c5b5",
+    "sha256_after": "acc464db831bb06a6b30d0dc83b1acf04aff6f8a6042a8de22a0636c1410c5b5",
+    "stable": true,
+    "at": "2026-11-11T05:12:18.604972+00:00"
+  },
+  {
+    "path": "src/server/http/boundaries.ts",
+    "sha256": "d88f3127f866ea6021b1cdd29abfe316a3ae0008e9d2c9b1efe1a71fcd93f6eb",
+    "sha256_after": "d88f3127f866ea6021b1cdd29abfe316a3ae0008e9d2c9b1efe1a71fcd93f6eb",
+    "stable": true,
+    "at": "2026-11-11T05:12:18.605899+00:00"
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "at": "2026-11-11T05:37:21.429605+00:00",
+  "installed_playwright": "1.65.0",
+  "installed_protocol_declarations_sha256": "b554eac8994913f46c4b619458e088922f417d693c38730230fd071395977275",
+  "official_reference": "https://chromedevtools.github.io/devtools-protocol/tot/Fetch/",
+  "observed_supported_commands": [
+    "Fetch.enable",
+    "Fetch.getResponseBody",
+    "Fetch.continueResponse",
+    "Fetch.continueRequest",
+    "Fetch.failRequest",
+    "Network.enable",
+    "Network.setCacheDisabled"
+  ],
+  "forbidden_commands_used": 0,
+  "body_method_semantics": "original response-stage requestId; full body before unchanged continuation; redirect bodies unavailable and not claimed",
+  "browser": {
+    "executable": "C:/Users/Vincent/AppData/Local/ms-playwright/chromium-1248/chrome-win64/chrome.exe",
+    "sha256": "7f08161bbeb2853ffe1780a9ded4985087f52efb9725d7d8207aabdd42f7cfb9",
+    "version": "156.0.8078.4",
+    "explicit_executable": true,
+    "downloaded": false
+  }
+}

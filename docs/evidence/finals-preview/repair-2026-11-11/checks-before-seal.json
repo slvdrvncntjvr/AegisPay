@@ -1,0 +1,209 @@
+{
+  "at": "2026-11-11T05:34:43.281697+00:00",
+  "outcome": "passed",
+  "checks": [
+    {
+      "command": [
+        "node",
+        "node_modules/typescript/bin/tsc",
+        "--ignoreConfig",
+        "--noEmit",
+        "--moduleResolution",
+        "bundler",
+        "--module",
+        "esnext",
+        "--target",
+        "es2022",
+        "--allowJs",
+        "--checkJs",
+        "false",
+        "--skipLibCheck",
+        "--allowImportingTsExtensions",
+        "deployment/finals/preview/qualify.ts"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/apply.mjs"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/browser.mjs"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/build.mjs"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/common.mjs"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/guards.mjs"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/inspect.mjs"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/network-plan.mjs"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/offline-check.mjs"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/original-responses.mjs"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/qualify.mjs"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/qualify.ts"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/repair-check.mjs"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/schema.mjs"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/seal.mjs"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/session-tracking.mjs"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/start.mjs"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "deployment/finals/preview/tls-observer.cjs"
+      ],
+      "exit": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0
+    }
+  ],
+  "regression_command": [
+    "node",
+    "deployment/finals/preview/repair-check.mjs"
+  ],
+  "regression_exit": 0,
+  "regression_receipt": "regression-4.json",
+  "real_provider_calls": 0,
+  "real_database_sql": 0,
+  "real_logins": 0,
+  "remote_gate_run": false
+}

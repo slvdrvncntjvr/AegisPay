@@ -1,0 +1,86 @@
+{
+  "at": "2026-11-11T05:22:17.663147+00:00",
+  "preserved_artifacts": [
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/api-response-review.json",
+      "sha256": "d975e6626e071b6fd87865f4cb69c34a30e1344c146b5f5e984dbcb1cf01784c"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/final-packet.json",
+      "sha256": "09eeb5648697cd735c393825672a6e7d9f50f0a9f670b8b81a48c26bdabe932a"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/final-validation-2.json",
+      "sha256": "9bc2132a4dde3f2e3677fd08cfb3de712376523f81c41bda0bc6c5fc3895d186"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/final-validation.json",
+      "sha256": "bbd36f29e804196b39db9033113a1cc97f6070543794b328e026211245c48352"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/hygiene-first-failure.json",
+      "sha256": "e925bf2972a571835038499bc39daa61b320cab21a2d34b2f8e90ea1ab70cfae"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/official-schema.json",
+      "sha256": "1dc3600c24a77c924c2a7f0e57f8af7a5e7ca9c4f633034f830c73a0e8f12ee1"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/offline-check-1.json",
+      "sha256": "285bf14813eaa80963b4cebd44827ef0f4879a2174be16c9c40904e95850aa9e"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/offline-check-2.json",
+      "sha256": "2b9023ad1e554df59e2c1b4e312b5361b3efb6e2a8c66cbb18e796d6743033a6"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/offline-check-3.json",
+      "sha256": "6cf630bdcf8ed272849b6562caa10f7d66edba916625b99c3fd6b293c006faab"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/offline-check-4.json",
+      "sha256": "f60d4c6dc782ad177e08c0ae4962ca472c9278663414e7d2a1874cbdb8532b70"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/offline-check-5.json",
+      "sha256": "959f05a5171a15bf439dfbb76328222b6d5ff42b0c443e3e5a0fff451db43cc1"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/provider-readonly.json",
+      "sha256": "5f3a166f29ee19a042dfb7d2a5ed78a4aef46bbfce776e8ac54d47c4948c1271"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/report.md",
+      "sha256": "3f31ef4c59bc6e41be99b70a26fb78b09d311c612a6f542c47b71c3d2cfe7c54"
+    },
+    {
+      "path": "docs/evidence/finals-preview/preparation-2026-11-11/validation.json",
+      "sha256": "2859f529257d399c93380cae5b992e20d3890c62a729082e260403971c10c02d"
+    },
+    {
+      "path": "docs/evidence/finals-review/preview-preapply-2026-11-11/fingerprints.json",
+      "sha256": "932edfb63d7828b64906996a07eb5edf3e86a2688b1501369b3f042f3745c15a"
+    },
+    {
+      "path": "docs/evidence/finals-review/preview-preapply-2026-11-11/read.py",
+      "sha256": "dc52453569e42c4ab69b30bf6d544cb5f932a2c9a6174982efcb6463fe05eda5"
+    },
+    {
+      "path": "docs/evidence/finals-review/preview-preapply-2026-11-11/report.md",
+      "sha256": "0d4f9b10fef696f44e1fe4443e5e2d439a1b3ec64bbbcdea356f143ab9fc0c97"
+    },
+    {
+      "path": "docs/evidence/finals-review/preview-preapply-2026-11-11/source-closure-confirmation.json",
+      "sha256": "e74ca46981bbe528f4db945d15e8b743c0d60aba804764a70a6c8d5b74a130c6"
+    },
+    {
+      "path": "docs/evidence/finals-review/preview-preapply-2026-11-11/static-join.json",
+      "sha256": "688ef847c32a865d66149e4cb4326ad0c961f18c5e47fd7c5e402d94419ce3cd"
+    },
+    {
+      "path": "docs/evidence/finals-review/preview-preapply-2026-11-11/static-join.py",
+      "sha256": "b5fafea24d6ea1b0e56434196327458d3eb93f781d7d19c3e3ef085d59d762cb"
+    }
+  ],
+  "old_source_closure_sha256": "0aa0f3c92a606a1f613791222e787f8716e7cf15328b54337988b3b2ebecbf7a"
+}

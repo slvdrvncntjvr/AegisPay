@@ -1,0 +1,9 @@
+{
+  "at": "2026-11-11T05:14:26.881919+00:00",
+  "clarification": "The initial generic LF comparison also transformed one binary WOFF2; compare raw bytes first, and normalize only Windows text differences. This is a reviewer comparison correction, not product drift.",
+  "all_90_committed_Git_blob_hashes_match_manifest": true,
+  "all_74_application_runtime_blobs_match_accepted_commit": true,
+  "all_disk_files_match_raw_or_LF_text": true,
+  "binary_font_raw_hash_matches": true,
+  "disk_raw_difference_count": 52
+}

@@ -1,0 +1,178 @@
+{
+  "at": "2026-11-11T05:38:42.696Z",
+  "outcome": "passed",
+  "scope": "offline repair integrity and exact-private-value hygiene only",
+  "preserved_preparation_and_reviewer_artifacts": 20,
+  "original_protected_custody_files_unchanged": 7,
+  "sealed_helpers": 20,
+  "accepted_application_files": 72,
+  "accepted_runtime_files": 2,
+  "known_secret_matches": 0,
+  "protected_fixture_matches": 0,
+  "full_provider_id_matches": 0,
+  "raw_dsn_matches": 0,
+  "client_ip_matches": 0,
+  "raw_private_values_memory_only": true,
+  "old_source_closure_sha256": "0aa0f3c92a606a1f613791222e787f8716e7cf15328b54337988b3b2ebecbf7a",
+  "new_source_closure_sha256": "29c2bb753fbf73b9fde3eb8a78ce8495d8fd2899c72ef53ea42ba52b4ece201f",
+  "regression_bound_to_final_sources": true,
+  "no_preview_permits_or_attempts": true,
+  "hosted_gate_run": false,
+  "inventory": [
+    {
+      "path": "deployment/finals/preview/apply.mjs",
+      "bytes": 7664,
+      "sha256": "b4f00689cd2e4bc5c0af4e5b5eb792bfb5c79988b01405914f1141cba929172a"
+    },
+    {
+      "path": "deployment/finals/preview/browser.mjs",
+      "bytes": 617,
+      "sha256": "89f87d248235ef105aca9f5e745e9be303276e76d9acfc8781a032ea18e05b8c"
+    },
+    {
+      "path": "deployment/finals/preview/build.mjs",
+      "bytes": 3304,
+      "sha256": "b42ca55feec1d5b73e173955d3583778a7a42f9bbaf83150260c7344114bf00a"
+    },
+    {
+      "path": "deployment/finals/preview/common.mjs",
+      "bytes": 3303,
+      "sha256": "31ed631a03682f0fb117108c7fc953845ce5483d798dd9797a4cc32bef71b97b"
+    },
+    {
+      "path": "deployment/finals/preview/environment.json",
+      "bytes": 1121,
+      "sha256": "984bafe89e845e6d5fb2fd53cd02645172a583f6eaae1102dd1447647a86985b"
+    },
+    {
+      "path": "deployment/finals/preview/guards.mjs",
+      "bytes": 1544,
+      "sha256": "9f8feeb6d9dffcddddb20bf18ba2a7e3ff9e575c07d11b57fbf773458725a1b8"
+    },
+    {
+      "path": "deployment/finals/preview/inspect.mjs",
+      "bytes": 6876,
+      "sha256": "ae40bea50341f4b711d9323e7382400c9c06aa24b538929860aae777d07a99b1"
+    },
+    {
+      "path": "deployment/finals/preview/network-plan.mjs",
+      "bytes": 2344,
+      "sha256": "22558043cab6f7b877ff2d1fdf2b9c520127a8c4ec1e057285b212fb6ea0f344"
+    },
+    {
+      "path": "deployment/finals/preview/offline-check.mjs",
+      "bytes": 6839,
+      "sha256": "7d58c437e3e7ffb6ec5a2ff90b9a54ea5c85c08615630647ee8aa39921ff2ff4"
+    },
+    {
+      "path": "deployment/finals/preview/original-responses.mjs",
+      "bytes": 7581,
+      "sha256": "145d42d7a7c7945f5b2206d1a5803250ce01dc9f94fe7e556e3b2dd3013a3943"
+    },
+    {
+      "path": "deployment/finals/preview/qualify.mjs",
+      "bytes": 1470,
+      "sha256": "70ba6910869cdca86aa8f0b297c151a6f0532eac7477592a17e04c4ee8a048e4"
+    },
+    {
+      "path": "deployment/finals/preview/qualify.ts",
+      "bytes": 21495,
+      "sha256": "7b1752ad05f2214bcbc9a1c381016edb3c4f0f3af6e0a1f7f428fdac74e1eb12"
+    },
+    {
+      "path": "deployment/finals/preview/README.md",
+      "bytes": 9351,
+      "sha256": "a841b73c861e3da5ef3d4cd664fd9f4a9dba4c93175856f43928725a5c3d5408"
+    },
+    {
+      "path": "deployment/finals/preview/repair-check.mjs",
+      "bytes": 10190,
+      "sha256": "c11367c7127e8dc2c21f26b87497df7b27d268904069b11800092357aad84382"
+    },
+    {
+      "path": "deployment/finals/preview/request-template.json",
+      "bytes": 791,
+      "sha256": "27ebe895597986f2872043dff65bd77bb152447fe96a652108d374ee70105a46"
+    },
+    {
+      "path": "deployment/finals/preview/schema.mjs",
+      "bytes": 1830,
+      "sha256": "36c90502ecedd698dbf666f2d744fa2eef22ec6857c19d21cb74b729425cbdd0"
+    },
+    {
+      "path": "deployment/finals/preview/seal.mjs",
+      "bytes": 2771,
+      "sha256": "579c7789d0f6f50d5d13aad31ce502e7d038e088d11d173d868cce6d349cfb9c"
+    },
+    {
+      "path": "deployment/finals/preview/session-tracking.mjs",
+      "bytes": 1368,
+      "sha256": "d92a4f946e7e1d14cc34444a0c1559e149bee955b3238be6867f780025dd81fa"
+    },
+    {
+      "path": "deployment/finals/preview/source-closure.json",
+      "bytes": 23246,
+      "sha256": "29c2bb753fbf73b9fde3eb8a78ce8495d8fd2899c72ef53ea42ba52b4ece201f"
+    },
+    {
+      "path": "deployment/finals/preview/start.mjs",
+      "bytes": 2177,
+      "sha256": "3a337eac923e527032ff47742b510527ef08c74fbb046c69e401ffd86a51142d"
+    },
+    {
+      "path": "deployment/finals/preview/tls-observer.cjs",
+      "bytes": 1190,
+      "sha256": "cb2879ea959de75df21f5dfe156fb229147471f89669087f19d4a34269232825"
+    },
+    {
+      "path": "docs/evidence/finals-preview/repair-2026-11-11/checks-before-seal.json",
+      "bytes": 5306,
+      "sha256": "992761964de7a945a475df024beb543289763d7b68fb7c3ba0e812620f1a20a1"
+    },
+    {
+      "path": "docs/evidence/finals-preview/repair-2026-11-11/final-checks.json",
+      "bytes": 840,
+      "sha256": "12befdd0938fea65fb176511986645cc40f6a1feeed536f74edcb9ebcb0a8450"
+    },
+    {
+      "path": "docs/evidence/finals-preview/repair-2026-11-11/preserved-baseline.json",
+      "bytes": 3893,
+      "sha256": "c1c7c3a72519d6e13b206e497b029256e5f57272e940cba3a148d5a6b15da528"
+    },
+    {
+      "path": "docs/evidence/finals-preview/repair-2026-11-11/protocol-browser.json",
+      "bytes": 986,
+      "sha256": "ac8e8ef3f941255ae2a14f6c7c51baa48818bffcae1e6eeb05b4342aae149274"
+    },
+    {
+      "path": "docs/evidence/finals-preview/repair-2026-11-11/regression-1.json",
+      "bytes": 3122,
+      "sha256": "0f6bd86fb9ad7f7909dfc77ccc4fd41fea992b0669a44ccd66e7d49387641e8d"
+    },
+    {
+      "path": "docs/evidence/finals-preview/repair-2026-11-11/regression-2.json",
+      "bytes": 8912,
+      "sha256": "5d2c78f63b08f36a1ccc7ccb5238d0d811858910c3dba5acfb238300676f4799"
+    },
+    {
+      "path": "docs/evidence/finals-preview/repair-2026-11-11/regression-3.json",
+      "bytes": 10987,
+      "sha256": "9643d19f853fc635c2e9fa3f67bbcd34cf00256dd9bc181a0ed4bf5266a67af8"
+    },
+    {
+      "path": "docs/evidence/finals-preview/repair-2026-11-11/regression-4.json",
+      "bytes": 11805,
+      "sha256": "591356d057faf5b4781afb19c71cb3b76ed94a712de3dff0d88524ad0ac24f2b"
+    },
+    {
+      "path": "docs/evidence/finals-preview/repair-2026-11-11/report.md",
+      "bytes": 11676,
+      "sha256": "6d03a01d7df90bae16f2d0f798f008dd4f533c8a837a5ad2415d63fff32e656e"
+    },
+    {
+      "path": "docs/evidence/finals-preview/repair-2026-11-11/seal.json",
+      "bytes": 773,
+      "sha256": "279b2363cbbfa7a04852ee975b444a6fd6df27db7b0019346eb78616849ac897"
+    }
+  ]
+}

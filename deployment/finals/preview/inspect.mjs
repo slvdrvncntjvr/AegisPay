@@ -6,7 +6,11 @@ const report={started_at:new Date().toISOString(),scope:'authenticated read-only
 await mkdir(OUT,{recursive:true});
 try{
   cleanNetworkEnvironment();
-  check(git(['rev-parse','HEAD'])===ACCEPTED,'ACCEPTED_CHECKPOINT_CHANGED');
+  git(['merge-base','--is-ancestor',ACCEPTED,'HEAD']);
+  const closure=JSON.parse(await readFile('deployment/finals/preview/source-closure.json','utf8'));
+  check(closure.application_files.length===72&&closure.runtime_files.length===2&&sha(JSON.stringify(closure.application_files))==='724b45046b27aed73a4d671b9cfe6fa30ede9d75a7b1411c65e3353e6b5e1a55','EXACT_ACCEPTED_APPLICATION_CLOSURE_REQUIRED');
+  const {spawnSync}=await import('node:child_process');
+  for(const f of [...closure.application_files,...closure.runtime_files]){const r=spawnSync('git',['show','HEAD:'+f.path],{windowsHide:true});check(r.status===0&&sha(r.stdout)===f.git_blob_sha256,'ACCEPTED_APPLICATION_OR_RUNTIME_BLOB_CHANGED');}
   const db=await envFile('.env.staging.local'),deploy=await envFile('.env.deploy.local');
   check(sha(db.RENDER_STAGING_POSTGRES_ID)===DBHASH,'EXACT_DATABASE_CUSTODY_FAILED');
   const auth={Authorization:'Bearer '+deploy.RENDER_API_KEY};

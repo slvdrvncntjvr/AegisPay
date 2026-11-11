@@ -1,0 +1,98 @@
+{
+  "started_at": "2026-11-11T05:25:36.757Z",
+  "outcome": "passed",
+  "scope": "synthetic original-response and header-identity regression",
+  "real_logins": 0,
+  "sql_statements": 0,
+  "provider_calls": 0,
+  "cases": [
+    "original body captured without later GET",
+    "real 204 and HEAD explicitly non-entity",
+    "declared zero-length 200 captured",
+    "redirect identity followed with headers-only accounting",
+    "fast navigation retains captured entity",
+    "foreign response identity refused",
+    "undeclared empty refused",
+    "nonzero declared empty refused",
+    "zero-length mismatch refused",
+    "canceled unavailable original entity fails closed",
+    "cleanup identity survives cache assertion failure",
+    "cleanup identity survives flags assertion failure",
+    "cleanup identity survives body assertion failure",
+    "browser headers tracked before identity/body assertions",
+    "uncaptured possible commit remains unresolved"
+  ],
+  "browser": {
+    "executable": "C:/Users/Vincent/AppData/Local/ms-playwright/chromium-1248/chrome-win64/chrome.exe",
+    "sha256": "7f08161bbeb2853ffe1780a9ded4985087f52efb9725d7d8207aabdd42f7cfb9",
+    "version": "156.0.8078.4",
+    "explicit_executable": true,
+    "downloaded": false
+  },
+  "original_responses": {
+    "requests": 8,
+    "browser_requests": 8,
+    "exact_request_maps": true,
+    "covered": 8,
+    "original_entities": 4,
+    "declared_empty_entities": 1,
+    "non_entities": 2,
+    "redirect_headers_only": 1,
+    "canceled": 3,
+    "missing_entities": 0,
+    "unfollowed_redirects": 0,
+    "pending": 0,
+    "failures": 0,
+    "safe_failures": [],
+    "commands": {
+      "Network.enable": 1,
+      "Network.setCacheDisabled": 1,
+      "Fetch.enable": 1,
+      "Fetch.continueRequest": 8,
+      "Fetch.getResponseBody": 5,
+      "Fetch.continueResponse": 8
+    },
+    "request_ids_retained_in_memory": true,
+    "raw_urls_headers_bodies_exported": false,
+    "cache_disabled": true,
+    "fetch_interception_changes_timing": true
+  },
+  "cancellation": {
+    "requests": 2,
+    "browser_requests": 2,
+    "exact_request_maps": true,
+    "covered": 1,
+    "original_entities": 1,
+    "declared_empty_entities": 0,
+    "non_entities": 0,
+    "redirect_headers_only": 0,
+    "canceled": 1,
+    "missing_entities": 1,
+    "unfollowed_redirects": 0,
+    "pending": 1,
+    "failures": 1,
+    "safe_failures": [
+      "CANCELED_OR_FAILED_WITHOUT_ORIGINAL_ENTITY"
+    ],
+    "commands": {
+      "Network.enable": 1,
+      "Network.setCacheDisabled": 1,
+      "Fetch.enable": 1,
+      "Fetch.continueRequest": 2,
+      "Fetch.getResponseBody": 2,
+      "Fetch.continueResponse": 1
+    },
+    "request_ids_retained_in_memory": true,
+    "raw_urls_headers_bodies_exported": false,
+    "cache_disabled": true,
+    "fetch_interception_changes_timing": true
+  },
+  "session_cleanup": {
+    "identified_synthetic_sessions": 3,
+    "all_identified_revoked_in_synthetic_state": true,
+    "prior_16_revoked_sessions_untouched": true,
+    "uncertain_commit_refused": true,
+    "raw_tokens_exported": false
+  },
+  "finished_at": "2026-11-11T05:25:58.932Z"
+}

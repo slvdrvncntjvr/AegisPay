@@ -1,0 +1,314 @@
+{
+  "started_at": "2026-11-11T05:33:26.105Z",
+  "outcome": "passed",
+  "scope": "synthetic original-response and header-identity regression",
+  "real_logins": 0,
+  "sql_statements": 0,
+  "provider_calls": 0,
+  "cases": [
+    "original body captured without later GET",
+    "real 204 and HEAD explicitly non-entity",
+    "declared zero-length 200 captured",
+    "redirect identity followed with headers-only accounting",
+    "fast navigation retains captured entity",
+    "foreign response identity refused",
+    "undeclared empty refused",
+    "nonzero declared empty refused",
+    "zero-length mismatch refused",
+    "canceled unavailable original entity fails closed",
+    "context disposal settles pending original-body reads as failures",
+    "cleanup identity survives cache assertion failure",
+    "cleanup identity survives flags assertion failure",
+    "cleanup identity survives body assertion failure",
+    "browser headers tracked before identity/body assertions",
+    "uncaptured possible commit remains unresolved"
+  ],
+  "browser": {
+    "executable": "C:/Users/Vincent/AppData/Local/ms-playwright/chromium-1248/chrome-win64/chrome.exe",
+    "sha256": "7f08161bbeb2853ffe1780a9ded4985087f52efb9725d7d8207aabdd42f7cfb9",
+    "version": "156.0.8078.4",
+    "explicit_executable": true,
+    "downloaded": false
+  },
+  "original_responses": {
+    "requests": 8,
+    "browser_requests": 8,
+    "exact_request_maps": true,
+    "covered": 8,
+    "original_entities": 4,
+    "declared_empty_entities": 1,
+    "non_entities": 2,
+    "redirect_headers_only": 1,
+    "canceled": 3,
+    "missing_entities": 0,
+    "unfollowed_redirects": 0,
+    "pending": 0,
+    "failures": 0,
+    "safe_failures": [],
+    "response_evidence": [
+      {
+        "request_identity_sha256": "7603aa764a798de46f4cbb2bb6f44100b4f65db9c64c69affe71d84f8f7be385",
+        "fetch_id_sha256": "ae14c6ffdf3782419f35e98d522c7d9102c864a2cb34ab8d545d98ac4274c212",
+        "network_id_sha256": "899f3a0c5e6e321f44e09966c4993dfca49db0685990799faab8f50a8da67a97",
+        "method": "GET",
+        "status": 200,
+        "kind": "ORIGINAL_ENTITY",
+        "bytes": 94,
+        "body_sha256": "bf694b23933e5f31eb4707d7e2fe8c05f73d3ade1f3106c8e6517667bff78b7b",
+        "canceled": false,
+        "continued": true,
+        "redirect_followed": false
+      },
+      {
+        "request_identity_sha256": "8580c78f0ab5418dfcaa3c2ded0f5cdcc649735c43852aa7b894d9175c97fe1f",
+        "fetch_id_sha256": "7954694f8b7e9364401a504d9fbf0b7de5396063c26eb3c8715dd34ed5609566",
+        "network_id_sha256": "d29b6da2310fa165b17bd9912594a074fbc03b8b3959d98a4603dd17f67b2cc8",
+        "method": "GET",
+        "status": 200,
+        "kind": "ORIGINAL_ENTITY",
+        "bytes": 25,
+        "body_sha256": "0ca156fa4549f5baa79ed1c9d96348c7446631629543ee66af8f4e10c5f93be1",
+        "canceled": false,
+        "continued": true,
+        "redirect_followed": false
+      },
+      {
+        "request_identity_sha256": "ea69650e1d8c37a4742cae3e88fab1ef00a6bec83df60cfc3e124133484a3af3",
+        "fetch_id_sha256": "3d1e1979871603acfedabc7474c1059b961b335bdb9eb2b9145efcfb6d91b759",
+        "network_id_sha256": "8e40e51c188e24c3d2667db73414b03f9043242b3d38ae4d79997c435e437f7f",
+        "method": "GET",
+        "status": 200,
+        "kind": "DECLARED_ZERO_LENGTH_ENTITY",
+        "bytes": 0,
+        "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "canceled": true,
+        "continued": true,
+        "redirect_followed": false
+      },
+      {
+        "request_identity_sha256": "8bc7e6ac702808975027c661386471021ce2af588359b6de44dd61b31d536d27",
+        "fetch_id_sha256": "f75935447172f87c14956f9f3b9731e45c69ad97aaa923499abff5cf1ccd47f3",
+        "network_id_sha256": "b989a5c87a2c870fcb51175d8ff3f515c55eb2e7154e16814aab2f6431ecf7f1",
+        "method": "GET",
+        "status": 204,
+        "kind": "HTTP_NON_ENTITY",
+        "bytes": 0,
+        "body_sha256": null,
+        "canceled": true,
+        "continued": true,
+        "redirect_followed": false
+      },
+      {
+        "request_identity_sha256": "7b8f1416913e67001c3655701e9ec2891108a76e173092688c1be2932296be21",
+        "fetch_id_sha256": "0ee7a55dc68a8672698c5b8d4c16e68ab56e90be47f5f4b4a707f630627af059",
+        "network_id_sha256": "edaf67c8967b0f6a35f0b407f7bd2519ec818dd55909989596ef32432f61ca2b",
+        "method": "HEAD",
+        "status": 200,
+        "kind": "HTTP_NON_ENTITY",
+        "bytes": 0,
+        "body_sha256": null,
+        "canceled": true,
+        "continued": true,
+        "redirect_followed": false
+      },
+      {
+        "request_identity_sha256": "8ac3b51f7be69242debd922b16ca1740cd90b5626985add18d1d402104e7ca18",
+        "fetch_id_sha256": "184898756e02f51df28b5e51e85bfce5f29693ecd3a3668afa21d37c981d177b",
+        "network_id_sha256": "44c71960086f4415d7e96b80780171397fd8abcb0d810a0ba5a309cf318552dc",
+        "method": "GET",
+        "status": 302,
+        "kind": "REDIRECT_HEADERS_ONLY",
+        "bytes": null,
+        "body_sha256": null,
+        "canceled": false,
+        "continued": true,
+        "redirect_followed": true
+      },
+      {
+        "request_identity_sha256": "1e3faf0cf04467788078d21648a3f373dd76c6b1162beefbb12a70624e5b6784",
+        "fetch_id_sha256": "6f9bfb6d03d8f563ebf0c95ff772257c994e3187c71be74568eb3afd29028aa9",
+        "network_id_sha256": "44c71960086f4415d7e96b80780171397fd8abcb0d810a0ba5a309cf318552dc",
+        "method": "GET",
+        "status": 200,
+        "kind": "ORIGINAL_ENTITY",
+        "bytes": 94,
+        "body_sha256": "bf694b23933e5f31eb4707d7e2fe8c05f73d3ade1f3106c8e6517667bff78b7b",
+        "canceled": false,
+        "continued": true,
+        "redirect_followed": false
+      },
+      {
+        "request_identity_sha256": "7603aa764a798de46f4cbb2bb6f44100b4f65db9c64c69affe71d84f8f7be385",
+        "fetch_id_sha256": "4a3f8036c775c91341eb268a0a7bf29383cde9a67f54a64a6dbec78047a6d82f",
+        "network_id_sha256": "39e8b2dd7f13518ffdd7724ff2663d1e402d9a3c9c0b4990a9ba2a357c4d2d42",
+        "method": "GET",
+        "status": 200,
+        "kind": "ORIGINAL_ENTITY",
+        "bytes": 94,
+        "body_sha256": "bf694b23933e5f31eb4707d7e2fe8c05f73d3ade1f3106c8e6517667bff78b7b",
+        "canceled": false,
+        "continued": true,
+        "redirect_followed": false
+      }
+    ],
+    "commands": {
+      "Network.enable": 1,
+      "Network.setCacheDisabled": 1,
+      "Fetch.enable": 1,
+      "Fetch.continueRequest": 8,
+      "Fetch.getResponseBody": 5,
+      "Fetch.continueResponse": 8
+    },
+    "request_ids_retained_in_memory": true,
+    "raw_urls_headers_bodies_exported": false,
+    "cache_disabled": true,
+    "fetch_interception_changes_timing": true
+  },
+  "cancellation": {
+    "requests": 2,
+    "browser_requests": 2,
+    "exact_request_maps": true,
+    "covered": 1,
+    "original_entities": 1,
+    "declared_empty_entities": 0,
+    "non_entities": 0,
+    "redirect_headers_only": 0,
+    "canceled": 1,
+    "missing_entities": 1,
+    "unfollowed_redirects": 0,
+    "pending": 1,
+    "failures": 1,
+    "safe_failures": [
+      "CANCELED_OR_FAILED_WITHOUT_ORIGINAL_ENTITY"
+    ],
+    "response_evidence": [
+      {
+        "request_identity_sha256": "7603aa764a798de46f4cbb2bb6f44100b4f65db9c64c69affe71d84f8f7be385",
+        "fetch_id_sha256": "bbd12b5418ec0cffcd7e5a566c28842cdf47dd88208595aadfbe18e4c3ce39c9",
+        "network_id_sha256": "c009fe998c6958e131da67110d0509eb820579e3ee6d8439b2ae9564f7345834",
+        "method": "GET",
+        "status": 200,
+        "kind": "ORIGINAL_ENTITY",
+        "bytes": 94,
+        "body_sha256": "bf694b23933e5f31eb4707d7e2fe8c05f73d3ade1f3106c8e6517667bff78b7b",
+        "canceled": false,
+        "continued": true,
+        "redirect_followed": false
+      },
+      {
+        "request_identity_sha256": "b3907e5278eca75a76236c50aaa05633e66ccab354b34655f3b99836cd808ffa",
+        "fetch_id_sha256": "26f9e84d3bafe940fce844663ff0ed7b45bc62a89e23398a7e5a9e2200bb75ee",
+        "network_id_sha256": "dee99e83affca96787a470835e65bec2964d03037563df21c01cfa78d71887dd",
+        "method": "GET",
+        "status": 200,
+        "kind": "UNAVAILABLE",
+        "bytes": null,
+        "body_sha256": null,
+        "canceled": true,
+        "continued": false,
+        "redirect_followed": false
+      }
+    ],
+    "commands": {
+      "Network.enable": 1,
+      "Network.setCacheDisabled": 1,
+      "Fetch.enable": 1,
+      "Fetch.continueRequest": 2,
+      "Fetch.getResponseBody": 2,
+      "Fetch.continueResponse": 1
+    },
+    "request_ids_retained_in_memory": true,
+    "raw_urls_headers_bodies_exported": false,
+    "cache_disabled": true,
+    "fetch_interception_changes_timing": true
+  },
+  "disposal": {
+    "requests": 2,
+    "browser_requests": 2,
+    "exact_request_maps": true,
+    "covered": 1,
+    "original_entities": 1,
+    "declared_empty_entities": 0,
+    "non_entities": 0,
+    "redirect_headers_only": 0,
+    "canceled": 0,
+    "missing_entities": 1,
+    "unfollowed_redirects": 0,
+    "pending": 0,
+    "failures": 1,
+    "safe_failures": [
+      "ORIGINAL_ENTITY_OR_CONTINUATION_UNAVAILABLE"
+    ],
+    "response_evidence": [
+      {
+        "request_identity_sha256": "7603aa764a798de46f4cbb2bb6f44100b4f65db9c64c69affe71d84f8f7be385",
+        "fetch_id_sha256": "2a7233e4c89c634bd79c9de0e71a96313b5ac1a0f090877cbf56989529dfd96e",
+        "network_id_sha256": "c8bb18c9416b537bd71dc46b1af138723a8e6adf7853e578149a5bcd7dc1a2d0",
+        "method": "GET",
+        "status": 200,
+        "kind": "ORIGINAL_ENTITY",
+        "bytes": 94,
+        "body_sha256": "bf694b23933e5f31eb4707d7e2fe8c05f73d3ade1f3106c8e6517667bff78b7b",
+        "canceled": false,
+        "continued": true,
+        "redirect_followed": false
+      },
+      {
+        "request_identity_sha256": "b3907e5278eca75a76236c50aaa05633e66ccab354b34655f3b99836cd808ffa",
+        "fetch_id_sha256": "f111236fc7e87b5bf89aa9a85668a0f4a05fe565c8b0ff6d48d9779bfc56a3fc",
+        "network_id_sha256": "5f31a4dc9b9b114db77c8de54ae8e13c3bfc021800435a07fae2099fc0032c98",
+        "method": "GET",
+        "status": 200,
+        "kind": "UNAVAILABLE",
+        "bytes": null,
+        "body_sha256": null,
+        "canceled": false,
+        "continued": false,
+        "redirect_followed": false
+      }
+    ],
+    "commands": {
+      "Network.enable": 1,
+      "Network.setCacheDisabled": 1,
+      "Fetch.enable": 1,
+      "Fetch.continueRequest": 2,
+      "Fetch.getResponseBody": 2,
+      "Fetch.continueResponse": 1,
+      "Fetch.failRequest": 1
+    },
+    "request_ids_retained_in_memory": true,
+    "raw_urls_headers_bodies_exported": false,
+    "cache_disabled": true,
+    "fetch_interception_changes_timing": true
+  },
+  "session_cleanup": {
+    "identified_synthetic_sessions": 3,
+    "all_identified_revoked_in_synthetic_state": true,
+    "prior_16_revoked_sessions_untouched": true,
+    "uncertain_commit_refused": true,
+    "raw_tokens_exported": false
+  },
+  "finished_at": "2026-11-11T05:33:48.065Z",
+  "source_files": [
+    {
+      "path": "deployment/finals/preview/repair-check.mjs",
+      "lf_sha256": "c11367c7127e8dc2c21f26b87497df7b27d268904069b11800092357aad84382"
+    },
+    {
+      "path": "deployment/finals/preview/original-responses.mjs",
+      "lf_sha256": "145d42d7a7c7945f5b2206d1a5803250ce01dc9f94fe7e556e3b2dd3013a3943"
+    },
+    {
+      "path": "deployment/finals/preview/session-tracking.mjs",
+      "lf_sha256": "d92a4f946e7e1d14cc34444a0c1559e149bee955b3238be6867f780025dd81fa"
+    },
+    {
+      "path": "deployment/finals/preview/browser.mjs",
+      "lf_sha256": "89f87d248235ef105aca9f5e745e9be303276e76d9acfc8781a032ea18e05b8c"
+    },
+    {
+      "path": "deployment/finals/preview/qualify.ts",
+      "lf_sha256": "7b1752ad05f2214bcbc9a1c381016edb3c4f0f3af6e0a1f7f428fdac74e1eb12"
+    }
+  ]
+}

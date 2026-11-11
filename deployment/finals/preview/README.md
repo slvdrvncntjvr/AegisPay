@@ -89,15 +89,25 @@ applying it; no broad rule, paid dedicated IP, or internal TLS bypass is used.
    ```
 
    The entry validates its private permit before starting the locally resolved
-   tsx helper. It checks expected URL/owned IDs/source/env, strict helper TLS and
-   16 prior revoked sessions, then bounded cold readiness, anonymous HTML/RSC,
+   tsx helper. Before any provider/database/login work, the helper validates and
+   launches the explicit installed Chromium path in `browser.mjs`, records its
+   actual version/hash and requires the reviewed `browser_sha256`. It checks
+   expected URL/owned IDs/source/env, strict helper TLS and the exact reviewed
+   `prior_revoked_sessions` checkpoint (initially16), then bounded cold readiness, anonymous HTML/RSC,
    built assets, exact HTTPS origin/cookies/no-store, real HTTP roles and four
-   actual HTTPS browser role/viewport flows. It rejects missing browser bodies;
-   no later GET or fabricated CDP event substitutes for them. Route interception
-   only aborts forbidden traffic, never fulfills a response. It scans findings,
+   actual HTTPS browser role/viewport flows. CDP Fetch request interception
+   aborts forbidden traffic; response pauses read `Fetch.getResponseBody` from
+   the original response and then continue without changing status/headers/body.
+   No high-level Playwright body API, extra resource load or fulfillment is used.
+   HEAD/204/205/304 are explicitly non-entity; followed redirects account only
+   for headers, never claim unavailable redirect bodies. Empty200 entities
+   require explicit zero Content-Length. Unavailable/canceled entities fail.
+   Cookie identities register immediately from login headers in HTTP and CDP,
+   before body/status/cache/flag assertions; unresolved commits fail cleanup.
+   It scans findings,
    secrets, state, storage and bodies in memory, with no screenshots or traces.
    Provider build/TLS log attestations must match the exact commit. Final DB
-   counts require22 total revoked sessions, six new hashes, all11 execution and
+   counts require the reviewed baseline plus six total revoked sessions, six new hashes, all11 execution and
    financial tables empty, original migrations and unprovisioned identity.
    Cleanup revokes only invocation-observed session hashes, even on failure.
    Result/inventory/finalization require the entry's separately observed child
@@ -113,8 +123,10 @@ Each apply permit contains `task: TASK-020`, the exact `operation`,
 `source_closure_sha256` and full40-character `source_commit`. Non-create permits
 also pin `expected_service_id`; environment additionally requires
 `external_verify_full_network_approved: true`. Qualification permits pin
-`expected_service_id`, exact `expected_origin`, `source_commit`, expiry and
-`helper_hashes` for `qualify.mjs`, `qualify.ts`, `common.mjs`. None of these real
+`expected_service_id`, exact `expected_origin`, `source_commit`, expiry,
+`prior_revoked_sessions`, reviewed `browser_sha256` and `helper_hashes` for
+`qualify.mjs`, `qualify.ts`, `common.mjs`, `browser.mjs`, `original-responses.mjs`
+and `session-tracking.mjs`. None of these real
 permits exists in this handoff. Operation attempt markers are exclusive and
 durable before dispatch; failure or unknown outcome never authorizes a resend.
 
