@@ -1,6 +1,6 @@
 # AegisPay pitch and demo runbook
 
-**Status:** draft rehearsal sources, not a claim of a completed app demo. Supplied handbook rubric/format are recorded in [context](../context.md); deadline passed, no extension supplied. One SDK payment is proved; model app/deployment/public media are unfinished. Method: FMD pitch playbook (local preparation reference).
+**Status:** draft rehearsal sources, not a claim of a completed app demo. Supplied handbook rubric/format are recorded in [context](../context.md); deadline passed, no extension supplied. One SDK payment is proved; app/model implementation, separate console preview and recorded-proof media exist, while full actual model/payment/worker release remains unfinished. Method: FMD pitch playbook (local preparation reference).
 
 ## 1. Business narrative
 
@@ -25,9 +25,9 @@ Do not use past-tense success language until [QA release gates](qa-test-plan.md)
 
 ## 3. Timed script and operational runbook
 
-The handbook requires a **two-minute video**, a **five-minute pitch with live demo**, then **three-minute Q&A**. The form's reported five-minute video maximum does not relax the stricter two-minute target. Use [the complete recording script](submission/recording-script.md) and [eight-slide deck source](submission/pitch-deck.md). Neither is recorded/exported/published yet. [Submission packet](submission/README.md) tracks actual links and a draft short write-up.
+The handbook requires a **two-minute video**, a **five-minute pitch with live demo**, then **three-minute Q&A**. The form's reported five-minute video maximum does not relax the stricter two-minute target. Use [the complete recording script](submission/recording-script.md) and [eight-slide deck source](submission/pitch-deck.md). An evidence-replay video and refreshed eight-slide PDF are already published; the complete actual model-purchase recording remains outstanding. [Submission packet](submission/README.md) tracks actual links and a draft short write-up.
 
-**Before recording/presenting:** pass TASK-010/TASK-012 gates; verify mandatory Testnet tuple, current policy/escrow, model access, sponsor health, authenticated ownership and public URL. Open actual Policy/Run/Audit, explorer and redacted proof. Label fixture reports and saved recordings; no fabricated product screenshot. TASK-002 review fixes, real workspaces and full model app are still unfinished. Current proof cannot be narrated as a completed model purchase.
+**Before recording/presenting:** pass TASK-010/TASK-012 gates; verify mandatory Testnet tuple, current policy/escrow, model access, sponsor health, authenticated ownership and public URL. Open actual Policy/Run/Audit, explorer and redacted proof. Label fixture reports and saved recordings; no fabricated product screenshot. TASK-002 review fixes and real workspaces are accepted; actual full model/payment/worker release remains unfinished. Current proof cannot be narrated as a completed model purchase.
 
 | Video time | Beat | Evidence required |
 |------------|------|-------------------|
@@ -66,7 +66,7 @@ Salvador Vincent Javier is the single presenter/owner for product, technical dem
 | Why not prepaid keys? | Vincent | They may be preferable; this tests wallet-based agent purchasing ergonomics, not proven superiority |
 | What if it times out? | Vincent | Retain saved identity and reconcile; no report or second automatic charge |
 | Who pays and is it sustainable? | Vincent | A provider service fee is a hypothesis; real cost/margin/customer validation is pending |
-| Does it satisfy the hackathon? | Vincent | Mandatory October 24 IDs match proof; actual Velo role is Gas. Workspaces/app/hosting/public media remain unfinished; organizer Gas interpretation, registration and late acceptance are unconfirmed. No eligibility promise |
+| Does it satisfy the hackathon? | Vincent | Mandatory October 24 IDs match proof; actual Velo role is Gas. Workspaces/app code, a separate preview and recorded-proof media exist; full model/payment/worker release remains unfinished; organizer Gas interpretation, registration and late acceptance are unconfirmed. No eligibility promise |
 
 ## 5. Interview probe sheet
 

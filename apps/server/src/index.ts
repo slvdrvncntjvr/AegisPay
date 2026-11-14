@@ -9,6 +9,8 @@ import { createLivePaymentAdapter } from './worker/live-adapter.ts';
 import { workerIngress } from './worker/ingress.ts';
 import { paymentConsumer } from './worker/runtime.ts';
 import { runConsumer } from './worker/run.ts';
+import { createWalletGateway } from '../../../src/server/integrations/wallet-gateway.ts';
+import { walletConsumer } from './worker/wallet.ts';
 
 export async function startWorker(env: NodeJS.ProcessEnv = process.env) {
   const key = encryptionKey(env.ENVELOPE_ENCRYPTION_KEY), receipt = receiptTokens(env.RECEIPT_SIGNING_KEY);
@@ -22,9 +24,15 @@ export async function startWorker(env: NodeJS.ProcessEnv = process.env) {
     return adapter;
   } });
   const runs = runConsumer({ store, env });
+  let gateway: ReturnType<typeof createWalletGateway> | undefined;
+  const wallets = walletConsumer({ store, gateway: () => {
+    gateway ??= createWalletGateway(env).catch(error => { gateway = undefined; throw error; });
+    return gateway;
+  } });
   const wake = () => {
     void consumer.wake().catch(() => console.info(JSON.stringify({ component: 'payment-worker', code: 'WORKER_DEPENDENCY_UNAVAILABLE' })));
     void runs.wake().catch(() => console.info(JSON.stringify({ component: 'model-worker', code: 'MODEL_DEPENDENCY_UNAVAILABLE' })));
+    void wallets.wake().catch(() => console.info(JSON.stringify({ component: 'wallet-worker', code: 'WALLET_DEPENDENCY_UNAVAILABLE' })));
   };
   const handler = workerIngress(env.WORKER_WAKE_TOKEN, wake);
   const server = createServer(async (incoming, outgoing) => {
@@ -47,8 +55,9 @@ export async function startWorker(env: NodeJS.ProcessEnv = process.env) {
   return async () => {
     clearInterval(timer);
     const stopped = runs.stop().catch(() => {});
+    const walletsStopped = wallets.stop().catch(() => {});
     await new Promise<void>((resolve, reject) => server.close(error => error ? reject(error) : resolve()));
-    await Promise.all([consumer.idle().catch(() => {}), stopped]); await store.close(); key.fill(0);
+    await Promise.all([consumer.idle().catch(() => {}), stopped, walletsStopped]); await store.close(); key.fill(0);
   };
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

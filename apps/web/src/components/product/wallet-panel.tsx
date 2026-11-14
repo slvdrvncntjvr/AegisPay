@@ -21,6 +21,8 @@ export function WalletPanel({ state, fresh, refresh }: { state: ConsoleState; fr
   const operations = localOperation ? [localOperation, ...state.walletOperations.filter(o => o.operationId !== localOperation.operationId)] : state.walletOperations;
   const pending = operations.some(pendingWallet);
   const actualKind = role === 'merchant' ? 'claim' : kind;
+  const unresolvedPayment = (state.attempts ?? []).some(a => !['authorized', 'refused', 'expired', 'failed'].includes(a.status));
+  const reclaimBlocked = actualKind === 'sweepOnRevoke' && unresolvedPayment;
   const needsAmount = ['registerAgent', 'fundEscrow'].includes(actualKind);
   const integerValid = !needsAmount || positiveInteger(integer, actualKind === 'registerAgent' ? 1000000n : 10000000n);
 
@@ -35,7 +37,7 @@ export function WalletPanel({ state, fresh, refresh }: { state: ConsoleState; fr
     finally { lock.current = false; setBusy(false); }
   }
   async function prepare() {
-    if (lock.current || pending || !fresh || !integerValid) return;
+    if (lock.current || pending || !fresh || !integerValid || reclaimBlocked) return;
     lock.current = true; setBusy(true); setError(''); setConsent(false);
     try {
       let input: Record<string, string> = { kind: actualKind };
@@ -99,9 +101,9 @@ export function WalletPanel({ state, fresh, refresh }: { state: ConsoleState; fr
         {role === 'owner' && <label>Wallet action<select value={kind} disabled={busy || pending} onChange={e => { setKind(e.target.value); setInteger(''); }}>{Object.entries(actionNames).filter(([key]) => key !== 'claim').map(([key,label]) => <option key={key} value={key}>{label}</option>)}</select></label>}
         {needsAmount && <div className="pc-field"><label htmlFor="pc-wallet-amount">{actualKind === 'registerAgent' ? 'Per-payment cap in integer stroops (max 1000000)' : 'Funding in integer stroops (max 10000000)'}</label><input id="pc-wallet-amount" aria-describedby="pc-wallet-amount-help" inputMode="numeric" pattern="[1-9][0-9]*" value={integer} disabled={busy || pending} onChange={e => setInteger(e.target.value)} required maxLength={39} /><small id="pc-wallet-amount-help">{amount(integer)} · 1 XLM = 10000000 stroops</small></div>}
         {actualKind === 'registerAgent' && <label>Policy expiry (your local time, within one hour)<input type="datetime-local" step="1" value={expiry} disabled={busy || pending} onChange={e => setExpiry(e.target.value)} required /></label>}
-        {actualKind === 'sweepOnRevoke' && <p className="pc-notice">Reclaim is only prepared after the server independently confirms revocation. An unresolved payment remains preserved.</p>}
+        {actualKind === 'sweepOnRevoke' && <p className="pc-notice">Reclaim requires independently confirmed revocation and no unresolved purchase. {reclaimBlocked ? 'An unresolved purchase blocks reclaim. Observe its saved identity; held funds remain reserved.' : 'The server rechecks both conditions before preparation and submission.'}</p>}
         {role === 'merchant' && <p className="pc-notice">The contract determines the claim amount from merchant pending. No client amount or proof is accepted.</p>}
-        <button className="pc-button" type="submit" disabled={busy || pending || !fresh || !integerValid}>Prepare {actionNames[actualKind]?.toLowerCase()}</button>
+        <button className="pc-button" type="submit" disabled={busy || pending || !fresh || !integerValid || reclaimBlocked}>Prepare {actionNames[actualKind]?.toLowerCase()}</button>
       </form>
       {pending && !prepared && <p className="pc-notice">An operation is already saved. Observe its original identity. A saved preparation cannot be resumed here without its review material; wait for its expiry before preparing again.</p>}
       {prepared && <div className="pc-wallet-review"><h4>Review: {actionNames[prepared.kind]}</h4><p>Stellar Testnet · expires {time(prepared.expiresAt)}</p><Identifier label="Prepared operation ID" value={prepared.operationId} /><Identifier label="Required signer" value={prepared.signerAddress} /><label className="pc-check"><input type="checkbox" checked={consent} onChange={e => setConsent(e.target.checked)} />I reviewed this action and will verify the transaction in Freighter.</label><button className="pc-button pc-primary" disabled={busy || !consent || !fresh || Date.parse(prepared.expiresAt) <= Date.now()} onClick={() => { void sign(); }}>Review &amp; sign in Freighter</button></div>}

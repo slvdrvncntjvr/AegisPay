@@ -1,0 +1,6 @@
+FAIL � documentation contract
+  onboarding.md: missing section What this is
+  onboarding.md: missing section Read first
+  onboarding.md: missing section Run it locally
+  onboarding.md: missing section Where things live
+  onboarding.md: missing section Conventions

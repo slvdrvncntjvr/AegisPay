@@ -1,0 +1,15 @@
+APPROVE: docs\implementation-plan.md has 22 valid task row(s); dependency/state DAG is coherent
+Execution waves (topological layers; same wave = parallel candidates):
+  wave 0: TASK-001
+  wave 1: TASK-002
+  wave 2: TASK-011, TASK-014
+  wave 3: TASK-003, TASK-015
+  wave 4: TASK-004, TASK-016
+  wave 5: TASK-005, TASK-007, TASK-008, TASK-017, TASK-018
+  wave 6: TASK-006, TASK-009, TASK-019, TASK-021
+  wave 7: TASK-010, TASK-020, TASK-022
+  wave 8: TASK-012
+  wave 9: TASK-013
+Parallel-safety warnings (same-wave write-scope overlap � serialize, split, or add a dependency):
+  wave 7: TASK-010 and TASK-022 both write 'tests' vs 'tests/unit/release-rehearsal.test.ts'
+REJECT (strict): 1 parallel-safety warning(s) promoted to failures

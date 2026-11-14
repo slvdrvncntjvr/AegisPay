@@ -1,5 +1,5 @@
 // Opt-in Gemini-only connectivity smoke: no financial SDK, catalog, DB or payment imports.
-// node --env-file-if-exists=.env.worker.local --import tsx scripts/model-smoke.ts
+// node --import tsx scripts/model-smoke.ts --worker-env-file .env.worker.local
 // A child worktree may instead pass --worker-env-file <root/.env.worker.local>;
 // only GEMINI_API_KEY and AGENT_MODEL are parsed, and existing process values win.
 import { open } from 'node:fs/promises';
@@ -28,6 +28,8 @@ async function modelEnvironmentFile(path: string): Promise<Record<string, string
 
 async function main(): Promise<void> {
   const args = argv.slice(2);
+  const diagnostic = args[0] === '--diagnostic';
+  if (diagnostic) args.shift();
   if (args.length && (args.length !== 2 || args[0] !== '--worker-env-file' || !args[1])) throw new Error('MODEL_SMOKE_INVALID_ARGUMENT');
   const file = args[1] ? await modelEnvironmentFile(args[1]) : {};
   const apiKey = env.GEMINI_API_KEY ?? file.GEMINI_API_KEY;
@@ -37,7 +39,24 @@ async function main(): Promise<void> {
     process.exitCode = 2;
     return;
   }
-  const models = await listAvailableGeminiModels({ apiKey });
+  // Timing/status only: never serialize the URL, headers, body or native error.
+  // This distinguishes a deadline before headers from a stalled response body.
+  let requests = 0;
+  const transport: typeof fetch = async (input, init) => {
+    const request = ++requests, started = performance.now();
+    const method = init?.method === 'POST' ? 'POST' : 'GET';
+    if (diagnostic) console.log(JSON.stringify({ transport: 'started', request, method }));
+    try {
+      const response = await fetch(input, init);
+      if (diagnostic) console.log(JSON.stringify({ transport: 'headers', request, method, status: response.status, elapsedMs: Math.round(performance.now() - started) }));
+      return response;
+    } catch {
+      if (diagnostic) console.log(JSON.stringify({ transport: 'failed_before_headers', request, method, aborted: init?.signal?.aborted === true, elapsedMs: Math.round(performance.now() - started) }));
+      // Retain the adapter's timeout/abort classification without vendor details.
+      throw new Error('MODEL_SMOKE_TRANSPORT_FAILED');
+    }
+  };
+  const models = await listAvailableGeminiModels({ apiKey, fetch: transport });
   // Only validated model identifiers leave the discovery boundary, never raw provider output.
   console.log(JSON.stringify({ discovery: 'observed', generateContentModels: models.map(value => value.name), quotaVerified: false }));
   if (!model?.trim()) {
@@ -45,7 +64,7 @@ async function main(): Promise<void> {
     process.exitCode = 2;
     return;
   }
-  const client = createGeminiClient({ apiKey, model, functionCallingMode: 'ANY' });
+  const client = createGeminiClient({ apiKey, model, fetch: transport, functionCallingMode: 'ANY' });
   const initial = userTaskContent('Connectivity test only. Call discover_offers exactly once with no arguments. After receiving the tool result, reply with exactly GEMINI_SMOKE_OK and nothing else.');
   const first = await client.generateStep([initial], [GEMINI_TOOLS[0]!]);
   if (first.calls.length !== 1 || first.calls[0]?.name !== 'discover_offers') throw new Error('MODEL_SMOKE_UNEXPECTED_CALL');

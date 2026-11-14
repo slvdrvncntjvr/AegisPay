@@ -14,7 +14,7 @@ import { processRun, runConsumer } from '../../apps/server/src/worker/run.ts';
 import { createGeminiClient, GeminiModelError, type GeminiContent, type GeminiClient, type GeminiStep, type GeminiToolName } from '../../src/server/integrations/model.ts';
 import { receiptTokens } from '../../src/server/merchant/receipts.ts';
 import { readCheckpoint } from '../../src/server/agent/state.ts';
-import { acceptQuote } from '../../src/server/domain/purchases.ts';
+import { acceptQuote, createRun } from '../../src/server/domain/purchases.ts';
 
 for (const key of ['DATABASE_URL', 'AGENT_SECRET', 'VELO_API_KEY', 'VELO_GAS_API_KEY', 'VELO_GAS_BASE_URL', 'GEMINI_API_KEY', 'ENVELOPE_ENCRYPTION_KEY', 'SPIKE_OWNER_SECRET', 'SPIKE_MERCHANT_SECRET', 'STELLAR_RPC_URL', 'RUN_TESTNET', 'RECEIPT_SIGNING_KEY', 'WORKER_WAKE_TOKEN', 'DEMO_OWNER_LOGIN_TOKEN', 'DEMO_MERCHANT_LOGIN_TOKEN']) delete process.env[key];
 const secret = randomBytes(32).toString('base64url');
@@ -190,6 +190,22 @@ describe('TASK007 real SQL/tools with synthetic model and payment transport', ()
     await runConsumer({ store: db.first, env, client }).wake();
     expect(await db.first.db.select().from(s.paymentAttempt)).toHaveLength(0);
     expect(await runRow()).toMatchObject({ status: 'completed', reservedStroops: '0', spentStroops: '0' });
+  });
+  it.each(['0', '100000'])('a competing ordinary consumer cannot widen persisted rehearsal budget %s or enqueue payment', async budget => {
+    await db.first.db.update(s.agentRun).set({ status: 'completed' }).where(eq(s.agentRun.id, f.run.id));
+    await db.first.db.update(s.job).set({ status: 'done' }).where(eq(s.job.entityId, f.run.id));
+    f.run = await createRun(db.first, { ownerId: f.owner.id, agentId: f.agent.id, runStartKey: randomUUID(),
+      task: 'Synthetic persisted consent ceiling test', modelId: 'synthetic-no-model', budgetStroops: budget });
+    await expect(db.second.db.update(s.agentRun).set({ budgetStroops: '1000000' }).where(eq(s.agentRun.id, f.run.id))).rejects.toThrow();
+    const client = scripted(), original = client.generateStep.getMockImplementation()!;
+    client.generateStep.mockImplementation(async (...args) => JSON.stringify(args[0]).includes('BUDGET_EXCEEDED') ? modelStep() : original(...args));
+    // This is the ordinary consumer with its full tool surface, not the release
+    // script's callback wrapper. A second connection takes the durable job.
+    await runConsumer({ store: db.second, env, client }).wake();
+    await expect(acceptQuote(db.first, { ownerId: f.owner.id, agentId: f.agent.id, runId: f.run.id, quoteId: f.quote.id, clientKey: randomUUID() })).rejects.toThrow();
+    expect(await db.first.db.select().from(s.paymentAttempt)).toHaveLength(0);
+    const [agent] = await db.first.db.select().from(s.agent).where(eq(s.agent.id, f.agent.id)); expect(agent!.lastNonce).toBe('0');
+    expect(await runRow()).toMatchObject({ budgetStroops: budget, status: 'completed', reservedStroops: '0', spentStroops: '0' });
   });
   it.each(['MODEL_RATE_LIMITED', 'MODEL_AUTH_FAILED', 'MODEL_REFUSED'] as const)('records safe provider failure %s without inventing success', async code => {
     const client: GeminiClient = { generateStep: async () => { throw new GeminiModelError(code); } };

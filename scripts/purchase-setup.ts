@@ -22,6 +22,10 @@ import { verifyContracts } from './verify-contracts.ts';
 
 export const purchaseDirectory = '.aegispay-spike/finals-payment-005';
 const local = (file: string): NodeJS.ProcessEnv => existsSync(file) ? parseEnv(readFileSync(file, 'utf8')) : {};
+export function serializeWorkerConfiguration(worker: NodeJS.ProcessEnv): string {
+  return '# Worker-only local configuration. Never copy to web or evidence.\n' + Object.entries({ ...worker, RUN_TESTNET: '0' })
+    .filter((entry): entry is [string, string] => entry[1] !== undefined).map(([name, value]) => `${name}=${JSON.stringify(value)}`).join('\n') + '\n';
+}
 export async function setupPurchase(env: NodeJS.ProcessEnv) {
   // Explicit setup is authorized only with the Testnet opt-in. Copy a named
   // allowlist, preserving existing worker config; never load spike into web.
@@ -33,8 +37,8 @@ export async function setupPurchase(env: NodeJS.ProcessEnv) {
   worker.APP_ORIGIN ??= 'http://localhost:3000';
   worker.RECEIPT_SIGNING_KEY ??= randomBytes(32).toString('base64url');
   worker.WORKER_WAKE_TOKEN ??= randomBytes(32).toString('base64url');
-  worker.RUN_TESTNET = '1';
-  const setupEnv: NodeJS.ProcessEnv = { ...worker, SPIKE_OWNER_SECRET: spike.SPIKE_OWNER_SECRET, SPIKE_MERCHANT_SECRET: spike.SPIKE_MERCHANT_SECRET };
+  worker.RUN_TESTNET = '0';
+  const setupEnv: NodeJS.ProcessEnv = { ...worker, RUN_TESTNET: '1', SPIKE_OWNER_SECRET: spike.SPIKE_OWNER_SECRET, SPIKE_MERCHANT_SECRET: spike.SPIKE_MERCHANT_SECRET };
   requireLiveInputs(setupEnv);
   const { config, proof } = await verifyContracts(setupEnv);
   const owner = Keypair.fromSecret(setupEnv.SPIKE_OWNER_SECRET!), agent = Keypair.fromSecret(setupEnv.AGENT_SECRET!), merchant = Keypair.fromSecret(setupEnv.SPIKE_MERCHANT_SECRET!);
@@ -62,7 +66,7 @@ export async function setupPurchase(env: NodeJS.ProcessEnv) {
     const policy = await noir.getPolicy(setup.deviceHash);
     if (!policy?.expiresAt || policy.agent !== agent.publicKey() || policy.asset !== config.asset || policy.expiresAt.getTime() <= Date.now()) throw new SpikeGuardError('POLICY_NOT_READY');
     await store.db.update(s.agent).set({ status: 'active', policyMaxStroops: policy.maxAmount.toString(), policyExpiresAt: policy.expiresAt, policyObservedLedger: BigInt((await noir.server.getLatestLedger()).sequence) }).where(eq(s.agent.publicKey, agent.publicKey()));
-    writeFileSync('.env.worker.local', '# Worker-only local configuration. Never copy to web or evidence.\n' + Object.entries(worker).filter((entry): entry is [string, string] => entry[1] !== undefined).map(([name, value]) => `${name}=${JSON.stringify(value)}`).join('\n') + '\n', { mode: 0o600 });
+    writeFileSync('.env.worker.local', serializeWorkerConfiguration(worker), { mode: 0o600 });
     return { classification: 'actual-testnet-fixture-setup-no-purchase', setup, deploymentVerification: proof };
   } finally { await store.close(); }
 }

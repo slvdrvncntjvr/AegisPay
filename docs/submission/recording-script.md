@@ -1,6 +1,6 @@
 # Two-minute recording script — draft
 
-**Status:** shot/narration plan, not recorded demo. Model app, DB, UI, workspaces and hosting are unbuilt; record final version after TASK-010/TASK-012 gates. Presenter: Salvador Vincent Javier. Target exactly 120 seconds including title/close; published video <=2 minutes. No public video URL exists.
+**Status:** final live-recording plan; an existing112-second evidence-replay video is recorded at docs/submission/aegispay-demo.mp4. App/DB/UI/workspaces and separate authenticated preview are implemented; actual model/payment/worker release and final live recording remain incomplete. Record the final version after TASK-010/TASK-012 gates. Presenter: Salvador Vincent Javier; target <=120seconds including title/close.
 
 ## Before pressing record
 
@@ -20,4 +20,4 @@ Open actual hosted Policy, Run and Audit views, public explorer and redacted evi
 
 Do not edit pending into apparent instant settlement. If confirmation exceeds this sequence, use an explicitly labeled earlier recording from a real completed hosted run, with timestamp/matching proof, and disclose cuts/wait intervals. Keep the two-minute edit; avoid unsupported latency/cost claims. If only the spike exists, use actual source/artifact/explorer views and open: “This is an integration spike; the model app and deployment are incomplete.” That documents progress but does not fulfill the working-app requirement.
 
-Never show private environment/journals or signed agent XDR. No product UI screenshot exists yet. Current proof is one authorization (inner 1d39c3e3… / outer 6e898ad8…) and separate claim 94cea8bb…; use [full hashes](../../README.md#testnet-proof). Final model-purchase proof must come from actual app gates, not a fabricated second purchase.
+Never show private environment/journals or signed agent XDR. Existing product UI and preview captures show their dated local/preview scope; they do not prove a live model purchase. Current payment proof is one authorization (inner 1d39c3e3… / outer 6e898ad8…) and separate claim 94cea8bb…; use [full hashes](../../README.md#testnet-proof). Final model-purchase proof must come from actual app gates, not a fabricated second purchase.

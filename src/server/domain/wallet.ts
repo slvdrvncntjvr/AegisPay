@@ -4,7 +4,7 @@ import { Keypair, Networks, rpc } from '@stellar/stellar-sdk';
 import type { NoirAgentClient } from '@noirx402/agent-sdk';
 import { z } from 'zod';
 import { amountSchema } from '@aegispay/shared';
-import type { Store } from '../db/connection.ts';
+import type { Database, Store } from '../db/connection.ts';
 import * as s from '../db/schema.ts';
 import type { Principal } from '../auth/session.ts';
 import { requireRole } from '../auth/session.ts';
@@ -18,6 +18,8 @@ export const walletInput = z.discriminatedUnion('kind', [
   z.strictObject({ kind: z.enum(['revokeAgent', 'sweepOnRevoke', 'claim']) }),
 ]);
 type WalletInput = z.infer<typeof walletInput>;
+export type WalletActor = Pick<Principal, 'role' | 'ownerId' | 'merchantId'>;
+export type WalletObservationJob = Pick<typeof s.job.$inferSelect, 'id' | 'kind' | 'entityId' | 'leaseOwner'>;
 // UPDATE evaluates the current row under PostgreSQL's row lock. A stale RPC
 // snapshot must never undo an operator suspension committed during that read.
 export function observedPolicyStatus(hasPolicy: boolean, revoked = false) {
@@ -51,7 +53,7 @@ function operationFor(input: WalletInput, agent: typeof s.agent.$inferSelect | n
     case 'sweepOnRevoke': return { kind: input.kind, deviceHash, token: asset, agent: agent.publicKey };
   }
 }
-async function signingContext(store: Store, actor: Principal) {
+async function signingContext(store: Store, actor: WalletActor) {
   requireRole(actor, ['owner', 'merchant']);
   if (actor.role === 'merchant') {
     const [merchant] = await store.db.select().from(s.merchant).where(eq(s.merchant.id, actor.merchantId!));
@@ -63,18 +65,31 @@ async function signingContext(store: Store, actor: Principal) {
   if (!owner || !agent) deny('NOT_FOUND');
   return { address: owner.walletAddress, agent };
 }
-export async function prepareWallet(store: Store, actor: Principal, raw: unknown, gateway: WalletGateway) {
+async function requireSafeReclaim(db: Database, agent: typeof s.agent.$inferSelect, gateway: WalletGateway) {
+  // Caller holds the agent row lock shared with quote acceptance. Unknown or
+  // otherwise unresolved attempts keep their reservation and escrow untouched.
+  const [attempt] = await db.select({ id: s.paymentAttempt.id }).from(s.paymentAttempt).where(and(
+    eq(s.paymentAttempt.agentId, agent.id), sql`${s.paymentAttempt.status} NOT IN ('authorized','refused','expired','failed')`,
+  ));
+  if (attempt) deny('OPERATION_ACTIVE');
+  if (await gateway.getPolicy(agent.deviceHash) !== null) deny('POLICY_NOT_READY');
+}
+export async function prepareWallet(store: Store, actor: WalletActor, raw: unknown, gateway: WalletGateway) {
   const input = walletInput.parse(raw);
   requireRole(actor, input.kind === 'claim' ? ['merchant'] : ['owner']);
   const context = await signingContext(store, actor);
   return store.transaction(async db => {
     // Serialize preparation across requests/processes, including SDK awaits.
     await db.execute(sql`select pg_advisory_xact_lock(hashtextextended(${context.address}, 0))`);
+    // Match quote acceptance and reclaim submission: agent before wallet rows.
+    // In particular, expiring a saved preparation must not invert this order.
+    const [lockedAgent] = context.agent ? await db.select().from(s.agent).where(eq(s.agent.id, context.agent.id)).for('update') : [];
+    const a = lockedAgent ?? null;
+    if (context.agent && !a) deny('NOT_FOUND');
     const now = await databaseTime(db);
     await db.update(s.walletOperation).set({ status: 'expired', updatedAt: now }).where(and(eq(s.walletOperation.actorAddress, context.address), eq(s.walletOperation.status, 'prepared'), sql`${s.walletOperation.expiresAt} <= clock_timestamp()`));
     const [active] = await db.select().from(s.walletOperation).where(and(eq(s.walletOperation.actorAddress, context.address), sql`${s.walletOperation.status} IN ('prepared','submitting','unknown')`));
     if (active) deny('OPERATION_ACTIVE');
-    const a = context.agent;
     if (a) {
       if (a.assetContractId !== gateway.config.asset || a.deviceContractId !== gateway.config.network.contracts.deviceRegistry || a.agentContractId !== gateway.config.network.contracts.agentRegistry || a.escrowContractId !== gateway.config.network.contracts.paymentEscrow) deny('CONTRACT_MISMATCH');
       const owner = await gateway.getDeviceOwner(a.deviceHash);
@@ -84,7 +99,7 @@ export async function prepareWallet(store: Store, actor: Principal, raw: unknown
       if (input.kind === 'sweepOnRevoke' || input.kind === 'defundEscrow') {
         // The installed contract refuses sweeping a live policy. Re-read it;
         // database status alone is never sufficient authority to reclaim.
-        if (await gateway.getPolicy(a.deviceHash) !== null) deny('POLICY_NOT_READY');
+        await requireSafeReclaim(db, a, gateway);
       }
       const token = await gateway.getEscrowToken(a.deviceHash);
       if (token !== null && token !== gateway.config.asset) deny('CONTRACT_MISMATCH');
@@ -103,7 +118,7 @@ export async function prepareWallet(store: Store, actor: Principal, raw: unknown
     return { operationId: id, unsignedXdr, networkPassphrase: Networks.TESTNET, signerAddress: context.address, expiresAt };
   });
 }
-export async function ownedWallet(store: Store, actor: Principal, id: string) {
+export async function ownedWallet(store: Store, actor: WalletActor, id: string) {
   const context = await signingContext(store, actor);
   const [row] = await store.db.select().from(s.walletOperation).where(and(eq(s.walletOperation.id, id), eq(s.walletOperation.actorAddress, context.address), eq(s.walletOperation.role, actor.role)));
   if (!row) deny('NOT_FOUND');
@@ -114,9 +129,12 @@ function storedOperation(row: typeof s.walletOperation.$inferSelect, agent: type
   return operationFor(walletInput.parse(row.operationPayload.input), agent, gateway.config.asset);
 }
 export const walletView = (row: typeof s.walletOperation.$inferSelect) => ({ operationId: row.id, kind: row.operationKind, status: row.status, txHash: row.txHash, expiresAt: row.expiresAt });
-export async function submitWallet(store: Store, actor: Principal, id: string, signed: string, gateway: WalletGateway) {
+export async function submitWallet(store: Store, actor: WalletActor, id: string, signed: string, gateway: WalletGateway, wake?: () => Promise<void>) {
   const { row, agent } = await ownedWallet(store, actor, id);
-  if (row.handoffCommittedAt || row.status !== 'prepared') return walletView(row);
+  if (row.handoffCommittedAt || row.status !== 'prepared') {
+    if (row.handoffCommittedAt && ['submitting', 'unknown'].includes(row.status)) await wake?.().catch(() => {});
+    return walletView(row);
+  }
   const op = storedOperation(row, agent, gateway);
   const now = await databaseTime(store.db);
   if (row.expiresAt <= now) deny('QUOTE_EXPIRED');
@@ -125,6 +143,11 @@ export async function submitWallet(store: Store, actor: Principal, id: string, s
     !tx.signatures[0]!.hint().equals(Keypair.fromPublicKey(row.actorAddress).signatureHint()) ||
     !Keypair.fromPublicKey(row.actorAddress).verify(tx.hash(), tx.signatures[0]!.signature())) deny('INVALID_INPUT');
   const won = await store.transaction(async db => {
+    if (agent && ['sweepOnRevoke', 'defundEscrow'].includes(row.operationKind)) {
+      const [locked] = await db.select().from(s.agent).where(eq(s.agent.id, agent.id)).for('update');
+      if (!locked) deny('NOT_FOUND');
+      await requireSafeReclaim(db, locked, gateway);
+    }
     const [claimed] = await db.update(s.walletOperation).set({ status: 'submitting', handoffCommittedAt: sql`clock_timestamp()`, txHash: row.unsignedBodyHash, updatedAt: sql`clock_timestamp()` })
       .where(and(eq(s.walletOperation.id, id), eq(s.walletOperation.status, 'prepared'), sql`${s.walletOperation.handoffCommittedAt} IS NULL AND ${s.walletOperation.expiresAt} > clock_timestamp()`)).returning();
     if (!claimed) return false;
@@ -133,6 +156,9 @@ export async function submitWallet(store: Store, actor: Principal, id: string, s
     return true;
   });
   if (won) {
+    // The durable handoff and observation job exist before waking a sleeping
+    // worker. Wake failure never repeats submission or rolls back the marker.
+    await wake?.().catch(() => {});
     try {
       // No automatic retry after this committed boundary, even on local timeout.
       if (Date.now() >= row.expiresAt.getTime()) deny('QUOTE_EXPIRED');
@@ -142,15 +168,45 @@ export async function submitWallet(store: Store, actor: Principal, id: string, s
   }
   return observeWallet(store, actor, id, gateway);
 }
-export async function observeWallet(store: Store, actor: Principal, id: string, gateway: WalletGateway) {
+export async function observeWallet(store: Store, actor: WalletActor, id: string, gateway: WalletGateway, job?: WalletObservationJob) {
   const { row, agent } = await ownedWallet(store, actor, id);
   if (!row.handoffCommittedAt || !row.txHash || ['confirmed', 'failed'].includes(row.status)) return walletView(row);
   const op = storedOperation(row, agent, gateway);
+  async function write<T>(work: (db: Database) => Promise<T>) {
+    return store.transaction(async db => {
+      // Worker lease -> agent -> wallet -> claim; browser observation omits only
+      // the lease. No network request runs while these observation locks are held.
+      const [owned] = job ? await db.select().from(s.job).where(and(eq(s.job.id, job.id), eq(s.job.kind, job.kind),
+        eq(s.job.entityId, job.entityId), eq(s.job.status, 'leased'), eq(s.job.leaseOwner, job.leaseOwner ?? ''))).for('update') : [];
+      if (job && (!owned?.leaseUntil || owned.leaseUntil <= await databaseTime(db))) throw new Error('WALLET_LEASE_LOST');
+      if (agent) await db.select({ id: s.agent.id }).from(s.agent).where(eq(s.agent.id, agent.id)).for('update');
+      const result = await work(db);
+      if (job && owned!.leaseUntil! <= await databaseTime(db)) throw new Error('WALLET_LEASE_LOST');
+      return result;
+    });
+  }
   try {
     const chain = await gateway.getTransaction(row.txHash);
-    if (chain.status !== rpc.Api.GetTransactionStatus.SUCCESS || chain.feeBump || chain.resultXdr.result().switch().name !== 'txSuccess') throw new Error('UNRESOLVED');
+    if (chain.status !== rpc.Api.GetTransactionStatus.SUCCESS && chain.status !== rpc.Api.GetTransactionStatus.FAILED) throw new Error('UNRESOLVED');
+    if (chain.feeBump !== false || !Number.isSafeInteger(chain.ledger) || chain.ledger <= 0 ||
+      !Number.isSafeInteger(chain.createdAt) || chain.createdAt <= 0 || !Number.isSafeInteger(chain.applicationOrder) || chain.applicationOrder < 1 ||
+      chain.ledger > chain.latestLedger || chain.ledger < chain.oldestLedger || !chain.resultMetaXdr) deny('CONTRACT_MISMATCH');
     const tx = inspectWalletOperation(chain.envelopeXdr.toXDR('base64'), row.actorAddress, op, gateway.config, row.handoffCommittedAt.getTime());
-    if (chain.txHash !== row.txHash || tx.hash().toString('hex') !== row.unsignedBodyHash || tx.signatures.length !== 1 || !Keypair.fromPublicKey(row.actorAddress).verify(tx.hash(), tx.signatures[0]!.signature())) deny('CONTRACT_MISMATCH');
+    if (chain.txHash !== row.txHash || tx.hash().toString('hex') !== row.unsignedBodyHash || tx.signatures.length !== 1 ||
+      !tx.signatures[0]!.hint().equals(Keypair.fromPublicKey(row.actorAddress).signatureHint()) ||
+      !Keypair.fromPublicKey(row.actorAddress).verify(tx.hash(), tx.signatures[0]!.signature())) deny('CONTRACT_MISMATCH');
+    if (chain.status === rpc.Api.GetTransactionStatus.FAILED) {
+      // FAILED is an included ledger result, unlike NOT_FOUND, timeout or local
+      // refusal. Require a negative result code for the exact saved transaction.
+      if (chain.resultXdr.result().switch().value >= 0) deny('CONTRACT_MISMATCH');
+      await write(async db => {
+        const [failed] = await db.update(s.walletOperation).set({ status: 'failed', updatedAt: sql`clock_timestamp()` })
+          .where(and(eq(s.walletOperation.id, id), sql`${s.walletOperation.status} IN ('submitting','unknown')`)).returning();
+        if (failed && op.kind === 'claim') await db.update(s.merchantClaim).set({ status: 'failed', txHash: row.txHash }).where(eq(s.merchantClaim.walletOperationId, id));
+      });
+      return walletView((await ownedWallet(store, actor, id)).row);
+    }
+    if (chain.resultXdr.result().switch().name !== 'txSuccess') deny('CONTRACT_MISMATCH');
     // Claim amount comes only from the embedded independently successful event.
     let claimAmount: string | null = null;
     if (op.kind === 'claim') {
@@ -172,14 +228,18 @@ export async function observeWallet(store: Store, actor: Principal, id: string, 
       policy = await gateway.getPolicy(agent.deviceHash);
       if (policy && (policy.agent !== agent.publicKey || policy.asset !== gateway.config.asset || policy.maxAmount <= 0n || !policy.expiresAt)) deny('CONTRACT_MISMATCH');
     }
-    await store.transaction(async db => {
-      await db.update(s.walletOperation).set({ status: 'confirmed', updatedAt: sql`clock_timestamp()` }).where(and(eq(s.walletOperation.id, id), sql`${s.walletOperation.status} IN ('submitting','unknown')`));
+    await write(async db => {
+      const [confirmed] = await db.update(s.walletOperation).set({ status: 'confirmed', updatedAt: sql`clock_timestamp()` }).where(and(eq(s.walletOperation.id, id), sql`${s.walletOperation.status} IN ('submitting','unknown')`)).returning();
+      if (!confirmed) return;
       if (agent) await db.update(s.agent).set({ status: observedPolicyStatus(policy !== null, row.operationKind === 'revokeAgent'), policyMaxStroops: policy?.maxAmount.toString() ?? '0', policyExpiresAt: policy?.expiresAt ?? new Date(0), policyObservedLedger: BigInt(chain.ledger) }).where(eq(s.agent.id, agent.id));
       if (op.kind === 'claim') await db.update(s.merchantClaim).set({ status: 'confirmed', txHash: row.txHash, observedClaimAmountStroops: claimAmount, confirmedAt: sql`clock_timestamp()` }).where(eq(s.merchantClaim.walletOperationId, id));
     });
-    return { ...walletView(row), status: 'confirmed', ledger: chain.ledger };
-  } catch {
-    await store.db.update(s.walletOperation).set({ status: 'unknown', updatedAt: sql`clock_timestamp()` }).where(and(eq(s.walletOperation.id, id), eq(s.walletOperation.status, 'submitting')));
-    return { ...walletView(row), status: 'unknown' };
+    return { ...walletView((await ownedWallet(store, actor, id)).row), ledger: chain.ledger };
+  } catch (error) {
+    if (error instanceof Error && error.message === 'WALLET_LEASE_LOST') throw error;
+    await write(async db => {
+      await db.update(s.walletOperation).set({ status: 'unknown', updatedAt: sql`clock_timestamp()` }).where(and(eq(s.walletOperation.id, id), eq(s.walletOperation.status, 'submitting')));
+    });
+    return walletView((await ownedWallet(store, actor, id)).row);
   }
 }

@@ -25,7 +25,7 @@ Browser console --session--> Next.js Node UI + API
 
 ## Components & responsibilities
 
-The handbook requires a real public workspaces monorepo and working hosted app. TASK-011 replaces the original single-package selection with minimal root-declared workspaces, preserving Next Node + PostgreSQL/Drizzle + one private Node worker. These are creation targets; current package.json has no workspaces and the app folders do not yet exist:
+The handbook requires a real public workspaces monorepo and working hosted app. TASK-011 replaces the original single-package selection with minimal root-declared workspaces, preserving Next Node + PostgreSQL/Drizzle + one private Node worker. These four root-declared workspaces are implemented and installed from one lockfile. Actual live model/payment/wallet and complete hosted release gates remain incomplete:
 
 ```text
 apps/web/          Next App Router UI, login and Node API routes
@@ -96,7 +96,7 @@ Initial metadata pins were observed during preparation. TASK-001 reconciles inst
 | Zod **4.6.7** | HTTP/tool validation | Some SQL invariants must also be enforced | Trusting TypeScript at runtime |
 | Noir **0.3.0**, Stellar SDK **16.4.1** | Published peer compatibility and prepare API | Explicitly verify mandatory October 24 tuple; original brief candidates differ | Stellar 17.4.0 latest violates Noir peer |
 | Velo **1.0.0** | Required sponsor/submission integration | Alpha/Testnet service dependency | Unrelated checkout integration |
-| Anthropic SDK **1.6.0** | Direct bounded tool loop | Model access/key needed | Framework orchestration and multi-model routing |
+| Gemini GenerateContent via native Node fetch | Direct bounded tool loop; Anthropic SDK1.6.0 remains an unused pinned dependency | Actual model/key/quota acceptance required | Framework orchestration and multi-model routing |
 | Freighter API **6.0.1** | Owner/merchant browser signing | One supported wallet | Secret-key input in browser |
 | tsx **4.23.15**, Vitest **5.1.0**, Playwright **1.65.0** | Worker/scripts and appropriate verification | Real chain tests remain separate | Mock-only acceptance |
 
@@ -131,3 +131,7 @@ The queue shares PostgreSQL to avoid another service. Identity-before-handoff im
 ## User-directed model and hosting update - 2026-11-08
 
 Gemini replaces Anthropic. Render replaces Railway as the requested zero-cost demo target. Free background/private worker services are unavailable; the proposed adaptation is a second isolated free web service with authenticated HTTPS wake ingress, no exposed signing/payment route, one durable SQL job consumer and independent secrets. Idle sleep/restarts must resume observation, never repeat a handoff. Free PostgreSQL expires after 30 days. This adaptation is not yet deployed. Official sources: https://render.com/docs/free and https://ai.google.dev/gemini-api/docs/function-calling.
+
+## Wallet observation implementation checkpoint — 2026-11-14
+
+The worker now consumes wallet_observe and legacy claim_observe jobs as well as payment/run jobs. Recovery resolves trusted actor context from constrained SQL rows and observes only saved transaction hashes. Job lease fencing protects observation writes; terminal human-wallet failure requires exact matching signed body/hash/source and independently included FAILED result. NOT_FOUND/timeout/ambiguous evidence stays unknown. Authenticated committed-handoff routes issue bounded worker wake; no unauthorized/prepared-only wake, signing or resubmission is added. Local consumer-instance recreation tests are distinct from existing synthetic OS-process-death payment tests and unverified hosted cold-start behavior.

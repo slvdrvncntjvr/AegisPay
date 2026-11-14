@@ -1,0 +1,57 @@
+{
+  "status": "authorized-independent-scope-complete-full-live-release-incomplete",
+  "workRef": "task/TASK-009-demo-readiness",
+  "baseCommit": "017afa337ac7b29bfef55f5de282eb9f0396bc9b",
+  "taskStatus": {
+    "TASK-009": "blocked-human-wallet-live-gate",
+    "TASK-007": "blocked-app-model-live-acceptance-provider-connectivity-passed",
+    "TASK-021": "done-local-only",
+    "TASK-022": "done-narrow-diagnostics-only",
+    "TASK-023": "done-preparation-only"
+  },
+  "preservedSameApplicationSourceGates": {
+    "rootAndWebTypes": 0,
+    "lint": 0,
+    "unit": "112/112",
+    "postgresIntegration": "143/143",
+    "offlineSpike": "50/50",
+    "productionBrowser": "21/21-synthetic-protected-transport",
+    "build": 0
+  },
+  "newIndependentGates": {
+    "safeProviderRoundtrip": "exit0-2POST200-unchanged-config-zero-financial-actions",
+    "postDiagnosticTypesAndLint": "both-exit0",
+    "anonymousPreviewHttps": "exit0-6/6",
+    "isolatedLocalSchema": "5-migration-checksums-16-empty-tables-no-actor-seed",
+    "localProductionAppWorkerHttp": "exit0-17/17-owned-endpoint-processes-stopped",
+    "preparedCollectorSql": "exit0-parameterized-empty-fail-closed-read-only-25006",
+    "hostedHelperSyntax": "all-five-exit0",
+    "defaultAndFenceExits": "expected2-inert-and1-missing-source-no-host-install-start",
+    "providerInventory": "exit0-3successful-2xx-JSON-GETs-zero-mutations",
+    "documentation": "both-exit0-23tasks-no-same-wave-overlap"
+  },
+  "remainingExternalInputs": [
+    "confirm-owner-and-merchant-Freighter-public-address-control-before-actor-seed",
+    "explicit-human-Testnet-setup-funding-signatures",
+    "fresh-task-purchase-intent-with-actual-finite-maxima-before-any-new-financial-handoff",
+    "independent-hosted-PostgreSQL-target-or-separate-eligible-Free-workspace-selection",
+    "authoritative-original-reservation-execution-or-fencing-evidence"
+  ],
+  "remainingReleaseGates": [
+    "two-distinct-genuine-application-Velo-Noir-successes-and-protected-delivery",
+    "actual-deployed-contract-over-cap-and-expired-policy-refusals",
+    "separate-merchant-claim-and-wallet-revoke-reclaim",
+    "actual-app-model-price-change-and-sensible-no-purchase-with-budget",
+    "actual-payment-and-hosted-worker-cold-restart-recovery-security-TLS-leak-joins",
+    "real-model-purchase-video-and-final-submission-logistics"
+  ],
+  "providerKeyOrAccountRepairCurrentlyRequired": false,
+  "newLocalDatabase": "aegispay_release_20261114",
+  "localActorSeeded": false,
+  "newFinancialHandoffs": 0,
+  "walletApprovals": 0,
+  "remoteMutations": 0,
+  "originalIncident": "f69178b7-0b0b-46fa-8e82-65c2dd5deee5-untouched-held-unentitled",
+  "publicationOwner": "coordinator-only",
+  "historicalFinalSourceManifestPreserved": true
+}

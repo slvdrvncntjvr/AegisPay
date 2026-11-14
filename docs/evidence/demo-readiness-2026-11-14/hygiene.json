@@ -1,0 +1,11 @@
+{
+  "classification": "local-static-hygiene-not-full-release-leak-gate",
+  "changed_files_scanned": 78,
+  "client_js_files_scanned": 14,
+  "secret_pattern_matches": [],
+  "protected_client_sentinel_matches": [],
+  "new_current_source_utf8_markers": [],
+  "protected_environment_files_read": false,
+  "historical_live_evidence_modified": false,
+  "fmd_modified": false
+}

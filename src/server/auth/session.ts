@@ -50,7 +50,7 @@ export async function authenticate(store: Store, request: Request): Promise<Prin
   if (!session || (bearer !== null && session.role !== 'worker') || (bearer === null && session.role === 'worker')) deny('AUTH_INVALID');
   return session;
 }
-export function requireRole(actor: Principal, roles: string[]) { if (!roles.includes(actor.role)) deny('FORBIDDEN'); }
+export function requireRole(actor: Pick<Principal, 'role'>, roles: string[]) { if (!roles.includes(actor.role)) deny('FORBIDDEN'); }
 export async function ownedRun(store: Store, actor: Principal, id: string) {
   requireRole(actor, ['owner', 'worker']);
   if (actor.role === 'worker' && actor.runId !== id) deny('NOT_FOUND');

@@ -1,0 +1,136 @@
+{
+  "status": "passed",
+  "scope": "real-empty-loopback-app-worker-startup-and-ingress-only",
+  "observedAt": "2026-11-14T11:59:48.280Z",
+  "databaseName": "aegispay_release_20261114",
+  "ownershipVerified": true,
+  "migrationChecksumsUnchanged": true,
+  "checks": [
+    {
+      "name": "web:/api/health",
+      "expectedStatus": 200,
+      "observedStatus": 200,
+      "passed": true
+    },
+    {
+      "name": "web:/login",
+      "expectedStatus": 200,
+      "observedStatus": 200,
+      "passed": true
+    },
+    {
+      "name": "web:/app",
+      "expectedStatus": 200,
+      "observedStatus": 200,
+      "passed": true
+    },
+    {
+      "name": "anonymous:/api/v1/state",
+      "expectedStatus": 401,
+      "observedStatus": 401,
+      "passed": true
+    },
+    {
+      "name": "anonymous:/api/v1/catalog",
+      "expectedStatus": 401,
+      "observedStatus": 401,
+      "passed": true
+    },
+    {
+      "name": "anonymous:/api/v1/runs",
+      "expectedStatus": 401,
+      "observedStatus": 401,
+      "passed": true
+    },
+    {
+      "name": "worker-health",
+      "expectedStatus": 200,
+      "observedStatus": 200,
+      "passed": true
+    },
+    {
+      "name": "worker-root-closed",
+      "expectedStatus": 404,
+      "observedStatus": 404,
+      "passed": true
+    },
+    {
+      "name": "worker-wake-get-closed",
+      "expectedStatus": 404,
+      "observedStatus": 404,
+      "passed": true
+    },
+    {
+      "name": "worker-no-auth",
+      "expectedStatus": 401,
+      "observedStatus": 401,
+      "passed": true
+    },
+    {
+      "name": "worker-invalid-auth",
+      "expectedStatus": 401,
+      "observedStatus": 401,
+      "passed": true
+    },
+    {
+      "name": "worker-browser-origin",
+      "expectedStatus": 403,
+      "observedStatus": 403,
+      "passed": true
+    },
+    {
+      "name": "worker-extra-field",
+      "expectedStatus": 400,
+      "observedStatus": 400,
+      "passed": true
+    },
+    {
+      "name": "worker-oversize",
+      "expectedStatus": 413,
+      "observedStatus": 413,
+      "passed": true
+    },
+    {
+      "name": "worker-malformed-json",
+      "expectedStatus": 400,
+      "observedStatus": 400,
+      "passed": true
+    },
+    {
+      "name": "worker-unsupported-content",
+      "expectedStatus": 400,
+      "observedStatus": 400,
+      "passed": true
+    },
+    {
+      "name": "worker-empty-authenticated-wake",
+      "expectedStatus": 202,
+      "observedStatus": 202,
+      "passed": true
+    }
+  ],
+  "counts": {
+    "owner": 0,
+    "merchant": 0,
+    "agent": 0,
+    "resource": 0,
+    "agent_run": 0,
+    "quote": 0,
+    "payment_attempt": 0,
+    "payment_evidence": 0,
+    "entitlement": 0,
+    "wallet_operation": 0,
+    "merchant_claim": 0,
+    "job": 0,
+    "session": 0,
+    "run_event": 0,
+    "audit_event": 0,
+    "auth_throttle": 0
+  },
+  "privateEnvironmentSeparation": true,
+  "signerAndProviderCredentialsPresent": false,
+  "actorsSeeded": false,
+  "financialActions": 0,
+  "fullRelease": false,
+  "limit": "No authenticated owner/merchant or chain/model/payment/wallet lifecycle acceptance; processes stopped after qualification."
+}

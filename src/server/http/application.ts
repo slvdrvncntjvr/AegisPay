@@ -163,11 +163,14 @@ export function createApplication(context: ApplicationContext) {
       }
       if (path[0] === 'api' && path[1] === 'v1' && path[2] === 'wallet-operations' && path[3]) {
         const id = uuidSchema.parse(path[3]);
-        await ownedWallet(store, actor, id); // authorization before SDK creation
-        if (path.length === 4 && request.method === 'GET') return json(await observeWallet(store, actor, id, await context.wallet()));
+        const owned = await ownedWallet(store, actor, id); // authorization before SDK creation
+        if (path.length === 4 && request.method === 'GET') {
+          if (owned.row.handoffCommittedAt && ['submitting', 'unknown'].includes(owned.row.status)) await wake().catch(() => {});
+          return json(await observeWallet(store, actor, id, await context.wallet()));
+        }
         if (path.length === 5 && path[4] === 'submit' && request.method === 'POST') {
           const input = z.strictObject({ signedXdr: z.string().min(1).max(260000) }).parse(await jsonBody(request, 262144));
-          return json(await submitWallet(store, actor, id, input.signedXdr, await context.wallet()), 202);
+          return json(await submitWallet(store, actor, id, input.signedXdr, await context.wallet(), wake), 202);
         }
       }
       if (path[0] === 'api' && path[1] === 'v1' && path[2] === 'runs' && path.length === 5 && path[4] === 'events' && request.method === 'GET') {

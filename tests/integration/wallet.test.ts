@@ -4,7 +4,7 @@ import { Account, Contract, Keypair, Networks, TransactionBuilder, rpc, xdr } fr
 import { toCall } from '@noirx402/agent-sdk';
 import { eq } from 'drizzle-orm';
 import { createTestDatabase } from './support/database.js';
-import { acceptInput, fixture } from './support/fixtures.js';
+import { acceptInput, fixture, observedProof } from './support/fixtures.js';
 import { issueSession } from '../../src/server/auth/session.js';
 import { prepareWallet, submitWallet, observeWallet, type WalletGateway } from '../../src/server/domain/wallet.js';
 import { acceptQuote, createRun } from '../../src/server/domain/purchases.ts';
@@ -65,6 +65,55 @@ describe('TC-024 exact human-wallet bodies and durable one-time handoff (synthet
     gateway.getPolicy = async () => ({ agent: f.agent.publicKey, maxAmount: 1000000n, asset: gateway.config.asset, expiresAt: new Date(Date.now() + 60000) });
     await expect(prepareWallet(db.first, actor, { kind: 'sweepOnRevoke' }, gateway)).rejects.toThrow('POLICY_NOT_READY');
   });
+  for (const kind of ['sweepOnRevoke', 'defundEscrow'] as const) {
+    const input = kind === 'defundEscrow' ? { kind, amountStroops: '300000' } : { kind };
+    it(`TC-022 ${kind} preserves an unknown purchase, nonce and held budget`, async () => {
+      const { f, signer, actor, gateway, submit } = await setup();
+      gateway.getDeviceOwner = async () => signer.publicKey();
+      const attempt = await acceptQuote(db.first, acceptInput(f));
+      await observedProof(db.first, f, attempt);
+      await db.first.db.update(s.paymentAttempt).set({ status: 'unknown' }).where(eq(s.paymentAttempt.id, attempt.id));
+      const prepare = vi.spyOn(gateway, 'prepare');
+      await expect(prepareWallet(db.second, actor, input, gateway)).rejects.toThrow('OPERATION_ACTIVE');
+      expect(prepare).not.toHaveBeenCalled(); expect(submit).not.toHaveBeenCalled();
+      const [agent] = await db.first.db.select().from(s.agent).where(eq(s.agent.id, f.agent.id));
+      const [run] = await db.first.db.select().from(s.agentRun).where(eq(s.agentRun.id, f.run.id));
+      const [saved] = await db.first.db.select().from(s.paymentAttempt).where(eq(s.paymentAttempt.id, attempt.id));
+      expect(agent!.lastNonce).toBe('1'); expect(run!.reservedStroops).toBe('300000'); expect(run!.spentStroops).toBe('0');
+      expect(saved!.status).toBe('unknown'); expect(saved!.veloRequestId).not.toBeNull();
+      expect(await db.first.db.select().from(s.entitlement)).toHaveLength(0);
+    });
+    it(`TC-022 ${kind} preparation serializes against quote acceptance on independent connections`, async () => {
+      const { f, signer, actor, gateway, submit } = await setup();
+      gateway.getDeviceOwner = async () => signer.publicKey();
+      const results = await Promise.allSettled([
+        prepareWallet(db.first, actor, input, gateway), acceptQuote(db.second, acceptInput(f)),
+      ]);
+      expect(results.filter(r => r.status === 'fulfilled')).toHaveLength(1);
+      const rejected = results.find(r => r.status === 'rejected') as PromiseRejectedResult;
+      expect(rejected.reason).toMatchObject({ code: 'OPERATION_ACTIVE' });
+      expect(submit).not.toHaveBeenCalled();
+    });
+    it(`TC-022 ${kind} rechecks policy at signed submission without a handoff`, async () => {
+      const { f, signer, actor, gateway, submit } = await setup();
+      gateway.getDeviceOwner = async () => signer.publicKey();
+      const prepared = await prepareWallet(db.first, actor, input, gateway);
+      // A separately refreshed active cache cannot authorize a purchase while
+      // the saved reclaim is prepared, nor once its handoff becomes unknown.
+      await expect(acceptQuote(db.second, acceptInput(f))).rejects.toThrow('OPERATION_ACTIVE');
+      gateway.getPolicy = async () => ({ agent: f.agent.publicKey, maxAmount: 1000000n, asset: gateway.config.asset, expiresAt: new Date(Date.now() + 60000) });
+      const tx = TransactionBuilder.fromXDR(prepared.unsignedXdr, Networks.TESTNET); tx.sign(signer);
+      await expect(submitWallet(db.second, actor, prepared.operationId, tx.toXDR(), gateway)).rejects.toThrow('POLICY_NOT_READY');
+      expect(submit).not.toHaveBeenCalled();
+      gateway.getPolicy = async () => null;
+      expect((await submitWallet(db.first, actor, prepared.operationId, tx.toXDR(), gateway)).status).toBe('unknown');
+      expect(submit).toHaveBeenCalledTimes(1);
+      await expect(acceptQuote(db.second, acceptInput(f))).rejects.toThrow('OPERATION_ACTIVE');
+      await observeWallet(db.second, actor, prepared.operationId, gateway);
+      await submitWallet(db.second, actor, prepared.operationId, tx.toXDR(), gateway);
+      expect(submit).toHaveBeenCalledTimes(1);
+    });
+  }
   for (const path of ['refresh', 'confirmation'] as const) for (const when of ['before', 'during_rpc'] as const) {
     it(`R1 preserves operator suspension ${when} ${path} and refuses new spending`, async () => {
       const { f, signer, actor, gateway } = await setup();

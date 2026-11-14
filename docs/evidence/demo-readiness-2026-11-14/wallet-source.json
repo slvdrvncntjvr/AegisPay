@@ -1,0 +1,12 @@
+{
+  "src/server/domain/wallet.ts": "cd81a6a61eed4f4b48d317e0f5744cdce44ceb3358afa0f160abbb92a2972f15",
+  "src/server/domain/purchases.ts": "cd9e1eee12449c8f337cad2603f0434fbca857e827031389cfbef09b89df629d",
+  "src/server/auth/session.ts": "65252e0345ac4c48b2a50d0adce57d1ca1b3b33b3b06dd22c8a03285cfa807da",
+  "apps/server/src/worker/wallet.ts": "8c0a2d326a5a7a1cb4cba3928145858fd0cc57168325f8d1bd6c077ae3c4dfa2",
+  "apps/server/src/index.ts": "8f16d4d169e02c8d6bd3ca953fbb850c1f88961ab74d2e26946af406bc03bbf6",
+  "apps/web/src/components/product/wallet-panel.tsx": "3e73e2e3513024fed9dec5154f1208727670af98162d7adebd84dafd37687d1c",
+  "tests/integration/wallet.test.ts": "a9a0c1824194df5ef6e63cb26184229517aef03511dfea518c9724f9632890b8",
+  "tests/integration/wallet-worker.test.ts": "0d568c7c676e1cbde82cb2fbb0c0a88c829c9a822d5b8d337eb55f73f13f1f42",
+  "tests/integration/quotes.test.ts": "bde3e9e0e6f38e951e29de89147b529411c046c7c395a89749ae3a4833db209b",
+  "tests/e2e/authenticated-console.spec.ts": "a386d09a703f0a5175b9b81dad17a7d905e9e1c82425532c9303fb05155dd385"
+}

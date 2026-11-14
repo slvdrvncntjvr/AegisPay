@@ -1,0 +1,112 @@
+{
+  "status": "passed",
+  "scope": "new-owned-loopback-schema-and-private-config-only",
+  "observedAt": "2026-11-14T11:58:11.273Z",
+  "databaseName": "aegispay_release_20261114",
+  "version": "17.11",
+  "ownershipCommentVerified": true,
+  "loopback": true,
+  "tlsRequiredForHostedOnly": true,
+  "migrations": [
+    {
+      "name": "0000_foundation.sql",
+      "sha256": "87b1c61455b75829c8d123fa0b4a6798dd0d280a32271d10621a63fb58d6a8b8"
+    },
+    {
+      "name": "0001_financial_guards.sql",
+      "sha256": "c3874d0db27af1b4606f32620142f11616244d8ec5dda0e61ad0b9d0413f78d2"
+    },
+    {
+      "name": "0002_acceptance_keys.sql",
+      "sha256": "01ce6252cd258ca88657014b225ef49aace0c0ea0a4213754a1ee394b198a06b"
+    },
+    {
+      "name": "0003_terminal_evidence_guard.sql",
+      "sha256": "806391307230c2f4b0867c6693dc45b0c491a64b2eb1da7844e4ca64ad3faf7a"
+    },
+    {
+      "name": "0004_nonfinancial_run_budget.sql",
+      "sha256": "1dca7ad0802d3472bbf0fd6d77c2e52c7cdb5d42796d78191d4d62696e52aec4"
+    }
+  ],
+  "counts": {
+    "owner": 0,
+    "merchant": 0,
+    "agent": 0,
+    "resource": 0,
+    "agent_run": 0,
+    "quote": 0,
+    "payment_attempt": 0,
+    "payment_evidence": 0,
+    "entitlement": 0,
+    "wallet_operation": 0,
+    "merchant_claim": 0,
+    "job": 0,
+    "session": 0,
+    "run_event": 0,
+    "audit_event": 0,
+    "auth_throttle": 0
+  },
+  "financialActions": 0,
+  "actorsSeeded": false,
+  "privateConfigFiles": [
+    ".env.release.database.local",
+    ".env.release.web.local",
+    ".env.release.worker.local"
+  ],
+  "privateConfigValuesExported": false,
+  "userOnlyAcl": true,
+  "webEnvironmentNames": [
+    "AGENT_MODEL",
+    "APP_ORIGIN",
+    "DATABASE_URL",
+    "DEMO_AGENT_PUBLIC_KEY",
+    "DEMO_DEVICE_HASH",
+    "DEMO_MERCHANT_LOGIN_TOKEN",
+    "DEMO_OWNER_LOGIN_TOKEN",
+    "NEXT_TELEMETRY_DISABLED",
+    "NODE_ENV",
+    "NOIR_AGENT_REGISTRY_ID",
+    "NOIR_DEVICE_REGISTRY_ID",
+    "NOIR_PAYMENT_ESCROW_ID",
+    "NOIR_XLM_SAC_ID",
+    "RECEIPT_SIGNING_KEY",
+    "STELLAR_NETWORK",
+    "STELLAR_NETWORK_PASSPHRASE",
+    "STELLAR_RPC_URL",
+    "WORKER_WAKE_TOKEN",
+    "WORKER_WAKE_URL"
+  ],
+  "workerEnvironmentNames": [
+    "AGENT_MODEL",
+    "APP_ORIGIN",
+    "DATABASE_URL",
+    "DEMO_AGENT_PUBLIC_KEY",
+    "DEMO_DEVICE_HASH",
+    "ENVELOPE_ENCRYPTION_KEY",
+    "NODE_ENV",
+    "NOIR_AGENT_REGISTRY_ID",
+    "NOIR_DEVICE_REGISTRY_ID",
+    "NOIR_PAYMENT_ESCROW_ID",
+    "NOIR_XLM_SAC_ID",
+    "PORT",
+    "RECEIPT_SIGNING_KEY",
+    "RUN_TESTNET",
+    "STELLAR_NETWORK",
+    "STELLAR_NETWORK_PASSPHRASE",
+    "STELLAR_RPC_URL",
+    "WORKER_HOST",
+    "WORKER_WAKE_TOKEN"
+  ],
+  "absentFinancialProviderNames": [
+    "AGENT_SECRET",
+    "VELO_GAS_API_KEY",
+    "GEMINI_API_KEY"
+  ],
+  "missing": [
+    "CONFIRMED_OWNER_MERCHANT_PUBLIC_ADDRESSES",
+    "HUMAN_WALLET_SETUP_CONSENT",
+    "FRESH_PURCHASE_INTENT_BEFORE_SPENDING",
+    "INDEPENDENT_HOSTED_DATABASE_TARGET"
+  ]
+}

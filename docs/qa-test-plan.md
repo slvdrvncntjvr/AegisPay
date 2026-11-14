@@ -1,12 +1,12 @@
 # QA test plan
 
-**Status:** application/release test specification remains pending. Bootstrap and isolated synthetic spike checks now have actual evidence in [run evidence](run-evidence.jsonl); no successful payment or complete application test suite is claimed.
+**Status:** application tests are implemented; full live release remains incomplete. Current scope/results are in [Nov14 readiness](evidence/demo-readiness-2026-11-14/report.md) and [run evidence](run-evidence.jsonl). The historical SDK payment is distinct from unproved application/model acceptance.
 
 ## Strategy and environments
 
 Use pure Vitest unit tests for parsing/guards; PostgreSQL integration tests for locks, state transitions and uniqueness; Playwright Chromium for visible journey and secret/fixture leakage; separate opt-in real Testnet tests. Never use SQLite to prove PostgreSQL races. Run concurrency cases on independent DB connections. Real funding/submission tests use capped disposable Testnet keys/wallets and configured Velo Gas access.
 
-The package exposes these command names. SDK imports, typecheck, lint, contract verification and the guarded full spike driver exist. Unit/integration/browser/build/demo commands target later tasks and are not runnable acceptance suites yet; demo:smoke still names a future script. TASK-001 stays limited to the runtime/SDK harness.
+The package implements the commands below. Unit/PostgreSQL/browser/offline spike/build gates are real local checks. test:testnet currently exercises historical spike acceptance; the purchase/policy/claim/lifecycle file names in the traceability table are planned dedicated full-app live coverage, not existing suites. demo:smoke is inert without explicit offline/model-only mode. The new release runner has separately guarded actual-app phases; live execution remains unrun and cannot be inferred from guard tests. See [rehearsal scope](evidence/demo-readiness-2026-11-14/rehearsal.md).
 
 ```text
 pnpm typecheck             strict TypeScript, no emit

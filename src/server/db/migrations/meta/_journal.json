@@ -29,6 +29,13 @@
       "when": 1794066570842,
       "tag": "0003_terminal_evidence_guard",
       "breakpoints": false
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1794636232688,
+      "tag": "0004_nonfinancial_run_budget",
+      "breakpoints": false
     }
   ]
 }

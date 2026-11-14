@@ -1,0 +1,15 @@
+{
+  "observedAt": "2026-11-14T12:14:16.933Z",
+  "classification": "known-new-local-and-allowlisted-provider-values-plus-static-patterns-not-full-live-release-leak-gate",
+  "status": "passed",
+  "changedFilesScanned": 114,
+  "clientJsFilesScanned": 14,
+  "knownPrivateValuesChecked": 11,
+  "knownValueMatches": [],
+  "clientMatches": [],
+  "sourceReplacementCharacters": [],
+  "forbiddenOrHistoricalWrites": [],
+  "newPrivateCustodyIgnored": true,
+  "originalAgentSpikeStagingCredentialsOrSignedJournalsRead": false,
+  "privateValuesExported": false
+}

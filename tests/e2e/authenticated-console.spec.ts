@@ -225,7 +225,7 @@ test('authenticated trace displays only public untrusted choice commentary and p
     expect(await page.locator('.pc-choice').locator('a,script,b').count()).toBe(0);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await stamp(page); await page.locator('#run').scrollIntoViewIfNeeded();
-    await page.screenshot({ path: `docs/evidence/finals-review-fixes-577b844/synthetic-choice-${width}.png`, fullPage: true });
+    await page.screenshot({ path: `test-results/demo-readiness-captures/synthetic-choice-${width}.png`, fullPage: true });
   }
   expect(t.seen.every(r => r.method === 'GET')).toBe(true); t.assertHandled();
 });
@@ -262,7 +262,7 @@ test('receipt metadata precedes a separately gated synthetic report and session 
   await page.getByRole('button', { name: 'Read entitled demo report' }).click();
   await expect(page.getByText('SYNTHETIC_REPORT_BODY_NOT_LIVE')).toBeVisible();
   await stamp(page);
-  await page.screenshot({ path: 'docs/evidence/finals-review-fixes-577b844/synthetic-receipt-desktop.png', fullPage: true });
+  await page.screenshot({ path: 'test-results/demo-readiness-captures/synthetic-receipt-desktop.png', fullPage: true });
   expect(await page.evaluate(() => JSON.stringify({ ...localStorage, ...sessionStorage }))).not.toContain('SYNTHETIC_TOKEN');
   await page.getByRole('button', { name: 'Read entitled demo report' }).click();
   await expect(page).toHaveURL(/\/login\?expired=1$/);
@@ -322,7 +322,7 @@ test('merchant edits exact integer future metadata and prepares a separate conse
   expect(t.seen.filter(r => r.method === 'POST').map(r => r.body)).toEqual([{ kind: 'claim' }]);
   await page.getByRole('checkbox', { name: /I reviewed this action/ }).check();
   await expect(page.getByRole('button', { name: 'Review & sign in Freighter' })).toBeEnabled();
-  await stamp(page); await page.screenshot({ path: 'docs/evidence/finals-review-fixes-577b844/synthetic-merchant-desktop.png', fullPage: true });
+  await stamp(page); await page.screenshot({ path: 'test-results/demo-readiness-captures/synthetic-merchant-desktop.png', fullPage: true });
   t.assertHandled();
 });
 
@@ -360,6 +360,32 @@ test('identity mismatch never exposes a receipt and malformed state fails closed
   t.assertHandled();
 });
 
+test('unresolved purchase blocks owner reclaim while original-identity observation stays available', async ({ page }) => {
+  const t = await ownerTransport(page);
+  await page.goto(base + '/app');
+  await page.getByLabel('Wallet action').selectOption('sweepOnRevoke');
+  await expect(page.getByRole('button', { name: 'Prepare reclaim after revocation' })).toBeDisabled();
+  await expect(page.getByText(/An unresolved purchase blocks reclaim/)).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Observe saved operation', exact: true })).toBeEnabled();
+  expect(t.seen.every(r => r.method === 'GET')).toBe(true); t.assertHandled();
+});
+
+test('saved unknown wallet handoff permits observation only and never opens another preparation', async ({ page }) => {
+  const operation = { operationId: id(80), kind: 'revokeAgent', status: 'unknown', expiresAt: '2020-01-01T00:00:00Z', txHash: hash };
+  const t = await ownerTransport(page, async (route, path) => {
+    if (path === '/api/v1/state') { await response(route, { ...owner(), walletOperations: [operation] }); return true; }
+    if (path === `/api/v1/wallet-operations/${operation.operationId}`) { await response(route, operation); return true; }
+    return false;
+  });
+  await page.goto(base + '/app');
+  await expect(page.getByRole('button', { name: 'Prepare register device' })).toBeDisabled();
+  await page.getByText('Saved human wallet operations (1)').click();
+  await page.getByRole('button', { name: 'Observe wallet operation' }).click();
+  await expect(page.getByRole('button', { name: 'Prepare register device' })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Review & sign in Freighter' })).toHaveCount(0);
+  expect(t.seen.every(r => r.method === 'GET')).toBe(true); t.assertHandled();
+});
+
 test('console fits mobile and projector with long identities and supports visible keyboard focus', async ({ page }) => {
   const t = await ownerTransport(page, async (route,path) => {
     if (path === '/api/v1/state') { await response(route, { ...owner(), offers: [{ ...offer, priceStroops: ceiling }], attempts: [attempt, { ...attempt, attemptId: id(88), status: 'manual_review', errorCode: 'PAYMENT_EVIDENCE_CONTRADICTION' }] }); return true; }
@@ -375,7 +401,7 @@ test('console fits mobile and projector with long identities and supports visibl
     const overflow = await page.evaluate(() => Array.from(document.querySelectorAll('.product-console *')).filter(el => el.getBoundingClientRect().right > innerWidth + 1).slice(0,10).map(el => ({ tag: el.tagName, className: el.className, right: el.getBoundingClientRect().right })));
     expect(overflow, `${width}px overflowing elements`).toEqual([]);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${width}px document overflow`).toBe(true);
-    if (width === 320 || width === 1280) { await stamp(page); await page.screenshot({ path: `docs/evidence/finals-review-fixes-577b844/synthetic-owner-${width}.png`, fullPage: true }); }
+    if (width === 320 || width === 1280) { await stamp(page); await page.screenshot({ path: `test-results/demo-readiness-captures/synthetic-owner-${width}.png`, fullPage: true }); }
   }
   await page.keyboard.press('Control+Home'); await page.keyboard.press('Tab');
   await page.getByRole('link', { name: 'Policy', exact: true }).focus();

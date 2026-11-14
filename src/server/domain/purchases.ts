@@ -1,6 +1,6 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { and, eq, sql } from 'drizzle-orm';
-import { amountSchema, MAX_NONCE, uuidSchema } from '@aegispay/shared';
+import { amountSchema, unsignedAmountSchema, MAX_NONCE, uuidSchema } from '@aegispay/shared';
 import type { Database, Store } from '../db/connection.ts';
 import * as s from '../db/schema.ts';
 
@@ -40,7 +40,9 @@ export function quoteTermsHash(q: Terms): string {
 }
 export async function createRun(store: Store, input: { ownerId: string; agentId: string; runStartKey: string; task: string; modelId: string; budgetStroops?: string }) {
   uuidSchema.parse(input.ownerId); uuidSchema.parse(input.agentId); uuidSchema.parse(input.runStartKey);
-  const budget = amountSchema.parse(input.budgetStroops ?? '1000000');
+  // Only trusted internal callers can supply a zero diagnostic budget. The
+  // browser route accepts task only and keeps the PRD default of 1000000.
+  const budget = unsignedAmountSchema.parse(input.budgetStroops ?? '1000000');
   if (BigInt(budget) > 1000000n || !input.task.trim() || input.task.length > 2000 || !input.modelId.trim()) deny('INVALID_RUN');
   return store.transaction(async db => {
     const [agent] = await db.select().from(s.agent).where(and(eq(s.agent.id, input.agentId), eq(s.agent.ownerId, input.ownerId))).for('update');
@@ -98,6 +100,11 @@ export async function acceptQuote(store: Store, input: AcceptInput, operationId:
     if (quote.status !== 'open' || quote.acceptedAt !== null) deny('QUOTE_NOT_OPEN');
     if (!['queued', 'running', 'waiting_payment'].includes(run.status)) deny('RUN_NOT_ACTIVE');
     assertReady(agent, now);
+    const [reclaim] = await db.select({ id: s.walletOperation.id }).from(s.walletOperation).where(and(
+      eq(s.walletOperation.agentId, agent.id), sql`${s.walletOperation.operationKind} IN ('sweepOnRevoke','defundEscrow')`,
+      sql`(${s.walletOperation.status} IN ('submitting','unknown') OR (${s.walletOperation.status} = 'prepared' AND ${s.walletOperation.expiresAt} > clock_timestamp()))`,
+    ));
+    if (reclaim) deny('OPERATION_ACTIVE');
     if (quote.termsHash !== quoteTermsHash(quote) || quote.network !== agent.network || quote.agentPublicKey !== agent.publicKey || quote.deviceHash !== agent.deviceHash || quote.assetContractId !== agent.assetContractId) deny('QUOTE_SNAPSHOT_MISMATCH');
     const [merchant] = await db.select().from(s.merchant).where(eq(s.merchant.id, quote.merchantId)).for('share');
     const [resource] = await db.select().from(s.resource).where(eq(s.resource.id, quote.resourceId)).for('share');

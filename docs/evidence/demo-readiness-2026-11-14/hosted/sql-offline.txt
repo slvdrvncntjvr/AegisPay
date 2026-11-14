@@ -1,0 +1,1 @@
+{"status":"passed","scope":"prepared-metadata-query-syntax-and-empty-fail-closed-only","database":"owned-loopback-aegispay_integration-uuid-schema","assertions":["parameterized-query-executed","empty-context-not-accepted","no-purchase-wallet-claim-rows-fabricated","read-only-write-denied-25006"],"financialActions":0,"liveAcceptance":false}

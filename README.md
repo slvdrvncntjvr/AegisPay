@@ -1,304 +1,95 @@
 # AegisPay
 
+A bounded agent payment experiment: immutable API quotes, Noir spending policy, Velo sponsorship and independently verified Stellar Testnet evidence before protected report access.
 
+- **Public saved proof:** [aegispay-live.vercel.app](https://aegispay-live.vercel.app), replaying one historical SDK authorization and separate claim.
+- **Authenticated preview:** [aegispay-auth-preview.onrender.com/app](https://aegispay-auth-preview.onrender.com/app). Private owner/merchant access; Nov 11 qualification excluded model and financial execution. Nov 14 anonymous health/login/console checks pass and protected APIs return401; current authenticated qualification remains open.
+- **Video:** [112-second recorded evidence replay](docs/submission/aegispay-demo.mp4). A completed live model-purchase recording remains outstanding.
+- **Deck:** [public eight-slide PDF](https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf).
+- **Team:** Salvador Vincent Javier; Discord/registration confirmation remains external.
 
-A bounded agent that buys useful API reports for agent developers, with Noir spending limits and Velo-sponsored Stellar Testnet execution.
+The application, four workspaces, PostgreSQL persistence, bounded Gemini loop, authenticated console and human-wallet APIs are implemented. **Full live demo readiness is incomplete.** Provider tool connectivity now passes; actual app-model choices, wallet lifecycle, two distinct application purchases, refusal/recovery evidence and hosted worker qualification remain release gates. See the [current readiness report](docs/evidence/demo-readiness-2026-11-14/report.md) and [task ledger](docs/implementation-plan.md).
 
+## Implemented behavior
 
+Owner Policy/Run/Audit and merchant Pending/Offers/Claim screens use authenticated APIs. Merchant edits affect future prices; accepted quotes stay immutable. Amounts are integer stroops. The worker persists reservation identity before its single submission boundary; unknown outcomes stay held and unentitled. Protected reports require matching Velo execution and independent Noir envelope/invocation/event evidence. Merchant claim is separate.
 
-**Live website:** [https://aegispay-live.vercel.app](https://aegispay-live.vercel.app) — public Testnet proof console (verified spike; full model loop unfinished).
+Freighter actions require explicit human review and the configured Testnet signer. Reclaim checks revocation and rejects unresolved purchases; pending reclaim also blocks new purchases. Durable wallet observation jobs use saved hashes, lease fencing and authenticated wake. Only an exact independently included failed human-wallet transaction can terminate as failed; ambiguous data stays unknown. Synthetic local tests do not establish live acceptance.
 
-
-
-**Demo video (2 min):** Not recorded or published; [recording script](docs/submission/recording-script.md).
-
-
-
-**Pitch deck:** [Public PDF](https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf); reflects the evidenced integration checkpoint and will be updated with the completed app.
-
-
-
-**Team:** Salvador Vincent Javier (Discord handle not supplied).
-
-
-
-Current implementation is an SDK spike with one verified payment and separate claim. The model loop, application, database, UI, real workspaces and hosting remain unfinished. The handbook deadline was Nov 7, 2026 at noon Philippine time and has passed; no extension was supplied and eligibility is not claimed.
-
-
-
-## Problem
-
-
-
-Agents need paid data while completing tasks, but developers must control what they can spend and verify that a purchase unlocks the intended resource. A payment status alone cannot establish the correct Noir invocation or a right to private data. AegisPay explores this workflow for agent developers and small API providers; customer demand remains unvalidated.
-
-
-
-## Solution
-
-
-
-The implemented spike proves a 0.03 Testnet XLM Noir escrow authorization sponsored and submitted by Velo, plus an over-cap contract simulation refusal and a separate merchant claim. The planned app adds a bounded model that chooses between two demo reports, immutable HTTP 402 quotes, durable payment recovery and resource-specific access. Reports are fictional fixtures; the linked Testnet transaction is real. This spike does not establish a completed model purchase or working website.
-
-
-
-## How the agentic payment works
-
-
-
-1. Owner registers a virtual device, sets a finite per-payment policy and funds Noir escrow; no NFC hardware is needed.
-
-2. Planned F-005 model discovers QuickSignal (300000 stroops) and DeepTrace (1200000), chooses useful data and requests a real server quote. This autonomous loop is unbuilt.
-
-3. Deterministic tools validate trusted terms, reserve budget and persist a strictly increasing nonce. The model cannot sign or change a price.
-
-4. Noir SDK prepares one authorization. The server signs; Velo Gas reserves sponsorship, then submits that same signed invocation once. The spike implements this for 300000 stroops (0.03 Testnet XLM) to its configured merchant.
-
-5. Velo success and independently matching envelope/invocation/event must agree. Planned DB entitlement is granted only then; unknown stays unentitled and recovery observes saved identity.
-
-6. Authorization credits merchant-pending escrow. Merchant claim is separate and never creates another entitlement.
-
-
+Nov 14 Gemini readiness: the initial smoke timed out; one later opt-in timing diagnostic completed the configured `models/gemini-3.5-flash` tool roundtrip (two POST200, exit0). Call identity and thought signatures were preserved. Configuration stayed unchanged and zero financial actions occurred. Actual app-model price/no-purchase/purchase acceptance remains open.
 
 ## Architecture
 
-
-
 ```mermaid
-
 flowchart LR
-
-  O[Owner / merchant wallet] --> W[apps/web: Next Node UI and API]
-
+  H[Owner / merchant Freighter] --> W[apps/web: Next Node UI and API]
   W --> D[(PostgreSQL / Drizzle)]
-
-  D --> S[apps/server: private Node worker]
-
-  S --> A[packages/agent: bounded model loop]
-
-  A --> M[Model API]
-
-  S --> N[Noir SDK: device / agent / escrow]
-
-  S --> V[Velo SDK: Gas sponsor / submit / status]
-
+  W -->|authenticated wake| S[apps/server: Node worker]
+  S --> D
+  S --> A[packages/agent: bounded Gemini tools]
+  S --> N[Noir policy and escrow]
+  S --> V[Velo Gas sponsor / submit / observe]
   N --> T[Stellar Testnet]
-
   V --> T
-
-  T --> E[Independent envelope / invocation / event verification]
-
+  T --> E[Independent invocation / envelope / event verification]
   E --> D
-
-  H[packages/shared: real schemas and types] --> W
-
-  H --> S
-
+  P[packages/shared: schemas and types] --> W
+  P --> S
 ```
 
-
-
-This is the selected target architecture, not a diagram of a deployed app. Existing spike adapters remain under `src/server/integrations/`; TASK-011 introduces the real workspaces before application work. [System design](docs/system-design.md) owns the mapping.
-
-
-
-## Noir integration
-
-
-
-- `@noirx402/agent-sdk` **0.3.0**, with `@stellar/stellar-sdk` **16.4.1**.
-
-- Mandatory October 24 deployments: device_registry `CAC4KOLHDLDYDWBOKXNKRN5KVHO56PLOIFXDLTBUWGVN6GVDEB7FQHU5`; agent_registry `CCMZDSPTLX7IIJWCYEUM5DJUHOSOYSTHGK777S2TXZWEMC5ZZGPJ3EBV`; payment_escrow `CC7EAW5FNJEDBS7THM5IT6XIOHO4AOYMLXT3KSZ3HWUIKEACTW7E5BFS`. The handbook retires October 7 IDs; no custom deployment is used.
-
-- `prepare` / `submit` with `registerDevice`, `registerAgent`, `fundEscrow`: [fixture provisioning](https://github.com/slvdrvncntjvr/AegisPay/blob/54ef3f0/src/server/integrations/spike-driver.ts#L44-L71).
-
-- `checkPayment` and `prepare(... kind: 'authorize')`: [preflight/signing](https://github.com/slvdrvncntjvr/AegisPay/blob/54ef3f0/src/server/integrations/spike-driver.ts#L151-L174); direct Noir submission is used for owner operations and claim, not for the Velo-sponsored agent payment.
-
-- `getDeviceOwner`, `getDeviceAgent`, `getPolicy`, `getEscrowToken`, `getEscrowBalance`, `getPendingBalance`: [confirmed reads](https://github.com/slvdrvncntjvr/AegisPay/blob/54ef3f0/src/server/integrations/spike-driver.ts#L51-L75).
-
-- `prepare` / `submit` with `claim`: [separate merchant collection](https://github.com/slvdrvncntjvr/AegisPay/blob/54ef3f0/src/server/integrations/spike-driver.ts#L193-L200). [Independent verifier](src/server/integrations/stellar-evidence.ts) checks more than the event, which omits asset and agent.
-
-
-
-## Velo integration
-
-
-
-`@carts1024/velo-sdk` **1.0.0** supplies Gas sponsorship, submission and payment-status observation. [handoffOnce](https://github.com/slvdrvncntjvr/AegisPay/blob/54ef3f0/src/server/integrations/velo.ts#L42-L65) calls `gas.sponsor`, persists reservation identity and handoff, then `gas.submit` with automatic retries disabled. [Saved-identity recovery](https://github.com/slvdrvncntjvr/AegisPay/blob/54ef3f0/src/server/integrations/spike-driver.ts#L143-L181) uses `gas.getStatus` / `gas.waitForResult` and independent Stellar evidence.
-
-
-
-No checkout or webhook integration is implemented or claimed. The handbook describes these as examples for other app parts; organizer-specific approval of Gas instead of checkout has not been supplied. Verified installed pins take precedence over the handbook's older alpha-tag example. An unrelated checkout would not prove Noir authorization.
-
-
+[System design](docs/system-design.md), [API](docs/api-spec.md) and [security](docs/security-compliance.md) own the contracts. Render is the selected Free hosting target. The isolated worker needs authenticated HTTPS wake and durable SQL recovery. The deployed console preview has no financial/model worker credentials; complete hosted release is not qualified.
 
 ## Testnet proof
 
+One genuine **300000-stroop (0.03 Testnet XLM)** authorization from Nov 7:
 
-
-One authorization of **300000 stroops (0.03 Testnet XLM)**, observed Nov 7, 2026:
-
-
-
-- [Authorization fee-bump outer transaction](https://stellar.expert/explorer/testnet/tx/6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381).
-
-- [Authorization inner transaction](https://stellar.expert/explorer/testnet/tx/1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a). These identify the same payment; the event reported the outer hash.
-
+- [Outer fee-bump transaction](https://stellar.expert/explorer/testnet/tx/6e898ad830e866f0831577849361739cea7ad03cfbfcee9febf0fc057633d381) and [inner transaction](https://stellar.expert/explorer/testnet/tx/1d39c3e3d7f400475aa2686f173a943346c5870635731fbd62fa41f1f912fa7a) identify the same purchase.
 - [Separate merchant claim](https://stellar.expert/explorer/testnet/tx/94cea8bb561576ab71d4419571b92bd2fe7d8eada1273ff16960a716160c9a18).
+- [Verified redacted report](docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json). Actual Velo/ledger fee: 82496 stroops. Multiple exports do not count as distinct purchases.
 
-- [Saved redacted report](docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794062575156.json): escrow 10000000 → 9700000 stroops; merchant pending 0 → 300000 → 0. Two exported spike reports describe this same operation, not two purchases.
+The historical over-cap refusal occurred in deployed-contract simulation, unsigned and unsubmitted. It is not an included failed transaction. Separate Nov 9 application attempt `f69178b7-0b0b-46fa-8e82-65c2dd5deee5` remains unknown, reserved and unentitled. No resend, nonce reset, reclaim or hold release is authorized.
 
+Pinned Noir **0.3.0**, Stellar SDK **16.4.1** and Velo **1.0.0** use the mandatory October 24 contracts verified by the spike. No custom deployment, mainnet, checkout substitution or x402 conformance is claimed. [Integration source](src/server/integrations/) and [research](docs/research.md) provide details.
 
+## Run and verify
 
-The over-cap 1200000-stroop refusal was actual deployed-contract simulation, unsigned/unsubmitted; it is not an included failed transaction. After both review fixes, 50 offline tests passed and integrated opt-in acceptance passed 51/51 with zero failures/skips. TASK-002 is complete. Independent outer-ledger and Velo fee both equal 82496 stroops; the same saved payment was observed without another handoff. The headless agent-key authorization is genuine; an autonomous model purchase and complete release are unproved.
-
-
-
-## Repo structure
-
-
-
-Existing folders: `src/server/integrations/` guarded spike adapters; `scripts/` runtime/setup/spike tools; `tests/testnet/` synthetic and opt-in tests; `docs/` specifications/evidence/submission drafts; `fmd/` documentation framework; `tools/` documentation checks.
-
-
-
-Implemented workspace foundation (product routes, queue execution and model loop remain later tasks):
-
-
+Use Node **24.22.1**, Corepack pnpm **12.18.0**, Python 3 and Docker Desktop for isolated PostgreSQL **17.11**. From the repository root:
 
 ```text
-
-apps/web/         Next Node frontend and authenticated API routes
-
-apps/server/      Private Node worker and durable payment jobs
-
-packages/agent/   Real model loop and tool implementation
-
-packages/shared/  Real shared schemas and types
-
-src/server/       Shared server-only domain/integrations retained initially
-
-scripts/          Existing spike source kept stable
-
-tests/           Payment, DB and browser checks (root folder:tests/)
-
-docs/             Specs, redacted evidence and submission sources
-
-package.json      Declares all four workspaces; one root install/lockfile
-
+corepack.cmd pnpm install --frozen-lockfile
+corepack.cmd pnpm db:setup
+corepack.cmd pnpm typecheck
+corepack.cmd pnpm lint
+corepack.cmd pnpm test:unit
+corepack.cmd pnpm test:integration
+corepack.cmd pnpm test:spike
+corepack.cmd pnpm build
+python tools/check-docs.py
+python fmd/tools/check-implementation-plan.py docs/implementation-plan.md --strict
 ```
 
+Where pnpm is on PATH, `pnpm` is equivalent. `db:setup` preserves its ignored configuration and starts only the workspace-owned Docker DB. Integration tests use fresh UUID-owned schemas in distinct loopback `aegispay_integration`; never aim them at financial state.
 
+Use [.env.example](.env.example) as a variable catalog. Web configuration belongs in `apps/web/.env.local` or an isolated process environment; root `.env.worker.local` is loaded only by scripts that name it. Agent/provider/encryption keys stay worker-only; login secrets stay server-side. [Onboarding](docs/onboarding.md) covers startup and consent.
 
-Root workspace install must install all parts in one command; empty folders or documentation-only labels do not satisfy the requirement.
+`corepack.cmd pnpm dev` starts web; `corepack.cmd pnpm worker` starts payment/model/wallet consumers. Starting a funded worker can execute existing jobs: review its isolated context and per-process permission first. Generated persistent configuration defaults to `RUN_TESTNET=0`. That flag does not disable saved-identity observation or manually approved human-wallet actions.
 
+Browser tests need a separately started production web process, `UI_BASE_URL` (default `http://127.0.0.1:3017`) and installed Chromium. Run `corepack.cmd pnpm test:e2e --workers=1`. Protected API transport is intercepted; this is not live acceptance.
 
+## Command boundaries
 
-## Run it locally
+| Command | Evidence scope |
+|---------|----------------|
+| `test:spike` | Offline SDK/journal safeguards |
+| `test:testnet` | Opt-in historical spike acceptance, not complete app release |
+| `demo:smoke` | Inert default; `--offline` is synthetic model/tool/DB coverage; `--model-only` is stub offer choice |
+| `node --import tsx scripts/model-smoke.ts --worker-env-file .env.worker.local` | Bounded provider tool roundtrip, no DB/payment access |
+| `node --import tsx scripts/release-rehearsal.ts` | Inert, exit 2; explicit independent manifest/phase required |
 
+The new release runner has diagnostic preflight/wallet reads, a durable zero-budget app-model phase, identity-only verification and a disabled purchase mode. Its live phases were **not run** in this checkpoint. Automated purchase execution is disabled pending durable exact-price/deadline authority; existing manual app acceptance still requires fresh explicit consent in an independent context. [Runner limits and manual steps](docs/evidence/demo-readiness-2026-11-14/rehearsal.md).
 
+## Delivery status
 
-1. Install Node **24.22.1**, Python 3 and pnpm **12.18.0**. Freighter and funded Testnet owner/merchant wallets are needed for the future app. Test XLM has no real value.
+[QA](docs/qa-test-plan.md) owns release requirements. The [historical checkpoint](docs/submission/final-checkpoint.md) remains dated history; the current report owns present observations. Free staging PostgreSQL expires **2026-12-10T11:55:40.452333Z**. Supplied evidence records Nov 8 Top15 selection; finals logistics remain TBA. The original Nov 7 deadline has passed; no extension, late acceptance or organizer-specific Gas interpretation is asserted.
 
-2. From the root run `npx --yes pnpm@12.18.0 install --frozen-lockfile`. This installs all four workspaces and the existing harness from one lockfile.
-
-3. Use [.env.example](.env.example) as the variable catalog. For the harness, `pnpm setup:spike` generates ignored `.env.spike.local`; fill the Velo Gas key locally. [Onboarding](docs/onboarding.md) documents funding/activation and guarded opt-in execution. For the future app copy only web-safe fields into `.env.local`, worker fields into `.env.worker.local`; never put agent/provider secrets in the web environment.
-
-4. Available harness commands: `pnpm verify:sdk-imports`, `pnpm typecheck`, `pnpm lint`, `pnpm test:spike`. `pnpm workspace:smoke` verifies real package consumption; `pnpm test:unit` covers financial inputs and bounded tool guards. Root `pnpm dev` launches the Node health bootstrap and `pnpm worker` the private process; queue/payment execution and the model loop remain unfinished. Root `pnpm build` delegates to web without establishing product completion.
-
-
-
-`RUN_TESTNET=0` is the persistent default. Explicit live fixture/spike commands can spend capped Testnet escrow and require enabled funded Velo access; read onboarding first. Never delete or reset saved operation identity to retry an unknown payment.
-
-
-
-## Environment variables
-
-
-
-No real secrets are committed. Every catalog name is listed below; process isolation details are in [onboarding](docs/onboarding.md).
-
-
-
-| Name | What it is | Where to get it |
-
-|------|------------|----------------|
-
-| `NODE_ENV` | Process mode | Local/host runtime configuration |
-
-| `APP_ORIGIN` | Expected public/web origin | Local URL; deployed URL after hosting |
-
-| `DATABASE_URL` | Private PostgreSQL connection | Local Compose or managed PostgreSQL |
-
-| `STELLAR_NETWORK` | Must be testnet | Fixed Testnet setting |
-
-| `STELLAR_RPC_URL` | Testnet RPC endpoint | Official Stellar Testnet RPC |
-
-| `STELLAR_NETWORK_PASSPHRASE` | Testnet passphrase | Stellar Networks.TESTNET |
-
-| `NOIR_DEVICE_REGISTRY_ID` | Mandatory contract ID | October 24 handbook tuple and verified ledger reads |
-
-| `NOIR_AGENT_REGISTRY_ID` | Mandatory contract ID | October 24 handbook tuple and verified ledger reads |
-
-| `NOIR_PAYMENT_ESCROW_ID` | Mandatory contract ID | October 24 handbook tuple and verified ledger reads |
-
-| `NOIR_XLM_SAC_ID` | Native XLM contract | Pinned SDK derivation, independently verified |
-
-| `DEMO_OWNER_PUBLIC_KEY` | Public actor address | Corresponding funded Testnet wallet |
-
-| `DEMO_AGENT_PUBLIC_KEY` | Public actor address | Corresponding funded Testnet wallet |
-
-| `DEMO_MERCHANT_PUBLIC_KEY` | Public actor address | Corresponding funded Testnet wallet |
-
-| `AGENT_SECRET` | Worker-only constrained Testnet signer | Locally generated disposable agent |
-
-| `VELO_GAS_API_KEY` | Worker/spike-only Gas Testnet key | Velo project Gas Station dashboard |
-
-| `VELO_GAS_BASE_URL` | Gas service origin | Verified Velo deployment configuration |
-
-| `GEMINI_API_KEY` | Worker-only model credential | User model-provider account; access unverified |
-
-| `AGENT_MODEL` | Configured model identifier | Verified provider catalog and access smoke test |
-
-| `ENVELOPE_ENCRYPTION_KEY` | Worker/spike-only 32-byte encryption key | Local secure random generation |
-
-| `DEMO_OWNER_LOGIN_TOKEN` | Web-only role login secret | Independent secure random generation |
-
-| `DEMO_MERCHANT_LOGIN_TOKEN` | Web-only role login secret | Independent secure random generation |
-
-| `RECEIPT_SIGNING_KEY` | Shared server-side receipt HMAC key | Independent secure random generation |
-
-| `RUN_TESTNET` | Explicit live-test guard; default 0 | Per-process opt-in only |
-
-| `SPIKE_OWNER_SECRET` | Spike-only disposable signer | Local setup:spike; never web/normal worker |
-
-| `SPIKE_MERCHANT_SECRET` | Spike-only disposable signer | Local setup:spike; never web/normal worker |
-
-
-
-## Screenshots
-
-
-
-No product UI screenshots exist. The application UI is unbuilt; diagrams and linked chain artifacts are available above. Capture actual hosted policy/run/audit/claim screens after release gates; label fixtures and saved runs visibly.
-
-
-
-## What's next
-
-
-
-Bootstrap real workspaces (TASK-011); implement DB/payment recovery/model/UI (TASK-003 through TASK-010); deploy and verify the working public app (TASK-012); publish video/deck and validate submission links (TASK-013). [Implementation plan](docs/implementation-plan.md) owns status. F-005 remains a real LLM requirement. Missing inputs include verified model access, hosting configuration, public app/video/deck URLs, Discord handle and registration confirmation. Late submission acceptance and Gas interpretation remain external questions; no eligibility or win is promised.
-
-
-
-## Credits
-
-
-
-Built by Salvador Vincent Javier with AI coding assistance. Uses Noir, Velo, Stellar SDK/Testnet/Friendbot, Next.js, React, TypeScript, PostgreSQL, Drizzle, Zod, Tailwind, Anthropic SDK, Freighter and the FMD documentation framework; see [pinned dependencies](package.json) and [research](docs/research.md). No commercial partnership, security audit or x402 conformance is claimed. Event facts derive from the user-supplied Builder Handbook, updated Nov 5, 2026; [provenance](docs/research.md#builder-handbook-reconciliation--2026-11-07) records its basename and SHA256 without distributing the ignored PDF.
-
-
-Current build checkpoint: real workspaces and PostgreSQL foundation pass 22 unit and 37 actual PostgreSQL tests. Gemini AI Studio and Render are the selected model/hosting providers. Full authenticated agent purchase and hosted release remain incomplete.
-
-Latest saved build and shutdown details: [final checkpoint](docs/submission/final-checkpoint.md). [112-second evidence-replay MP4](docs/submission/aegispay-demo.mp4) is preserved in this repository; this is not a completed autonomous model purchase.
+Built with Noir, Velo, Stellar, Next.js/React, TypeScript, PostgreSQL/Drizzle, Gemini, Freighter and FMD. Reports are fictional fixtures. Demand and sustainable economics remain unvalidated.

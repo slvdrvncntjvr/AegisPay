@@ -1,0 +1,31 @@
+
+Running 21 tests using 1 worker
+
+
+(node:15352) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/21] tests\e2e\authenticated-console.spec.ts:45:1 › 401 redirects before private data and login safely clears tokens on non-JSON and successful responses
+[2/21] tests\e2e\authenticated-console.spec.ts:75:1 › owner sees queued and unresolved states with original-identity GET observation only
+[3/21] tests\e2e\authenticated-console.spec.ts:97:1 › run creation recovers an ambiguous intent with one stable key and guards double activation
+[4/21] tests\e2e\authenticated-console.spec.ts:126:3 › acknowledged completed task then reload and identical Start creates a fresh run/key
+[5/21] tests\e2e\authenticated-console.spec.ts:126:3 › acknowledged failed task then reload and identical Start creates a fresh run/key
+[6/21] tests\e2e\authenticated-console.spec.ts:170:1 › lost acknowledgement then reload recovers the original key even with a saved active run
+[7/21] tests\e2e\authenticated-console.spec.ts:205:1 › authenticated trace displays only public untrusted choice commentary and precise unavailable states
+[8/21] tests\e2e\authenticated-console.spec.ts:233:1 › trusted accepted quote events keep original terms separate from a changed current offer
+[9/21] tests\e2e\authenticated-console.spec.ts:247:1 › receipt metadata precedes a separately gated synthetic report and session expiry removes protected UI
+[10/21] tests\e2e\authenticated-console.spec.ts:273:1 › expired entitlement refuses content without a second purchase and stale console disables mutations
+[11/21] tests\e2e\authenticated-console.spec.ts:297:1 › merchant edits exact integer future metadata and prepares a separate consent-bound claim
+[12/21] tests\e2e\authenticated-console.spec.ts:329:1 › owner wallet balances remain unknown until explicit observation and policy form enforces finite bounds
+[13/21] tests\e2e\authenticated-console.spec.ts:347:1 › identity mismatch never exposes a receipt and malformed state fails closed
+[14/21] tests\e2e\authenticated-console.spec.ts:363:1 › unresolved purchase blocks owner reclaim while original-identity observation stays available
+[15/21] tests\e2e\authenticated-console.spec.ts:373:1 › saved unknown wallet handoff permits observation only and never opens another preparation
+[16/21] tests\e2e\authenticated-console.spec.ts:389:1 › console fits mobile and projector with long identities and supports visible keyboard focus
+
+(node:20264) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[17/21] tests\e2e\public-proof.spec.ts:8:1 › recorded proof exposes real amounts and refuses before submission without financial calls
+[18/21] tests\e2e\public-proof.spec.ts:33:1 › tabs support keyboard navigation and recovery never offers another payment
+[19/21] tests\e2e\public-proof.spec.ts:54:1 › receipt opens from its action, maps hashes independently and announces clipboard results
+[20/21] tests\e2e\public-proof.spec.ts:75:1 › public proof fits all requested viewports and reduced motion disables the trace animation
+[21/21] tests\e2e\public-proof.spec.ts:93:1 › private access preserves request contract and navigates to authenticated product console
+  21 passed (34.1s)

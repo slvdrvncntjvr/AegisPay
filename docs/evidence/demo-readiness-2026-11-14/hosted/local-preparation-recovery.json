@@ -1,0 +1,24 @@
+{
+  "classification": "local-preparation-failure-and-recovery-history",
+  "initialDatabaseSetup": {
+    "exitCode": 1,
+    "code": "LOCAL_DOCKER_COMMAND_FAILED",
+    "diagnosis": "Docker Desktop Linux engine pipe absent",
+    "repair": "Started installed Docker Desktop hidden; subsequent owned dbsetup exit0 PostgreSQL17.11"
+  },
+  "initialLocalPreparation": {
+    "exitCode": 1,
+    "code": "LOCAL_PREPARATION_INCOMPLETE_DO_NOT_RECREATE_OR_ADOPT_TARGET",
+    "actualReached": "new independent DB/migrations/config files created; ACL application failed before success receipt",
+    "diagnosis": "Windows PowerShell inherited PowerShell7 module path prevented Security module autoload",
+    "repair": "Removed only PSModulePath from ACL child environment; --resume verified exact new DB ownership/private target and preserved secrets; exit0"
+  },
+  "ownershipReview": {
+    "initialPortMappingAssertionMissing": true,
+    "repair": "Generator now checks exact owned Docker5432 published127.0.0.1 mapping before DB access; existing target independently corroborated by final qualify-local portBindingMatched true",
+    "initialQualificationPreserved": "local-qualification-initial.json",
+    "finalQualification": "local-qualification.json"
+  },
+  "financialActions": 0,
+  "originalOrPreviewDatabaseChanged": false
+}

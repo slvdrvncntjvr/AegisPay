@@ -123,6 +123,8 @@ TASK-019 then qualifies a local production Next.js process against that cloud da
 
 ## 6. Open items / risks
 
+**Historical Nov7 baseline; superseded by the current task ledger and dated checkpoints below:**
+
 Mandatory tuple is resolved by the handbook; one technical Noir/Velo integration is proved, with two review fixes still pending. Package installation, spike safeguards, account funding, contract checks, one authorization, over-cap simulation refusal and separate claim have evidence. Model access/loop, DB, APIs, UI, real workspaces, hosting and release scenarios remain unproved. Registration, Gas-specific interpretation and late acceptance remain external; the complete release and submission gates are open. Capacity estimate is an assumption. No market interviews or positive unit economics were established. See task plan for status.
 
 ### Handbook reconciliation invariant audit — 2026-11-07
@@ -151,3 +153,26 @@ The accepted recorded-proof home stays intact; the authenticated product console
 ## 2026-11-10 — Provision only the independent Free staging database prerequisite
 
 After final combined local validation and source checkpoint577b844, user-authorized hosting preparation advances independently of live alias promotion. TASK-018 may create at most one explicitly Free PostgreSQL17 staging database in the verified Render workspace, preserving unrelated resources and original financial state. Free provisioning rejection requiring billing/verification or paid capacity must stop dependent creation. Actual creation/expiry/region and minimal TLS connection are observed, not inferred. The database remains free of seeded financial state, migrations, worker/model jobs and copied live records in this phase. No worker deployment, source push or public alias change is included; independent source review and remaining live gates still precede complete release. The Free database's30-day lifetime remains a demo scheduling constraint, with finals dateTBA. No product/invariant requirement is removed.
+
+## 2026-11-14 — Qualify wallet recovery and constrain rehearsal execution
+
+TASK-009 readiness review found missing durable human-wallet observation and unsafe reclaim overlap. TASK-021 adds leased identity-only wallet/claim observation, authenticated wake and exact independently included human-wallet failure recovery. Preparation, reclaim submission and observation use consistent agent-before-wallet locking; original unknown agent-payment state is never resolved or released by these paths.
+
+TASK-022 adds signer-free identity verification and a zero-budget app-model diagnostic. Internal runs may persist zero budget, while the public task API keeps its1000000-stroop default. Migration0004 forbids increasing any saved run budget; it is tested only in isolated PostgreSQL schemas here. An automated purchase executor was removed before live use because script-only exact-price/deadline checks could be bypassed by ordinary consumers. The mode now refuses before file/config/DB/provider access. Complete manual authenticated app acceptance remains permitted only after independent setup, working provider and fresh explicit user purchase intent. No P0 or QA live gate is cut. All ten payment invariants remain required.
+
+### TASK-022 final scope reconciliation — 2026-11-14
+
+Coordinator explicitly narrows TASK-022 to accepted safe diagnostic/identity-only tooling, excluding disabled automated exact-consent purchase execution. Remove its TASK-010 dependency: optional automation must not block the canonical manual live QA path. TASK-021 remains required, as do all original genuine wallet/payment/model/refusal/recovery/hosted/media obligations. Future exact-manifest automation needs durable resource/merchant/asset/price/deadline authority; no existing app gate is waived. This is a tooling-scope clarification, not a product-feature cut or live-release acceptance.
+
+The final task DAG serializes actual overlapping scopes: TASK-021 follows accepted TASK-008 API/console foundations, and optional TASK-022 follows TASK-021. This satisfies strict scope checking without depending on unresolved live TASK-005/007 gates or implying those gates passed.
+
+Strict final reconciliation places both disjoint TASK-021 and TASK-022 after TASK-008; the intermediate TASK-022-after-TASK-021 edge would overlap broad TASK-010 tests in the same wave. The final plan owns these edges. TASK-022 remains optional to complete manual live release.
+
+After three strict-scope rejections (reported to coordinator), final write-scope reconciliation puts TASK-022 after TASK-021 and narrows TASK-010 test writes to release browser/Testnet groups. Every unit/integration/browser/live command remains required and unchanged; running tests is not claiming their write scope. Optional TASK-022 remains absent from TASK-010 dependencies.
+
+
+### 2026-11-14 — Complete independent local preparation without wallet or hosted authority
+
+A later timing/status-only Gemini diagnostic completed the configured tool roundtrip unchanged; it removes provider-connectivity blockage without completing TASK-007 app acceptance. TASK-023 prepares a new owned loopback PostgreSQL database and five checksummed migrations, private separated configuration, and actual empty web/worker startup/ingress. Owner/merchant/agent/catalog tables remain empty while exact human public-wallet control is pending. Docker endpoint binding and DB ownership are corroborated; no original/preview state is changed. Local preparation needs no repeated generic approval.
+
+The reviewed Free host packet has a sanitized source/runtime-fenced build launcher and explicit service/environment/qualification plan. Read-only provider inventory found only the existing Free previewDB in the accessible workspace; independent hosted database selection is unresolved. Existing preview capacity/configuration and submitted identities remain preserved. No remote mutation, new financial handoff, signing, actor registration/funding or full-release promotion is inferred. Exact-price/count/deadline automated purchasing remains disabled; the manual path discloses actual per-run/policy/escrow ceilings and requires fresh explicit intent. All original live QA and INV-001 through INV-010 remain mandatory.

@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "scope": "bounded-authenticated-readonly-provider-inventory-only",
+  "observedAt": "2026-11-14T12:02:35.464Z",
+  "requests": [
+    {
+      "label": "accessible-workspaces",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "label": "workspace-postgres",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "label": "workspace-services",
+      "method": "GET",
+      "status": 200
+    }
+  ],
+  "workspaces": [
+    {
+      "workspaceSha256": "e2540012b36b62464cc5045e3521e9dc9a40283b69582258941f9d099d11894e",
+      "postgresCount": 1,
+      "freeDatabaseCount": 1,
+      "noExistingFreeDatabaseObserved": false,
+      "serviceCount": 6,
+      "proposedReleaseNameCollision": false,
+      "projectDatabases": [
+        {
+          "databaseSha256": "feaa345c7d4172d22feb6dd8c92794128061a2f357b2e5372c0739138b6f8f85",
+          "isExistingPreview": true,
+          "free": true,
+          "available": true,
+          "region": "singapore",
+          "expiresAt": "2026-12-10T11:55:40.452333Z"
+        }
+      ]
+    }
+  ],
+  "providerMutations": 0,
+  "sqlStatements": 0,
+  "connectionInformationRead": false,
+  "rawProviderIdentifiersExported": false,
+  "existingPreviewPreserved": true,
+  "independentDatabaseSelected": false,
+  "limit": "An empty observed Free slot is not creation eligibility/capacity; independent target selection/provisioning requires coordinator review. No existing preview/incident reuse or paid fallback."
+}

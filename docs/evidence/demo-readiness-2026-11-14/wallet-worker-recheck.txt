@@ -1,0 +1,37 @@
+
+ RUN  v5.1.0 C:/Users/Vincent/VS Codes/Noir X Velo
+
+ ❯ tests/integration/wallet-worker.test.ts (8 tests | 1 failed) 4192ms
+   ❯ TASK-021 durable human-wallet observation, terminal failure and lease fencing (8)
+     × preparation waits for agent before taking any wallet-row lock 504ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/wallet-worker.test.ts > TASK-021 durable human-wallet observation, terminal failure and lease fencing > preparation waits for agent before taking any wallet-row lock
+Error: Failed query: update "wallet_operation" set "expires_at" = clock_timestamp() - interval '1 second' where "wallet_operation"."id" = $1
+params: ea6b2f15-2654-4021-a793-143146852bcf
+ ❯ NodePgPreparedQuery.queryWithCache node_modules/.pnpm/drizzle-orm@0.45.4_@opentel_2331af94cf1d082345d7b8adbb84069f/node_modules/src/pg-core/session.ts:73:11
+ ❯ tests/integration/wallet-worker.test.ts:139:7
+    137|       const unsigned = await prepareWallet(db.first, actor, { kind: 'r…
+    138|       prepared.operationId = unsigned.operationId;
+    139|       await db.first.db.update(s.walletOperation).set({ expiresAt: sql…
+       |       ^
+    140|     } else gateway.getTransaction = async () => included(tx, false);
+    141|     const blocker = await db.first.pool.connect(), probe = await db.se…
+
+Caused by: error: IMMUTABLE_WALLET_INTENT
+ ❯ node_modules/.pnpm/pg-pool@3.14.0_pg@8.23.1/node_modules/pg-pool/index.js:45:11
+ ❯ node_modules/.pnpm/drizzle-orm@0.45.4_@opentel_2331af94cf1d082345d7b8adbb84069f/node_modules/drizzle-orm/node-postgres/session.js:113:20
+ ❯ NodePgPreparedQuery.queryWithCache node_modules/.pnpm/drizzle-orm@0.45.4_@opentel_2331af94cf1d082345d7b8adbb84069f/node_modules/drizzle-orm/pg-core/session.js:39:16
+ ❯ tests/integration/wallet-worker.test.ts:139:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { length: 142, severity: 'ERROR', code: 'P0001', detail: undefined, hint: undefined, position: undefined, internalPosition: undefined, internalQuery: undefined, where: 'PL/pgSQL function guard_wallet_intent() line 8 at RAISE', schema: undefined, table: undefined, dataType: undefined, constraint: undefined, file: 'pl_exec.c', routine: 'exec_stmt_raise' }
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 22 passed (23)
+   Start at  13:48:40
+   Duration  9.95s (tests 76%, import 22%, transform 2%)
+

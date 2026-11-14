@@ -1,0 +1,67 @@
+
+ RUN  v5.1.0 C:/Users/Vincent/VS Codes/Noir X Velo
+
+ ❯ tests/integration/wallet-worker.test.ts (6 tests | 3 failed) 1741ms
+   ❯ TASK-021 durable human-wallet observation, terminal failure and lease fencing (6)
+     × restart observes the same saved hash after unknown and completes without another preparation or handoff 186ms
+     × expired/stolen worker lease cannot mutate wallet state; a fresh lease can resolve included failure 163ms
+     × legacy claim_observe resolves its existing wallet operation without creating another claim 139ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/wallet-worker.test.ts > TASK-021 durable human-wallet observation, terminal failure and lease fencing > restart observes the same saved hash after unknown and completes without another preparation or handoff
+Error: CONTRACT_MISMATCH
+ ❯ deny src/server/domain/purchases.ts:11:51
+      9| export interface WorkerFence { leaseOwner: string }
+     10| export class DomainError extends Error { constructor(readonly code: st…
+     11| export function deny(code: string): never { throw new DomainError(code…
+       |                                                   ^
+     12| export async function databaseTime(db: Database): Promise<Date> {
+     13|   const result = await db.execute<{ now: Date }>(sql`select clock_time…
+ ❯ storedOperation src/server/domain/wallet.ts:128:188
+ ❯ observeWallet src/server/domain/wallet.ts:168:14
+ ❯ processWalletObservation apps/server/src/worker/wallet.ts:29:18
+ ❯ drain apps/server/src/worker/wallet.ts:41:20
+ ❯ tests/integration/wallet-worker.test.ts:96:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/integration/wallet-worker.test.ts > TASK-021 durable human-wallet observation, terminal failure and lease fencing > expired/stolen worker lease cannot mutate wallet state; a fresh lease can resolve included failure
+AssertionError: expected [Function] to throw error including 'WALLET_LEASE_LOST' but got 'CONTRACT_MISMATCH'
+
+Expected: "WALLET_LEASE_LOST"
+Received: "CONTRACT_MISMATCH"
+
+ ❯ tests/integration/wallet-worker.test.ts:112:69
+    110|     await db.first.db.update(s.job).set({ leaseUntil: sql`clock_timest…
+    111|     gateway.getTransaction = async () => included(tx, true);
+    112|     await expect(processWalletObservation(db.second, job!, gateway)).r…
+       |                                                                     ^
+    113|     const [row] = await db.first.db.select().from(s.walletOperation).w…
+    114|     const fresh = await claimJob(db.second, ['wallet_observe']); expec…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/integration/wallet-worker.test.ts > TASK-021 durable human-wallet observation, terminal failure and lease fencing > legacy claim_observe resolves its existing wallet operation without creating another claim
+Error: CONTRACT_MISMATCH
+ ❯ deny src/server/domain/purchases.ts:11:51
+      9| export interface WorkerFence { leaseOwner: string }
+     10| export class DomainError extends Error { constructor(readonly code: st…
+     11| export function deny(code: string): never { throw new DomainError(code…
+       |                                                   ^
+     12| export async function databaseTime(db: Database): Promise<Date> {
+     13|   const result = await db.execute<{ now: Date }>(sql`select clock_time…
+ ❯ storedOperation src/server/domain/wallet.ts:128:188
+ ❯ observeWallet src/server/domain/wallet.ts:168:14
+ ❯ processWalletObservation apps/server/src/worker/wallet.ts:29:18
+ ❯ drain apps/server/src/worker/wallet.ts:41:20
+ ❯ tests/integration/wallet-worker.test.ts:125:90
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  3 failed | 18 passed (21)
+   Start at  13:47:24
+   Duration  8.82s (tests 65%, import 31%, transform 3%)
+

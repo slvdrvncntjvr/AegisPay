@@ -1,0 +1,1 @@
+{"gate":"local-postgres","project":"aegispay-foundation-f572f386c6d0","version":"17.11","credentials":"ignored .env.integration.local","liveAccess":false}

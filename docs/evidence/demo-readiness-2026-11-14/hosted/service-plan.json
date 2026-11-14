@@ -1,0 +1,161 @@
+{
+  "classification": "review-only-not-a-provider-request-or-deployment",
+  "source": {
+    "repository": "https://github.com/slvdrvncntjvr/AegisPay",
+    "branch": "task/TASK-009-demo-readiness",
+    "exactCommit": "REQUIRES_FINAL_REVIEWED_COMMIT",
+    "rootDir": "",
+    "nodeVersion": "24.22.1",
+    "packageManager": "pnpm@12.18.0",
+    "autoDeployTrigger": "off"
+  },
+  "services": [
+    {
+      "name": "aegispay-release-web",
+      "type": "web_service",
+      "runtime": "node",
+      "plan": "free",
+      "region": "singapore",
+      "numInstances": 1,
+      "healthCheckPath": "/api/health",
+      "buildArgv": [
+        "node",
+        "docs/evidence/demo-readiness-2026-11-14/hosted/build.mjs",
+        "web"
+      ],
+      "startArgv": [
+        "corepack",
+        "pnpm",
+        "--filter",
+        "@aegispay/web",
+        "exec",
+        "next",
+        "start",
+        "--hostname",
+        "0.0.0.0"
+      ],
+      "port": "provider-injected PORT"
+    },
+    {
+      "name": "aegispay-release-worker",
+      "type": "web_service",
+      "runtime": "node",
+      "plan": "free",
+      "region": "singapore",
+      "numInstances": 1,
+      "healthCheckPath": "/health",
+      "buildArgv": [
+        "node",
+        "docs/evidence/demo-readiness-2026-11-14/hosted/build.mjs",
+        "worker"
+      ],
+      "startArgv": [
+        "node",
+        "--import",
+        "tsx",
+        "apps/server/src/index.ts"
+      ],
+      "port": "provider-injected PORT",
+      "host": "0.0.0.0",
+      "initialRUN_TESTNET": "0"
+    }
+  ],
+  "database": {
+    "create": false,
+    "reusePreviewOrIncidentDatabase": false,
+    "selection": "exact independent database required before environment activation",
+    "strictExternalSslmode": "verify-full",
+    "migrations": "0000 through 0004 checksummed, reviewed once on exact independent target",
+    "firstStartPrerequisite": "zero run/quote/payment/entitlement/wallet/claim/job rows; unprovisioned independent agent"
+  },
+  "environment": {
+    "commonPublic": [
+      "NODE_VERSION",
+      "NODE_ENV",
+      "AEGIS_RELEASE_ENABLED",
+      "AEGIS_RELEASE_COMMIT",
+      "APP_ORIGIN",
+      "STELLAR_NETWORK",
+      "STELLAR_RPC_URL",
+      "STELLAR_NETWORK_PASSPHRASE",
+      "NOIR_DEVICE_REGISTRY_ID",
+      "NOIR_AGENT_REGISTRY_ID",
+      "NOIR_PAYMENT_ESCROW_ID",
+      "NOIR_XLM_SAC_ID",
+      "DEMO_OWNER_PUBLIC_KEY",
+      "DEMO_AGENT_PUBLIC_KEY",
+      "DEMO_MERCHANT_PUBLIC_KEY",
+      "DEMO_DEVICE_HASH"
+    ],
+    "sharedPrivate": [
+      "DATABASE_URL",
+      "RECEIPT_SIGNING_KEY",
+      "WORKER_WAKE_TOKEN"
+    ],
+    "webOnlyPrivate": [
+      "DEMO_OWNER_LOGIN_TOKEN",
+      "DEMO_MERCHANT_LOGIN_TOKEN"
+    ],
+    "webOnlyPublic": [
+      "WORKER_WAKE_URL",
+      "AGENT_MODEL",
+      "NEXT_TELEMETRY_DISABLED"
+    ],
+    "workerOnlyPrivate": [
+      "AGENT_SECRET",
+      "VELO_GAS_API_KEY",
+      "GEMINI_API_KEY",
+      "ENVELOPE_ENCRYPTION_KEY"
+    ],
+    "workerOnlyPublic": [
+      "AGENT_MODEL",
+      "VELO_GAS_BASE_URL",
+      "WORKER_HOST",
+      "RUN_TESTNET"
+    ],
+    "forbiddenBoth": [
+      "SPIKE_OWNER_SECRET",
+      "SPIKE_MERCHANT_SECRET",
+      "RENDER_API_KEY",
+      "NODE_TLS_REJECT_UNAUTHORIZED",
+      "NODE_EXTRA_CA_CERTS",
+      "NODE_OPTIONS",
+      "TRUST_VERCEL_PROXY"
+    ],
+    "forbiddenPrefixes": [
+      "NEXT_PUBLIC_"
+    ],
+    "providerSupplied": [
+      "PORT",
+      "RENDER_SERVICE_ID",
+      "RENDER_EXTERNAL_URL",
+      "RENDER_GIT_COMMIT"
+    ]
+  },
+  "activationGates": [
+    "final source review and commit/closure match",
+    "provider read-only free-capacity/auto-deploy check",
+    "coordinator exact-service creation review",
+    "independent empty database and verified TLS",
+    "separate secret custody, no credentials forwarded to install/build",
+    "readback exact source/environment/service identity",
+    "nonfinancial ingress/auth/body/origin/ownership/TLS/leak/cold/restart gates",
+    "human wallet consent and fresh explicit purchase intent before funded execution"
+  ],
+  "mutationsPerformed": 0,
+  "limits": [
+    "No service name or URL is claimed allocated",
+    "No new Free database is requested; workspace already has one Free database",
+    "Free service hours are shared and idle services spin down; paid fallback forbidden",
+    "RUN_TESTNET0 does not disable model calls, wallet observation or manually signed human submissions",
+    "Existing preview launchers enforce a sealed preview-only environment and must not be repurposed for worker credentials"
+  ],
+  "localPreparation": {
+    "databaseCreated": true,
+    "actorsSeeded": false,
+    "emptyTables": 16,
+    "actualHttpChecks": 17,
+    "processesStoppedAfterQualification": true,
+    "receipt": "local-qualification.json"
+  }
+}

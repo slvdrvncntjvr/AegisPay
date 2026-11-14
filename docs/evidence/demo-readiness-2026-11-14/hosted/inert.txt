@@ -1,0 +1,1 @@
+{"status":"not_run","scope":"anonymous-ingress-only","financialActions":0,"missing":["EXPLICIT_APP_OR_WORKER_HTTPS_ORIGIN"]}

@@ -1,0 +1,2 @@
+REJECT: docs\implementation-plan.md has 1 plan-integrity failure(s)
+  - line 66: task row appears after a blank line; task rows must be contiguous so none can be hidden

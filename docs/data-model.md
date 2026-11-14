@@ -66,3 +66,7 @@ Wallet addresses/tx hashes are public-chain data, but linked task text and actor
 ## Migration notes
 
 Generate versioned Drizzle SQL, inspect constraints/triggers, migrate a fresh PostgreSQL instance and seed idempotently. Do not use schema `push` against a running demo with purchases. Keep resource fixture versions immutable for existing entitlements. Additive changes first; backfill verified values before NOT NULL enforcement. For failed migration, restore a DB snapshot or roll forward with a reviewed repair; never reset a funded ledger/DB pairing to hide a payment.
+
+## Internal nonfinancial rehearsal authority — 2026-11-14
+
+Trusted internal createRun callers may select budget_stroops0 for diagnostic runs; the public task-only API continues to use1000000. All quote amounts remain strictly positive. Existing atomic budget reservation therefore denies every purchase from zero-budget runs, including ordinary competing consumers and restarts. Migration0004 changes the run budget lower bound to0 and forbids budget increases; reducing a budget remains subject to spent-plus-reserved constraints. It does not change existing rows or release any hold. Diagnostic success is not a funded semantic no-purchase release gate.

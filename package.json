@@ -7,15 +7,15 @@
   "packageManager": "pnpm@12.18.0",
   "engines": { "node": "24.22.1" },
   "scripts": {
-    "typecheck": "tsc --noEmit && pnpm --filter @aegispay/web typecheck",
+    "typecheck": "tsc --noEmit && corepack pnpm --filter @aegispay/web typecheck",
     "lint": "eslint scripts src tests apps packages --no-error-on-unmatched-pattern",
     "workspace:smoke": "tsx scripts/workspace-smoke.ts",
     "db:setup": "tsx scripts/setup-db.ts",
     "db:migrate": "node --env-file-if-exists=.env.worker.local --import tsx scripts/migrate-db.ts",
     "db:seed": "node --env-file-if-exists=.env.worker.local --import tsx scripts/seed-demo.ts",
-    "db:verify": "pnpm db:setup && pnpm db:migrate && pnpm test:integration",
-    "dev": "pnpm --filter @aegispay/web dev",
-    "start": "pnpm --filter @aegispay/web start",
+    "db:verify": "corepack pnpm db:setup && corepack pnpm db:migrate && corepack pnpm test:integration",
+    "dev": "corepack pnpm --filter @aegispay/web dev",
+    "start": "corepack pnpm --filter @aegispay/web start",
     "worker": "node --env-file-if-exists=.env.worker.local --import tsx apps/server/src/index.ts",
     "purchase:smoke": "node --env-file-if-exists=.env.worker.local --import tsx scripts/purchase-smoke.ts",
     "verify:sdk-imports": "tsx scripts/sdk-imports.ts",
@@ -28,7 +28,7 @@
     "test:integration": "vitest run tests/integration",
     "test:e2e": "playwright test tests/e2e",
     "test:testnet": "node --env-file-if-exists=.env.spike.local --import tsx --test tests/testnet/*.test.ts",
-    "build": "pnpm --filter @aegispay/web build",
+    "build": "corepack pnpm --filter @aegispay/web build",
     "demo:smoke": "tsx scripts/demo-smoke.ts"
   },
   "dependencies": {

@@ -64,7 +64,7 @@ export const agentRun = pgTable('agent_run', {
   unique('run_owner_key').on(t.ownerId, t.runStartKey), unique('run_full_identity').on(t.id, t.agentId, t.ownerId),
   uniqueIndex('one_active_run_per_agent').on(t.agentId).where(sql`status IN ('queued','running','waiting_payment')`),
   states('run_status', 'status', ['queued', 'running', 'waiting_payment', 'completed', 'failed']),
-  money('run_budget', 'budget_stroops', true), money('run_reserved', 'reserved_stroops'), money('run_spent', 'spent_stroops'),
+  money('run_budget', 'budget_stroops'), money('run_reserved', 'reserved_stroops'), money('run_spent', 'spent_stroops'),
   check('run_budget_limit', sql`spent_stroops + reserved_stroops <= budget_stroops AND budget_stroops <= 1000000`),
   check('run_bounds', sql`model_turns BETWEEN 0 AND 8 AND tool_steps BETWEEN 0 AND 12 AND length(task_text) BETWEEN 1 AND 2000`),
 ]);

@@ -1,0 +1,13 @@
+$ vitest run tests/unit
+
+ RUN  v5.1.0 C:/Users/Vincent/VS Codes/Noir X Velo
+
+
+ Test Files  6 passed (6)
+      Tests  112 passed (112)
+   Start at  14:15:39
+   Duration  5.91s (import 51%, tests 41%, transform 8%, worker 1%)
+
+    Isolate  6 workers spawned · ~196ms startup each (spawn + environment, per file)
+             at least ~981ms faster with isolate: false — reuses workers across files instead of one per file
+

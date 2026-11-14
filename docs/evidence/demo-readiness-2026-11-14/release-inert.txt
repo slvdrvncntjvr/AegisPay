@@ -1,0 +1,1 @@
+{"status":"not_run","gate":"release-rehearsal","financialActions":0,"missing":["EXPLICIT_PHASE","INDEPENDENT_RELEASE_MANIFEST","ISOLATED_RELEASE_ENVIRONMENT","FRESH_USER_CONSENT_BEFORE_PURCHASE"]}

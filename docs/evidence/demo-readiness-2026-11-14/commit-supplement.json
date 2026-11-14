@@ -1,0 +1,18 @@
+{
+  "classification": "additive-final-review-inventory-and-known-value-hygiene",
+  "observedAt": "2026-11-14T12:17:17.145Z",
+  "acceptedManifest": "docs/evidence/demo-readiness-2026-11-14/source-delivery.json",
+  "acceptedManifestSha256": "5cdaa051821db8171fabc85a0b439fd057f064bf1002b3a4d452a9c2840e2c4f",
+  "acceptedManifestEntries": 113,
+  "acceptedManifestChanged": false,
+  "additionalFiles": {
+    "docs/evidence/demo-readiness-2026-11-14/independent-final-review.md": "29789af048573f2eb1f0db4b0ab4b50b00ffc30c11f314c2569776dc07941db0"
+  },
+  "supplementSelfExcluded": true,
+  "knownPrivateValuesCheckedInMemory": 11,
+  "knownOrStaticSecretMatches": 0,
+  "privateValuesExported": false,
+  "finalStagedFileCountExpected": 116,
+  "fullLiveRelease": false,
+  "publicationOrFinancialAuthorityAdded": false
+}
