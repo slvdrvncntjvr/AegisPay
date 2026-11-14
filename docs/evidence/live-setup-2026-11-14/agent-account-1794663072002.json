@@ -1,0 +1,15 @@
+{
+  "classification": "new-testnet-account-activation-only-not-escrow-or-payment-evidence",
+  "observedAt": "2026-11-14T13:31:02.159Z",
+  "agentPublicKey": "GBN5A36EOGRYXCZBLTCBCFY6MGGKMVNT445PFZ6ADF6FMLKHRKOXIAII",
+  "friendbotRequestsThisInvocation": 1,
+  "ownerFundsTransferred": false,
+  "escrowDeposits": 0,
+  "purchases": 0,
+  "mode": "one-new-account-activation",
+  "friendbotHttpStatus": 200,
+  "accountObserved": true,
+  "status": "passed",
+  "newDeviceEscrowFundingCeilingStroops": "1000000",
+  "limit": "Account existence only; device registration/policy/escrow/purchases remain separate."
+}

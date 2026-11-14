@@ -1,0 +1,1 @@
+{"status":"passed","origin":"http://127.0.0.1:3019","agentId":"23d4540c-fe96-494b-9a54-41fcad4dad4a","privateLoginInstructions":".fmd-work/release-setup/access.md","accounts":{"owner":{"httpStatus":200,"exists":true},"merchant":{"httpStatus":200,"exists":true},"agent":{"httpStatus":404,"exists":false}},"financialActions":0}

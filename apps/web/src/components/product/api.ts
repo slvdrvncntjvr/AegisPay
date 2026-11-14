@@ -7,7 +7,7 @@ export interface Attempt { attemptId: string; quoteId: string; operationId: stri
 export interface WalletOperation { operationId: string; kind: string; status: string; txHash?: string | null; expiresAt: string }
 export interface Agent { id: string; publicKey: string; deviceHash: string; status: string; policyMaxStroops: string; policyExpiresAt: string; policyObservedLedger: string | null; deviceContractId: string; agentContractId: string; escrowContractId: string; assetContractId: string }
 export interface Claim { id: string; status: string; txHash: string | null; observedClaimAmountStroops: string | null; confirmedAt: string | null }
-export interface ConsoleState { role: Role; network: string; walletAddress?: string; agent?: Agent; offers: Offer[]; runs?: Run[]; attempts?: Attempt[]; walletOperations: WalletOperation[]; claims?: Claim[] }
+export interface ConsoleState { role: Role; network: string; walletAddress?: string; walletFundingCeilingStroops?: string; agent?: Agent; offers: Offer[]; runs?: Run[]; attempts?: Attempt[]; walletOperations: WalletOperation[]; claims?: Claim[] }
 export interface WalletState { policy?: { maxAmountStroops: string; expiresAt: string } | null; escrowStroops?: string; pendingStroops?: string; deviceOwner?: string | null; deviceAgent?: string | null; assetContractId: string | null; observedAt: string; observedLedger: string | number }
 export interface Prepared { operationId: string; unsignedXdr: string; networkPassphrase: string; signerAddress: string; expiresAt: string }
 export interface Receipt { receiptId: string; quoteId: string; resourceKey: string; fixtureVersion: string; validUntil: string; evidence: Record<string, unknown> }

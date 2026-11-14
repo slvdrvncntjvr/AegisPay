@@ -359,6 +359,19 @@ test('identity mismatch never exposes a receipt and malformed state fails closed
   await expect(page.getByRole('status')).toContainText('INVALID_STATE_RESPONSE');
   t.assertHandled();
 });
+test('trusted lifetime funding ceiling is disclosed and rejects an excessive preparation locally', async ({ page }) => {
+  const t = await ownerTransport(page, async (route, path) => {
+    if (path === '/api/v1/state') { await response(route, { ...owner(), walletFundingCeilingStroops: '1000000' }); return true; }
+    return false;
+  });
+  await page.goto(base + '/app');
+  await page.getByLabel('Wallet action').selectOption('fundEscrow');
+  await page.getByLabel('Funding in integer stroops (lifetime funding ceiling 1000000)', { exact: true }).fill('1000001');
+  await expect(page.getByRole('button', { name: 'Prepare fund escrow' })).toBeDisabled();
+  await expect(page.getByText(/spending or reclaim never enables a top-up/)).toBeVisible();
+  expect(t.seen.every(request => request.method === 'GET')).toBe(true);
+  t.assertHandled();
+});
 
 test('unresolved purchase blocks owner reclaim while original-identity observation stays available', async ({ page }) => {
   const t = await ownerTransport(page);

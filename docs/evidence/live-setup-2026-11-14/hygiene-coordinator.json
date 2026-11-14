@@ -1,0 +1,13 @@
+{
+  "observedAt": "2026-11-14T13:36:09.002382+00:00",
+  "status": "passed",
+  "scope": "known-new-local-values-and-source-patterns-plus-current-client-bundles-not-complete-hosted-leak-qualification",
+  "changedFilesScanned": 51,
+  "knownPrivateValuesCheckedInMemory": 11,
+  "unsafeCandidates": [],
+  "clientJsFilesScanned": 14,
+  "clientMatches": [],
+  "privateCustodyIgnored": true,
+  "originalAgentKeysAndSignedJournalsRead": false,
+  "secretValuesPrinted": false
+}

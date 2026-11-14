@@ -2,7 +2,7 @@ import { randomUUID } from 'node:crypto';
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 import { Account, Contract, Keypair, Networks, TransactionBuilder, rpc, xdr } from '@stellar/stellar-sdk';
 import { toCall } from '@noirx402/agent-sdk';
-import { eq } from 'drizzle-orm';
+import { eq, sql } from 'drizzle-orm';
 import { createTestDatabase } from './support/database.js';
 import { acceptInput, fixture, observedProof } from './support/fixtures.js';
 import { issueSession } from '../../src/server/auth/session.js';
@@ -64,6 +64,130 @@ describe('TC-024 exact human-wallet bodies and durable one-time handoff (synthet
     gateway.getDeviceOwner = async () => (await db.first.db.select().from(s.owner).where(eq(s.owner.id, f.owner.id)))[0]!.walletAddress;
     gateway.getPolicy = async () => ({ agent: f.agent.publicKey, maxAmount: 1000000n, asset: gateway.config.asset, expiresAt: new Date(Date.now() + 60000) });
     await expect(prepareWallet(db.first, actor, { kind: 'sweepOnRevoke' }, gateway)).rejects.toThrow('POLICY_NOT_READY');
+  });
+  async function cappedFunding() {
+    const context = await setup();
+    context.gateway.getDeviceOwner = async () => context.signer.publicKey();
+    context.gateway.fundingCeilingStroops = '1000000';
+    context.gateway.fundingDeviceHash = context.f.agent.deviceHash;
+    context.gateway.fundingAgentPublicKey = context.f.agent.publicKey;
+    return context;
+  }
+  it('concurrent repeat funding submissions return the saved identity after the winner funds', async () => {
+    const { f, actor, gateway, signer, submit } = await cappedFunding();
+    const prepared = await prepareWallet(db.first, actor, { kind: 'fundEscrow', amountStroops: '1000000' }, gateway);
+    const tx = TransactionBuilder.fromXDR(prepared.unsignedXdr, Networks.TESTNET); tx.sign(signer);
+    let balance = 0n;
+    // Synthetic external state changes as soon as the first guarded handoff
+    // checks it. A stale contender must return identity, never recheck funding.
+    gateway.getEscrowBalance = async () => { const observed = balance; balance = 1000000n; return observed; };
+    let release!: () => void, locked!: () => void;
+    const blocker = db.first.transaction(async connection => {
+      await connection.select().from(s.agent).where(eq(s.agent.id, f.agent.id)).for('update');
+      locked(); await new Promise<void>(resolve => { release = resolve; });
+    });
+    // Install the notifier synchronously before the first query resolves.
+    const ready = new Promise<void>(resolve => { locked = resolve; });
+    await ready;
+    const submissions = [db.first, db.second].map(store => submitWallet(store, actor, prepared.operationId, tx.toXDR(), gateway));
+    const settled = Promise.allSettled(submissions);
+    try {
+      const deadline = Date.now() + 5000;
+      let waiting = 0;
+      while (Date.now() < deadline) {
+        const result = await db.second.db.execute(sql`SELECT count(*)::int AS n FROM pg_stat_activity WHERE datname = current_database() AND wait_event_type = 'Lock' AND query LIKE '%"agent"%' AND pid <> pg_backend_pid()`);
+        waiting = Number(result.rows[0]?.n ?? 0);
+        if (waiting >= 2) break;
+        await new Promise(resolve => setTimeout(resolve, 10));
+      }
+      expect(waiting).toBeGreaterThanOrEqual(2);
+    } finally { release(); await blocker; }
+    const results = await settled;
+    expect(results.map(result => result.status)).toEqual(['fulfilled', 'fulfilled']);
+    for (const result of results) if (result.status === 'fulfilled') expect(result.value).toMatchObject({ operationId: prepared.operationId, txHash: tx.hash().toString('hex') });
+    expect(submit).toHaveBeenCalledTimes(1);
+    expect(await db.first.db.select().from(s.job).where(eq(s.job.entityId, prepared.operationId))).toHaveLength(1);
+  });
+  it('lifetime funding cannot replenish spent/reclaimed confirmed funding and is context bound', async () => {
+    const { actor, gateway, submit } = await cappedFunding();
+    const first = await prepareWallet(db.first, actor, { kind: 'fundEscrow', amountStroops: '600000' }, gateway);
+    // Explicitly synthetic ledger fixture: no actual wallet/chain handoff.
+    await db.first.db.update(s.walletOperation).set({ status: 'confirmed' }).where(eq(s.walletOperation.id, first.operationId));
+    gateway.getEscrowBalance = async () => 0n;
+    await expect(prepareWallet(db.second, actor, { kind: 'fundEscrow', amountStroops: '500000' }, gateway)).rejects.toThrow('FUNDING_CEILING_EXCEEDED');
+    gateway.fundingDeviceHash = '0'.repeat(64);
+    await expect(prepareWallet(db.second, actor, { kind: 'fundEscrow', amountStroops: '400000' }, gateway)).rejects.toThrow('CONTRACT_MISMATCH');
+    expect(submit).not.toHaveBeenCalled();
+  });
+  it('HTTP ignores client funding authority and returns the trusted ceiling error', async () => {
+    const { f, actor, gateway, submit } = await cappedFunding();
+    const session = await issueSession(db.first, { role: 'owner', ownerId: f.owner.id });
+    const origin = 'http://localhost:3000';
+    const app = createApplication({ store: db.first, env: { APP_ORIGIN: origin, DEMO_ESCROW_FUNDING_CEILING_STROOPS: '1000000' }, wallet: async () => gateway });
+    const headers = { cookie: `aegispay_session=${session.token}`, origin, 'content-type': 'application/json' };
+    const state = await app(new Request(origin + '/api/v1/state', { headers }));
+    expect((await state.json()).walletFundingCeilingStroops).toBe('1000000');
+    const changedAuthority = await app(new Request(origin + '/api/v1/wallet-operations', { method: 'POST', headers,
+      body: JSON.stringify({ kind: 'fundEscrow', amountStroops: '1000001', fundingCeilingStroops: '10000000' }) }));
+    expect(changedAuthority.status).toBe(400);
+    const over = await app(new Request(origin + '/api/v1/wallet-operations', { method: 'POST', headers,
+      body: JSON.stringify({ kind: 'fundEscrow', amountStroops: '1000001' }) }));
+    expect(over.status).toBe(422); expect((await over.json()).error.code).toBe('FUNDING_CEILING_EXCEEDED');
+    expect(submit).not.toHaveBeenCalled();
+    expect(await db.first.db.select().from(s.walletOperation).where(eq(s.walletOperation.agentId, f.agent.id))).toHaveLength(0);
+    // An ordinary within-ceiling request still prepares, without dispatch.
+    expect((await prepareWallet(db.first, actor, { kind: 'fundEscrow', amountStroops: '1000000' }, gateway)).operationId).toBeTruthy();
+  });
+  it('unconfigured contexts keep their existing per-operation funding limit', async () => {
+    const { f, actor, gateway, signer, submit } = await setup();
+    gateway.getDeviceOwner = async () => signer.publicKey();
+    const first = await prepareWallet(db.first, actor, { kind: 'fundEscrow', amountStroops: '10000000' }, gateway);
+    await db.first.db.update(s.walletOperation).set({ status: 'confirmed' }).where(eq(s.walletOperation.id, first.operationId));
+    const second = await prepareWallet(db.second, actor, { kind: 'fundEscrow', amountStroops: '10000000' }, gateway);
+    expect(second.operationId).not.toBe(first.operationId);
+    expect(await db.first.db.select().from(s.walletOperation).where(eq(s.walletOperation.agentId, f.agent.id))).toHaveLength(2);
+    expect(submit).not.toHaveBeenCalled();
+  });
+  it('funding races serialize reservations across independent connections and unknown keeps authority', async () => {
+    const { actor, gateway, signer, submit } = await cappedFunding();
+    const results = await Promise.allSettled([db.first, db.second].map(store => prepareWallet(store, actor, { kind: 'fundEscrow', amountStroops: '600000' }, gateway)));
+    expect(results.filter(result => result.status === 'fulfilled')).toHaveLength(1);
+    expect(results.find(result => result.status === 'rejected')).toMatchObject({ reason: { code: 'OPERATION_ACTIVE' } });
+    const p = (results.find(result => result.status === 'fulfilled') as PromiseFulfilledResult<Awaited<ReturnType<typeof prepareWallet>>>).value;
+    const tx = TransactionBuilder.fromXDR(p.unsignedXdr, Networks.TESTNET); tx.sign(signer);
+    expect((await submitWallet(db.first, actor, p.operationId, tx.toXDR(), gateway)).status).toBe('unknown');
+    await expect(prepareWallet(db.second, actor, { kind: 'fundEscrow', amountStroops: '600000' }, gateway)).rejects.toThrow('OPERATION_ACTIVE');
+    expect(submit).toHaveBeenCalledTimes(1);
+  });
+  it('handoff rechecks cumulative authority and excludes its own saved preparation exactly once', async () => {
+    const { actor, gateway, signer, submit } = await cappedFunding();
+    const first = await prepareWallet(db.first, actor, { kind: 'fundEscrow', amountStroops: '600000' }, gateway);
+    await db.first.db.update(s.walletOperation).set({ status: 'confirmed' }).where(eq(s.walletOperation.id, first.operationId));
+    const p = await prepareWallet(db.second, actor, { kind: 'fundEscrow', amountStroops: '400000' }, gateway);
+    const tx = TransactionBuilder.fromXDR(p.unsignedXdr, Networks.TESTNET); tx.sign(signer);
+    gateway.fundingCeilingStroops = '999999';
+    await expect(submitWallet(db.first, actor, p.operationId, tx.toXDR(), gateway)).rejects.toThrow('FUNDING_CEILING_EXCEEDED');
+    expect(submit).not.toHaveBeenCalled();
+    const [saved] = await db.first.db.select().from(s.walletOperation).where(eq(s.walletOperation.id, p.operationId));
+    expect(saved!.handoffCommittedAt).toBeNull();
+    gateway.fundingCeilingStroops = '1000000';
+    expect((await submitWallet(db.second, actor, p.operationId, tx.toXDR(), gateway)).status).toBe('unknown');
+    expect(submit).toHaveBeenCalledTimes(1);
+  });
+  it('only unhanded expiry or independently failed funding frees reserved lifetime authority', async () => {
+    const { actor, gateway, signer } = await cappedFunding();
+    const first = await prepareWallet(db.first, actor, { kind: 'fundEscrow', amountStroops: '1000000' }, gateway);
+    // Synthetic terminal failure here tests accounting, not chain verification;
+    // included-failure verifier cases are covered by wallet-worker regressions.
+    await db.first.db.update(s.walletOperation).set({ status: 'failed' }).where(eq(s.walletOperation.id, first.operationId));
+    const second = await prepareWallet(db.second, actor, { kind: 'fundEscrow', amountStroops: '1000000' }, gateway);
+    await db.first.db.update(s.walletOperation).set({ status: 'expired' }).where(eq(s.walletOperation.id, second.operationId));
+    const third = await prepareWallet(db.second, actor, { kind: 'fundEscrow', amountStroops: '1000000' }, gateway);
+    const [saved] = await db.first.db.select().from(s.walletOperation).where(eq(s.walletOperation.id, third.operationId));
+    await expect(db.first.db.update(s.walletOperation).set({ status: 'expired', handoffCommittedAt: new Date(), txHash: saved!.unsignedBodyHash }).where(eq(s.walletOperation.id, third.operationId))).rejects.toThrow();
+    const tx = TransactionBuilder.fromXDR(third.unsignedXdr, Networks.TESTNET); tx.sign(signer);
+    expect((await submitWallet(db.first, actor, third.operationId, tx.toXDR(), gateway)).status).toBe('unknown');
+    await expect(prepareWallet(db.second, actor, { kind: 'fundEscrow', amountStroops: '1' }, gateway)).rejects.toThrow('OPERATION_ACTIVE');
   });
   for (const kind of ['sweepOnRevoke', 'defundEscrow'] as const) {
     const input = kind === 'defundEscrow' ? { kind, amountStroops: '300000' } : { kind };

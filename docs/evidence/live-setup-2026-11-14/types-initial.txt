@@ -1,0 +1,6 @@
+$ tsc --noEmit && corepack pnpm --filter @aegispay/web typecheck
+src/server/integrations/wallet-gateway.ts(9,3): error TS2375: Type '{ config: { network: NoirNetworkConfig; asset: string; }; fundingCeilingStroops: string | undefined; fundingDeviceHash: string | undefined; fundingAgentPublicKey: string | undefined; ... 9 more ...; latestLedger: () => Promise<...>; }' is not assignable to type 'WalletGateway' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'fundingCeilingStroops' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+[ELIFECYCLE] Command failed with exit code 2.

@@ -6,7 +6,7 @@ import * as s from '../db/schema.ts';
 import { authenticate, digest, login, ownedRun, requireRole, sessionCookie, throttle } from '../auth/session.ts';
 import { acceptQuote, createQuote, createRun, deny } from '../domain/purchases.ts';
 import { readReceipt, receiptMetadata } from '../merchant/receipts.ts';
-import { ownedWallet, prepareWallet, submitWallet, observeWallet, observedPolicyStatus, walletView, type WalletGateway } from '../domain/wallet.ts';
+import { ownedWallet, prepareWallet, submitWallet, observeWallet, observedPolicyStatus, walletView, walletFundingCeiling, type WalletGateway } from '../domain/wallet.ts';
 import { checkOrigin, json, jsonBody, safeError } from './boundaries.ts';
 import { wakeWorker } from './wake.ts';
 import { projectRunEvent } from '../agent/events.ts';
@@ -58,7 +58,7 @@ export function createApplication(context: ApplicationContext) {
           const runs = await store.db.select({ id: s.agentRun.id, task: s.agentRun.taskText, status: s.agentRun.status, createdAt: s.agentRun.createdAt, reservedStroops: s.agentRun.reservedStroops, spentStroops: s.agentRun.spentStroops, finalAnswer: s.agentRun.finalAnswer, errorCode: s.agentRun.errorCode }).from(s.agentRun).where(eq(s.agentRun.ownerId, actor.ownerId!)).orderBy(desc(s.agentRun.createdAt)).limit(20);
           const attempts = await store.db.select({ attemptId: s.paymentAttempt.id, quoteId: s.paymentAttempt.quoteId, operationId: s.paymentAttempt.operationId, status: s.paymentAttempt.status, innerHash: s.paymentAttempt.innerHash, outerHash: s.paymentAttempt.outerHash, veloRequestId: s.paymentAttempt.veloRequestId, veloStatus: s.paymentAttempt.veloStatus, errorCode: s.paymentAttempt.errorCode }).from(s.paymentAttempt).where(eq(s.paymentAttempt.ownerId, actor.ownerId!)).orderBy(desc(s.paymentAttempt.createdAt)).limit(30);
           const walletOperations = owner ? await store.db.select().from(s.walletOperation).where(eq(s.walletOperation.actorAddress, owner.walletAddress)).orderBy(desc(s.walletOperation.createdAt)).limit(10) : [];
-          return json({ role: actor.role, network: 'testnet', health: { database: 'available', chain: 'unavailable_until_refresh', model: 'worker_only' }, walletAddress: owner?.walletAddress, agent, offers, runs, attempts, walletOperations: walletOperations.map(walletView), balances: { status: 'unavailable', code: 'CHAIN_REFRESH_REQUIRED' } });
+          return json({ role: actor.role, network: 'testnet', health: { database: 'available', chain: 'unavailable_until_refresh', model: 'worker_only' }, walletFundingCeilingStroops: env.DEMO_ESCROW_FUNDING_CEILING_STROOPS?.trim() ? walletFundingCeiling(env) : undefined, walletAddress: owner?.walletAddress, agent, offers, runs, attempts, walletOperations: walletOperations.map(walletView), balances: { status: 'unavailable', code: 'CHAIN_REFRESH_REQUIRED' } });
         }
         const [merchant] = await store.db.select().from(s.merchant).where(eq(s.merchant.id, actor.merchantId!));
         const claims = await store.db.select().from(s.merchantClaim).where(eq(s.merchantClaim.merchantId, actor.merchantId!)).orderBy(desc(s.merchantClaim.createdAt)).limit(20);

@@ -1,0 +1,37 @@
+
+ RUN  v5.1.0 C:/Users/Vincent/VS Codes/Noir X Velo
+
+ ❯ tests/integration/wallet.test.ts (17 tests | 1 failed) 3839ms
+   ❯ TC-024 exact human-wallet bodies and durable one-time handoff (synthetic SDK transport) (17)
+     × only unhanded expiry or independently failed funding frees reserved lifetime authority 214ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/wallet.test.ts > TC-024 exact human-wallet bodies and durable one-time handoff (synthetic SDK transport) > only unhanded expiry or independently failed funding frees reserved lifetime authority
+Error: Failed query: update "wallet_operation" set "handoff_committed_at" = $1, "tx_hash" = $2, "status" = $3 where "wallet_operation"."id" = $4
+params: 2026-11-14T12:50:46.374Z,6a491e0a18c234f70bf8669e34ddb5d0b605aa65c1fa41ae26a2921b048ee833,expired,31edcc0a-ced7-4b8f-8e2d-4a575af6cee0
+ ❯ NodePgPreparedQuery.queryWithCache node_modules/.pnpm/drizzle-orm@0.45.4_@opentel_2331af94cf1d082345d7b8adbb84069f/node_modules/src/pg-core/session.ts:73:11
+ ❯ tests/integration/wallet.test.ts:123:5
+    121|     const third = await prepareWallet(db.second, actor, { kind: 'fundE…
+    122|     const [saved] = await db.first.db.select().from(s.walletOperation)…
+    123|     await db.first.db.update(s.walletOperation).set({ status: 'expired…
+       |     ^
+    124|     await expect(prepareWallet(db.second, actor, { kind: 'fundEscrow',…
+    125|   });
+
+Caused by: error: IMMUTABLE_WALLET_INTENT
+ ❯ node_modules/.pnpm/pg-pool@3.14.0_pg@8.23.1/node_modules/pg-pool/index.js:45:11
+ ❯ node_modules/.pnpm/drizzle-orm@0.45.4_@opentel_2331af94cf1d082345d7b8adbb84069f/node_modules/drizzle-orm/node-postgres/session.js:113:20
+ ❯ NodePgPreparedQuery.queryWithCache node_modules/.pnpm/drizzle-orm@0.45.4_@opentel_2331af94cf1d082345d7b8adbb84069f/node_modules/drizzle-orm/pg-core/session.js:39:16
+ ❯ tests/integration/wallet.test.ts:123:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { length: 142, severity: 'ERROR', code: 'P0001', detail: undefined, hint: undefined, position: undefined, internalPosition: undefined, internalQuery: undefined, where: 'PL/pgSQL function guard_wallet_intent() line 8 at RAISE', schema: undefined, table: undefined, dataType: undefined, constraint: undefined, file: 'pl_exec.c', routine: 'exec_stmt_raise' }
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 26 passed (27)
+   Start at  20:50:43
+   Duration  13.41s (tests 83%, import 16%, transform 2%)
+

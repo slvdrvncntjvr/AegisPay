@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "code": "CONFIRMED_LOCAL_PREPARATION_INCOMPLETE",
+  "stage": "selective-worker-configuration",
+  "detail": "PRIVATE_ACL_REQUIRED",
+  "financialActions": 0
+}

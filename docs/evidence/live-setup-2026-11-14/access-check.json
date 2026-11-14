@@ -1,0 +1,118 @@
+{
+  "scope": "actual-local-confirmed-owner-merchant-login-no-financial-execution",
+  "observedAt": "2026-11-14T13:29:59.082Z",
+  "financialActions": 0,
+  "fullLiveRelease": false,
+  "executionCountsBefore": {
+    "agent_run": 0,
+    "quote": 0,
+    "payment_attempt": 0,
+    "payment_evidence": 0,
+    "entitlement": 0,
+    "wallet_operation": 0,
+    "merchant_claim": 0,
+    "job": 0
+  },
+  "executionCountsAfter": {
+    "agent_run": 0,
+    "quote": 0,
+    "payment_attempt": 0,
+    "payment_evidence": 0,
+    "entitlement": 0,
+    "wallet_operation": 0,
+    "merchant_claim": 0,
+    "job": 0
+  },
+  "sessionsCreatedAndRevoked": 2,
+  "status": "passed",
+  "checks": [
+    {
+      "name": "response-no-config-secret",
+      "passed": true
+    },
+    {
+      "name": "owner-login",
+      "passed": true
+    },
+    {
+      "name": "response-no-config-secret",
+      "passed": true
+    },
+    {
+      "name": "owner-state-status",
+      "passed": true
+    },
+    {
+      "name": "owner-identity",
+      "passed": true
+    },
+    {
+      "name": "owner-catalog",
+      "passed": true
+    },
+    {
+      "name": "owner-new-unprovisioned-context-and-trusted-ceiling",
+      "passed": true
+    },
+    {
+      "name": "response-no-config-secret",
+      "passed": true
+    },
+    {
+      "name": "owner-logout",
+      "passed": true
+    },
+    {
+      "name": "response-no-config-secret",
+      "passed": true
+    },
+    {
+      "name": "owner-old-cookie-denied",
+      "passed": true
+    },
+    {
+      "name": "response-no-config-secret",
+      "passed": true
+    },
+    {
+      "name": "merchant-login",
+      "passed": true
+    },
+    {
+      "name": "response-no-config-secret",
+      "passed": true
+    },
+    {
+      "name": "merchant-state-status",
+      "passed": true
+    },
+    {
+      "name": "merchant-identity",
+      "passed": true
+    },
+    {
+      "name": "merchant-catalog",
+      "passed": true
+    },
+    {
+      "name": "merchant-no-owner-state",
+      "passed": true
+    },
+    {
+      "name": "response-no-config-secret",
+      "passed": true
+    },
+    {
+      "name": "merchant-logout",
+      "passed": true
+    },
+    {
+      "name": "response-no-config-secret",
+      "passed": true
+    },
+    {
+      "name": "merchant-old-cookie-denied",
+      "passed": true
+    }
+  ]
+}

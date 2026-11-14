@@ -1,0 +1,37 @@
+
+ RUN  v5.1.0 C:/Users/Vincent/VS Codes/Noir X Velo
+
+ ❯ tests/integration/wallet.test.ts (18 tests | 1 failed | 17 skipped) 498ms
+   ❯ TC-024 exact human-wallet bodies and durable one-time handoff (synthetic SDK transport) (18)
+     × concurrent repeat funding submissions return the saved identity after the winner funds 223ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/wallet.test.ts > TC-024 exact human-wallet bodies and durable one-time handoff (synthetic SDK transport) > concurrent repeat funding submissions return the saved identity after the winner funds
+AssertionError: expected [ 'rejected', 'fulfilled' ] to deeply equal [ 'fulfilled', 'fulfilled' ]
+
+- Expected
++ Received
+
+  [
+-   "fulfilled",
++   "rejected",
+    "fulfilled",
+  ]
+
+ ❯ tests/integration/wallet.test.ts:106:50
+    104|     } finally { release(); await blocker; }
+    105|     const results = await settled;
+    106|     expect(results.map(result => result.status)).toEqual(['fulfilled',…
+       |                                                  ^
+    107|     for (const result of results) if (result.status === 'fulfilled') e…
+    108|     expect(submit).toHaveBeenCalledTimes(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 17 skipped (18)
+   Start at  21:24:24
+   Duration  1.51s (import 55%, tests 37%, transform 8%)
+

@@ -24,7 +24,9 @@ export function WalletPanel({ state, fresh, refresh }: { state: ConsoleState; fr
   const unresolvedPayment = (state.attempts ?? []).some(a => !['authorized', 'refused', 'expired', 'failed'].includes(a.status));
   const reclaimBlocked = actualKind === 'sweepOnRevoke' && unresolvedPayment;
   const needsAmount = ['registerAgent', 'fundEscrow'].includes(actualKind);
-  const integerValid = !needsAmount || positiveInteger(integer, actualKind === 'registerAgent' ? 1000000n : 10000000n);
+  const fundingCeiling = state.walletFundingCeilingStroops ?? '10000000';
+  const fundingCeilingValid = positiveInteger(fundingCeiling, 10000000n);
+  const integerValid = !needsAmount || positiveInteger(integer, actualKind === 'registerAgent' ? 1000000n : fundingCeilingValid ? BigInt(fundingCeiling) : 0n);
 
   async function observeBalance() {
     if (lock.current) return;
@@ -99,7 +101,7 @@ export function WalletPanel({ state, fresh, refresh }: { state: ConsoleState; fr
     </div><div className="pc-consent"><h3>{role === 'owner' ? 'Human wallet controls' : 'Separate merchant claim'}</h3><p>Preparing does not sign. Review the Testnet action, then explicitly open Freighter with the configured wallet.</p>
       <form onSubmit={e => { e.preventDefault(); void prepare(); }}>
         {role === 'owner' && <label>Wallet action<select value={kind} disabled={busy || pending} onChange={e => { setKind(e.target.value); setInteger(''); }}>{Object.entries(actionNames).filter(([key]) => key !== 'claim').map(([key,label]) => <option key={key} value={key}>{label}</option>)}</select></label>}
-        {needsAmount && <div className="pc-field"><label htmlFor="pc-wallet-amount">{actualKind === 'registerAgent' ? 'Per-payment cap in integer stroops (max 1000000)' : 'Funding in integer stroops (max 10000000)'}</label><input id="pc-wallet-amount" aria-describedby="pc-wallet-amount-help" inputMode="numeric" pattern="[1-9][0-9]*" value={integer} disabled={busy || pending} onChange={e => setInteger(e.target.value)} required maxLength={39} /><small id="pc-wallet-amount-help">{amount(integer)} · 1 XLM = 10000000 stroops</small></div>}
+        {needsAmount && <div className="pc-field"><label htmlFor="pc-wallet-amount">{actualKind === 'registerAgent' ? 'Per-payment cap in integer stroops (max 1000000)' : `Funding in integer stroops (${state.walletFundingCeilingStroops ? 'lifetime funding ceiling' : 'per-operation max'} ${fundingCeilingValid ? fundingCeiling : 'unavailable'})`}</label><input id="pc-wallet-amount" aria-describedby="pc-wallet-amount-help" inputMode="numeric" pattern="[1-9][0-9]*" value={integer} disabled={busy || pending} onChange={e => setInteger(e.target.value)} required maxLength={39} /><small id="pc-wallet-amount-help">{amount(integer)} · 1 XLM = 10000000 stroops{actualKind === 'fundEscrow' && state.walletFundingCeilingStroops && ` · Confirmed funding and unresolved reservations consume the lifetime ${amount(fundingCeiling)} authority; spending or reclaim never enables a top-up.`}</small></div>}
         {actualKind === 'registerAgent' && <label>Policy expiry (your local time, within one hour)<input type="datetime-local" step="1" value={expiry} disabled={busy || pending} onChange={e => setExpiry(e.target.value)} required /></label>}
         {actualKind === 'sweepOnRevoke' && <p className="pc-notice">Reclaim requires independently confirmed revocation and no unresolved purchase. {reclaimBlocked ? 'An unresolved purchase blocks reclaim. Observe its saved identity; held funds remain reserved.' : 'The server rechecks both conditions before preparation and submission.'}</p>}
         {role === 'merchant' && <p className="pc-notice">The contract determines the claim amount from merchant pending. No client amount or proof is accepted.</p>}

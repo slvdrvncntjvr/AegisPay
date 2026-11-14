@@ -76,3 +76,7 @@ A112-second evidence-replay video and public eight-page PDF already exist. The f
 ## Conventions
 
 Use strict integer amounts, immutable quote terms, persisted nonce/reservation identity and one financial handoff. Unknown stays held and unentitled; recovery observes its saved identity. Keep secrets and signed agent XDR server-only. Record factual gate evidence in the implementation plan and run evidence; do not modify historical artifacts or fmd/.
+
+## Confirmed-wallet local setup — 2026-11-14
+
+The [latest setup checkpoint](evidence/live-setup-2026-11-14/report.md) supersedes the earlier unseeded-local status: confirmed actors/catalog and a new independent agent/device now exist only in the owned local release DB. Real app3019/worker3020 are running for human Freighter registration, finite policy and escrow setup. Protected access instructions are in ignored `.fmd-work/release-setup/access.md`; never publish tokens. New-agent account activation used one Friendbot request and independent account readback, not an escrow deposit/purchase. A trusted lifetime funding bound1000000stroops now persists after spend/reclaim; browser cannot widen it. Human signatures remain required and purchase execution stays disabled until actual setup/nonce continuity is verified. Current source passes150PostgreSQL/17authenticated-console browser checks and22actual role/session assertions. No full live or hosted release is implied.

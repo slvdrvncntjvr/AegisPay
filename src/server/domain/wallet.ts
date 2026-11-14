@@ -30,6 +30,9 @@ export function observedPolicyStatus(hasPolicy: boolean, revoked = false) {
 }
 export interface WalletGateway {
   config: SpikeConfig;
+  fundingCeilingStroops?: string;
+  fundingDeviceHash?: string;
+  fundingAgentPublicKey?: string;
   prepare(source: string, operation: WalletOperation): Promise<string>;
   submit(signed: string, operation: WalletOperation): Promise<string>;
   getTransaction(hash: string): Promise<rpc.Api.GetTransactionResponse>;
@@ -40,6 +43,32 @@ export interface WalletGateway {
   getEscrowBalance: NoirAgentClient['getEscrowBalance'];
   getPendingBalance: NoirAgentClient['getPendingBalance'];
   latestLedger(): Promise<number>;
+}
+export function walletFundingCeiling(env: Record<string, string | undefined>): string {
+  const ceiling = amountSchema.parse(env.DEMO_ESCROW_FUNDING_CEILING_STROOPS?.trim() || '10000000');
+  if (BigInt(ceiling) > 10000000n) throw new Error('INVALID_FUNDING_CEILING');
+  return ceiling;
+}
+async function requireFundingRoom(db: Database, agent: typeof s.agent.$inferSelect, amount: string, gateway: WalletGateway, currentOperationId?: string) {
+  // The optional authority is operator configuration bound to one exact context.
+  // Other contexts retain the existing per-operation input bound.
+  if (gateway.fundingCeilingStroops === undefined) return;
+  if (gateway.fundingDeviceHash !== agent.deviceHash || gateway.fundingAgentPublicKey !== agent.publicKey) deny('CONTRACT_MISMATCH');
+  const ceiling = BigInt(walletFundingCeiling({ DEMO_ESCROW_FUNDING_CEILING_STROOPS: gateway.fundingCeilingStroops }));
+  // Caller owns agent lock; acquire wallet rows afterward, matching submission.
+  // Confirmed funding consumes lifetime authority even after spend/reclaim.
+  const operations = await db.select().from(s.walletOperation).where(and(eq(s.walletOperation.agentId, agent.id), eq(s.walletOperation.operationKind, 'fundEscrow'))).for('update');
+  const now = await databaseTime(db);
+  let reservedOrFunded = 0n;
+  for (const operation of operations) {
+    if (operation.id === currentOperationId || operation.status === 'failed' ||
+      !operation.handoffCommittedAt && (operation.status === 'expired' || operation.status === 'prepared' && operation.expiresAt <= now)) continue;
+    const input = walletInput.parse(operation.operationPayload.input);
+    if (input.kind !== 'fundEscrow' || operation.operationPayload.deviceHash !== agent.deviceHash || operation.operationPayload.agentPublicKey !== agent.publicKey || operation.operationPayload.asset !== agent.assetContractId) deny('CONTRACT_MISMATCH');
+    reservedOrFunded += BigInt(input.amountStroops);
+  }
+  const balance = await gateway.getEscrowBalance(agent.deviceHash);
+  if (balance < 0n || BigInt(amount) + balance > ceiling || BigInt(amount) + reservedOrFunded > ceiling) deny('FUNDING_CEILING_EXCEEDED');
 }
 function operationFor(input: WalletInput, agent: typeof s.agent.$inferSelect | null, asset: string): WalletOperation {
   if (input.kind === 'claim') return { kind: 'claim', token: asset };
@@ -103,6 +132,7 @@ export async function prepareWallet(store: Store, actor: WalletActor, raw: unkno
       }
       const token = await gateway.getEscrowToken(a.deviceHash);
       if (token !== null && token !== gateway.config.asset) deny('CONTRACT_MISMATCH');
+      if (input.kind === 'fundEscrow') await requireFundingRoom(db, a, input.amountStroops, gateway);
     }
     const operation = operationFor(input, a, gateway.config.asset);
     const unsignedXdr = await gateway.prepare(context.address, operation);
@@ -143,10 +173,21 @@ export async function submitWallet(store: Store, actor: WalletActor, id: string,
     !tx.signatures[0]!.hint().equals(Keypair.fromPublicKey(row.actorAddress).signatureHint()) ||
     !Keypair.fromPublicKey(row.actorAddress).verify(tx.hash(), tx.signatures[0]!.signature())) deny('INVALID_INPUT');
   const won = await store.transaction(async db => {
-    if (agent && ['sweepOnRevoke', 'defundEscrow'].includes(row.operationKind)) {
+    let lockedAgent = agent;
+    if (agent && ['sweepOnRevoke', 'defundEscrow', 'fundEscrow'].includes(row.operationKind)) {
       const [locked] = await db.select().from(s.agent).where(eq(s.agent.id, agent.id)).for('update');
       if (!locked) deny('NOT_FOUND');
-      await requireSafeReclaim(db, locked, gateway);
+      lockedAgent = locked;
+    }
+    // A concurrent submit may have completed while this request waited for the
+    // agent lock. Observe its saved identity before rechecking mutable chain
+    // state or counting its funding amount again. Keep agent-before-wallet order.
+    const [current] = await db.select().from(s.walletOperation).where(eq(s.walletOperation.id, id)).for('update');
+    if (!current) deny('NOT_FOUND');
+    if (current.handoffCommittedAt || current.status !== 'prepared') return false;
+    if (lockedAgent && ['sweepOnRevoke', 'defundEscrow', 'fundEscrow'].includes(row.operationKind)) {
+      if (op.kind === 'fundEscrow') await requireFundingRoom(db, lockedAgent, op.amount.toString(), gateway, row.id);
+      else await requireSafeReclaim(db, lockedAgent, gateway);
     }
     const [claimed] = await db.update(s.walletOperation).set({ status: 'submitting', handoffCommittedAt: sql`clock_timestamp()`, txHash: row.unsignedBodyHash, updatedAt: sql`clock_timestamp()` })
       .where(and(eq(s.walletOperation.id, id), eq(s.walletOperation.status, 'prepared'), sql`${s.walletOperation.handoffCommittedAt} IS NULL AND ${s.walletOperation.expiresAt} > clock_timestamp()`)).returning();

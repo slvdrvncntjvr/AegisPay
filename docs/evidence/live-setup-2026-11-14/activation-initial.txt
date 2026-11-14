@@ -1,0 +1,1 @@
+{"status":"failed","code":"CONFIRMED_LOCAL_PREPARATION_INCOMPLETE","stage":"selective-worker-configuration","financialActions":0}
