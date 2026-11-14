@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "scope": "actual-loopback-wallet-setup-startup",
+  "observedAt": "2026-11-14T15:12:02.894Z",
+  "origin": "http://127.0.0.1:3019",
+  "ownerAndMerchant": "two-user-provided-current-Freighter-accounts",
+  "policy": "unprovisioned-zero",
+  "registrationConfirmed": true,
+  "fundingLifetimeCeilingStroops": "1000000",
+  "persistentRunTestnet": "0",
+  "financialActions": 0,
+  "purchaseExecutionReady": false,
+  "processesLeftRunningForHuman": true,
+  "privateAccessFile": ".fmd-work/release-setup/access.md",
+  "fullLiveRelease": false
+}

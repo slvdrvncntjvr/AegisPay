@@ -76,6 +76,29 @@ describe('TASK-021 durable human-wallet observation, terminal failure and lease 
   async function makeReady(id: string) {
     await db.first.db.update(s.job).set({ availableAt: sql`clock_timestamp() - interval '1 second'` }).where(eq(s.job.entityId, id));
   }
+  for (const failed of [false, true]) it(`observes RPC decimal-string inclusion time for ${failed ? 'failed' : 'successful'} saved handoff`, async () => {
+    const { actor, gateway, prepared, tx } = await setup();
+    const valid = included(tx, failed);
+    // Actual RPC wire shape; pinned SDK declarations incorrectly say number.
+    gateway.getTransaction = vi.fn(async () => ({ ...valid, createdAt: String(valid.status !== 'NOT_FOUND' && valid.createdAt) }) as unknown as rpc.Api.GetTransactionResponse);
+    const consumer = walletConsumer({ store: db.second, gateway: async () => gateway });
+    await consumer.wake(); await consumer.stop();
+    expect((await observeWallet(db.first, actor, prepared.operationId, gateway)).status).toBe(failed ? 'failed' : 'confirmed');
+    const [job] = await db.first.db.select().from(s.job).where(eq(s.job.entityId, prepared.operationId));
+    expect(job!.status).toBe('done');
+    expect(gateway.prepare).toHaveBeenCalledTimes(1); expect(gateway.submit).toHaveBeenCalledTimes(1);
+    expect(await db.first.db.select().from(s.entitlement)).toHaveLength(0);
+  });
+  it('holds malformed or unsafe RPC inclusion timestamps without another handoff', async () => {
+    const { actor, gateway, prepared, tx } = await setup();
+    const valid = included(tx, false);
+    for (const createdAt of ['', ' ', '0', '01', '-1', '+1', '1.5', '1e9', '0x10', ' 1794668499', '1794668499\n', '9007199254740992', null, true, 1.5, Number.NaN, Number.POSITIVE_INFINITY]) {
+      gateway.getTransaction = async () => ({ ...valid, createdAt }) as unknown as rpc.Api.GetTransactionResponse;
+      expect((await observeWallet(db.second, actor, prepared.operationId, gateway)).status).toBe('unknown');
+    }
+    expect(gateway.prepare).toHaveBeenCalledTimes(1); expect(gateway.submit).toHaveBeenCalledTimes(1);
+    expect(await db.first.db.select().from(s.entitlement)).toHaveLength(0);
+  });
   for (const kind of ['registerDevice', 'claim'] as const) it(`included failed ${kind} unblocks only the human wallet and synchronizes claim state`, async () => {
     const { f, actor, gateway, prepared, tx } = await setup(kind);
     gateway.getTransaction = vi.fn(async () => included(tx, true));

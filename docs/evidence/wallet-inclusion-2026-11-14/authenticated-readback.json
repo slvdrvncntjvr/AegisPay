@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "observedAt": "2026-11-14T15:13:56.665Z",
+  "checks": [
+    "actual-owner-login",
+    "actual-state-confirmed-registration-no-policy",
+    "actual-browser-confirmed-badge",
+    "actual-existing-status-check-remains-confirmed",
+    "actual-chain-refresh-without-policy",
+    "no-new-wallet-payment-or-job",
+    "actual-owner-logout"
+  ],
+  "sessionRevoked": true,
+  "scope": "actual-authenticated-loopback-browser-existing-registration",
+  "newWalletPreparations": 0,
+  "newSubmissions": 0,
+  "fullLiveRelease": false
+}

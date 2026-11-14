@@ -1,0 +1,24 @@
+{
+  "files": [
+    {
+      "path": "src/server/domain/wallet.ts",
+      "sha256": "f48fa4b3ae035e770ff33c2472b5e577d7b751a92bd231cbd4a6ee6893be3521"
+    },
+    {
+      "path": "tests/integration/wallet-worker.test.ts",
+      "sha256": "37600ced9b530d765e493c931208e73dc0cbbafef5bbc9b8080691741f631116"
+    },
+    {
+      "path": "deployment/finals/local-release/start.mjs",
+      "sha256": "da4d069067ea58654c4081b5dec8e426f75391761768867b4c8cbccc26e6b938"
+    },
+    {
+      "path": "deployment/finals/local-release/observe-registration.mjs",
+      "sha256": "c063ae41c1c11ad5511de43d97e28374b10d64b96dce473408b54aa2402d0c1a"
+    },
+    {
+      "path": "deployment/finals/local-release/check-registration.mjs",
+      "sha256": "dae0a2d34642b907abff13bfa2575081042fadf2263016136a115a5ce577ac18"
+    }
+  ]
+}

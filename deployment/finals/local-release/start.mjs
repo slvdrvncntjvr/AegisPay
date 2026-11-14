@@ -9,8 +9,9 @@ import { OUT, privateEnv, publicContext, localCustody, isolatedEnvironment, writ
 
 const ownerSelection = process.argv[2] === '--restart-confirmed-owner';
 const merchantSelection = process.argv[2] === '--restart-confirmed-merchant';
-const recovery = process.argv[2] === '--restart-unprovisioned-setup' || ownerSelection || merchantSelection;
-if (process.argv.length !== 3 || !['--start-confirmed-setup', '--restart-unprovisioned-setup', '--restart-confirmed-owner', '--restart-confirmed-merchant'].includes(process.argv[2])) {
+const registrationResume = process.argv[2] === '--resume-confirmed-registration';
+const recovery = process.argv[2] === '--restart-unprovisioned-setup' || ownerSelection || merchantSelection || registrationResume;
+if (process.argv.length !== 3 || !['--start-confirmed-setup', '--restart-unprovisioned-setup', '--restart-confirmed-owner', '--restart-confirmed-merchant', '--resume-confirmed-registration'].includes(process.argv[2])) {
   console.log(JSON.stringify({ status: 'not_run', code: 'EXPLICIT_LOCAL_SETUP_START_REQUIRED' }));
   process.exitCode = 2;
 } else {
@@ -33,18 +34,28 @@ if (process.argv.length !== 3 || !['--start-confirmed-setup', '--restart-unprovi
       rows[0].status !== 'unprovisioned' || rows[0].last_nonce !== '0' || rows[0].policy_max_stroops !== '0' || rows[0].owner_wallet !== proposal.ownerPublicKey) throw Error('INITIAL_SETUP_ONLY');
     const merchants = (await local.pool.query('SELECT wallet_address FROM merchant')).rows;
     if (merchants.length !== 1 || merchants[0].wallet_address !== proposal.merchantPublicKey) throw Error('EXACT_SELECTED_MERCHANT_REQUIRED');
-    for (const table of ['agent_run','quote','payment_attempt','payment_evidence','entitlement','merchant_claim','job']) {
+    for (const table of ['agent_run','quote','payment_attempt','payment_evidence','entitlement','merchant_claim', ...(registrationResume ? [] : ['job'])]) {
       if (Number((await local.pool.query(`SELECT count(*)::int AS n FROM "${table}"`)).rows[0].n) !== 0) throw Error('EXISTING_EXECUTION_OBSERVE_ONLY');
     }
-    const wallets = (await local.pool.query('SELECT status,operation_kind,handoff_committed_at,tx_hash,expires_at <= clock_timestamp() AS elapsed FROM wallet_operation')).rows;
-    if (recovery ? wallets.some(row => row.operation_kind !== 'registerDevice' || !['prepared','expired'].includes(row.status) || row.handoff_committed_at !== null || row.tx_hash !== null || !row.elapsed) : wallets.length !== 0) throw Error('EXISTING_WALLET_HANDOFF_OBSERVE_ONLY');
+    const wallets = (await local.pool.query('SELECT id,agent_id,actor_address,status,operation_kind,handoff_committed_at,tx_hash,unsigned_body_hash,expires_at,expires_at <= clock_timestamp() AS elapsed FROM wallet_operation')).rows;
+    if (registrationResume) {
+      const confirmed = wallets.filter(row => row.status === 'confirmed');
+      if (confirmed.length !== 1 || confirmed[0].id !== '82cf8f8a-473f-4c3f-859b-a43d79e0d2b6' ||
+        confirmed[0].operation_kind !== 'registerDevice' || confirmed[0].actor_address !== proposal.ownerPublicKey ||
+        confirmed[0].tx_hash !== '1a90bea9260d2043fb62a5b26ded7ac4dd8a6426f51955d3767cfe44ce19b288' ||
+        confirmed[0].unsigned_body_hash !== confirmed[0].tx_hash || !confirmed[0].handoff_committed_at ||
+        confirmed[0].handoff_committed_at >= confirmed[0].expires_at ||
+        wallets.filter(row => row.id !== confirmed[0].id).some(row => row.operation_kind !== 'registerDevice' || row.status !== 'expired' || row.handoff_committed_at !== null || row.tx_hash !== null)) throw Error('EXACT_CONFIRMED_REGISTRATION_REQUIRED');
+      const jobs = (await local.pool.query('SELECT kind,entity_id,status FROM job')).rows;
+      if (jobs.length !== 1 || jobs[0].kind !== 'wallet_observe' || jobs[0].entity_id !== confirmed[0].id || jobs[0].status !== 'done') throw Error('REGISTRATION_OBSERVATION_MUST_FINISH');
+    } else if (recovery ? wallets.some(row => row.operation_kind !== 'registerDevice' || !['prepared','expired'].includes(row.status) || row.handoff_committed_at !== null || row.tx_hash !== null || !row.elapsed) : wallets.length !== 0) throw Error('EXISTING_WALLET_HANDOFF_OBSERVE_ONLY');
     for (const port of [3019, 3020]) await new Promise((done, reject) => {
       const server = net.createServer(); server.once('error', reject);
       server.listen(port, '127.0.0.1', () => server.close(error => error ? reject(error) : done()));
     });
     // Exclusive marker is never erased after an uncertain startup. Inspect its
     // exact saved processes before any future start or recovery.
-    const marker = '.fmd-work/release-setup/' + (merchantSelection ? 'processes-confirmed-merchant.json' : ownerSelection ? 'processes-confirmed-owner.json' : recovery ? 'processes-wallet-recovery.json' : 'processes.json');
+    const marker = '.fmd-work/release-setup/' + (registrationResume ? 'processes-registration-confirmed.json' : merchantSelection ? 'processes-confirmed-merchant.json' : ownerSelection ? 'processes-confirmed-owner.json' : recovery ? 'processes-wallet-recovery.json' : 'processes.json');
     writePrivate(marker, JSON.stringify({ state: 'starting', recordedAt: new Date().toISOString() }) + '\n', true);
     stage = 'owned-process-start';
     const specs = [
@@ -52,7 +63,7 @@ if (process.argv.length !== 3 || !['--start-confirmed-setup', '--restart-unprovi
       { role: 'worker', cwd: process.cwd(), env: worker, args: ['--import', 'tsx', 'apps/server/src/index.ts'] },
     ];
     for (const spec of specs) {
-      const log = `.fmd-work/release-setup/${spec.role}${merchantSelection ? '-confirmed-merchant' : ownerSelection ? '-confirmed-owner' : recovery ? '-recovery' : ''}.log`;
+      const log = `.fmd-work/release-setup/${spec.role}${registrationResume ? '-registration-confirmed' : merchantSelection ? '-confirmed-merchant' : ownerSelection ? '-confirmed-owner' : recovery ? '-recovery' : ''}.log`;
       writePrivate(log, '', true);
       const fd = openSync(log, 'a'); descriptors.push(fd);
       const child = spawn(process.execPath, spec.args, { cwd: spec.cwd, env: isolatedEnvironment(spec.env), detached: true,
@@ -73,10 +84,10 @@ if (process.argv.length !== 3 || !['--start-confirmed-setup', '--restart-unprovi
     }
     writePrivate(marker, JSON.stringify({ state: 'ready-for-human-wallet-setup', recordedAt: new Date().toISOString(), processes: children.map((process, index) => ({ pid: process.pid, role: specs[index].role, cwd: specs[index].cwd, args: specs[index].args })) }) + '\n');
     const result = { status: 'passed', scope: 'actual-loopback-wallet-setup-startup', observedAt: new Date().toISOString(), origin: web.APP_ORIGIN,
-      ownerAndMerchant: merchantSelection ? 'two-user-provided-current-Freighter-accounts' : ownerSelection ? 'user-provided-current-owner-and-historical-merchant' : 'user-confirmed-historical', policy: 'unprovisioned-zero', fundingLifetimeCeilingStroops: '1000000',
+      ownerAndMerchant: registrationResume || merchantSelection ? 'two-user-provided-current-Freighter-accounts' : ownerSelection ? 'user-provided-current-owner-and-historical-merchant' : 'user-confirmed-historical', policy: 'unprovisioned-zero', registrationConfirmed: registrationResume, fundingLifetimeCeilingStroops: '1000000',
       persistentRunTestnet: '0', financialActions: 0, purchaseExecutionReady: false, processesLeftRunningForHuman: true,
       privateAccessFile: '.fmd-work/release-setup/access.md', fullLiveRelease: false };
-    writeFileSync(OUT + (merchantSelection ? '/setup-confirmed-merchant-startup.json' : ownerSelection ? '/setup-confirmed-owner-startup.json' : recovery ? '/setup-recovery-startup.json' : '/setup-startup.json'), JSON.stringify(result, null, 2) + '\n', { flag: 'wx' }); console.log(JSON.stringify(result));
+    writeFileSync((registrationResume ? 'docs/evidence/wallet-inclusion-2026-11-14/setup-registration-confirmed-startup.json' : OUT + (merchantSelection ? '/setup-confirmed-merchant-startup.json' : ownerSelection ? '/setup-confirmed-owner-startup.json' : recovery ? '/setup-recovery-startup.json' : '/setup-startup.json')), JSON.stringify(result, null, 2) + '\n', { flag: 'wx' }); console.log(JSON.stringify(result));
   } catch {
     // Only PIDs created by this invocation may be stopped on failed startup.
     for (const child of children) if (child.exitCode === null) child.kill();

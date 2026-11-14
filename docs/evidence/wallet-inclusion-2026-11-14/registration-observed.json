@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "observedAt": "2026-11-14T15:10:23.409Z",
+  "scope": "actual-identity-only-human-registration-recovery",
+  "operationId": "82cf8f8a-473f-4c3f-859b-a43d79e0d2b6",
+  "transactionHash": "1a90bea9260d2043fb62a5b26ded7ac4dd8a6426f51955d3767cfe44ce19b288",
+  "ledger": 5728971,
+  "includedAt": "2026-11-14T15:01:39Z",
+  "rpcTimestampType": "string",
+  "rpcTimestampValue": "1794668499",
+  "rpcAndHorizonAgree": true,
+  "ownerAndAgentMatch": true,
+  "exactEnvelopeSignatureBodyAndInvocationVerified": true,
+  "before": "unknown",
+  "after": "confirmed",
+  "newPreparations": 0,
+  "newSubmissions": 0,
+  "agentNonce": "0",
+  "policyFundingAndPurchasesComplete": false,
+  "fullLiveRelease": false
+}

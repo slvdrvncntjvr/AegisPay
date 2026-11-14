@@ -1,0 +1,41 @@
+{
+  "observedAt": "2026-11-14T15:15:40.413908+00:00",
+  "scope": "coordinator-observed-local-gates",
+  "gates": [
+    {
+      "command": "corepack.cmd pnpm exec vitest run tests/integration/wallet-worker.test.ts",
+      "exitCode": 0,
+      "testsPassed": 15
+    },
+    {
+      "command": "corepack.cmd pnpm test:integration",
+      "exitCode": 0,
+      "testsPassed": 155,
+      "testFilesPassed": 11
+    },
+    {
+      "command": "corepack.cmd pnpm typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "corepack.cmd pnpm lint",
+      "exitCode": 0
+    },
+    {
+      "command": "corepack.cmd pnpm build",
+      "exitCode": 0
+    },
+    {
+      "command": "python tools/check-docs.py",
+      "exitCode": 0
+    },
+    {
+      "command": "python fmd/tools/check-implementation-plan.py docs/implementation-plan.md --strict",
+      "exitCode": 0,
+      "taskRows": 28
+    }
+  ],
+  "actualBrowserChecks": 7,
+  "newSubmissions": 0,
+  "fullLiveRelease": false
+}

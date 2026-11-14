@@ -241,8 +241,13 @@ export async function observeWallet(store: Store, actor: WalletActor, id: string
   try {
     const chain = await gateway.getTransaction(row.txHash);
     if (chain.status !== rpc.Api.GetTransactionStatus.SUCCESS && chain.status !== rpc.Api.GetTransactionStatus.FAILED) throw new Error('UNRESOLVED');
+    // RPC specifies a decimal-string timestamp; SDK 16.4.1 types it as a
+    // number but preserves the wire value. Accept both representations without
+    // coercing whitespace, exponent notation, fractions or unsafe integers.
+    const rawCreatedAt: unknown = chain.createdAt;
+    const createdAt = typeof rawCreatedAt === 'string' && /^[1-9]\d{0,15}$/.test(rawCreatedAt) ? Number(rawCreatedAt) : rawCreatedAt;
     if (chain.feeBump !== false || !Number.isSafeInteger(chain.ledger) || chain.ledger <= 0 ||
-      !Number.isSafeInteger(chain.createdAt) || chain.createdAt <= 0 || !Number.isSafeInteger(chain.applicationOrder) || chain.applicationOrder < 1 ||
+      typeof createdAt !== 'number' || !Number.isSafeInteger(createdAt) || createdAt <= 0 || !Number.isSafeInteger(chain.applicationOrder) || chain.applicationOrder < 1 ||
       chain.ledger > chain.latestLedger || chain.ledger < chain.oldestLedger || !chain.resultMetaXdr) deny('CONTRACT_MISMATCH');
     const tx = inspectWalletOperation(chain.envelopeXdr.toXDR('base64'), row.actorAddress, op, gateway.config, row.handoffCommittedAt.getTime());
     if (chain.txHash !== row.txHash || tx.hash().toString('hex') !== row.unsignedBodyHash || tx.signatures.length !== 1 ||

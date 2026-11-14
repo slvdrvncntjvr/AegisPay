@@ -1,0 +1,13 @@
+{
+  "status": "failed",
+  "observedAt": "2026-11-14T15:13:24.988Z",
+  "checks": [
+    "actual-owner-login",
+    "actual-state-confirmed-registration-no-policy"
+  ],
+  "sessionRevoked": true,
+  "scope": "actual-authenticated-loopback-browser-existing-registration",
+  "newWalletPreparations": 0,
+  "newSubmissions": 0,
+  "fullLiveRelease": false
+}
