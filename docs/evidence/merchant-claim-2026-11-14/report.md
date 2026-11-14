@@ -1,0 +1,17 @@
+# Actual separate merchant claim and future-price checkpoint
+
+The user signed the separate merchant claim. Transaction `ccebd961e44e4b8550688a43d0e6938bb97385fade73bb47a2d7016407eb9a96` succeeded on Testnet at ledger5729654,2026-11-14T15:58:34Z. Verification occurs after midnight November15 in Manila; this folder follows the transaction's UTC date.
+
+`node --import tsx deployment/finals/local-release/verify-merchant-claim.mjs --verify-existing-claim` passed,exit0. [Verification receipt](verification.json) matches the exact saved wallet operation/claim, body hash, owner-of-claim merchant signature, native SAC claim invocation and successful RPC result. Embedded contract events independently include both the300000-stroop Noir claim and a matching300000-stroop native-token transfer from the deployed escrow to selected merchant GAD7…XCHK. Independent Horizon hash/success/ledger and charged fee10068stroops agree with RPC.
+
+Merchant pending decreased from the previously recorded300000stroops to0; owner escrow remains700000stroops. Exactly one application attempt, one entitlement and one separate claim exist. The claim's fee is separate from its gross0.03XLM payout. No coordinator signature, new submission, run, quote or handoff was used for verification. The screenshot's0.03pending is an older observation; Refresh chain observation reads the new zero balance. The original unrelated unknown incident remains untouched.
+
+## Prepare the changed-price check without another purchase
+
+Under the user's continuing autonomous demo-completion instruction and the existing400000-stroop changed-price rehearsal plan, the coordinator made one authenticated merchant PATCH to the QuickSignal future offer from300000 to400000stroops. [Actual price receipt](future-price.json) records PATCH200 and authenticated state readback200. The accepted paid quote remains300000stroops with unchanged terms hash. Private-memory before/after fingerprints confirm that run,quote,attempt,evidence,entitlement,claim and wallet records are unchanged. No private row contents or receipt tokens are exported. The check session is revoked. A protected exclusive request marker prevents silently repeating an uncertain mutation.
+
+This is future catalog metadata, not a new quote or financial intent. Current source proposal files retain their historical initial price; live authenticated catalog and this receipt own the observed changed price. Next purchase must use a fresh current quote and explicit manual task submission.
+
+The existing owner policy expired2026-11-14T15:48:20Z, so another purchase needs a fresh finite-policy signature from owner GAXQ…NZS7. Existing remaining escrow0.07XLM can cover the proposed0.04XLM second test; no additional funding is requested and lifetime initial funding authority remains exhausted. Keep application nonce1 and all existing histories. After policy confirmation, a new manual task can supply fresh intent for the next distinct purchase.
+
+TASK-032 completes independent claim verification and future-price immutability, not the second model price-change purchase or complete release. Actual second purchase/model choice, sensible no-purchase/refusal/recovery, revoke/reclaim and hosted/media release gates remain required. No application source changed in this checkpoint; appropriate checks are exact live verification, helper syntax and documentation/task integrity, not invented reruns of application tests.

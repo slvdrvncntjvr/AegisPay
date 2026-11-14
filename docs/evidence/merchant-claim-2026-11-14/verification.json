@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "observedAt": "2026-11-14T16:00:57.407Z",
+  "scope": "actual-existing-human-merchant-claim",
+  "walletOperationId": "7eb577a1-1140-414e-bacf-3be735c02cf7",
+  "claimId": "885e42fc-be4b-4fd1-9fb3-fc7016c0a021",
+  "transactionHash": "ccebd961e44e4b8550688a43d0e6938bb97385fade73bb47a2d7016407eb9a96",
+  "ledger": 5729654,
+  "includedAt": "2026-11-14T15:58:34Z",
+  "merchantPublicKey": "GAD7HS6DXSAZG7LQRXJWGK322LORGCI2BZP5S3TQ75ATWLJQKKRTXCHK",
+  "claimAmountStroops": "300000",
+  "nativeTransferStroops": "300000",
+  "actualFeeStroops": "10068",
+  "exactEnvelopeInvocationSignatureVerified": true,
+  "matchingClaimAndNativeTransferEvents": true,
+  "rpcAndHorizonAgree": true,
+  "merchantPendingBeforeStroops": "300000",
+  "pendingBeforeSource": "first-app-purchase verification receipt",
+  "merchantPendingNowStroops": "0",
+  "escrowNowStroops": "700000",
+  "counts": {
+    "claims": 1,
+    "attempts": 1,
+    "entitlements": 1
+  },
+  "newPreparations": 0,
+  "newSignatures": 0,
+  "newSubmissions": 0,
+  "fullLiveRelease": false
+}

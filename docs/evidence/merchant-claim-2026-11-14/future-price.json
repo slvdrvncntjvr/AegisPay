@@ -1,0 +1,20 @@
+{
+  "scope": "actual-merchant-future-price-change-no-purchase",
+  "observedAt": "2026-11-14T16:02:46.572Z",
+  "newRuns": 0,
+  "newQuotes": 0,
+  "newPaymentHandoffs": 0,
+  "fullLiveRelease": false,
+  "resourceKey": "quick-signal:demo-parser:v1",
+  "beforePriceStroops": "300000",
+  "futurePriceStroops": "400000",
+  "pricePatchStatus": 200,
+  "authenticatedReadbackStatus": 200,
+  "paidQuoteId": "9be17111-16aa-4d75-9c8f-98cee5aa3e2e",
+  "paidQuoteAmountStroops": "300000",
+  "paidTermsHash": "4869e78cc78c404e7d2fce82935376613753837357ab8a3c3f4a0974b80571ed",
+  "priorFinancialStateUnchanged": true,
+  "merchantClaimAlreadyConfirmed": true,
+  "sessionRevoked": true,
+  "status": "passed"
+}
