@@ -211,6 +211,18 @@ export async function submitWallet(store: Store, actor: WalletActor, id: string,
 }
 export async function observeWallet(store: Store, actor: WalletActor, id: string, gateway: WalletGateway, job?: WalletObservationJob) {
   const { row, agent } = await ownedWallet(store, actor, id);
+  if (!row.handoffCommittedAt && row.status === 'prepared') {
+    // An unsigned preparation is never submitted by observation. Expire it
+    // using DB time, under the same agent-before-wallet order as handoff.
+    await store.transaction(async db => {
+      if (agent) await db.select({ id: s.agent.id }).from(s.agent).where(eq(s.agent.id, agent.id)).for('update');
+      await db.update(s.walletOperation).set({ status: 'expired', updatedAt: sql`clock_timestamp()` }).where(and(
+        eq(s.walletOperation.id, id), eq(s.walletOperation.status, 'prepared'),
+        sql`${s.walletOperation.handoffCommittedAt} IS NULL AND ${s.walletOperation.expiresAt} <= clock_timestamp()`,
+      ));
+    });
+    return walletView((await ownedWallet(store, actor, id)).row);
+  }
   if (!row.handoffCommittedAt || !row.txHash || ['confirmed', 'failed'].includes(row.status)) return walletView(row);
   const op = storedOperation(row, agent, gateway);
   async function write<T>(work: (db: Database) => Promise<T>) {

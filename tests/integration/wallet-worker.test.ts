@@ -47,6 +47,23 @@ describe('TASK-021 durable human-wallet observation, terminal failure and lease 
     }
     return { f, actor, signer, gateway, prepared, tx };
   }
+  it('status check expires only an unhanded preparation and permits a fresh review', async () => {
+    const { actor, gateway, prepared } = await setup('registerDevice', false, 2);
+    expect((await observeWallet(db.second, actor, prepared.operationId, gateway)).status).toBe('prepared');
+    await db.first.db.execute(sql`SELECT pg_sleep(greatest(0,extract(epoch FROM (${prepared.expiresAt.toISOString()}::timestamptz-clock_timestamp()))) + 0.02)`);
+    expect((await observeWallet(db.second, actor, prepared.operationId, gateway)).status).toBe('expired');
+    expect(gateway.getTransaction).not.toHaveBeenCalled(); expect(gateway.submit).not.toHaveBeenCalled();
+    expect(await db.first.db.select().from(s.job).where(eq(s.job.entityId, prepared.operationId))).toHaveLength(0);
+    const again = await prepareWallet(db.first, actor, { kind: 'registerDevice' }, gateway);
+    expect(again.operationId).not.toBe(prepared.operationId);
+  });
+  it('status check never expires or resubmits a handoff after its time bound', async () => {
+    const { actor, gateway, prepared } = await setup('registerDevice', true, 2);
+    await db.first.db.execute(sql`SELECT pg_sleep(greatest(0,extract(epoch FROM (${prepared.expiresAt.toISOString()}::timestamptz-clock_timestamp()))) + 0.02)`);
+    expect((await observeWallet(db.second, actor, prepared.operationId, gateway)).status).toBe('unknown');
+    expect(gateway.submit).toHaveBeenCalledTimes(1);
+    await expect(prepareWallet(db.first, actor, { kind: 'registerDevice' }, gateway)).rejects.toThrow('OPERATION_ACTIVE');
+  });
   function included(tx: Transaction, failed: boolean): rpc.Api.GetTransactionResponse {
     const common = { txHash: tx.hash().toString('hex'), latestLedger: 3, latestLedgerCloseTime: 1, oldestLedger: 1, oldestLedgerCloseTime: 1,
       ledger: 2, createdAt: Math.floor(Date.now() / 1000), applicationOrder: 1, feeBump: false, envelopeXdr: tx.toEnvelope(),

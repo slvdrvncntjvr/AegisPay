@@ -1,0 +1,14 @@
+{
+  "observedAt": "2026-11-14T14:13:00.627Z",
+  "scope": "exact-new-hosted-schema-only",
+  "actorsSeeded": false,
+  "financialRecordsSeeded": false,
+  "oldDatabasesChanged": false,
+  "actualApplicationPoolTls": {
+    "authorized": true,
+    "hostnameVerified": true,
+    "protocol": "TLSv1.3"
+  },
+  "status": "not_completed_or_uncertain",
+  "code": "EMPTY_MIGRATED_APPLICATION_REQUIRED"
+}

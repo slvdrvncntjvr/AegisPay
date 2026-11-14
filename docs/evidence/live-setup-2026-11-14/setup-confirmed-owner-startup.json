@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "scope": "actual-loopback-wallet-setup-startup",
+  "observedAt": "2026-11-14T14:11:59.916Z",
+  "origin": "http://127.0.0.1:3019",
+  "ownerAndMerchant": "user-provided-current-owner-and-historical-merchant",
+  "policy": "unprovisioned-zero",
+  "fundingLifetimeCeilingStroops": "1000000",
+  "persistentRunTestnet": "0",
+  "financialActions": 0,
+  "purchaseExecutionReady": false,
+  "processesLeftRunningForHuman": true,
+  "privateAccessFile": ".fmd-work/release-setup/access.md",
+  "fullLiveRelease": false
+}

@@ -1,0 +1,10 @@
+{
+  "observedAt": "2026-11-14T14:00:37.491Z",
+  "scope": "independent-free-postgres-only",
+  "providerCreateRequests": 1,
+  "connectionInformationRead": false,
+  "sqlStatements": 0,
+  "createHttpStatus": 201,
+  "status": "not_completed_or_uncertain",
+  "code": "CREATED_DATABASE_READBACK_MISMATCH"
+}

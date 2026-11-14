@@ -1,0 +1,57 @@
+
+Running 19 tests using 1 worker
+
+
+(node:19412) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/19] tests\e2e\authenticated-console.spec.ts:45:1 › 401 redirects before private data and login safely clears tokens on non-JSON and successful responses
+[2/19] tests\e2e\authenticated-console.spec.ts:75:1 › owner sees queued and unresolved states with original-identity GET observation only
+[3/19] tests\e2e\authenticated-console.spec.ts:97:1 › run creation recovers an ambiguous intent with one stable key and guards double activation
+[4/19] tests\e2e\authenticated-console.spec.ts:126:3 › acknowledged completed task then reload and identical Start creates a fresh run/key
+[5/19] tests\e2e\authenticated-console.spec.ts:126:3 › acknowledged failed task then reload and identical Start creates a fresh run/key
+[6/19] tests\e2e\authenticated-console.spec.ts:170:1 › lost acknowledgement then reload recovers the original key even with a saved active run
+[7/19] tests\e2e\authenticated-console.spec.ts:205:1 › authenticated trace displays only public untrusted choice commentary and precise unavailable states
+[8/19] tests\e2e\authenticated-console.spec.ts:233:1 › trusted accepted quote events keep original terms separate from a changed current offer
+[9/19] tests\e2e\authenticated-console.spec.ts:247:1 › receipt metadata precedes a separately gated synthetic report and session expiry removes protected UI
+[10/19] tests\e2e\authenticated-console.spec.ts:273:1 › expired entitlement refuses content without a second purchase and stale console disables mutations
+[11/19] tests\e2e\authenticated-console.spec.ts:297:1 › merchant edits exact integer future metadata and prepares a separate consent-bound claim
+[12/19] tests\e2e\authenticated-console.spec.ts:329:1 › owner wallet balances remain unknown until explicit observation and policy form enforces finite bounds
+[13/19] tests\e2e\authenticated-console.spec.ts:347:1 › identity mismatch never exposes a receipt and malformed state fails closed
+[14/19] tests\e2e\authenticated-console.spec.ts:362:1 › trusted lifetime funding ceiling is disclosed and rejects an excessive preparation locally
+[15/19] tests\e2e\authenticated-console.spec.ts:376:1 › unresolved purchase blocks owner reclaim while original-identity observation stays available
+[16/19] tests\e2e\authenticated-console.spec.ts:386:1 › saved unknown wallet handoff permits observation only and never opens another preparation
+[17/19] tests\e2e\authenticated-console.spec.ts:402:1 › an expired unsigned preparation has a visible status check and clears without a signature or submission
+[18/19] tests\e2e\authenticated-console.spec.ts:418:1 › a confirmed wallet status from refresh replaces a stale local unknown status
+  1) tests\e2e\authenticated-console.spec.ts:418:1 › a confirmed wallet status from refresh replaces a stale local unknown status 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('region', { name: 'Saved human wallet operations' }).getByText('confirmed', { exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('region', { name: 'Saved human wallet operations' }).getByText('confirmed', { exact: true }) with timeout 5000ms
+      - waiting for getByRole('region', { name: 'Saved human wallet operations' }).getByText('confirmed', { exact: true })
+
+
+      429 |   confirmed = true;
+      430 |   await page.getByRole('button', { name: 'Refresh console state', exact: true }).click();
+    > 431 |   await expect(page.getByRole('region', { name: 'Saved human wallet operations' }).getByText('confirmed', { exact: true })).toBeVisible();
+          |                                                                                                                             ^
+      432 |   await expect(page.getByRole('button', { name: 'Prepare register device' })).toBeEnabled();
+      433 |   expect(t.seen.every(request => request.method === 'GET')).toBe(true); t.assertHandled();
+      434 | });
+        at C:\Users\Vincent\VS Codes\Noir X Velo\tests\e2e\authenticated-console.spec.ts:431:125
+
+    Error Context: test-results\tests-e2e-authenticated-co-053e4--stale-local-unknown-status\error-context.md
+
+
+(node:22668) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[19/19] tests\e2e\authenticated-console.spec.ts:436:1 › console fits mobile and projector with long identities and supports visible keyboard focus
+  1 failed
+    tests\e2e\authenticated-console.spec.ts:418:1 › a confirmed wallet status from refresh replaces a stale local unknown status 
+  18 passed (40.2s)

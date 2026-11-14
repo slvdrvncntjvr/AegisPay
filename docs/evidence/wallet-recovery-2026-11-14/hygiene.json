@@ -1,0 +1,12 @@
+{
+  "observedAt": "2026-11-14T14:38:18.303600+00:00",
+  "status": "passed",
+  "changedFilesScanned": 51,
+  "knownNewLocalAndProviderPrivateValuesCheckedInMemory": 14,
+  "unsafeCandidates": [],
+  "clientJsFilesScanned": 13,
+  "clientMatches": [],
+  "privateCustodyIgnored": true,
+  "secretValuesPrinted": false,
+  "scope": "bounded-known-value-pattern-and-client-bundle-check-not-complete-hosted-release-scan"
+}

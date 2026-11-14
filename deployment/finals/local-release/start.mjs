@@ -7,7 +7,10 @@ import { resolve } from 'node:path';
 import net from 'node:net';
 import { OUT, privateEnv, publicContext, localCustody, isolatedEnvironment, writePrivate } from './context.mjs';
 
-if (process.argv.length !== 3 || process.argv[2] !== '--start-confirmed-setup') {
+const ownerSelection = process.argv[2] === '--restart-confirmed-owner';
+const merchantSelection = process.argv[2] === '--restart-confirmed-merchant';
+const recovery = process.argv[2] === '--restart-unprovisioned-setup' || ownerSelection || merchantSelection;
+if (process.argv.length !== 3 || !['--start-confirmed-setup', '--restart-unprovisioned-setup', '--restart-confirmed-owner', '--restart-confirmed-merchant'].includes(process.argv[2])) {
   console.log(JSON.stringify({ status: 'not_run', code: 'EXPLICIT_LOCAL_SETUP_START_REQUIRED' }));
   process.exitCode = 2;
 } else {
@@ -25,19 +28,23 @@ if (process.argv.length !== 3 || process.argv[2] !== '--start-confirmed-setup') 
       ['AGENT_SECRET', 'GEMINI_API_KEY', 'VELO_GAS_API_KEY', 'ENVELOPE_ENCRYPTION_KEY'].some(name => web[name]) ||
       ['DEMO_OWNER_LOGIN_TOKEN', 'DEMO_MERCHANT_LOGIN_TOKEN'].some(name => worker[name])) throw Error('CONTEXT_OR_ENVIRONMENT_MISMATCH');
     if (readdirSync('apps/web').some(name => /^\.env(?:\.|$)/.test(name)) || !existsSync('apps/web/.next/BUILD_ID')) throw Error('PRODUCTION_BUILD_REQUIRED');
-    const rows = (await local.pool.query('SELECT public_key,device_hash,status,last_nonce::text,policy_max_stroops::text FROM agent')).rows;
+    const rows = (await local.pool.query('SELECT a.public_key,a.device_hash,a.status,a.last_nonce::text,a.policy_max_stroops::text,o.wallet_address AS owner_wallet FROM agent a JOIN owner o ON o.id=a.owner_id')).rows;
     if (rows.length !== 1 || rows[0].public_key !== proposal.agentPublicKey || rows[0].device_hash !== proposal.deviceHash ||
-      rows[0].status !== 'unprovisioned' || rows[0].last_nonce !== '0' || rows[0].policy_max_stroops !== '0') throw Error('INITIAL_SETUP_ONLY');
-    for (const table of ['agent_run','quote','payment_attempt','payment_evidence','entitlement','wallet_operation','merchant_claim','job']) {
+      rows[0].status !== 'unprovisioned' || rows[0].last_nonce !== '0' || rows[0].policy_max_stroops !== '0' || rows[0].owner_wallet !== proposal.ownerPublicKey) throw Error('INITIAL_SETUP_ONLY');
+    const merchants = (await local.pool.query('SELECT wallet_address FROM merchant')).rows;
+    if (merchants.length !== 1 || merchants[0].wallet_address !== proposal.merchantPublicKey) throw Error('EXACT_SELECTED_MERCHANT_REQUIRED');
+    for (const table of ['agent_run','quote','payment_attempt','payment_evidence','entitlement','merchant_claim','job']) {
       if (Number((await local.pool.query(`SELECT count(*)::int AS n FROM "${table}"`)).rows[0].n) !== 0) throw Error('EXISTING_EXECUTION_OBSERVE_ONLY');
     }
+    const wallets = (await local.pool.query('SELECT status,operation_kind,handoff_committed_at,tx_hash,expires_at <= clock_timestamp() AS elapsed FROM wallet_operation')).rows;
+    if (recovery ? wallets.some(row => row.operation_kind !== 'registerDevice' || !['prepared','expired'].includes(row.status) || row.handoff_committed_at !== null || row.tx_hash !== null || !row.elapsed) : wallets.length !== 0) throw Error('EXISTING_WALLET_HANDOFF_OBSERVE_ONLY');
     for (const port of [3019, 3020]) await new Promise((done, reject) => {
       const server = net.createServer(); server.once('error', reject);
       server.listen(port, '127.0.0.1', () => server.close(error => error ? reject(error) : done()));
     });
     // Exclusive marker is never erased after an uncertain startup. Inspect its
     // exact saved processes before any future start or recovery.
-    const marker = '.fmd-work/release-setup/processes.json';
+    const marker = '.fmd-work/release-setup/' + (merchantSelection ? 'processes-confirmed-merchant.json' : ownerSelection ? 'processes-confirmed-owner.json' : recovery ? 'processes-wallet-recovery.json' : 'processes.json');
     writePrivate(marker, JSON.stringify({ state: 'starting', recordedAt: new Date().toISOString() }) + '\n', true);
     stage = 'owned-process-start';
     const specs = [
@@ -45,7 +52,7 @@ if (process.argv.length !== 3 || process.argv[2] !== '--start-confirmed-setup') 
       { role: 'worker', cwd: process.cwd(), env: worker, args: ['--import', 'tsx', 'apps/server/src/index.ts'] },
     ];
     for (const spec of specs) {
-      const log = `.fmd-work/release-setup/${spec.role}.log`;
+      const log = `.fmd-work/release-setup/${spec.role}${merchantSelection ? '-confirmed-merchant' : ownerSelection ? '-confirmed-owner' : recovery ? '-recovery' : ''}.log`;
       writePrivate(log, '', true);
       const fd = openSync(log, 'a'); descriptors.push(fd);
       const child = spawn(process.execPath, spec.args, { cwd: spec.cwd, env: isolatedEnvironment(spec.env), detached: true,
@@ -66,10 +73,10 @@ if (process.argv.length !== 3 || process.argv[2] !== '--start-confirmed-setup') 
     }
     writePrivate(marker, JSON.stringify({ state: 'ready-for-human-wallet-setup', recordedAt: new Date().toISOString(), processes: children.map((process, index) => ({ pid: process.pid, role: specs[index].role, cwd: specs[index].cwd, args: specs[index].args })) }) + '\n');
     const result = { status: 'passed', scope: 'actual-loopback-wallet-setup-startup', observedAt: new Date().toISOString(), origin: web.APP_ORIGIN,
-      ownerAndMerchant: 'user-confirmed-historical', policy: 'unprovisioned-zero', fundingLifetimeCeilingStroops: '1000000',
+      ownerAndMerchant: merchantSelection ? 'two-user-provided-current-Freighter-accounts' : ownerSelection ? 'user-provided-current-owner-and-historical-merchant' : 'user-confirmed-historical', policy: 'unprovisioned-zero', fundingLifetimeCeilingStroops: '1000000',
       persistentRunTestnet: '0', financialActions: 0, purchaseExecutionReady: false, processesLeftRunningForHuman: true,
       privateAccessFile: '.fmd-work/release-setup/access.md', fullLiveRelease: false };
-    writeFileSync(OUT + '/setup-startup.json', JSON.stringify(result, null, 2) + '\n'); console.log(JSON.stringify(result));
+    writeFileSync(OUT + (merchantSelection ? '/setup-confirmed-merchant-startup.json' : ownerSelection ? '/setup-confirmed-owner-startup.json' : recovery ? '/setup-recovery-startup.json' : '/setup-startup.json'), JSON.stringify(result, null, 2) + '\n', { flag: 'wx' }); console.log(JSON.stringify(result));
   } catch {
     // Only PIDs created by this invocation may be stopped on failed startup.
     for (const child of children) if (child.exitCode === null) child.kill();

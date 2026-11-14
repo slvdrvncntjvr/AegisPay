@@ -1,0 +1,19 @@
+{
+  "observedAt": "2026-11-14T14:06:49.469Z",
+  "scope": "exact-independent-new-free-database-tls",
+  "networkPatches": 1,
+  "connectionInformationRead": true,
+  "privateValuesPrinted": false,
+  "networkHttpStatus": 200,
+  "status": "passed",
+  "clientRulePrefix": 32,
+  "clientRuleCount": 1,
+  "broadAccess": false,
+  "strictCertificateAndHostnameValidation": true,
+  "tlsProtocol": "TLSv1.3",
+  "postgresVersion": "17.11 (Debian 17.11-1.pgdg12+2)",
+  "readOnlySqlStatements": 2,
+  "migrationsRun": false,
+  "oldResourcesChanged": false,
+  "limit": "Independent new database prerequisite only; no hosted application or payment acceptance."
+}

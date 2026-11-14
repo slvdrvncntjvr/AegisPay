@@ -1,0 +1,11 @@
+{
+  "status": "observed",
+  "workspaceName": "AegisPay Finals",
+  "workspaceSha256": "7511972d690f6a542e309a172b838073226f635dbc5c0cdf125d382f990d19eb",
+  "databaseCount": 0,
+  "freeDatabaseCount": 0,
+  "serviceCount": 0,
+  "proposedNameCollision": false,
+  "providerMutations": 0,
+  "observedAt": "2026-11-14T13:53:12.949Z"
+}

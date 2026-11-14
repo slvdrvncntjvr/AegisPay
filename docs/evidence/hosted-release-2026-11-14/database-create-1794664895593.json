@@ -1,0 +1,20 @@
+{
+  "observedAt": "2026-11-14T14:01:34.075Z",
+  "scope": "independent-free-postgres-only",
+  "providerCreateRequests": 0,
+  "connectionInformationRead": false,
+  "sqlStatements": 0,
+  "recovery": "original-201-receipt-identity-only-no-new-create",
+  "status": "passed",
+  "workspace": "AegisPay Finals",
+  "databaseName": "aegispay-finals-release",
+  "databaseSha256": "78ef7162df9c523cab7d0fb7316b9e7a700271b83d0e4ec72d1ac8bd81bd6e7f",
+  "databaseStatus": "available",
+  "plan": "free",
+  "region": "singapore",
+  "version": "17",
+  "expiresAt": "2026-12-14T14:00:40.273074Z",
+  "externalAccessRules": 0,
+  "previewAndOriginalResourcesChanged": false,
+  "limit": "Database identity only; no TLS connection/migration/app/worker/payment release acceptance."
+}

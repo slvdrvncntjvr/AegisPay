@@ -1,0 +1,11 @@
+{
+  "name": "aegispay-finals-release",
+  "plan": "free",
+  "region": "singapore",
+  "version": "17",
+  "enableHighAvailability": false,
+  "enableDiskAutoscaling": false,
+  "connectionPool": "none",
+  "ipAllowList": [],
+  "readReplicas": []
+}

@@ -7,7 +7,9 @@ import { Pool } from 'pg';
 
 export const OUT = 'docs/evidence/live-setup-2026-11-14';
 export const PUBLIC_PROPOSAL = 'docs/evidence/demo-readiness-2026-11-14/hosted/context-proposal.json';
-export const publicContext = () => JSON.parse(readFileSync(PUBLIC_PROPOSAL, 'utf8'));
+// A later explicit public-wallet selection supersedes the historical proposal;
+// the accepted original proposal and its manifests remain immutable.
+export const publicContext = () => JSON.parse(readFileSync(existsSync('deployment/finals/local-release/context-current.json') ? 'deployment/finals/local-release/context-current.json' : PUBLIC_PROPOSAL, 'utf8'));
 export const privateEnv = path => {
   const content = readFileSync(path, 'utf8');
   if (Buffer.byteLength(content) > 65536) throw Error('PRIVATE_FILE_BOUND');

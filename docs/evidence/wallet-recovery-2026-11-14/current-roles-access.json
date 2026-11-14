@@ -1,0 +1,21 @@
+{
+  "observedAt": "2026-11-14T14:33:06.857Z",
+  "scope": "actual-authenticated-current-owner-and-merchant-config",
+  "financialSubmissions": 0,
+  "status": "passed",
+  "checks": [
+    {
+      "role": "owner",
+      "publicAddressMatches": true,
+      "agentState": "unprovisioned"
+    },
+    {
+      "role": "merchant",
+      "publicAddressMatches": true
+    }
+  ],
+  "ownerPublicKey": "GAXQOA4O5YZHOXJP2TFDOA6RFKL3UXVUH3XGFEL3GMGBM3V32FRENZS7",
+  "merchantPublicKey": "GAD7HS6DXSAZG7LQRXJWGK322LORGCI2BZP5S3TQ75ATWLJQKKRTXCHK",
+  "lifetimeFundingCeilingStroops": "1000000",
+  "testSessionsRevoked": 2
+}

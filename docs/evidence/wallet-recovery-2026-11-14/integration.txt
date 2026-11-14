@@ -1,0 +1,10 @@
+$ vitest run tests/integration
+
+ RUN  v5.1.0 C:/Users/Vincent/VS Codes/Noir X Velo
+
+
+ Test Files  11 passed (11)
+      Tests  152 passed (152)
+   Start at  22:16:32
+   Duration  159.89s (tests 94%, import 6%)
+

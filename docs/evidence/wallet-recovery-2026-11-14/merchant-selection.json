@@ -1,0 +1,17 @@
+{
+  "observedAt": "2026-11-14T14:30:21.221Z",
+  "scope": "actual-public-merchant-selection-before-financial-history",
+  "merchantPublicKey": "GAD7HS6DXSAZG7LQRXJWGK322LORGCI2BZP5S3TQ75ATWLJQKKRTXCHK",
+  "financialSubmissions": 0,
+  "escrowDeposits": 0,
+  "friendbotRequests": 1,
+  "ownerWalletOperationsChanged": false,
+  "friendbotHttpStatus": 200,
+  "merchantTestnetAccountObserved": true,
+  "status": "passed",
+  "runtimeReloadPending": true,
+  "ownerPublicKey": "GAXQOA4O5YZHOXJP2TFDOA6RFKL3UXVUH3XGFEL3GMGBM3V32FRENZS7",
+  "distinctOwnerMerchantAgent": true,
+  "originalIncidentChanged": false,
+  "limit": "Merchant source account activation only; no claim, pending credit, escrow funding or purchase proof."
+}

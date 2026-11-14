@@ -36,7 +36,7 @@ Owner role allowed for lifecycle actions; merchant role only for claim. Device, 
 
 ### API-004 — POST /api/v1/wallet-operations/:id/submit and GET /api/v1/wallet-operations/:id
 
-Serves F-001, F-002, F-003, F-011. POST `{signedXdr:string}` after explicit Freighter signing; validate authenticated role, prepared body, source, network, bounds and valid signer, then commit handoff marker and submit once. Return 202 `{operationId,status}`. GET returns observed status/hash/safe error; idempotent repeat reads existing state. The body never enters logs or generic audit payload. Owner/merchant operations also recover by saved tx hash instead of blindly submitting again. Pending chain operations are not reported as completed.
+Serves F-001, F-002, F-003, F-011. POST `{signedXdr:string}` after explicit Freighter signing; validate authenticated role, prepared body, source, network, bounds and valid signer, then commit handoff marker and submit once. Return 202 `{operationId,status}`. GET returns observed status/hash/safe error; idempotent repeat reads existing state. The body never enters logs or generic audit payload. Owner/merchant operations also recover by saved tx hash instead of blindly submitting again. Pending chain operations are not reported as completed. A status GET can mark an expired prepared operation as expired only when no handoff was committed, using DB time and the shared agent-before-wallet lock order. It never signs or submits. A handoff remains unresolved until independently observed; elapsed time alone does not terminate it.
 
 ### API-005 — GET /api/v1/catalog — two trusted public descriptions
 

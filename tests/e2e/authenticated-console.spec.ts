@@ -392,11 +392,45 @@ test('saved unknown wallet handoff permits observation only and never opens anot
   });
   await page.goto(base + '/app');
   await expect(page.getByRole('button', { name: 'Prepare register device' })).toBeDisabled();
-  await page.getByText('Saved human wallet operations (1)').click();
-  await page.getByRole('button', { name: 'Observe wallet operation' }).click();
+  await expect(page.getByRole('button', { name: 'Check wallet status', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Check wallet status', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Prepare register device' })).toBeDisabled();
   await expect(page.getByRole('button', { name: 'Review & sign in Freighter' })).toHaveCount(0);
   expect(t.seen.every(r => r.method === 'GET')).toBe(true); t.assertHandled();
+});
+
+test('an expired unsigned preparation has a visible status check and clears without a signature or submission', async ({ page }) => {
+  const operation = { operationId: id(81), kind: 'registerDevice', status: 'prepared', expiresAt: '2020-01-01T00:00:00Z', txHash: null };
+  let checked = false;
+  const t = await ownerTransport(page, async (route, path) => {
+    if (path === '/api/v1/state') { await response(route, { ...owner(), walletOperations: [{ ...operation, status: checked ? 'expired' : 'prepared' }] }); return true; }
+    if (path === `/api/v1/wallet-operations/${operation.operationId}`) { checked = true; await response(route, { ...operation, status: 'expired' }); return true; }
+    return false;
+  });
+  await page.goto(base + '/app');
+  await expect(page.getByText('This unsigned preparation expired. Check its status to clear it, then prepare again.')).toBeVisible();
+  await page.getByRole('button', { name: 'Check wallet status', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Prepare register device' })).toBeEnabled();
+  await expect(page.getByRole('button', { name: 'Review & sign in Freighter' })).toHaveCount(0);
+  expect(checked).toBe(true); expect(t.seen.every(request => request.method === 'GET')).toBe(true); t.assertHandled();
+});
+
+test('a confirmed wallet status from refresh replaces a stale local unknown status', async ({ page }) => {
+  const operation = { operationId: id(82), kind: 'registerDevice', status: 'unknown', expiresAt: '2020-01-01T00:00:00Z', txHash: hash };
+  let confirmed = false;
+  const t = await ownerTransport(page, async (route, path) => {
+    if (path === '/api/v1/state') { await response(route, { ...owner(), walletOperations: [{ ...operation, status: confirmed ? 'confirmed' : 'unknown' }] }); return true; }
+    if (path === `/api/v1/wallet-operations/${operation.operationId}`) { await response(route, operation); return true; }
+    return false;
+  });
+  await page.goto(base + '/app');
+  await page.getByRole('button', { name: 'Check wallet status', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Prepare register device' })).toBeDisabled();
+  confirmed = true;
+  await page.getByRole('button', { name: 'Refresh console state', exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Saved human wallet operations' }).getByText('Confirmed on chain', { exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Prepare register device' })).toBeEnabled();
+  expect(t.seen.every(request => request.method === 'GET')).toBe(true); t.assertHandled();
 });
 
 test('console fits mobile and projector with long identities and supports visible keyboard focus', async ({ page }) => {

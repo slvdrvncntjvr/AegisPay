@@ -1,0 +1,17 @@
+{
+  "observedAt": "2026-11-14T14:11:25.350Z",
+  "scope": "unprovisioned-local-owner-address-correction",
+  "ownerPublicKey": "GAXQOA4O5YZHOXJP2TFDOA6RFKL3UXVUH3XGFEL3GMGBM3V32FRENZS7",
+  "chainWrites": 0,
+  "financialSubmissions": 0,
+  "ownerId": "6d6b428e-2909-4ec9-994f-7c1e7110de53",
+  "agentIdentityUnchanged": true,
+  "expiredPreparationPreservedUnchanged": true,
+  "status": "passed",
+  "setupStage": "register-device-with-current-Freighter-owner",
+  "priorOwnerPublicKey": "GBU2TW5W74HRGWIHWKUUF7VOIM6DPYUQD4AWQ25VH4LGUAOCYLLKQLTR",
+  "currentChainOwner": null,
+  "currentEscrowStroops": "0",
+  "originalIncidentChanged": false,
+  "loginTokensUnchanged": true
+}

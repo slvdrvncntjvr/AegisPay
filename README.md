@@ -8,7 +8,7 @@ A bounded agent payment experiment: immutable API quotes, Noir spending policy, 
 - **Deck:** [public eight-slide PDF](https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf).
 - **Team:** Salvador Vincent Javier; Discord/registration confirmation remains external.
 
-The application, four workspaces, PostgreSQL persistence, bounded Gemini loop, authenticated console and human-wallet APIs are implemented. **Full live demo readiness is incomplete.** Provider tool connectivity now passes; actual app-model choices, wallet lifecycle, two distinct application purchases, refusal/recovery evidence and hosted worker qualification remain release gates. See the [current local wallet setup](docs/evidence/live-setup-2026-11-14/report.md), [earlier readiness report](docs/evidence/demo-readiness-2026-11-14/report.md) and [task ledger](docs/implementation-plan.md).
+The application, four workspaces, PostgreSQL persistence, bounded Gemini loop, authenticated console and human-wallet APIs are implemented. **Full live demo readiness is incomplete.** Provider tool connectivity now passes; actual app-model choices, wallet lifecycle, two distinct application purchases, refusal/recovery evidence and hosted worker qualification remain release gates. See the [current wallet recovery](docs/evidence/wallet-recovery-2026-11-14/report.md), [independent hosted database](docs/evidence/hosted-release-2026-11-14/report.md), [earlier local wallet setup](docs/evidence/live-setup-2026-11-14/report.md), [earlier readiness report](docs/evidence/demo-readiness-2026-11-14/report.md) and [task ledger](docs/implementation-plan.md).
 
 ## Implemented behavior
 

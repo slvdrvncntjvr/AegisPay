@@ -1,0 +1,57 @@
+{
+  "observedAt": "2026-11-14T14:14:05.177Z",
+  "scope": "exact-new-hosted-schema-only",
+  "actorsSeeded": false,
+  "financialRecordsSeeded": false,
+  "oldDatabasesChanged": false,
+  "actualApplicationPoolTls": {
+    "authorized": true,
+    "hostnameVerified": true,
+    "protocol": "TLSv1.3"
+  },
+  "migrationExecutionsThisInvocation": 0,
+  "status": "passed",
+  "migrationCount": 5,
+  "migrations": [
+    {
+      "name": "0000_foundation.sql",
+      "sha256": "87b1c61455b75829c8d123fa0b4a6798dd0d280a32271d10621a63fb58d6a8b8"
+    },
+    {
+      "name": "0001_financial_guards.sql",
+      "sha256": "c3874d0db27af1b4606f32620142f11616244d8ec5dda0e61ad0b9d0413f78d2"
+    },
+    {
+      "name": "0002_acceptance_keys.sql",
+      "sha256": "01ce6252cd258ca88657014b225ef49aace0c0ea0a4213754a1ee394b198a06b"
+    },
+    {
+      "name": "0003_terminal_evidence_guard.sql",
+      "sha256": "806391307230c2f4b0867c6693dc45b0c491a64b2eb1da7844e4ca64ad3faf7a"
+    },
+    {
+      "name": "0004_nonfinancial_run_budget.sql",
+      "sha256": "1dca7ad0802d3472bbf0fd6d77c2e52c7cdb5d42796d78191d4d62696e52aec4"
+    }
+  ],
+  "counts": {
+    "agent": 0,
+    "agent_run": 0,
+    "audit_event": 0,
+    "auth_throttle": 0,
+    "entitlement": 0,
+    "job": 0,
+    "merchant": 0,
+    "merchant_claim": 0,
+    "owner": 0,
+    "payment_accept_key": 0,
+    "payment_attempt": 0,
+    "payment_evidence": 0,
+    "quote": 0,
+    "resource": 0,
+    "run_event": 0,
+    "session": 0,
+    "wallet_operation": 0
+  },
+  "fullLiveRelease": false
+}

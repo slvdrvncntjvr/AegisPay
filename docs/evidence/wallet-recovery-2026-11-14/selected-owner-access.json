@@ -1,0 +1,12 @@
+{
+  "observedAt": "2026-11-14T14:16:00.586Z",
+  "scope": "actual-selected-owner-authenticated-state-and-old-unsigned-identity-denial",
+  "financialSubmissions": 0,
+  "status": "passed",
+  "selectedOwnerAddressMatches": true,
+  "agentIdentityMatches": true,
+  "unprovisioned": true,
+  "lifetimeFundingCeilingStroops": "1000000",
+  "priorWalletIdentityDenied": 404,
+  "oldExpiredPreparationVisibleUnderNewActor": false
+}

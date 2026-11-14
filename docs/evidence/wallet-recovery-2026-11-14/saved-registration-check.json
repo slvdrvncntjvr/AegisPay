@@ -1,0 +1,11 @@
+{
+  "observedAt": "2026-11-14T14:03:49.731Z",
+  "scope": "exact-unsent-local-registration-status-only",
+  "operationId": "4b494ed6-f71b-4f90-bcfe-b1aa480420a4",
+  "signaturesRequested": 0,
+  "submissions": 0,
+  "status": "passed",
+  "savedStatus": "expired",
+  "handoffCommitted": false,
+  "transactionHashPresent": false
+}
