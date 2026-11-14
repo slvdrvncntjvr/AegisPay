@@ -27,7 +27,10 @@ export function RunPanel({ runs, offers, fresh, ready, refresh }: { runs: Run[];
   const selected = selectedId || runs[0]?.id || '';
   const listed = runs.find(r => r.id === selected);
   const current = detail?.id === selected ? detail : listed;
-  const active = runs.some(activeRun) || !!current && activeRun(current);
+  // Detail polling can finish before the parent state snapshot refreshes.
+  // Use that observation for the matching run while preserving other holds.
+  const observedRuns = runs.map(run => current && run.id === current.id ? current : run);
+  const active = observedRuns.some(activeRun) || !!current && activeRun(current);
 
   useEffect(() => {
     if (!selected) return;
@@ -40,7 +43,7 @@ export function RunPanel({ runs, offers, fresh, ready, refresh }: { runs: Run[];
       polling = true;
       try {
         const run = await api<{ runId: string; task: string; status: string; finalAnswer: string | null; errorCode: string | null }>(`/api/v1/runs/${encodeURIComponent(selected)}`);
-        if (run.runId !== selected || typeof run.status !== 'string' || typeof run.task !== 'string') throw new ApiError('INVALID_RUN_RESPONSE');
+        if (run.runId !== selected || !['queued', 'running', 'waiting_payment', 'completed', 'failed'].includes(run.status) || typeof run.task !== 'string') throw new ApiError('INVALID_RUN_RESPONSE');
         if (!disposed) { setDetail({ ...run, id: run.runId }); setPollError(''); }
         if (traceAvailable) {
           try {
@@ -117,7 +120,7 @@ export function RunPanel({ runs, offers, fresh, ready, refresh }: { runs: Run[];
       <div className="pc-offers"><h3>Current offers <span>Future quotes only</span></h3>{offers.length ? offers.map(o => <div className="pc-offer" key={o.id}><div><strong>{o.resourceKey}</strong><p>{o.description}</p><small>{o.isDemo ? 'Fictional demo resource' : 'Resource metadata'} · {o.enabled ? 'Enabled' : 'Disabled'}</small></div><div><b>{amount(o.priceStroops)}</b><code>{o.priceStroops} stroops</code></div></div>) : <p>No offers available.</p>}</div>
     </div><div className="pc-run-observation">
       <div className="pc-row"><h3>Run observation</h3><span className="pc-caption">Polls every 10s while visible</span></div>
-      {runs.length > 0 && <label className="pc-run-select">Saved run<select value={selected} onChange={e => setSelectedId(e.target.value)}>{runs.map(r => <option key={r.id} value={r.id}>{r.status} · {r.id}</option>)}</select></label>}
+      {observedRuns.length > 0 && <label className="pc-run-select">Saved run<select value={selected} onChange={e => setSelectedId(e.target.value)}>{observedRuns.map(r => <option key={r.id} value={r.id}>{r.status} · {r.id}</option>)}</select></label>}
       {current ? <><Status value={current.status} /><Identifier label="Run ID" value={selected} /><p className="pc-task-summary">{current.task}</p>
         {current.status === 'queued' && <p className="pc-notice">Queued for the worker. No model choice, purchase or execution is implied.</p>}
         {current.errorCode && <p className="pc-error">Run stopped · {current.errorCode}</p>}

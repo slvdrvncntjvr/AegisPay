@@ -244,16 +244,31 @@ async function requestJson(transport: typeof fetch, apiKey: string, url: string,
   signal?.addEventListener('abort', abort, { once: true });
   try {
     if (signal?.aborted) fail('MODEL_ABORTED');
-    const response = await transport(url, {
-      method: body === undefined ? 'GET' : 'POST', redirect: 'error',
-      headers: { 'x-goog-api-key': apiKey, ...(body === undefined ? {} : { 'content-type': 'application/json' }) },
-      ...(body === undefined ? {} : { body }), signal: controller.signal,
-    });
-    if (!response.ok) {
-      void response.body?.cancel().catch(() => undefined);
-      fail(httpCode(response.status));
+    // One retry of an explicit 503, inside the original deadline. Model
+    // responses only propose tools; this never retries an accepted tool action,
+    // quote acceptance, payment handoff, or a saved terminal run.
+    for (let attempt = 0; attempt < 2; attempt++) {
+      const response = await transport(url, {
+        method: body === undefined ? 'GET' : 'POST', redirect: 'error',
+        headers: { 'x-goog-api-key': apiKey, ...(body === undefined ? {} : { 'content-type': 'application/json' }) },
+        ...(body === undefined ? {} : { body }), signal: controller.signal,
+      });
+      if (!response.ok) {
+        void response.body?.cancel().catch(() => undefined);
+        if (response.status === 503 && attempt === 0) {
+          await new Promise<void>((resolve, reject) => {
+            const abortDelay = () => { clearTimeout(timer); reject(new GeminiModelError('MODEL_ABORTED')); };
+            const timer = setTimeout(() => { controller.signal.removeEventListener('abort', abortDelay); resolve(); }, 500);
+            controller.signal.addEventListener('abort', abortDelay, { once: true });
+            if (controller.signal.aborted) abortDelay();
+          });
+          continue;
+        }
+        fail(httpCode(response.status));
+      }
+      return await readJson(response, controller.signal);
     }
-    return await readJson(response, controller.signal);
+    fail('MODEL_UNAVAILABLE');
   } catch (error) {
     if (timedOut) fail('MODEL_TIMEOUT');
     if (signal?.aborted) fail('MODEL_ABORTED');

@@ -34,6 +34,44 @@ async function expectCode(promise: Promise<unknown>, code: string) {
 afterEach(() => { vi.useRealTimers(); vi.unstubAllEnvs(); });
 
 describe('Gemini REST boundary', () => {
+  it('retries explicit 503 once before returning a tool proposal, with the same body and deadline', async () => {
+    vi.useFakeTimers();
+    const { client, post } = fixture();
+    post.mockResolvedValueOnce(http({ error: { message: KEY } }, 503));
+    const pending = client.generateStep(task(), GEMINI_TOOLS);
+    await vi.advanceTimersByTimeAsync(500);
+    expect((await pending).calls.map(call => call.name)).toEqual(['discover_offers']);
+    expect(post).toHaveBeenCalledTimes(2);
+    expect(post.mock.calls[1]![1]!.body).toBe(post.mock.calls[0]![1]!.body);
+    expect(post.mock.calls[1]![1]!.signal).toBe(post.mock.calls[0]![1]!.signal);
+  });
+  it('bounds repeated 503 failures to two requests and never exposes the provider body', async () => {
+    vi.useFakeTimers();
+    const { client, post } = fixture();
+    post.mockImplementation(async () => http({ error: { message: KEY } }, 503));
+    const pending = expectCode(client.generateStep(task(), GEMINI_TOOLS), 'MODEL_UNAVAILABLE');
+    await vi.advanceTimersByTimeAsync(500); await pending;
+    expect(post).toHaveBeenCalledTimes(2);
+  });
+  it('cancels the 503 backoff without a second request or leaked abort reason', async () => {
+    vi.useFakeTimers();
+    const { client, post } = fixture();
+    post.mockResolvedValueOnce(http({}, 503));
+    const controller = new AbortController();
+    const pending = expectCode(client.generateStep(task(), GEMINI_TOOLS, controller.signal), 'MODEL_ABORTED');
+    await vi.advanceTimersByTimeAsync(1); controller.abort(KEY); await pending;
+    expect(post).toHaveBeenCalledTimes(1);
+  });
+  it('keeps the original timeout when the request after a 503 stalls', async () => {
+    vi.useFakeTimers();
+    const { client, post } = fixture();
+    post.mockResolvedValueOnce(http({}, 503)).mockImplementationOnce(async (_url, init) => new Promise((_resolve, reject) => {
+      init!.signal!.addEventListener('abort', () => reject(new Error(KEY)), { once: true });
+    }));
+    const pending = expectCode(client.generateStep(task(), GEMINI_TOOLS), 'MODEL_TIMEOUT');
+    await vi.advanceTimersByTimeAsync(GEMINI_LIMITS.timeoutMs); await pending;
+    expect(post).toHaveBeenCalledTimes(2);
+  });
   it('uses the observed configured model and header authentication with exact bounded native request shape', async () => {
     const { client, transport, post } = fixture();
     const step = await client.generateStep(task(), GEMINI_TOOLS);

@@ -204,3 +204,8 @@ Actual RPC returns a decimal-string createdAt, matching its official contract bu
 ## 2026-11-14 — Arm the independent worker after actual human setup
 
 Actual manual registration/policy/funding are independently observed; native escrow and finite cap are1000000stroops, expiry15:48:20UTC. No run or purchase exists. A guarded exact owned-worker replacement uses runtime-only RUN_TESTNET=1 after matching custody, empty execution tables, completed setup jobs, contract state and nonce continuity. Persistent configuration stays0. This enables the canonical manual authenticated app path; no task/purchase is created by the coordinator and fresh user intent still comes from Start task. Model instructions do not narrow the durable1000000-stroop run/escrow ceilings to exact count/price authority. No automated purchase consent runner is reenabled. Original incident and all remaining live gates/invariants remain preserved.
+
+
+## 2026-11-14 — Recover transient model transport without retrying financial intent
+
+The first actual app task fails at model turn1 before quote/tool/payment acceptance; preserve its terminal run/job and zero financial state. Same configured Gemini later proposes a tool successfully. Original HTTP status was not recorded; do not invent503 causality. Permit one explicit503 transport retry with500ms cancellation-aware backoff inside the original deadline; no network-error/auth/quota retry, saved-run reset, tool replay or payment resubmission. Observed terminal detail reconciles only its matching run list entry, retaining other active holds. A new task still needs fresh manual Start task intent. Model/receipt/payment/release gates and INV-001 through INV-010 remain unchanged.

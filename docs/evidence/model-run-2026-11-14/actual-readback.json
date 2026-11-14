@@ -1,0 +1,24 @@
+{
+  "scope": "actual-authenticated-failed-model-run-readback",
+  "checks": [
+    "actual-login",
+    "failed-run-preserved",
+    "saved-list-agrees-with-detail",
+    "no-false-active-notice",
+    "fresh-task-composer-enabled-not-submitted",
+    "no-new-run-quote-payment-entitlement"
+  ],
+  "newRuns": 0,
+  "newPaymentHandoffs": 0,
+  "fullLiveRelease": false,
+  "failedRun": {
+    "id": "3c80396e-2575-4f9a-8e1f-76321c5c9542",
+    "status": "failed",
+    "error_code": "MODEL_UNAVAILABLE",
+    "reserved_stroops": "0",
+    "spent_stroops": "0"
+  },
+  "sessionRevoked": true,
+  "status": "passed",
+  "observedAt": "2026-11-14T15:36:11.652Z"
+}

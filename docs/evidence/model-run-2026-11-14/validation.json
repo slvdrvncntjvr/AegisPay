@@ -1,0 +1,68 @@
+{
+  "observedAt": "2026-11-14T15:37:19.995343+00:00",
+  "gates": [
+    {
+      "command": "corepack.cmd pnpm exec vitest run tests/unit/model.test.ts",
+      "exitCode": 0,
+      "testsPassed": 55
+    },
+    {
+      "command": "corepack.cmd pnpm test:unit",
+      "exitCode": 0,
+      "testsPassed": 122
+    },
+    {
+      "command": "corepack.cmd pnpm exec playwright test tests/e2e/authenticated-console.spec.ts --workers=1 --reporter=line",
+      "exitCode": 0,
+      "testsPassed": 21
+    },
+    {
+      "command": "corepack.cmd pnpm typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "corepack.cmd pnpm lint",
+      "exitCode": 0
+    },
+    {
+      "command": "corepack.cmd pnpm build",
+      "exitCode": 0
+    }
+  ],
+  "actualReadbackChecks": 6,
+  "newPaymentHandoffs": 0,
+  "files": [
+    {
+      "path": "src/server/integrations/model.ts",
+      "sha256": "d032b4c676eb7bb758dce1cf12a69564d92cefa89f81c29ec39313325f14019f"
+    },
+    {
+      "path": "apps/web/src/components/product/run-panel.tsx",
+      "sha256": "44c04c66f6a0e3226a6c98539e18c2d2fdcadbc6041459579514f41fac03b0cf"
+    },
+    {
+      "path": "tests/unit/model.test.ts",
+      "sha256": "481b5f06f0a75adf9727b2c770660cd1c8e6a659a7325b0135409aa6ee70c54f"
+    },
+    {
+      "path": "tests/e2e/authenticated-console.spec.ts",
+      "sha256": "159acc0121e9b184fabbbf316a8c95f5cb8c4a87a10174188033ca889b71ae03"
+    },
+    {
+      "path": "deployment/finals/local-release/model-readiness.mjs",
+      "sha256": "13814adb9eec706b20d686d101921d7d8fca6f043e368023fea56735f509dcfd"
+    },
+    {
+      "path": "deployment/finals/local-release/task-worker.mjs",
+      "sha256": "e8ecfc502331150e494ac4ecca96924781f80bc3b3557bfb42aacf9ce251bf61"
+    },
+    {
+      "path": "deployment/finals/local-release/restart-web.mjs",
+      "sha256": "73bc30fbca9780694fb93ea0eda2d6491a068803a532526f8dbc31f626809a65"
+    },
+    {
+      "path": "deployment/finals/local-release/check-failed-model.mjs",
+      "sha256": "b808ca42b27d841899f76acda60a354843f4e146db50a211aeeda597b4ed83b3"
+    }
+  ]
+}

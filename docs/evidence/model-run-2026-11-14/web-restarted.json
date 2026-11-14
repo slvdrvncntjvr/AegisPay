@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "observedAt": "2026-11-14T15:35:14.303Z",
+  "scope": "actual-rebuilt-loopback-web-startup",
+  "health": 200,
+  "newRuns": 0,
+  "newPaymentHandoffs": 0
+}

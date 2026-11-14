@@ -122,6 +122,34 @@ test('run creation recovers an ambiguous intent with one stable key and guards d
 });
 
 // Recovery entries are unresolved transport intents, never a cache of old runs.
+for (const anotherActive of [false, true]) test(`polled failed detail reconciles a stale queued list while preserving other active runs (${anotherActive})`, async ({ page }) => {
+  let saved = false;
+  const runId = id(70);
+  const t = await transport(page, async (route, path) => {
+    if (path === '/api/v1/state') {
+      await response(route, { ...owner(), attempts: [], runs: saved ? [{ ...run, id: runId, status: 'queued' }, ...(anotherActive ? [{ ...run, id: id(71), status: 'waiting_payment' }] : [])] : [] }); return true;
+    }
+    if (path === '/api/v1/runs') { saved = true; await response(route, { runId, status: 'queued' }, 202); return true; }
+    if (path === `/api/v1/runs/${runId}`) { await response(route, { ...run, runId, id: runId, status: 'failed', errorCode: 'MODEL_UNAVAILABLE' }); return true; }
+    if (path.endsWith('/events')) { await response(route, { events: [], nextCursor: null }); return true; }
+    return false;
+  });
+  await page.goto(base + '/app');
+  await page.getByLabel('Task for the demo dependency').fill('Synthetic terminal model observation');
+  await page.getByRole('button', { name: 'Start task', exact: true }).click();
+  await expect(page.locator('.pc-run-observation .pc-status')).toHaveText('failed');
+  await expect(page.getByLabel('Saved run').locator('option:checked')).toHaveText(`failed · ${runId}`);
+  if (anotherActive) {
+    await expect(page.getByRole('button', { name: 'Compose a new task' })).toBeHidden();
+    await expect(page.getByText('An active run is already saved. Observe it before starting a separate task.')).toBeVisible();
+  } else {
+    await expect(page.getByRole('button', { name: 'Compose a new task' })).toBeVisible();
+    await expect(page.getByText('An active run is already saved. Observe it before starting a separate task.')).toBeHidden();
+  }
+  expect(t.seen.filter(request => request.path === '/api/v1/runs')).toHaveLength(1);
+  t.assertHandled();
+});
+
 for (const terminalStatus of ['completed', 'failed']) {
   test(`acknowledged ${terminalStatus} task then reload and identical Start creates a fresh run/key`, async ({ page }) => {
     const saved = new Map<string, string>();

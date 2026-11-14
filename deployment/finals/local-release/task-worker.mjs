@@ -14,7 +14,8 @@ import { createLivePaymentAdapter } from '../../../apps/server/src/worker/live-a
 import * as schema from '../../../src/server/db/schema.ts';
 
 const phase = process.argv[2];
-if (process.argv.length !== 3 || !['--preflight-funded-setup', '--arm-funded-worker'].includes(phase)) {
+const modelRecovery = phase === '--resume-failed-model-worker';
+if (process.argv.length !== 3 || !['--preflight-funded-setup', '--arm-funded-worker', '--resume-failed-model-worker'].includes(phase)) {
   console.log(JSON.stringify({ status: 'not_run', code: 'EXPLICIT_FUNDED_SETUP_PHASE_REQUIRED' })); process.exitCode = 2;
 } else {
   let local, store, child, descriptor;
@@ -30,10 +31,19 @@ if (process.argv.length !== 3 || !['--preflight-funded-setup', '--arm-funded-wor
       ['DEMO_AGENT_PUBLIC_KEY', ctx.agentPublicKey], ['DEMO_DEVICE_HASH', ctx.deviceHash], ['DEMO_ESCROW_FUNDING_CEILING_STROOPS', '1000000']]) assert.equal(env[name], value);
     for (const name of ['DEMO_OWNER_LOGIN_TOKEN','DEMO_MERCHANT_LOGIN_TOKEN']) assert(!env[name]);
     stage = 'empty-execution-and-complete-setup';
-    for (const table of ['agent_run','quote','payment_attempt','payment_evidence','entitlement','merchant_claim'])
+    for (const table of [...(modelRecovery ? [] : ['agent_run']),'quote','payment_attempt','payment_evidence','entitlement','merchant_claim'])
       assert.equal((await local.pool.query(`SELECT count(*)::int AS n FROM "${table}"`)).rows[0].n, 0);
-    const jobs = (await local.pool.query('SELECT kind,status FROM job')).rows;
-    assert.equal(jobs.length, 3); assert(jobs.every(row => row.kind === 'wallet_observe' && row.status === 'done'));
+    const jobs = (await local.pool.query('SELECT kind,status,entity_id FROM job')).rows;
+    assert.equal(jobs.length, modelRecovery ? 4 : 3);
+    assert.equal(jobs.filter(row => row.kind === 'wallet_observe' && row.status === 'done').length, 3);
+    if (modelRecovery) {
+      const runs = (await local.pool.query('SELECT id,status,error_code,model_turns,tool_steps,reserved_stroops::text,spent_stroops::text FROM agent_run')).rows;
+      assert.equal(runs.length, 1); const run = runs[0];
+      assert.equal(run.id, '3c80396e-2575-4f9a-8e1f-76321c5c9542'); assert.equal(run.status, 'failed');
+      assert.equal(run.error_code, 'MODEL_UNAVAILABLE'); assert.equal(run.model_turns, 1); assert.equal(run.tool_steps, 0);
+      assert.equal(run.reserved_stroops, '0'); assert.equal(run.spent_stroops, '0');
+      assert(jobs.some(row => row.kind === 'run' && row.entity_id === run.id && row.status === 'done'));
+    }
     store = createStore(env.DATABASE_URL);
     const agents = await store.db.select().from(schema.agent);
     assert.equal(agents.length, 1); const agent = agents[0];
@@ -65,14 +75,15 @@ if (process.argv.length !== 3 || !['--preflight-funded-setup', '--arm-funded-wor
     await createLivePaymentAdapter({ ...env, RUN_TESTNET: '1' }, store);
     const report = { status: 'passed', phase, observedAt: new Date().toISOString(), scope: 'actual-independent-funded-local-setup',
       inclusion, policyMaxStroops: '1000000', policyExpiresAt: agent.policyExpiresAt.toISOString(), escrowStroops: escrow.toString(),
-      merchantPendingStroops: pending.toString(), agentNonce: '0', executionTablesEmpty: true, setupJobsComplete: true,
+      merchantPendingStroops: pending.toString(), agentNonce: '0', financialTablesEmpty: true, historicalFailedModelRuns: modelRecovery ? 1 : 0, setupJobsComplete: true,
       newRuns: 0, newQuotes: 0, newPaymentHandoffs: 0, fullLiveRelease: false };
     const out = 'docs/evidence/wallet-setup-2026-11-14'; mkdirSync(out, { recursive: true });
-    if (phase === '--arm-funded-worker') {
+    if (phase === '--arm-funded-worker' || modelRecovery) {
       stage = 'exclusive-owned-worker-start';
-      assert.equal((await local.pool.query('SELECT count(*)::int AS n FROM agent_run')).rows[0].n, 0);
+      assert.equal((await local.pool.query('SELECT count(*)::int AS n FROM agent_run')).rows[0].n, modelRecovery ? 1 : 0);
       await new Promise((done, reject) => { const server = net.createServer(); server.once('error', reject); server.listen(3020, '127.0.0.1', () => server.close(error => error ? reject(error) : done())); });
-      const marker = '.fmd-work/release-setup/processes-funded-worker.json', log = '.fmd-work/release-setup/worker-funded.log';
+      const marker = '.fmd-work/release-setup/' + (modelRecovery ? 'processes-model-recovery-worker.json' : 'processes-funded-worker.json');
+      const log = '.fmd-work/release-setup/' + (modelRecovery ? 'worker-model-recovery.log' : 'worker-funded.log');
       assert(!existsSync(marker));
       writePrivate(marker, JSON.stringify({ state: 'starting', recordedAt: new Date().toISOString() }) + '\n', true);
       writePrivate(log, '', true); descriptor = openSync(log, 'a');
@@ -92,7 +103,7 @@ if (process.argv.length !== 3 || !['--preflight-funded-setup', '--arm-funded-wor
       writePrivate(marker, JSON.stringify({ state: 'funded-worker-awaiting-human-task', recordedAt, processes, runtimeRunTestnet: '1', persistentRunTestnet: '0' }) + '\n');
       report.workerArmed = true; report.awaitingHumanTask = true;
     }
-    writeFileSync(out + (phase === '--arm-funded-worker' ? '/worker-armed.json' : '/setup-preflight.json'), JSON.stringify(report, null, 2) + '\n', { flag: 'wx' });
+    writeFileSync(modelRecovery ? 'docs/evidence/model-run-2026-11-14/worker-resumed.json' : out + (phase === '--arm-funded-worker' ? '/worker-armed.json' : '/setup-preflight.json'), JSON.stringify(report, null, 2) + '\n', { flag: 'wx' });
     console.log(JSON.stringify(report));
   } catch {
     if (child && child.exitCode === null) child.kill();
