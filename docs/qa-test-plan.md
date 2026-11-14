@@ -73,6 +73,12 @@ Use deterministic vendor mocks for most Playwright state/error coverage, clearly
 
 ## Release gates and evidence
 
+### User-selected Testnet demo handoff — 2026-11-15
+
+The user explicitly stops additional local rehearsal after one verified real model purchase/report delivery and a separately verified merchant payout, and requests a usable finished demo. Deliver the operator-controlled Testnet demo through TASK-033: preserve the exact existing agent/device/nonce/payment/claim history, use one authoritative hosted runtime, keep secrets server-only, and verify hosted startup, login/role/origin boundaries and saved-state integrity. No extra financial transaction or human test loop is required for this handoff. Expired finite policies still require ordinary owner consent before future use. Unknown outcomes remain held/unentitled; no security/payment invariant is waived.
+
+The broader full-MVP qualification below remains documented as deferred work. Do not label the delivered demo production-certified or mark unperformed second-purchase/refusal/price-choice/revoke/reclaim/hosted-payment gates passed. The user-selected demo handoff is a separate, narrower completion target.
+
 Before claiming a live MVP: typecheck/lint/build, all required unit/integration/browser checks, at least two genuine Velo-sponsored Noir successes, one actual deployed-contract over-cap refusal, an expired-policy refusal, a separate merchant claim, replay/recovery tests and a real model price-change rehearsal. Record whether refusal occurred in RPC simulation or an included transaction. No simulated proof qualifies as a ledger transaction. One success is sufficient only for the early compatibility spike.
 
 Real test evidence captures versions, contract/network/SAC, observation time, quote/operation, reservation identity, inner/outer mapping, event/ledger, before/after balances, fees or null, refusal type and claim hash/result. Store redacted JSON under `docs/evidence/testnet/` when generated; that folder has no successful evidence at handoff. Testnet reset or contract redeployment invalidates the live gate until rerun.

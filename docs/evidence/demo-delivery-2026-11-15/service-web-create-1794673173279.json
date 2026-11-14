@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "role": "web",
+  "scope": "exact-free-demo-service-create",
+  "observedAt": "2026-11-14T16:19:33.279Z",
+  "name": "aegispay-finals-app",
+  "plan": "free",
+  "region": "singapore",
+  "autoDeploy": "off",
+  "initialBuild": "fails-closed-until-explicit-configured-deploy",
+  "providerCreates": 1
+}

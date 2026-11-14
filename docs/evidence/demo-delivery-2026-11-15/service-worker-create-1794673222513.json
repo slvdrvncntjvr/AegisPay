@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "role": "worker",
+  "scope": "exact-free-demo-service-create",
+  "observedAt": "2026-11-14T16:20:22.513Z",
+  "name": "aegispay-finals-worker",
+  "plan": "free",
+  "region": "singapore",
+  "autoDeploy": "off",
+  "initialBuild": "fails-closed-until-explicit-configured-deploy",
+  "providerCreates": 1
+}
