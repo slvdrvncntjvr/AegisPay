@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "phase": "--preflight-funded-setup",
+  "observedAt": "2026-11-14T15:23:17.079Z",
+  "scope": "actual-independent-funded-local-setup",
+  "inclusion": [
+    {
+      "kind": "registerDevice",
+      "transactionHash": "1a90bea9260d2043fb62a5b26ded7ac4dd8a6426f51955d3767cfe44ce19b288",
+      "ledger": 5728971,
+      "includedAt": "2026-11-14T15:01:39Z"
+    },
+    {
+      "kind": "registerAgent",
+      "transactionHash": "fee5f97d0e62af1d0f4e2eb435e55af0b6bf53adc6057b8ac984c8afc745e9ea",
+      "ledger": 5729179,
+      "includedAt": "2026-11-14T15:18:59Z"
+    },
+    {
+      "kind": "fundEscrow",
+      "transactionHash": "cb428c033e7756e97ebbfb8f4781e9fb999693def2f9748c6edc849a92c5d0ef",
+      "ledger": 5729186,
+      "includedAt": "2026-11-14T15:19:34Z"
+    }
+  ],
+  "policyMaxStroops": "1000000",
+  "policyExpiresAt": "2026-11-14T15:48:20.000Z",
+  "escrowStroops": "1000000",
+  "merchantPendingStroops": "0",
+  "agentNonce": "0",
+  "executionTablesEmpty": true,
+  "setupJobsComplete": true,
+  "newRuns": 0,
+  "newQuotes": 0,
+  "newPaymentHandoffs": 0,
+  "fullLiveRelease": false
+}
