@@ -2,13 +2,15 @@
 
 A bounded agent payment experiment: immutable API quotes, Noir spending policy, Velo sponsorship and independently verified Stellar Testnet evidence before protected report access.
 
+**The hosted Testnet demo is delivered:** [open the login page](https://aegispay-finals-app.onrender.com/login), using the existing owner/merchant tokens. See the [operator handoff](docs/demo-handoff.md) and [delivery evidence](docs/evidence/demo-delivery-2026-11-15/report.md). Its completed purchase, report and merchant payout history are preserved. Local services are retired; no extra rehearsal is required for this handoff. Broader production qualification remains deferred.
+
 - **Public saved proof:** [aegispay-live.vercel.app](https://aegispay-live.vercel.app), replaying one historical SDK authorization and separate claim.
 - **Authenticated preview:** [aegispay-auth-preview.onrender.com/app](https://aegispay-auth-preview.onrender.com/app). Private owner/merchant access; Nov 11 qualification excluded model and financial execution. Nov 14 anonymous health/login/console checks pass and protected APIs return401; current authenticated qualification remains open.
 - **Video:** [112-second recorded evidence replay](docs/submission/aegispay-demo.mp4). A completed live model-purchase recording remains outstanding.
 - **Deck:** [public eight-slide PDF](https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf).
 - **Team:** Salvador Vincent Javier; Discord/registration confirmation remains external.
 
-The application, four workspaces, PostgreSQL persistence, bounded Gemini loop, authenticated console and human-wallet APIs are implemented. **Full live demo readiness is incomplete.** Provider tool connectivity now passes; actual app-model choices, wallet lifecycle, two distinct application purchases, refusal/recovery evidence and hosted worker qualification remain release gates. See the [current wallet recovery](docs/evidence/wallet-recovery-2026-11-14/report.md), [independent hosted database](docs/evidence/hosted-release-2026-11-14/report.md), [earlier local wallet setup](docs/evidence/live-setup-2026-11-14/report.md), [earlier readiness report](docs/evidence/demo-readiness-2026-11-14/report.md) and [task ledger](docs/implementation-plan.md).
+The application, four workspaces, PostgreSQL persistence, bounded Gemini loop, authenticated console and human-wallet APIs are implemented. One real model-driven purchase/report and its separate merchant payout passed. The hosted demo preserves that exact history and nonce. Broader second-purchase, refusal, recovery, lifecycle and production qualification remain deferred under the user-selected Testnet handoff. The [task ledger](docs/implementation-plan.md) preserves those separate scopes.
 
 ## Implemented behavior
 
@@ -16,7 +18,7 @@ Owner Policy/Run/Audit and merchant Pending/Offers/Claim screens use authenticat
 
 Freighter actions require explicit human review and the configured Testnet signer. Reclaim checks revocation and rejects unresolved purchases; pending reclaim also blocks new purchases. Durable wallet observation jobs use saved hashes, lease fencing and authenticated wake. Only an exact independently included failed human-wallet transaction can terminate as failed; ambiguous data stays unknown. Synthetic local tests do not establish live acceptance.
 
-Nov 14 Gemini readiness: the initial smoke timed out; one later opt-in timing diagnostic completed the configured `models/gemini-3.5-flash` tool roundtrip (two POST200, exit0). Call identity and thought signatures were preserved. Configuration stayed unchanged and zero financial actions occurred. Actual app-model price/no-purchase/purchase acceptance remains open.
+The real Gemini run completed one QuickSignal purchase and entitled report read. The separate merchant claim paid0.03TestnetXLM. Current escrow is0.07XLM and merchant pending0; future QuickSignal quotes cost0.04XLM while the paid quote stays0.03XLM. Renew the expired finite owner policy in Freighter before a new task. Receipt metadata remains available; the original expired report window is not extended.
 
 ## Architecture
 

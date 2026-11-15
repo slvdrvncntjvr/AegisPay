@@ -1,0 +1,85 @@
+{
+  "scope": "actual-hosted-testnet-demo-operational-handoff",
+  "observedAt": "2026-11-15T04:13:39.538Z",
+  "newRuns": 0,
+  "newQuotes": 0,
+  "newFinancialHandoffs": 0,
+  "fullProductionQualification": false,
+  "status": "failed",
+  "checks": [
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "https-health",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "https-health",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "anonymous-state-denied",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "anonymous-worker-wake-denied",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "wrong-origin-login-denied",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "owner-login-secure-cookie",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "owner-state",
+      "passed": true
+    },
+    {
+      "name": "owner-identity",
+      "passed": true
+    },
+    {
+      "name": "owner-current-price",
+      "passed": true
+    },
+    {
+      "name": "preserved-completed-run",
+      "passed": true
+    },
+    {
+      "name": "preserved-authorized-attempt",
+      "passed": false
+    }
+  ],
+  "testSessionsCreated": 1,
+  "testSessionsRevoked": 1
+}

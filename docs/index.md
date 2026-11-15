@@ -4,6 +4,8 @@
 
 ## 0. Source-of-truth map
 
+Delivered demo operation and private access locations are owned by the [operator handoff](demo-handoff.md). It supplements development onboarding and records the active hosted authority.
+
 | Concern | Canonical owner | Definition / precedence |
 |---------|-----------------|-------------------------|
 | Product origin and stable-ID mapping | [IDEA.md](../IDEA.md) | Original vision/problem/segment; §23 adds source feature/invariant IDs without replacing the original |
@@ -29,6 +31,8 @@
 Derived references do not override owners. If intended behavior changes, update its owner first and reconcile references. Never silently edit historical payment identities or assume the decision ledger overrides a product rule. FMD templates are framework material, not a second app spec.
 
 ## 1. Document suite
+
+**Current delivery:** the [usable hosted Testnet demo](https://aegispay-finals-app.onrender.com/login) is delivered. [Operator handoff](demo-handoff.md) and [delivery evidence](evidence/demo-delivery-2026-11-15/report.md) record exact Free web/worker d42cb96, native history/nonce cutover, restored guards, local retirement/read-only,47actual hosted checks and2HTML/9client-asset inspection with0new financial handoffs. Existing login tokens are unchanged. No extra rehearsal is required for this user-selected handoff; broader production qualification remains deferred/unclaimed. Earlier dated checkpoints below retain historical scope.
 
 The suite began on 2026-11-07; individual dated checkpoints and the implementation plan own current progress. Product, architecture, data, HTTP, methods, security, UX and QA remain execution specifications pending their actual release gates. Context, research and ledger distinguish assumptions from observations; document checks establish structure, not a working app. The supplied Nov 5 handbook provides contract/rubric provenance; the newer user-supplied Nov 8 Top15 email says finals date/venue TBA.
 

@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "observedAt": "2026-11-15T04:17:43.128Z",
+  "scope": "actual-hosted-public-html-and-client-assets",
+  "htmlPages": 2,
+  "clientAssets": 9,
+  "checked": [
+    {
+      "path": "/login",
+      "bytes": 8114
+    },
+    {
+      "path": "/app",
+      "bytes": 8257
+    },
+    {
+      "path": "/_next/static/chunks/0gsvfqick2ism.js",
+      "bytes": 17164
+    },
+    {
+      "path": "/_next/static/chunks/07l-yoa8uodjg.js",
+      "bytes": 186762
+    },
+    {
+      "path": "/_next/static/chunks/02ai4yb8cacci.js",
+      "bytes": 229277
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-077hmtqrhcoji.js",
+      "bytes": 11199
+    },
+    {
+      "path": "/_next/static/chunks/0px6q1xsj-rux.js",
+      "bytes": 13993
+    },
+    {
+      "path": "/_next/static/chunks/2s1uz7fs2ee_w.js",
+      "bytes": 4566
+    },
+    {
+      "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+      "bytes": 112594
+    },
+    {
+      "path": "/_next/static/chunks/0lg0ipq0631la.js",
+      "bytes": 15452
+    },
+    {
+      "path": "/_next/static/chunks/2y9r0l5m9oamv.js",
+      "bytes": 38421
+    }
+  ],
+  "knownCredentialMatches": 0,
+  "stellarSecretSeedMatches": 0,
+  "newFinancialHandoffs": 0
+}

@@ -1,0 +1,201 @@
+{
+  "scope": "actual-hosted-testnet-demo-operational-handoff",
+  "observedAt": "2026-11-15T04:15:20.188Z",
+  "newRuns": 0,
+  "newQuotes": 0,
+  "newFinancialHandoffs": 0,
+  "fullProductionQualification": false,
+  "status": "passed",
+  "checks": [
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "https-health",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "https-health",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "anonymous-state-denied",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "anonymous-worker-wake-denied",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "wrong-origin-login-denied",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "owner-login-secure-cookie",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "owner-state",
+      "passed": true
+    },
+    {
+      "name": "owner-identity",
+      "passed": true
+    },
+    {
+      "name": "owner-current-price",
+      "passed": true
+    },
+    {
+      "name": "preserved-completed-run",
+      "passed": true
+    },
+    {
+      "name": "preserved-authorized-attempt",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "original-identity-receipt-recovery",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "preserved-receipt-metadata",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "original-report-window-not-extended",
+      "passed": true
+    },
+    {
+      "name": "owner-browser-1440",
+      "passed": true
+    },
+    {
+      "name": "owner-browser-390",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "owner-logout",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "owner-revoked-cookie-denied",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "merchant-login-secure-cookie",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "merchant-state",
+      "passed": true
+    },
+    {
+      "name": "merchant-identity",
+      "passed": true
+    },
+    {
+      "name": "merchant-current-price",
+      "passed": true
+    },
+    {
+      "name": "preserved-separate-claim",
+      "passed": true
+    },
+    {
+      "name": "merchant-browser-1440",
+      "passed": true
+    },
+    {
+      "name": "merchant-browser-390",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "merchant-logout",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "merchant-revoked-cookie-denied",
+      "passed": true
+    },
+    {
+      "name": "response-excludes-service-secrets",
+      "passed": true
+    },
+    {
+      "name": "authenticated-worker-wake",
+      "passed": true
+    },
+    {
+      "name": "actual-database-tls",
+      "passed": true
+    },
+    {
+      "name": "no-financial-state-changes",
+      "passed": true
+    }
+  ],
+  "testSessionsCreated": 2,
+  "testSessionsRevoked": 2
+}

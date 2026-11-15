@@ -1,5 +1,7 @@
 # AegisPay onboarding
 
+For the delivered hosted Testnet demo, start with the [operator handoff](demo-handoff.md) and [live login](https://aegispay-finals-app.onrender.com/login). Local3019/3020 are retired; the hosted database owns current history. Existing tokens remain in protected `.fmd-work/release-setup/hosted-access.md`. No extra rehearsal is required for this handoff. Development/reference setup below is separate from operating the deployed copy.
+
 ## What this is
 
 The current implementation runbook for the Testnet MVP. Local checks and saved proof are distinct from full live release.

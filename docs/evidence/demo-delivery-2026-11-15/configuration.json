@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "observedAt": "2026-11-14T16:22:00.863Z",
+  "sourceCommit": "d42cb96d43e2c82e98cb2bd8eba8b8637809f0c9",
+  "origin": "https://aegispay-finals-app.onrender.com",
+  "workerOrigin": "https://aegispay-finals-worker.onrender.com",
+  "scope": "exact-free-demo-environment-configuration",
+  "databaseTls": "verify-full",
+  "sharedEgressRangeCount": 2,
+  "broadAllInternetRule": false,
+  "secretsSeparated": true,
+  "workerInitiallyRunTestnet": "0",
+  "oldResourcesChanged": false
+}
