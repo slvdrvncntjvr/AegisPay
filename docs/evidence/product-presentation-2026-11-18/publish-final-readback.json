@@ -1,0 +1,63 @@
+{
+  "observedAt": "2026-11-18T04:22:54.305759+00:00",
+  "status": "passed",
+  "checkpointCommit": "a588052c6f9da762d35bb6b57b07b24cecbb1315",
+  "remoteRefs": [
+    "a588052c6f9da762d35bb6b57b07b24cecbb1315\trefs/heads/main",
+    "a588052c6f9da762d35bb6b57b07b24cecbb1315\trefs/heads/task/TASK-009-demo-readiness"
+  ],
+  "rawMainChecks": [
+    {
+      "path": "README.md",
+      "httpStatus": 200,
+      "bytes": 10174,
+      "sha256": "24d9799636e2480499a8a8abf7e4bd1a54a28ea6ba2a88ae6630373a23a4b403",
+      "matchesCommittedBlob": true
+    },
+    {
+      "path": "docs/index.md",
+      "httpStatus": 200,
+      "bytes": 12177,
+      "sha256": "25025c40cacce5b0f1c2dd4847fdbf4024ed3a5ab224412a4bcc89c1e0fe1f89",
+      "matchesCommittedBlob": true
+    },
+    {
+      "path": "docs/demo-handoff.md",
+      "httpStatus": 200,
+      "bytes": 4529,
+      "sha256": "02ac8e852c7580522185e4cd095d928f3f5ebb5f9dbc25243c5b5273062c1bd4",
+      "matchesCommittedBlob": true
+    },
+    {
+      "path": "docs/implementation-plan.md",
+      "httpStatus": 200,
+      "bytes": 46574,
+      "sha256": "2c6a7929ef5e25a892deb1dc18ec1353fc0531572974252f7ac29ea0b48281ac",
+      "matchesCommittedBlob": true
+    },
+    {
+      "path": "docs/evidence/product-presentation-2026-11-18/publication.md",
+      "httpStatus": 200,
+      "bytes": 8626,
+      "sha256": "00b26aacae89373f6de7d2284d81544d04997befe4326d34525d5ffd2719ff80",
+      "matchesCommittedBlob": true
+    },
+    {
+      "path": "docs/submission/AegisPay-pitch-draft.pdf",
+      "httpStatus": 200,
+      "bytes": 274483,
+      "sha256": "5855551530b8511bf55b23f8c56a9bf3665ef9274e5b8c1e1214ef98d018cd87",
+      "matchesCommittedBlob": true
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "httpStatus": 200,
+      "bytes": 4742,
+      "sha256": "d92c182396a11c153c398a24a437e050b107d2e034cda537b990c91e0d25d885",
+      "matchesCommittedBlob": true
+    }
+  ],
+  "preReceiptWorkingTreeClean": true,
+  "noApplicationActions": true,
+  "financialHandoffs": 0
+}
