@@ -1,0 +1,36 @@
+{
+  "observedAt": "2026-11-18T04:13:21.936593+00:00",
+  "reason": "staged diff check includes newly tracked transcripts; raw originals preserved",
+  "files": [
+    {
+      "path": "docs/evidence/product-presentation-2026-11-18/build-final.txt",
+      "originalSha256": "31b3bbb37a777b8c15cae367613c2f2902f233e8e4a7b16c97a561935cc2ba3f",
+      "originalPreservedIn": "publish-original-transcripts.zip",
+      "normalization": "trailing whitespace and redundant final blank lines only; output facts unchanged"
+    },
+    {
+      "path": "docs/evidence/product-presentation-2026-11-18/build.txt",
+      "originalSha256": "8d08d7f896e991c894d4d052d051ac6c9e1f543e567076d78c82f8d7ca199d38",
+      "originalPreservedIn": "publish-original-transcripts.zip",
+      "normalization": "trailing whitespace and redundant final blank lines only; output facts unchanged"
+    },
+    {
+      "path": "docs/evidence/product-presentation-2026-11-18/publish-copy-build.txt",
+      "originalSha256": "f87a6db61a60045b89a556f66a7cada679b454eeb24877eb2cd3dfebb2698ef3",
+      "originalPreservedIn": "publish-original-transcripts.zip",
+      "normalization": "trailing whitespace and redundant final blank lines only; output facts unchanged"
+    },
+    {
+      "path": "docs/evidence/product-presentation-2026-11-18/publish-proof-build.txt",
+      "originalSha256": "cbf4853725cf8a4b4cbaaf67ec67761f7847fe42ea58f0dd9fd12b6e87e5ca57",
+      "originalPreservedIn": "publish-original-transcripts.zip",
+      "normalization": "trailing whitespace and redundant final blank lines only; output facts unchanged"
+    },
+    {
+      "path": "docs/evidence/product-presentation-2026-11-18/publish-proof-dry.txt",
+      "originalSha256": "25fd371e8c261648d32fcbd8fb33ffc2d7772e8feb73608715f74f9c718998e1",
+      "originalPreservedIn": "publish-original-transcripts.zip",
+      "normalization": "trailing whitespace and redundant final blank lines only; output facts unchanged"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "scope": "--git",
-  "filesScanned": 83,
+  "filesScanned": 85,
   "knownCredentialMatches": 0,
   "hits": []
 }
