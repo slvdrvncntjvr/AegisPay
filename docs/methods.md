@@ -6,7 +6,7 @@ Only deterministic code originates financial amounts and measurements. Every com
 
 ## 1. Confidence rubric
 
-`confidence = min(methodValidated ? 2 : 0, ...inputTiers)` with high=2, medium=1, low=0. Method validation means its referenced QA case passed on the current code. Before those tests pass, methods remain unvalidated. Validated exact conversions with validated configured inputs may render as exact demo configuration; observed balances also need successful matching chain reads. Stale cached data is at most medium and labeled with observation time; unknown/missing chain data is unavailable, not an estimated point value. Low-confidence economic forecasts and financial estimates are omitted. Measurement confidence describes this sample, never a production prediction.
+`confidence = min(methodValidated ? 2 : 0, ...inputTiers)` with high=2, medium=1, low=0. Method validation means its referenced QA case passed on the current code. Before those tests pass, methods remain unvalidated. Validated exact conversions with validated configured inputs may render as exact fixture configuration; observed balances also need successful matching chain reads. Stale cached data is at most medium and labeled with observation time; unknown/missing chain data is unavailable, not an estimated point value. Low-confidence economic forecasts and financial estimates are omitted. Measurement confidence describes this sample, never a production prediction.
 
 ## 2. Equation registry
 
@@ -25,7 +25,7 @@ Only deterministic code originates financial amounts and measurements. Every com
 
 | ID | Input | Source / access | Confidence tier |
 |----|-------|-----------------|-----------------|
-| DS-001 | Demo prices, configured finite policy/task ceiling, immutable quote | Owner-controlled fixtures and accepted quote; demo content is self-authored, not live security intelligence | High for valid exact config; not evidence of market value |
+| DS-001 | Fixture prices, configured finite policy/task ceiling, immutable quote | Owner-controlled fixtures and accepted quote; fictional content is self-authored, not live security intelligence | High for valid exact config; not evidence of market value |
 | DS-002 | Run reservations, spend and attempt outcomes | PostgreSQL domain transactions; private operator access | High only after constraint/integration gates; unknown otherwise |
 | DS-003 | Contract reads, successful envelope/result/event and charged fee | Configured Stellar Testnet RPC plus saved proof; public-chain inputs | High after network/hash/contract/field match; unavailable when not observed |
 | DS-004 | Velo reservation and status DTO | Scoped operator API access; SDK-validated response | Medium alone; jointly matched chain data supports high, null remains unknown |

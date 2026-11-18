@@ -1,14 +1,14 @@
 # AegisPay — product requirements
 
-**Status:** execution specification, 2026-11-07. Origin: [IDEA.md §§2–5 and §23](../IDEA.md). Technical readiness remains conditional on the live spike.
+**Status:** execution specification, 2026-11-07. Origin: [IDEA.md §§2–5 and §23](../IDEA.md). The dated integration, application purchase and hosted handoff evidence are distinct; broader release qualification remains deferred.
 
 ## Overview & goals
 
-Prove one agent can choose and buy a demo API report using bounded Noir escrow authorization sponsored through Velo on Stellar Testnet. Prove replay and unresolved payment cannot release another report. Show merchant claim separately. Preserve every P0 outcome while limiting the app to one owner, one agent, one merchant wallet, two demo offers and XLM.
+Prove one agent can choose and buy a fictional API report using bounded Noir escrow authorization sponsored through Velo on Stellar Testnet. Prove replay and unresolved payment cannot release another report. Show merchant claim separately. Preserve every P0 outcome while limiting the app to one owner, one agent, one merchant wallet, two fictional offers and XLM.
 
 ## Personas & use cases
 
-The owner provisions and funds a restricted agent. The agent developer inspects a tool-driven purchase. The merchant operator prices fixtures, sees pending funds and signs a claim. One human may hold both demo roles, but the two wallet addresses are distinct.
+The owner provisions and funds a restricted agent. The agent developer inspects a tool-driven purchase. The merchant operator prices fixtures, sees pending funds and signs a claim. One human may hold both application roles, but the two wallet addresses are distinct.
 
 ## User stories
 
@@ -29,29 +29,29 @@ The owner provisions and funds a restricted agent. The agent developer inspects 
 
 | F-ID | Feature | Priority | Solves (problem) | Notes |
 |------|---------|----------|------------------|-------|
-| F-001 | Wallet and virtual device | MVP | Bounded delegated identity | One verified owner |
-| F-002 | XLM escrow | MVP | Finite available agent funds | Exact atomic units |
-| F-003 | Policy and safe revoke/reclaim | MVP | Uncontrolled authority | No daily-limit claim |
-| F-004 | HTTP 402 quote | MVP | Discoverable per-request price | Proprietary protocol |
-| F-005 | Model/tool choice | MVP | Autonomous purchasing intent | Real catalog inputs |
-| F-006 | Noir authorization | MVP | Contract-enforced payment | Off-model signer |
-| F-007 | Velo execution | MVP | Sponsored submission | Same Noir call |
-| F-008 | Evidence-gated fulfillment | MVP | Premature delivery | Two independent observations |
-| F-009 | Replay/resource/owner checks | MVP | Reused payment proof | DB constraints |
-| F-010 | Visible state and audit | MVP | Opaque failures | Redacted timeline |
-| F-011 | Merchant claim | MVP | Collect pending funds | Separate lifecycle |
-| F-012 | Reproduction and evidence | MVP | Unverifiable demo | Public workspaces repo, deployed app and submission links |
+| F-001 | Wallet and virtual device | P0 | Bounded delegated identity | One verified owner |
+| F-002 | XLM escrow | P0 | Finite available agent funds | Exact atomic units |
+| F-003 | Policy and safe revoke/reclaim | P0 | Uncontrolled authority | No daily-limit claim |
+| F-004 | HTTP 402 quote | P0 | Discoverable per-request price | Proprietary protocol |
+| F-005 | Model/tool choice | P0 | Autonomous purchasing intent | Real catalog inputs |
+| F-006 | Noir authorization | P0 | Contract-enforced payment | Off-model signer |
+| F-007 | Velo execution | P0 | Sponsored submission | Same Noir call |
+| F-008 | Evidence-gated fulfillment | P0 | Premature delivery | Two independent observations |
+| F-009 | Replay/resource/owner checks | P0 | Reused payment proof | DB constraints |
+| F-010 | Visible state and audit | P0 | Opaque failures | Redacted timeline |
+| F-011 | Merchant claim | P0 | Collect pending funds | Separate lifecycle |
+| F-012 | Reproduction and evidence | P0 | Unverifiable application | Public workspaces repo, deployed app and submission links |
 
 ## Business rules
 
 - **BR-001:** Only Stellar Testnet and one verified native-XLM SAC are enabled. Prices, balances, fees and nonce values use integer arithmetic; JSON uses decimal strings. Equations are in [methods](methods.md).
-- **BR-002:** Default fixture offers are QuickSignal 300000 and DeepTrace 1200000 stroops; per-payment cap and per-run task ceiling are 1000000; initial escrow target is 10000000. These are demo configuration, not commercial prices. Policy expiry defaults to one hour from registration. Zero/no-expiry policy is refused by the app.
-- **BR-003:** A run reserves its total accepted spend in a locked DB transaction before signing. One active run/payment operation per demo agent; the model cannot invoke concurrent payments or owner tools. Budget includes unresolved reservations. No automatic new quote/payment after a timed-out purchase.
+- **BR-002:** Seed-default fixture offers are QuickSignal 300000 and DeepTrace 1200000 stroops; per-payment cap and per-run task ceiling are 1000000; initial escrow target is 10000000. These are fictional fixture configuration, not commercial prices. The delivered independent context later set future QuickSignal metadata to400000 without changing the Nov14 paid quote300000; see [operator handoff](demo-handoff.md). Policy expiry defaults to one hour from registration. Zero/no-expiry policy is refused by the app.
+- **BR-003:** A run reserves its total accepted spend in a locked DB transaction before signing. One active run/payment operation per configured agent; the model cannot invoke concurrent payments or owner tools. Budget includes unresolved reservations. No automatic new quote/payment after a timed-out purchase.
 - **BR-004:** Quote lifetime is 120 seconds. An attempt must pass freshness at acceptance and immediately before first sponsorship/submission; a stale unsubmitted operation cannot spend. A valid submission dispatched in time that confirms late still earns its entitlement. Expiry never cancels an already handed-off payment.
 - **BR-005:** One 15-minute entitlement window starts when authorization is verified. Repeated reads of that same purchase during the window are allowed and never consume another payment. Different owner, quote or resource is denied. Expiry requires a new purchase; an unexpired prior receipt is recoverable by its authenticated owner.
 - **BR-006:** Reconciliation retries observations, not financial handoff. Persist a Velo reservation identity before marking submission dispatched. A crash with ambiguous handoff remains unresolved; no automatic second submission.
 - **BR-007:** Claim sweeps the merchant's pending balance for the single configured token. It may cover multiple authorizations. No one-to-one purchase/claim assumption or second entitlement is created.
-- **BR-008:** Console sections are Policy, Run, Merchant and Audit. Private demo fixture bodies are readable only through the entitlement gate, including by the merchant preview. Public descriptions contain no protected report text.
+- **BR-008:** Console sections are Policy, Run, Merchant and Audit. Private fictional fixture bodies are readable only through the entitlement gate, including by the merchant preview. Public descriptions contain no protected report text.
 - **BR-009:** Price edits affect future quotes only. Live SDK receipts and fixtures are labeled separately. RPC/SDK errors are rendered with stable safe codes. Unknown fees render “Unknown,” never zero.
 - **BR-010:** An absent dependency/key can block an integration task; it does not authorize invented APIs, fabricated receipts, unrelated Velo checkout, or UI success states.
 

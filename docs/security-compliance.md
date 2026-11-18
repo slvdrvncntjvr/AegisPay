@@ -1,6 +1,6 @@
 # Security and threat model
 
-**Scope:** private Testnet hackathon demo. Implement the controls below; no independent audit, production custody or compliance certification is claimed.
+**Scope:** private Testnet application. Implement the controls below; no independent audit, production custody or compliance certification is claimed.
 
 ## Data classification
 
@@ -8,13 +8,13 @@ See [data model](data-model.md) for field-level classification, secret exclusion
 
 ## Authn / authz model
 
-Use private demo authentication, not a full account service. Two independently generated high-entropy login secrets map to configured owner and merchant identities. POST-only login compares fixed-length hashed inputs using constant-time comparison; never include login secrets in bundles, URLs or logs. Create random 32-byte opaque session tokens, store only SHA-256 hashes in DB, and set `HttpOnly`, `SameSite=Strict`, `Path=/`, and `Secure` for HTTPS. Loopback HTTP development alone may omit Secure. Session lifetime is 8 hours; logout revokes the DB row.
+Use private role authentication, not a full account service. Two independently generated high-entropy login secrets map to configured owner and merchant identities. POST-only login compares fixed-length hashed inputs using constant-time comparison; never include login secrets in bundles, URLs or logs. Create random 32-byte opaque session tokens, store only SHA-256 hashes in DB, and set `HttpOnly`, `SameSite=Strict`, `Path=/`, and `Secure` for HTTPS. Loopback HTTP development alone may omit Secure. Session lifetime is 8 hours; logout revokes the DB row.
 
 Wallet connection is not login. The connected/signing wallet must match the role's configured address; returned transaction signatures and prepared body are verified server-side. Worker tokens are random, DB-hashed, scoped to owner+run, valid for at most 15 minutes and rotated for a waiting run; they cannot call owner, merchant or session-management routes. Web and worker query the same session ownership facts.
 
-All API surfaces are explicitly classified in [API spec](api-spec.md). Only login and minimal health are public; login has no application read/write authority until authenticated. GET catalog/demo routes still require session. Merchant has no owner task access or ungated fixture preview. No unauthenticated sponsorship, quote acceptance, claim or proof-ingest endpoint exists.
+All API surfaces are explicitly classified in [API spec](api-spec.md). Only login and minimal health are public; login has no application read/write authority until authenticated. GET catalog/fictional-report routes still require session. Merchant has no owner task access or ungated fixture preview. No unauthenticated sponsorship, quote acceptance, claim or proof-ingest endpoint exists.
 
-**Bounds:** login max 5 attempts per 15 minutes per IP-hash and role, plus a global max 50 per minute; authenticated writes max 30 per minute per actor; run starts max 3 per minute per owner plus the active-run lock; polling max 60 per minute per session. Use DB-backed counters with expiry for login/write limits; respond 429 with Retry-After. Do not trust spoofable forwarding headers unless a configured host proxy supplies them. Global limits may reduce availability under attack; this private demo is not a public auth service.
+**Bounds:** login max 5 attempts per 15 minutes per IP-hash and role, plus a global max 50 per minute; authenticated writes max 30 per minute per actor; run starts max 3 per minute per owner plus the active-run lock; polling max 60 per minute per session. Use DB-backed counters with expiry for login/write limits; respond 429 with Retry-After. Do not trust spoofable forwarding headers unless a configured host proxy supplies them. Global limits may reduce availability under attack; this private application is not a public auth service.
 
 **Bodies:** ordinary JSON max 16 KiB, wallet submit max 256 KiB, task text max 2000 characters, tool schemas strict and bounded, fixture body max 64 KiB. Enforce limits while streaming, not only through Content-Length. Mutating browser requests require exact configured Origin and same-site cookies; reject missing/untrusted Origin except scoped worker bearer calls. No wildcard CORS. Protected data, quote and receipt responses are `no-store` and never included in server-rendered public HTML.
 
@@ -42,7 +42,7 @@ All API surfaces are explicitly classified in [API spec](api-spec.md). Only logi
 | Risk | Who is harmed | Trigger | Guard |
 |------|---------------|---------|-------|
 | Repeated capped spending drains escrow | Owner | Compromised agent key | Finite escrow + expiry, task budget/serialization, revoke/disable; per-payment cap is not a daily budget (INV-007/INV-008) |
-| Misleading vulnerability report | Demo viewer | Fictional feed interpreted as intelligence | `isDemo` everywhere; sample dependency/report; no real security advice |
+| Misleading vulnerability report | Report viewer | Fictional feed interpreted as intelligence | `isDemo` everywhere; sample dependency/report; no real security advice |
 | False payment confidence | Merchant/owner | Unknown or pending status described as paid | Evidence gate and honest state/copy (INV-004/INV-005/INV-009) |
 
 ## Compliance obligations
@@ -73,4 +73,4 @@ These are execution gates, currently pending rather than claimed complete:
 - [ ] Live Velo/Noir success, policy refusal and merchant claim have reproducible evidence — TC-001/TC-002/TC-016.
 - [ ] Contracts/network/SAC and SDK versions match the saved live proof — TC-013.
 - [ ] Unknown/crash/replay recovery passes with no second financial handoff — TC-007/TC-012/TC-029.
-- [ ] Ledger, PRD, architecture and task status are reconciled before the demo.
+- [ ] Ledger, PRD, architecture and task status are reconciled before presentation.

@@ -58,12 +58,12 @@ test('401 redirects before private data and login safely clears tokens on non-JS
   await expect(page).toHaveURL(/\/login\?expired=1$/);
   await expect(page.locator('.login-error')).toContainText('session expired');
   await page.getByRole('combobox', { name: 'Role', exact: true }).selectOption('merchant');
-  await page.getByLabel('Demo access token').fill('synthetic-token-only');
+  await page.getByLabel('Access token').fill('synthetic-token-only');
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
   await expect(page.locator('.login-error')).toContainText('Sign in unavailable');
-  await expect(page.getByLabel('Demo access token')).toHaveValue('');
+  await expect(page.getByLabel('Access token')).toHaveValue('');
   await expect(page.locator('body')).not.toContainText('upstream stack');
-  await page.getByLabel('Demo access token').fill('synthetic-token-only');
+  await page.getByLabel('Access token').fill('synthetic-token-only');
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
   await expect(page).toHaveURL(base + '/app');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Your terms. Your claim.');
@@ -105,11 +105,11 @@ test('run creation recovers an ambiguous intent with one stable key and guards d
     return false;
   });
   await page.goto(base + '/app');
-  await page.getByLabel('Task for the demo dependency').fill('Synthetic idempotent intent');
+  await page.getByLabel('Task for the dependency').fill('Synthetic idempotent intent');
   await page.getByRole('button', { name: 'Start task', exact: true }).dblclick();
   await expect(page.getByRole('button', { name: 'Recover run request' })).toBeEnabled();
   expect(posts).toBe(1);
-  await expect(page.getByLabel('Task for the demo dependency')).toBeDisabled();
+  await expect(page.getByLabel('Task for the dependency')).toBeDisabled();
   await page.getByRole('button', { name: 'Recover run request' }).click();
   await expect(page.getByText('Queued · not executed', { exact: true })).toBeVisible();
   const requests = t.seen.filter(r => r.path === '/api/v1/runs');
@@ -135,7 +135,7 @@ for (const anotherActive of [false, true]) test(`polled failed detail reconciles
     return false;
   });
   await page.goto(base + '/app');
-  await page.getByLabel('Task for the demo dependency').fill('Synthetic terminal model observation');
+  await page.getByLabel('Task for the dependency').fill('Synthetic terminal model observation');
   await page.getByRole('button', { name: 'Start task', exact: true }).click();
   await expect(page.locator('.pc-run-observation .pc-status')).toHaveText('failed');
   await expect(page.getByLabel('Saved run').locator('option:checked')).toHaveText(`failed · ${runId}`);
@@ -172,7 +172,7 @@ for (const terminalStatus of ['completed', 'failed']) {
       return false;
     });
     await page.goto(base + '/app');
-    await page.getByLabel('Task for the demo dependency').fill(task);
+    await page.getByLabel('Task for the dependency').fill(task);
     await page.getByRole('button', { name: 'Start task', exact: true }).dblclick();
     await expect(page.getByRole('button', { name: 'Run saved' })).toBeDisabled();
     await expect(page.getByRole('button', { name: 'Compose a new task' })).toBeVisible();
@@ -182,7 +182,7 @@ for (const terminalStatus of ['completed', 'failed']) {
     // with a historical key. No actual provider configuration is changed.
     modelRevision++;
     await page.reload();
-    await page.getByLabel('Task for the demo dependency').fill(task);
+    await page.getByLabel('Task for the dependency').fill(task);
     await page.getByRole('button', { name: 'Start task', exact: true }).click();
     await expect(page.getByRole('button', { name: 'Run saved' })).toBeDisabled();
     const requests = t.seen.filter(r => r.path === '/api/v1/runs');
@@ -214,13 +214,13 @@ test('lost acknowledgement then reload recovers the original key even with a sav
     return false;
   });
   await page.goto(base + '/app');
-  await page.getByLabel('Task for the demo dependency').fill(task);
+  await page.getByLabel('Task for the dependency').fill(task);
   await page.getByRole('button', { name: 'Start task', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Recover run request' })).toBeEnabled();
   const before = await page.evaluate(() => ({ ...sessionStorage }));
   expect(Object.keys(before)).toHaveLength(1); expect(JSON.stringify(before)).not.toContain(task);
   await page.reload();
-  await page.getByLabel('Task for the demo dependency').fill(task);
+  await page.getByLabel('Task for the dependency').fill(task);
   await expect(page.getByRole('button', { name: 'Recover run request' })).toBeEnabled();
   await page.getByRole('button', { name: 'Recover run request' }).dblclick();
   await expect(page.getByRole('button', { name: 'Run saved' })).toBeDisabled();
@@ -260,7 +260,7 @@ test('authenticated trace displays only public untrusted choice commentary and p
 
 test('trusted accepted quote events keep original terms separate from a changed current offer', async ({ page }) => {
   const t = await ownerTransport(page, async (route,path) => {
-    if (path === '/api/v1/state') { await response(route, { ...owner(), offers: [{ ...offer, priceStroops: '900000' }] }); return true; }
+    if (path === '/api/v1/state') { await response(route, { ...owner(), offers: [{ ...offer, priceStroops: '900000' }, { ...offer, id: id(91), resourceKey: 'deep-trace:demo-parser:v1' }, { ...offer, id: id(92), resourceKey: 'constructor', description: 'Unknown resource metadata' }] }); return true; }
     if (path.endsWith('/events')) { await response(route, { events: [{ id: '1', kind: 'payment_accepted', createdAt: '2026-11-10T00:00:00Z', safePayload: { quoteId: attempt.quoteId, resourceKey: offer.resourceKey, amountStroops: '300000', assetContractId: asset, merchantAddress: wallet, expiresAt: '2026-11-10T00:02:00Z', attemptId: attempt.attemptId, operationId: attempt.operationId } }], nextCursor: '1' }); return true; }
     return false;
   });
@@ -268,6 +268,12 @@ test('trusted accepted quote events keep original terms separate from a changed 
   await expect(page.locator('.pc-offers')).toContainText('0.0900000 XLM');
   await expect(page.locator('.pc-quote')).toContainText('0.0300000 XLM');
   await expect(page.locator('.pc-quote')).not.toContainText('0.0900000 XLM');
+  await expect(page.locator('.pc-offers strong')).toContainText(['QuickSignal', 'DeepTrace', 'constructor']);
+  await expect(page.locator('.pc-offers')).toContainText('Unknown resource metadata');
+  await expect(page.locator('.pc-quote')).toContainText('QuickSignal');
+  const identity = page.locator('.pc-quote details').filter({ hasText: 'Resource identity' });
+  await identity.locator('summary').click();
+  await expect(identity.locator('code')).toHaveText(offer.resourceKey);
   expect(t.seen.some(r => r.method !== 'GET')).toBe(false);
   t.assertHandled();
 });
@@ -287,12 +293,12 @@ test('receipt metadata precedes a separately gated synthetic report and session 
   await page.getByRole('button', { name: 'View receipt metadata' }).click();
   expect(resourceReads).toBe(0);
   await expect(page.locator('body')).not.toContainText('SYNTHETIC_TOKEN_MUST_NOT_RENDER_OR_STORE');
-  await page.getByRole('button', { name: 'Read entitled demo report' }).click();
+  await page.getByRole('button', { name: 'Read entitled report' }).click();
   await expect(page.getByText('SYNTHETIC_REPORT_BODY_NOT_LIVE')).toBeVisible();
   await stamp(page);
   await page.screenshot({ path: 'test-results/demo-readiness-captures/synthetic-receipt-desktop.png', fullPage: true });
   expect(await page.evaluate(() => JSON.stringify({ ...localStorage, ...sessionStorage }))).not.toContain('SYNTHETIC_TOKEN');
-  await page.getByRole('button', { name: 'Read entitled demo report' }).click();
+  await page.getByRole('button', { name: 'Read entitled report' }).click();
   await expect(page).toHaveURL(/\/login\?expired=1$/);
   await expect(page.locator('body')).not.toContainText('SYNTHETIC_REPORT_BODY_NOT_LIVE');
   t.assertHandled();
@@ -311,7 +317,7 @@ test('expired entitlement refuses content without a second purchase and stale co
   await page.goto(base + '/app');
   await page.getByRole('button', { name: 'Observe saved operation' }).click();
   await page.getByRole('button', { name: 'View receipt metadata' }).click();
-  await page.getByRole('button', { name: 'Read entitled demo report' }).click();
+  await page.getByRole('button', { name: 'Read entitled report' }).click();
   await expect(page.locator('.product-console').getByRole('alert')).toContainText('ENTITLEMENT_EXPIRED');
   await expect(page.locator('.pc-report')).toHaveCount(0);
   stale = true;
@@ -332,7 +338,7 @@ test('merchant edits exact integer future metadata and prepares a separate conse
     return false;
   });
   await page.goto(base + '/app');
-  await expect(page.getByLabel('Task for the demo dependency')).toHaveCount(0);
+  await expect(page.getByLabel('Task for the dependency')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Observe saved operation' })).toHaveCount(0);
   await expect(page.getByRole('heading', { name: 'Merchant pending', exact: true })).toBeVisible();
   const price = page.getByLabel('Future price in integer stroops');

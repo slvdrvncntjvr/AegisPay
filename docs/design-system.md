@@ -8,11 +8,11 @@ The public surface should make a specific useful task, bounded authority and ind
 
 Magic UI and Watermelon UI are current component/pattern references, not a mandate to install every effect or add dependencies. Use licensed source responsibly. Motion must respect reduced-motion settings and carry meaning through state transitions. Verify rendered output at 320/390px, tablet, desktop and 1280×720; all identifiers remain accessible without horizontal document overflow. TASK-014 owns the independent public redesign; TASK-008 still owns the backend-integrated product console after TASK-006.
 
-**Status:** proposed MVP UI. No existing brand assets or rendered Figma file were supplied. Tokens below are explicitly chosen defaults, not transcribed from a codebase. Last specified: 2026-11-07; implementation sync pending TASK-008.
+**Status:** application UX specification. The current console and public proof viewer are implemented; TASK-034 reconciles presentation copy without changing payment or security behavior. The token selection below remains the original specified design reference.
 
 ## Design principles
 
-Make evidence visible. Keep financial state and available actions unambiguous. Show one primary action per section and preserve context when a transaction waits. Use text plus color for status and a persistent Testnet/demo banner. Prefer an understandable state table to visual effects.
+Make evidence visible. Keep financial state and available actions unambiguous. Show one primary action per section and preserve context when a transaction waits. Use text plus color for status and a persistent Stellar Testnet banner and fictional-report disclosure. Prefer an understandable state table to visual effects.
 
 ## Component inventory
 
@@ -40,13 +40,13 @@ Model rationale is a brief stated choice, not an internal reasoning dump. Expose
 - INV-008: label actual RPC simulation denial “Live contract simulation refused”; label an included failed transaction only when a ledger hash/result exists.
 - INV-009: ban “Merchant settled” for authorization. Keep “Authorized in escrow” and “Claimed by merchant” separate. No Velo checkout success toast unlocks a report.
 - INV-010: no automatic retry-payment CTA for unknown submissions. A diagnostic harness is not a public “bypass policy” button.
-- Global: ban “Production ready,” “Audited,” “x402 compliant,” “Guaranteed instant” and “Fee free.” Use “Testnet demo,” “HTTP 402-inspired” and measured latency/fee only.
+- Global: ban “Production ready,” “Audited,” “x402 compliant,” “Guaranteed instant” and “Fee free.” Use “Stellar Testnet,” “HTTP 402-inspired” and measured latency/fee only.
 
 **Defaults overridden:** runtime is Node for all SDK-backed routes; no static caching/prefetch of protected reports; no framework auto-generated success UI substitutes for ledger evidence.
 
 ## Accessibility standards
 
-Target keyboard use, visible focus, labeled inputs, semantic tables, status text in a polite live region and WCAG AA contrast. Avoid focus jumps during polling. Long hashes wrap with copy buttons that announce completion. Manual keyboard and screen-reader smoke checks remain part of the demo gate; formal conformance certification is out of scope.
+Target keyboard use, visible focus, labeled inputs, semantic tables, status text in a polite live region and WCAG AA contrast. Avoid focus jumps during polling. Long hashes wrap with copy buttons that announce completion. Manual keyboard and screen-reader smoke checks remain part of the presentation gate; formal conformance certification is out of scope.
 
 ## Key screen specs / wireframes
 

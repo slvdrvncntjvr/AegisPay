@@ -14,7 +14,7 @@ test('recorded proof exposes real amounts and refuses before submission without 
   await expect(page.locator('.amount')).toContainText('0.03');
   await expect(page.locator('.cap-label')).toContainText('0.10 XLM');
   await expect(page.locator('.policy-expiry')).toContainText('Historical policy expired');
-  await expect(page.locator('.instrument-bottom')).toContainText('Not a completed autonomous model purchase');
+  await expect(page.locator('.instrument-bottom')).toContainText('Separate from the 14 November model purchase');
   await page.getByRole('tab', { name: 'Over-cap refusal' }).click();
   await expect(page.locator('.amount')).toContainText('0.12');
   await expect(page.locator('.decision-title')).toHaveText('No payment submitted.');
@@ -106,12 +106,12 @@ test('private access preserves request contract and navigates to authenticated p
   });
   await page.goto(base + '/login');
   await page.getByRole('combobox', { name: 'Role', exact: true }).selectOption('merchant');
-  await page.getByLabel('Demo access token').fill('synthetic-ui-test-token');
+  await page.getByLabel('Access token').fill('synthetic-ui-test-token');
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
   await expect(page.locator('.login-error')).toHaveText('Access token not accepted');
-  await expect(page.getByLabel('Demo access token')).toHaveValue('');
+  await expect(page.getByLabel('Access token')).toHaveValue('');
   accepted = true;
-  await page.getByLabel('Demo access token').fill('synthetic-ui-test-token');
+  await page.getByLabel('Access token').fill('synthetic-ui-test-token');
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
   await expect(page).toHaveURL(base + '/app');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Your terms. Your claim.');

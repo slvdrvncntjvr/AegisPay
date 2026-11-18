@@ -1,0 +1,1 @@
+$ eslint scripts src tests apps packages --no-error-on-unmatched-pattern

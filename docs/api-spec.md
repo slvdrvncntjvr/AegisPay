@@ -1,6 +1,6 @@
 # Application API specification
 
-**Status:** proposed AegisPay contracts; not vendor SDK methods. Base URL is trusted `APP_ORIGIN`. Route handlers use Node runtime. Implement matching Zod schemas in `src/server/domain/protocol.ts`; machine-readable OpenAPI export is deferred for this private MVP.
+**Status:** proposed AegisPay contracts; not vendor SDK methods. Base URL is trusted `APP_ORIGIN`. Route handlers use Node runtime. Implement matching Zod schemas in `src/server/domain/protocol.ts`; machine-readable OpenAPI export is deferred for this private application.
 
 ## Overview
 
@@ -12,7 +12,9 @@ Amounts/nonces are unsigned decimal strings, timestamps ISO-8601 UTC, IDs UUIDs,
 
 ## Endpoints / operations
 
-### API-001 — POST /api/session and DELETE /api/session — demo login/logout
+<a id="api-001--post-apisession-and-delete-apisession--demo-loginlogout"></a>
+
+### API-001 — POST /api/session and DELETE /api/session — private login/logout
 
 Serves F-001, F-012. POST `{role: 'owner'|'merchant', token: string}` authenticates against that role's configured high-entropy login secret; returns 204 with cookie. DELETE revokes the session and clears cookie, 204. Auth: POST public but throttled, DELETE authenticated. No public signup, token echo or token in URL. A login role is mapped to configured owner/merchant, not selected wallet addresses. Errors: AUTH_INVALID, RATE_LIMITED, ORIGIN_DENIED.
 
@@ -32,7 +34,7 @@ Serves F-001, F-002, F-003, F-011. Request discriminated union:
 {kind:'claim'}
 ```
 
-Owner role allowed for lifecycle actions; merchant role only for claim. Device, source addresses and asset come from trusted configured context. Response 201 `{operationId, unsignedXdr, networkPassphrase, signerAddress, expiresAt}`. The XDR here is the owner's or merchant's reviewable transaction, never the agent's signed payment. Reject a zero cap, nonfuture expiry, unfunded dependency, wrong actor, or concurrent pending operation. `sweepOnRevoke` is prepared only after revocation confirms; no device-removal endpoint in MVP.
+Owner role allowed for lifecycle actions; merchant role only for claim. Device, source addresses and asset come from trusted configured context. Response 201 `{operationId, unsignedXdr, networkPassphrase, signerAddress, expiresAt}`. The XDR here is the owner's or merchant's reviewable transaction, never the agent's signed payment. Reject a zero cap, nonfuture expiry, unfunded dependency, wrong actor, or concurrent pending operation. `sweepOnRevoke` is prepared only after revocation confirms; no device-removal endpoint in this application.
 
 ### API-004 — POST /api/v1/wallet-operations/:id/submit and GET /api/v1/wallet-operations/:id
 
@@ -40,7 +42,7 @@ Serves F-001, F-002, F-003, F-011. POST `{signedXdr:string}` after explicit Frei
 
 ### API-005 — GET /api/v1/catalog — two trusted public descriptions
 
-Serves F-004, F-005. Auth: owner or scoped worker. Response 200 `{offers:[{resourceKey,description,priceStroops,assetContractId,isDemo:true}]}`. Exactly two enabled seeded demo resources; no protected report text or arbitrary outbound URLs.
+Serves F-004, F-005. Auth: owner or scoped worker. Response 200 `{offers:[{resourceKey,description,priceStroops,assetContractId,isDemo:true}]}`. Exactly two enabled seeded fictional resources; no protected report text or arbitrary outbound URLs.
 
 ### API-006 — POST /api/v1/runs and GET /api/v1/runs/:id
 
@@ -54,7 +56,7 @@ Serves F-005, F-010. Auth: owning session. Response 200 `{events:[{id,kind,safeP
 
 ### API-008 — GET /api/demo/:provider?dependency=demo-parser&runId=:id
 
-Serves F-004, F-009. `provider` allowlist is `quick-signal|deep-trace`; dependency is the single demo slug. Auth: owning session or scoped worker for that run. Without receipt, store a quote then return 402 with no report:
+Serves F-004, F-009. `provider` allowlist is `quick-signal|deep-trace`; dependency is the single configured fixture slug. Auth: owning session or scoped worker for that run. Without receipt, store a quote then return 402 with no report:
 
 ```json
 {
@@ -107,7 +109,7 @@ Envelope: `{error:{code,message,correlationId}}`; safe fixed messages only. Do n
 | 429 | RATE_LIMITED | Fixed Retry-After and no enqueue |
 | 503 | DEPENDENCY_UNAVAILABLE, INTEGRATION_NOT_VERIFIED | Fail closed until prerequisites/gates pass |
 
-Unresolved payment is a 200/202 resource status with `status:'unknown'` and safe `PAYMENT_STATUS_UNKNOWN`, not an HTTP 500 implying it can be purchased again. No MVP `/webhook` route is registered.
+Unresolved payment is a 200/202 resource status with `status:'unknown'` and safe `PAYMENT_STATUS_UNKNOWN`, not an HTTP 500 implying it can be purchased again. No application `/webhook` route is registered.
 
 ## Rate limits
 
@@ -115,4 +117,4 @@ Canonical limits/body sizes/session lifetimes are in [security](security-complia
 
 ## Versioning
 
-Application contracts are `/api/v1` except explicit demo/session/health routes. The 402 challenge carries its protocol version. Incompatible contract changes update protocol/version and affected QA before code; no generic external developer compatibility promise in MVP.
+Application contracts are `/api/v1` except explicit demo/session/health routes. The 402 challenge carries its protocol version. Incompatible contract changes update protocol/version and affected QA before code; no generic external developer compatibility promise in this application.

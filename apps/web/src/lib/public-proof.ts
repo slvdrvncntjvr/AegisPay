@@ -4,7 +4,7 @@
  * Source evidence file: docs/evidence/testnet/spike-c080d947-714b-43cf-92d0-ad9ed7c01439-1794064999769.json
  */
 export const PUBLIC_PROOF = {
-  label: 'Verified Testnet spike · not a completed model purchase',
+  label: 'Verified Testnet integration · 7 November 2026',
   classification: 'live-same-transaction-noir-velo-spike',
   observedAt: '2026-11-07T15:23:19.766Z',
   network: 'Stellar Testnet',

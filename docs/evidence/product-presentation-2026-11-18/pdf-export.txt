@@ -1,0 +1,9 @@
+{
+  "pdf": "C:\\Users\\Vincent\\VS Codes\\Noir X Velo\\docs\\submission\\AegisPay-pitch-draft.pdf",
+  "browser": "156.0.8078.4",
+  "playwright": "1.65.0",
+  "slides": 8,
+  "layoutViolations": [],
+  "externalLinks": 23,
+  "pageErrors": []
+}

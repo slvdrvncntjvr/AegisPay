@@ -1,33 +1,35 @@
-# AegisPay pitch and demo runbook
+<a id="aegispay-pitch-and-demo-runbook"></a>
 
-**Status:** draft rehearsal sources, not a claim of a completed app demo. Supplied handbook rubric/format are recorded in [context](../context.md); deadline passed, no extension supplied. One SDK payment is proved; app/model implementation, separate console preview and recorded-proof media exist, while full actual model/payment/worker release remains unfinished. Method: FMD pitch playbook (local preparation reference).
+# AegisPay pitch and presentation runbook
+
+**Status:** current presentation sources for the delivered Testnet application. Supplied handbook rubric/format are recorded in [context](../context.md); deadline passed, no extension supplied. Nov7 integration proof is separate from the verified Nov14 Gemini purchase/report, Nov15Manila merchant claim and hosted handoff; broader production qualification remains deferred. Method: FMD pitch playbook (local preparation reference).
 
 ## 1. Business narrative
 
-APIs that agents can buy from, with spending rules outside their prompts. AegisPay is a Testnet experiment for agent developers: the model chooses useful demo data, Noir constrains escrow authorization, Velo sponsors the signed call, and the gateway verifies payment before returning the report. The demo tests one reliable purchasing workflow. Customer demand and a sustainable fee model remain hypotheses.
+APIs that agents can buy from, with spending rules outside their prompts. AegisPay supports bounded Testnet payments for agent developers: the model chooses useful fictional data, Noir constrains escrow authorization, Velo sponsors the signed call, and the gateway verifies payment before returning the report. The application preserves a verified purchasing workflow. Customer demand and a sustainable fee model remain hypotheses.
 
-Do not use past-tense success language until [QA release gates](qa-test-plan.md) and saved live artifacts support it.
+Scope success to the dated [purchase/report](evidence/first-app-purchase-2026-11-14/report.md), [separate claim](evidence/merchant-claim-2026-11-14/report.md) and [hosted handoff](demo-handoff.md); [QA release gates](qa-test-plan.md) retain broader deferred obligations.
 
 ## 2. Business Model Canvas
 
 | Block | Content | Pitch beat |
 |-------|---------|------------|
-| Value proposition | Autonomous request purchase with observable limits and fulfillment | Problem/demo |
+| Value proposition | Autonomous request purchase with observable limits and fulfillment | Problem / workflow |
 | Customer segments | Small agent teams and specialized API owners; no validated customer base | Problem |
 | Why this project | A narrow Noir/Velo integration and honest recovery workflow; no asserted protocol moat | Wedge |
 | Key partners | Noir, Velo, Stellar and model API are technical dependencies, not claimed partnerships | Technology |
-| Key activities | Correct authorization, evidence mapping and delivery | Demo |
+| Key activities | Correct authorization, evidence mapping and delivery | Workflow |
 | Key resources | Working adapter, invariants and inspectable transaction evidence once built | Proof |
 | Cost structure | Model calls, DB/worker hosting, RPC and sponsored chain fees; unbenchmarked | Model |
-| Revenue streams | Potential provider gateway subscription/usage fee; unvalidated, no real charging in MVP | Model |
-| Channels | Hackathon demo and subsequent direct developer pilots | Ask |
-| Customer relationships | Hands-on test integrations and behavior-based feedback after demo | Ask |
+| Revenue streams | Potential provider gateway subscription/usage fee; unvalidated, no real-money charging on Testnet | Model |
+| Channels | Hackathon presentation and subsequent direct developer pilots | Ask |
+| Customer relationships | Hands-on test integrations and behavior-based feedback after presentation | Ask |
 
 ## 3. Timed script and operational runbook
 
-The handbook requires a **two-minute video**, a **five-minute pitch with live demo**, then **three-minute Q&A**. The form's reported five-minute video maximum does not relax the stricter two-minute target. Use [the complete recording script](submission/recording-script.md) and [eight-slide deck source](submission/pitch-deck.md). An evidence-replay video and refreshed eight-slide PDF are already published; the complete actual model-purchase recording remains outstanding. [Submission packet](submission/README.md) tracks actual links and a draft short write-up.
+The handbook requires a **two-minute video**, a **five-minute pitch with live demo**, then **three-minute Q&A**. The form's reported five-minute video maximum does not relax the stricter two-minute target. Use [the complete recording script](submission/recording-script.md) and [eight-slide deck source](submission/pitch-deck.md). An evidence-replay video and refreshed eight-slide PDF are already published; the complete actual model-purchase recording remains outstanding. [Submission packet](submission/README.md) tracks actual links and the current short write-up.
 
-**Before recording/presenting:** pass TASK-010/TASK-012 gates; verify mandatory Testnet tuple, current policy/escrow, model access, sponsor health, authenticated ownership and public URL. Open actual Policy/Run/Audit, explorer and redacted proof. Label fixture reports and saved recordings; no fabricated product screenshot. TASK-002 review fixes and real workspaces are accepted; actual full model/payment/worker release remains unfinished. Current proof cannot be narrated as a completed model purchase.
+**Before presenting:** open existing hosted Policy/Run/Audit history, explorer and redacted evidence with Testnet and fictional-report labels visible. The original policy and report window have expired: inspect receipt metadata, not a renewed report. No new task, purchase, signature or claim is needed to present saved history. A future purchase requires fresh policy and task consent. Broader TASK-010/TASK-012 gates remain deferred. The recording sequence below is a future capture plan, not authority for financial actions.
 
 | Video time | Beat | Evidence required |
 |------------|------|-------------------|
@@ -39,13 +41,13 @@ The handbook requires a **two-minute video**, a **five-minute pitch with live de
 | 91–107s | Refusal and wrong-resource denial | Label actual contract simulation vs included transaction |
 | 107–120s | Pending vs separate claim, public links/ask | Separate claim proof; verified URLs only |
 
-Allow actual pending time; disclose edits/wait intervals. Network fallback is a labeled recording of an actual earlier run with timestamp/matching proof. If only the current integration exists, use source/artifact/explorer views and say model app/deployment are incomplete; it is not a substitute for the working website. Never force a state to fit the timer.
+Allow actual pending time; disclose edits/wait intervals. Network fallback is a labeled recording of an actual earlier run with timestamp/matching proof. Use dated Nov14 application evidence and existing hosted history, while keeping the Nov7 integration replay separate; do not imply the expired report is readable. Never force a state to fit the timer.
 
-**Five-minute live pitch:** slide 1 problem/boundary 0:00–0:25; slide 2 workflow/users 0:25–0:55; slide 3 live demo 0:55–2:10; slide 4 architecture 2:10–2:50; slide 5 verified proof 2:50–3:25; slide 6 recovery 3:25–4:00; slide 7 pilot/economics hypotheses 4:00–4:30; slide 8 status/ask 4:30–5:00. Then Q&A until 8:00. Salvador Vincent Javier owns every beat; no fictional teammate.
+**Five-minute live pitch:** slide 1 problem/boundary 0:00–0:25; slide 2 workflow/users 0:25–0:55; slide 3 recorded application evidence 0:55–2:10; slide 4 architecture 2:10–2:50; slide 5 verified proof 2:50–3:25; slide 6 recovery 3:25–4:00; slide 7 pilot/economics hypotheses 4:00–4:30; slide 8 status/ask 4:30–5:00. Then Q&A until 8:00. Salvador Vincent Javier owns every beat; no fictional teammate.
 
 | Official criterion | Weight | Pitch evidence / honest gap |
 |--------------------|--------|-----------------------------|
-| Agentic payments fit | 30% | Real model decides/request payment; current SDK spike alone does not prove this |
+| Agentic payments fit | 30% | Nov14 Gemini choice/purchase/report; Nov7 SDK proof alone is separate |
 | Technical execution | 25% | Same-transaction Noir/Velo proof, invariants, deployed app; remaining gates explicit |
 | Innovation | 20% | Agent purchase plus inspectable constrained authorization; no unsupported novelty/moat claim |
 | Real-world potential | 15% | Specific developer/API-provider pilot; demand and sustainable pricing unvalidated |
@@ -53,11 +55,11 @@ Allow actual pending time; disclose edits/wait intervals. Network fallback is a 
 
 ## 4. Q&A ownership map
 
-Salvador Vincent Javier is the single presenter/owner for product, technical demo and business questions; there are no fictional speakers.
+Salvador Vincent Javier is the single presenter/owner for product, technical workflow and business questions; there are no fictional speakers.
 
 | Question | Owner | Answer |
 |----------|-------|--------|
-| Is the data real? | Vincent | Reports are demo fixtures; payment evidence is real only when linked to successful Testnet records |
+| Is the data real? | Vincent | Reports are fictional fixtures; payment evidence is real only when linked to successful Testnet records |
 | Is this x402 compliant? | Vincent | HTTP 402-inspired proprietary adapter; no v2 conformance claim |
 | How do both SDKs matter? | Vincent | Noir policy/escrow preparation; Velo sponsors/submits that same authorization; independent RPC proof gates access |
 | Does this guarantee a daily budget? | Vincent | Noir enforces per-payment cap/expiry and finite escrow; app enforces this run's ceiling |
@@ -66,7 +68,7 @@ Salvador Vincent Javier is the single presenter/owner for product, technical dem
 | Why not prepaid keys? | Vincent | They may be preferable; this tests wallet-based agent purchasing ergonomics, not proven superiority |
 | What if it times out? | Vincent | Retain saved identity and reconcile; no report or second automatic charge |
 | Who pays and is it sustainable? | Vincent | A provider service fee is a hypothesis; real cost/margin/customer validation is pending |
-| Does it satisfy the hackathon? | Vincent | Mandatory October 24 IDs match proof; actual Velo role is Gas. Workspaces/app code, a separate preview and recorded-proof media exist; full model/payment/worker release remains unfinished; organizer Gas interpretation, registration and late acceptance are unconfirmed. No eligibility promise |
+| Does it satisfy the hackathon? | Vincent | Mandatory October 24 IDs match proof; actual Velo role is Gas. The hosted Testnet application preserves the verified model purchase/report and separate merchant claim; broader production/live qualification remains deferred; organizer Gas interpretation, registration and late acceptance are unconfirmed. No eligibility promise |
 
 ## 5. Interview probe sheet
 

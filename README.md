@@ -1,16 +1,16 @@
 # AegisPay
 
-A bounded agent payment experiment: immutable API quotes, Noir spending policy, Velo sponsorship and independently verified Stellar Testnet evidence before protected report access.
+Bounded agent payments: immutable API quotes, Noir spending policy, Velo sponsorship and independently verified Stellar Testnet evidence before protected report access.
 
-**The hosted Testnet demo is delivered:** [open the login page](https://aegispay-finals-app.onrender.com/login), using the existing owner/merchant tokens. See the [operator handoff](docs/demo-handoff.md) and [delivery evidence](docs/evidence/demo-delivery-2026-11-15/report.md). Its completed purchase, report and merchant payout history are preserved. Local services are retired; no extra rehearsal is required for this handoff. Broader production qualification remains deferred.
+**The hosted Testnet application is available:** [open the login page](https://aegispay-finals-app.onrender.com/login), using the existing owner/merchant tokens. See the [operator handoff](docs/demo-handoff.md) and [delivery evidence](docs/evidence/demo-delivery-2026-11-15/report.md). Its completed purchase, report and merchant payout history are preserved. Local services are retired; no extra rehearsal is required for this handoff. Broader production qualification remains deferred.
 
 - **Public saved proof:** [aegispay-live.vercel.app](https://aegispay-live.vercel.app), replaying one historical SDK authorization and separate claim.
-- **Authenticated preview:** [aegispay-auth-preview.onrender.com/app](https://aegispay-auth-preview.onrender.com/app). Private owner/merchant access; Nov 11 qualification excluded model and financial execution. Nov 14 anonymous health/login/console checks pass and protected APIs return401; current authenticated qualification remains open.
+- **Authenticated preview:** [aegispay-auth-preview.onrender.com/app](https://aegispay-auth-preview.onrender.com/app). Private owner/merchant access; Nov 11 qualification excluded model and financial execution. Nov 14 anonymous health/login/console checks pass and protected APIs return401; its broader authenticated qualification remains open.
 - **Video:** [112-second recorded evidence replay](docs/submission/aegispay-demo.mp4). A completed live model-purchase recording remains outstanding.
 - **Deck:** [public eight-slide PDF](https://github.com/slvdrvncntjvr/AegisPay/blob/main/docs/submission/AegisPay-pitch-draft.pdf).
 - **Team:** Salvador Vincent Javier; Discord/registration confirmation remains external.
 
-The application, four workspaces, PostgreSQL persistence, bounded Gemini loop, authenticated console and human-wallet APIs are implemented. One real model-driven purchase/report and its separate merchant payout passed. The hosted demo preserves that exact history and nonce. Broader second-purchase, refusal, recovery, lifecycle and production qualification remain deferred under the user-selected Testnet handoff. The [task ledger](docs/implementation-plan.md) preserves those separate scopes.
+The application, four workspaces, PostgreSQL persistence, bounded Gemini loop, authenticated console and human-wallet APIs are implemented. One real model-driven purchase/report and its separate merchant payout passed. The hosted application preserves that exact history and nonce. Broader second-purchase, refusal, recovery, lifecycle and production qualification remain deferred under the user-selected Testnet handoff. The [task ledger](docs/implementation-plan.md) preserves those separate scopes.
 
 ## Implemented behavior
 
@@ -18,7 +18,7 @@ Owner Policy/Run/Audit and merchant Pending/Offers/Claim screens use authenticat
 
 Freighter actions require explicit human review and the configured Testnet signer. Reclaim checks revocation and rejects unresolved purchases; pending reclaim also blocks new purchases. Durable wallet observation jobs use saved hashes, lease fencing and authenticated wake. Only an exact independently included failed human-wallet transaction can terminate as failed; ambiguous data stays unknown. Synthetic local tests do not establish live acceptance.
 
-The real Gemini run completed one QuickSignal purchase and entitled report read. The separate merchant claim paid0.03TestnetXLM. Current escrow is0.07XLM and merchant pending0; future QuickSignal quotes cost0.04XLM while the paid quote stays0.03XLM. Renew the expired finite owner policy in Freighter before a new task. Receipt metadata remains available; the original expired report window is not extended.
+The real Gemini run completed one QuickSignal purchase and entitled report read. The separate merchant claim paid 0.03 Testnet XLM. At the last verified checkpoint, escrow was 0.07 XLM and merchant pending was 0; future QuickSignal quotes were set to 0.04 XLM while the paid quote stays 0.03 XLM. Renew the expired finite owner policy in Freighter before a new task. Receipt metadata remains available; the original expired report window is not extended.
 
 ## Architecture
 
@@ -39,7 +39,11 @@ flowchart LR
   P --> S
 ```
 
-[System design](docs/system-design.md), [API](docs/api-spec.md) and [security](docs/security-compliance.md) own the contracts. Render is the selected Free hosting target. The isolated worker needs authenticated HTTPS wake and durable SQL recovery. The deployed console preview has no financial/model worker credentials; complete hosted release is not qualified.
+[System design](docs/system-design.md), [API](docs/api-spec.md) and [security](docs/security-compliance.md) own the contracts. The active Finals application runs on separate Render Free web and authenticated worker services with PostgreSQL persistence. The earlier console preview has no financial/model worker credentials and remains a separate historical deployment. Broader production and hosted-payment qualification remain deferred.
+
+## Application evidence
+
+The [14 November Gemini purchase and report](docs/evidence/first-app-purchase-2026-11-14/report.md) records one 300000-stroop QuickSignal purchase. The [separate claim verified 15 November Manila time](docs/evidence/merchant-claim-2026-11-14/report.md) records the merchant payout and future 400000-stroop metadata. [Hosted delivery](docs/evidence/demo-delivery-2026-11-15/report.md) preserved that exact history without another financial handoff. These are dated observations, not a fresh balance check; the original report window and finite policy have expired.
 
 ## Testnet proof
 
@@ -88,10 +92,10 @@ Browser tests need a separately started production web process, `UI_BASE_URL` (d
 | `node --import tsx scripts/model-smoke.ts --worker-env-file .env.worker.local` | Bounded provider tool roundtrip, no DB/payment access |
 | `node --import tsx scripts/release-rehearsal.ts` | Inert, exit 2; explicit independent manifest/phase required |
 
-The new release runner has diagnostic preflight/wallet reads, a durable zero-budget app-model phase, identity-only verification and a disabled purchase mode. Its live phases were **not run** in this checkpoint. Automated purchase execution is disabled pending durable exact-price/deadline authority; existing manual app acceptance still requires fresh explicit consent in an independent context. [Runner limits and manual steps](docs/evidence/demo-readiness-2026-11-14/rehearsal.md).
+The new release runner has diagnostic preflight/wallet reads, a durable zero-budget app-model phase, identity-only verification and a disabled purchase mode. Its historical diagnostic scope does not establish broader release qualification. Automated purchase execution is disabled pending durable exact-price/deadline authority; existing manual app acceptance still requires fresh explicit consent in an independent context. [Runner limits and manual steps](docs/evidence/demo-readiness-2026-11-14/rehearsal.md).
 
 ## Delivery status
 
-[QA](docs/qa-test-plan.md) owns release requirements. The [historical checkpoint](docs/submission/final-checkpoint.md) remains dated history; the current report owns present observations. Free staging PostgreSQL expires **2026-12-10T11:55:40.452333Z**. Supplied evidence records Nov 8 Top15 selection; finals logistics remain TBA. The original Nov 7 deadline has passed; no extension, late acceptance or organizer-specific Gas interpretation is asserted.
+[QA](docs/qa-test-plan.md) owns release requirements. The [historical checkpoint](docs/submission/final-checkpoint.md) remains dated history; [operator handoff](docs/demo-handoff.md) owns the delivered profile. The active Finals PostgreSQL database expires **December 14, 2026**; the older preview database expires **December 10, 2026** (recorded exact expiry2026-12-10T11:55:40.452333Z). Supplied evidence records Nov 8 Top15 selection; finals logistics remain TBA. The original Nov 7 deadline has passed; no extension, late acceptance or organizer-specific Gas interpretation is asserted.
 
 Built with Noir, Velo, Stellar, Next.js/React, TypeScript, PostgreSQL/Drizzle, Gemini, Freighter and FMD. Reports are fictional fixtures. Demand and sustainable economics remain unvalidated.

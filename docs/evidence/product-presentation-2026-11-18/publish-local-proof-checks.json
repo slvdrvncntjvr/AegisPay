@@ -1,0 +1,104 @@
+{
+  "observedAt": "2026-11-18T04:11:44.615Z",
+  "status": "passed",
+  "mode": "--local-proof",
+  "origin": "http://127.0.0.1:3035",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 37947,
+      "sha256": "49ad79f57421c08742c626f78e35c0cab6e51e4e1ce836432c6bfea8da6dce3b"
+    },
+    {
+      "path": "/api/health",
+      "status": 200,
+      "bytes": 35,
+      "sha256": "ba83ceb654fe8890f51e84cd507d8ecf61455ac66a6eaccbce30f5b4e6e8554f"
+    },
+    {
+      "path": "/login",
+      "status": 404,
+      "bytes": 8100,
+      "sha256": "30e1277dfa8a72440bba8156822f52599c2118ac58b9cbae5a3650711a5f7fc0"
+    },
+    {
+      "path": "/app",
+      "status": 404,
+      "bytes": 8100,
+      "sha256": "30e1277dfa8a72440bba8156822f52599c2118ac58b9cbae5a3650711a5f7fc0"
+    },
+    {
+      "path": "/api/session",
+      "status": 404,
+      "bytes": 8100,
+      "sha256": "30e1277dfa8a72440bba8156822f52599c2118ac58b9cbae5a3650711a5f7fc0"
+    },
+    {
+      "path": "/_next/static/chunks/2chqe-qxr6mo_.js",
+      "status": 200,
+      "bytes": 17142,
+      "sha256": "d29a82746f9525f974b629ff488171d72a42369db7bbd06c2ae6bd0380fe4f79"
+    },
+    {
+      "path": "/_next/static/chunks/05x3s81xrxczg.js",
+      "status": 200,
+      "bytes": 186810,
+      "sha256": "9cdc703e143b9b94e8b098fb8f3088df52177eb32b51f7a24e3cd39cb0c16cae"
+    },
+    {
+      "path": "/_next/static/chunks/3rp0dhne0t1kv.js",
+      "status": 200,
+      "bytes": 229290,
+      "sha256": "85339d2b00640317541aa424343c24d8aa27e9a05f63b8937ef394691492d4ee"
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-2u1d16houkiyo.js",
+      "status": 200,
+      "bytes": 9974,
+      "sha256": "439be7f075d69bbf510ceca09cbc0856956be6f1268f40948a2566148e13de07"
+    },
+    {
+      "path": "/_next/static/chunks/43utdcmx-etmp.js",
+      "status": 200,
+      "bytes": 13994,
+      "sha256": "aa0bcc63c4a6152b606c30157902e62629b6db23afdfb0d6419cac808bcfecf9"
+    },
+    {
+      "path": "/_next/static/chunks/1lci6dm6-vhb5.js",
+      "status": 200,
+      "bytes": 16908,
+      "sha256": "4a611ede68ebb415900c6eb24b0ef75341798d376bd79561e6fd1cfe531a9fbb"
+    },
+    {
+      "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+      "status": 200,
+      "bytes": 112594,
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+    }
+  ],
+  "clientAssets": 7,
+  "views": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "screenshot": "docs/evidence/product-presentation-2026-11-18/publish-local-proof-1440.png"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "screenshot": "docs/evidence/product-presentation-2026-11-18/publish-local-proof-390.png"
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "screenshot": "docs/evidence/product-presentation-2026-11-18/publish-local-proof-320.png"
+    }
+  ],
+  "pageErrors": [],
+  "nonGetRequests": [],
+  "externalRuntimeRequests": [],
+  "credentialsLeaked": false,
+  "applicationSessionsCreated": 0,
+  "financialHandoffs": 0
+}

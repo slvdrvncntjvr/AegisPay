@@ -1,6 +1,6 @@
 # System design
 
-**Status:** selected architecture; one real same-transaction Noir/Velo Testnet authorization, refusal simulation and merchant claim are evidenced. The application and release gates remain incomplete. Origin: PRD and [research](research.md).
+**Status:** selected architecture; one real same-transaction Noir/Velo Testnet authorization, refusal simulation and merchant claim are evidenced. The Nov14 application purchase/report and Nov15Manila separate claim are verified; TASK-033 delivered their preserved history on the hosted runtime. Broader release gates remain deferred. Origin: PRD and [research](research.md).
 
 ## Context diagram
 
@@ -45,14 +45,14 @@ Original logical component inventory:
 
 ```text
 src/app/                 App Router console, login and route handlers
-src/server/auth/         demo roles, sessions, origin checks
+src/server/auth/         private roles, sessions, origin checks
 src/server/db/           Drizzle schema, SQL migrations, queries
 src/server/domain/       quote/attempt/budget/entitlement rules
 src/server/integrations/ Noir, Velo, Stellar evidence, model adapters
 src/server/merchant/     public catalog + private report fixtures
 src/server/agent/        tool definitions, runner, redacted run events
 src/worker/              durable jobs, payment orchestration, reconciliation
-scripts/                 contracts, seed, live spike, demo controls
+scripts/                 contracts, seed, live spike, presentation controls
 tests/                   unit, integration, testnet and browser suites
 ```
 
@@ -62,7 +62,7 @@ Web owns session-authenticated intent and reads. Only the worker process gets `A
 
 1. Owner signs prepared setup XDR via Freighter. Store unsigned intent hash, source, operation and expiry. On return verify signature, network, unchanged body and exact operation; submit through the verified Noir owner flow. Re-read confirmed policy and escrow. Never trust a wallet address supplied by the browser as authentication.
 2. API accepts a run, creates its DB row and job atomically, returns 202. Worker loads trusted catalog. Model can call only `discover_offers`, `request_quote`, `purchase_quote`, `read_purchase`; input schemas use resource/quote IDs, not arbitrary URLs or amounts. Execute tool calls sequentially, even if the model emits several.
-3. Request the real protected demo HTTP route using a short-lived worker session scoped to the run/owner. It returns 402. Store and validate the server quote rather than trusting copied model fields.
+3. Request the real protected fictional-report HTTP route using a short-lived worker session scoped to the run/owner. It returns 402. Store and validate the server quote rather than trusting copied model fields.
 4. In a DB transaction lock agent/run/quote, enforce freshness and policy snapshot, create one immutable operation/attempt and reserve budget. Allocate a strictly increasing per-device/agent nonce and save it. Take one per-agent active-payment lease to serialize account sequence. SQL uniqueness is the final concurrency boundary.
 5. Call live Noir preflight, then `noir.prepare(agentPublicKey, { kind: 'authorize', deviceHash, merchant, asset, amount, nonce })`. This shape is verified in published 0.3.0 declarations. Inspect the simulated transaction and auth tree, sign with the scoped agent signer, compute inner hash. Check one top-level allowed invocation and no unexpected auth/sub-invocation; approved token/registry calls must match the inspected contract spec.
 6. Encrypt the signed envelope at rest before sponsorship so pre-handoff recovery can reuse exact bytes. Persist its SHA-256 fingerprint and immutable intent. Call Velo `gas.sponsor` with stable operation-derived idempotency key; persist request ID and returned inner identity and compare to local hash before continuing. This explicit form replaces the composed helper to make the durable boundary clear.
@@ -100,7 +100,7 @@ Initial metadata pins were observed during preparation. TASK-001 reconciles inst
 | Freighter API **6.0.1** | Owner/merchant browser signing | One supported wallet | Secret-key input in browser |
 | tsx **4.23.15**, Vitest **5.1.0**, Playwright **1.65.0** | Worker/scripts and appropriate verification | Real chain tests remain separate | Mock-only acceptance |
 
-See [research](research.md) for primary links and [registry snapshot](evidence/package-research.json) for engine/peer ranges and integrity. Include exact compatible peer/type/style helper versions as needed at setup; those secondary package pins are not yet researched. No automatic upgrade in the middle of the demo build.
+See [research](research.md) for primary links and [registry snapshot](evidence/package-research.json) for engine/peer ranges and integrity. Include exact compatible peer/type/style helper versions as needed at setup; those secondary package pins are not yet researched. No automatic upgrade in the middle of the application build.
 
 ## Integration points
 
@@ -110,7 +110,7 @@ Use explicit environment-provided Noir contracts, RPC/passphrase and verified Te
 
 The live spike in [the plan](implementation-plan.md) must establish virtual-device registration, successful authorization through Velo, event/inner/outer association, balances and claim. Disabled Gas, quota/allowlist failure, malformed SDK response and simulation failure all deny fulfillment. Do not use `authorizePayment`/`noir.submit` to submit the agent purchase before Velo. Direct Noir writes remain valid for human owner operations and merchant claim.
 
-No Noir/Velo webhook routes in MVP. Unknown webhook paths return 404 and cannot mutate payment state. No paid third-party security feed; demo report fixtures are authored sample content, never live vulnerability advice.
+No Noir/Velo webhook routes in this application. Unknown webhook paths return 404 and cannot mutate payment state. No paid third-party security feed; fictional report fixtures are authored sample content, never live vulnerability advice.
 
 ## Deployment topology
 

@@ -1,0 +1,2 @@
+$ tsc --noEmit && corepack pnpm --filter @aegispay/web typecheck
+$ tsc --noEmit

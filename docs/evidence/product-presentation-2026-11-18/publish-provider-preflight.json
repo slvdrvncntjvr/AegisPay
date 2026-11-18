@@ -1,0 +1,40 @@
+{
+  "observedAt": "2026-11-18T04:08:57.760Z",
+  "status": "passed",
+  "webId": "srv-dbs8k4t6e07s7395g9jg",
+  "webName": "aegispay-finals-app",
+  "webDeployId": "dep-dbs8ldjrjlhs73dgqoq0",
+  "webCommit": "d42cb96d43e2c82e98cb2bd8eba8b8637809f0c9",
+  "workerId": "srv-dbs8kh3rjlhs73dgnmc0",
+  "workerDeployId": "dep-dbsj216c6qcc739akjpg",
+  "workerCommit": "d42cb96d43e2c82e98cb2bd8eba8b8637809f0c9",
+  "database": {
+    "id": "dpg-dbs6j20n74is7390kae0-a",
+    "plan": "free",
+    "region": "singapore",
+    "version": "17",
+    "status": "available",
+    "expiresAt": "2026-12-14T14:00:40.273074Z",
+    "ipAllowList": [
+      {
+        "cidrBlock": "112.209.69.225/32",
+        "description": "AegisPay Finals exact coordinator TLS/migration access"
+      },
+      {
+        "cidrBlock": "74.220.52.0/24",
+        "description": "AegisPay Finals verified shared Singapore service egress"
+      },
+      {
+        "cidrBlock": "74.220.60.0/24",
+        "description": "AegisPay Finals verified shared Singapore service egress"
+      }
+    ]
+  },
+  "webWorkerFree": true,
+  "autoDeploy": "off",
+  "vercelProject": "prj_87hFYLDrQpbUsSlAgoFMsTIE7aTq",
+  "vercelAlias": "aegispay-live.vercel.app",
+  "vercelPriorDeployId": "dpl_FjfihhCpDKGCzrzxhTSvhHVb6jid",
+  "proofEnvCount": 0,
+  "proofGitAutodeploy": false
+}

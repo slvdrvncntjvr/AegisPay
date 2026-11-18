@@ -4,7 +4,7 @@
 
 ## 0. Source-of-truth map
 
-Delivered demo operation and private access locations are owned by the [operator handoff](demo-handoff.md). It supplements development onboarding and records the active hosted authority.
+Delivered application operation and private access locations are owned by the [operator handoff](demo-handoff.md). It supplements development onboarding and records the active hosted authority.
 
 | Concern | Canonical owner | Definition / precedence |
 |---------|-----------------|-------------------------|
@@ -22,8 +22,8 @@ Delivered demo operation and private access locations are owned by the [operator
 | Decisions and assumptions | [Decision ledger](DECISION-LEDGER.md) | Append-only initial choices/pivots/rejections, immutable identifiers and invariant audits |
 | Locked-document changes | [Change record](change-record.md) | Lifecycle and future material change entries; no initial fictional changes |
 | New executor orientation | [Onboarding](onboarding.md) | Read/run pointers; does not own architecture or test definitions |
-| Demo narrative and rehearsal | [Pitch kit](pitch-kit.md) | Timed honest script, business hypotheses, Q&A owner and post-demo probes |
-| Submission source packet | [Submission drafts](submission/README.md) | Recording script, eight-slide deck and short write-up; unpublished until verified app/deployment |
+| Presentation narrative and operation | [Pitch kit](pitch-kit.md) | Timed honest script, business hypotheses, Q&A owner and post-presentation probes |
+| Submission source packet | [Submission packet](submission/README.md) | Recording script, eight-slide deck and short write-up with dated evidence and current delivery scope |
 | Research provenance | [Research](research.md) | Checked primary sources, package inspection, limits and live unknowns; raw registry snapshot in evidence/ |
 | Documentation verification | [Document review](document-review.md) | Structural check results, two primary-agent review lenses and remaining unverified execution |
 | Suite navigation and ownership | [This index](index.md) | One canonical owner per concern and current document inventory |
@@ -32,7 +32,7 @@ Derived references do not override owners. If intended behavior changes, update 
 
 ## 1. Document suite
 
-**Current delivery:** the [usable hosted Testnet demo](https://aegispay-finals-app.onrender.com/login) is delivered. [Operator handoff](demo-handoff.md) and [delivery evidence](evidence/demo-delivery-2026-11-15/report.md) record exact Free web/worker d42cb96, native history/nonce cutover, restored guards, local retirement/read-only,47actual hosted checks and2HTML/9client-asset inspection with0new financial handoffs. Existing login tokens are unchanged. No extra rehearsal is required for this user-selected handoff; broader production qualification remains deferred/unclaimed. Earlier dated checkpoints below retain historical scope.
+**Current delivery:** the [hosted Testnet application](https://aegispay-finals-app.onrender.com/login) is delivered. [Operator handoff](demo-handoff.md) and [delivery evidence](evidence/demo-delivery-2026-11-15/report.md) record exact Free web/worker d42cb96, native history/nonce cutover, restored guards, local retirement/read-only,47actual hosted checks and2HTML/9client-asset inspection with0new financial handoffs. Existing login tokens are unchanged. No extra rehearsal is required for this user-selected handoff; broader production qualification remains deferred/unclaimed. Earlier dated checkpoints below retain historical scope.
 
 The suite began on 2026-11-07; individual dated checkpoints and the implementation plan own current progress. Product, architecture, data, HTTP, methods, security, UX and QA remain execution specifications pending their actual release gates. Context, research and ledger distinguish assumptions from observations; document checks establish structure, not a working app. The supplied Nov 5 handbook provides contract/rubric provenance; the newer user-supplied Nov 8 Top15 email says finals date/venue TBA.
 
@@ -60,4 +60,4 @@ Root instructions: [AGENTS.md](../AGENTS.md), [README](../README.md), [environme
 
 Run `python tools/check-docs.py` for link/ID/coverage/section/package-peer checks and `python fmd/tools/check-implementation-plan.py docs/implementation-plan.md --strict` for the task ledger/DAG. Actual observed results live in document review.
 
-Before the live demo also require the QA release gates, security pre-milestone checklist and real SDK/ledger evidence. Documentation readiness and technical integration readiness are separate states.
+Before claiming broader release qualification require the QA release gates, security pre-milestone checklist and real SDK/ledger evidence. Documentation readiness and technical integration readiness are separate states.

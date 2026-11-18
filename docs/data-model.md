@@ -50,7 +50,7 @@ Transaction and ledger fields are null until observed; null is never converted t
 - `CHECK (spent_stroops >= 0 AND reserved_stroops >= 0 AND spent_stroops + reserved_stroops <= budget_stroops)` on runs. Lock order is agent → run → quote → attempt. A duplicate accept reads the existing attempt and never reserves again.
 - Quote `terms_hash` covers the complete immutable snapshot. A SQL trigger rejects UPDATE to snapshot columns once `accepted_at` is set. Status/timestamps may transition only through domain queries with expected-state predicates.
 - Receipt, quote, event and transaction uniqueness are enforced in SQL. Entitlement creation verifies its evidence/attempt/quote ownership within the same locked transaction; unique FK alone does not establish semantic matches.
-- `UNIQUE (agent_id, nonce)` on payment attempts; nonce increases under the agent row lock and is not recycled on failure. Nonce initialization for an externally used agent is unresolved until read or a fresh agent/device is provisioned. Default MVP uses a new agent/device, not a preexisting nonce history.
+- `UNIQUE (agent_id, nonce)` on payment attempts; nonce increases under the agent row lock and is not recycled on failure. Nonce initialization for an externally used agent is unresolved until read or a fresh agent/device is provisioned. Default setup uses a new agent/device, not a preexisting nonce history.
 - `UNIQUE (owner_id, client_idempotency_key)` binds the caller's retry key to one quote, separately from provider `idempotency_key = aegispay:<operation_id>`. Compare owner/agent/quote relationships in the locked accept transaction before returning an existing attempt. Client keys are bounded opaque UUID strings, never credentials.
 - `UNIQUE (kind, entity_id)` on jobs. Index jobs `(status, available_at)`; attempts `(status, next_check_at)`; events `(run_id, id)`; entitlements `(owner_id, valid_until)`; quotes `(run_id, created_at)`.
 - A unique partial index prevents concurrent unresolved wallet operations for the same signing address, avoiding Stellar sequence races during repeated UI submissions.
@@ -59,13 +59,13 @@ Transaction and ledger fields are null until observed; null is never converted t
 
 ## Retention & privacy classification
 
-Wallet addresses/tx hashes are public-chain data, but linked task text and actor IDs are internal. Session/receipt hashes are sensitive credentials metadata; raw tokens exist only in transit/process memory. API keys, wallet secrets and encryption keys are secret environment values and never DB columns. Ciphertext is sensitive and ephemeral. Fixture reports are protected demo content.
+Wallet addresses/tx hashes are public-chain data, but linked task text and actor IDs are internal. Session/receipt hashes are sensitive credentials metadata; raw tokens exist only in transit/process memory. API keys, wallet secrets and encryption keys are secret environment values and never DB columns. Ciphertext is sensitive and ephemeral. Fixture reports are protected fictional content.
 
-**[assumption] Demo retention:** expire sessions and remove expired throttle rows daily; remove run task text/tool checkpoints after 7 days; retain redacted transaction/audit evidence for 30 days or until the demo DB is torn down. Apply these policies through a small maintenance script, not a new service. Chain history itself cannot be deleted. No production privacy/compliance claim is made.
+**[assumption] Testnet retention:** expire sessions and remove expired throttle rows daily; remove run task text/tool checkpoints after 7 days; retain redacted transaction/audit evidence for 30 days or until the Testnet DB is torn down. Apply these policies through a small maintenance script, not a new service. Chain history itself cannot be deleted. No production privacy/compliance claim is made.
 
 ## Migration notes
 
-Generate versioned Drizzle SQL, inspect constraints/triggers, migrate a fresh PostgreSQL instance and seed idempotently. Do not use schema `push` against a running demo with purchases. Keep resource fixture versions immutable for existing entitlements. Additive changes first; backfill verified values before NOT NULL enforcement. For failed migration, restore a DB snapshot or roll forward with a reviewed repair; never reset a funded ledger/DB pairing to hide a payment.
+Generate versioned Drizzle SQL, inspect constraints/triggers, migrate a fresh PostgreSQL instance and seed idempotently. Do not use schema `push` against a running application with purchases. Keep resource fixture versions immutable for existing entitlements. Additive changes first; backfill verified values before NOT NULL enforcement. For failed migration, restore a DB snapshot or roll forward with a reviewed repair; never reset a funded ledger/DB pairing to hide a payment.
 
 ## Internal nonfinancial rehearsal authority — 2026-11-14
 

@@ -1,0 +1,12 @@
+$ eslint scripts src tests apps packages --no-error-on-unmatched-pattern
+
+C:\Users\Vincent\VS Codes\Noir X Velo\scripts\check-presentation-deck.mjs
+  11:39  error  'process' is not defined  no-undef
+  11:95  error  'process' is not defined  no-undef
+  39:47  error  'window' is not defined   no-undef
+  41:47  error  'window' is not defined   no-undef
+  53:3   error  'console' is not defined  no-undef
+
+✖ 5 problems (5 errors, 0 warnings)
+
+[ELIFECYCLE] Command failed with exit code 1.

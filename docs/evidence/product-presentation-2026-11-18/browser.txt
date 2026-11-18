@@ -1,0 +1,36 @@
+
+Running 26 tests using 1 worker
+
+
+(node:7304) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/26] tests\e2e\authenticated-console.spec.ts:45:1 › 401 redirects before private data and login safely clears tokens on non-JSON and successful responses
+[2/26] tests\e2e\authenticated-console.spec.ts:75:1 › owner sees queued and unresolved states with original-identity GET observation only
+[3/26] tests\e2e\authenticated-console.spec.ts:97:1 › run creation recovers an ambiguous intent with one stable key and guards double activation
+[4/26] tests\e2e\authenticated-console.spec.ts:125:44 › polled failed detail reconciles a stale queued list while preserving other active runs (false)
+[5/26] tests\e2e\authenticated-console.spec.ts:125:44 › polled failed detail reconciles a stale queued list while preserving other active runs (true)
+[6/26] tests\e2e\authenticated-console.spec.ts:154:3 › acknowledged completed task then reload and identical Start creates a fresh run/key
+[7/26] tests\e2e\authenticated-console.spec.ts:154:3 › acknowledged failed task then reload and identical Start creates a fresh run/key
+[8/26] tests\e2e\authenticated-console.spec.ts:198:1 › lost acknowledgement then reload recovers the original key even with a saved active run
+[9/26] tests\e2e\authenticated-console.spec.ts:233:1 › authenticated trace displays only public untrusted choice commentary and precise unavailable states
+[10/26] tests\e2e\authenticated-console.spec.ts:261:1 › trusted accepted quote events keep original terms separate from a changed current offer
+[11/26] tests\e2e\authenticated-console.spec.ts:281:1 › receipt metadata precedes a separately gated synthetic report and session expiry removes protected UI
+[12/26] tests\e2e\authenticated-console.spec.ts:307:1 › expired entitlement refuses content without a second purchase and stale console disables mutations
+[13/26] tests\e2e\authenticated-console.spec.ts:331:1 › merchant edits exact integer future metadata and prepares a separate consent-bound claim
+[14/26] tests\e2e\authenticated-console.spec.ts:363:1 › owner wallet balances remain unknown until explicit observation and policy form enforces finite bounds
+[15/26] tests\e2e\authenticated-console.spec.ts:381:1 › identity mismatch never exposes a receipt and malformed state fails closed
+[16/26] tests\e2e\authenticated-console.spec.ts:396:1 › trusted lifetime funding ceiling is disclosed and rejects an excessive preparation locally
+[17/26] tests\e2e\authenticated-console.spec.ts:410:1 › unresolved purchase blocks owner reclaim while original-identity observation stays available
+[18/26] tests\e2e\authenticated-console.spec.ts:420:1 › saved unknown wallet handoff permits observation only and never opens another preparation
+[19/26] tests\e2e\authenticated-console.spec.ts:436:1 › an expired unsigned preparation has a visible status check and clears without a signature or submission
+[20/26] tests\e2e\authenticated-console.spec.ts:452:1 › a confirmed wallet status from refresh replaces a stale local unknown status
+[21/26] tests\e2e\authenticated-console.spec.ts:470:1 › console fits mobile and projector with long identities and supports visible keyboard focus
+(node:21988) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[22/26] tests\e2e\public-proof.spec.ts:8:1 › recorded proof exposes real amounts and refuses before submission without financial calls
+[23/26] tests\e2e\public-proof.spec.ts:33:1 › tabs support keyboard navigation and recovery never offers another payment
+[24/26] tests\e2e\public-proof.spec.ts:54:1 › receipt opens from its action, maps hashes independently and announces clipboard results
+[25/26] tests\e2e\public-proof.spec.ts:75:1 › public proof fits all requested viewports and reduced motion disables the trace animation
+[26/26] tests\e2e\public-proof.spec.ts:93:1 › private access preserves request contract and navigates to authenticated product console
+  26 passed (33.2s)

@@ -2,6 +2,7 @@
 import { useRef, useState } from 'react';
 import { amount, api, ApiError, errorText, record, time, type Attempt, type Receipt, type Report } from './api';
 import { Identifier, SectionTitle, Status } from './primitives';
+import { ResourceIdentity, resourceName } from './resource-presentation';
 
 export function AuditPanel({ attempts }: { attempts: Attempt[] }) {
   return <section id="audit" className="pc-section"><SectionTitle number="03" title="Follow the evidence." detail="Submission, authorization and merchant claim are separate facts." />
@@ -48,11 +49,11 @@ function AttemptRow({ initial }: { initial: Attempt }) {
     {a.status === 'authorized' && a.receiptId && <button className="pc-button" disabled={busy} onClick={() => { void action('receipt'); }}>View receipt metadata</button>}
     {a.status === 'authorized' && !a.receiptId && <p className="pc-notice">Receipt identity has not been observed. Observe the saved operation to check entitlement.</p>}
     {error && <p className="pc-error" role="alert">{error}</p>}
-    {receipt && <div className="pc-receipt"><div className="pc-row"><h3>Resource-scoped receipt</h3><span className="pc-caption">{receipt.fixtureVersion}</span></div><p>{receipt.resourceKey}</p><p>Original access window ends {time(receipt.validUntil)}. Expiry never extends on refresh.</p>
+    {receipt && <div className="pc-receipt"><div className="pc-row"><h3>Resource-scoped receipt</h3><span className="pc-caption">{receipt.fixtureVersion}</span></div><p>{resourceName(receipt.resourceKey)}</p><ResourceIdentity resourceKey={receipt.resourceKey} /><p>Original access window ends {time(receipt.validUntil)}. Expiry never extends on refresh.</p>
       <p><strong>Authorized amount: {amount(receipt.evidence.amountStroops)}</strong> <code>{String(receipt.evidence.amountStroops ?? 'Unavailable')} stroops</code></p>
       <p>Actual fee: {amount(receipt.evidence.actualFeeStroops)} · provenance: {String(receipt.evidence.feeProvenance ?? 'unavailable')}</p>
       <div className="pc-id-grid">{[['innerHash','Verified inner hash'],['outerHash','Verified outer hash'],['observedEventTxHash','Observed event transaction hash'],['noirEventId','Noir event ID'],['ledgerSequence','Ledger'],['nonce','Authorization nonce'],['merchantAddress','Receipt merchant'],['assetContractId','Receipt asset'],['evidenceDigest','Evidence digest']].map(([field,label]) => <Identifier key={field} label={label!} value={typeof receipt.evidence[field!] === 'string' ? receipt.evidence[field!] as string : null} />)}</div>
-      <button className="pc-button pc-primary" disabled={busy || Date.parse(receipt.validUntil) <= Date.now()} onClick={() => { void action('resource'); }}>Read entitled demo report</button>
+      <button className="pc-button pc-primary" disabled={busy || Date.parse(receipt.validUntil) <= Date.now()} onClick={() => { void action('resource'); }}>Read entitled report</button>
       {Date.parse(receipt.validUntil) <= Date.now() && <p className="pc-notice">Entitlement expired. Receipt metadata remains available; report access is closed.</p>}
       {report && <div className="pc-report"><h3>{report.report.title}</h3><p>{report.report.label}</p><ul>{report.report.findings.map((finding, i) => <li key={i}>{String(finding)}</li>)}</ul></div>}
     </div>}

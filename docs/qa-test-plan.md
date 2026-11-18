@@ -1,6 +1,6 @@
 # QA test plan
 
-**Status:** application tests are implemented; full live release remains incomplete. Current scope/results are in [Nov14 readiness](evidence/demo-readiness-2026-11-14/report.md) and [run evidence](run-evidence.jsonl). The historical SDK payment is distinct from unproved application/model acceptance.
+**Status:** application tests are implemented; full live release remains incomplete. The user-selected hosted Testnet application profile is delivered through TASK-033 with one verified model purchase/report and a separate claim; broader qualification remains deferred. Earlier scope/results are in [Nov14 readiness](evidence/demo-readiness-2026-11-14/report.md) and [run evidence](run-evidence.jsonl). The historical SDK payment is separate from the later verified application purchase; neither completes all broader live cases.
 
 ## Strategy and environments
 

@@ -2,6 +2,7 @@
 import { useRef, useState } from 'react';
 import { amount, api, errorText, jsonMutation, positiveInteger, time, type Claim, type Offer } from './api';
 import { Identifier, SectionTitle, Status } from './primitives';
+import { ResourceIdentity, resourceDescription, resourceName } from './resource-presentation';
 
 export function MerchantPanel({ offers, claims, fresh, refresh }: { offers: Offer[]; claims: Claim[]; fresh: boolean; refresh: () => Promise<void> }) {
   return <><section id="offers" className="pc-section"><SectionTitle number="02" title="Set the next offer." detail="Edit public metadata. Existing quote snapshots keep their original terms." /><div className="pc-merchant-offers">{offers.map(offer => <PriceEditor key={offer.id} offer={offer} fresh={fresh} refresh={refresh} />)}</div><p className="pc-section-note">There is no merchant report preview. Protected content is delivered only through the owner's entitled resource route.</p></section>
@@ -14,7 +15,7 @@ function PriceEditor({ offer, fresh, refresh }: { offer: Offer; fresh: boolean; 
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState('');
   const lock = useRef(false);
-  return <article className="pc-price-editor"><div><span className="pc-eyebrow">{offer.isDemo ? 'Fictional demo resource' : 'Resource metadata'}</span><h3>{offer.resourceKey}</h3><p>{offer.description}</p><p>Current offer: <strong>{amount(offer.priceStroops)}</strong><br /><code>{offer.priceStroops} stroops</code></p></div><form onSubmit={async e => {
+  return <article className="pc-price-editor"><div><span className="pc-eyebrow">{offer.isDemo ? 'Fictional report' : 'Resource metadata'}</span><h3>{resourceName(offer.resourceKey)}</h3><p>{resourceDescription(offer.resourceKey, offer.description)}</p><ResourceIdentity resourceKey={offer.resourceKey} /><p>Current offer: <strong>{amount(offer.priceStroops)}</strong><br /><code>{offer.priceStroops} stroops</code></p></div><form onSubmit={async e => {
     e.preventDefault(); if (lock.current || !fresh || !positiveInteger(price)) return;
     lock.current = true; setBusy(true); setNotice('');
     try { await api(`/api/v1/merchant/resources/${encodeURIComponent(offer.id)}`, jsonMutation('PATCH', { priceStroops: price, enabled })); await refresh(); setNotice('Future offer metadata saved. Accepted quotes remain unchanged.'); }

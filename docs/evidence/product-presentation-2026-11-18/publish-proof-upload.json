@@ -1,0 +1,173 @@
+{
+  "observedAt": "2026-11-18T04:11:06.791468+00:00",
+  "status": "passed",
+  "files": [
+    {
+      "path": ".node-version",
+      "bytes": 9,
+      "sha256": "7c415154bb9f8e90394317c7109261249d2c4fbd549008ae6d014ee565ee7967",
+      "provenance": "canonical source"
+    },
+    {
+      "path": ".npmrc",
+      "bytes": 48,
+      "sha256": "e0b180a89825a2a2a24b0479c3003921930a085ba1e56905ac07b4f8fc05c354",
+      "provenance": "canonical source"
+    },
+    {
+      "path": ".vercelignore",
+      "bytes": 66,
+      "sha256": "a7fd8a8c76f6d4a329081e9d32dcabee6c78b18578ec10bdbf77d3a050e749b8",
+      "provenance": "public staging literal in scripts/presentation-stage.py"
+    },
+    {
+      "path": "apps/server/package.json",
+      "bytes": 220,
+      "sha256": "fd6201b63591ce8c35fd522261aad988aacbd140b84e65194c9a5bb0e7f68572",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "apps/web/next-env.d.ts",
+      "bytes": 295,
+      "sha256": "1b59d4c6b83807db275d43f3cf2cc8e9323f465fab764eea091cc5becd5bad37",
+      "provenance": "Next generated declaration"
+    },
+    {
+      "path": "apps/web/next.config.ts",
+      "bytes": 182,
+      "sha256": "abcb57e47d5715b45cb745e5eb52eb59f8e636d9100dc640927cdba105cdc1ba",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "apps/web/package.json",
+      "bytes": 355,
+      "sha256": "15de4de583f19560221c1525a1cf5d0da1775bdd6b99b6470ecce6bbe1f91f4b",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "apps/web/public/fonts/bricolage-grotesque.woff2",
+      "bytes": 205268,
+      "sha256": "93afc0e7a3564954f131b319d3564dfbbc022b224dbaff664fa455f57affed25",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "apps/web/public/fonts/OFL-Bricolage-Grotesque.txt",
+      "bytes": 4403,
+      "sha256": "4b5a7d8f37f5602621c8a8d7358a6a2e71317e6c231c661e15aef0275d3e07ba",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "apps/web/public/fonts/README.txt",
+      "bytes": 439,
+      "sha256": "732348aeb5b24c91f58bf3fe44c66d2114674e66ab818579c6aba5fbd19109a8",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "apps/web/public/icon.svg",
+      "bytes": 265,
+      "sha256": "666d7c4473e44f73b76b40d5c5598b67e5cad9c5bf81677ab7e20604e4921ea2",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "apps/web/src/app/api/health/route.ts",
+      "bytes": 348,
+      "sha256": "6926af2b5526beab2bcbcb099264e2ad09ebec117bb07da6df2e8b3b09680111",
+      "provenance": "public staging literal in scripts/presentation-stage.py"
+    },
+    {
+      "path": "apps/web/src/app/console.tsx",
+      "bytes": 15441,
+      "sha256": "23bf8d96d35f6a1f7d86801a5dc52a4f03c45ee46a1bc3f8e8f28600ad9c7ef3",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "apps/web/src/app/globals.css",
+      "bytes": 30277,
+      "sha256": "f7b8ee220ea6e11df57c67ae5b4ffb02971e53afd49c3546905b6fe38fb01218",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "bytes": 568,
+      "sha256": "a582156ce2ad1a65f224d486aead4b6a621a395d7ac8f3bc96a287e06062c65b",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "bytes": 4769,
+      "sha256": "2eccf7f29d939b0b5b072c9c03f695c091b6848328a2f484eb2be72e483577df",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "apps/web/src/components/visual.tsx",
+      "bytes": 1450,
+      "sha256": "8796bba2d46409634e619021971a8f76533ef331b9ac04cb17111755313471e4",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "apps/web/src/lib/public-proof.ts",
+      "bytes": 3054,
+      "sha256": "67c8e4cd026e2adc053b20903b044e48b62849d703a9c128e90aaea80007b2b2",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "apps/web/tsconfig.json",
+      "bytes": 292,
+      "sha256": "791f3c88be419d85e583b88ee2e26ed9de09cf631901e2f768b826cabad315eb",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "apps/web/vercel.json",
+      "bytes": 275,
+      "sha256": "61d3bd2b773d168d500d9e2b7cf7a01673ae8db850b10e7c6d718ed67c718555",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "package.json",
+      "bytes": 3149,
+      "sha256": "bccc53e4ea12c3ceb850f6820786898af81e27182ab18ab31a847c3d25d6cc4f",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "packages/agent/package.json",
+      "bytes": 189,
+      "sha256": "8f07a87523848224dea39c2f31caf70518b627002f816f0a3f64c72f9035a0fc",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "packages/shared/package.json",
+      "bytes": 171,
+      "sha256": "caaf5b18acd4554af96f618e62139df5f5f21ac4a81a1903ff5261efe4b148d6",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "packages/shared/src/index.ts",
+      "bytes": 3504,
+      "sha256": "a4f852ecadeb016f9748e3baafa3f56b63ec87fa0d0d122c4cb8d7f259763a66",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "bytes": 124429,
+      "sha256": "04332d2581c767a5466babf32fa166517ae63ac18d6f81e81c1d8f640f0dbc82",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "bytes": 164,
+      "sha256": "59d2e32d6027151ec7a2fc34432d1c41bddd070f4c3fedd69a817ead5040f168",
+      "provenance": "canonical source"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 625,
+      "sha256": "35ca5537bc81bce654ac59a1b2e21ba45742cba8ccfbb4cf26403d3730ffbad0",
+      "provenance": "canonical source"
+    }
+  ],
+  "filesCount": 27,
+  "bytes": 400255,
+  "node": "24.22.1",
+  "pnpm": "12.18.0",
+  "next": "16.4.5"
+}

@@ -1,0 +1,18 @@
+{
+  "observedAt": "2026-11-18T04:12:09.973131+00:00",
+  "status": "passed",
+  "currentHostedCommit": "d42cb96d43e2c82e98cb2bd8eba8b8637809f0c9",
+  "runtimePathsCompared": [
+    "src/server",
+    "apps/server",
+    "packages",
+    "apps/web/src/app/api",
+    "package.json",
+    "pnpm-lock.yaml",
+    "apps/web/next.config.ts"
+  ],
+  "changedRuntimePaths": [],
+  "webRuntimeCannotStartWorker": true,
+  "workerDeployUntouched": true,
+  "noMigrationsOrSeedHooksInWebStart": true
+}

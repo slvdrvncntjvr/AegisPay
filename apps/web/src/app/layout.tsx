@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   icons: { icon: '/icon.svg' },
   title: 'AegisPay — Useful data. Bounded spending.',
   description:
-    'Explore recorded AegisPay proof: bounded Noir authority, the same authorization through Velo, and independently matched evidence on Stellar Testnet.',
+    'Bounded agent payments on Stellar Testnet: Noir authority, Velo sponsorship, fictional reports and independently verified payment evidence.',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

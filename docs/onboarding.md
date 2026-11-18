@@ -1,14 +1,14 @@
 # AegisPay onboarding
 
-For the delivered hosted Testnet demo, start with the [operator handoff](demo-handoff.md) and [live login](https://aegispay-finals-app.onrender.com/login). Local3019/3020 are retired; the hosted database owns current history. Existing tokens remain in protected `.fmd-work/release-setup/hosted-access.md`. No extra rehearsal is required for this handoff. Development/reference setup below is separate from operating the deployed copy.
+For the delivered hosted Testnet application, start with the [operator handoff](demo-handoff.md) and [live login](https://aegispay-finals-app.onrender.com/login). Local3019/3020 are retired; the hosted database owns current history. Existing tokens remain in protected `.fmd-work/release-setup/hosted-access.md`. No extra rehearsal is required for this handoff. Development/reference setup below is separate from operating the deployed copy.
 
 ## What this is
 
-The current implementation runbook for the Testnet MVP. Local checks and saved proof are distinct from full live release.
+The current implementation runbook for the Testnet application. Local checks and saved proof are distinct from full live release.
 
 ## Read first
 
-Start with [index](index.md), [implementation plan](implementation-plan.md), [decision ledger](DECISION-LEDGER.md), then [PRD](prd.md), [system design](system-design.md), [security](security-compliance.md) and [QA](qa-test-plan.md). The [Nov 14 readiness report](evidence/demo-readiness-2026-11-14/report.md) distinguishes implemented behavior, current tests and remaining release evidence. Historical checkpoints retain their original dates.
+Start with [index](index.md), [implementation plan](implementation-plan.md), [decision ledger](DECISION-LEDGER.md), then [PRD](prd.md), [system design](system-design.md), [security](security-compliance.md) and [QA](qa-test-plan.md). The [operator handoff](demo-handoff.md) records the delivered profile; the earlier [Nov 14 readiness report](evidence/demo-readiness-2026-11-14/report.md) distinguishes implemented behavior, current tests and remaining release evidence. Historical checkpoints retain their original dates.
 
 ## Run it locally
 
@@ -67,11 +67,11 @@ Freighter must be on Stellar Testnet with the exact configured owner or merchant
 
 Revocation must confirm before reclaim, and unresolved purchases prohibit reclaim. Reclaim preparation/submission and new purchase acceptance serialize on the agent row. A lost wallet response is recovered by original operation ID/hash; no second submit. Exact independently included human-wallet failures can release only that wallet operation's active slot; timeout, expiry and NOT_FOUND stay unknown. The worker's saved-hash observer cannot prepare, sign or submit.
 
-The original unknown application attempt `f69178b7-0b0b-46fa-8e82-65c2dd5deee5`, nonce, reservation and holds remain quarantined. Never rerun setup, change its identity, resend, reclaim, reset or release its budget. A new independent demo context needs its own reviewed setup and fresh explicit user purchase consent.
+The original unknown application attempt `f69178b7-0b0b-46fa-8e82-65c2dd5deee5`, nonce, reservation and holds remain quarantined. Never rerun setup, change its identity, resend, reclaim, reset or release its budget. A new independent Testnet context needs its own reviewed setup and fresh explicit user purchase consent.
 
 ## Hosting and delivery
 
-The public site replays saved proof. The separate authenticated Render preview was qualified Nov11 without model/financial execution; Nov14 anonymous health/login/console checks pass and protected APIs return401. Current authenticated release qualification remains open. Free staging DB expires2026-12-10T11:55:40.452333Z. [New hosted preparation](evidence/demo-readiness-2026-11-14/hosted/README.md) has a sanitized build launcher, service/environment plan and bounded anonymous qualifier; an independent hosted DB target remains unselected. Full worker/app release needs authenticated wake, cold-start/restart and all remote security/payment gates; no deployment or preview credentials/scope changes occurred.
+The active Finals Testnet web/worker/database preserve the verified Nov14 Gemini purchase/report and separate Nov15Manila claim. See the [operator handoff](demo-handoff.md); the active DB expires December14,2026. The separate earlier preview DB expires December10,2026 (recorded exact expiry2026-12-10T11:55:40.452333Z). The public site retains the Nov7 integration proof. Earlier [hosted preparation](evidence/demo-readiness-2026-11-14/hosted/README.md) records its historical scope; broader production/live gates remain deferred.
 
 A112-second evidence-replay video and public eight-page PDF already exist. The full live recording, release, Discord/registration confirmation and finals logistics remain open. See [submission packet](submission/README.md) and [pitch kit](pitch-kit.md). The historical Nov7deadline passed; no extension, late acceptance or organizer-specific Gas approval is asserted.
 

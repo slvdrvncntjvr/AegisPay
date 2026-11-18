@@ -1,0 +1,176 @@
+{
+  "baseline": "6494881a82d18ca975bbc09fef6af87f81bb0c57",
+  "publicationPending": true,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 10112,
+      "sha256": "7d193897a1df9d6eec4175500e25d099cee7d62f7dad61ec3ce537b363008f5f"
+    },
+    {
+      "path": "apps/web/src/app/console.tsx",
+      "bytes": 15441,
+      "sha256": "23bf8d96d35f6a1f7d86801a5dc52a4f03c45ee46a1bc3f8e8f28600ad9c7ef3"
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "bytes": 568,
+      "sha256": "a582156ce2ad1a65f224d486aead4b6a621a395d7ac8f3bc96a287e06062c65b"
+    },
+    {
+      "path": "apps/web/src/app/login/page.tsx",
+      "bytes": 3080,
+      "sha256": "5e7e16f5db254dc63a0118337af8f92945d92c03516993a8c466b7d9890d07d9"
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "bytes": 4779,
+      "sha256": "8ed4a318bcc86e335fc15dd1ed44f187a3ecc4fbb608e4604db666dc040aa0d5"
+    },
+    {
+      "path": "apps/web/src/components/product/audit-panel.tsx",
+      "bytes": 7251,
+      "sha256": "542239cd11ebf47d2d60b25ac15e8e2bcc5d3b34d2d826d32cb4c4343275fe30"
+    },
+    {
+      "path": "apps/web/src/components/product/merchant-panel.tsx",
+      "bytes": 3661,
+      "sha256": "de04a37bfcf7b8fcfaf7a26844fb0e5c645097d4ee9fdb73b433d34043eca71d"
+    },
+    {
+      "path": "apps/web/src/components/product/resource-presentation.tsx",
+      "bytes": 800,
+      "sha256": "7f7b0607beab362bb6eecb0f69c74b14bd0c8ea39ad8abfee63a354fe2dce800"
+    },
+    {
+      "path": "apps/web/src/components/product/run-panel.tsx",
+      "bytes": 13541,
+      "sha256": "50481a93b7779b761c721bdf0f0c27b513a0f33ddc20e1f1b6bf27615d606094"
+    },
+    {
+      "path": "apps/web/src/lib/public-proof.ts",
+      "bytes": 3054,
+      "sha256": "67c8e4cd026e2adc053b20903b044e48b62849d703a9c128e90aaea80007b2b2"
+    },
+    {
+      "path": "docs/DECISION-LEDGER.md",
+      "bytes": 40813,
+      "sha256": "3f96b6575adb46cda8abff5af1fe48feabb23be6f569dee907750e0c1e69f589"
+    },
+    {
+      "path": "docs/api-spec.md",
+      "bytes": 11982,
+      "sha256": "d60fc1626a137197d563522f7065406f31cb80939bfaebcd61a4106dbc469b0d"
+    },
+    {
+      "path": "docs/data-model.md",
+      "bytes": 12201,
+      "sha256": "4d199b6a348408d96d8d206a2ad966020d865cf6349985a46d0d02a81e7c4c23"
+    },
+    {
+      "path": "docs/demo-handoff.md",
+      "bytes": 4001,
+      "sha256": "541d0038d4cba0fc86606c08b49b78dbdd618b9c13e733a6c50fb4ac0382e66c"
+    },
+    {
+      "path": "docs/design-system.md",
+      "bytes": 9316,
+      "sha256": "389bf8ce0902d04058f91889a07370bd98e3e973378b970e5c7dedbb55506851"
+    },
+    {
+      "path": "docs/implementation-plan.md",
+      "bytes": 45661,
+      "sha256": "bb323dbec0e647c022595a7295729b9f9da766cac94cc956615e44d92bfc7607"
+    },
+    {
+      "path": "docs/index.md",
+      "bytes": 11965,
+      "sha256": "21cf7425bf9a1e175392e5987d42f82ef9a26362bd774936c9bfb3dddfd541b8"
+    },
+    {
+      "path": "docs/methods.md",
+      "bytes": 5346,
+      "sha256": "e5bc94d596076005d26bb5557bbd3c63ac2be492b095696ecd63c3b47b29b45b"
+    },
+    {
+      "path": "docs/onboarding.md",
+      "bytes": 10804,
+      "sha256": "83049d12fd81406da388b319f741ed098e77fcef4c7f2d0cfecd44a60aa7a0a0"
+    },
+    {
+      "path": "docs/pitch-kit.md",
+      "bytes": 8424,
+      "sha256": "3b4cbf360a52b3bd9da8527c6ad981cb7908c2f20eeaa8d8cb0f5ecd27911e8a"
+    },
+    {
+      "path": "docs/prd.md",
+      "bytes": 11889,
+      "sha256": "468bc5682e7d14dcdd2069c44f047afc6a8ba57b96990963d9865804b33d00c1"
+    },
+    {
+      "path": "docs/qa-test-plan.md",
+      "bytes": 14782,
+      "sha256": "50918093b0ebcd85a365399a7f058627c77a0834b008a8506ba76f390e065eba"
+    },
+    {
+      "path": "docs/security-compliance.md",
+      "bytes": 9942,
+      "sha256": "c0cb08a4ea9fa32d5a60c8281b9a068685844cf5bd09acb028b8177b3deb1769"
+    },
+    {
+      "path": "docs/submission/AegisPay-pitch-draft.pdf",
+      "bytes": 274483,
+      "sha256": "5855551530b8511bf55b23f8c56a9bf3665ef9274e5b8c1e1214ef98d018cd87"
+    },
+    {
+      "path": "docs/submission/README.md",
+      "bytes": 5381,
+      "sha256": "90f0116558012eb0b865173281e2af508e110c98754f0a47b7de5c56e02a690a"
+    },
+    {
+      "path": "docs/submission/deck-rendering.md",
+      "bytes": 4948,
+      "sha256": "9ed8935c415428d5b03bfd809799360cd1d22b33441faca9a304336e61a62a80"
+    },
+    {
+      "path": "docs/submission/deck.html",
+      "bytes": 304729,
+      "sha256": "d5dd03b0c98609e015005aa948642d848348e1dfc9bea1129d8cb59afe676ec2"
+    },
+    {
+      "path": "docs/submission/pitch-deck.md",
+      "bytes": 9486,
+      "sha256": "c29eb30f607e2e0b4b31e60fcdb2221b5317c1d9f2533629d65a52b000e6881b"
+    },
+    {
+      "path": "docs/submission/recording-script.md",
+      "bytes": 4027,
+      "sha256": "6629143758d2401e0118781b4e4408b6762ce051a7329bf1897f1146facd18d2"
+    },
+    {
+      "path": "docs/system-design.md",
+      "bytes": 19036,
+      "sha256": "bcd7b14db020719c28db5efc93839a758d671e622b5c8d47f248d4b70217e8ba"
+    },
+    {
+      "path": "scripts/check-presentation-deck.mjs",
+      "bytes": 3458,
+      "sha256": "8502f6cde38740bbf5083251deeb3830b544d755f4caf481386c3d54b461005d"
+    },
+    {
+      "path": "scripts/check-presentation.py",
+      "bytes": 5411,
+      "sha256": "4c1c628e4220a8b44b7d6949dd33edc6572b4d99da3c9f64e2f04c2631fe04cc"
+    },
+    {
+      "path": "tests/e2e/authenticated-console.spec.ts",
+      "bytes": 37737,
+      "sha256": "2bfff1b397f87b0a45309f07902f23fbceebee1018b49a0d45b40d465e5d031b"
+    },
+    {
+      "path": "tests/e2e/public-proof.spec.ts",
+      "bytes": 8770,
+      "sha256": "136d1eade66fd761b1f41f11539e5715fdb1b6bec593bb66f50e179d62b2e09a"
+    }
+  ]
+}
