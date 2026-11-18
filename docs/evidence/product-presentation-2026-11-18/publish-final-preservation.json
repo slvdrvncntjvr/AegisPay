@@ -1,0 +1,142 @@
+{
+  "status": "passed",
+  "scope": "source/link/anchor/history preservation",
+  "baseline": "6494881a82d18ca975bbc09fef6af87f81bb0c57",
+  "checked": [
+    {
+      "path": "README.md",
+      "preservedLinks": 22
+    },
+    {
+      "path": "apps/web/src/app/console.tsx",
+      "preservedLinks": 8
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "preservedLinks": 0
+    },
+    {
+      "path": "apps/web/src/app/login/page.tsx",
+      "preservedLinks": 1
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "preservedLinks": 11
+    },
+    {
+      "path": "apps/web/src/components/product/audit-panel.tsx",
+      "preservedLinks": 0
+    },
+    {
+      "path": "apps/web/src/components/product/merchant-panel.tsx",
+      "preservedLinks": 0
+    },
+    {
+      "path": "apps/web/src/components/product/resource-presentation.tsx",
+      "preservedLinks": 0
+    },
+    {
+      "path": "apps/web/src/components/product/run-panel.tsx",
+      "preservedLinks": 0
+    },
+    {
+      "path": "apps/web/src/lib/public-proof.ts",
+      "preservedLinks": 0
+    },
+    {
+      "path": "docs/DECISION-LEDGER.md",
+      "preservedLinks": 6
+    },
+    {
+      "path": "docs/api-spec.md",
+      "preservedLinks": 2
+    },
+    {
+      "path": "docs/data-model.md",
+      "preservedLinks": 1
+    },
+    {
+      "path": "docs/demo-handoff.md",
+      "preservedLinks": 3
+    },
+    {
+      "path": "docs/design-system.md",
+      "preservedLinks": 1
+    },
+    {
+      "path": "docs/evidence/product-presentation-2026-11-18/publish-plan.md",
+      "preservedLinks": 0
+    },
+    {
+      "path": "docs/evidence/product-presentation-2026-11-18/report.md",
+      "preservedLinks": 0
+    },
+    {
+      "path": "docs/implementation-plan.md",
+      "preservedLinks": 7
+    },
+    {
+      "path": "docs/index.md",
+      "preservedLinks": 37
+    },
+    {
+      "path": "docs/methods.md",
+      "preservedLinks": 1
+    },
+    {
+      "path": "docs/onboarding.md",
+      "preservedLinks": 18
+    },
+    {
+      "path": "docs/pitch-kit.md",
+      "preservedLinks": 5
+    },
+    {
+      "path": "docs/prd.md",
+      "preservedLinks": 8
+    },
+    {
+      "path": "docs/qa-test-plan.md",
+      "preservedLinks": 3
+    },
+    {
+      "path": "docs/security-compliance.md",
+      "preservedLinks": 2
+    },
+    {
+      "path": "docs/submission/README.md",
+      "preservedLinks": 6
+    },
+    {
+      "path": "docs/submission/deck-rendering.md",
+      "preservedLinks": 6
+    },
+    {
+      "path": "docs/submission/deck.html",
+      "preservedLinks": 20
+    },
+    {
+      "path": "docs/submission/pitch-deck.md",
+      "preservedLinks": 14
+    },
+    {
+      "path": "docs/submission/recording-script.md",
+      "preservedLinks": 1
+    },
+    {
+      "path": "docs/system-design.md",
+      "preservedLinks": 4
+    },
+    {
+      "path": "tests/e2e/authenticated-console.spec.ts",
+      "preservedLinks": 0
+    },
+    {
+      "path": "tests/e2e/public-proof.spec.ts",
+      "preservedLinks": 0
+    }
+  ],
+  "publicProofFinancialValuesUnchanged": true,
+  "existingTaskRowsUnchanged": true,
+  "financialActions": 0
+}

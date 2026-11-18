@@ -1,0 +1,33 @@
+{
+  "observedAt": "2026-11-18T04:18:59.988957+00:00",
+  "status": "passed",
+  "tool": "Orca embedded browser",
+  "pageId": "d1b8f87a-eeaf-4d83-b40e-086014468689",
+  "views": [
+    {
+      "file": "publish-orca-proof-desktop.png",
+      "visuallyReviewed": true
+    },
+    {
+      "file": "publish-orca-proof-mobile.png",
+      "visuallyReviewed": true
+    },
+    {
+      "file": "publish-orca-app-login-desktop.png",
+      "visuallyReviewed": true
+    },
+    {
+      "file": "publish-orca-app-login-mobile.png",
+      "visuallyReviewed": true
+    }
+  ],
+  "observations": [
+    "new hosted application link on proof viewer",
+    "dated Nov7 proof retained",
+    "neutral Access token label",
+    "Testnet and fictional report disclosures retained",
+    "desktop and mobile layouts readable"
+  ],
+  "loginSessionsCreated": 0,
+  "financialActions": 0
+}

@@ -23,7 +23,7 @@ def links(text, name):
         r'''href\s*=\s*(?:"([^"]*)"|'([^']*)'|\{([^}]+)\})''', text))
 
 
-def source():
+def source(output="source-preservation.json"):
     names = subprocess.check_output(["git", "diff", BASE, "--name-only"], cwd=ROOT, text=True).splitlines()
     forbidden = ("fmd/", "IDEA.md", "context.md", "package.json", "pnpm-lock.yaml", "src/server/",
                  "apps/server/", "packages/", "deployment/")
@@ -32,7 +32,8 @@ def source():
         assert not name.startswith(forbidden), f"Out-of-scope change: {name}"
         assert not name.startswith("docs/evidence/") or name.startswith("docs/evidence/product-presentation-2026-11-18/"), name
         if name.endswith((".tsx", ".ts", ".md", ".html")):
-            before = original(name).decode("utf-8-sig")
+            previous = subprocess.run(["git", "show", f"{BASE}:{name}"], cwd=ROOT, capture_output=True)
+            before = previous.stdout.decode("utf-8-sig") if previous.returncode == 0 else ""
             after = (ROOT / name).read_text(encoding="utf-8-sig")
             lost = links(before, name) - links(after, name)
             assert not lost, f"Existing links removed in {name}: {dict(lost)}"
@@ -54,7 +55,7 @@ def source():
     result = {"status": "passed", "scope": "source/link/anchor/history preservation", "baseline": BASE,
               "checked": checked, "publicProofFinancialValuesUnchanged": True,
               "existingTaskRowsUnchanged": True, "financialActions": 0}
-    (OUT / "source-preservation.json").write_text(json.dumps(result, indent=2)+"\n", encoding="utf-8")
+    (OUT / output).write_text(json.dumps(result, indent=2)+"\n", encoding="utf-8")
     print(json.dumps({"status": "passed", "sourceFiles": len(checked), "preservedLinks": sum(x["preservedLinks"] for x in checked)}))
 
 
@@ -93,6 +94,7 @@ def pdf():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pdf", action="store_true")
+    parser.add_argument("--output", default="source-preservation.json", choices=["source-preservation.json", "publish-final-preservation.json"])
     args = parser.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
-    pdf() if args.pdf else source()
+    pdf() if args.pdf else source(args.output)

@@ -1,0 +1,10 @@
+{
+  "observedAt": "2026-11-18T04:14:02.897Z",
+  "status": "requested",
+  "serviceId": "srv-dbs8k4t6e07s7395g9jg",
+  "deployId": "dep-dbuic30m7kps73cgblc0",
+  "commit": "a60798a418abbdd97bffb198a2703c7dda926bd6",
+  "onlyUpdatedEnvironmentKey": "AEGIS_RELEASE_COMMIT",
+  "otherWebConfigUnchanged": true,
+  "workerAndDatabaseUnchanged": true
+}

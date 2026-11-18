@@ -1,0 +1,44 @@
+{
+  "observedAt": "2026-11-18T04:15:29.341969+00:00",
+  "status": "passed",
+  "ref": "main",
+  "checks": [
+    {
+      "path": "README.md",
+      "status": 200,
+      "bytes": 10011,
+      "sha256": "d5829578844aceac40ca497925233e1e05cacfdf47944e4eb3f0db7b5ad75e33",
+      "matchesCommittedBlob": true
+    },
+    {
+      "path": "docs/submission/AegisPay-pitch-draft.pdf",
+      "status": 200,
+      "bytes": 274483,
+      "sha256": "5855551530b8511bf55b23f8c56a9bf3665ef9274e5b8c1e1214ef98d018cd87",
+      "matchesCommittedBlob": true
+    },
+    {
+      "path": "docs/submission/README.md",
+      "status": 200,
+      "bytes": 5339,
+      "sha256": "8b8145e62735ebadfef6ea9f47d0d3be53606c0cbc49d4f08a87b0000cf4015b",
+      "matchesCommittedBlob": true
+    },
+    {
+      "path": "docs/submission/pitch-deck.md",
+      "status": 200,
+      "bytes": 9397,
+      "sha256": "a794e3d94262f2bbbf98eec5f1dde733846262d5c97951af90db0b2b15e8d2e7",
+      "matchesCommittedBlob": true
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "status": 200,
+      "bytes": 4742,
+      "sha256": "d92c182396a11c153c398a24a437e050b107d2e034cda537b990c91e0d25d885",
+      "matchesCommittedBlob": true
+    }
+  ],
+  "textComparison": "Git committed blobs (LF), not Windows working-copy CRLF",
+  "noCredentials": true
+}

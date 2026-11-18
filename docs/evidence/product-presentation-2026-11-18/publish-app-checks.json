@@ -1,0 +1,104 @@
+{
+  "observedAt": "2026-11-18T04:15:52.071Z",
+  "status": "passed",
+  "mode": "--app",
+  "origin": "https://aegispay-finals-app.onrender.com",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 37950,
+      "sha256": "4f2608b82730250e7dce40c7547d798b59fa99683ae9c421bbbbbfe48fd535b5"
+    },
+    {
+      "path": "/api/health",
+      "status": 200,
+      "bytes": 35,
+      "sha256": "ba83ceb654fe8890f51e84cd507d8ecf61455ac66a6eaccbce30f5b4e6e8554f"
+    },
+    {
+      "path": "/login",
+      "status": 200,
+      "bytes": 8086,
+      "sha256": "fed5f37ba67cc75bd759f4dc061c4f8f48b5e941b818efef017362e12209ca7a"
+    },
+    {
+      "path": "/api/v1/state",
+      "status": 401,
+      "bytes": 113,
+      "sha256": "37ba7f75308275b2d1ed478facaf5ff6edbe5c2ecaebc7994fb13502aab76d3c"
+    },
+    {
+      "path": "/_next/static/chunks/0gsvfqick2ism.js",
+      "status": 200,
+      "bytes": 17164,
+      "sha256": "8cf27063083b85a42285610dc6cc821bd54310531e30b6a3cc0a6d2c8abf7584"
+    },
+    {
+      "path": "/_next/static/chunks/07l-yoa8uodjg.js",
+      "status": 200,
+      "bytes": 186762,
+      "sha256": "8ec2d1f926ada5e37b255a8017e71b8ee37133a5fbe77b2a049665119c37ebc6"
+    },
+    {
+      "path": "/_next/static/chunks/02ai4yb8cacci.js",
+      "status": 200,
+      "bytes": 229277,
+      "sha256": "e7be8b3e8e5ad25e16f6a138cf2a5a36c5c67ffed8bab8ccc7888644e0f556a5"
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-077hmtqrhcoji.js",
+      "status": 200,
+      "bytes": 11199,
+      "sha256": "3f0ba0c36a0758d76b55b6717fd77e65f46ae1295bb22fa441476e1eb7854d51"
+    },
+    {
+      "path": "/_next/static/chunks/0px6q1xsj-rux.js",
+      "status": 200,
+      "bytes": 13993,
+      "sha256": "2a657874e26e7f266d4e6762b482864f38b76ad0e21e09fa0c077723f5a93ac2"
+    },
+    {
+      "path": "/_next/static/chunks/2dl-54gak40qm.js",
+      "status": 200,
+      "bytes": 17367,
+      "sha256": "f4f2fa264ea9b739c1f7f50755fc73541c27aa9f24a98e56c4512f9891d1e2e1"
+    },
+    {
+      "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+      "status": 200,
+      "bytes": 112594,
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+    },
+    {
+      "path": "/_next/static/chunks/01hqdwi0q43co.js",
+      "status": 200,
+      "bytes": 4556,
+      "sha256": "0bdd335916b5c9d06353745c6822d7e024cd2a0ac642712fc95a1d1dfd010a88"
+    }
+  ],
+  "clientAssets": 8,
+  "views": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "screenshot": "docs/evidence/product-presentation-2026-11-18/publish-app-1440.png"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "screenshot": "docs/evidence/product-presentation-2026-11-18/publish-app-390.png"
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "screenshot": "docs/evidence/product-presentation-2026-11-18/publish-app-320.png"
+    }
+  ],
+  "pageErrors": [],
+  "nonGetRequests": [],
+  "externalRuntimeRequests": [],
+  "credentialsLeaked": false,
+  "applicationSessionsCreated": 0,
+  "financialHandoffs": 0
+}

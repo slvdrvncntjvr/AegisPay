@@ -1,0 +1,12 @@
+{
+  "observedAt": "2026-11-18T04:21:18.642Z",
+  "status": "passed",
+  "deploymentId": "dpl_7V2A2m3ZiPbRCuv6Va3EhDnZnUuF",
+  "readyState": "READY",
+  "projectId": "prj_87hFYLDrQpbUsSlAgoFMsTIE7aTq",
+  "alias": "aegispay-live.vercel.app",
+  "sourceCommit": "a60798a418abbdd97bffb198a2703c7dda926bd6",
+  "nodeVersion": "24.x",
+  "projectRuntime": "24.x",
+  "environmentVariableCount": 0
+}

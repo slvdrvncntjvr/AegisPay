@@ -1,0 +1,15 @@
+{
+  "observedAt": "2026-11-18T04:21:21.400Z",
+  "status": "live",
+  "serviceId": "srv-dbs8k4t6e07s7395g9jg",
+  "deployId": "dep-dbuic30m7kps73cgblc0",
+  "commit": "a60798a418abbdd97bffb198a2703c7dda926bd6",
+  "workerId": "srv-dbs8kh3rjlhs73dgnmc0",
+  "workerDeployId": "dep-dbsj216c6qcc739akjpg",
+  "workerCommit": "d42cb96d43e2c82e98cb2bd8eba8b8637809f0c9",
+  "workerConfigurationUnchanged": true,
+  "databaseConfigurationUnchanged": true,
+  "otherWebConfigUnchanged": true,
+  "applicationDatabaseAccess": false,
+  "financialHandoffs": 0
+}

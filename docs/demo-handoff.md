@@ -30,3 +30,8 @@ The hosted web, authenticated worker and PostgreSQL database are the active copy
 Both services use Render Free instances and can take time to wake after inactivity. The new Free PostgreSQL database expires **December14,2026**. Preserve/export the current hosted history before that date or move to durable database hosting; never resume from an older nonce snapshot after new payments. The protected native cutover backup is `.fmd-work/release-setup/demo-delivery/source-complete.dump` and is a point-in-time backup, not a continuously updated copy.
 
 This is the user-selected **Testnet application** handoff. The verified core transaction was performed locally and its exact history moved to the hosted runtime; hosted login/security/state checks created no new payment. Mainnet use and broader production qualification are not claimed. No further rehearsal is required for this handoff. [Delivery evidence](evidence/demo-delivery-2026-11-15/report.md) records exact deployment and cutover checks; the [QA plan](qa-test-plan.md) retains deferred broader release qualification separately.
+
+
+## Presentation refresh — 18 November 2026
+
+The existing login and public proof URLs now serve the cleaned presentation, and the README/docs/PDF are published at their original paths. Finals web source is a60798a; the worker remains at d42cb96 with its same deployment/configuration, and database configuration is unchanged. Anonymous GET-only checks created no session or financial handoff; no stored history/report window was rewritten. [Publication evidence](evidence/product-presentation-2026-11-18/publication.md) records the actual IDs and readback.

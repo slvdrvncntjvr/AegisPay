@@ -1,0 +1,45 @@
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_7V2A2m3ZiPbRCuv6Va3EhDnZnUuF",
+    "url": "https://aegispay-live-gzv7t8gzy-vincent-s-projects-57de271b.vercel.app",
+    "productionUrl": null,
+    "inspectorUrl": "https://vercel.com/vincent-s-projects-57de271b/aegispay-live/7V2A2m3ZiPbRCuv6Va3EhDnZnUuF",
+    "readyState": "INITIALIZING",
+    "target": "production",
+    "environment": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_7V2A2m3ZiPbRCuv6Va3EhDnZnUuF",
+    "buildMachine": {
+      "cores": 2,
+      "memory": 8192,
+      "machine": "basic",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    },
+    "deploymentProtection": [
+      "vercel_authentication"
+    ]
+  },
+  "message": "Deployment aegispay-live-gzv7t8gzy-vincent-s-projects-57de271b.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel git connect --project prj_87hFYLDrQpbUsSlAgoFMsTIE7aTq",
+      "when": "Automatically deploy changes on every push"
+    },
+    {
+      "command": "vercel curl https://aegispay-live-gzv7t8gzy-vincent-s-projects-57de271b.vercel.app",
+      "when": "Verify deployment, including when Deployment Protection is enabled"
+    },
+    {
+      "command": "vercel inspect aegispay-live-gzv7t8gzy-vincent-s-projects-57de271b.vercel.app",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod",
+      "when": "Promote to production"
+    }
+  ]
+}
+
+  Inspect         https://vercel.com/vincent-s-projects-57de271b/aegispay-live/7V2A2m3ZiPbRCuv6Va3EhDnZnUuF
+▲ Production      https://aegispay-live-gzv7t8gzy-vincent-s-projects-57de271b.vercel.app

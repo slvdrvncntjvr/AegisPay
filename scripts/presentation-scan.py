@@ -20,6 +20,8 @@ auth = Path(os.environ['APPDATA']) / 'com.vercel.cli/Data/auth.json'
 if auth.is_file():
     secrets += [v.encode() for v in json.loads(auth.read_text(encoding='utf-8')).values() if isinstance(v, str) and len(v) >= 16]
 mode = sys.argv[1]
+label = sys.argv[2] if len(sys.argv) == 3 else ''
+assert not label or re.fullmatch('[a-z0-9-]+', label)
 if mode == '--git':
     names = sorted(set(subprocess.check_output(['git', 'diff', '6494881', '--name-only'], cwd=ROOT, text=True).splitlines() + subprocess.check_output(['git', 'ls-files', '--others', '--exclude-standard'], cwd=ROOT, text=True).splitlines()))
     paths = [ROOT / n for n in names]
@@ -45,6 +47,6 @@ for path in paths:
     if matches or patterns:
         hits.append({'path': path.relative_to(ROOT).as_posix(), 'knownCredentialMatches': matches, 'secretKeyPatterns': patterns})
 result = {'status': 'passed' if not hits else 'failed', 'scope': mode, 'filesScanned': count, 'knownCredentialMatches': sum(h['knownCredentialMatches'] for h in hits), 'hits': hits}
-(OUT / ('publish-scan-'+mode[2:]+'.json')).write_text(json.dumps(result, indent=2)+'\n', encoding='utf-8')
+(OUT / ('publish-scan-'+mode[2:]+('-'+label if label else '')+'.json')).write_text(json.dumps(result, indent=2)+'\n', encoding='utf-8')
 print(json.dumps(result))
 sys.exit(bool(hits))
